@@ -84,4 +84,9 @@ features:
       title: Vue 教程
       details: Vue3
       link: /vue/index
+    - icon:
+          src: /assets/svg/other.svg
+      title: 其它文档
+      details: Other
+      link: /other/index
 ---

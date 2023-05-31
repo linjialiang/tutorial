@@ -6,6 +6,7 @@ import html from './html/main';
 import js from './js/main';
 import mongodb from './mongodb/main';
 import nginx from './nginx/main';
+import other from './other/main';
 import php from './php/main';
 import redis from './redis/main';
 import sql from './sql/main';
@@ -24,6 +25,7 @@ const sidebar = {
   '/js/': js,
   '/es6/': es6,
   '/vue/': vue,
+  '/other/': other,
 };
 
 export default sidebar;
