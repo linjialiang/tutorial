@@ -59,4 +59,29 @@ features:
       title: PHP 教程
       details: PHP语言解释器
       link: /php/index
+    - icon:
+          src: /assets/svg/html.svg
+      title: HTML 教程
+      details: HTML5基础
+      link: /html/index
+    - icon:
+          src: /assets/svg/css.svg
+      title: CSS3 教程
+      details: CSS3
+      link: /css/index
+    - icon:
+          src: /assets/svg/js.svg
+      title: JavaScript 教程
+      details: JavaScript 的 ES5 部分
+      link: /js/index
+    - icon:
+          src: /assets/svg/es6.svg
+      title: ES6 教程
+      details: JavaScript 的 ES6+ 部分
+      link: /es6/index
+    - icon:
+          src: /assets/svg/vue.svg
+      title: Vue 教程
+      details: Vue3
+      link: /vue/index
 ---
