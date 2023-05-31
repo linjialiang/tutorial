@@ -4,6 +4,7 @@ import environment from './environment/main';
 import es6 from './es6/main';
 import html from './html/main';
 import js from './js/main';
+import kafka from './kafka/main';
 import mongodb from './mongodb/main';
 import nginx from './nginx/main';
 import other from './other/main';
@@ -19,6 +20,7 @@ const sidebar = {
   '/sql/': sql,
   '/mongodb/': mongodb,
   '/redis/': redis,
+  '/kafka/': kafka,
   '/php/': php,
   '/html/': html,
   '/css/': css,

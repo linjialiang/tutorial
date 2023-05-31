@@ -55,6 +55,11 @@ features:
       details: 最强大的开源关系型数据库
       link: /sql/pgsql/index
     - icon:
+          src: /assets/svg/kafka.svg
+      title: kafka 教程
+      details: 高吞吐量的开源分布式发布订阅消息系统
+      link: /kafka/index
+    - icon:
           src: /assets/svg/php.svg
       title: PHP 教程
       details: PHP语言解释器
