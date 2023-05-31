@@ -4,6 +4,7 @@ const nav = [
   { text: 'SQL教程', link: '/sql/common/' },
   { text: 'Redis教程', link: '/redis/' },
   { text: 'MongoDB教程', link: '/mongodb/' },
+  { text: 'kafka教程', link: '/kafka/' },
   { text: 'PHP教程', link: '/php/' },
 ];
 

@@ -8,12 +8,12 @@ hero:
     tagline: '基于Debian发行版的PHP环境搭建教程'
     actions:
         - theme: brand
-          text: '环境搭建教程'
+          text: '环境搭建'
           link: /environment/
         - theme: alt
-          text: 'SQL 教程'
+          text: 'SQL'
           link: /sql/common/
-        - theme: brand
+        - theme: alt
           text: '自述'
           link: /readme
 
