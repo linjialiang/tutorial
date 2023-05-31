@@ -43,20 +43,3 @@ features:
     details: PHP语言解释器
     link: /php/index
 ---
-
-<script setup>
-import { VPTeamMembers } from 'vitepress/theme'
-
-const members = [
-  {
-    avatar: 'https://avatars.githubusercontent.com/u/8848263',
-    name: 'emad',
-    title: 'Creator',
-    links: [
-      { icon: 'github', link: 'https://github.com/linjialiang' },
-    ]
-  },
-]
-</script>
-
-<VPTeamMembers size="small" :members="members" />

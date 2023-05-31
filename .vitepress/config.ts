@@ -1,5 +1,6 @@
 import { defineConfig } from "vitepress";
 import environmentNav from "./nav/environment";
+import tutorialNav from "./nav/tutorial";
 import sidebar from "./sidebar/main";
 
 // https://vitepress.dev/reference/site-config
@@ -10,7 +11,8 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "主页", link: "/" },
-      { text: "PHP环境搭建", items: environmentNav },
+      { text: "环境搭建", items: environmentNav },
+      { text: "教程", items: tutorialNav },
     ],
 
     sidebar: sidebar,
