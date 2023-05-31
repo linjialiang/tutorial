@@ -86,7 +86,7 @@ features:
       link: /es6/index
     - icon:
           src: /assets/svg/vue.svg
-      title: Vue 教程
+      title: Vue3 教程
       details: Vue3
       link: /vue/index
     - icon:
