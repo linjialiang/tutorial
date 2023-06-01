@@ -1,6 +1,6 @@
 ---
 title: 简介
-titleTemplate: Linux 教程
+titleTemplate: Debian 教程
 ---
 
 # 概述

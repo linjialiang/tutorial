@@ -59,7 +59,7 @@ features:
       link: /sql/pgsql/index
     - icon:
           src: /assets/svg/kafka.svg
-      title: kafka 教程
+      title: Kafka 教程
       details: 高吞吐量的开源分布式发布订阅消息系统
       link: /kafka/index
     - icon:
@@ -94,7 +94,7 @@ features:
       link: /vue/index
     - icon:
           src: /assets/svg/other.svg
-      title: 其它文档
-      details: Other
+      title: Other
+      details: 其它文档
       link: /other/index
 ---
