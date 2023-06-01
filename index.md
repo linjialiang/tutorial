@@ -22,8 +22,8 @@ hero:
 
 features:
     - icon:
-          dark: /assets/svg/linux.svg
-          light: /assets/svg/debian.svg
+          light: /assets/svg/linux.svg
+          dark: /assets/svg/debian.svg
       title: Debian 教程
       details: Linux发行版
       link: /debian/index
