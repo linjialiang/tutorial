@@ -15,7 +15,7 @@ export default defineConfig({
   markdown: { lineNumbers: false },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: '/logo.svg',
+    logo: '/logo.png',
     lastUpdatedText: '最近更新',
     socialLinks: [{ icon: 'github', link: 'https://github.com/linjialiang/php-environment.git' }],
     editLink: {

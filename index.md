@@ -7,7 +7,7 @@ hero:
     text: PHP 环境搭建
     tagline: 基于Debian发行版的PHP环境搭建教程
     image:
-        src: /logo.svg
+        src: '/assets/svg/php.svg'
         alt: 'PHP 环境搭建'
     actions:
         - theme: brand
