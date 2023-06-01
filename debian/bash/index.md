@@ -1,6 +1,6 @@
 ---
 title: 简介
-titleTemplate: Linux 教程
+titleTemplate: Bash 教程
 ---
 
 # 概述

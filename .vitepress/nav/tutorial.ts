@@ -1,5 +1,6 @@
 // 教程
 const nav = [
+  { text: 'Debian教程', link: '/debian/' },
   { text: 'Nginx教程', link: '/nginx/' },
   { text: 'SQL教程', link: '/sql/common/' },
   { text: 'Redis教程', link: '/redis/' },
