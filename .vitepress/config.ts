@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress';
 import environmentNav from './nav/environment';
+import otherNav from './nav/other';
 import tutorialNav from './nav/tutorial';
 import webNav from './nav/web';
 import sidebar from './sidebar/main';
@@ -28,7 +29,7 @@ export default defineConfig({
       { text: '环境搭建', items: environmentNav },
       { text: '后端', items: tutorialNav },
       { text: '前端', items: webNav },
-      { text: '其他', link: '/other/' },
+      { text: '其他', items: otherNav },
     ],
     sidebar: sidebar,
   },

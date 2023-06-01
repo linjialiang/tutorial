@@ -1,5 +1,5 @@
 ---
-title: 简介
+title: 概述
 titleTemplate: Bash 教程
 ---
 
