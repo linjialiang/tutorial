@@ -3,18 +3,21 @@
 layout: home
 
 hero:
-    name: 'PHP Environment'
-    text: 'PHP 环境搭建'
-    tagline: '基于Debian发行版的PHP环境搭建教程'
+    name: PHP Environment
+    text: PHP 环境搭建
+    tagline: 基于Debian发行版的PHP环境搭建教程
+    image:
+        src: /logo.svg
+        alt: 'PHP 环境搭建'
     actions:
         - theme: brand
-          text: '环境搭建'
+          text: 环境搭建
           link: /environment/
         - theme: alt
-          text: 'SQL'
+          text: SQL
           link: /sql/common/
         - theme: alt
-          text: '自述'
+          text: 自述
           link: /readme
 
 features:

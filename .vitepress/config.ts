@@ -7,15 +7,17 @@ import sidebar from './sidebar/main';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: '/',
-  lang: 'zh',
+  lang: 'zh-CN',
   title: 'PHP Environment',
   description: '基于Debian的php环境搭建教程',
+  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   lastUpdated: true,
   markdown: { lineNumbers: false },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: '/logo.svg',
     lastUpdatedText: '最近更新',
+    // socialLinks: [{ icon: 'github', link: 'https://github.com/linjialiang/' }],
     socialLinks: [{ icon: 'github', link: 'https://github.com/linjialiang/' }],
     editLink: {
       pattern: 'https://github.com/linjialiang/php-environment/main/:path',
