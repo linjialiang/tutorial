@@ -17,8 +17,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     logo: '/logo.svg',
     lastUpdatedText: '最近更新',
-    // socialLinks: [{ icon: 'github', link: 'https://github.com/linjialiang/' }],
-    socialLinks: [{ icon: 'github', link: 'https://github.com/linjialiang/' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/linjialiang/php-environment.git' }],
     editLink: {
       pattern: 'https://github.com/linjialiang/php-environment/main/:path',
       text: '在 github 上编辑',
