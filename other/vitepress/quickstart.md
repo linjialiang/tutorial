@@ -122,3 +122,81 @@ pnpm add -D vue
 ```
 
 :::
+
+## 项目结构
+
+常见的 VitePress 项目结构有 2 种：
+
+1. 单独使用
+2. 安装到项目的 `/docs` 目录中
+
+::: code-group
+
+```bash [独立项目]
+.
+├─ .vitepress
+│  └─ config.js
+├─ api-examples.md
+├─ markdown-examples.md
+├─ index.md
+└─ package.json
+
+```
+
+```bash [docs目录]
+.
+├─ docs
+│  ├─ .vitepress
+│  │  └─ config.js
+│  ├─ api-examples.md
+│  ├─ markdown-examples.md
+│  └─ index.md
+└─ package.json
+
+```
+
+:::
+
+::: tip 提示
+默认情况下，VitePress 将其开发服务器缓存存储在 `.vitepress/cache` 中，并将生产构建输出存储在 `.vitepress/dist` 中。
+
+如果使用 Git，则应将它们添加到 `.gitignore` 文件中。
+
+当然这些位置也可以配置。
+:::
+
+## 启动并运行
+
+如果按上面的步骤下来， package.json 的 script 选项已经加入：
+
+```json
+{
+  ...
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  ...
+}
+```
+
+::: code-group
+
+```bash [开发环境]
+# 使用 npm 脚本
+pnpm docs:dev
+# 直接调用 VitePress
+pnpm exec vitepress dev docs
+```
+
+```bash [构建打包]
+# 使用 npm 脚本
+pnpm docs:build
+# 直接调用 VitePress
+pnpm exec vitepress build docs
+# 生成后，通过运行以下命令在本地预览它
+pnpm docs:preview
+```
+
+:::
