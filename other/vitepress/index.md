@@ -5,7 +5,7 @@ titleTemplate: VitePress 教程
 
 # VitePress 概述
 
-VitePress 是一个简单、强大且快速的现代 [SSG](#SSG) 框架。
+VitePress 是一个简单、强大且快速的现代 [[SSG]](#SSG) 框架。
 
 [点此进入](https://vitepress.dev/) VitePress 官网
 
