@@ -56,7 +56,7 @@ VitePress [[内部]](#internal-links)和[[外部]](#external-links)链接都得�
 
 ::: code-group
 
-```text [目录结构]
+```txt [目录结构]
 .
 ├─ index.md
 ├─ foo
@@ -384,7 +384,7 @@ export default {
 
 ::: code-group
 
-````text [单行聚焦输入]
+````txt [单行聚焦输入]
 ```js
 export default {
   data () {
@@ -406,7 +406,7 @@ export default {
 };
 ```
 
-````text [多行聚焦输入]
+````txt [多行聚焦输入]
 ```js
 export default {
   data () {
@@ -438,7 +438,7 @@ export default {
 
 ::: code-group
 
-````text [输入]
+````txt [输入]
 ```js
 export default {
   data () {
@@ -470,7 +470,7 @@ export default {
 
 ::: code-group
 
-````text [输入]
+````txt [输入]
 ```js
 export default {
   data () {
