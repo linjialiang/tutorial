@@ -509,3 +509,35 @@ export default {
 ```
 
 有关更多详细信息，请参阅 [[markdown 选项]](./config#markdown)。
+
+您可以在受防护的代码块中添加 `:line-numbers` / `:no-line-numbers` 标记，以覆盖配置中设置的值。
+
+::: code-group
+
+````txt [输入]
+```ts {1}
+// 配置里禁用了行号
+const line2 = 'This is line 2'
+const line3 = 'This is line 3'
+```
+
+```ts:line-numbers {1}
+// 使用 :line-numbers 启用行号
+const line2 = 'This is line 2'
+const line3 = 'This is line 3'
+```
+````
+
+```ts {1} [输出禁用]
+// 配置里禁用了行号
+const line2 = 'This is line 2';
+const line3 = 'This is line 3';
+```
+
+```ts:line-numbers {1} [输出启用]
+// 使用 :line-numbers 启用行号
+const line2 = 'This is line 2'
+const line3 = 'This is line 3'
+```
+
+:::
