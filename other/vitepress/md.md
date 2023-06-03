@@ -675,7 +675,14 @@ VitePress 可以将 MarkDown 文件包含在另一个 MarkDown 文件中。
 
 例如，您可以使用以下内容包含相对或绝对的 MarkDown 文件：
 
-<<< @/assets/vitepress/include.txt
+::: code-group
+<<< @/assets/vitepress/include.txt{md} [输入]
+
+```txt [输出]
+输出见结尾的 【markdown-it 的表情符号】 效果
+```
+
+:::
 
 {#markdown-it-emoji}
 
@@ -684,3 +691,13 @@ VitePress 可以将 MarkDown 文件包含在另一个 MarkDown 文件中。
 <!--@include: @/other/vitepress/emoji.md-->
 
 :::
+
+## 高级配置
+
+VitePress 使用 markdown-it 作为 Markdown 渲染器。
+
+上面的许多扩展都是通过自定义插件实现的。
+
+您可以使用 `.vitepress/config.js` 中的 `markdown 选项` 进一步自定义 markdown-it 实例。
+
+具体请参阅 [[配置:应用配置]](./config#markdown) 可配置属性的完整列表。
