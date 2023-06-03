@@ -684,15 +684,7 @@ VitePress 可以将 MarkDown 文件包含在另一个 MarkDown 文件中。
 
 :::
 
-{#markdown-it-emoji}
-
-::: details markdown-it 的表情符号
-
-<!--@include: @/other/vitepress/emoji.md-->
-
-:::
-
-## 高级配置
+::: warning 高级配置
 
 VitePress 使用 markdown-it 作为 Markdown 渲染器。
 
@@ -701,3 +693,12 @@ VitePress 使用 markdown-it 作为 Markdown 渲染器。
 您可以使用 `.vitepress/config.js` 中的 `markdown 选项` 进一步自定义 markdown-it 实例。
 
 具体请参阅 [[配置:应用配置]](./config#markdown) 可配置属性的完整列表。
+:::
+
+{#markdown-it-emoji}
+
+::: details markdown-it 的表情符号
+
+<!--@include: @/other/vitepress/emoji.md-->
+
+:::
