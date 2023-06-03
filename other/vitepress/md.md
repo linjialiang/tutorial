@@ -495,3 +495,17 @@ export default {
 ```
 
 :::
+
+## 行号
+
+您可以通过配置为每个代码块启用行号：
+
+```ts
+export default {
+    markdown: {
+        lineNumbers: true,
+    },
+};
+```
+
+有关更多详细信息，请参阅 [[markdown 选项]](./config#markdown)。
