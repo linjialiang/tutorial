@@ -146,3 +146,352 @@ lang: en-US
 > `markdown-it-emoji` 所有 [表情符号的列表](./emoji) 都可用
 
 ## 目录
+
+可以使用 `markdown.toc` 选项配置目录的呈现。
+
+输入：
+
+```md
+[[toc]]
+```
+
+输出：
+
+[[toc]]
+
+## 自定义容器
+
+自定义容器可以按其类型、标题和内容进行定义。
+
+### 默认标题
+
+输入：
+
+```md
+::: info
+This is an info box.
+:::
+
+::: tip
+This is a tip.
+:::
+
+::: warning
+This is a warning.
+:::
+
+::: danger
+This is a dangerous warning.
+:::
+
+::: details
+This is a details block.
+:::
+```
+
+输出：
+
+::: info
+This is an info box.
+:::
+
+::: tip
+This is a tip.
+:::
+
+::: warning
+This is a warning.
+:::
+
+::: danger
+This is a dangerous warning.
+:::
+
+::: details
+This is a details block.
+:::
+
+### 自定义标题
+
+您可以通过在容器的“类型”之后附加文本来设置自定义标题。
+
+输入：
+
+````md
+::: danger 停止
+危险区域，请勿继续
+:::
+
+::: details 单击查看代码
+
+```js
+console.log('Hello, VitePress!');
+```
+
+:::
+````
+
+输出：
+
+::: danger 停止
+危险区域，请勿继续
+:::
+
+::: details 单击查看代码
+
+```js
+console.log('Hello, VitePress!');
+```
+
+:::
+
+## 代码块中的语法突出显示
+
+简称：语法高亮
+
+VitePress 使用 Shiki 在 Markdown 代码块中突出显示语言语法，使用彩色文本。Shiki 支持多种编程语言。
+
+您需要做的就是将有效的语言别名附加到代码块的开头反引号：
+
+::: code-group
+
+````txt [输入]
+```js
+export default {
+    name: 'MyComponent',
+    // ...
+};
+```
+
+```html
+<ul>
+    <li v-for="todo in todos" :key="todo.id">{{ todo.text }}</li>
+</ul>
+```
+````
+
+```js [输出 js]
+export default {
+    name: 'MyComponent',
+    // ...
+};
+```
+
+```html [输出 html]
+<ul>
+    <li v-for="todo in todos" :key="todo.id">{{ todo.text }}</li>
+</ul>
+```
+
+:::
+
+## 代码块中的行突出显示
+
+::: code-group
+
+````txt [输入]
+```js{4}
+export default {
+  data () {
+    return {
+      msg: '高亮行!'
+    }
+  }
+}
+```
+````
+
+```js{4} [输出]
+export default {
+  data () {
+    return {
+      msg: '高亮行!'
+    }
+  }
+}
+```
+
+:::
+
+::: details 除了单行之外，还可以指定多个单行/行范围：
+
+::: code-group
+
+````txt [输入]
+```js{1,4,6-8}
+export default { // Highlighted
+  data () {
+    return {
+      msg: `Highlighted!
+      This line isn't highlighted,
+      but this and the next 2 are.`,
+      motd: 'VitePress is awesome',
+      lorem: 'ipsum'
+    }
+  }
+}
+```
+````
+
+```js{1,4,6-8} [输出]
+export default { // Highlighted
+  data () {
+    return {
+      msg: `Highlighted!
+      This line isn't highlighted,
+      but this and the next 2 are.`,
+      motd: 'VitePress is awesome',
+      lorem: 'ipsum'
+    }
+  }
+}
+```
+
+:::
+
+::: details 使用 `// [!code hl]` 注释直接在行中突出显示
+::: code-group
+
+````txt [输入]
+```js
+export default {
+  data () {
+    return {
+      msg: 'Highlighted!' // [!code  hl]
+    }
+  }
+}
+```
+````
+
+```js [输出]
+export default {
+    data() {
+        return {
+            msg: 'Highlighted!', // [!code  hl]
+        };
+    },
+};
+```
+
+:::
+
+## 聚焦于代码块
+
+在一行上添加 `// [!code focus]` 注释将聚焦它并模糊代码的其他部分。
+
+此外，还可以使用 `// [!code focus:<lines>]` 定义要聚焦的行数。
+
+::: code-group
+
+````text [单行聚焦输入]
+```js
+export default {
+  data () {
+    return {
+      msg: 'Focused!' // [!code  focus]
+    }
+  }
+}
+```
+````
+
+```js [单行聚焦输出]
+export default {
+    data() {
+        return {
+            msg: 'Focused!', // [!code focus]
+        };
+    },
+};
+```
+
+````text [多行聚焦输入]
+```js
+export default {
+  data () {
+    // [!code  focus:4]
+    return {
+      msg: 'Focused!'
+    }
+  }
+}
+```
+````
+
+```js [多行聚焦输出]
+export default {
+    data() {
+        // [!code focus:4]
+        return {
+            msg: 'Focused!',
+        };
+    },
+};
+```
+
+:::
+
+## 代码块中的彩色差异
+
+在一行上添加 `// [!code --]` 或 `// [!code ++]` 注释将创建该行的差异，同时保留代码块的颜色。
+
+::: code-group
+
+````text [输入]
+```js
+export default {
+  data () {
+    return {
+      msg: 'Removed' // [!code  --]
+      msg: 'Added' // [!code  ++]
+    }
+  }
+}
+```
+````
+
+```js [输出]
+export default {
+    data () {
+        return {
+            msg: 'Removed' // [!code --]
+            msg: 'Added' // [!code ++]
+        };
+    }
+};
+```
+
+:::
+
+## 代码块中的错误和警告
+
+在一行上添加 `// [!code warning]` 或 `// [!code error]` 注释将相应地为其着色。
+
+::: code-group
+
+````text [输入]
+```js
+export default {
+  data () {
+    return {
+      msg: 'Error', // [!code  error]
+      msg: 'Warning' // [!code  warning]
+    }
+  }
+}
+```
+````
+
+```js [输出]
+export default {
+    data() {
+        return {
+            msg: 'Error', // [!code error]
+            msg: 'Warning', // [!code warning]
+        };
+    },
+};
+```
+
+:::
