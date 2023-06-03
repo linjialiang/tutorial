@@ -458,7 +458,7 @@ export default {
             msg: 'Removed' // [!code --]
             msg: 'Added' // [!code ++]
         };
-    }
+    },
 };
 ```
 
