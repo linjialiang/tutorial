@@ -143,4 +143,6 @@ lang: en-US
 :tada: :100:
 :::
 
-> `markdown-it-emoji` 所有 [表情符号的列表](emoji) 都可用
+> `markdown-it-emoji` 所有 [表情符号的列表](./emoji) 都可用
+
+## 目录
