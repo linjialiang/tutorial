@@ -161,7 +161,21 @@ pnpm add -D vue
 
 如果按上面的步骤下来， package.json 的 script 选项已经加入：
 
-```json
+::: code-group
+
+```json [项目根目录]
+{
+  ...
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  ...
+}
+```
+
+```json [./docs目录]
 {
   ...
   "scripts": {
@@ -173,19 +187,25 @@ pnpm add -D vue
 }
 ```
 
+:::
+
 ::: code-group
 
 ```bash [开发环境]
 # 使用 npm 脚本
 pnpm docs:dev
-# 直接调用 VitePress
+# 直接调用 VitePress - 文档在 项目根目录
+pnpm exec vitepress dev
+# 直接调用 VitePress - 文档在 ./docs目录
 pnpm exec vitepress dev docs
 ```
 
 ```bash [构建打包]
 # 使用 npm 脚本
 pnpm docs:build
-# 直接调用 VitePress
+# 直接调用 VitePress - 文档在 项目根目录
+pnpm exec vitepress build
+# 直接调用 VitePress - 文档在 ./docs目录
 pnpm exec vitepress build docs
 # 生成后，通过运行以下命令在本地预览它
 pnpm docs:preview
