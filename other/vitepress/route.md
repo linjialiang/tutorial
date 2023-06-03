@@ -33,7 +33,7 @@ guide/getting-started.md  -->  /guide/getting-started.html
 
 VitePress 项目的文件结构中有两个重要概念：项目[根目录](#root-dir)和[源目录](#source-dir)。
 
-### 根目录 {#root-dir}
+### 项目根目录 {#root-dir}
 
 项目根目录是 VitePress 尝试查找 [[.vitepress]](#vitepress-dir) 特殊目录的地方。
 
@@ -41,13 +41,11 @@ VitePress 项目的文件结构中有两个重要概念：项目[根目录](#roo
 
 要将子目录指定为 root，您需要将相对路径传递给命令。
 
-例如，
-
-::: details 如果您的 VitePress 项目位于 ./docs 中，则应运行 vitepress dev docs ：
+::: info 例如，如果您的 VitePress 项目位于 ./docs 中，则：
 
 ::: code-group
 
-```bash [目录结构]
+```txt [目录结构]
 .
 ├─ docs                    # project root
 │  ├─ .vitepress           # config dir
@@ -61,9 +59,61 @@ VitePress 项目的文件结构中有两个重要概念：项目[根目录](#roo
 pnpm exec vitepress dev docs
 ```
 
+```txt [生成页面映射]
+docs/index.md            -->  /index.html (accessible as /)
+docs/getting-started.md  -->  /getting-started.html
+```
+
 :::
 
-### 源目录 {#source-dir}
+### 项目源目录 {#source-dir}
+
+源目录是 Markdown 源文件所在的位置。默认情况下，它与项目根目录相同。
+
+但是，您可以通过 `srcDir` 配置选项对其进行配置。srcDir 选项相对于项目根目录解析。
+
+例如，使用 `srcDir: 'src'` ，您的文件结构将如下所示：
+
+::: code-group
+
+```txt [目录结构]
+. # project root
+├─ .vitepress # config dir
+└─ src # source dir
+├─ getting-started.md
+└─ index.md
+
+```
+
+```txt [生成页面映射]
+src/index.md            -->  /index.html (accessible as /)
+src/getting-started.md  -->  /getting-started.html
+```
+
+:::
+
+## 页面之间的链接
+
+在页面之间链接时，可以同时使用绝对路径和相对路径。
+
+::: warning 请注意
+尽管 `.md` 和 `.html` 扩展名都有效，但最佳做法是省略文件扩展名，以便 VitePress 可以根据您的配置生成最终 URL。
+
+```bash
+<!-- 推荐 -->
+[Getting Started](./getting-started)
+[Getting Started](../guide/getting-started)
+
+<!-- 不推荐 -->
+[Getting Started](./getting-started.md)
+[Getting Started](./getting-started.html)
+```
+
+:::
+
+## 更多
+
+VitePress 路由功能不止这些，部分内容会涉及到 Vue3，具体请阅读 [[官方手册]](https://vitepress.dev/guide/routing)
 
 ## 附录
 
