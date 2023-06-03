@@ -368,7 +368,7 @@ export default {
 export default {
     data() {
         return {
-            msg: 'Highlighted!', // [!code  hl]
+            msg: 'Highlighted!', // [!code hl]
         };
     },
 };
@@ -548,20 +548,25 @@ const line3 = 'This is line 3'
 
 ::: code-group
 
+```txt [原始代码]
+export default {
+  data() {
+    return {
+      msg1: 'Error', // [!code  error]
+      msg2: 'Warning', // [!code  warning]
+      msg3: '聚焦', // [!code  focus]
+      msg4: '聚焦', // [!code  --]
+      msg5: '聚焦', // [!code  ++]
+    };
+  },
+};
+```
+
 ```md [输入]
-<<< @/assets/vitepress/snippets.ts
+<<< @/assets/vitepress/snippets.ts [输出]
+<<< @/assets/vitepress/snippets.ts{1,3-5} [输出高亮]
 ```
 
-```ts {1} [禁用行号输出]
-// 配置里禁用了行号
-const line2 = 'This is line 2';
-const line3 = 'This is line 3';
-```
-
-```ts:line-numbers {1} [启用行号输出]
-// 使用 :line-numbers 启用行号
-const line2 = 'This is line 2'
-const line3 = 'This is line 3'
-```
-
+<<< @/assets/vitepress/snippets.ts [输出]
+<<< @/assets/vitepress/snippets.ts{1,3-5} [输出高亮]
 :::
