@@ -673,53 +673,9 @@ VitePress 可以将 MarkDown 文件包含在另一个 MarkDown 文件中。
 您也可以在 markdown 路径前面加上 `@` ，它将充当源根目录。默认情况下，它是 VitePress 项目根目录，除非配置了 `srcDir` 。
 :::
 
-例如，您可以使用以下内容包含相对降价文件：
+例如，您可以使用以下内容包含相对或绝对的 MarkDown 文件：
 
-::: code-group
-
-````txt [输入]
-```ts [config.ts]
-import type { UserConfig } from 'vitepress';
-
-const config: UserConfig = {
-    // ...
-};
-
-export default config;
-
-<!--@include: @/assets/vitepress/vscode_region.ts-->
-```
-
-<<< @/assets/vitepress/snippets.ts
-<<< @/assets/vitepress/vscode_region.ts
-````
-
-```js [config.js]
-/**
- * @type {import('vitepress').UserConfig}
- */
-const config = {
-    // ...
-};
-
-export default config;
-```
-
-```ts [config.ts]
-import type { UserConfig } from 'vitepress';
-
-const config: UserConfig = {
-    // ...
-};
-
-export default config;
-```
-
-<<< @/assets/vitepress/snippets.ts [源码自带多种功能]
-
-<<< @/assets/vitepress/vscode_region.ts#snippet{1 js:line-numbers} [外部设置功能]
-
-:::
+<<< @/assets/vitepress/include.txt
 
 {#markdown-it-emoji}
 
