@@ -528,13 +528,37 @@ const line3 = 'This is line 3'
 ```
 ````
 
-```ts {1} [输出禁用]
+```ts {1} [禁用行号输出]
 // 配置里禁用了行号
 const line2 = 'This is line 2';
 const line3 = 'This is line 3';
 ```
 
-```ts:line-numbers {1} [输出启用]
+```ts:line-numbers {1} [启用行号输出]
+// 使用 :line-numbers 启用行号
+const line2 = 'This is line 2'
+const line3 = 'This is line 3'
+```
+
+:::
+
+## 导入代码片段
+
+您可以通过以下语法从现有文件导入代码片段：
+
+::: code-group
+
+```md [输入]
+<<< @/assets/vitepress/snippets.ts
+```
+
+```ts {1} [禁用行号输出]
+// 配置里禁用了行号
+const line2 = 'This is line 2';
+const line3 = 'This is line 3';
+```
+
+```ts:line-numbers {1} [启用行号输出]
 // 使用 :line-numbers 启用行号
 const line2 = 'This is line 2'
 const line3 = 'This is line 3'
