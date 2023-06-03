@@ -143,7 +143,7 @@ lang: en-US
 :tada: :100:
 :::
 
-> `markdown-it-emoji` 所有 [表情符号的列表](./emoji) 都可用
+> `markdown-it-emoji` 所有 [表情符号的列表](#markdown-it-emoji) 都可用
 
 ## 目录
 
@@ -569,4 +569,162 @@ export default {
 
 <<< @/assets/vitepress/snippets.ts [输出]
 <<< @/assets/vitepress/snippets.ts{1,3-5} [输出高亮]
+:::
+
+::: tip 提示
+`@` 的值对应于 [[项目源目录]](./route#source-dir)
+
+默认情况下，它跟 VitePress [[项目根目录]](./route#root-dir) 一样，除非配置了 `srcDir` 选项
+:::
+
+::: details 可以使用 `VSCode 区域` 功能，仅展示包含代码文件的相应部分
+
+::: code-group
+
+```md [输入]
+<<< @/assets/vitepress/vscode_region.ts#snippet
+```
+
+<<< @/assets/vitepress/vscode_region.ts [文件代码]
+<<< @/assets/vitepress/vscode_region.ts#snippet [输出]
+:::
+
+::: details 可以在大括号 `{}` 内指定语言，如下所示：
+
+输入
+
+```md
+<<< @/assets/vitepress/vscode_region.ts{js}
+```
+
+输出
+
+<<< @/assets/vitepress/vscode_region.ts{js}
+
+::: tip
+如果无法从文件扩展名推断出源语言，这将很有帮助。
+:::
+
+## 代码分组
+
+在前面我们已经使用了很多这种分组功能：
+
+::: code-group
+
+````txt [输入]
+
+```js [config.js]
+/**
+ * @type {import('vitepress').UserConfig}
+ */
+const config = {
+    // ...
+};
+
+export default config;
+```
+
+```ts [config.ts]
+import type { UserConfig } from 'vitepress';
+
+const config: UserConfig = {
+    // ...
+};
+
+export default config;
+```
+
+<<< @/assets/vitepress/snippets.ts
+<<< @/assets/vitepress/vscode_region.ts
+````
+
+```js [config.js]
+/**
+ * @type {import('vitepress').UserConfig}
+ */
+const config = {
+    // ...
+};
+
+export default config;
+```
+
+```ts [config.ts]
+import type { UserConfig } from 'vitepress';
+
+const config: UserConfig = {
+    // ...
+};
+
+export default config;
+```
+
+<<< @/assets/vitepress/snippets.ts [源码自带多种功能]
+
+<<< @/assets/vitepress/vscode_region.ts#snippet{1 js:line-numbers} [外部设置功能]
+
+:::
+
+## 文件包含
+
+VitePress 可以将 MarkDown 文件包含在另一个 MarkDown 文件中。
+
+::: tip
+您也可以在 markdown 路径前面加上 `@` ，它将充当源根目录。默认情况下，它是 VitePress 项目根目录，除非配置了 `srcDir` 。
+:::
+
+例如，您可以使用以下内容包含相对降价文件：
+
+::: code-group
+
+````txt [输入]
+```ts [config.ts]
+import type { UserConfig } from 'vitepress';
+
+const config: UserConfig = {
+    // ...
+};
+
+export default config;
+
+<!--@include: @/assets/vitepress/vscode_region.ts-->
+```
+
+<<< @/assets/vitepress/snippets.ts
+<<< @/assets/vitepress/vscode_region.ts
+````
+
+```js [config.js]
+/**
+ * @type {import('vitepress').UserConfig}
+ */
+const config = {
+    // ...
+};
+
+export default config;
+```
+
+```ts [config.ts]
+import type { UserConfig } from 'vitepress';
+
+const config: UserConfig = {
+    // ...
+};
+
+export default config;
+```
+
+<<< @/assets/vitepress/snippets.ts [源码自带多种功能]
+
+<<< @/assets/vitepress/vscode_region.ts#snippet{1 js:line-numbers} [外部设置功能]
+
+:::
+
+{#markdown-it-emoji}
+
+::: details markdown-it 的表情符号
+
+<!--@include: @/other/vitepress/emoji.md-->
+
 :::
