@@ -222,3 +222,15 @@ export type SidebarItem = {
 | `[number, number]` | 没啥用                    |
 | `'deep'`           | 列表展示 `h2-h6` 全部标题 |
 | `false`            | 不展示                    |
+
+## outlineTitle
+
+可用于自定义右侧边栏的标题（在大纲链接的顶部）。这在用另一种语言编写文档时很有用。
+
+```ts
+export default {
+    themeConfig: {
+        outlineTitle: '标题导航',
+    },
+};
+```
