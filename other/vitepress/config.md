@@ -82,7 +82,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
 -   Vite
 
-    您可以使用 VitePress 配置中的 [[vite 选项]](#vite) 配置底层 Vite 实例。
+    您可以使用 VitePress 配置中的 [[vite 选项]](https://vitejs.dev/config/) 配置底层 Vite 实例。
 
     无需创建单独的 Vite 配置文件。
 
@@ -431,6 +431,22 @@ export default defineConfig({
 
 :::
 
+### Markdown 选项 {#markdown}
+
+VitePress 使用 Markdown-it 作为解析器，使用 Shiki 来突出显示语言语法。
+
+在此选项中，您可以传递各种与 Markdown 相关的选项以满足您的需求。
+
+::: info 例如：禁用行数
+
+```ts
+export default {
+    markdown: { lineNumbers: false },
+};
+```
+
+:::
+
 ::: danger 更多站点配置
 站点配置的更多内容请阅读 [[官方手册]](https://vitepress.dev/reference/site-config)
 :::
@@ -438,9 +454,3 @@ export default defineConfig({
 ## 默认主题 {#default-theme}
 
 ## 前置配置 {#frontmatter-config}
-
-## Markdown 选项 {#markdown}
-
-```
-
-```
