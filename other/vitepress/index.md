@@ -27,3 +27,7 @@ SSG 是一种在 CDN（内容交付网络）上生成完整静态 HTML 网站的
 
 在 SSG 中，HTML 是在构建时生成的。
 :::
+
+::: danger 文档完整性说明
+该 VitePress 教程并不完善，像 `Vite` 和 `Vue3` 关联较多的知识在文档里都没有体现，更多内容请阅读 [[官方手册]](https://vitepress.dev)
+:::
