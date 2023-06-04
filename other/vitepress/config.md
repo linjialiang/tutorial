@@ -285,6 +285,24 @@ export default {
 
 ### 构建
 
+#### 源目录
+
+-   Name: `srcDir`
+-   Type: `string`
+-   Default: `.`
+
+存储 markdown 页面的目录（相对于项目根目录）。
+
+```ts
+export default {
+    srcDir: './src',
+};
+```
+
+#### 排除文件
+
+更多内容另请参阅 [根目录和源目录](./route#root-and-source-dir) 。
+
 ## 默认主题 {#default-theme}
 
 ## 前置配置 {#frontmatter-config}
