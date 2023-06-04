@@ -8,6 +8,7 @@ const sidebar = [
   { text: '路由', link: `${path.main}route` },
   { text: 'Markdown', link: `${path.main}md` },
   { text: '配置', link: `${path.main}config` },
+  { text: '默认主题', link: `${path.main}config/default-theme` },
   { text: '部署指南', link: `${path.main}deploy` },
   { text: '表情符号', link: `${path.main}emoji` },
 ];
