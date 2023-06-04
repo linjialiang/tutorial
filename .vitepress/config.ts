@@ -10,7 +10,7 @@ export default defineConfig({
   base: '/',
   lang: 'zh-CN',
   title: 'PHP Environment',
-  description: '基于Debian的php环境搭建教程',
+  description: '基于Debian的php环境搭建及其系列教程',
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   lastUpdated: true,
   markdown: { lineNumbers: false },
@@ -33,5 +33,9 @@ export default defineConfig({
       { text: '其他', items: otherNav },
     ],
     sidebar: sidebar,
+    footer: {
+      message: 'PHP 环境搭建及其系列教程',
+      copyright: 'Copyright © 2023-present 地上马',
+    },
   },
 });
