@@ -390,14 +390,51 @@ export default {
 -   Type: `boolean | 'dark'`
 -   Default: `true`
 
+```ts
+export default {
+    appearance: true,
+};
+```
+
 如果该选项设置为 `true` ，则默认主题将由用户的首选配色方案确定。
 
 如果该选项设置为 `dark` ，则默认情况下主题将为深色，除非用户手动切换它。
 
 如果该选项设置为 `false` ，用户将无法切换主题。
 
-::: info 此选项注入一个内联脚本
+::: tip 此选项注入一个内联脚本
 该脚本使用 `vitepress-theme-appearance` 键从本地存储还原用户设置。这可确保在呈现页面之前应用 `.dark` 类以避免闪烁。
+:::
+
+#### 是否启用最新更新
+
+-   Name: `lastUpdated`
+-   Type: `boolean`
+-   Default: `false`
+
+是否使用 Git 获取每个页面的上次更新时间戳。时间戳将包含在每个页面的页面数据中，可通过 `useData` 访问。
+
+```ts
+export default defineConfig({
+    lastUpdated: true,
+});
+```
+
+::: details 使用默认主题时
+
+启用此选项将显示每个页面的上次更新时间。
+
+您可以通过 `themeConfig.lastUpdatedText` 选项自定义文本。
+
+```ts
+export default defineConfig({
+    lastUpdated: true,
+    themeConfig: {
+        lastUpdatedText: '最近更新',
+    },
+});
+```
+
 :::
 
 ## 默认主题 {#default-theme}

@@ -13,7 +13,10 @@ export default defineConfig({
   description: '基于Debian的php环境搭建教程',
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   lastUpdated: true,
-  markdown: { lineNumbers: false },
+  markdown: {
+    theme: 'material-theme-palenight',
+    lineNumbers: false,
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: '/logo.png',
