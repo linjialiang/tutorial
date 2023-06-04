@@ -23,6 +23,7 @@ export default defineConfig({
       pattern: 'https://github.com/linjialiang/php-environment/main/:path',
       text: '在 github 上编辑',
     },
+    outline: 'deep',
     search: { provider: 'local' },
     nav: [
       { text: '主页', link: '/' },
