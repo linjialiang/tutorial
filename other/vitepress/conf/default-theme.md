@@ -279,3 +279,111 @@ type SocialLinkIcon =
 ```
 
 :::
+
+## 页脚配置
+
+-   Name: `footer`
+-   Type: `Footer`
+
+您可以在页脚上添加消息或版权文本，但是，仅当页面不包含侧边栏时才会显示。这是由于设计问题。
+
+::: code-group
+
+```ts [示例]
+export default {
+    themeConfig: {
+        footer: {
+            message: 'PHP 环境搭建及其系列教程',
+            copyright: 'Copyright © 2023-present 地上马',
+        },
+    },
+};
+```
+
+```ts [SocialLink 结构]
+export interface Footer {
+    message?: string;
+    copyright?: string;
+}
+```
+
+:::
+
+## editLink
+
+-   Name: `editLink`
+-   Type: `EditLink`
+-   可以通过每页的前言覆盖
+
+编辑链接允许您显示一个链接，用于在 Git 管理服务（如 GitHub 或 Github）上编辑页面。
+
+有关更多详细信息，请参阅默认主题：[[编辑链接]](#edit-link)。
+
+::: code-group
+
+```ts [示例]
+export default {
+    themeConfig: {
+        editLink: {
+            pattern: 'https://github.com/linjialiang/php-environment/main/:path',
+            text: '在 github 上编辑',
+        },
+    },
+};
+```
+
+```ts [结构]
+export interface EditLink {
+    pattern: string;
+    text?: string;
+}
+```
+
+:::
+
+## lastUpdatedText
+
+-   Name: `lastUpdatedText`
+-   Type: `string`
+-   Default: `Last updated`
+
+设置最近更新时间之前显示的前缀文本
+
+```ts
+export default {
+    themeConfig: {
+        lastUpdatedText: '最近更新',
+    },
+};
+```
+
+## docFooter
+
+-   Name: `docFooter`
+-   Type: `DocFooter`
+
+可用于自定义显示在上一个和下一个链接上方的文本。
+
+如果不用英语编写文档，很有帮助。
+
+::: code-group
+
+```ts [示例]
+export default {
+    themeConfig: {
+        docFooter: {
+            prev: '上一页',
+            next: '下一页',
+        },
+    },
+};
+```
+
+```ts [结构]
+export interface DocFooter {
+    prev?: string;
+    next?: string;
+}
+```
+
+:::

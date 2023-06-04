@@ -34,6 +34,10 @@ export default defineConfig({
     outline: 'deep',
     i18nRouting: false,
     outlineTitle: '大纲',
+    docFooter: {
+      prev: '上一页',
+      next: '下一页',
+    },
     search: {
       provider: 'local',
       options: {
