@@ -230,7 +230,7 @@ export type SidebarItem = {
 ```ts
 export default {
     themeConfig: {
-        outlineTitle: '标题导航',
+        outlineTitle: '大纲',
     },
 };
 ```

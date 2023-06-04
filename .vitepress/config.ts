@@ -25,7 +25,7 @@ export default defineConfig({
     },
     outline: 'deep',
     i18nRouting: false,
-    outlineTitle: '标题导航',
+    outlineTitle: '大纲',
     search: {
       provider: 'local',
       options: {
