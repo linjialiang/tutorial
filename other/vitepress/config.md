@@ -329,7 +329,7 @@ export default {
 };
 ```
 
-### 缓存目录
+#### 缓存目录
 
 -   Name: `cacheDir`
 -   Type: `string`
@@ -344,6 +344,43 @@ export default {
 ```
 
 更多内容请参阅： [Vite 缓存目录](https://vitejs.dev/config/shared-options.html#cachedir) 。
+
+#### 死链验证
+
+-   Name: `ignoreDeadLinks`
+-   Type: `boolean | 'localhostLinks' | (string | RegExp | ((link: string) => boolean))[]`
+-   Default: `false`
+
+当设置为 `true` 时，VitePress 不会因为死链接而使构建失败。
+
+置为 `'localhostLinks'` 时，构建将在死链接上失败，但不会检查 localhost 链接。
+
+```ts
+export default {
+    ignoreDeadLinks: true,
+};
+```
+
+::: details 也可以是确切的 url 字符串、正则表达式模式或自定义过滤器函数的数组
+
+```ts
+export default {
+    ignoreDeadLinks: [
+        // ignore exact url "/playground"
+        '/playground',
+        // ignore all localhost links
+        /^https?:\/\/localhost/,
+        // ignore all links include "/repl/""
+        /\/repl\//,
+        // custom function, ignore all links include "ignore"
+        (url) => {
+            return url.toLowerCase().includes('ignore');
+        },
+    ],
+};
+```
+
+:::
 
 ## 默认主题 {#default-theme}
 
