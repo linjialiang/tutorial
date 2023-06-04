@@ -382,6 +382,24 @@ export default {
 
 :::
 
+### 主题
+
+#### 是否启用深色模式
+
+-   Name: `appearance`
+-   Type: `boolean | 'dark'`
+-   Default: `true`
+
+如果该选项设置为 `true` ，则默认主题将由用户的首选配色方案确定。
+
+如果该选项设置为 `dark` ，则默认情况下主题将为深色，除非用户手动切换它。
+
+如果该选项设置为 `false` ，用户将无法切换主题。
+
+::: info 此选项注入一个内联脚本
+该脚本使用 `vitepress-theme-appearance` 键从本地存储还原用户设置。这可确保在呈现页面之前应用 `.dark` 类以避免闪烁。
+:::
+
 ## 默认主题 {#default-theme}
 
 ## 前置配置 {#frontmatter-config}
