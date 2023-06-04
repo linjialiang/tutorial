@@ -451,6 +451,8 @@ export default {
 站点配置的更多内容请阅读 [[官方手册]](https://vitepress.dev/reference/site-config)
 :::
 
-## 默认主题 {#default-theme}
-
 ## 前置配置 {#frontmatter-config}
+
+<!--@include: @/other/vitepress/conf/frontmatter.md-->
+
+## 默认主题 {#default-theme}
