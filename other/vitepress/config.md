@@ -391,9 +391,7 @@ export default {
 -   Default: `true`
 
 ```ts
-export default {
-    appearance: true,
-};
+export default { appearance: true };
 ```
 
 如果该选项设置为 `true` ，则默认主题将由用户的首选配色方案确定。
@@ -415,9 +413,7 @@ export default {
 是否使用 Git 获取每个页面的上次更新时间戳。时间戳将包含在每个页面的页面数据中，可通过 `useData` 访问。
 
 ```ts
-export default defineConfig({
-    lastUpdated: true,
-});
+export default defineConfig({ lastUpdated: true });
 ```
 
 ::: details 使用默认主题时
@@ -429,12 +425,14 @@ export default defineConfig({
 ```ts
 export default defineConfig({
     lastUpdated: true,
-    themeConfig: {
-        lastUpdatedText: '最近更新',
-    },
+    themeConfig: { lastUpdatedText: '最近更新' },
 });
 ```
 
+:::
+
+::: danger 更多站点配置
+站点配置的更多内容请阅读 [[官方手册]](https://vitepress.dev/reference/site-config)
 :::
 
 ## 默认主题 {#default-theme}
