@@ -30,7 +30,48 @@ export default {
 使用自定义主题时，主题配置对象将传递给主题，以便主题可以基于它定义条件行为。
 :::
 
-## i18n 国际化路由
+## i18nRouting
 
--   Name: `i18nRouting`
--   Type: `boolean`
+详情请阅读 [[官方手册]](https://vitepress.dev/reference/default-theme-config#i18nrouting)
+
+## LOGO 图标
+
+-   Name: logo
+-   Type: ThemeableImage
+
+要在导航栏中显示的 logo 图标，紧挨着网站标题。
+
+路径支持字符串或对象，以便为亮/暗模式设置不同的徽标。
+
+::: code-group
+
+```ts [示例]
+export default {
+    themeConfig: {
+        logo: '/logo.svg',
+    },
+};
+```
+
+```ts [ThemeableImage 结构]
+type ThemeableImage = string | { src: string; alt?: string } | { light: string; dark: string; alt?: string };
+```
+
+:::
+
+## 默认站点标题
+
+-   Name: siteTitle
+-   Type: `string | false`
+
+您可以自定义此项以替换导航中的默认站点标题（应用程序配置中的 title ）。
+
+当设置为 false 时，导航中的标题将被禁用。当 logo 已包含网站标题文本时很有用。
+
+```ts
+export default {
+    themeConfig: {
+        siteTitle: 'Hello World',
+    },
+};
+```

@@ -24,7 +24,7 @@ export default defineConfig({
       text: '在 github 上编辑',
     },
     outline: 'deep',
-    i18nRouting: true,
+    i18nRouting: false,
     search: {
       provider: 'local',
       options: {
