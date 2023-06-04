@@ -74,11 +74,11 @@ description: VitePress
 ---
 head:
     - - meta
-      - name: description
-        content: hello
+        - name: description
+    content: hello
     - - meta
-      - name: keywords
-        content: super duper SEO
+        - name: keywords
+    content: super duper SEO
 ---
 ```
 
