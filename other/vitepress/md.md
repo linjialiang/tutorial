@@ -677,13 +677,12 @@ VitePress 可以将 MarkDown 文件包含在另一个 MarkDown 文件中。
 
 ::: code-group
 <<< @/assets/vitepress/include.txt{md} [输入]
+:::
 
-```txt [输出]
+::: tip 输出说明
 /other/vitepress/emoji.md 文件的内容会全部展示在当前页面
 
 不过由于表情符号内容过多这里就不展示了，大家自己试验下
-```
-
 :::
 
 ::: warning 高级配置
