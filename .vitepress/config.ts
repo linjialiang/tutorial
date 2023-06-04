@@ -7,7 +7,7 @@ import sidebar from './sidebar/main';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '.',
+  base: '/',
   lang: 'zh-CN',
   title: 'PHP Environment',
   description: '基于Debian的php环境搭建教程',
