@@ -301,7 +301,19 @@ export default {
 
 #### 排除文件
 
-更多内容另请参阅 [根目录和源目录](./route#root-and-source-dir) 。
+-   Name: `srcExclude`
+-   Type: `string`
+-   Default: `undefined`
+
+用于匹配应作为源内容排除的 Markdown 文件的 glob 模式。
+
+说人话：开发、构建时不编译这些 Markdown 文件。
+
+```ts
+export default {
+    srcExclude: ['**/README.md', '**/TODO.md'],
+};
+```
 
 ## 默认主题 {#default-theme}
 
