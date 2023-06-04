@@ -30,11 +30,13 @@ export default {
 使用自定义主题时，主题配置对象将传递给主题，以便主题可以基于它定义条件行为。
 :::
 
-## i18nRouting
+## 总览
+
+### i18nRouting
 
 详情请阅读 [[官方手册]](https://vitepress.dev/reference/default-theme-config#i18nrouting)
 
-## LOGO 图标
+### LOGO 图标
 
 -   Name: logo
 -   Type: ThemeableImage
@@ -59,7 +61,7 @@ type ThemeableImage = string | { src: string; alt?: string } | { light: string; 
 
 :::
 
-## 默认站点标题
+### 默认站点标题
 
 -   Name: siteTitle
 -   Type: `string | false`
@@ -76,7 +78,7 @@ export default {
 };
 ```
 
-## 导航栏菜单
+### 导航栏菜单
 
 -   Name: nav
 -   Type: `NavItem`
@@ -128,7 +130,7 @@ interface NavItemWithChildren {
 
 :::
 
-## 侧边栏菜单
+### 侧边栏菜单
 
 -   Name: `sidebar`
 -   Type: `Sidebar`
@@ -190,7 +192,7 @@ export type SidebarItem = {
 
 :::
 
-## aside
+### aside
 
 当前文件的标题列表导航
 
@@ -205,7 +207,7 @@ export type SidebarItem = {
 | `true`   | 标题列表导航呈现到右侧 |
 | `'left'` | 标题列表导航呈现到左侧 |
 
-## outline
+### outline
 
 大纲中要为页面显示的页眉级别
 
@@ -223,7 +225,7 @@ export type SidebarItem = {
 | `'deep'`           | 列表展示 `h2-h6` 全部标题 |
 | `false`            | 不展示                    |
 
-## outlineTitle
+### outlineTitle
 
 可用于自定义右侧边栏的标题（在大纲链接的顶部）。这在用另一种语言编写文档时很有用。
 
@@ -235,7 +237,7 @@ export default {
 };
 ```
 
-## socialLinks
+### socialLinks
 
 -   Name: `SocialLink[]`
 
@@ -280,7 +282,7 @@ type SocialLinkIcon =
 
 :::
 
-## 页脚配置
+### 页脚配置
 
 -   Name: `footer`
 -   Type: `Footer`
@@ -309,7 +311,7 @@ export interface Footer {
 
 :::
 
-## editLink
+### editLink
 
 -   Name: `editLink`
 -   Type: `EditLink`
@@ -341,7 +343,7 @@ export interface EditLink {
 
 :::
 
-## lastUpdatedText
+### lastUpdatedText
 
 -   Name: `lastUpdatedText`
 -   Type: `string`
@@ -357,7 +359,7 @@ export default {
 };
 ```
 
-## docFooter
+### docFooter
 
 -   Name: `docFooter`
 -   Type: `DocFooter`
@@ -387,3 +389,35 @@ export interface DocFooter {
 ```
 
 :::
+
+### 暗模式开关标签 <Badge type="info" text="移动端" />
+
+-   Name: `darkModeSwitchLabel`
+-   Type: `string`
+-   Default: `Appearance`
+
+可用于自定义暗模式开关标签。此标签仅显示在移动视图中。
+
+### 侧边栏菜单 <Badge type="info" text="移动端" />
+
+-   Name: `sidebarMenuLabel`
+-   Type: `string`
+-   Default: `Menu`
+
+可用于自定义侧边栏菜单标签。此标签仅显示在移动视图中。
+
+### 返回顶部按钮 <Badge type="info" text="移动端" />
+
+-   Name: `returnToTopLabel`
+-   Type: `string`
+-   Default: `Return to top`
+
+可用于自定义返回顶部按钮的标签。此标签仅显示在移动视图中。
+
+### 语言切换按钮 <Badge type="info" text="移动端" />
+
+-   Name: `langMenuLabel`
+-   Type: `string`
+-   Default: `Change language`
+
+可用于自定义导航栏中语言切换按钮的 `aria` 标签。这仅在您使用的是 i18n 时使用。
