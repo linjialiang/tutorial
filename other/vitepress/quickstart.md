@@ -9,7 +9,7 @@ titleTemplate: VitePress 教程
 
 1. 安装 node.js 并 >= 16
 2. 支持通过其命令行界面(bash、cmd 等)访问 VitePress
-3. 支持 MarkDown 语法的文本编辑器（强烈推荐 [vscode](/other/vscode/)）
+3. 支持 Markdown 语法的文本编辑器（强烈推荐 [vscode](/other/vscode/)）
 
 :::
 
@@ -216,7 +216,7 @@ pnpm docs:preview
 ## 下一步
 
 1. 要了解 markdown 文件如何映射到生成的 HTML，请继续阅读 [路由指南](/other/vitepress/route)。
-2. 要了解在页面上能做什么，一个很好的起点是阅读 [MarkDown 扩展](/other/vitepress/md) 。
+2. 要了解在页面上能做什么，一个很好的起点是阅读 [Markdown 扩展](/other/vitepress/md) 。
 3. 要探索默认文档主题提供的功能，请查看 [默认主题配置参考](/other/vitepress/config#default-theme)。
 4. 如果要进一步自定义网站的外观，请探索如何 [扩展默认主题](https://vitepress.dev/guide/extending-default-theme) 或 [构建自定义主题](https://vitepress.dev/guide/custom-theme)。
 5. 文档站点形成后，请务必阅读 [部署指南](/other/vitepress/deploy)。

@@ -1,5 +1,5 @@
 ---
-title: MarkDown 扩展
+title: Markdown 扩展
 titleTemplate: VitePress 教程
 ---
 
@@ -667,13 +667,13 @@ export default config;
 
 ## 文件包含
 
-VitePress 可以将 MarkDown 文件包含在另一个 MarkDown 文件中。
+VitePress 可以将 Markdown 文件包含在另一个 Markdown 文件中。
 
 ::: tip
 您也可以在 markdown 路径前面加上 `@` ，它将充当源根目录。默认情况下，它是 VitePress 项目根目录，除非配置了 `srcDir` 。
 :::
 
-例如，您可以使用以下内容包含相对或绝对的 MarkDown 文件：
+例如，您可以使用以下内容包含相对或绝对的 Markdown 文件：
 
 ::: code-group
 <<< @/assets/vitepress/include.txt{md} [输入]
