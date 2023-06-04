@@ -24,7 +24,29 @@ export default defineConfig({
       text: '在 github 上编辑',
     },
     outline: 'deep',
-    search: { provider: 'local' },
+    i18nRouting: true,
+    search: {
+      provider: 'local',
+      options: {
+        translations: {
+          button: {
+            buttonText: '搜索文档',
+            buttonAriaLabel: '搜索文档',
+          },
+          modal: {
+            footer: {
+              selectText: '选择',
+              selectKeyAriaLabel: '选择',
+              navigateText: '切换',
+              navigateUpKeyAriaLabel: '向上',
+              navigateDownKeyAriaLabel: '向下',
+              closeText: '关闭',
+              closeKeyAriaLabel: '关闭',
+            },
+          },
+        },
+      },
+    },
     nav: [
       { text: '主页', link: '/' },
       { text: '环境搭建', items: environmentNav },

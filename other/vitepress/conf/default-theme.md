@@ -29,3 +29,8 @@ export default {
 
 使用自定义主题时，主题配置对象将传递给主题，以便主题可以基于它定义条件行为。
 :::
+
+## i18n 国际化路由
+
+-   Name: `i18nRouting`
+-   Type: `boolean`
