@@ -83,7 +83,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
 -   Markdown
 
-    您可以使用 VitePress 配置中的 [[markdown 选项]](#makrdown) 配置底层 [Markdown-It](https://github.com/markdown-it/markdown-it) 实例。
+    您可以使用 VitePress 配置中的 [[markdown 选项]](#markdown) 配置底层 [Markdown-It](https://github.com/markdown-it/markdown-it) 实例。
 
 ### 站点元数据
 
