@@ -353,7 +353,7 @@ export default {
 
 当设置为 `true` 时，VitePress 不会因为死链接而使构建失败。
 
-置为 `'localhostLinks'` 时，构建将在死链接上失败，但不会检查 localhost 链接。
+设置为 `'localhostLinks'` 时，构建将在死链接上失败，但不会检查 localhost 链接。
 
 ```ts
 export default {
