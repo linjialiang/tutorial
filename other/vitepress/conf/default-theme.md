@@ -75,3 +75,55 @@ export default {
     },
 };
 ```
+
+## 导航菜单配置
+
+-   Name: nav
+-   Type: `NavItem`
+
+有关更多详细信息，请参阅默认主题：[[导航]](#navigation)
+
+::: code-group
+
+```ts [示例]
+export default {
+    themeConfig: {
+        nav: [
+            { text: 'Guide', link: '/guide' },
+            {
+                text: 'Dropdown Menu',
+                items: [
+                    { text: 'Item A', link: '/item-1' },
+                    { text: 'Item B', link: '/item-2' },
+                    { text: 'Item C', link: '/item-3' },
+                ],
+            },
+        ],
+    },
+};
+```
+
+```ts [NavItem 结构]
+type NavItem = NavItemWithLink | NavItemWithChildren;
+
+interface NavItemWithLink {
+    text: string;
+    link: string;
+    activeMatch?: string;
+    target?: string;
+    rel?: string;
+}
+
+interface NavItemChildren {
+    text?: string;
+    items: NavItemWithLink[];
+}
+
+interface NavItemWithChildren {
+    text?: string;
+    items: (NavItemChildren | NavItemWithLink)[];
+    activeMatch?: string;
+}
+```
+
+:::
