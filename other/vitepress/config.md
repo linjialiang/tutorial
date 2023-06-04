@@ -15,7 +15,9 @@ titleTemplate: VitePress 教程
 
 例如，网站的基目录或标题。
 
-### 配置文件
+### 总览
+
+#### 配置文件
 
 配置文件始终从 `<root>/.vitepress/config.[ext]` 解析，其中 `<root>` 是你的 VitePress 项目根目录，`[ext]` 是受支持的文件扩展名之一。
 
@@ -35,7 +37,7 @@ export default {
 
 :::
 
-### 配置智能感知
+#### 配置智能感知
 
 使用 `defineConfig` 帮助程序将为配置选项提供 TypeScript 驱动的智能感知。
 
@@ -49,7 +51,7 @@ export default defineConfig({
 });
 ```
 
-### 类型化主题配置
+#### 类型化主题配置
 
 默认情况下， `defineConfig` 帮助程序需要默认主题的主题配置类型：
 
@@ -76,7 +78,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 });
 ```
 
-### Vite, Vue & Markdown Config
+#### Vite, Vue & Markdown Config
 
 -   Vite
 
@@ -93,6 +95,193 @@ export default defineConfigWithTheme<ThemeConfig>({
 -   Markdown
 
     您可以使用 VitePress 配置中的 [[markdown 选项]](#makrdown) 配置底层 [Markdown-It](https://github.com/markdown-it/markdown-it) 实例。
+
+## 站点元数据
+
+### 网站标题
+
+-   Name: `title`
+-   Type: `string`
+-   Default: `VitePress`
+-   可以通过每页的[[前置配置]](#frontmatter-config-title)覆盖
+
+使用默认主题时，这将显示在导航栏中。
+
+它还将用作所有单个页面标题的默认后缀，除非定义了 `titleTemplate` 。单个页面的最终标题将是其第一个 `<h1>` 标题的文本内容，并结合全局 `title` 作为后缀。
+
+例如：使用以下配置和页面内容，页面的标题将为 `Hello | My Awesome Site`
+
+::: code-group
+
+```ts [config.ts]
+export default {
+    title: 'My Awesome Site',
+};
+```
+
+```md [doc文件]
+# Hello
+```
+
+:::
+
+### 标题后缀
+
+-   Name: `titleTemplate`
+-   Type: `string | boolean`
+-   可以通过每页的[[前置配置]](#frontmatter-config-title-template)覆盖
+
+允许自定义每个页面的 `标题后缀` 或 `整个标题` 。
+
+例如：使用以下配置和页面内容，页面的标题将为 `Hello | Custom Suffix` 。
+
+::: code-group
+
+```ts [config.ts]
+export default {
+    title: 'My Awesome Site',
+    titleTemplate: 'Custom Suffix',
+};
+```
+
+```md [doc文件]
+# Hello
+```
+
+:::
+
+#### 完全自定义标题
+
+若要完全自定义标题的呈现方式，可以在 `titleTemplate` 中使用 `:title` 符号：
+
+::: code-group
+
+```ts [config.ts]
+export default {
+    titleTemplate: ':title - Custom Suffix',
+};
+```
+
+```md [doc文件]
+# Hello
+```
+
+:::
+
+此处 `:title `将替换为从页面的第一个 `<h1>` 标题推断的文本。
+
+示例页面的标题将是 `Hello - Custom Suffix` 。
+
+#### 禁用标题后缀
+
+可以将该选项设置为 `false` 以禁用标题后缀：
+
+```ts
+export default {
+    titleTemplate: false,
+};
+```
+
+### 网站说明
+
+-   Name: `description`
+-   Type: `string`
+-   Default: `A VitePress site`
+-   可以通过每页的[[前置配置]](#frontmatter-config-description)覆盖
+
+这将在页面 HTML 中呈现为 `<meta>` 标记
+
+```ts
+export default {
+    description: 'A VitePress site',
+};
+```
+
+### 头部
+
+-   Name: `head`
+-   Type: `string`
+-   Default: `[]`
+-   可以通过每页的[[前置配置]](#frontmatter-config-head)追加
+
+::: warning 注意
+`head` 通过前置配置是 `追加` 而不是 `覆盖`
+:::
+
+要在页面 HTML 的 `<head>` 标记中呈现的其他元素。
+
+用户添加的标记在结束 `head` 标记之前呈现，在 VitePress 标记之后呈现。
+
+::: code-group
+
+```ts [config.ts]
+export default {
+    head: [
+        [
+            'link',
+            { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+            // would render:
+            //
+            // <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        ],
+
+        [
+            'script',
+            { id: 'register-sw' },
+            `;(() => {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js')
+        }
+      })()`,
+            // would render:
+            //
+            // <script id="register-sw">
+            // ;(() => {
+            //   if ('serviceWorker' in navigator) {
+            //     navigator.serviceWorker.register('/sw.js')
+            //   }
+            // })()
+            // </script>
+        ],
+    ],
+};
+```
+
+```ts [HeadConfig 类型]
+type HeadConfig = [string, Record<string, string>] | [string, Record<string, string>, string];
+```
+
+:::
+
+### 网址 lang 属性
+
+-   Name: `lang`
+-   Type: `string`
+-   Default: `en-US`
+
+这将在页面 HTML 中呈现为 `<html lang="en-US">` 标记
+
+```ts
+export default {
+    lang: 'en-US',
+};
+```
+
+### 部署站点的基本 URL
+
+-   Name: `base`
+-   Type: `string`
+-   Default: `/`
+
+如果您计划在子路径（例如 GitHub 页面）下部署站点，则需要设置此设置。
+
+如果计划将站点部署到 `https://foo.github.io/bar/` ，则应将 `base` 设置为 `'/bar/'` 。它应始终以斜杠开头和结尾。
+
+```ts
+export default {
+    base: '/base/',
+};
+```
 
 ## 默认主题 {#default-theme}
 
