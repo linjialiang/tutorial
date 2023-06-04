@@ -96,9 +96,9 @@ export default defineConfigWithTheme<ThemeConfig>({
 
     您可以使用 VitePress 配置中的 [[markdown 选项]](#makrdown) 配置底层 [Markdown-It](https://github.com/markdown-it/markdown-it) 实例。
 
-## 站点元数据
+### 站点元数据
 
-### 网站标题
+#### 网站标题
 
 -   Name: `title`
 -   Type: `string`
@@ -125,7 +125,7 @@ export default {
 
 :::
 
-### 标题后缀
+#### 标题后缀
 
 -   Name: `titleTemplate`
 -   Type: `string | boolean`
@@ -150,7 +150,7 @@ export default {
 
 :::
 
-#### 完全自定义标题
+##### 完全自定义标题
 
 若要完全自定义标题的呈现方式，可以在 `titleTemplate` 中使用 `:title` 符号：
 
@@ -172,7 +172,7 @@ export default {
 
 示例页面的标题将是 `Hello - Custom Suffix` 。
 
-#### 禁用标题后缀
+##### 禁用标题后缀
 
 可以将该选项设置为 `false` 以禁用标题后缀：
 
@@ -182,7 +182,7 @@ export default {
 };
 ```
 
-### 网站说明
+#### 网站说明
 
 -   Name: `description`
 -   Type: `string`
@@ -197,7 +197,7 @@ export default {
 };
 ```
 
-### 头部
+#### 头部
 
 -   Name: `head`
 -   Type: `string`
@@ -253,7 +253,7 @@ type HeadConfig = [string, Record<string, string>] | [string, Record<string, str
 
 :::
 
-### 网址 lang 属性
+#### 网址 lang 属性
 
 -   Name: `lang`
 -   Type: `string`
@@ -267,7 +267,7 @@ export default {
 };
 ```
 
-### 部署站点的基本 URL
+#### 部署站点的基本 URL
 
 -   Name: `base`
 -   Type: `string`
@@ -282,6 +282,8 @@ export default {
     base: '/base/',
 };
 ```
+
+### 构建
 
 ## 默认主题 {#default-theme}
 
