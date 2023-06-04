@@ -103,7 +103,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 -   Name: `title`
 -   Type: `string`
 -   Default: `VitePress`
--   可以通过每页的[[前置配置]](#frontmatter-config-title)覆盖
+-   可以通过每页的[[前言配置]](#frontmatter-config-title)覆盖
 
 使用默认主题时，这将显示在导航栏中。
 
@@ -129,7 +129,7 @@ export default {
 
 -   Name: `titleTemplate`
 -   Type: `string | boolean`
--   可以通过每页的[[前置配置]](#frontmatter-config-title-template)覆盖
+-   可以通过每页的[[前言配置]](#frontmatter-config-title-template)覆盖
 
 允许自定义每个页面的 `标题后缀` 或 `整个标题` 。
 
@@ -187,7 +187,7 @@ export default {
 -   Name: `description`
 -   Type: `string`
 -   Default: `A VitePress site`
--   可以通过每页的[[前置配置]](#frontmatter-config-description)覆盖
+-   可以通过每页的[[前言配置]](#frontmatter-config-description)覆盖
 
 这将在页面 HTML 中呈现为 `<meta>` 标记
 
@@ -202,10 +202,10 @@ export default {
 -   Name: `head`
 -   Type: `string`
 -   Default: `[]`
--   可以通过每页的[[前置配置]](#frontmatter-config-head)追加
+-   可以通过每页的[[前言配置]](#frontmatter-config-head)追加
 
 ::: warning 注意
-`head` 通过前置配置是 `追加` 而不是 `覆盖`
+`head` 通过前言配置是 `追加` 而不是 `覆盖`
 :::
 
 要在页面 HTML 的 `<head>` 标记中呈现的其他元素。
@@ -451,7 +451,7 @@ export default {
 站点配置的更多内容请阅读 [[官方手册]](https://vitepress.dev/reference/site-config)
 :::
 
-## 前置配置 {#frontmatter-config}
+## 前言配置 {#frontmatter-config}
 
 <!--@include: @/other/vitepress/conf/frontmatter.md-->
 

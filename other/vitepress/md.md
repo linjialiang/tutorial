@@ -88,9 +88,9 @@ VitePress [[内部]](#internal-links)和[[外部]](#external-links)链接都得�
 
 出站链接自动生成 `target="_blank" rel="noreferrer"`
 
-## YAML 前置支持
+## YAML 前言支持
 
-YAML 前置开箱即用支持：
+YAML 前言开箱即用支持：
 
 ```yaml
 ---
@@ -102,7 +102,7 @@ lang: en-US
 ::: info
 此数据将可用于页面的其余部分，以及所有自定义和主题组件
 
-有关更多详细信息，请参阅配置里的[[前置配置]](../config#frontmatter-config)。
+有关更多详细信息，请参阅配置里的[[前言配置]](../config#frontmatter-config)。
 :::
 
 ## GitHub 样式表
