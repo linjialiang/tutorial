@@ -87,3 +87,7 @@ type HeadConfig = [string, Record<string, string>] | [string, Record<string, str
 ```
 
 :::
+
+### 默认主题特性
+
+以下前言选项仅在使用默认主题时适用
