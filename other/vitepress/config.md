@@ -315,6 +315,36 @@ export default {
 };
 ```
 
+#### 输出目录
+
+-   Name: `outDir`
+-   Type: `string`
+-   Default: `./.vitepress/dist`
+
+站点相对于项目根目录的生成输出位置，相对于 `./.vitepress` 目录。
+
+```ts
+export default {
+    outDir: '../public',
+};
+```
+
+### 缓存目录
+
+-   Name: `cacheDir`
+-   Type: `string`
+-   Default: `./.vitepress/cache`
+
+缓存文件的目录，相对于 [项目根目录](./route#root-dir) 。
+
+```ts
+export default {
+    cacheDir: './.vitepress/.vite',
+};
+```
+
+更多内容请参阅： [Vite 缓存目录](https://vitejs.dev/config/shared-options.html#cachedir) 。
+
 ## 默认主题 {#default-theme}
 
 ## 前置配置 {#frontmatter-config}
