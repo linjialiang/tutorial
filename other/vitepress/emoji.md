@@ -1,3 +1,12 @@
+---
+title: 表情符号
+titleTemplate: VitePress 教程
+---
+
+# {{ $frontmatter.title }}
+
+[markdown-it-emoji](https://github.com/markdown-it/markdown-it-emoji/blob/master/lib/data/full.json) 表情符号列表
+
 |                   代码                   |                表情符号                |
 | :--------------------------------------: | :------------------------------------: |
 |                 `:100:`                  |                 :100:                  |

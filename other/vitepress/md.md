@@ -143,7 +143,7 @@ lang: en-US
 :tada: :100:
 :::
 
-> `markdown-it-emoji` 所有 [表情符号的列表](#markdown-it-emoji) 都可用
+> `markdown-it-emoji` 所有 [表情符号的列表](./emoji) 都可用
 
 ## 目录
 
@@ -679,7 +679,9 @@ VitePress 可以将 MarkDown 文件包含在另一个 MarkDown 文件中。
 <<< @/assets/vitepress/include.txt{md} [输入]
 
 ```txt [输出]
-输出见结尾的 【markdown-it 的表情符号】 效果
+/other/vitepress/emoji.md 文件的内容会全部展示在当前页面
+
+不过由于表情符号内容过多这里就不展示了，大家自己试验下
 ```
 
 :::
@@ -693,12 +695,4 @@ VitePress 使用 markdown-it 作为 Markdown 渲染器。
 您可以使用 `.vitepress/config.js` 中的 `markdown 选项` 进一步自定义 markdown-it 实例。
 
 具体请参阅 [[配置:应用配置]](./config#markdown) 可配置属性的完整列表。
-:::
-
-{#markdown-it-emoji}
-
-::: details markdown-it 的表情符号
-
-<!--@include: @/other/vitepress/emoji.md-->
-
 :::
