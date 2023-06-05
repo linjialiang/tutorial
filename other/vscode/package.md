@@ -15,52 +15,48 @@ titleTemplate: vscode 教程
 
 ::: details 通用插件
 
-1. [Chinese (Simplified) ...](#_1-中文语言包)
-2. [One Dark Pro](#_2-主题)
-3. [Material Icon Theme](#_3-图标库)
-4. [GitLens — Git supercharged](#_4-gitlens)
-5. [Prettier - Code formatter](#_5-prettier)
-6. [Path Intellisense](#_6-path-intellisense)
-7. [Project Manager](#_7-project-manager)
-8. [Todo Tree](#_8-todo-tree)
-9. [IntelliCode](#_9-intellicode)
-10. [IntelliCode API Usage Examples](#_10-intellicode-api-usage-examples)
-11. [Code Spell Checker](#_11-code-spell-checker)
-12. [Better Align](#_12-better-align)
-13. [indent-rainbow](#_13-indent-rainbow)
-14. [Polacode-2022](#_14-polacode-2020)
-15. [Hex Editor](#_15-hex-editor)
-16. [Arm Assembly](#_16-arm-assembly)
+1. [Chinese (Simplified) ...](#chinese)
+2. [One Dark Pro](#one-dark-pro)
+3. [Material Icon Theme](#material-icon)
+4. [GitLens — Git supercharged](#gitlens)
+5. [Prettier - Code formatter](#prettier)
+6. [Path Intellisense](#path-intellisense)
+7. [Project Manager](#project-manager)
+8. [Todo Tree](#todo-tree)
+9. [IntelliCode](#intellicode)
+10. [IntelliCode API Usage Examples](#intellicode-api-usage-examples)
+11. [Code Spell Checker](#code-spell-checker)
+12. [Better Align](#better-align)
+13. [indent-rainbow](#indent-rainbow)
+14. [Polacode-2022](#polacode-2020)
+15. [Hex Editor](#hex-editor)
+16. [Arm Assembly](#arm-assembly)
 
 :::
-
 ::: details 前端插件
 
-1. [ESLint](#_1-eslint)
-2. [npm Intellisense](#_2-npm-intellisense)
-3. [WindiCSS IntelliSense](#_3-windicss-intellisense)
-4. [stylelint](#_4-stylelint)
+1. [ESLint](#eslint)
+2. [npm Intellisense](#npm-intellisense)
+3. [WindiCSS IntelliSense](#windicss-intellisense)
+4. [stylelint](#stylelint)
 
 :::
+::: details 前端插件 Vue3 插件
 
-::: details Vue3 插件
-
-1. [Vue Language Features (Volar)](#_1-volar)
-2. [TypeScript Vue Plugin](#_2-typescript-vue-plugin)
-
-:::
-
-::: details php 插件
-
-1. [PHP Intelephense](#_1-php-intelephense)
-2. [PHP DocBlocker](#_2-php-docblocker)
-3. [PHP Namespace Resolver](#_3-php-namespace-resolver)
+1. [Vue Language Features (Volar)](#volar)
+2. [TypeScript Vue Plugin](#typescript-vue-plugin)
 
 :::
+::: details 前端插件 php 插件
 
-::: details 远程控制插件
+1. [PHP Intelephense](#php-intelephense)
+2. [PHP DocBlocker](#php-docblocker)
+3. [PHP Namespace Resolver](#php-namespace-resolver)
 
-1. [Remote - SSH](#五、远程控制-1)
+:::
+::: details 前端插件远程控制插件
+
+1. [Remote - SSH](#remote-ssh)
 2. Remote - SSH: Editing Configuration Files
 3. Dev Containers : 对应 doker
 4. Remote - Kubernetes : 对应 Kubernetes
@@ -144,7 +140,7 @@ PathIntellisense 使用 `ts.config.compilerOptions.baseUrl` 作为映射，所�
 
 > 目录结构
 
-```txt
+```text
 src/module-a/foo.ts
 src/module-b/foo.ts
 ```
