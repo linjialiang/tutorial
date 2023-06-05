@@ -1,0 +1,106 @@
+{
+  "diffEditor.wordWrap": "off",
+  "diffEditor.codeLens": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  // 启用使用鼠标和键进行列选择，启用后不需要按键全部都是按列选择
+  "editor.columnSelection": false,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorStyle": "line",
+  // 控制"转到定义"鼠标手势是否始终打开预览小部件，不知道是啥
+  "editor.definitionLinkOpensInPeek": false,
+  "editor.find.autoFindInSelection": "multiline",
+  // 控制编辑器是否自动折叠导入范围。
+  "editor.foldingImportsByDefault": false,
+  "editor.fontFamily": "'JetBrains Mono', 'HarmonyOS Sans SC'",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": true,
+  "editor.lineHeight": 1.6,
+  "editor.lineNumbers": "relative",
+  "editor.linkedEditing": true,
+  "editor.mouseWheelZoom": true,
+  "editor.scrollbar.scrollByPage": true,
+  "editor.smoothScrolling": true,
+  "editor.suggest.insertMode": "replace",
+  "editor.suggestSelection": "recentlyUsedByPrefix",
+  "editor.tabCompletion": "onlySnippets",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 120,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "workbench.enableExperiments": false,
+  "workbench.list.smoothScrolling": true,
+  "workbench.settings.editor": "json",
+  "workbench.settings.useSplitJSON": true,
+  "workbench.startupEditor": "none",
+  "window.closeWhenEmpty": true,
+  "window.menuBarVisibility": "classic",
+  "files.autoGuessEncoding": true,
+  "files.autoSave": "onFocusChange",
+  "files.eol": "auto",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "explorer.incrementalNaming": "smart",
+  "search.actionsPosition": "auto",
+  "search.collapseResults": "auto",
+  "search.showLineNumbers": true,
+  "search.smartCase": true,
+  "update.mode": "manual",
+  "extensions.autoCheckUpdates": false,
+  "extensions.ignoreRecommendations": true,
+  "problems.showCurrentInStatus": true,
+  "todo-tree.highlights.defaultHighlight": {
+    "icon": "alert",
+    "foreground": "#ecf5ff",
+    "background": "#409eff",
+    "rulerColour": "#409eff",
+    "iconColour": "#409eff",
+    "rulerLane": "full",
+    "gutterIcon": true,
+    "type": "tag"
+  },
+  "todo-tree.highlights.customHighlight": {
+    "BUG": {
+      "foreground": "#000000",
+      "background": "#f56c6c",
+      "rulerColour": "#f56c6c",
+      "iconColour": "#f56c6c"
+    },
+    "TODO": {
+      "icon": "check"
+    },
+    "FIXME": {
+      "foreground": "#000000",
+      "background": "#FFFF00",
+      "rulerColour": "#FFFF00",
+      "iconColour": "#FFFF00"
+    }
+  },
+  // 使用 path-intellisense 禁用vscode自带路径智能感知
+  "typescript.suggest.paths": false,
+  "javascript.suggest.paths": false,
+  "markdown.suggest.paths.enabled": false,
+  "[php]": {
+    // 指定 php 文件的 tab 为 4空格
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "[markdown]": {
+    // 指定 markdown 文件的 tab 为 4 空格
+    "editor.tabSize": 4
+  },
+  "npm-intellisense.importLinebreak": ";\n",
+  "workbench.colorTheme": "Dracula",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "remote.SSH.remotePlatform": {
+    "lnmp_www": "linux"
+  },
+  "workbench.iconTheme": "material-icon-theme"
+}

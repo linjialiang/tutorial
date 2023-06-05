@@ -39,4 +39,20 @@ module.exports = {
   endOfLine: 'auto',
   // 格式化内嵌代码
   embeddedLanguageFormatting: 'auto',
+  // 请注意：使用 vscode 编辑器，指定语法的 tabWidth 就不需要再 prettier 设置，
+  // 因为 vscode 可以让md文件识别到其它语法的 tabWidth ，而 prettier 无法让md文件是被其它语法的 tabWidth
+  overrides: [
+    {
+      files: ['*.md'],
+      options: {
+        tabWidth: 4,
+      },
+    },
+    {
+      files: ['*.php'],
+      options: {
+        tabWidth: 4,
+      },
+    },
+  ],
 };
