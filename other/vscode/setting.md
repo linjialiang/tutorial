@@ -63,3 +63,15 @@ prettier 无法识别 ES6 模块导入语法
 ::: details 示例：
 <<< @/assets/vscode/.prettierrc.js
 :::
+
+## prettier 忽略配置文件
+
+prettier 忽略配置文件名 `.prettierignore`
+
+```
+package.json
+pnpm-lock.yaml
+.vitepress/dist/
+.vitepress/cache/
+.vitepress/.temp/
+```
