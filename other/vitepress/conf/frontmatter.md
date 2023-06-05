@@ -23,8 +23,8 @@ editLink: true
 
 ### 页面的标题 {#frontmatter-config-title}
 
--   Name: `title`
--   Type: `string`
+- Name: `title`
+- Type: `string`
 
 它与 `config.title` 相同，它覆盖了站点级配置。
 
@@ -36,8 +36,8 @@ title: VitePress
 
 ### 标题的后缀 {#frontmatter-config-title-template}
 
--   Name: `titleTemplate`
--   Type: `string | boolean`
+- Name: `titleTemplate`
+- Type: `string | boolean`
 
 它与 `config.titleTemplate` 相同，它覆盖了站点级配置。
 
@@ -50,8 +50,8 @@ titleTemplate: Vite & Vue powered static site generator
 
 ### 页面的说明 {#frontmatter-config-description}
 
--   Name: `description`
--   Type: `string`
+- Name: `description`
+- Type: `string`
 
 它与 `config.description ` 相同，它覆盖了站点级配置。
 
@@ -63,8 +63,8 @@ description: VitePress
 
 ### 额外头标记 {#frontmatter-config-head}
 
--   Name: `head`
--   Type: `HeadConfig[]`
+- Name: `head`
+- Type: `HeadConfig[]`
 
 将在站点级配置注入的头标记之后追加
 
@@ -94,9 +94,9 @@ type HeadConfig = [string, Record<string, string>] | [string, Record<string, str
 
 #### 页面布局
 
--   Name: `layout`
--   Type: `doc | home | page`
--   Default: `doc`
+- Name: `layout`
+- Type: `doc | home | page`
+- Default: `doc`
 
 ```yaml
 ---
@@ -119,22 +119,22 @@ layout: doc
 layout: home
 
 hero:
-    name: PHP Environment
-    text: PHP 环境搭建
-    tagline: 基于Debian发行版的PHP环境搭建教程
-    image:
-        src: '/assets/svg/php.svg'
-        alt: 'PHP 环境搭建'
-    actions:
-        - theme: brand
-          text: 环境搭建
-          link: /environment/
-        - theme: alt
-          text: SQL
-          link: /sql/common/
-        - theme: alt
-          text: 自述
-          link: /readme
+  name: PHP Environment
+  text: PHP 环境搭建
+  tagline: 基于Debian发行版的PHP环境搭建教程
+  image:
+    src: '/assets/svg/php.svg'
+    alt: 'PHP 环境搭建'
+  actions:
+    - theme: brand
+      text: 环境搭建
+      link: /environment/
+    - theme: alt
+      text: SQL
+      link: /sql/common/
+    - theme: alt
+      text: 自述
+      link: /readme
 ---
 ```
 
@@ -147,22 +147,22 @@ hero:
 layout: home
 
 features:
-    - icon:
-          light: /assets/svg/linux.svg
-          dark: /assets/svg/debian.svg
-      title: Debian 教程
-      details: Linux发行版
-      link: /debian/index
-    - icon:
-          src: /assets/svg/nginx.svg
-      title: Nginx 教程
-      details: Web服务器
-      link: /nginx/index
-    - icon:
-          src: /assets/svg/other.svg
-      title: Other
-      details: 其它文档
-      link: /other/index
+  - icon:
+      light: /assets/svg/linux.svg
+      dark: /assets/svg/debian.svg
+    title: Debian 教程
+    details: Linux发行版
+    link: /debian/index
+  - icon:
+      src: /assets/svg/nginx.svg
+    title: Nginx 教程
+    details: Web服务器
+    link: /nginx/index
+  - icon:
+      src: /assets/svg/other.svg
+    title: Other
+    details: 其它文档
+    link: /other/index
 ---
 ```
 
@@ -172,9 +172,9 @@ features:
 
 说人话：设置当前文件的标题列表导航位置
 
--   Name: `aside`
--   Type: `boolean | 'left'`
--   Default: `true`
+- Name: `aside`
+- Type: `boolean | 'left'`
+- Default: `true`
 
 | 选项     | 说明                   |
 | -------- | ---------------------- |
@@ -188,9 +188,9 @@ features:
 
 说人话：当前文件的标题列表导航展示 `h2-h6` 中哪些级别的标题
 
--   Name: `outline`
--   Type: `number | [number, number] | 'deep' | false`
--   Default: `2`
+- Name: `outline`
+- Type: `number | [number, number] | 'deep' | false`
+- Default: `2`
 
 | 选项               | 说明                      |
 | ------------------ | ------------------------- |
@@ -207,9 +207,9 @@ features:
 
 是否在当前页面的页脚中显示 `上次更新时间` 文本：
 
--   Name: `lastUpdated`
--   Type: `boolean`
--   Default: `true`
+- Name: `lastUpdated`
+- Type: `boolean`
+- Default: `true`
 
 | 选项    | 说明   |
 | ------- | ------ |
@@ -226,9 +226,9 @@ lastUpdated: false
 
 是否在当前页面的页脚中显示 `编辑链接`：
 
--   Name: `editLink`
--   Type: `boolean`
--   Default: `true`
+- Name: `editLink`
+- Type: `boolean`
+- Default: `true`
 
 | 选项    | 说明   |
 | ------- | ------ |

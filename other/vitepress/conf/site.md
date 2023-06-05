@@ -36,7 +36,7 @@ export default {
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
-    // ...
+  // ...
 });
 ```
 
@@ -48,9 +48,9 @@ export default defineConfig({
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
-    themeConfig: {
-        // Type is `DefaultTheme.Config`
-    },
+  themeConfig: {
+    // Type is `DefaultTheme.Config`
+  },
 });
 ```
 
@@ -61,38 +61,38 @@ import { defineConfigWithTheme } from 'vitepress';
 import type { ThemeConfig } from 'your-theme';
 
 export default defineConfigWithTheme<ThemeConfig>({
-    themeConfig: {
-        // Type is `ThemeConfig`
-    },
+  themeConfig: {
+    // Type is `ThemeConfig`
+  },
 });
 ```
 
 #### Vite, Vue & Markdown Config
 
--   Vite
+- Vite
 
-    您可以使用 VitePress 配置中的 [[vite 选项]](https://vitejs.dev/config/) 配置底层 Vite 实例。
+  您可以使用 VitePress 配置中的 [[vite 选项]](https://vitejs.dev/config/) 配置底层 Vite 实例。
 
-    无需创建单独的 Vite 配置文件。
+  无需创建单独的 Vite 配置文件。
 
--   Vue
+- Vue
 
-    VitePress 已经包含了 Vite 的官方 Vue 插件 （ [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue) ）。
+  VitePress 已经包含了 Vite 的官方 Vue 插件 （ [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue) ）。
 
-    您可以使用 VitePress 配置中的 vue 选项配置其选项。
+  您可以使用 VitePress 配置中的 vue 选项配置其选项。
 
--   Markdown
+- Markdown
 
-    您可以使用 VitePress 配置中的 [[markdown 选项]](#markdown) 配置底层 [Markdown-It](https://github.com/markdown-it/markdown-it) 实例。
+  您可以使用 VitePress 配置中的 [[markdown 选项]](#markdown) 配置底层 [Markdown-It](https://github.com/markdown-it/markdown-it) 实例。
 
 ### 站点元数据
 
 #### 网站标题
 
--   Name: `title`
--   Type: `string`
--   Default: `VitePress`
--   可以通过每页的[[前言配置]](#frontmatter-config-title)覆盖
+- Name: `title`
+- Type: `string`
+- Default: `VitePress`
+- 可以通过每页的[[前言配置]](#frontmatter-config-title)覆盖
 
 使用默认主题时，这将显示在导航栏中。
 
@@ -104,7 +104,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
 ```ts [config.ts]
 export default {
-    title: 'My Awesome Site',
+  title: 'My Awesome Site',
 };
 ```
 
@@ -116,9 +116,9 @@ export default {
 
 #### 标题后缀
 
--   Name: `titleTemplate`
--   Type: `string | boolean`
--   可以通过每页的[[前言配置]](#frontmatter-config-title-template)覆盖
+- Name: `titleTemplate`
+- Type: `string | boolean`
+- 可以通过每页的[[前言配置]](#frontmatter-config-title-template)覆盖
 
 允许自定义每个页面的 `标题后缀` 或 `整个标题` 。
 
@@ -128,8 +128,8 @@ export default {
 
 ```ts [config.ts]
 export default {
-    title: 'My Awesome Site',
-    titleTemplate: 'Custom Suffix',
+  title: 'My Awesome Site',
+  titleTemplate: 'Custom Suffix',
 };
 ```
 
@@ -147,7 +147,7 @@ export default {
 
 ```ts [config.ts]
 export default {
-    titleTemplate: ':title - Custom Suffix',
+  titleTemplate: ':title - Custom Suffix',
 };
 ```
 
@@ -167,31 +167,31 @@ export default {
 
 ```ts
 export default {
-    titleTemplate: false,
+  titleTemplate: false,
 };
 ```
 
 #### 网站说明
 
--   Name: `description`
--   Type: `string`
--   Default: `A VitePress site`
--   可以通过每页的[[前言配置]](#frontmatter-config-description)覆盖
+- Name: `description`
+- Type: `string`
+- Default: `A VitePress site`
+- 可以通过每页的[[前言配置]](#frontmatter-config-description)覆盖
 
 这将在页面 HTML 中呈现为 `<meta>` 标记
 
 ```ts
 export default {
-    description: 'A VitePress site',
+  description: 'A VitePress site',
 };
 ```
 
 #### 头部
 
--   Name: `head`
--   Type: `string`
--   Default: `[]`
--   可以通过每页的[[前言配置]](#frontmatter-config-head)追加
+- Name: `head`
+- Type: `string`
+- Default: `[]`
+- 可以通过每页的[[前言配置]](#frontmatter-config-head)追加
 
 ::: warning 注意
 `head` 通过前言配置是 `追加` 而不是 `覆盖`
@@ -205,34 +205,34 @@ export default {
 
 ```ts [config.ts]
 export default {
-    head: [
-        [
-            'link',
-            { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-            // would render:
-            //
-            // <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        ],
+  head: [
+    [
+      'link',
+      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+      // would render:
+      //
+      // <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    ],
 
-        [
-            'script',
-            { id: 'register-sw' },
-            `;(() => {
+    [
+      'script',
+      { id: 'register-sw' },
+      `;(() => {
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/sw.js')
         }
       })()`,
-            // would render:
-            //
-            // <script id="register-sw">
-            // ;(() => {
-            //   if ('serviceWorker' in navigator) {
-            //     navigator.serviceWorker.register('/sw.js')
-            //   }
-            // })()
-            // </script>
-        ],
+      // would render:
+      //
+      // <script id="register-sw">
+      // ;(() => {
+      //   if ('serviceWorker' in navigator) {
+      //     navigator.serviceWorker.register('/sw.js')
+      //   }
+      // })()
+      // </script>
     ],
+  ],
 };
 ```
 
@@ -244,23 +244,23 @@ type HeadConfig = [string, Record<string, string>] | [string, Record<string, str
 
 #### 网址 lang 属性
 
--   Name: `lang`
--   Type: `string`
--   Default: `en-US`
+- Name: `lang`
+- Type: `string`
+- Default: `en-US`
 
 这将在页面 HTML 中呈现为 `<html lang="en-US">` 标记
 
 ```ts
 export default {
-    lang: 'en-US',
+  lang: 'en-US',
 };
 ```
 
 #### 部署站点的基本 URL
 
--   Name: `base`
--   Type: `string`
--   Default: `/`
+- Name: `base`
+- Type: `string`
+- Default: `/`
 
 如果您计划在子路径（例如 GitHub 页面）下部署站点，则需要设置此设置。
 
@@ -268,7 +268,7 @@ export default {
 
 ```ts
 export default {
-    base: '/base/',
+  base: '/base/',
 };
 ```
 
@@ -276,23 +276,23 @@ export default {
 
 #### 源目录
 
--   Name: `srcDir`
--   Type: `string`
--   Default: `.`
+- Name: `srcDir`
+- Type: `string`
+- Default: `.`
 
 存储 markdown 页面的目录（相对于项目根目录）。
 
 ```ts
 export default {
-    srcDir: './src',
+  srcDir: './src',
 };
 ```
 
 #### 排除文件
 
--   Name: `srcExclude`
--   Type: `string`
--   Default: `undefined`
+- Name: `srcExclude`
+- Type: `string`
+- Default: `undefined`
 
 用于匹配应作为源内容排除的 Markdown 文件的 glob 模式。
 
@@ -300,35 +300,35 @@ export default {
 
 ```ts
 export default {
-    srcExclude: ['**/README.md', '**/TODO.md'],
+  srcExclude: ['**/README.md', '**/TODO.md'],
 };
 ```
 
 #### 输出目录
 
--   Name: `outDir`
--   Type: `string`
--   Default: `./.vitepress/dist`
+- Name: `outDir`
+- Type: `string`
+- Default: `./.vitepress/dist`
 
 站点相对于项目根目录的生成输出位置，相对于 `./.vitepress` 目录。
 
 ```ts
 export default {
-    outDir: '../public',
+  outDir: '../public',
 };
 ```
 
 #### 缓存目录
 
--   Name: `cacheDir`
--   Type: `string`
--   Default: `./.vitepress/cache`
+- Name: `cacheDir`
+- Type: `string`
+- Default: `./.vitepress/cache`
 
 缓存文件的目录，相对于 [项目根目录](./route#root-dir) 。
 
 ```ts
 export default {
-    cacheDir: './.vitepress/.vite',
+  cacheDir: './.vitepress/.vite',
 };
 ```
 
@@ -336,9 +336,9 @@ export default {
 
 #### 死链验证
 
--   Name: `ignoreDeadLinks`
--   Type: `boolean | 'localhostLinks' | (string | RegExp | ((link: string) => boolean))[]`
--   Default: `false`
+- Name: `ignoreDeadLinks`
+- Type: `boolean | 'localhostLinks' | (string | RegExp | ((link: string) => boolean))[]`
+- Default: `false`
 
 当设置为 `true` 时，VitePress 不会因为死链接而使构建失败。
 
@@ -346,7 +346,7 @@ export default {
 
 ```ts
 export default {
-    ignoreDeadLinks: true,
+  ignoreDeadLinks: true,
 };
 ```
 
@@ -354,18 +354,18 @@ export default {
 
 ```ts
 export default {
-    ignoreDeadLinks: [
-        // ignore exact url "/playground"
-        '/playground',
-        // ignore all localhost links
-        /^https?:\/\/localhost/,
-        // ignore all links include "/repl/""
-        /\/repl\//,
-        // custom function, ignore all links include "ignore"
-        (url) => {
-            return url.toLowerCase().includes('ignore');
-        },
-    ],
+  ignoreDeadLinks: [
+    // ignore exact url "/playground"
+    '/playground',
+    // ignore all localhost links
+    /^https?:\/\/localhost/,
+    // ignore all links include "/repl/""
+    /\/repl\//,
+    // custom function, ignore all links include "ignore"
+    (url) => {
+      return url.toLowerCase().includes('ignore');
+    },
+  ],
 };
 ```
 
@@ -375,9 +375,9 @@ export default {
 
 #### 是否启用深色模式
 
--   Name: `appearance`
--   Type: `boolean | 'dark'`
--   Default: `true`
+- Name: `appearance`
+- Type: `boolean | 'dark'`
+- Default: `true`
 
 ```ts
 export default { appearance: true };
@@ -395,9 +395,9 @@ export default { appearance: true };
 
 #### 是否启用最新更新
 
--   Name: `lastUpdated`
--   Type: `boolean`
--   Default: `false`
+- Name: `lastUpdated`
+- Type: `boolean`
+- Default: `false`
 
 是否使用 Git 获取每个页面的上次更新时间戳。时间戳将包含在每个页面的页面数据中，可通过 `useData` 访问。
 
@@ -413,8 +413,8 @@ export default defineConfig({ lastUpdated: true });
 
 ```ts
 export default defineConfig({
-    lastUpdated: true,
-    themeConfig: { lastUpdatedText: '最近更新' },
+  lastUpdated: true,
+  themeConfig: { lastUpdatedText: '最近更新' },
 });
 ```
 
@@ -430,7 +430,7 @@ VitePress 使用 Markdown-it 作为解析器，使用 Shiki 来突出显示语�
 
 ```ts
 export default {
-    markdown: { lineNumbers: false },
+  markdown: { lineNumbers: false },
 };
 ```
 

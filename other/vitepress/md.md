@@ -11,8 +11,8 @@ VitePress 内置了 Markdown 扩展，下面是详细介绍。
 
 VitePress 可以使用 `markdown.anchor` 选项配置定位点的呈现，支持 `标头` 和 `普通行`
 
--   标头：允许您链接到标题为 `#root-dir` 而不是默认的 `#项目根目录`
--   普通行：无需标头，也可以快捷设置锚链接
+- 标头：允许您链接到标题为 `#root-dir` 而不是默认的 `#项目根目录`
+- 普通行：无需标头，也可以快捷设置锚链接
 
 ::: code-group
 
@@ -272,14 +272,14 @@ export default {
 
 ```js [输出 js]
 export default {
-    name: 'MyComponent',
-    // ...
+  name: 'MyComponent',
+  // ...
 };
 ```
 
 ```html [输出 html]
 <ul>
-    <li v-for="todo in todos" :key="todo.id">{{ todo.text }}</li>
+  <li v-for="todo in todos" :key="todo.id">{{ todo.text }}</li>
 </ul>
 ```
 
@@ -289,10 +289,10 @@ export default {
 
 代码块中的行高亮，支持多种指定方式：
 
--   单行，例如： `{3}`
--   行范围，例如：`{5-8}`
--   多条单行，例如：`{4,7,9}`
--   行范围和单行组合，例如：`{4,7-13,16,23-27,40}`
+- 单行，例如： `{3}`
+- 行范围，例如：`{5-8}`
+- 多条单行，例如：`{4,7,9}`
+- 行范围和单行组合，例如：`{4,7-13,16,23-27,40}`
 
 ::: code-group
 
@@ -373,11 +373,11 @@ export default {
 
 ```js [输出]
 export default {
-    data() {
-        return {
-            msg: 'Highlighted!', // [!code hl]
-        };
-    },
+  data() {
+    return {
+      msg: 'Highlighted!', // [!code hl]
+    };
+  },
 };
 ```
 
@@ -405,11 +405,11 @@ export default {
 
 ```js [单行聚焦输出]
 export default {
-    data() {
-        return {
-            msg: 'Focused!', // [!code focus]
-        };
-    },
+  data() {
+    return {
+      msg: 'Focused!', // [!code focus]
+    };
+  },
 };
 ```
 
@@ -428,12 +428,12 @@ export default {
 
 ```js [多行聚焦输出]
 export default {
-    data() {
-        // [!code focus:4]
-        return {
-            msg: 'Focused!',
-        };
-    },
+  data() {
+    // [!code focus:4]
+    return {
+      msg: 'Focused!',
+    };
+  },
 };
 ```
 
@@ -492,12 +492,12 @@ export default {
 
 ```js [输出]
 export default {
-    data() {
-        return {
-            msg: 'Error', // [!code error]
-            msg: 'Warning', // [!code warning]
-        };
-    },
+  data() {
+    return {
+      msg: 'Error', // [!code error]
+      msg: 'Warning', // [!code warning]
+    };
+  },
 };
 ```
 
@@ -509,9 +509,9 @@ export default {
 
 ```ts
 export default {
-    markdown: {
-        lineNumbers: true,
-    },
+  markdown: {
+    lineNumbers: true,
+  },
 };
 ```
 
@@ -650,7 +650,7 @@ export default config;
  * @type {import('vitepress').UserConfig}
  */
 const config = {
-    // ...
+  // ...
 };
 
 export default config;
@@ -660,7 +660,7 @@ export default config;
 import type { UserConfig } from 'vitepress';
 
 const config: UserConfig = {
-    // ...
+  // ...
 };
 
 export default config;
