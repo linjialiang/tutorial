@@ -431,6 +431,6 @@ PHP 开发我更多的是使用 PhpStorm ，这款插件没怎么使用
 
 ::: details ssh 配置文件
 ::: code-group
-<<< @/assets/vscode/ssh/config-windows.conf [windows]
-<<< @/assets/vscode/ssh/config-linux.conf [linux]
+<<< @/assets/vscode/ssh/config-windows.ini [windows]
+<<< @/assets/vscode/ssh/config-linux.ini [linux]
 :::
