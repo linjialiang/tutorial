@@ -425,11 +425,11 @@ PHP 开发我更多的是使用 PhpStorm ，这款插件没怎么使用
 
 :::
 
+<<< @/assets/vscode/ssh/config-windows.bash{txt}
+
+<<< @/assets/vscode/ssh/config-linux.bash{txt}
+
 ::: code-group
-
-<<< @/assets/vscode/ssh/config-windows.ini [windows]
-
-<<< @/assets/vscode/ssh/config-linux.ini [linux]
 
 :::
 
