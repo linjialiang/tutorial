@@ -1,3 +1,16 @@
 {
-  "cSpell.words": ["frontmatter", "gitee", "lnmp", "pgsql", "publickey", "Shiki", "Themeable", "vitepress"]
+  "cSpell.words": [
+    "bcmath",
+    "ctype",
+    "frontmatter",
+    "gitee",
+    "intelephense",
+    "Laravel",
+    "lnmp",
+    "pgsql",
+    "publickey",
+    "Shiki",
+    "Themeable",
+    "vitepress"
+  ]
 }

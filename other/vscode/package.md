@@ -33,6 +33,7 @@ titleTemplate: vscode 教程
 16. [Arm Assembly](#arm-assembly)
 
 :::
+
 ::: details 前端插件
 
 1. [ESLint](#eslint)
@@ -41,12 +42,14 @@ titleTemplate: vscode 教程
 4. [stylelint](#stylelint)
 
 :::
+
 ::: details 前端插件 Vue3 插件
 
 1. [Vue Language Features (Volar)](#volar)
 2. [TypeScript Vue Plugin](#typescript-vue-plugin)
 
 :::
+
 ::: details 前端插件 php 插件
 
 1. [PHP Intelephense](#php-intelephense)
@@ -54,6 +57,7 @@ titleTemplate: vscode 教程
 3. [PHP Namespace Resolver](#php-namespace-resolver)
 
 :::
+
 ::: details 前端插件远程控制插件
 
 1. [Remote - SSH](#remote-ssh)
@@ -391,7 +395,7 @@ PHP Intelephense 为 vscode 提供 PHP 开发者的 IDE 工具
 > 项目中指定配置：
 
 ::: details 针对当前项目的配置
-<<< @/assets/vscode/php-settings.json
+<<< @/assets/vscode/php-settings.txt{json}
 
 ::: tip 提示
 PHP Intelephense 插件不依赖于本地 php 环境
@@ -425,12 +429,8 @@ PHP 开发我更多的是使用 PhpStorm ，这款插件没怎么使用
 
 :::
 
-<<< @/assets/vscode/ssh/config-windows.bash{txt}
-
-<<< @/assets/vscode/ssh/config-linux.bash{txt}
-
+::: details ssh 配置文件
 ::: code-group
-
+<<< @/assets/vscode/ssh/config-windows.conf [windows]
+<<< @/assets/vscode/ssh/config-linux.conf [linux]
 :::
-
-fasgfag11
