@@ -79,5 +79,5 @@ pnpm-lock.yaml
 ## php 项目的工作区配置
 
 ::: details
-<<< @/assets/vscode/php-settings.json
+<<< @/assets/vscode/php-settings.txt{json}
 :::
