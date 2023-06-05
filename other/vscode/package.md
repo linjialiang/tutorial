@@ -140,7 +140,7 @@ PathIntellisense 使用 `ts.config.compilerOptions.baseUrl` 作为映射，所�
 
 > 目录结构
 
-```text
+```txt
 src/module-a/foo.ts
 src/module-b/foo.ts
 ```
@@ -425,11 +425,12 @@ PHP 开发我更多的是使用 PhpStorm ，这款插件没怎么使用
 
 :::
 
-::: details 配置文件：
-
 ::: code-group
 
-<<< @/assets/vscode/ssh/config-windows{ini} [windows]
-<<< @/assets/vscode/ssh/config-linux{ini} [linux]
+<<< @/assets/vscode/ssh/config-windows.ini [windows]
+
+<<< @/assets/vscode/ssh/config-linux.ini [linux]
 
 :::
+
+fasgfag11
