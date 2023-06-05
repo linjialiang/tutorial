@@ -13,28 +13,30 @@ titleTemplate: vscode 教程
 
 ## 插件列表
 
-::: details 通用插件
+::: tip 通用插件
 
 1. [Chinese (Simplified) ...](#chinese)
 2. [One Dark Pro](#one-dark-pro)
-3. [Material Icon Theme](#material-icon)
-4. [GitLens — Git supercharged](#gitlens)
-5. [Prettier - Code formatter](#prettier)
-6. [Path Intellisense](#path-intellisense)
-7. [Project Manager](#project-manager)
-8. [Todo Tree](#todo-tree)
-9. [IntelliCode](#intellicode)
-10. [IntelliCode API Usage Examples](#intellicode-api-usage-examples)
-11. [Code Spell Checker](#code-spell-checker)
-12. [Better Align](#better-align)
-13. [indent-rainbow](#indent-rainbow)
-14. [Polacode-2022](#polacode-2020)
-15. [Hex Editor](#hex-editor)
-16. [Arm Assembly](#arm-assembly)
+3. Dracula Official
+4. Nord
+5. [Material Icon Theme](#material-icon)
+6. [GitLens — Git supercharged](#gitlens)
+7. [Prettier - Code formatter](#prettier)
+8. [Path Intellisense](#path-intellisense)
+9. [Project Manager](#project-manager)
+10. [Todo Tree](#todo-tree)
+11. [IntelliCode](#intellicode)
+12. [IntelliCode API Usage Examples](#intellicode-api-usage-examples)
+13. [Code Spell Checker](#code-spell-checker)
+14. [Better Align](#better-align)
+15. [indent-rainbow](#indent-rainbow)
+16. [Polacode-2022](#polacode-2020)
+17. [Hex Editor](#hex-editor)
+18. [Arm Assembly](#arm-assembly)
 
 :::
 
-::: details 前端插件
+::: tip 前端插件
 
 1. [ESLint](#eslint)
 2. [npm Intellisense](#npm-intellisense)
@@ -43,14 +45,14 @@ titleTemplate: vscode 教程
 
 :::
 
-::: details 前端插件 Vue3 插件
+::: tip 前端插件 Vue3 插件
 
 1. [Vue Language Features (Volar)](#volar)
 2. [TypeScript Vue Plugin](#typescript-vue-plugin)
 
 :::
 
-::: details 前端插件 php 插件
+::: tip 前端插件 php 插件
 
 1. [PHP Intelephense](#php-intelephense)
 2. [PHP DocBlocker](#php-docblocker)
@@ -58,7 +60,7 @@ titleTemplate: vscode 教程
 
 :::
 
-::: details 前端插件远程控制插件
+::: tip 前端插件远程控制插件
 
 1. [Remote - SSH](#remote-ssh)
 2. Remote - SSH: Editing Configuration Files
@@ -142,33 +144,27 @@ vscode 内置对 js、ts、markdown 启用路径感知，如果使用了 `Path I
 
 PathIntellisense 使用 `ts.config.compilerOptions.baseUrl` 作为映射，所以只需要在 tsconfig 配置 1 次即可，案例如下：
 
-> 目录结构
+::: code-group
 
-```txt
+```txt [目录结构]
 src/module-a/foo.ts
 src/module-b/foo.ts
 ```
 
-> tsconfig 配置
-
-```json
+```json [tsconfig 配置]
 // tsconfig
 {
   "baseUrl": "src"
 }
 ```
 
-> 用法:
-
-```ts
+```ts [用法]
 {
   import {} from 'module-a/foo.ts';
 }
 ```
 
-> 禁用 TsConfig 支持
-
-```json
+```json [禁用 TsConfig 支持]
 {
   // 将其设置为 true 来禁用对TsConfig 的支持
   "path-intellisense.ignoreTsConfigBaseUrl": true
@@ -200,9 +196,7 @@ vscode 下强大的项目管理插件
 
 :::
 
-> 快捷键列表：
-
-| 按键               | 功能             |
+| 快捷键             | 功能             |
 | ------------------ | ---------------- |
 | `shift+alt+p`      | 快速切换项目     |
 | `ctrl+shift+alt+p` | 项目从新窗口打开 |
@@ -282,9 +276,7 @@ Code Spell Checker 是一款拼写检查插件，目标是帮助捕获常见的�
 
 :::
 
-> 快捷键列表：
-
-| 按键            | 说明                 |
+| 快捷键          | 说明                 |
 | --------------- | -------------------- |
 | `ctrl+k ctrl+=` | 将所选行进行符号对齐 |
 
@@ -334,9 +326,9 @@ vscode 支持 ESLint，关于 ESLint 请到 [基础工具](/basic-tools/eslint) 
    "npm-intellisense.importES6": false,
    ```
 
-   > 前端框架没有这个问题，因为都会通过 babel 转换，所以保持默认开启状态
-
 ::: tip
+前端框架没有这个问题，因为都会通过 babel 转换，所以保持默认开启状态
+
 npm Intellisense 与 Path Intellisense 插件是同一个作者
 :::
 
