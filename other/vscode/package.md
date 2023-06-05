@@ -391,8 +391,7 @@ PHP Intelephense 为 vscode 提供 PHP 开发者的 IDE 工具
 > 项目中指定配置：
 
 ::: details 针对当前项目的配置
-<<<@/assets/vscode/source/quick/php/settings.json
-:::
+<<< @/assets/vscode/php-settings.json
 
 ::: tip 提示
 PHP Intelephense 插件不依赖于本地 php 环境
@@ -428,10 +427,9 @@ PHP 开发我更多的是使用 PhpStorm ，这款插件没怎么使用
 
 ::: details 配置文件：
 
-> 路径： `~\.ssh\config`
+::: code-group
 
-<<<@/assets/vscode/source/quick/remote/config.ini
-
-> 更多内容请参考[ssh](/debian/gnome/ssh)
+<<< @/assets/vscode/ssh/config-windows{ini} [windows]
+<<< @/assets/vscode/ssh/config-linux{ini} [linux]
 
 :::
