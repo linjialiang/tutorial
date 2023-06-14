@@ -7,6 +7,10 @@ titleTemplate: 环境搭建教程
 
 PHP 项目首选关系型数据库是 MySQL，这里以 MySQL8.0 为例
 
+::: danger 警告
+MySQL 官方还未适配 Debian12 的源，所以这里先不安装
+:::
+
 ## 安装 MySQL
 
 推荐使用 MySQL 官方的 apt 源来安装 MySQL8.0
