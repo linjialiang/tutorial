@@ -5,6 +5,10 @@ titleTemplate: 环境搭建教程
 
 # {{ $frontmatter.title }}
 
+::: danger 警告
+php 8.2.7 重新生成 configure 时会报警告
+:::
+
 PHP（`PHP: Hypertext Preprocessor`，超文本预处理器的字母缩写）是一种被广泛应用的开放源代码的多用途脚本语言，它可嵌入到 HTML 中，尤其适合 web 开发。
 
 构建 PHP 时可以直接指定 MySQL 的 socket 路径，所以建议在 MySQL 之后安装
