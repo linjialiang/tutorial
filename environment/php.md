@@ -63,8 +63,8 @@ PHP 扩展库按加载时间可分为：`动态库(共享扩展)` 和 `静态库
 本次计划构建 2 个 php 版本：
 
 1. `php 7.4.33`
-2. `php 8.0.28`
-3. `php 8.1.16`
+2. `php 8.0.29`
+3. `php 8.1.20`
 4. `php 8.2.3`
 
 ## 静态编译 PECL 扩展
@@ -82,17 +82,17 @@ cp -p -r redis-5.3.7 /package/php-7.4.33/ext/redis
 cp -p -r yaml-2.2.3 /package/php-7.4.33/ext/yaml
 cp -p -r apcu-5.1.22 /package/php-7.4.33/ext/apcu
 # 拷贝到 php 8.0 源码的扩展目录
-cp -p -r redis-5.3.7 /package/php-8.0.28/ext/redis
-cp -p -r yaml-2.2.3 /package/php-8.0.28/ext/yaml
-cp -p -r apcu-5.1.22 /package/php-8.0.28/ext/apcu
+cp -p -r redis-5.3.7 /package/php-8.0.29/ext/redis
+cp -p -r yaml-2.2.3 /package/php-8.0.29/ext/yaml
+cp -p -r apcu-5.1.22 /package/php-8.0.29/ext/apcu
 # 拷贝到 php 8.1 源码的扩展目录
-cp -p -r redis-5.3.7 /package/php-8.1.16/ext/redis
-cp -p -r yaml-2.2.3 /package/php-8.1.16/ext/yaml
-cp -p -r apcu-5.1.22 /package/php-8.1.16/ext/apcu
+cp -p -r redis-5.3.7 /package/php-8.1.20/ext/redis
+cp -p -r yaml-2.2.3 /package/php-8.1.20/ext/yaml
+cp -p -r apcu-5.1.22 /package/php-8.1.20/ext/apcu
 # 拷贝到 php 8.2 源码的扩展目录
-cp -p -r redis-5.3.7 /package/php-8.2.5/ext/redis
-cp -p -r yaml-2.2.3 /package/php-8.2.5/ext/yaml
-cp -p -r apcu-5.1.22 /package/php-8.2.5/ext/apcu
+cp -p -r redis-5.3.7 /package/php-8.2.7/ext/redis
+cp -p -r yaml-2.2.3 /package/php-8.2.7/ext/yaml
+cp -p -r apcu-5.1.22 /package/php-8.2.7/ext/apcu
 ```
 
 ### 2. 重新生成 php 配置
@@ -115,15 +115,15 @@ cd /package/php-7.4.33/
 mv configure{,.original}
 ./buildconf --force
 # php8.0 重新生成 configure 配置脚本
-cd /package/php-8.0.28/
+cd /package/php-8.0.29/
 mv configure{,.original}
 ./buildconf --force
 # php8.1 重新生成 configure 配置脚本
-cd /package/php-8.1.16/
+cd /package/php-8.1.20/
 mv configure{,.original}
 ./buildconf --force
 # php8.2 重新生成 configure 配置脚本
-cd /package/php-8.2.5/
+cd /package/php-8.2.7/
 mv configure{,.original}
 ./buildconf --force
 ```
@@ -195,9 +195,9 @@ apt install g++ libcurl4-openssl-dev libssl-dev libavif-dev libwebp-dev libonig-
 
 ```bash
 mkdir /package/php-7.4.33/build_php
-mkdir /package/php-8.0.28/build_php
-mkdir /package/php-8.1.16/build_php
-mkdir /package/php-8.2.5/build_php
+mkdir /package/php-8.0.29/build_php
+mkdir /package/php-8.1.20/build_php
+mkdir /package/php-8.2.7/build_php
 ```
 
 ### 3. 环境变量
@@ -258,11 +258,11 @@ sqlite3          SQLite - SQL database engine
 # php7.4 构建目录
 cd /package/php-7.4.33/build_php/
 # php8.0 构建目录
-cd /package/php-8.0.28/build_php/
+cd /package/php-8.0.29/build_php/
 # php8.1 构建目录
-cd /package/php-8.1.16/build_php/
+cd /package/php-8.1.20/build_php/
 # php8.2 构建目录
-cd /package/php-8.2.5/build_php/
+cd /package/php-8.2.7/build_php/
 ```
 
 ### 6. 安装指令
@@ -351,11 +351,11 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 # php7.4
 cp /package/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
 # php8.0
-cp /package/php-8.0.28/php.ini-production /server/php/80/lib/php.ini
+cp /package/php-8.0.29/php.ini-production /server/php/80/lib/php.ini
 # php8.1
-cp /package/php-8.1.16/php.ini-production /server/php/81/lib/php.ini
+cp /package/php-8.1.20/php.ini-production /server/php/81/lib/php.ini
 # php8.2
-cp /package/php-8.2.5/php.ini-production /server/php/82/lib/php.ini
+cp /package/php-8.2.7/php.ini-production /server/php/82/lib/php.ini
 ```
 
 :::
@@ -366,11 +366,11 @@ cp /package/php-8.2.5/php.ini-production /server/php/82/lib/php.ini
 # php7.4
 cp /package/php-7.4.33/php.ini-development /server/php/74/lib/php.ini
 # php8.0
-cp /package/php-8.0.28/php.ini-development /server/php/80/lib/php.ini
+cp /package/php-8.0.29/php.ini-development /server/php/80/lib/php.ini
 # php8.1
-cp /package/php-8.1.16/php.ini-development /server/php/81/lib/php.ini
+cp /package/php-8.1.20/php.ini-development /server/php/81/lib/php.ini
 # php8.2
-cp /package/php-8.2.5/php.ini-development /server/php/82/lib/php.ini
+cp /package/php-8.2.7/php.ini-development /server/php/82/lib/php.ini
 ```
 
 :::
@@ -557,21 +557,21 @@ PHP-FPM 自带了一套比较完善的进程管理指令，编译完成后还会
 
 ::: details php8.0 参考案例：
 
-> 路径：/package/php-8.0.28/build_php/sapi/fpm/php-fpm.service
+> 路径：/package/php-8.0.29/build_php/sapi/fpm/php-fpm.service
 
 <<<@/assets/lnmp/source/service/php/80/php-fpm.service.ini
 :::
 
 ::: details php8.1 参考案例：
 
-> 路径：/package/php-8.1.16/build_php/sapi/fpm/php-fpm.service
+> 路径：/package/php-8.1.20/build_php/sapi/fpm/php-fpm.service
 
 <<<@/assets/lnmp/source/service/php/81/php-fpm.service.ini
 :::
 
 ::: details php8.2 参考案例：
 
-> 路径：/package/php-8.2.5/build_php/sapi/fpm/php-fpm.service
+> 路径：/package/php-8.2.7/build_php/sapi/fpm/php-fpm.service
 
 <<<@/assets/lnmp/source/service/php/82/php-fpm.service.ini
 :::
@@ -796,16 +796,16 @@ composer install
 ```bash
 cd /package/php_ext
 # 拷贝到 php 8.2 源码的扩展目录
-cp -p -r redis-5.3.7 /package/php-8.2.5/ext/redis
-cp -p -r yaml-2.2.3 /package/php-8.2.5/ext/yaml
-cp -p -r apcu-5.1.22 /package/php-8.2.5/ext/apcu
+cp -p -r redis-5.3.7 /package/php-8.2.7/ext/redis
+cp -p -r yaml-2.2.3 /package/php-8.2.7/ext/yaml
+cp -p -r apcu-5.1.22 /package/php-8.2.7/ext/apcu
 ```
 
 > 重新生成 configure 配置脚本
 
 ```bash
 # php8.2 重新生成 configure 配置脚本
-cd /package/php-8.2.5/
+cd /package/php-8.2.7/
 mv configure{,.original}
 ./buildconf --force
 ```
@@ -817,7 +817,7 @@ PHP 没有跨大版本更新，并且没有新增扩展，通常不需要安装�
 ### 3. 创建构建目录
 
 ```bash
-mkdir /package/php-8.2.5/build_php
+mkdir /package/php-8.2.7/build_php
 ```
 
 ### 4. 环境变量
@@ -832,7 +832,7 @@ export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
 
 ```bash
 # php8.1 构建目录
-cd /package/php-8.2.5/build_php/
+cd /package/php-8.2.7/build_php/
 ```
 
 ### 6. 构建指令
