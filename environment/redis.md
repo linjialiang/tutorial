@@ -208,7 +208,7 @@ logfile "/server/logs/redis/redis.log"
 
     指定在超过一定的数量或者最大的元素超过某一临界值时，采用一种特殊的哈希算法
 
-    ```conf
+    ```txt
     hash-max-zipmap-entries 64
     hash-max-zipmap-value 512
     ```
