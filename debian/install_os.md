@@ -101,8 +101,6 @@ titleTemplate: Debian 教程
 
 ## 软件源
 
-> 这是 Debian 12 处于测试环境的软件源列表说明：
-
 | bookworm 版本             | 说明                               |
 | ------------------------- | ---------------------------------- |
 | bookworm                  | bookworm 软件源                    |
@@ -135,6 +133,6 @@ deb http://mirrors.ustc.edu.cn/debian-security/ bookworm-security main contrib n
 deb-src http://mirrors.ustc.edu.cn/debian-security/ bookworm-security main contrib non-free non-free-firmware
 ```
 
-::: warning 说明
+::: tip 提示
 debian12 稳定版在 wmware 上已经完成安装测试
 :::
