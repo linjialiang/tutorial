@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "adminer",
     "backports",
     "bcmath",
     "ctype",
@@ -9,6 +10,7 @@
     "Laravel",
     "lnmp",
     "pgsql",
+    "phpinfo",
     "publickey",
     "Shiki",
     "Themeable",

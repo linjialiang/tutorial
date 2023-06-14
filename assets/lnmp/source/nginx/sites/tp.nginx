@@ -1,0 +1,52 @@
+# /server/sites/*.conf
+server
+{
+    listen 80;
+    server_name tp.com;
+    root /server/www/tp/public;
+
+    access_log /server/logs/nginx/tp.log;
+    index index.html index.php;
+
+    # 设置站点仅至允许 GET、POST 请求
+    if ($request_method !~* GET|POST|OPTIONS)
+    {
+        return 403;
+    }
+
+    # 静态资源启用缓存设置
+    # include custom/cache;       # 部署环境启用
+
+    # 加载请求限制，server区域，需要结合http区块
+    # include custom/limit_req_server;  # 部署环境启用
+
+    # 统一入口
+    location /
+    {
+        # 隐藏入口文件，如果文件或目录不存在，则尝试使用入口文件解析
+        if (!-e $request_filename){
+            rewrite  ^(.*)$  /index.php?s=$1  last;
+            break;
+        }
+
+        # 开启跨域请求处理，看自己的后端项目有否需要接受外部请求
+        # 内容见 cross_domain 配置
+    }
+
+    # 对所有存在 .php 的url地址做转发处理
+    # 去掉 \.php$ 中的 $ 是为了不匹配行末，即可以匹配 .php/，以实现 path_info
+    location ~ \.php
+    {
+        # 转发的 phpfpm 版本
+        fastcgi_pass                unix:/server/run/php/qy.sock;
+
+        # 根据文件名转发，完全不需要配置 fastcgi_index
+        # fastcgi_index   index.php;
+
+        # 载入官方最新版的 fastcgi_params
+        include                     fastcgi.conf;
+    }
+
+    # 禁止访问的目录或文件
+    # include custom/no_access;   # 部署环境可以需要启用，更加安全
+}

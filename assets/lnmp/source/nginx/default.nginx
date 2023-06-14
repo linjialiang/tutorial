@@ -1,0 +1,121 @@
+# /server/nginx/conf/custom/default.conf
+
+## php7.4 默认站点
+server
+{
+    listen 80;
+    server_name 74.php.com;
+    root /server/default;
+    index index.php;
+
+    location /
+    {
+        access_log      off;    # 关闭访问日志
+        log_not_found   off;    # 关闭错误日志
+    }
+
+    # 允许 192.168.10 段的局域网访问
+    allow 192.168.10.0/24;
+    # 允许 192.168.1 段的局域网访问
+    allow 192.168.1.0/24;
+    deny all;
+
+    # php-fpm 转发
+    location ~ \.php
+    {
+        fastcgi_pass        unix:/server/run/php/74.sock;
+        # 根据文件名转发，完全不需要配置 fastcgi_index
+        # fastcgi_index     index.php;
+        include             fastcgi.conf;
+    }
+}
+
+## php8.0 默认站点
+server
+{
+    listen 80;
+    server_name 80.php.com;
+    root /server/default;
+    index index.php;
+
+    location /
+    {
+        access_log      off;    # 关闭访问日志
+        log_not_found   off;    # 关闭错误日志
+    }
+
+    # 允许 192.168.10 段的局域网访问
+    allow 192.168.10.0/24;
+    # 允许 192.168.1 段的局域网访问
+    allow 192.168.1.0/24;
+    deny all;
+
+    # php-fpm 转发
+    location ~ \.php
+    {
+        fastcgi_pass        unix:/server/run/php/80.sock;
+        # 根据文件名转发，完全不需要配置 fastcgi_index
+        # fastcgi_index     index.php;
+        include             fastcgi.conf;
+    }
+}
+
+## php8.1 默认站点
+server
+{
+    listen 80;
+    server_name 81.php.com;
+    root /server/default;
+    index index.php;
+
+    location /
+    {
+        access_log      off;    # 关闭访问日志
+        log_not_found   off;    # 关闭错误日志
+    }
+
+    # 允许 192.168.10 段的局域网访问
+    allow 192.168.10.0/24;
+    # 允许 192.168.1 段的局域网访问
+    allow 192.168.1.0/24;
+    deny all;
+
+    # php-fpm 转发
+    location ~ \.php
+    {
+        fastcgi_pass        unix:/server/run/php/81.sock;
+        # 根据文件名转发，完全不需要配置 fastcgi_index
+        # fastcgi_index     index.php;
+        include             fastcgi.conf;
+    }
+}
+
+## php8.2 默认站点
+server
+{
+    listen 80;
+    server_name 82.php.com;
+    root /server/default;
+    index index.php;
+
+    location /
+    {
+        access_log      off;    # 关闭访问日志
+        log_not_found   off;    # 关闭错误日志
+    }
+
+    # 允许 192.168.10 段的局域网访问
+    allow 192.168.10.0/24;
+    # 允许 192.168.1 段的局域网访问
+    allow 192.168.1.0/24;
+    deny all;
+
+    # php-fpm 转发
+    location ~ \.php
+    {
+        fastcgi_pass        unix:/server/run/php/82.sock;
+        # 根据文件名转发，完全不需要配置 fastcgi_index
+        # fastcgi_index     index.php;
+        include             fastcgi.conf;
+    }
+}
