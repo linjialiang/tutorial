@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "backports",
     "bcmath",
     "ctype",
     "frontmatter",
@@ -11,6 +12,7 @@
     "publickey",
     "Shiki",
     "Themeable",
-    "vitepress"
+    "vitepress",
+    "wmware"
   ]
 }
