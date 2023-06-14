@@ -111,7 +111,7 @@ curl: (7) Failed to connect to 127.0.0.1 port 80: 拒绝连接
 ```
 
 ::: tip 亲测：
-`nginx-1.24.0` 在 `Debian 11` 下，能完成上面两套指令的构建
+`nginx-1.24.0` 在 `Debian 12` 下，能完成上面两套指令的构建
 :::
 
 ## 平滑升级
