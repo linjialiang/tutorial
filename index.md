@@ -28,6 +28,11 @@ features:
     details: Linux发行版
     link: /debian/index
   - icon:
+      src: /assets/svg/k8s.svg
+    title: kubernetes 教程
+    details: 完整的分布式系统支撑平台
+    link: /k8s/index
+  - icon:
       src: /assets/svg/nginx.svg
     title: Nginx 教程
     details: Web服务器

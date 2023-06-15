@@ -12,10 +12,12 @@ import php from './php/main';
 import redis from './redis/main';
 import sql from './sql/main';
 import vue from './vue/main';
+import k8s from './k8s/main';
 
 const sidebar = {
   '/environment/': environment,
   '/debian/': debian,
+  '/k8s/': k8s,
   '/nginx/': nginx,
   '/sql/': sql,
   '/mongodb/': mongodb,
