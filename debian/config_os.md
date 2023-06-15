@@ -145,7 +145,7 @@ Linux 桌面下自带终端的 SSH 远程体验还行，至于更多工具请阅
 如果真有必要，也应该使用密钥对的方式登录，并且密钥对应该设置严谨的 `密钥锁码`
 :::
 
-## 配置网络
+## 配置网络（桥接模式）
 
 虚拟机：作为开发环境，需要设置成固定 IP
 
@@ -205,6 +205,30 @@ nameserver 192.168.10.1
 ```
 
 > 完成以上步骤，重启虚拟主机，网络配置到此完成！
+
+## 网络配置（NAT 模式）
+
+虚拟机 NAT 模式的配置略有不同，下面是基于 vmware 的详细讲解
+
+::: details vmware 设置
+![](/assets/debian/nat/1.png)
+![](/assets/debian/nat/2.png)
+![](/assets/debian/nat/3.png)
+:::
+
+::: details 配置 ip 地址
+<<<@/assets/debian/nat/interfaces_static.bash
+::: tip 注意：网关是 `192.168.6.2` 而不是 `.1`
+:::
+
+::: details 配置 DNS
+
+```bash
+nameserver 192.168.6.2
+```
+
+::: tip 注意：DNS 是 `192.168.6.2` 而不是 `.1`
+:::
 
 ## 设置中文环境
 
