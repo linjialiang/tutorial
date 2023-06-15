@@ -1,6 +1,5 @@
 const path = {
   main: '/environment/',
-  k8sMain: '/environment/k8s/',
 };
 
 const sidebar = [
@@ -18,11 +17,6 @@ const sidebar = [
   { text: 'Redis', link: `${path.main}redis` },
   { text: 'MongoDB', link: `${path.main}mongodb` },
   { text: 'PHP', link: `${path.main}php` },
-  {
-    text: 'K8S系列',
-    collapsed: true,
-    items: [{ text: '概述', link: `${path.k8sMain}` }],
-  },
 ];
 
 export default sidebar;
