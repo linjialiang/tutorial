@@ -4,6 +4,7 @@ import environment from './environment/main';
 import es6 from './es6/main';
 import html from './html/main';
 import js from './js/main';
+import k8s from './k8s/main';
 import kafka from './kafka/main';
 import mongodb from './mongodb/main';
 import nginx from './nginx/main';
@@ -12,7 +13,6 @@ import php from './php/main';
 import redis from './redis/main';
 import sql from './sql/main';
 import vue from './vue/main';
-import k8s from './k8s/main';
 
 const sidebar = {
   '/environment/': environment,
