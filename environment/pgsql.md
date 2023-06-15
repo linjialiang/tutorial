@@ -21,7 +21,7 @@ Debian 12 官方源收录的版本已经是 `postgresql-15` ，所以不需要�
 
 ```bash
 apt update
-apt install postgresql -y
+apt install postgresql postgresql-client -y
 ```
 
 :::
