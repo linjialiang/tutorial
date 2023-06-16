@@ -1,8 +1,10 @@
 {
   "cSpell.words": [
     "adminer",
+    "autoremove",
     "backports",
     "bcmath",
+    "containerd",
     "ctype",
     "frontmatter",
     "gitee",
@@ -17,6 +19,7 @@
     "pgsql",
     "phpinfo",
     "publickey",
+    "runc",
     "Shiki",
     "Themeable",
     "usermod",
