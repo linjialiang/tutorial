@@ -1,5 +1,5 @@
 const path = {
-  main: '/k8s/',
+  main: '/docker/',
 };
 
 const sidebar = [{ text: '概述', link: `${path.main}` }];

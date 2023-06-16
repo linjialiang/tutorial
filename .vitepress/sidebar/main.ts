@@ -1,10 +1,10 @@
 import css from './css/main';
 import debian from './debian/main';
+import docker from './docker/main';
 import environment from './environment/main';
 import es6 from './es6/main';
 import html from './html/main';
 import js from './js/main';
-import k8s from './k8s/main';
 import kafka from './kafka/main';
 import mongodb from './mongodb/main';
 import nginx from './nginx/main';
@@ -17,7 +17,7 @@ import vue from './vue/main';
 const sidebar = {
   '/environment/': environment,
   '/debian/': debian,
-  '/k8s/': k8s,
+  '/docker/': docker,
   '/nginx/': nginx,
   '/sql/': sql,
   '/mongodb/': mongodb,
