@@ -30,9 +30,9 @@ features:
   - icon:
       light: /assets/svg/docker.svg
       dark: /assets/svg/k8s.svg
-    title: kubernetes 教程
-    details: 完整的分布式系统支撑平台
-    link: /k8s/index
+    title: Docker 教程
+    details: 讲解完整的分布式系统支撑平台
+    link: /docker/index
   - icon:
       src: /assets/svg/nginx.svg
     title: Nginx 教程
