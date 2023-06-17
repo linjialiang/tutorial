@@ -147,14 +147,29 @@ apt install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.i
 
 ## 配置国内镜像
 
-为 Docker 配置国内镜像源：
+默认情况下，从 [docker hub](https://hub.docker.com/) 上下载 docker 镜像太慢。一般都会配置镜像加速器：
 
 ::: code-group
 
-```json [内容]
+```txt [http]
 // 新增或修改 /etc/docker/daemon.json 文件
 {
-  "registry-mirrors": ["http://docker.mirrors.ustc.edu.cn", "http://hub-mirror.c.163.com"]
+  "registry-mirrors": [
+    "http://hub-mirror.c.163.com",
+    "http://mirror.baidubce.com",
+    "http://docker.mirrors.ustc.edu.cn"
+  ]
+}
+```
+
+```txt [https]
+// 新增或修改 /etc/docker/daemon.json 文件
+{
+  "registry-mirrors": [
+    "https://hub-mirror.c.163.com",
+    "https://mirror.baidubce.com",
+    "https://docker.mirrors.ustc.edu.cn"
+  ]
 }
 ```
 
