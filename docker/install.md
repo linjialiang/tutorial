@@ -155,9 +155,9 @@ apt install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.i
 // 新增或修改 /etc/docker/daemon.json 文件
 {
   "registry-mirrors": [
+    "http://docker.mirrors.ustc.edu.cn",
     "http://hub-mirror.c.163.com",
-    "http://mirror.baidubce.com",
-    "http://docker.mirrors.ustc.edu.cn"
+    "http://mirror.baidubce.com"
   ]
 }
 ```
@@ -166,9 +166,9 @@ apt install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.i
 // 新增或修改 /etc/docker/daemon.json 文件
 {
   "registry-mirrors": [
+    "https://docker.mirrors.ustc.edu.cn",
     "https://hub-mirror.c.163.com",
-    "https://mirror.baidubce.com",
-    "https://docker.mirrors.ustc.edu.cn"
+    "https://mirror.baidubce.com"
   ]
 }
 ```
@@ -176,6 +176,8 @@ apt install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.i
 ```bash [执行]
 systemctl daemon-reload
 systemctl restart docker
+# 检查加速器是否生效
+docker info
 ```
 
 :::
