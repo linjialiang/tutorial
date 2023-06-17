@@ -151,24 +151,13 @@ apt install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.i
 
 ::: code-group
 
-```txt [http]
+```txt [配置]
 // 新增或修改 /etc/docker/daemon.json 文件
 {
   "registry-mirrors": [
-    "http://docker.mirrors.ustc.edu.cn",
-    "http://hub-mirror.c.163.com",
-    "http://mirror.baidubce.com"
-  ]
-}
-```
-
-```txt [https]
-// 新增或修改 /etc/docker/daemon.json 文件
-{
-  "registry-mirrors": [
-    "https://docker.mirrors.ustc.edu.cn",
+    "https://mirror.baidubce.com",
     "https://hub-mirror.c.163.com",
-    "https://mirror.baidubce.com"
+    "https://docker.mirrors.ustc.edu.cn"
   ]
 }
 ```
