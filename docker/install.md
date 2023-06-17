@@ -81,13 +81,15 @@ rm -rf /var/lib/containerd
 
    ```bash [中科大]
    install -m 0755 -d /etc/apt/keyrings
-   curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+   curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/debian/gpg \
+   | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
    chmod a+r /etc/apt/keyrings/docker.gpg
    ```
 
    ```bash [官网]
    install -m 0755 -d /etc/apt/keyrings
-   curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+   curl -fsSL https://download.docker.com/linux/debian/gpg \
+   | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
    chmod a+r /etc/apt/keyrings/docker.gpg
    ```
 
@@ -100,11 +102,17 @@ rm -rf /var/lib/containerd
    ::: code-group
 
    ```bash [中科大]
-   deb [arch=amd64] http://mirrors.ustc.edu.cn/docker-ce/linux/debian bookworm stable
+   echo \
+   "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] \
+   http://mirrors.ustc.edu.cn/docker-ce/linux/debian bookworm stable" \
+   | tee /etc/apt/sources.list.d/docker.list > /dev/null
    ```
 
    ```bash [官网]
-   deb [arch=amd64] https://download.docker.com/linux/debian bookworm stable
+   echo \
+   "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] \
+   https://download.docker.com/linux/debian bookworm stable" \
+   | tee /etc/apt/sources.list.d/docker.list > /dev/null
    ```
 
    :::
@@ -113,12 +121,27 @@ rm -rf /var/lib/containerd
 
 Docker 从 17.03 版本之后分为 CE（Community Edition: 社区版） 和 EE（Enterprise Edition: 企业版），通常使用社区版就可以了。
 
-### 安装 apt 依赖包
+::: code-group
 
-```bash
-apt update
+```bash [最近]
 apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
+
+```bash [指定版本]
+# 要安装特定版本的 Docker 引擎，请首先列出存储库中的可用版本：
+apt-cache madison docker-ce | awk '{ print $3 }'
+5:24.0.2-1~debian.12~bookworm
+5:24.0.1-1~debian.12~bookworm
+5:24.0.0-1~debian.12~bookworm
+<更新...>
+# 选择所需的版本并安装：
+VERSION_STRING=5:24.0.2-1~debian.12~bookworm
+apt install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+:::
+
+## 检测
 
 通过运行 hello-world 映像验证 Docker 引擎安装是否成功：
 
@@ -126,7 +149,8 @@ apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-co
 docker run hello-world
 ```
 
-::: tip 离线包下载
+## 从包中安装
+
 镜像的 `poll` 目录可以下载 Docker 相关的各种 `.deb` 包，如：
+
 http://mirrors.ustc.edu.cn/docker-ce/linux/debian/dists/bookworm/pool/stable/amd64/
-:::
