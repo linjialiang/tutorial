@@ -53,6 +53,10 @@ rm -rf /var/lib/docker
 rm -rf /var/lib/containerd
 ```
 
+::: tip 提示
+您必须手动删除任何已编辑的配置文件。
+:::
+
 ## 安装方法
 
 您可以根据需要以不同的方式安装 Docker 引擎：
@@ -137,6 +141,26 @@ apt-cache madison docker-ce | awk '{ print $3 }'
 # 选择所需的版本并安装：
 VERSION_STRING=5:24.0.2-1~debian.12~bookworm
 apt install docker-ce=$VERSION_STRING docker-ce-cli=$VERSION_STRING containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+:::
+
+## 配置国内镜像
+
+为 Docker 配置国内镜像源：
+
+::: code-group
+
+```json [内容]
+// 新增或修改 /etc/docker/daemon.json 文件
+{
+  "registry-mirrors": ["http://docker.mirrors.ustc.edu.cn", "http://hub-mirror.c.163.com"]
+}
+```
+
+```bash [执行]
+systemctl daemon-reload
+systemctl restart docker
 ```
 
 :::
