@@ -39,4 +39,12 @@ module.exports = {
   endOfLine: 'auto',
   // 格式化内嵌代码
   embeddedLanguageFormatting: 'auto',
+  overrides: [
+    {
+      files: ['*.php'],
+      options: {
+        tabWidth: 4,
+      },
+    },
+  ],
 };
