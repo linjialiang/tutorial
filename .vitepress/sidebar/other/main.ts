@@ -1,3 +1,4 @@
+import clash from './clash';
 import vitepress from './vitepress';
 import vscode from './vscode';
 
@@ -9,6 +10,7 @@ const sidebar = [
   { text: '概述', link: `${path.main}` },
   { text: 'vitepress', collapsed: true, items: vitepress },
   { text: 'vscode', collapsed: true, items: vscode },
+  { text: 'clash', collapsed: true, items: clash },
 ];
 
 export default sidebar;
