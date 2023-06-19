@@ -33,6 +33,8 @@ Docker 还支持将文件存储在主机上内存中的容器。不会保留此�
 
 tmpfs 挂载仅存储在主机系统的内存中，从不写入主机系统的文件系统。
 
+![docker3种存储方式](/assets/docker/storage.png)
+
 ### 有关装载类型的更多详细信息
 
 ::: details Volumes(卷)
