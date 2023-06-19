@@ -123,3 +123,58 @@ docker volume rm my-vol1 my-vol2
 ```
 
 :::
+
+## 使用卷启动容器
+
+如果使用尚不存在的卷启动容器，Docker 会为您创建该卷。以下示例将卷 `myvol2` 挂载到容器中的 `/app/` 中。
+
+下面的 `-v` 和 `--mount` 示例结果完全一致
+
+::: code-group
+
+```bash [--mount]
+docker run -d \
+  --name devtest \
+  --mount source=myvol2,target=/app \
+  nginx:latest
+```
+
+```bash [-v]
+docker run -d \
+  --name devtest \
+  -v myvol2:/app \
+  nginx:latest
+```
+
+:::
+
+::: info 使用 `docker inspect devtest` 验证 Docker 是否创建了卷并正确装载了卷。查找 Mounts 部分：
+
+```json
+"Mounts": [
+    {
+        "Type": "volume",
+        "Name": "myvol2",
+        "Source": "/var/lib/docker/volumes/myvol2/_data",
+        "Destination": "/app",
+        "Driver": "local",
+        "Mode": "z",
+        "RW": true,
+        "Propagation": ""
+    }
+],
+```
+
+这表明挂载是一个卷，它显示了正确的源和目标，并且装载是读写的。
+
+:::
+
+::: info 停止容器并删除卷。注意 卷删除是一个单独的步骤。
+
+```bash
+docker container stop devtest
+docker container rm devtest
+docker volume rm myvol2
+```
+
+:::
