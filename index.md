@@ -104,4 +104,9 @@ features:
     title: Other
     details: 其它文档
     link: /other/index
+  - icon:
+      src: /assets/svg/clash.svg
+    title: Clash
+    details: Clash
+    link: /other/clash/index
 ---
