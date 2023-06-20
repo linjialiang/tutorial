@@ -52,9 +52,9 @@ titleTemplate: Docker 教程
 
 ```bash
 docker service create \
-    --mount 'type=volume,src=<VOLUME-NAME>,dst=<CONTAINER-PATH>,volume-driver=local,volume-opt=type=nfs,volume-opt=device=<nfs-server>:<nfs-path>,"volume-opt=o=addr=<nfs-address>,vers=4,soft,timeo=180,bg,tcp,rw"'
-    --name myservice \
-    <IMAGE>
+--mount 'type=volume,src=<VOLUME-NAME>,dst=<CONTAINER-PATH>,volume-driver=local,volume-opt=type=nfs,volume-opt=device=<nfs-server>:<nfs-path>,"volume-opt=o=addr=<nfs-address>,vers=4,soft,timeo=180,bg,tcp,rw"'
+--name myservice \
+<IMAGE>
 ```
 
 :::
@@ -134,16 +134,16 @@ docker volume rm my-vol1 my-vol2
 
 ```bash [--mount]
 docker run -d \
-  --name devtest \
-  --mount source=myvol2,target=/app \
-  nginx:latest
+--name devtest \
+--mount source=myvol2,target=/app \
+nginx:latest
 ```
 
 ```bash [-v]
 docker run -d \
-  --name devtest \
-  -v myvol2:/app \
-  nginx:latest
+--name devtest \
+-v myvol2:/app \
+nginx:latest
 ```
 
 :::
@@ -223,10 +223,10 @@ volumes:
 
 ```bash
 docker service create -d \
-  --replicas=4 \
-  --name devtest-service \
-  --mount source=myvol2,target=/app \
-  nginx:latest
+--replicas=4 \
+--name devtest-service \
+--mount source=myvol2,target=/app \
+nginx:latest
 ```
 
 使用 `docker service ps devtest-service` 验证服务是否正在运行：
@@ -262,16 +262,16 @@ docker service rm devtest-service
 
 ```bash [--mount]
 docker run -d \
-  --name=nginxtest \
-  --mount source=nginx-vol,destination=/usr/share/nginx/html \
-  nginx:latest
+--name=nginxtest \
+--mount source=nginx-vol,destination=/usr/share/nginx/html \
+nginx:latest
 ```
 
 ```bash [-v]
 docker run -d \
-  --name=nginxtest \
-  -v nginx-vol:/usr/share/nginx/html \
-  nginx:latest
+--name=nginxtest \
+-v nginx-vol:/usr/share/nginx/html \
+nginx:latest
 ```
 
 :::
@@ -294,16 +294,16 @@ docker volume rm nginx-vol
 
 ```bash [--mount]
 docker run -d \
-  --name=nginxtest \
-  --mount source=nginx-vol,destination=/usr/share/nginx/html,readonly \
-  nginx:latest
+--name=nginxtest \
+--mount source=nginx-vol,destination=/usr/share/nginx/html,readonly \
+nginx:latest
 ```
 
 ```bash [-v]
 docker run -d \
-  --name=nginxtest \
-  -v nginx-vol:/usr/share/nginx/html:ro \
-  nginx:latest
+--name=nginxtest \
+-v nginx-vol:/usr/share/nginx/html:ro \
+nginx:latest
 ```
 
 :::
@@ -342,3 +342,112 @@ docker volume rm nginx-vol
 在开发应用程序时，有几种方法可以实现此目的。一种是向应用程序添加逻辑，以将文件存储在 Amazon S3 等云对象存储系统上。另一种方法是使用支持将文件写入外部存储系统（如 NFS 或 Amazon S3）的驱动程序创建卷。
 
 卷驱动程序允许您从应用程序逻辑中抽象出底层存储系统。例如，如果您的服务使用带有 NFS 驱动程序的卷，则可以更新服务以使用其他驱动程序。例如，在不更改应用程序逻辑的情况下将数据存储在云中。
+
+## 使用卷驱动程序
+
+使用 `docker volume create` 创建卷时，或者启动使用尚未创建的卷的容器时，可以指定卷驱动程序。以下示例使用 `vieux/sshfs` 卷驱动程序，首先在创建独立卷时，然后在启动创建新卷的容器时。
+
+::: tip 初始设置
+以下示例假定您有两个节点，其中第一个节点是 Docker 主机，可以使用 SSH 连接到第二个节点。
+在 Docker 主机上，安装 vieux/sshfs 插件：
+
+```bash
+docker plugin install --grant-all-permissions vieux/sshfs
+```
+
+:::
+
+## 使用卷驱动程序创建卷
+
+此示例指定 SSH 密码，但如果两台主机配置了共享密钥，则可以排除该密码。每个卷驱动程序可能具有零个或多个可配置选项，您可以使用 `-o` 标志指定每个选项。
+
+```bash
+docker volume create --driver vieux/sshfs \
+-o sshcmd=test@node2:/home/test \
+-o password=testpassword \
+sshvolume
+```
+
+## 启动使用卷驱动程序创建卷的容器
+
+以下示例指定 SSH 密码。但是，如果两台主机配置了共享密钥，则可以排除密码。每个卷驱动程序可能具有零个或多个可配置选项。
+
+```bash
+docker run -d \
+--name sshfs-container \
+--volume-driver vieux/sshfs \
+--mount src=sshvolume,target=/app,volume-opt=sshcmd=test@node2:/home/test,volume-opt=password=testpassword \
+nginx:latest
+```
+
+::: tip
+如果卷驱动程序要求您传递任何选项，则必须使用 `--mount` 标志装载卷，而不是 `-v` 。
+:::
+
+## 创建用于创建 NFS 卷的服务
+
+以下示例演示如何在创建服务时创建 NFS 卷。它使用 `10.0.0.10` 作为 NFS 服务器，使用 `/var/docker-nfs` 作为 NFS 服务器上的导出目录。请注意，指定的卷驱动程序是 `local` 。
+
+::: code-group
+
+```bash [NFSv3]
+docker service create -d \
+--name nfs-service \
+--mount 'type=volume,source=nfsvolume,target=/app,volume-driver=local,volume-opt=type=nfs,volume-opt=device=:/var/docker-nfs,volume-opt=o=addr=10.0.0.10' \
+nginx:latest
+```
+
+```bash [NFSv4]
+docker service create -d \
+--name nfs-service \
+--mount 'type=volume,source=nfsvolume,target=/app,volume-driver=local,volume-opt=type=nfs,volume-opt=device=:/var/docker-nfs,"volume-opt=o=addr=10.0.0.10,rw,nfsvers=4,async"' \
+nginx:latest
+```
+
+:::
+
+## 创建 CIFS/Samba 卷
+
+您可以直接在 Docker 中挂载 Samba 共享，而无需在主机上配置挂载点。
+
+```bash
+docker volume create \
+--driver local \
+--opt type=cifs \
+--opt device=//uxxxxx.your-server.de/backup \
+--opt o=addr=uxxxxx.your-server.de,username=uxxxxxxx,password=*****,file_mode=0777,dir_mode=0777 \
+--name cif-volume
+```
+
+如果指定主机名而不是 IP，则需要 `addr` 选项。这允许 Docker 执行主机名查找。
+
+## 块存储设备
+
+您可以将块存储设备（如外部驱动器或驱动器分区）挂载到容器。以下示例演示如何创建文件并将其用作块存储设备，以及如何将块设备挂载为容器卷。
+
+::: warning
+以下过程只是一个示例。不建议将此处所示的解决方案作为常规做法。除非你对自己正在做的事情有信心，否则不要尝试这种方法。
+:::
+
+## 安装块设备的工作原理
+
+在后台，使用 `local` 存储驱动程序的 `--mount` 标志调用 Linux `mount` 系统调用，并原封不动地转发传递给它的选项。Docker 不会在 Linux 内核支持的本机挂载功能之上实现任何其他功能。
+
+如果您熟悉 Linux `mount` 命令，则可以按以下方式将 `--mount` 选项视为转发到 `mount` 命令：
+
+```bash
+mount -t <mount.volume-opt.type> <mount.volume-opt.device> <mount.dst> -o <mount.volume-opts.o>
+```
+
+若要进一步解释这一点，请考虑以下 `mount` 命令示例。此命令将 `/dev/loop5` 设备装载到系统上的路径 `/external-drive` 。
+
+```bash
+mount -t ext4 /dev/loop5 /external-drive
+```
+
+从正在运行的容器的角度来看，以下 `docker run` 命令实现了类似的结果。使用此 `--mount` 选项运行容器设置挂载的方式与执行上一示例中的 `mount` 命令的方式相同。
+
+```bash
+docker run \
+--mount='type=volume,dst=/external-drive,volume-driver=local,volume-opt=device=/dev/loop5,volume-opt=type=ext4'
+```
