@@ -451,3 +451,32 @@ mount -t ext4 /dev/loop5 /external-drive
 docker run \
 --mount='type=volume,dst=/external-drive,volume-driver=local,volume-opt=device=/dev/loop5,volume-opt=type=ext4'
 ```
+
+无法直接在容器内运行 mount 命令，因为容器无法访问 /dev/loop5 设备。这就是 docker run 命令使用 --mount 选项的原因。
+
+## 示例：在容器中挂载块设备
+
+以下步骤创建一个 `ext4` 文件系统并将其挂载到容器中。系统的文件系统支持取决于您使用的 Linux 内核的版本。
+
+1. 创建一个文件并为其分配一些空间：
+
+   ```bash
+   fallocate -f 1G disk.raw
+   ```
+
+2. 在 disk.raw 文件上构建文件系统：
+
+   ```bash
+   mkfs.ext4 disk.raw
+   ```
+
+3. 创建循环设备：
+
+   ```bash
+   losetup -f --show disk.raw
+   /dev/loop5
+   ```
+
+   ::: tip
+   `losetup` 创建一个临时循环设备，该设备在系统重新启动后删除，或使用 `losetup -d` 手动删除。
+   :::
