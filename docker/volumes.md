@@ -178,3 +178,167 @@ docker volume rm myvol2
 ```
 
 :::
+
+## 与 Docker Compose 一起使用
+
+将卷（volume）与 Docker Compose 一起使用
+
+::: info
+以下示例显示了具有卷的单个 Docker 撰写服务：
+
+```yaml
+services:
+  frontend:
+    image: node:lts
+    volumes:
+      - myapp:/home/node/app
+volumes:
+  myapp:
+```
+
+首次运行 `docker compose up` 会创建一个卷。Docker 在随后运行命令时重复使用相同的卷。
+
+您可以使用 docker volume create 直接在 Compose 外部创建卷，然后在 docker-compose.yml 中引用它，如下所示：
+
+```yaml
+services:
+  frontend:
+    image: node:lts
+    volumes:
+      - myapp:/home/node/app
+volumes:
+  myapp:
+    external: true
+```
+
+:::
+
+有关将卷与 Compose 配合使用的详细信息，请参阅“撰写”规范中的“卷”部分。
+
+## 使用卷启动服务
+
+启动服务并定义卷时，每个服务容器都使用自己的本地卷。如果使用 `local` 卷驱动程序，则任何容器都无法共享此数据。但是，某些卷驱动程序确实支持共享存储。
+
+以下示例启动具有四个副本的 nginx 服务，每个副本使用名为 myvol2 的本地卷。
+
+```bash
+docker service create -d \
+  --replicas=4 \
+  --name devtest-service \
+  --mount source=myvol2,target=/app \
+  nginx:latest
+```
+
+使用 `docker service ps devtest-service` 验证服务是否正在运行：
+
+```bash
+docker service ps devtest-service
+
+ID                  NAME                IMAGE               NODE                DESIRED STATE       CURRENT STATE            ERROR               PORTS
+4d7oz1j85wwn        devtest-service.1   nginx:latest        moby                Running             Running 14 seconds ago
+```
+
+您可以删除该服务以停止正在运行的任务：
+
+```bash
+docker service rm devtest-service
+```
+
+::: tip
+删除服务不会删除服务创建的任何卷。卷删除是一个单独的步骤。
+:::
+
+## 服务的语法差异
+
+`docker service create` 命令不支持 `-v` 或 `--volume` 标志。将卷装载到服务的容器中时，必须使用 `--mount` 标志。
+
+## 使用容器填充卷
+
+如果启动一个创建新卷的容器，并且该容器在要挂载的目录中有文件或目录，例如 `/app/` ，Docker 会将目录的内容复制到卷中。然后，容器装载并使用卷，使用该卷的其他容器也可以访问预填充的内容。
+
+为了说明这一点，以下示例启动一个 `nginx` 容器，并使用容器的 `/usr/share/nginx/html` 目录的内容填充新卷 `nginx-vol` 。这是 Nginx 存储其默认 HTML 内容的地方。
+
+::: code-group
+
+```bash [--mount]
+docker run -d \
+  --name=nginxtest \
+  --mount source=nginx-vol,destination=/usr/share/nginx/html \
+  nginx:latest
+```
+
+```bash [-v]
+docker run -d \
+  --name=nginxtest \
+  -v nginx-vol:/usr/share/nginx/html \
+  nginx:latest
+```
+
+:::
+
+运行这些示例之一后，运行以下命令来清理容器和卷。注意 卷删除是一个单独的步骤。
+
+```bash
+docker container stop nginxtest
+docker container rm nginxtest
+docker volume rm nginx-vol
+```
+
+## 使用只读卷
+
+对于某些开发应用程序，容器需要写入绑定装载，以便将更改传播回 Docker 主机。在其他时候，容器只需要对数据的读取访问权限。多个容器可以装入同一卷。对于某些容器，可以同时将单个卷挂载为 `read-write` ，对于其他容器，可以挂载为 `read-only` 。
+
+以下示例更改了上面的示例。它将目录挂载为只读卷，方法是将 `ro` 添加到容器内装入点之后的选项列表（默认为空）。如果存在多个选项，则可以使用逗号分隔它们。
+
+::: code-group
+
+```bash [--mount]
+docker run -d \
+  --name=nginxtest \
+  --mount source=nginx-vol,destination=/usr/share/nginx/html,readonly \
+  nginx:latest
+```
+
+```bash [-v]
+docker run -d \
+  --name=nginxtest \
+  -v nginx-vol:/usr/share/nginx/html:ro \
+  nginx:latest
+```
+
+:::
+
+使用 docker inspect nginxtest 验证 Docker 是否正确创建了只读装载。查找 Mounts 部分：
+
+```json
+"Mounts": [
+    {
+        "Type": "volume",
+        "Name": "nginx-vol",
+        "Source": "/var/lib/docker/volumes/nginx-vol/_data",
+        "Destination": "/usr/share/nginx/html",
+        "Driver": "local",
+        "Mode": "",
+        "RW": false,
+        "Propagation": ""
+    }
+],
+```
+
+停止并移除容器，然后移除卷。卷删除是一个单独的步骤。
+
+```bash
+docker container stop nginxtest
+docker container rm nginxtest
+docker volume rm nginx-vol
+```
+
+## 在计算机之间共享数据
+
+构建容错应用程序时，可能需要配置同一服务的多个副本才能访问相同的文件。
+
+![卷在计算机之间共享数据](/assets/docker/volumes-shared-storage.svg)
+
+在开发应用程序时，有几种方法可以实现此目的。一种是向应用程序添加逻辑，以将文件存储在 Amazon S3 等云对象存储系统上。另一种方法是使用支持将文件写入外部存储系统（如 NFS 或 Amazon S3）的驱动程序创建卷。
+
+卷驱动程序允许您从应用程序逻辑中抽象出底层存储系统。例如，如果您的服务使用带有 NFS 驱动程序的卷，则可以更新服务以使用其他驱动程序。例如，在不更改应用程序逻辑的情况下将数据存储在云中。
