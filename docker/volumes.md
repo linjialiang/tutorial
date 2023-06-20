@@ -480,3 +480,90 @@ docker run \
    ::: tip
    `losetup` 创建一个临时循环设备，该设备在系统重新启动后删除，或使用 `losetup -d` 手动删除。
    :::
+
+4. 运行将循环设备挂载为卷的容器：
+
+   ```bash
+   docker run -it --rm \
+   --mount='type=volume,dst=/external-drive,volume-driver=local,volume-opt=device=/dev/loop5,volume-opt=type=ext4' \
+   ubuntu bash
+   ```
+
+   当容器启动时，路径 /external-drive 将主机文件系统中的 disk.raw 文件挂载为块设备。
+
+5. 完成后，从容器中卸载设备后，分离环路设备以从主机系统中删除设备：
+
+   ```bash
+   losetup -d /dev/loop5
+   ```
+
+## 备份、还原或迁移数据卷
+
+卷对于备份、还原和迁移非常有用。使用 `--volumes-from` 标志创建装载该卷的新容器。
+
+### 备份卷
+
+例如，创建一个名为 dbstore 的新容器：
+
+```bash
+docker run -v /dbdata --name dbstore ubuntu /bin/bash
+```
+
+::: info 在下一个命令中：
+
+- 启动新容器并从 `dbstore` 容器装载卷
+- 将本地主机目录挂载为 `/backup`
+- 将 `dbdata` 卷的内容传递到 `/backup` 目录中的 `backup.tar` 文件的命令。
+
+```bash
+docker run --rm --volumes-from dbstore -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /dbdata
+```
+
+:::
+
+当命令完成并且容器停止时，它会创建 `dbdata` 卷的备份。
+
+### 从备份还原卷
+
+使用刚刚创建的备份，可以将其还原到同一容器，也可以还原到在其他位置创建的另一个容器。
+
+例如，创建一个名为 dbstore2 的新容器：
+
+```bash
+docker run -v /dbdata --name dbstore2 ubuntu /bin/bash
+```
+
+然后，解压缩新容器数据卷中的备份文件：
+
+```bash
+docker run --rm --volumes-from dbstore2 -v $(pwd):/backup ubuntu bash -c "cd /dbdata && tar xvf /backup/backup.tar --strip 1"
+```
+
+您可以使用上述技术，使用首选工具自动执行备份、迁移和还原测试。
+
+### 删除卷
+
+删除容器后，Docker 数据卷仍然存在。需要考虑两种类型的卷：
+
+- 命名卷具有来自容器外部的特定源，例如 `awesome:/bar` 。
+- 匿名卷没有特定的来源。因此，删除容器时，可以指示 Docker 引擎守护程序将其删除。
+
+### 删除匿名卷
+
+若要自动删除匿名卷，请使用 --rm 选项。例如，此命令创建一个匿名 /foo 卷。删除容器时，Docker 引擎会删除 /foo 卷，但不会删除 awesome 卷。
+
+```bash
+docker run --rm -v /foo -v awesome:/bar busybox top
+```
+
+::: tip
+如果另一个容器将卷与 `--volumes-from` 绑定，则会复制卷定义，并且在删除第一个容器后，匿名卷也会保留。
+:::
+
+### 删除所有卷
+
+要删除所有未使用的卷并释放空间，请执行以下操作：
+
+```bash
+docker volume prune
+```
