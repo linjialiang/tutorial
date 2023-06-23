@@ -991,8 +991,8 @@ extension=imagick
 extension=swoole
 
 [xdebug]
-zend_extension=develop,trace,xdebug
-xdebug.mode=debug
+zend_extension=xdebug
+xdebug.mode=develop,trace,xdebug
 xdebug.client_host=127.0.0.1
 xdebug.client_port=9074
 # xdebug.client_port=9080
