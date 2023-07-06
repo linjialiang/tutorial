@@ -5,9 +5,7 @@ titleTemplate: 让 laravel 运行起来
 
 # {{ $frontmatter.title }}
 
-开发环境这里跟 [laravel 中文社区的 wiki](https://learnku.com/laravel/wikis) 观点略有不同
-
-这里推荐使用跟线上环境尽量一致的环境，比如：宝塔、容器环境以及自己编译的 lnmp 环境
+[laravel 中文社区的 wiki](https://learnku.com/laravel/wikis) 开发环境有很多，这里推荐使用跟线上环境尽量一致的环境
 
 ## 安装 laravel
 
