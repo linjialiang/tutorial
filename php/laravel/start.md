@@ -47,9 +47,9 @@ composer config -g --unset repos.packagist
 
 项目使用 git 版本控制是必备的素养，版本控制好处很多，如：建立各种分支用于不同阶段的开发、追踪文件修改记录等等
 
-### 创建忽略文件
+### 忽略文件
 
-刚刚创建的 laravel 项目自带 `.gitignore` 文件，通常不需要手工创建
+laravel 项目通常自带 `.gitignore` 文件，通常不需要手工创建
 
 ### 创建版本控制并首次提交
 
@@ -59,4 +59,13 @@ git add .
 git commit -m 'first commit'
 git remote add xx1 git@e.coding.net:xx2/xx3.git
 git push -u xx1 main
+```
+
+可以创建一个 `push.bash` 用户快速提交
+
+```bash
+git pull
+git add .
+git commit -m 'update'
+git push
 ```
