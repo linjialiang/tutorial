@@ -1,7 +1,12 @@
+import laravel from './laravel';
+
 const path = {
-  main: "/php/",
+  main: '/php/',
 };
 
-const sidebar = [{ text: "概述", link: `${path.main}` }];
+const sidebar = [
+  { text: '概述', link: `${path.main}` },
+  { text: 'laravel', collapsed: true, items: [...laravel] },
+];
 
 export default sidebar;
