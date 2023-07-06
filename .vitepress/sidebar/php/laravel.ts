@@ -4,7 +4,7 @@ const path = {
 
 const sidebar = [
   { text: '概述', link: `${path.main}` },
-  { text: '让laravel运行', link: `${path.main}start` },
+  { text: '让 laravel 运行起来', link: `${path.main}start` },
 ];
 
 export default sidebar;
