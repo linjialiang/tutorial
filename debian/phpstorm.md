@@ -68,7 +68,17 @@ JetBrains               部署根目录
 ::: code-group
 <<<@/assets/debian/jetbrains/desktop/phpstorm.desktop{ini} [PhpStorm]
 <<<@/assets/debian/jetbrains/desktop/datagrip.desktop{ini} [DataGrip]
-<<<@/assets/debian/jetbrains/desktop/clion.desktop{ini} [Clion]
+<<<@/assets/debian/jetbrains/desktop/clion.desktop{ini} [CLion]
+:::
+
+::: info 桌面文件路径
+
+| 路径                          | 说明     |
+| ----------------------------- | -------- |
+| ～/.local/share/applications  | 用户级别 |
+| /usr/local/share/applications | 全部用户 |
+| /usr/share/applications       | 全部用户 |
+
 :::
 
 ## php 文件头部
