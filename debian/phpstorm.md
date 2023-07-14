@@ -7,7 +7,9 @@ titleTemplate: Debian 教程
 
 ## 安装 PhpStorm
 
-推荐使用 jetbrains-toolbox 工具安装 PhpStorm
+::: tip 提示
+推荐使用 jetbrains-toolbox 工具安装 PhpStorm 等 JetBrains 系列软件，不过遗憾的是 `PhpStorm 2023.1.3` 以后无法正常激活
+:::
 
 ## php 文件头部
 
