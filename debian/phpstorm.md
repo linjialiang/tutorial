@@ -1,6 +1,9 @@
-# jetbrains 系列
+---
+title: PhpStorm
+titleTemplate: Debian 教程
+---
 
-debian 下安装、配置 jetbrains
+# {{ $frontmatter.title }}
 
 ## 安装 PhpStorm
 
