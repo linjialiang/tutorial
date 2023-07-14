@@ -13,9 +13,9 @@ titleTemplate: Debian 教程
 
 PhpStorm 可以自定文件头部信息，支持设置 `默认` 和 `项目` 两种类型的文件头模板
 
-::: details 默认文件头模板
+::: code-group
 
-```php
+```php [默认头模板]
 // +----------------------------------------------------------------------
 // | ${PROJECT_NAME} [ PHP is the best language for web programming ]
 // +----------------------------------------------------------------------
@@ -28,11 +28,7 @@ PhpStorm 可以自定文件头部信息，支持设置 `默认` 和 `项目` 两
 
 ```
 
-:::
-
-::: details 项目文件头模板
-
-```php
+```php [项目头模板]
 // +----------------------------------------------------------------------
 // | QyPHP [ 勤易极简 PHP 框架 ]
 // +----------------------------------------------------------------------
@@ -51,16 +47,10 @@ PhpStorm 可以自定文件头部信息，支持设置 `默认` 和 `项目` 两
 
 ## 桌面文件
 
-::: details phpstorm
-<<<@/assets/debian/jetbrains/phpstorm.desktop.ini
-:::
-
-::: details clion
-<<<@/assets/debian/jetbrains/clion.desktop.ini
-:::
-
-::: details datagrip
-<<<@/assets/debian/jetbrains/datagrip.desktop.ini
+::: code-group
+<<<@/assets/debian/jetbrains/phpstorm.desktop.ini [PhpStorm]
+<<<@/assets/debian/jetbrains/datagrip.desktop.ini [DataGrip]
+<<<@/assets/debian/jetbrains/clion.desktop.ini [Clion]
 :::
 
 ## 调试
