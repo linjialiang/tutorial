@@ -63,9 +63,17 @@ JetBrains               部署根目录
 推荐使用 jetbrains-toolbox 工具安装 PhpStorm 等 JetBrains 系列软件，不过遗憾的是 `PhpStorm 2023.1.3` 以后无法正常激活
 :::
 
+## 桌面文件
+
+::: code-group
+<<<@/assets/debian/jetbrains/desktop/phpstorm.desktop{ini} [PhpStorm]
+<<<@/assets/debian/jetbrains/desktop/datagrip.desktop{ini} [DataGrip]
+<<<@/assets/debian/jetbrains/desktop/clion.desktop{ini} [Clion]
+:::
+
 ## php 文件头部
 
-PhpStorm 可以自定文件头部信息，支持设置 `默认` 和 `项目` 两种类型的文件头模板
+PhpStorm 可以自定文件头部信息，支持设置 `默认` 和 `项目` 两种类型的文件头模板，例如：
 
 ::: code-group
 
@@ -95,16 +103,6 @@ PhpStorm 可以自定文件头部信息，支持设置 `默认` 和 `项目` 两
 
 ```
 
-:::
-
-> 上面文件头模板参考至 ThinkPHP 的文件头模板！
-
-## 桌面文件
-
-::: code-group
-<<<@/assets/debian/jetbrains/phpstorm.desktop.ini [PhpStorm]
-<<<@/assets/debian/jetbrains/datagrip.desktop.ini [DataGrip]
-<<<@/assets/debian/jetbrains/clion.desktop.ini [Clion]
 :::
 
 ## 调试

@@ -1,9 +1,9 @@
 [Desktop Entry]
 Name=CLion
-Icon=/sf/jetbrains/clion/bin/clion.svg
+Icon=/home/emad/JetBrains/app/Clion/bin/clion.svg
 StartupWMClass=jetbrains-clion
 Comment=A cross-platform C and C++ IDE
-Exec="/sf/jetbrains/clion/bin/clion.sh" %u
+Exec="/home/emad/JetBrains/app/Clion/bin/clion.sh" %u
 Version=1.0
 Type=Application
 Categories=Development;IDE;
