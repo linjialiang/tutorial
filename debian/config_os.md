@@ -271,7 +271,7 @@ apt install wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git n
 
 1. wget -- 传输工具
 2. curl -- 传输工具
-3. Vim -- vim 编辑器
+3. Vim -- vim 编辑器(桌面加上 vim-gtk3)
 4. bat -- bat 用于替代 cat，默认指令是 batcat，可以设置别名
 5. htop -- 交互式的进程浏览器，用于替代 top 命令
 6. tar -- 打包工具
