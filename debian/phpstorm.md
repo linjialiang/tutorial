@@ -7,6 +7,38 @@ titleTemplate: Debian 教程
 
 ## 安装 PhpStorm
 
+这里只介绍手工配置安装
+
+### 目录
+
+> 下面假设根目录为： `/home/emad/JetBrains/`
+
+````
+JetBrains               部署根目录
+├─app                   应用目录
+│  ├─PhpStorm           PHP的IDE
+│  ├─DataGrip           数据库管理工具
+│  ├─ ...               更多应用
+│
+├─custom                应用数据目录
+│  ├─PhpStorm           PhpStorm 应用数据
+│  │  ├─stubs-zh        PhpStorm 中文版存根
+│  │  ├─ ...
+│  │
+│  ├─DataGrip           DataGrip 应用数据
+│  ├─ ...               更多应用数据
+│
+├─tools                 激活工具
+│  ├─ja-netfilter.jar   激活程序
+│  ├─config-jetbrains   激活配置目录
+│  ├─logs-jetbrains     激活日志目录
+│  └─ ...               没啥用可移除的
+│
+```
+### JetBrains 系列激活码
+
+<!--@include: @/assets/debian/jetbrains/code.md-->
+
 ::: tip 提示
 推荐使用 jetbrains-toolbox 工具安装 PhpStorm 等 JetBrains 系列软件，不过遗憾的是 `PhpStorm 2023.1.3` 以后无法正常激活
 :::
@@ -28,7 +60,7 @@ PhpStorm 可以自定文件头部信息，支持设置 `默认` 和 `项目` 两
 // | CreateTime: ${YEAR}-${MONTH}-${DAY} ${HOUR}:${MINUTE}:${SECOND}
 // +----------------------------------------------------------------------
 
-```
+````
 
 ```php [项目头模板]
 // +----------------------------------------------------------------------
