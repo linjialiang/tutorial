@@ -36,6 +36,20 @@ JetBrains               部署根目录
 │
 ```
 
+### 修改应用配置文件
+
+::: details PhpStorm
+::: code-group
+<<<@/assets/debian/jetbrains/phpstorm/phpstorm64.vmoptions{ini} [phpstorm64.vmoptions]
+<<<@/assets/debian/jetbrains/phpstorm/idea.properties{ini} [idea.properties]
+:::
+
+::: details DataGrip
+::: code-group
+<<<@/assets/debian/jetbrains/datagrip/datagrip64.vmoptions{ini} [datagrip64.vmoptions]
+<<<@/assets/debian/jetbrains/datagrip/idea.properties{ini} [idea.properties]
+:::
+
 ### JetBrains 系列激活码
 
 <!--@include: @/assets/debian/jetbrains/code.md-->
