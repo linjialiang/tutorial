@@ -212,3 +212,7 @@ PhpStorm 中可用的断点类型 ：
 PHPSTORM 可以设置代理，设置方式跟 firefox 类似
 
 ![设置行断点](/assets/debian/jetbrains/img/05.png)
+
+::: warning 其他配置
+JetBrains 系列其他方面的配置，自己琢磨即可！
+:::
