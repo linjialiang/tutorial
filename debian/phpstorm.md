@@ -71,7 +71,7 @@ JetBrains               部署根目录
 <<<@/assets/debian/jetbrains/desktop/clion.desktop{ini} [CLion]
 :::
 
-::: info 桌面文件路径
+::: tip 桌面文件路径
 
 | 路径                          | 说明     |
 | ----------------------------- | -------- |
