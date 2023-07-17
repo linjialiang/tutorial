@@ -18,6 +18,6 @@ function on(eventType, element, selector, fn) {
 }
 
 // 运行
-on('click', '#div1', 'button', () => {
+on('click', '#div1', 'button', (element) => {
   console.log('button 被点击了');
 });
