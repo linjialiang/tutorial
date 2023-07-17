@@ -16,3 +16,8 @@ function on(eventType, element, selector, fn) {
     }
   });
 }
+
+// 运行
+on('click', '#div1', 'button', () => {
+  console.log('button 被点击了');
+});

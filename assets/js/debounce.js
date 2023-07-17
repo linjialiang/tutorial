@@ -1,9 +1,9 @@
 /**
  * 防抖函数
  *  - 第1次调用直接执行,然后等待delay后，才能delay直接执行
- * @param {object} func 函数
- * @param {int} delay 等待秒速
- * @param {boolean} immediate 是否开启复杂的防抖函数
+ * @param {Object} func 函数
+ * @param {Int} delay 等待秒速
+ * @param {Boolean} immediate 是否开启复杂的防抖函数
  * @returns
  */
 function debounce(func, delay, immediate = true) {
@@ -29,3 +29,12 @@ function debounce(func, delay, immediate = true) {
     }
   };
 }
+
+// 运行
+let dev1 = document.getElementById('#dev1');
+dev1.addEventListener(
+  'click',
+  debounce(function () {
+    // 函数内容
+  }, 1000),
+);
