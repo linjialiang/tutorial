@@ -135,15 +135,15 @@ chmod 750 /server/data/
 MySQL 默认配置的内容较少，我们可以参考 MariaDB 以及 MySQL 官方说明来调整配置内容，具体如下：
 
 ::: details 默认配置
-<<<@/assets/environment/source/mysql/default/mysqld.cnf.ini
+文件丢失
 :::
 
 ::: details 修改后的配置参考
-<<<@/assets/environment/source/mysql/mysqld.cnf.ini
+文件丢失
 :::
 
 ::: details init_file
-<<<@/assets/environment/source/mysql/init.sql
+文件丢失
 :::
 
 ## 数据初始化
@@ -230,7 +230,7 @@ mysql> SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS WHERE P
 mysql> SELECT * FROM INFORMATION_SCHEMA.PLUGINS\G
 ```
 
-<<<@/assets/environment/source/mysql/plugin.ini
+文件丢失
 :::
 
 ### 3. 卸载插件
