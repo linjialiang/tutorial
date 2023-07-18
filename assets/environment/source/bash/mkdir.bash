@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # mkdir.bash
 func_create(){
@@ -6,37 +6,33 @@ func_create(){
 }
 
 server_array=(
+    "/www"
     "/server"
-    "/server/data"
-    "/server/www"
     "/server/default"
-    "/server/sites"
     "/server/nginx"
+    "/server/pgsql"
+    "/server/redis"
+    "/server/sqlite3"
     "/server/php"
-    "/server/php/74"
     "/server/php/80"
     "/server/php/81"
     "/server/php/82"
-    "/server/redis"
-    "/server/sqlite3"
     "/server/run"
     "/server/run/nginx"
-    "/server/run/mysqld"
     "/server/run/redis"
     "/server/run/sqlite3"
     "/server/run/php"
     "/server/logs"
     "/server/logs/nginx"
-    "/server/logs/mysqld"
     "/server/logs/redis"
     "/server/logs/sqlite3"
     "/server/logs/php"
-    "/server/ssl"
+    "/server/sites"
+    "/server/sites/ssl"
 )
 
 package_array=(
     "/package"
-    "/package/default"
     "/package/php_ext"
 )
 

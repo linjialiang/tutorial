@@ -71,16 +71,16 @@ PHP 环境目录
 
 ## 脚本文件
 
-这里准备了几个 bash 脚本文件
+我们准备了几个 bash 脚本文件：
 
 ::: code-group
-<<<@/assets/lnmp/source/bash/user.bash [用户脚本]
-<<<@/assets/lnmp/source/bash/mkdir.bash [创建脚本]
-<<<@/assets/lnmp/source/bash/chown.bash [权限脚本]
-<<<@/assets/lnmp/source/bash/tar.bash [解压脚本]
-<<<@/assets/lnmp/source/bash/chown_mysql.bash [权限脚本]
-<<<@/assets/lnmp/source/bash/tar-delete.bash [压缩包删除脚本]
-<<<@/assets/lnmp/source/bash/delete.bash [环境删除脚本]
+<<<@/assets/environment/source/bash/user.bash [用户]
+<<<@/assets/environment/source/bash/mkdir.bash [创建]
+<<<@/assets/environment/source/bash/chown.bash [权限]
+<<<@/assets/environment/source/bash/tar.bash [解压]
+<<<@/assets/environment/source/bash/chown_mysql.bash [权限]
+<<<@/assets/environment/source/bash/tar-delete.bash [压缩包删除]
+<<<@/assets/environment/source/bash/delete.bash [环境删除]
 :::
 
 ## 安装包列表

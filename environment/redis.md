@@ -226,7 +226,7 @@ logfile "/server/logs/redis/redis.log"
 推荐统一使用 systemd 管理各种服务
 
 ::: details 系统单元配置
-<<<@/assets/lnmp/source/service/redis.service.ini
+<<<@/assets/environment/source/service/redis.service.ini
 :::
 
 ### 1. 具体操作：

@@ -241,19 +241,19 @@ sqlite3          SQLite - SQL database engine
 ```
 
 ::: details 7.4 构建选项预览
-<<<@/assets/lnmp/source/php/configure/74.ini
+<<<@/assets/environment/source/php/configure/74.ini
 :::
 
 ::: details 8.0 构建选项预览
-<<<@/assets/lnmp/source/php/configure/80.ini
+<<<@/assets/environment/source/php/configure/80.ini
 :::
 
 ::: details 8.1 构建选项预览
-<<<@/assets/lnmp/source/php/configure/81.ini
+<<<@/assets/environment/source/php/configure/81.ini
 :::
 
 ::: details 8.2 构建选项预览
-<<<@/assets/lnmp/source/php/configure/82.ini
+<<<@/assets/environment/source/php/configure/82.ini
 :::
 
 ### 5. 进入构建目录
@@ -272,19 +272,19 @@ cd /package/php-8.2.7/build_php/
 ### 6. 安装指令
 
 ::: details 7.4 构建指令参考
-<<<@/assets/lnmp/source/php/build/74.bash
+<<<@/assets/environment/source/php/build/74.bash
 :::
 
 ::: details 8.0 构建指令参考
-<<<@/assets/lnmp/source/php/build/80.bash
+<<<@/assets/environment/source/php/build/80.bash
 :::
 
 ::: details 8.1 构建指令参考
-<<<@/assets/lnmp/source/php/build/81.bash
+<<<@/assets/environment/source/php/build/81.bash
 :::
 
 ::: details 8.2 构建指令参考
-<<<@/assets/lnmp/source/php/build/82.bash
+<<<@/assets/environment/source/php/build/82.bash
 :::
 
 ::: tip 构建指令区别：
@@ -468,19 +468,19 @@ PHP-FPM 配置文件可分成两种
 PHP-FPM 的主配置文件选项基本上都是使用默认，所以案例选项很少
 
 ::: details php7.4 主配置文件案例
-<<<@/assets/lnmp/source/php/74/php-fpm.conf.ini
+<<<@/assets/environment/source/php/74/php-fpm.conf.ini
 :::
 
 ::: details php8.0 主配置文件案例
-<<<@/assets/lnmp/source/php/80/php-fpm.conf.ini
+<<<@/assets/environment/source/php/80/php-fpm.conf.ini
 :::
 
 ::: details php8.1 主配置文件案例
-<<<@/assets/lnmp/source/php/81/php-fpm.conf.ini
+<<<@/assets/environment/source/php/81/php-fpm.conf.ini
 :::
 
 ::: details php8.2 主配置文件案例
-<<<@/assets/lnmp/source/php/82/php-fpm.conf.ini
+<<<@/assets/environment/source/php/82/php-fpm.conf.ini
 :::
 
 ### 3. 工作池配置文件
@@ -495,31 +495,31 @@ PHP-FPM 工作池进程配置文件有多个，并且支持随意命名，但为
 - 通用工作池案例
 
   ::: details php7.4 通用工作池案例
-  <<<@/assets/lnmp/source/php/74/php-fpm.d/default.conf.ini
+  <<<@/assets/environment/source/php/74/php-fpm.d/default.conf.ini
   :::
 
   ::: details php8.0 通用工作池案例
-  <<<@/assets/lnmp/source/php/80/php-fpm.d/default.conf.ini
+  <<<@/assets/environment/source/php/80/php-fpm.d/default.conf.ini
   :::
 
   ::: details php8.1 通用工作池案例
-  <<<@/assets/lnmp/source/php/81/php-fpm.d/default.conf.ini
+  <<<@/assets/environment/source/php/81/php-fpm.d/default.conf.ini
   :::
 
   ::: details php8.2 通用工作池案例
-  <<<@/assets/lnmp/source/php/82/php-fpm.d/default.conf.ini
+  <<<@/assets/environment/source/php/82/php-fpm.d/default.conf.ini
   :::
 
 - tp 工作池案例
 
   ::: details php8.2 tp 工作池案例
-  <<<@/assets/lnmp/source/php/82/php-fpm.d/tp.conf.ini
+  <<<@/assets/environment/source/php/82/php-fpm.d/tp.conf.ini
   :::
 
 - 勤易工作池案例
 
   ::: details php8.2 勤易工作池案例
-  <<<@/assets/lnmp/source/php/82/php-fpm.d/qy.conf.ini
+  <<<@/assets/environment/source/php/82/php-fpm.d/qy.conf.ini
   :::
 
 ### 4. 工作进程配置参数
@@ -556,46 +556,46 @@ PHP-FPM 自带了一套比较完善的进程管理指令，编译完成后还会
 
 > 路径：/package/php-7.4.33/build_php/sapi/fpm/php-fpm.service
 
-<<<@/assets/lnmp/source/service/php/74/php-fpm.service.ini
+<<<@/assets/environment/source/service/php/74/php-fpm.service.ini
 :::
 
 ::: details php8.0 参考案例：
 
 > 路径：/package/php-8.0.29/build_php/sapi/fpm/php-fpm.service
 
-<<<@/assets/lnmp/source/service/php/80/php-fpm.service.ini
+<<<@/assets/environment/source/service/php/80/php-fpm.service.ini
 :::
 
 ::: details php8.1 参考案例：
 
 > 路径：/package/php-8.1.20/build_php/sapi/fpm/php-fpm.service
 
-<<<@/assets/lnmp/source/service/php/81/php-fpm.service.ini
+<<<@/assets/environment/source/service/php/81/php-fpm.service.ini
 :::
 
 ::: details php8.2 参考案例：
 
 > 路径：/package/php-8.2.7/build_php/sapi/fpm/php-fpm.service
 
-<<<@/assets/lnmp/source/service/php/82/php-fpm.service.ini
+<<<@/assets/environment/source/service/php/82/php-fpm.service.ini
 :::
 
 ### 2. 案例参考
 
 ::: details php7.4 参考案例：
-<<<@/assets/lnmp/source/service/php/phpfpm74.service.ini
+<<<@/assets/environment/source/service/php/phpfpm74.service.ini
 :::
 
 ::: details php8.0 参考案例：
-<<<@/assets/lnmp/source/service/php/phpfpm80.service.ini
+<<<@/assets/environment/source/service/php/phpfpm80.service.ini
 :::
 
 ::: details php8.1 参考案例：
-<<<@/assets/lnmp/source/service/php/phpfpm81.service.ini
+<<<@/assets/environment/source/service/php/phpfpm81.service.ini
 :::
 
 ::: details php8.2 参考案例：
-<<<@/assets/lnmp/source/service/php/phpfpm82.service.ini
+<<<@/assets/environment/source/service/php/phpfpm82.service.ini
 :::
 
 ### 3. 创建单元文件
@@ -753,7 +753,7 @@ phpMyAdmin 需要配置
    ```
 
    ::: details 配置文件内容
-   <<<@/assets/lnmp/source/php/config.inc.php
+   <<<@/assets/environment/source/php/config.inc.php
    :::
 
    ::: tip
@@ -842,7 +842,7 @@ cd /package/php-8.2.7/build_php/
 ### 6. 构建指令
 
 ::: details 8.2 构建指令参考
-<<<@/assets/lnmp/source/php/build/82.bash
+<<<@/assets/environment/source/php/build/82.bash
 :::
 
 ### 7. 执行编译

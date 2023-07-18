@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+WEB_USER = 'www'
+WEB_USER_GROUP = 'www'
 
 # chown.bash
 func_chown_nginx(){
@@ -10,7 +12,7 @@ func_chown_phpfpm(){
 }
 
 func_chown_www(){
-    chown www:www $1
+    chown ${WEB_USER}:${WEB_USER_GROUP} $1
 }
 
 chown_nginx_array=(

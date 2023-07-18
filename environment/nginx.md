@@ -19,7 +19,7 @@ cd /package/nginx-1.24.0
 ```
 
 ::: details 当前版本全部构建参数
-<<<@/assets/lnmp/source/nginx/help.ini
+<<<@/assets/environment/source/nginx/help.ini
 :::
 
 ### 2. 模块依赖环境
@@ -63,11 +63,11 @@ cd /package/nginx-1.24.0
 :::
 
 ::: details 本次构建指令
-<<<@/assets/lnmp/source/nginx/build_now.bash
+<<<@/assets/environment/source/nginx/build_now.bash
 :::
 
 ::: details 允许构建的全部指令
-<<<@/assets/lnmp/source/nginx/build_all.bash
+<<<@/assets/environment/source/nginx/build_all.bash
 :::
 
 ### 2. 编译安装
@@ -196,11 +196,11 @@ nginx 配置仅有一个入口文件，统一称做 `主配置文件`
 ### 1. 主配置文件
 
 ::: details 主配置
-<<<@/assets/lnmp/source/nginx/nginx.nginx
+<<<@/assets/environment/source/nginx/nginx.nginx
 :::
 
 ::: details 默认站点
-<<<@/assets/lnmp/source/nginx/default.nginx
+<<<@/assets/environment/source/nginx/default.nginx
 :::
 
 ### 2. fastcgi 参数模版
@@ -221,13 +221,13 @@ nginx+php-fpm 不论如何配置，PATH_INFO 始终为空，暂无法解决，�
 站点不经常变动的静态文件，可以让客户端缓存，以减轻服务器压力
 
 ::: details 统一缓存模板案例
-<<<@/assets/lnmp/source/nginx/cache.nginx
+<<<@/assets/environment/source/nginx/cache.nginx
 :::
 
 ::: details 禁用缓存模板案例
 如果你的站点静态文件实时变动，则应该禁用缓存
 
-<<<@/assets/lnmp/source/nginx/no_cache.nginx
+<<<@/assets/environment/source/nginx/no_cache.nginx
 :::
 
 ### 4. 开启压缩
@@ -235,7 +235,7 @@ nginx+php-fpm 不论如何配置，PATH_INFO 始终为空，暂无法解决，�
 nginx 支持对文件开启 gzip 压缩，以加快网络传输速度
 
 ::: details html 缓存模板案例
-<<<@/assets/lnmp/source/nginx/gzip.nginx
+<<<@/assets/environment/source/nginx/gzip.nginx
 :::
 
 ### 5. 限制请求数量
@@ -245,7 +245,7 @@ nginx 通过 `http 区块` 和 `server 区块` 结合可以限制请求数量
 http 区块配置请查看[概述](#概述)下的主配置文件
 
 ::: details server 区块限制请求数量
-<<<@/assets/lnmp/source/nginx/limit_req_server.nginx
+<<<@/assets/environment/source/nginx/limit_req_server.nginx
 :::
 
 ::: tip 提示
@@ -259,7 +259,7 @@ server 区块里的 `zone=with_ip` 对应 http 区块里的 `$binary_remote_addr
 `nginx server` 可以对特定文件和目录进行访问限制
 
 ::: details 文件禁止访问
-<<<@/assets/lnmp/source/nginx/no_access.nginx
+<<<@/assets/environment/source/nginx/no_access.nginx
 :::
 
 ### 7. 跨域请求
@@ -269,25 +269,25 @@ server 区块里的 `zone=with_ip` 对应 http 区块里的 `$binary_remote_addr
 跨域请求没有单独文件，按需写入对应站点的 `location 区块`
 
 ::: details 跨域请求
-<<<@/assets/lnmp/source/nginx/cross_domain.nginx
+<<<@/assets/environment/source/nginx/cross_domain.nginx
 :::
 
 ### 8. 站点配置案例
 
 ::: details 静态站点
-<<<@/assets/lnmp/source/nginx/sites/static.nginx
+<<<@/assets/environment/source/nginx/sites/static.nginx
 :::
 
 ::: details tp 站点
-<<<@/assets/lnmp/source/nginx/sites/tp.nginx
+<<<@/assets/environment/source/nginx/sites/tp.nginx
 :::
 
 ::: details qy 站点
-<<<@/assets/lnmp/source/nginx/sites/qy.nginx
+<<<@/assets/environment/source/nginx/sites/qy.nginx
 :::
 
 ::: details ssl 站点案例
-<<<@/assets/lnmp/source/nginx/sites/qyphp.e8so.com.nginx
+<<<@/assets/environment/source/nginx/sites/qyphp.e8so.com.nginx
 :::
 
 ### 10. SSL 证书权限
@@ -367,7 +367,7 @@ linux 服务器推荐使用 `Systemd 单元(Unit)` 来管理守护进程，下�
    ```
 
    ::: details nginx.service 参考案例
-   <<<@/assets/lnmp/source/service/nginx.service.ini
+   <<<@/assets/environment/source/service/nginx.service.ini
    :::
 
 2. 将 nginx.service 加入开机启动

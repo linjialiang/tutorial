@@ -30,9 +30,9 @@ dpkg -i ./mysql-apt-config_0.8.25-1_all.deb
 ```
 
 ::: details 选择 MySQL 服务器
-![选择 MySQL 服务器和集群](/assets/lnmp/images/mysql-apt-config.png)
-![选择 mysql-8.0](/assets/lnmp/images/mysql-8.0.png)
-![选择 ok](/assets/lnmp/images/mysql-apt-config-ok.png)
+![选择 MySQL 服务器和集群](/assets/environment/images/mysql-apt-config.png)
+![选择 mysql-8.0](/assets/environment/images/mysql-8.0.png)
+![选择 ok](/assets/environment/images/mysql-apt-config-ok.png)
 :::
 
 ::: tip 可以考虑国内源
@@ -80,8 +80,8 @@ apt install mysql-server
 ```
 
 ::: details 配置详情
-![将密码留空，以启用UNIX套接字登录验证](/assets/lnmp/images/mysql-01.png)
-![将密码留空，以启用UNIX套接字登录验证](/assets/lnmp/images/mysql-02.png)
+![将密码留空，以启用UNIX套接字登录验证](/assets/environment/images/mysql-01.png)
+![将密码留空，以启用UNIX套接字登录验证](/assets/environment/images/mysql-02.png)
 :::
 
 ## Unit 单元
@@ -92,7 +92,7 @@ MySQL 安装成功后，自动配置好 Unit 单元服务器
 - 创建链接：`/etc/systemd/system/multi-user.target.wants/mysql.service`
 
 ::: details MySQL 系统单元配置文件：
-<<<@/assets/lnmp/source/service/mysql.service.ini
+<<<@/assets/environment/source/service/mysql.service.ini
 :::
 
 > MySQL 系统单元管理：
@@ -135,15 +135,15 @@ chmod 750 /server/data/
 MySQL 默认配置的内容较少，我们可以参考 MariaDB 以及 MySQL 官方说明来调整配置内容，具体如下：
 
 ::: details 默认配置
-<<<@/assets/lnmp/source/mysql/default/mysqld.cnf.ini
+<<<@/assets/environment/source/mysql/default/mysqld.cnf.ini
 :::
 
 ::: details 修改后的配置参考
-<<<@/assets/lnmp/source/mysql/mysqld.cnf.ini
+<<<@/assets/environment/source/mysql/mysqld.cnf.ini
 :::
 
 ::: details init_file
-<<<@/assets/lnmp/source/mysql/init.sql
+<<<@/assets/environment/source/mysql/init.sql
 :::
 
 ## 数据初始化
@@ -230,7 +230,7 @@ mysql> SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS WHERE P
 mysql> SELECT * FROM INFORMATION_SCHEMA.PLUGINS\G
 ```
 
-<<<@/assets/lnmp/source/mysql/plugin.ini
+<<<@/assets/environment/source/mysql/plugin.ini
 :::
 
 ### 3. 卸载插件
