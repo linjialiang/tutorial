@@ -136,11 +136,12 @@ mysql 用户默认不存在，需要成功安装 `MySQL` 后自动生成的
 1. nginx-1.24.0.tar.gz
 2. openssl-3.0.9.tar.gz
 3. pcre2-10.42.tar.bz2
-4. redis-7.0.11.tar.gz
-5. sqlite-autoconf-3420000.tar.gz
-6. zlib-1.2.13.tar.gz
-7. php-8.2.7.tar.xz
-8. mysql-apt-config_0.8.25-1_all.deb
+4. zlib-1.2.13.tar.gz
+5. redis-7.0.11.tar.gz
+6. sqlite-autoconf-3420000.tar.gz
+7. php-8.2.8.tar.xz
+8. php-8.1.21.tar.xz
+9. php-8.0.29.tar.xz
 
 :::
 
@@ -152,16 +153,6 @@ mysql 用户默认不存在，需要成功安装 `MySQL` 后自动生成的
 2. redis-5.3.7.tgz
 3. yaml-2.2.3.tgz
 4. xdebug-3.2.1.tgz
-
-:::
-
-::: details 数据库管理工具
-
-目录： `/package/tool`
-
-1. adminer-4.8.1.php
-2. phpMyAdmin-5.2.1-all-languages.tar.gz
-3. phpRedisAdmin-1.19.2.tar.gz
 
 :::
 
