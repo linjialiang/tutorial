@@ -5,28 +5,31 @@ titleTemplate: 环境搭建教程
 
 # 环境搭建概述
 
-LNMP 是 PHP 首选的开发/部署环境，这里在 LNMP 的基础上增加更多的常用服务
+下面开始手工搭建 PHP 的开发环境、部署环境
 
 ## 测试环境
 
 测试环境 `虚拟机` 的系统参数如下：
 
 - 系统 :` Debian GNU/Linux 12 (Bookworm) x86_64`
-- 内核 : `6.1.0-9-amd64`
+- 内核 : `6.1.0-10-amd64`
 
-::: details LNMP 目录结构
+::: details PHP 环境目录结构
 
 ```
 ====================================================
-LNMP 部署环境目录
+PHP 环境目录
 ====================================================
-├─ /server                  LNMP 核心目录
+├─ /server                  服务目录
 |   ├─ nginx                nginx
 |   |  ├─ conf              nginx配置文件
 |   |  └─ ...
 |   |
+|   ├─ pgsql                pgSql的数据目录
+|   |  ├─ data              pgSql的数据目录
+|   |  └─ ...
+|   |
 |   ├─ php                  PHP 版本目录
-|   |  ├─ 74                PHP7.4
 |   |  ├─ 80                PHP8.0
 |   |  ├─ 81                PHP8.1
 |   |  ├─ 82                PHP8.2
@@ -40,90 +43,45 @@ LNMP 部署环境目录
 |   |
 |   ├─ run                 run
 |   |  ├─ nginx            nginx的run目录
-|   |  ├─ mysql            MySQL的run目录
+|   |  ├─ pgsql            pgSql的run目录
 |   |  ├─ redis            redis的run目录
 |   |  ├─ sqlite3          sqlite3的run目录
 |   |  ├─ php              php的run目录
 |   |  └─ ...
 |   |
 |   ├─ default             缺省站点路径
-|   |   ├─ pma             MySQL 管理工具
-|   |   ├─ pra             Redis 管理工具
-|   |   ├─ adminer.php     数据库管理工具
 |   |   ├─ phpinfo.php     phpinfo
 |   |   ├─ index.php       缺省站点提示页面
 |   |
 |   ├─ sites               虚拟主机配置文件目录
 |   |
-|   ├─ www                 站点根目录
-|   |
-|   ├─ data                MySQL的数据目录
-|   |
 |   ├─ logs                服务器相关日志文件目录
 |   |  ├─ nginx            nginx日志目录
-|   |  ├─ mysql            MySQL日志目录
+|   |  ├─ pgsql            pgSql日志目录
 |   |  ├─ redis            redis日志目录
 |   |  ├─ sqlite3          sqlite3日志目录
 |   |  ├─ php              php日志目录
 |   |
+├─ /www                    站点根目录
 |
 └─
 ```
 
 :::
 
-开始构建环境前这里也为大家准备一些说明和辅助工具
-
 ## 脚本文件
 
 这里准备了几个 bash 脚本文件
 
-::: details 1. 创建脚本
-
-- `/server/` : 存放运行 lnmp 时必要的数据和编译文件
-- `/package/` : 下载的软件包，存放在这个目录下
-
-<<<@/assets/lnmp/source/bash/mkdir.bash
+::: code-group
+<<<@/assets/lnmp/source/bash/user.bash [用户脚本]
+<<<@/assets/lnmp/source/bash/mkdir.bash [创建脚本]
+<<<@/assets/lnmp/source/bash/chown.bash [权限脚本]
+<<<@/assets/lnmp/source/bash/tar.bash [解压脚本]
+<<<@/assets/lnmp/source/bash/chown_mysql.bash [权限脚本]
+<<<@/assets/lnmp/source/bash/tar-delete.bash [压缩包删除脚本]
+<<<@/assets/lnmp/source/bash/delete.bash [环境删除脚本]
 :::
-
-::: details 2. 权限脚本
-<<<@/assets/lnmp/source/bash/chown.bash
-:::
-
-::: details 3. 源码压缩包解压脚本
-<<<@/assets/lnmp/source/bash/tar.bash
-:::
-
-::: details 4. 删除脚本
-<<<@/assets/lnmp/source/bash/delete.bash
-:::
-
-::: details 5. mysql 权限脚本
-<<<@/assets/lnmp/source/bash/chown_mysql.bash
-:::
-
-::: details 6. 源码压缩包删除脚本
-<<<@/assets/lnmp/source/bash/tar-delete.bash
-:::
-
-::: tip
-mysql 用户默认不存在，需要成功安装 `MySQL` 后自动生成的
-:::
-
-::: details 6. 用户脚本
-<<<@/assets/lnmp/source/bash/user.bash
-:::
-
-1. 执行 `mkdir.bash` 创建目录
-2. 执行 `chown.bash` 为目录授权用户
-3. 执行 `tar.bash` 解压压缩文件
-4. 安装 mysql 后执行 `chown_mysql.bash` 为 mysql 相关目录授权用户
-5. 执行脚本案例：
-
-   ```bash
-   chmod +x mkdir.bash
-   bash mkdir.bash
-   ```
 
 ## 安装包列表
 
