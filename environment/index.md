@@ -123,9 +123,9 @@ PHP 环境目录
 ### 用户职责
 
 - pgsql 是数据库 PostgreSql 的用户
-- nginx 是 nginx 的子进程用户，php-fpm 服务的监听用户
-- phpfpm 是 php-fpm 服务进程的用户
-- www 是开发者编写文件的用户
+- nginx 是 nginx work 进程的 Unix 用户
+- phpfpm 是 FPM 进程运行的 Unix 用户
+- www 是开发者操作项目资源、文件的用户
 
 ### 用户权限
 
@@ -136,19 +136,18 @@ pgsql 只针对 PostgreSQL
 ```
 
 ```md [nginx]
-- nginx 服务子进程用户：浏览器访问网站使用该用户权限，所以对页面输出和静态文件提供 `读` 的权限;
-- php-fpm 服务子进程监听用户：由 php 动态生成的内容是通过 socket 传输，所以需要作为 php-fpm 的监听用户
+浏览器等客户端浏览网站时，服务器使用 nginx 用户，加载静态文件以及输出 php 动态生成的内容，
+所以接收 php 输出的内容和静态文件均需提供 `读` 的权限;
+
+1. 使用 socket 转发，nginx 用户需要作为 FPM 的监听用户，用于监听 socket
+2. 使用 IP 转发，FPM 无需监听用户，nginx 用户需要
 ```
 
 ```md [phpfpm]
-1. 该用户通常对文件不需要任何权限;
-
-2. 当 php 需要操作文件或目录时就必须提供 `读+写` 权限：
-
-   - 如：使用 php：创建、修改、删除文件或文件夹等，就必须提供 `读+写` 的权限;
-   - 如：使用 php：查看文件或文件夹列表，就必须提供 `读` 的权限;
-
-> 说明：php-fpm 服务需要的内容都是通过其监听用户(nginx)读取的
+1. FPM 进程运行的 Unix 用户，对 php 脚本、php 所需的配置文件需要 `读` 的权限；
+2. 当 php 需要操作文件或目录时，需要提供 `读+写` 权限：
+   - 如：框架中记录运行时日志、缓存的 runtime 目录，就需要 `读+写` 全新
+3. 除此以外，phpfpm 用户通常不需要其他权限
 ```
 
 ```md [www]
@@ -167,29 +166,29 @@ pgsql 只针对 PostgreSQL
 
 ```bash
 # 设置站点用户
-chown www:www -R /server/www/
+chown www:www -R /www/
 
 # 设置站点文件权限
-find /server/www/ -type f -exec chmod 640 {} \;
+find /www/ -type f -exec chmod 640 {} \;
 
 # 设置站点目录权限
-find /server/www/ -type d -exec chmod 750 {} \;
+find /www/ -type d -exec chmod 750 {} \;
 
 # 站点上层目录
-chown root:root /server/www/ # 用户及用户组设为 [root] 更加安全
-chmod 755 /server/www/ # 权限设为 [755]
+chown root:root /www/ # 用户及用户组设为 [root] 更加安全
+chmod 755 /www/ # 权限设为 [755]
 ```
 
 ::: tip tp6 站点案例：
 
 ```bash
-chown www:www -R /server/www/tp6/
+chown www:www -R /www/tp6/
 # 正常文件权限设为640
-find /server/www/tp6/ -type f -exec chmod 640 {} \;
-find /server/www/tp6/ -type d -exec chmod 750 {} \;
+find /www/tp6/ -type f -exec chmod 640 {} \;
+find /www/tp6/ -type d -exec chmod 750 {} \;
 
-# 需要 php-fpm 处理的目录权限设为 [770]，如果 [用户www] 没有加入 [用户组phpfpm] 为了查看方便，权限需要设为 [777]
-chmod 770 /server/www/tp6/runtime/ /server/www/tp6/public/static/upload/
+# 需要 php-fpm 处理的目录权限设为 [770]
+chmod 770 /www/tp6/runtime/ /www/tp6/public/static/upload/
 ```
 
 :::
