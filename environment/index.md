@@ -78,18 +78,12 @@ PHP 环境目录
 <<<@/assets/environment/source/bash/mkdir.bash [创建]
 <<<@/assets/environment/source/bash/chown.bash [权限]
 <<<@/assets/environment/source/bash/tar.bash [解压]
-<<<@/assets/environment/source/bash/chown_mysql.bash [权限]
 <<<@/assets/environment/source/bash/tar-delete.bash [压缩包删除]
-<<<@/assets/environment/source/bash/delete.bash [环境删除]
 :::
 
 ## 安装包列表
 
-这些软件包都是需要解压的，后面都会用到
-
-::: details LNMP 包
-
-目录： `/package`
+::: details `/package` 目录
 
 1. nginx-1.24.0.tar.gz
 2. openssl-3.0.9.tar.gz
@@ -97,9 +91,10 @@ PHP 环境目录
 4. zlib-1.2.13.tar.gz
 5. redis-7.0.11.tar.gz
 6. sqlite-autoconf-3420000.tar.gz
-7. php-8.2.8.tar.xz
-8. php-8.1.21.tar.xz
-9. php-8.0.29.tar.xz
+7. PostgreSQL
+8. php-8.2.8.tar.xz
+9. php-8.1.21.tar.xz
+10. php-8.0.29.tar.xz
 
 :::
 
@@ -107,53 +102,32 @@ PHP 环境目录
 
 目录： `/package/php_ext`
 
-1. apcu-5.1.22.tgz
-2. redis-5.3.7.tgz
-3. yaml-2.2.3.tgz
-4. xdebug-3.2.1.tgz
+1. redis-5.3.7.tgz
+2. yaml-2.2.3.tgz
+3. xdebug-3.2.2.tgz
 
 :::
 
 ## 创建用户
 
-### 1. 用户 `www`
+在用户脚本中我们可以看到，我们创建了 4 个用户
 
-```bash
-# 部署环境，不允许登录
-useradd -c 'specifies the username used in the Web deployment environment' -u 2001 -s /usr/sbin/nologin -d /server/default -M -U www
+| 用户名 | 说明         |
+| ------ | ------------ |
+| pgsql  | pgsql 用户   |
+| nginx  | nginx 用户   |
+| phpfpm | php 用户     |
+| www    | 操作文件用户 |
 
-# 开发环境，可通过ssh登录
-useradd www
-```
-
-::: tip 用户说明
-
-1. 系统用户 www 是 web 站点的主用户
-2. 开发环境，vscode 远程开发项目时，ssh 登录使用系统用户 www
-
+::: tip 操作文件用户
+如果是在本机搭建环境，直接用你的登陆用户作为操作文件的用户即可
 :::
-
-### 2. 用户 `nginx`
-
-这是 `nginx` web 服务器的主用户
-
-```bash
-useradd -c 'This is the nginx service user' -u 2002 -s /usr/sbin/nologin -d /server/default -M -U nginx
-```
-
-### 3. 用户 `phpfpm`
-
-这是 `php-fpm` 服务的主用户
-
-```bash
-useradd -c 'This is the php-fpm service user' -u 2003 -s /usr/sbin/nologin -d /server/default -M -U phpfpm
-```
 
 ## 用户职责
 
-上面这 3 个用户职责和权限是不同的
-
-### 1. 用户职责：
+- pgsql 是数据库 PostgreSql 的用户
+- nginx 是 nginx 的子进程用户
+- phpfpm 是 php-fpm 的监听用户
 
 ::: info 用户 www
 
@@ -265,10 +239,4 @@ usermod -G phpfpm www
 如果用户已经有附加用户组,就需要使用 `-a` 指令，否则会覆盖之前全部用户组
 
 `用户phpfpm` 也可以不加入其他用户组，这时需要 php 操作文件或目录时，上级目录权限需设为 `[777]`
-:::
-
-::: warning
-
-更多用户权限请查看 debian 相关章节
-
 :::
