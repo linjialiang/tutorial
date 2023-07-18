@@ -139,7 +139,7 @@ pgsql 只针对 PostgreSQL
 浏览器等客户端浏览网站时，服务器使用 nginx 用户，加载静态文件以及输出 php 动态生成的内容，
 所以接收 php 输出的内容和静态文件均需提供 `读` 的权限;
 
-1. 使用 socket 转发，nginx 用户需要作为 FPM 的监听用户，用于监听 socket
+1. 使用 socket 转发，nginx 用户可作为 FPM 的监听用户，如：监听 socket、连接 web 服务器，权限设为 660
 2. 使用 IP 转发，FPM 无需监听用户，nginx 用户需要
 ```
 
