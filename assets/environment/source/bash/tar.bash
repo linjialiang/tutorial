@@ -38,3 +38,6 @@ do
     echo "tgz解压" $i
     tar -xzf $i -C ${EXT_DIR}
 done
+
+cd EXT_DIR
+rm package.xml
