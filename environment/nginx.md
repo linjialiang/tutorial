@@ -74,9 +74,9 @@ cd /package/nginx-1.24.0
 
 ```bash
 # 4核以上可以使用 make -j4 编译
-make -j2
+make -j4
 # 不挂起，后台执行
-nohup make -j2 &
+nohup make -j4 &
 # 安装
 make install
 ```
