@@ -7,6 +7,8 @@ titleTemplate: 环境搭建教程
 
 ## 配置源 {#conf-source}
 
+官方推荐使用源安装，这是非常优秀的一件事情
+
 ```bash
 apt install gnupg2 -y
 echo "deb http://mirrors.ustc.edu.cn/postgresql/repos/apt bookworm-pgdg main" > /etc/apt/sources.list.d/pgdg.list
