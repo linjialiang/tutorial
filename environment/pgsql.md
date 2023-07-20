@@ -13,15 +13,9 @@ echo "deb http://mirrors.ustc.edu.cn/postgresql/repos/apt bookworm-pgdg main" > 
 wget http://mirrors.ustc.edu.cn/postgresql/repos/apt/ACCC4CF8.asc
 apt-key add ACCC4CF8.asc
 apt update
-apt install postgresql-15 -y
+apt install postgresql-14 -y
 ```
 
-::: warning 注意：
-Debian 12 官方源收录的版本已经是 `postgresql-15` ，所以不需要重新配置源
-
-```bash
-apt update
-apt install postgresql postgresql-client -y
-```
-
+::: tip 关于版本选择
+postgresql-14 的 [中文手册](http://www.postgres.cn/docs/14/index.html) 基本已经翻译完成，所以我选择这个版本来入门 pgsql
 :::
