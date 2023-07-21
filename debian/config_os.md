@@ -104,7 +104,7 @@ apt install ssh
 
 Windows 桌面下推荐使用 xshell 客户端
 
-Linux 桌面下自带终端的 SSH 远程体验还行，至于更多工具请阅读 [gnome 篇](./gnome/)
+Linux 桌面下自带终端的 SSH 远程体验还行，至于更多工具请阅读 [GUI 篇](./gui/)
 
 ### 2. 开放端口
 
