@@ -110,28 +110,9 @@ titleTemplate: Debian 教程
 | bookworm-backports        | 向后移植的较新的软件包（可选）     |
 | bookworm-backports-sloppy | 向后移植的草率的软件包（较不稳定） |
 
-```bash
-# /etc/apt/sources.list
+> 国内镜像
 
-# bookworm
-deb http://mirrors.ustc.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
-deb-src http://mirrors.ustc.edu.cn/debian/ bookworm main contrib non-free non-free-firmware
-# bookworm-updates
-deb http://mirrors.ustc.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware
-deb-src http://mirrors.ustc.edu.cn/debian/ bookworm-updates main contrib non-free non-free-firmware
-# bookworm-proposed-updates
-deb http://mirrors.ustc.edu.cn/debian/ bookworm-proposed-updates main contrib non-free non-free-firmware
-deb-src http://mirrors.ustc.edu.cn/debian/ bookworm-proposed-updates main contrib non-free non-free-firmware
-# bookworm-backports
-deb http://mirrors.ustc.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware
-deb-src http://mirrors.ustc.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware
-# bookworm-backports-sloppy
-deb http://mirrors.ustc.edu.cn/debian/ bookworm-backports-sloppy main contrib non-free non-free-firmware
-deb-src http://mirrors.ustc.edu.cn/debian/ bookworm-backports-sloppy main contrib non-free non-free-firmware
-# debian-security
-deb http://mirrors.ustc.edu.cn/debian-security/ bookworm-security main contrib non-free non-free-firmware
-deb-src http://mirrors.ustc.edu.cn/debian-security/ bookworm-security main contrib non-free non-free-firmware
-```
+<<<@/assets/debian/apt/zkd-all.bash
 
 ::: tip 提示
 debian12 稳定版在 wmware 上已经完成安装测试

@@ -55,19 +55,19 @@ vi /etc/apt/sources.list
 > 镜像列表:
 
 ::: details 中科大镜像-完整版:
-<<<@/assets/debian/apt/zkd-all.ini
+<<<@/assets/debian/apt/zkd-all.bash
 :::
 
 ::: details 中科大镜像-服务器版:
-<<<@/assets/debian/apt/zkd-server.ini
+<<<@/assets/debian/apt/zkd-server.bash
 :::
 
 ::: details 腾讯云内网-完整版:
-<<<@/assets/debian/apt/tx-all.ini
+<<<@/assets/debian/apt/tx-all.bash
 :::
 
 ::: details 腾讯云内网-服务器版:
-<<<@/assets/debian/apt/tx-server.ini
+<<<@/assets/debian/apt/tx-server.bash
 :::
 
 ::: tip 提示
