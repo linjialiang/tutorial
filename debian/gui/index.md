@@ -25,7 +25,7 @@ chmod 755 /usr/share/fonts/my-fonts
 ```
 
 ```txt [解压]
-3, 将字体解压到 my-fonts 目录（支持子目录）
+3. 将字体解压到 my-fonts 目录（支持子目录）
 ```
 
 ```bash [建立索引]
