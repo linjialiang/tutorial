@@ -32,3 +32,9 @@ linux 通过指令，可以快速安装需要的字体
    cd /usr/share/fonts/my-fonts
    mkfontscale && mkfontdir && fc-cache -fv
    ```
+
+5. 最后验证字体是否安装成功
+
+   ```bash
+   fc-list|grep 'my-fonts'
+   ```
