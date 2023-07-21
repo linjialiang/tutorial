@@ -348,6 +348,23 @@ bat 是 cat 替代品，比 cat 强大很多，配置非常简单
 alias bat='batcat'
 ```
 
+### vim 中文帮助手册
+
+```bash
+# vimcdoc-2.4.0 针对 vim 9.0
+wget https://github.com/yianwillis/vimcdoc/releases/download/v2.4.0/vimcdoc-2.4.0.tar.gz
+tar zxvf vimcdoc-<version>.tar.gz
+cd vimcdoc-<version>
+
+# 安装方式一：原有英文文档不受影响
+./vimcdoc.sh -i
+# 安装方式二：覆盖原有英文文档
+./vimcdoc.sh -I
+
+# 卸载
+./vimcdoc.sh -u
+```
+
 ## 美化终端
 
 ::: code-group
