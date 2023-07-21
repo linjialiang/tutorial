@@ -264,7 +264,7 @@ dpkg-reconfigure tzdata
 ## 常用软件包
 
 ```bash
-apt install wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git neofetch firewalld fzf proxychains4 -y
+apt install wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git neofetch proxychains4 -y
 ```
 
 ::: details 详情
@@ -282,95 +282,64 @@ apt install wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git n
 11. unzip -- 解压工具（composer 会用到）
 12. lrzsz -- 传输工具
 13. Git -- Git 版本控制管理工具(部署环境不需要安装)
-14. neofetch -- 查看系统信息
-15. firewalld -- 防火墙工具
-16. fzf -- 命令行模糊查询工具
-17. proxychains4 -- 代理工具
-18. ntpdate -- 解决时间差 8 小时问题
+14. proxychains4 -- 代理工具
+15. neofetch -- 查看系统信息
+16. ntpdate -- 解决时间差 8 小时问题
+17. firewalld -- 防火墙工具
+18. fzf -- 命令行模糊查询工具
 
 :::
 
-### 1. 查看硬件配置
+### 配置 Git
 
-开发环境可以使用 `neofetch` 来完整查看配置信息
+::: code-group
+<<<@/assets/debian/config/git_configs.bash [全局配置]
 
-```bash
-apt install neofetch
-neofetch
-```
-
-### 2. 配置 Git
-
-::: details 全局配置 Git：
-<<<@/assets/debian/config/git_configs.bash
-:::
-
-> 查看 Git 配置信息
-
-```bash
+```bash [查看配置信息]
 git config --list
 git config --global --list
 ```
 
-### 3. Git 仓库密码
+:::
+
+### Git 仓库密码
 
 linux 安装的 Git 默认没有开启仓库密码记忆功能，这对于开发环境来讲不是很友好，下面是解决办法：
 
-::: details 记住 Git 仓库密码：
+::: code-group
 
-下面指令会在用户目录下生成文件，该文件用于记录 Git 仓库用户名和密码
+```bash [记住仓库密码]
+# 下面指令会在用户目录下生成文件，该文件用于记录 Git 仓库用户名和密码
 
-```bash
-# 全局-针对当前用户
+# 当前登陆用户 - 全局配置
 git config --global credential.helper store
-
-# 当前项目
+# 当前项目配置
 git config --local credential.helper store
 ```
 
-:::
+```bash [仓库账户密码变动]
+# 如果 Git 仓库用户名和密码有变动，需要使用下面的指令，然后重新输入用户名和密码
 
-::: details Git 仓库账户密码变动
-
-如果 Git 仓库用户名和密码有变动，需要使用下面的指令，然后重新输入用户名和密码
-
-```bash
-# 全局
+# 当前登陆用户 - 全局配置
 git config --global --unset credential.helper -f
-
-# 当前项目
+# 当前项目配置
 git config --local --unset credential.helper -f
 ```
 
 :::
 
-### 4. Git 默认分支
+### Git 默认分支
 
 设置默认分支为 main
 
 ```bash
 # 全局
 git config --global init.defaultBranch main
-
 # 当前项目
 git config --local init.defaultBranch main
 ```
 
-::: details Git 仓库默认分支
-
-如果 Git 仓库用户名和密码有变动，需要使用下面的指令，然后重新输入用户名和密码
-
-```bash
-# 全局
-git config --global --unset credential.helper -f
-
-# 当前项目
-git config --local --unset credential.helper -f
-```
-
-:::
-
-### 5. 配置 bat
+### 配置 bat
 
 bat 是 cat 替代品，比 cat 强大很多，配置非常简单
 
@@ -379,95 +348,31 @@ bat 是 cat 替代品，比 cat 强大很多，配置非常简单
 alias bat='batcat'
 ```
 
-::: tip 提示
-使用 apt 安装的 bat，指令是 `batcat`
-:::
-
-### 6. 时间差 8 小时
-
-Debian 默认把 BIOS 时间认为是世界时间（UTC），所以就造成系统时间比实际快 8 小时
-
-```bash
-apt install ntpdate
-ntpdate-debian
-```
-
-::: warning 警告
-ntpdate 没有太多用处，直接该时间就好了
-:::
-
-### 7. bash-completion
-
-这是 bash 自动补全增强工具
-
-```bash
-apt install bash-completion
-chmod 777 /etc/bash_completion
-source /etc/bash_completion
-vim ~/.bashrc
-```
-
-::: details .bashrc 新增
-
-```bash
-# ~/.bashrc
-if [ -f /etc/bash_completion ]; then
-        /etc/bash_completion
-fi
-```
-
-:::
-
-::: warning
-感觉这个没有用处
-:::
-
-## 开发主用户
-
-开发环境需要创建一个系统用户用于开发使用，要求对项目具有读写权限，这里统一使用 www 系统用户
-
-www 系统用户在 web 环境中广泛使用的业务用户名，更多内容可以参考 [LNMP 概述](../environment/index#创建用户)
-
-> 加入 sudo
-
-```bash
-apt install sudo
-usermod -G adm,sudo www
-```
-
-::: danger 警告
-sudo 虽然很方便，但也更加危险，我这里建议大家别安装
-:::
-
 ## 美化终端
 
-### 1. bash
+::: code-group
 
-修改 `~/.bashrc` 可以美化当前用户的 bash 终端，具体如下：
+```bash [操作 bash]
+# 修改 `~/.bashrc` 可以美化当前用户的 bash 终端，具体如下：
 
-```bash
 cp ~/.bashrc{,.bak}
 vim ~/.bashrc
 ```
 
-::: details bash 案例：
-<<<@/assets/debian/config/bashrc.bash
-:::
+<<<@/assets/debian/config/bashrc.bash [bash 案例]
 
-最后使用 `source ~/.bashrc` 或 `source ~/.zshrc` 更新终端界面
+```bash [操作 zsh]
+# 修改 `~/.zshrc` 可以美化当前用户的 zsh 终端，具体如下：
 
-### 2. zsh
-
-修改 `~/.zshrc` 可以美化当前用户的 zsh 终端，具体如下：
-
-```bash
 cp ~/.zshrc{,bak}
 vim ~/.zshrc
 ```
 
-::: details zsh 案例：
-<<<@/assets/debian/config/zshrc.bash
+<<<@/assets/debian/config/zshrc.bash [zsh 案例]
+
 :::
+
+最后使用 `source ~/.bashrc` 或 `source ~/.zshrc` 更新终端界面
 
 ::: tip 提示
 以上的 zsh 需要安装和配置 zsh-my-zsh 插件，具体请阅读[zsh 终端](./zsh)
