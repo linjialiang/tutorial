@@ -174,3 +174,11 @@ export VANA_LICENSE_TO="emad"
 ```
 
 :::
+
+### VMware
+
+见 [VMware 独立章节](./vmware)
+
+### PhpStorm
+
+见 [PhpStorm 独立章节](./phpstorm)
