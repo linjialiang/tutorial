@@ -27,4 +27,15 @@ apt install ibus-rime
 
 ::: details 配置
 ![](/assets/debian/gui/004.png)
+![](/assets/debian/gui/005.png)
 :::
+
+## 使用 rime-ice 词库
+
+```bash
+cd ~/.config/ibus
+mv rime{,.bak}
+git clone git@github.com:iDvel/rime-ice.git
+```
+
+> 点击部署 > 然后重启系统
