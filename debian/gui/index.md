@@ -90,6 +90,13 @@ linux 下流行的截图工具
 apt install flameshot
 ```
 
-::: details 设置快捷键
+快捷键设置成 `F1`
 
+::: details gnome 设置快捷键
+![截图全局快捷键](/assets/debian/gui/001.png)
+:::
+
+::: details xfce 设置快捷键
+`设置` > `键盘`
+![截图全局快捷键](/assets/debian/gui/002.png)
 :::
