@@ -20,7 +20,7 @@ apt --purge autoremove fcitx*
 ```
 
 ```bash [安装]
-apt --purge autoremove fcitx*
+apt install ibus-rime
 ```
 
 :::
