@@ -39,3 +39,16 @@ git clone git@github.com:iDvel/rime-ice.git
 ```
 
 > 点击部署 > 然后重启系统
+
+## 配置横排显示
+
+1. 创建或修改 `~/.config/ibus/rime/build/ibus_rime.yaml` 文件
+
+2. 添加或修改 `horizontal: true`
+
+```yaml
+style:
+  horizontal: true
+```
+
+3. 重新部署 ibus-rime
