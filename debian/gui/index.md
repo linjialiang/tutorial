@@ -145,3 +145,32 @@ apt install flameshot
 ::: details 内部快捷键设置
 ![截图全局快捷键](/assets/debian/gui/003.png)
 :::
+
+### xmind
+
+安装 XMind-2020-for-Linux
+
+::: code-group
+
+```bash [安装]
+wget https://dl2.xmind.cn/XMind-2020-for-Linux-amd-64bit-10.3.1-202101132117.deb
+chmod +x ./XMind-2020-for-Linux-amd-64bit-10.3.1-202101132117.deb
+apt install ./XMind-2020-for-Linux-amd-64bit-10.3.1-202101132117.deb
+```
+
+```bash [破解]
+# 解压 `XMind_2020_10.3.1_Linux_patch.tar.xz` 后
+# 将 [app.asar] 文件覆盖到 [/opt/XMind/resources/app.asar]
+mv /opt/XMind/resources/app.asar{,.bak}
+mv app.asar /opt/XMind/resources/
+```
+
+```bash [大客户授权]
+# 开启大客户授权所有功能
+vim ~/.profile
+# 在最后加上以下两行参数：
+export VANA_LICENSE_MODE=true
+export VANA_LICENSE_TO="emad"
+```
+
+:::
