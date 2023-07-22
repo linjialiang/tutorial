@@ -395,7 +395,7 @@ vim ~/.zshrc
 以上的 zsh 需要安装和配置 zsh-my-zsh 插件，具体请阅读[zsh 终端](./zsh)
 :::
 
-## SSH 密钥登录
+## SSH 密钥登录{#ssh-login}
 
 SSH 默认采用密码登录，这种登录方式很多缺点：
 
@@ -491,3 +491,71 @@ chmod 644 ~/.ssh/authorized_keys
 
 像阿里云或者腾讯云都可以在后台管理密钥对，这样可以预防秘钥丢失，并且针对 root 用户提供自动绑定功能
 :::
+
+## 密钥对连接 SSH
+
+### 1. 创建密钥对
+
+创建密钥对及配置服务器公钥，可以参考[SSH 密钥登录](#ssh-login)
+
+### 2. ssh 配置文件
+
+‵~/.ssh/config` 是当前用户的 ssh 配置文件，案例如下：
+
+```bash
+# ~/.ssh/config`
+Host 254_root
+    HostName                    192.168.10.254
+    Port                        22
+    User                        root
+    IdentityFile                /path/key.pem
+    IdentitiesOnly              yes
+    PreferredAuthentications    publickey
+Host 254_www
+    HostName                    192.168.10.254
+    Port                        22
+    User                        www
+    IdentityFile                /path/key.pem
+    IdentitiesOnly              yes
+    PreferredAuthentications    publickey
+```
+
+::: info 参数说明
+
+| 参数                     | 描述                         |
+| ------------------------ | ---------------------------- |
+| Host                     | 别名，可用于 ssh 连接        |
+| HostName                 | 远程主机名，通常是 ip        |
+| Port                     | 远程 ssh 端口                |
+| User                     | 远程登陆用户名               |
+| IdentityFile             | 私钥文件的路径               |
+| IdentitiesOnly           | 限制只接受 SSH key 登录      |
+| PreferredAuthentications | 指定客户端身份验证方法的顺序 |
+| ForwardAgent             | 据说设为 yes 更加安全        |
+
+- IdentityFile
+
+  指定密钥文件路径，并将权限设为 600
+
+- IdentitiesOnly
+
+  | 可选值 | 说明                    |
+  | ------ | ----------------------- |
+  | false  | 默认，不做限制          |
+  | true   | 限制只接受 SSH key 登录 |
+
+- PreferredAuthentications
+
+  默认顺序: `gssapi-with-mic, hostbased, publickey, keyboard-interactive, password`
+
+  仅用公钥验证: `PreferredAuthentications publickey`
+
+:::
+
+### 3. 连接 ssh
+
+使用设置的别名来链接即可：
+
+```bash
+ssh 254_root
+```
