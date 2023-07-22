@@ -24,3 +24,7 @@ apt install ibus-rime
 ```
 
 :::
+
+::: details 配置
+![](/assets/debian/gui/004.png)
+:::
