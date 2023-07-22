@@ -520,7 +520,7 @@ Host 254_www
     PreferredAuthentications    publickey
 ```
 
-::: info 参数说明
+::: details 参数说明
 
 | 参数                     | 描述                         |
 | ------------------------ | ---------------------------- |
@@ -559,3 +559,47 @@ Host 254_www
 ```bash
 ssh 254_root
 ```
+
+## 通过 SSH 密钥对连接 Git 仓库
+
+::: code-group
+
+```bash [生成密钥对]
+# 使用 OpenSSL 来生成密钥对
+# ed25519 加密是最通用的
+ssh-keygen -t ed25519 -C "linjialiang@163.com"
+
+# 按照提示完成三次回车，即可生成空密码的 ssh key，路径如下：
+# - 公钥：~/.ssh/id_ed25519.pub
+# - 私钥：~/.ssh/id_ed25519
+```
+
+```bash [配置ssh-key]
+# ~/.ssh/config
+
+Host gitee.com
+HostName gitee.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/key/gitee_id_ed25519
+
+Host e.coding.net
+HostName e.coding.net
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/key/coding_id_ed25519
+
+Host github.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/key/github_id_ed25519
+```
+
+```bash [检测]
+# coding 检测
+ssh -T git@e.coding.net
+# github 检测
+ssh -T git@github.com
+# gitee 检测
+ssh -T git@gitee.com
+```
+
+:::
