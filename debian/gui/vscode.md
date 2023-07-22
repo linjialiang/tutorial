@@ -22,3 +22,10 @@ dpkg -i ./code_1.80.1-1689183569_amd64.deb
 # You may comment out this entry, but any other modifications may be lost.
 # deb [arch=amd64,arm64,armhf] http://packages.microsoft.com/repos/code stable main
 ```
+
+## 配置
+
+::: code-group
+<<<@/assets/vscode/settings.json [用户配置参考]
+<<<@/assets/vscode/keybindings.json [快捷键配置参考]
+:::

@@ -52,7 +52,7 @@
   "search.collapseResults": "auto",
   "search.showLineNumbers": true,
   "search.smartCase": true,
-  "update.mode": "manual",
+  "update.mode": "default",
   "extensions.autoCheckUpdates": false,
   "extensions.ignoreRecommendations": true,
   "problems.showCurrentInStatus": true,
@@ -92,15 +92,14 @@
     "editor.tabSize": 4,
     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
   },
-  "[markdown]": {
-    // 指定 markdown 文件的 tab 为 4 空格
-    "editor.tabSize": 4
-  },
   "npm-intellisense.importLinebreak": ";\n",
-  "workbench.colorTheme": "Dracula",
-  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "workbench.colorTheme": "Monokai",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
   "remote.SSH.remotePlatform": {
-    "lnmp_www": "linux"
+    "lnmp_www": "linux",
+    "kc_xg": "linux",
+    "debian12_www": "linux",
+    "bt_www": "linux"
   },
   "workbench.iconTheme": "material-icon-theme"
 }
