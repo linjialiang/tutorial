@@ -182,3 +182,7 @@ export VANA_LICENSE_TO="emad"
 ### PhpStorm
 
 见 [PhpStorm 独立章节](./phpstorm)
+
+### VSCode
+
+见 [VSCode 独立章节](./vscode)
