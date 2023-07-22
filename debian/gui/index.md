@@ -80,11 +80,11 @@ fc-list|grep 'my-fonts'
 
 ::: code-group
 
-```bash [ssh终端]
+```bash [SSH终端]
 apt install ./tabby-1.0.197-linux-x64.deb
 ```
 
-```bash [ftp传输]
+```bash [FTP传输]
 apt install filezilla
 ```
 
