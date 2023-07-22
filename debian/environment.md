@@ -1,5 +1,5 @@
 ---
-title: nginx
+title: environment
 titleTemplate: Debian 教程
 ---
 
@@ -8,5 +8,5 @@ titleTemplate: Debian 教程
 ## 安装
 
 ```bash
-apt install nginx -y
+apt install nginx redis sqlite3 postgresql -y
 ```
