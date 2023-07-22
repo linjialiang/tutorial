@@ -80,7 +80,7 @@ fc-list|grep 'my-fonts'
 
 ::: code-group
 
-```bash [SSH终端]
+```bash [终端管理]
 apt install ./tabby-1.0.197-linux-x64.deb
 ```
 
@@ -98,6 +98,14 @@ apt install ./Motrix_1.8.19_amd64.deb
 
 ```bash [API开发]
 apt install ./apifox_2.3.5_amd64.deb
+```
+
+```bash [QQ]
+apt install ./linuxqq_3.1.2-13107_amd64.deb
+```
+
+```bash [腾讯会议]
+apt install ./TencentMeeting_0300000000_3.15.0.402_x86_64_default.publish.deb
 ```
 
 :::
@@ -186,3 +194,7 @@ export VANA_LICENSE_TO="emad"
 ### VSCode
 
 见 [VSCode 独立章节](./vscode)
+
+### 输入法
+
+见 [输入法独立章节](./pinyin)

@@ -603,3 +603,34 @@ ssh -T git@gitee.com
 ```
 
 :::
+
+## Shadowsocks
+
+::: code-group
+
+```bash [安装]
+apt install shadowsocks-libev
+```
+
+<<<@/assets/debian/ss/config.json [服务端]
+<<<@/assets/debian/ss/local.json [客户端]
+
+```bash [禁止启用服务端服务]
+systemctl disable shadowsocks-libev.service
+systemctl daemon-reload
+```
+
+:::
+
+::: details 将客户端程序加入 bin 目录
+
+```bash
+# /usr/local/bin/ss.bash 內容
+
+#!/usr/bin/env bash
+nohup ss-local -c /etc/shadowsocks-libev/local.json >/dev/null 2>&1 &
+```
+
+> 以后只要使用 `ss.bash` 指令即可启用
+
+:::
