@@ -38,7 +38,7 @@ mv 音乐 Music
 mv 桌面 Desktop
 ```
 
-## 手工安装字体
+## 手工安装字体{#install_fonts}
 
 linux 通过指令，可以快速安装需要的字体
 
@@ -74,13 +74,50 @@ fc-list|grep 'my-fonts'
 
 ## 常用桌面软件安装
 
-### kchmviewer
+::: code-group
 
-安装 chm 查看工具
-
-```bash
+```bash [chm工具]
 apt install kchmviewer
 ```
+
+```bash [ftp传输工具]
+apt install filezilla
+```
+
+```bash [下载工具]
+apt install ./Motrix_1.8.19_amd64.deb
+```
+
+```bash [API开发工具]
+apt install ./apifox_2.3.5_amd64.deb
+```
+
+```bash [终端工具]
+apt install ./tabby-1.0.197-linux-x64.deb
+```
+
+:::
+
+### WPS
+
+```bash
+dpkg -i ./wps-office_11.1.0.11664_amd64.deb
+```
+
+::: details 安装字体
+
+wps 需要额外安装两组字体，安装方式见 [[手工安装字体]](#install_fonts)
+
+- WEBDINGS.ttf
+- wps_symbol_fonts.zip
+
+:::
+
+::: danger 警告
+WPS 请使用 dpkg 安装，否则会卡在中途无法退出，退出后 apt 会被锁住
+
+apt 锁住，通常需要自行根据命令行提示进行解锁
+:::
 
 ### flameshot
 
