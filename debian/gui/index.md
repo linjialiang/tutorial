@@ -9,9 +9,10 @@ titleTemplate: Debian GUI 教程
 
 ## 家目录的子目录改成英文
 
-1. 修改目录映射文件名
+::: code-group
 
-```bash
+```bash [修改目录映射]
+# 修改目录映射文件名
 vim ~/.config/user-dirs.dirs
 
 XDG_DESKTOP_DIR="$HOME/Desktop"
@@ -24,9 +25,8 @@ XDG_PICTURES_DIR="$HOME/Pictures"
 XDG_VIDEOS_DIR="$HOME/Videos"
 ```
 
-2. 将 Home 目录下的中文目录名改为对应英文
-
-```bash
+```bash [修改目录名]
+# 将 Home 目录下的中文目录名改为对应英文
 cd ~
 mv 公共 Public
 mv 模板 Templates
@@ -37,6 +37,8 @@ mv 下载 Download
 mv 音乐 Music
 mv 桌面 Desktop
 ```
+
+:::
 
 ## 手工安装字体{#install_fonts}
 
@@ -74,26 +76,28 @@ fc-list|grep 'my-fonts'
 
 ## 常用桌面软件安装
 
+### 无需配置软件
+
 ::: code-group
+
+```bash [ssh终端]
+apt install ./tabby-1.0.197-linux-x64.deb
+```
+
+```bash [ftp传输]
+apt install filezilla
+```
 
 ```bash [chm工具]
 apt install kchmviewer
-```
-
-```bash [ftp传输工具]
-apt install filezilla
 ```
 
 ```bash [下载工具]
 apt install ./Motrix_1.8.19_amd64.deb
 ```
 
-```bash [API开发工具]
+```bash [API开发]
 apt install ./apifox_2.3.5_amd64.deb
-```
-
-```bash [终端工具]
-apt install ./tabby-1.0.197-linux-x64.deb
 ```
 
 :::
@@ -136,4 +140,8 @@ apt install flameshot
 ::: details xfce 设置快捷键
 `设置` > `键盘`
 ![截图全局快捷键](/assets/debian/gui/002.png)
+:::
+
+::: details 内部快捷键设置
+![截图全局快捷键](/assets/debian/gui/003.png)
 :::
