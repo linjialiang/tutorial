@@ -108,6 +108,10 @@ apt install ./linuxqq_3.1.2-13107_amd64.deb
 apt install ./TencentMeeting_0300000000_3.15.0.402_x86_64_default.publish.deb
 ```
 
+```bash [录制工具]
+apt install obs-studio
+```
+
 :::
 
 ### WPS
