@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=pycharm
+Icon=/home/emad/JetBrains/app/pycharm/bin/pycharm.svg
+StartupWMClass=jetbrains-pycharm
+Comment=A smart IDE for Python
+Exec="/home/emad/JetBrains/app/pycharm/bin/pycharm.sh" %u
+Version=1.0
+Type=Application
+Categories=Development;IDE;
+Terminal=false
+StartupNotify=true
