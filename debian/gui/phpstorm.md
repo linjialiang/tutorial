@@ -55,6 +55,12 @@ JetBrains               部署根目录
 <<<@/assets/debian/jetbrains/datagrip/idea.properties{ini} [idea.properties]
 :::
 
+::: details PyCharm
+::: code-group
+<<<@/assets/debian/jetbrains/pycharm/pycharm64.vmoptions{ini} [pycharm64.vmoptions]
+<<<@/assets/debian/jetbrains/pycharm/idea.properties{ini} [idea.properties]
+:::
+
 ### JetBrains 系列激活码
 
 <!--@include: @/assets/debian/jetbrains/code.md-->
@@ -69,6 +75,7 @@ JetBrains               部署根目录
 <<<@/assets/debian/jetbrains/desktop/phpstorm.desktop{ini} [PhpStorm]
 <<<@/assets/debian/jetbrains/desktop/datagrip.desktop{ini} [DataGrip]
 <<<@/assets/debian/jetbrains/desktop/clion.desktop{ini} [CLion]
+<<<@/assets/debian/jetbrains/desktop/pycharm.desktop{ini} [PyCharm]
 :::
 
 ::: tip 桌面文件路径
