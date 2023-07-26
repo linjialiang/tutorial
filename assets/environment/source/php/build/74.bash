@@ -24,9 +24,10 @@
 --with-freetype \
 --enable-mbstring \
 --enable-mysqlnd \
---with-mysql-sock=/run/mysqld/mysqld.sock \
 --with-mysqli=mysqlnd \
 --with-pdo-mysql=mysqlnd \
+--with-pgsql \
+--with-pdo-pgsql \
 --enable-sockets \
 --enable-sysvmsg \
 --enable-sysvsem \
