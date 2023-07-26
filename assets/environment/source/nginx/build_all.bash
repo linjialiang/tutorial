@@ -1,5 +1,5 @@
 ./configure --prefix=/server/nginx \
---builddir=/package/environment/nginx-1.24.0/build_nginx \
+--builddir=/package/nginx-1.24.0/build_nginx \
 
 # 核心功能模块
 --with-threads \
@@ -8,6 +8,7 @@
 # 自带http功能模块全部启用
 --with-http_ssl_module \
 --with-http_v2_module \
+--with-http_v3_module \
 --with-http_realip_module \
 --with-http_addition_module \
 --with-http_xslt_module \
