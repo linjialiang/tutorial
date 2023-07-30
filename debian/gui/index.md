@@ -199,6 +199,10 @@ export VANA_LICENSE_TO="emad"
 
 见 [VSCode 独立章节](./vscode)
 
+### Sublime Text
+
+见 [Sublime Text 独立章节](./sublime)
+
 ### 输入法
 
 见 [输入法独立章节](./pinyin)
