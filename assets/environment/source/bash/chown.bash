@@ -15,6 +15,10 @@ func_chown_pgsql(){
     chown pgsql:pgsql $1
 }
 
+func_chown_redis(){
+    chown redis:redis $1
+}
+
 func_chown_www(){
     chown ${WEB_USER}:${WEB_USER_GROUP} $1
 }
@@ -32,6 +36,11 @@ chown_phpfpm_array=(
 chown_pgsql_array=(
     "/server/run/pgsql"
     "/server/logs/pgsql"
+);
+
+chown_redis_array=(
+    "/server/run/redis"
+    "/server/logs/redis"
 );
 
 chown_www_array=(
@@ -62,10 +71,18 @@ do
 done
 echo "-----pgsql 用户权限目录设置结束-----"
 
-echo "-----开始设置 www 用户权限目录-----"
+echo "-----开始设置 redis 用户权限目录-----"
+for((i=0;i<${#chown_redis_array[*]};i++));
+do
+   echo ${chown_redis_array[i]}
+   func_chown_redis ${chown_redis_array[i]}
+done
+echo "-----redis 用户权限目录设置结束-----"
+
+echo "-----开始设置 开发者 用户权限目录-----"
 for((i=0;i<${#chown_www_array[*]};i++));
 do
    echo ${chown_www_array[i]}
    func_chown_www ${chown_www_array[i]}
 done
-echo "-----www 用户权限目录设置结束-----"
+echo "-----开发者 用户权限目录设置结束-----"
