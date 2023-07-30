@@ -960,7 +960,7 @@ xdebug 是 php 的断点调试工具
 
 ```bash
 apt install libtool -y
-cd /package/php_ext/xdebug-3.2.1
+cd /package/php_ext/xdebug-3.2.2
 phpize
 ./configure --enable-xdebug --with-php-config=/server/php/82/bin/php-config
 # ./configure --enable-xdebug --with-php-config=/server/php/81/bin/php-config
