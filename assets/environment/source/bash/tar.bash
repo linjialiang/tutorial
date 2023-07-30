@@ -39,5 +39,5 @@ do
     tar -xzf $i -C ${EXT_DIR}
 done
 
-cd EXT_DIR
+cd ${EXT_DIR}
 rm package.xml
