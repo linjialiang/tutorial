@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-WEB_USER = 'www'
-WEB_USER_GROUP = 'www'
+WEB_USER = 'emad'
+WEB_USER_GROUP = 'emad'
 
 # chown.bash
 func_chown_nginx(){
@@ -9,6 +9,10 @@ func_chown_nginx(){
 
 func_chown_phpfpm(){
     chown phpfpm:phpfpm $1
+}
+
+func_chown_pgsql(){
+    chown pgsql:pgsql $1
 }
 
 func_chown_www(){
@@ -25,8 +29,13 @@ chown_phpfpm_array=(
     "/server/logs/php"
 );
 
+chown_pgsql_array=(
+    "/server/run/pgsql"
+    "/server/logs/pgsql"
+);
+
 chown_www_array=(
-    "/server/www"
+    "/www"
 );
 
 echo "-----开始设置nginx用户权限目录-----"
@@ -44,6 +53,14 @@ do
    func_chown_phpfpm ${chown_phpfpm_array[i]}
 done
 echo "-----phpfpm 用户权限目录设置结束-----"
+
+echo "-----开始设置 pgsql 用户权限目录-----"
+for((i=0;i<${#chown_pgsql_array[*]};i++));
+do
+   echo ${chown_pgsql_array[i]}
+   func_chown_pgsql ${chown_pgsql_array[i]}
+done
+echo "-----pgsql 用户权限目录设置结束-----"
 
 echo "-----开始设置 www 用户权限目录-----"
 for((i=0;i<${#chown_www_array[*]};i++));
