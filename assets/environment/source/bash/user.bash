@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-WEB_USER = 'emad'
-WEB_USER_GROUP = 'emad'
+WEB_USER='emad'
+WEB_USER_GROUP='emad'
 
 useradd -c 'developer user' -u 1001 -s /bin/zsh ${WEB_USER}
 useradd -c 'PostgreSql service main process user' -u 2001 -s /bin/zsh pgsql

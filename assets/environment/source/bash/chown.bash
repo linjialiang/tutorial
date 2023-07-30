@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-WEB_USER = 'emad'
-WEB_USER_GROUP = 'emad'
+WEB_USER='emad'
+WEB_USER_GROUP='emad'
 
 # chown.bash
 func_chown_nginx(){
