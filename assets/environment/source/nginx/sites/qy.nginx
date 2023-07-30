@@ -3,7 +3,7 @@ server
 {
     listen 80;
     server_name core.qyphp.com;
-    root /server/www/qyphp/core/public;
+    root /www/qyphp/core/public;
 
     access_log /server/logs/nginx/qyphp_core.log;
     index index.html index.php;

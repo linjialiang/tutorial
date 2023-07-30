@@ -3,7 +3,7 @@ server
 {
     listen 80;
     server_name tp.com;
-    root /server/www/tp/public;
+    root /www/tp/public;
 
     access_log /server/logs/nginx/tp.log;
     index index.html index.php;

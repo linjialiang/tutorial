@@ -9,7 +9,7 @@ server
 
     listen 80;
     server_name example.com www.example.com;
-    root /server/www/www_example_com;
+    root /www/www_example_com;
 
     access_log /server/logs/nginx/www_example_com.log;
     index index.html index.htm;
