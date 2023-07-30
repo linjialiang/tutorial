@@ -104,16 +104,24 @@ PHP 环境目录
 
 :::
 
+::: tip 说明
+
+- nginx 和 php-fpm 的主进程是 root
+- redis、postgresql 的主进程可以自己设定用户
+
+:::
+
 ## 用户说明
 
 在用户脚本中我们可以看到，我们创建了 4 个用户
 
-| 用户名 | 说明         |
-| ------ | ------------ |
-| pgsql  | pgsql 用户   |
-| nginx  | nginx 用户   |
-| phpfpm | php 用户     |
-| www    | 操作文件用户 |
+| 用户名 | 说明               |
+| ------ | ------------------ |
+| pgsql  | pgsql 主进程用户   |
+| redis  | redis 主进程用户   |
+| nginx  | nginx 子进程用户   |
+| phpfpm | php-fpm 子进程用户 |
+| www    | 操作文件用户       |
 
 ::: tip 操作文件用户
 如果是在本机搭建环境，直接用你的登陆用户作为操作文件的用户即可
@@ -123,7 +131,7 @@ PHP 环境目录
 
 - pgsql 是数据库 PostgreSql 的用户
 - nginx 是 nginx work 进程的 Unix 用户
-- phpfpm 是 FPM 进程运行的 Unix 用户
+- phpfpm 是 FPM 子进程的 Unix 用户
 - www 是开发者操作项目资源、文件的用户
 
 ### 用户权限
@@ -132,6 +140,10 @@ PHP 环境目录
 
 ```md [pgsql]
 pgsql 只针对 PostgreSQL
+```
+
+```md [redis]
+redis 只针对 redis
 ```
 
 ```md [nginx]
