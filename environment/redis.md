@@ -251,3 +251,10 @@ systemctl daemon-reload
 ps -ef|grep -E "redis|PID" |grep -v grep
 ps aux|grep -E "redis|PID" |grep -v grep
 ```
+
+## 权限
+
+```bash
+chown redis:redis -R /server/redis
+
+```
