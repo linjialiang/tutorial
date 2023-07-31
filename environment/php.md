@@ -995,13 +995,13 @@ extension=swoole
 
 [xdebug]
 zend_extension=xdebug
-xdebug.mode=develop,trace,xdebug
+xdebug.mode=develop,trace,debug
 xdebug.client_host=127.0.0.1
 ; xdebug.client_host=192.168.6.254
-xdebug.client_port=9074
-# xdebug.client_port=9080
-# xdebug.client_port=9081
-# xdebug.client_port=9082
+xdebug.client_port=9082
+; xdebug.client_port=9074
+; xdebug.client_port=9080
+; xdebug.client_port=9081
 ```
 
 ### 4. rdkafka
