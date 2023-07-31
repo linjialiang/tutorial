@@ -1039,7 +1039,8 @@ chmod 750 /server/logs/php
 # 日志用户 root 权限 600
 
 chown root:root -R /server/run/php
-chmod 755 /server/run/php # 如果不设置成 755 nginx 用户将无法读取 unix socket 文件
+# 如果不设置成 755 nginx 用户将无法读取 unix socket 文件
+chmod 755 /server/run/php
 # socket 用户 nginx 权限 660
 # pid 用户 root 权限 644
 ```
