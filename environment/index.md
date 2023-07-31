@@ -90,9 +90,9 @@ PHP 环境目录
 4. zlib-1.2.13.tar.gz
 5. redis-7.0.12.tar.gz
 6. sqlite-autoconf-3420000.tar.gz
-8. php-8.2.8.tar.xz
-9. php-8.1.21.tar.xz
-10. php-8.0.29.tar.xz
+7. php-8.2.8.tar.xz
+8. php-8.1.21.tar.xz
+9. php-8.0.29.tar.xz
 
 :::
 
