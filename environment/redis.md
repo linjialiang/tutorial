@@ -88,7 +88,7 @@ logfile "/server/logs/redis/redis.log"
 
 ```bash
 chown redis:redis -R /server/redis
-find /server/redis -type f -exec chmod 750 {} \;
+find /server/redis -type f -exec chmod 640 {} \;
 find /server/redis -type d -exec chmod 750 {} \;
 
 chown redis:redis -R /server/logs/redis
