@@ -218,24 +218,18 @@ usermod -G '' phpfpm
 
 # 为用户添加附加用户组
 
-# 用户 nginx 针对[静态文件]、[php文件]、[php程序创建的文件]，都需要具有读取权限
-usermod -G www,phpfpm nginx
-# [用户phpfpm] 通常需要加入 [用户组www]，需要php操作文件或目录时，上级目录权限设为 [770] 即可
+# 用户 nginx 针对[静态文件]需要具有读取权限
+usermod -G www nginx
+# [用户phpfpm] 通常需要加入 [用户组www]，需要php操作文件或目录时，上级目录权限设为 [phpfpm 750] 即可
 usermod -G www phpfpm
-# [用户www] 加入 [用户组phpfpm] 是为了在使用ftp、vscode远程开发这些工具时，方便查看php生成的文件
-usermod -G phpfpm www
+# [用户www] 通常不需要加入其他用户组
+usermod -G '' www
 ```
-
-::: info 说明
-如果用户已经有附加用户组,就需要使用 `-a` 指令，否则会覆盖之前全部用户组
-
-`用户phpfpm` 也可以不加入其他用户组，这时需要 php 操作文件或目录时，上级目录权限需设为 `[777]`
-:::
 
 ::: danger 部署环境权限如下：
 
 1. 静态文件 nginx:nginx 400
 2. php 文件 phpfpm:phpfpm 400
-3. 上传目录 phpfpm:phpfpm 700
+3. 操作目录 phpfpm:phpfpm 700 (上传目录、日志目录、缓存目录等)
 
 :::
