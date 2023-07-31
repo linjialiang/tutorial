@@ -1033,7 +1033,9 @@ extension=rdkafka
 chown root:root -R /server/php
 find /server/php -type f -exec chmod 640 {} \;
 find /server/php -type d -exec chmod 750 {} \;
+# 可执行文件需要执行权限
 find /server/php/82/bin -type f -exec chmod +x {} \;
+find /server/php/82/sbin -type f -exec chmod +x {} \;
 
 chown root:root -R /server/logs/php
 chmod 750 /server/logs/php
