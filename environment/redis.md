@@ -92,12 +92,12 @@ find /server/redis -type f -exec chmod 750 {} \;
 find /server/redis -type d -exec chmod 750 {} \;
 
 chown redis:redis -R /server/logs/redis
-find /server/logs/redis -type f -exec chmod 640 {} \;
-find /server/logs/redis -type d -exec chmod 750 {} \;
+chmod 750 /server/logs/redis
+# 日志文件 权限 redis 644
 
 chown redis:redis -R /server/run/redis
-find /server/run/redis -type f -exec chmod 640 {} \;
-find /server/run/redis -type d -exec chmod 750 {} \;
+chmod 750 /server/run/redis
+# pid 权限 redis 644
 ```
 
 ### 3. 配置文件参数

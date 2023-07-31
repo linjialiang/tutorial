@@ -596,8 +596,10 @@ find /server/nginx -type d -exec chmod 750 {} \;
 # 其他的*_temp不是很重要
 
 chown root:root -R /server/logs/nginx
+chmod 750 /server/logs/nginx
 # 日志文件权限 root 644
 
 chown root:root -R /server/run/nginx
+chmod 750 /server/run/nginx
 # pid文件权限 root 644
 ```
