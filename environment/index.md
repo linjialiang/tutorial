@@ -226,7 +226,7 @@ usermod -G www phpfpm
 usermod -G '' www
 ```
 
-::: danger 部署环境权限如下
+::: warning 部署环境权限如下：
 
 1. 静态文件 nginx:nginx 400
 2. php 文件 phpfpm:phpfpm 400
@@ -234,7 +234,7 @@ usermod -G '' www
 
 :::
 
-::: danger 开发环境设置开发用户的文件默认权限
+::: danger 开发用户 umask 权限设置：
 
 ```bash
 vim ~/.profile
