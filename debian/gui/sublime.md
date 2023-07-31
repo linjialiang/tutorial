@@ -54,3 +54,17 @@ B1D4C178 2F9DDB16 ABAA74E5 95304BEF
 27B7E747 736A1198 B3865734 0B434AA5
 —— END LICENSE ——
 ```
+
+## 插件
+
+使用 `Ctrl+Shift+P` 快捷键打开命令面板，选择或输入 `Install Package Control` 等待安装插件管理中心
+
+插件管理中心安装完成以后，使用 `Install Package Control` 就可以调出插件列表，搜索或选择对应的插件进行安装即可
+
+1. Emmet
+2. ChineseLocalizations
+3. SideBarMenuAdvanced
+4. Save Copy As
+5. ConvertToUTF8
+6. BracketHighlighter
+7. Vintageous
