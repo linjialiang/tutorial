@@ -84,7 +84,23 @@ logfile "/server/logs/redis/redis.log"
 
 :::
 
-### 2. 配置文件参数
+### 2. 权限
+
+```bash
+chown redis:redis -R /server/redis
+find /server/redis -type f -exec chmod 750 {} \;
+find /server/redis -type d -exec chmod 750 {} \;
+
+chown redis:redis -R /server/logs/redis
+find /server/logs/redis -type f -exec chmod 640 {} \;
+find /server/logs/redis -type d -exec chmod 750 {} \;
+
+chown redis:redis -R /server/run/redis
+find /server/run/redis -type f -exec chmod 640 {} \;
+find /server/run/redis -type d -exec chmod 750 {} \;
+```
+
+### 3. 配置文件参数
 
 下面是 Redis 配置文件常见的参数：
 
@@ -250,11 +266,4 @@ systemctl daemon-reload
 ```bash
 ps -ef|grep -E "redis|PID" |grep -v grep
 ps aux|grep -E "redis|PID" |grep -v grep
-```
-
-## 权限
-
-```bash
-chown redis:redis -R /server/redis
-
 ```
