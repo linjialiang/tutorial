@@ -98,10 +98,10 @@ PHP 环境目录
 
 ::: details /package/php_ext 目录
 
-1. redis-5.3.7.tgz
-2. xdebug-3.2.2.tgz
-2. xdebug-3.2.2.tgz
-2. xdebug-3.2.2.tgz
+1. apcu-5.1.22.tgz
+2. redis-5.3.7.tgz
+3. yaml-2.2.3.tgz
+4. xdebug-3.2.2.tgz
 
 :::
 
