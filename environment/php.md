@@ -1026,3 +1026,19 @@ make install
 # /server/php/82/lib/php.ini
 extension=rdkafka
 ```
+
+## 权限
+
+```bash
+chown root:root -R /server/php
+find /server/php -type f -exec chmod 750 {} \;
+find /server/php -type d -exec chmod 750 {} \;
+
+chown root:root -R /server/logs/php
+find /server/logs/php -type f -exec chmod 640 {} \;
+find /server/logs/php -type d -exec chmod 750 {} \;
+
+chown root:root -R /server/run/php
+find /server/run/php -type f -exec chmod 640 {} \;
+find /server/run/php -type d -exec chmod 750 {} \;
+```

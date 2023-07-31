@@ -4,11 +4,11 @@ WEB_USER_GROUP='emad'
 
 # chown.bash
 func_chown_nginx(){
-    chown nginx:nginx $1
+    chown root:root $1
 }
 
 func_chown_phpfpm(){
-    chown phpfpm:phpfpm $1
+    chown root:root $1
 }
 
 func_chown_pgsql(){
