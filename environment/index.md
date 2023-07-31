@@ -226,10 +226,20 @@ usermod -G www phpfpm
 usermod -G '' www
 ```
 
-::: danger 部署环境权限如下：
+::: danger 部署环境权限如下
 
 1. 静态文件 nginx:nginx 400
 2. php 文件 phpfpm:phpfpm 400
 3. 操作目录 phpfpm:phpfpm 700 (上传目录、日志目录、缓存目录等)
+
+:::
+
+::: danger 开发环境设置开发用户的文件默认权限
+
+```bash
+vim ~/.profile
+# 第9行 umask 022处新建一行
+umask 027 # 创建的文件权限是 640 目录权限是 750
+```
 
 :::
