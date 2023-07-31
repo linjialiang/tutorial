@@ -90,6 +90,8 @@ logfile "/server/logs/redis/redis.log"
 chown redis:redis -R /server/redis
 find /server/redis -type f -exec chmod 640 {} \;
 find /server/redis -type d -exec chmod 750 {} \;
+# 可执行文件需要执行权限
+chmod 750 -R /server/redis/bin
 
 chown redis:redis -R /server/logs/redis
 chmod 750 /server/logs/redis
