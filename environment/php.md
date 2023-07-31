@@ -1035,10 +1035,11 @@ find /server/php -type f -exec chmod 750 {} \;
 find /server/php -type d -exec chmod 750 {} \;
 
 chown root:root -R /server/logs/php
-find /server/logs/php -type f -exec chmod 640 {} \;
-find /server/logs/php -type d -exec chmod 750 {} \;
+chmod 750 /server/logs/php
+# 日志用户 root 权限 600
 
 chown root:root -R /server/run/php
-find /server/run/php -type f -exec chmod 640 {} \;
-find /server/run/php -type d -exec chmod 750 {} \;
+chmod 750 /server/run/php
+# socket 用户 nginx 权限 660
+# pid 用户 root 权限 644
 ```
