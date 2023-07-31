@@ -90,7 +90,6 @@ PHP 环境目录
 4. zlib-1.2.13.tar.gz
 5. redis-7.0.12.tar.gz
 6. sqlite-autoconf-3420000.tar.gz
-7. PostgreSQL
 8. php-8.2.8.tar.xz
 9. php-8.1.21.tar.xz
 10. php-8.0.29.tar.xz
@@ -100,6 +99,8 @@ PHP 环境目录
 ::: details /package/php_ext 目录
 
 1. redis-5.3.7.tgz
+2. xdebug-3.2.2.tgz
+2. xdebug-3.2.2.tgz
 2. xdebug-3.2.2.tgz
 
 :::
