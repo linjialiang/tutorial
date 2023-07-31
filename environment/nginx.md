@@ -585,3 +585,19 @@ server
 | `echo -n` | 不换行输出     |
 | `>>`      | 追加输出重定向 |
 | `>`       | 覆盖输出重定向 |
+
+## 权限
+
+```bash
+chown root:root -R /server/nginx
+find /server/nginx -type f -exec chmod 750 {} \;
+find /server/nginx -type d -exec chmod 750 {} \;
+
+chown root:root -R /server/logs/nginx
+find /server/logs/nginx -type f -exec chmod 640 {} \;
+find /server/logs/nginx -type d -exec chmod 750 {} \;
+
+chown root:root -R /server/run/nginx
+find /server/run/nginx -type f -exec chmod 640 {} \;
+find /server/run/nginx -type d -exec chmod 750 {} \;
+```
