@@ -1056,6 +1056,8 @@ usermod -G phpfpm root
 # 或者
 find /server/php -type f -exec chmod 644 {} \;
 find /server/php -type d -exec chmod 755 {} \;
+chmod 755 -R /server/php/82/bin
+chmod 755 -R /server/php/82/sbin
 ```
 
 :::
