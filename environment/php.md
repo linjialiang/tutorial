@@ -185,7 +185,7 @@ pkg-config --list-all
 ```bash
 apt install g++ libcurl4-openssl-dev libssl-dev libavif-dev libwebp-dev libonig-dev libyaml-dev libffi-dev libsystemd-dev libgmp-dev libsodium-dev libzip-dev gawk -y
 
-# php 的 pgsql 扩展需要，如果服务器已经安装了 postgresql 则不需要安装这个
+# php 的 pgsql 扩展需要，如果服务器已安装了 postgresql 则不需要安装这个 dev
 apt install postgresql-server-dev-all -y
 ```
 
