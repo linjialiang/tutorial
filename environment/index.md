@@ -118,7 +118,6 @@ PHP 环境目录
 
 | 用户名 | 说明               |
 | ------ | ------------------ |
-| pgsql  | pgsql 主进程用户   |
 | redis  | redis 主进程用户   |
 | nginx  | nginx 子进程用户   |
 | phpfpm | php-fpm 子进程用户 |
@@ -130,7 +129,6 @@ PHP 环境目录
 
 ### 用户职责
 
-- pgsql 是数据库 PostgreSql 的用户
 - nginx 是 nginx work 进程的 Unix 用户
 - phpfpm 是 FPM 子进程的 Unix 用户
 - www 是开发者操作项目资源、文件的用户
@@ -138,10 +136,6 @@ PHP 环境目录
 ### 用户权限
 
 ::: code-group
-
-```md [pgsql]
-pgsql 只针对 PostgreSQL
-```
 
 ```md [redis]
 redis 只针对 redis
