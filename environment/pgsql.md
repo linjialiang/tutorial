@@ -65,3 +65,10 @@ su - postgres
 
 <<<@/assets/environment/source/pgsql/postgresql.conf.bak{ini} [原始配置]
 :::
+
+## 修改 systemctl 单元文件
+
+::: code-group
+<<<@/assets/environment/source/service/postgresql.service{ini} [新]
+<<<@/assets/environment/source/service/postgresql.service.bak{ini} [原始]
+:::
