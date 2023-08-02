@@ -70,5 +70,6 @@ su - postgres
 
 ::: code-group
 <<<@/assets/environment/source/service/postgresql@.service{ini} [新]
-<<<@/assets/environment/source/service/postgresql@.service.bak{ini} [原始]
+<<<@/assets/environment/source/service/postgresql.service.bak{ini} [原始 1]
+<<<@/assets/environment/source/service/postgresql@.service.bak{ini} [原始 2]
 :::
