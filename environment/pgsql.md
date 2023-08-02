@@ -24,3 +24,16 @@ v14 有 [[中文文档]](http://www.postgres.cn/docs/14/index.html)
 
 v15 还没有中文手册 `[2023-08-02]`
 :::
+
+## 配置文件
+
+::: code-group
+
+```bash [操作]
+cp /etc/postgresql/15/main/postgresql.conf{,.bak}
+```
+
+<<<@/assets/environment/source/pgsql/postgresql.conf{ini} [新配置]
+<<<@/assets/environment/source/pgsql/postgresql.conf.bak{ini} [原始配置]
+
+:::
