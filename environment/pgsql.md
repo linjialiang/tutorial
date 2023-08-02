@@ -25,9 +25,17 @@ v14 有 [[中文文档]](http://www.postgres.cn/docs/14/index.html)
 v15 还没有中文手册 `[2023-08-02]`
 :::
 
-## 配置文件
+## 配置
+
+###
+
+### 配置文件
 
 ::: code-group
+
+```bash [停止服务]
+systemctl stop postgresql.service
+```
 
 ```bash [操作]
 cp /etc/postgresql/15/main/postgresql.conf{,.bak}
@@ -37,11 +45,7 @@ vim /etc/postgresql/15/main/postgresql.conf
 <<<@/assets/environment/source/pgsql/postgresql.conf{ini} [新配置]
 <<<@/assets/environment/source/pgsql/postgresql.conf.bak{ini} [原始配置]
 
-:::
-
-## 权限
-
-```bash
+```bash [权限]
 # 数据目录
 chown postgres:postgres /server/pgsql
 chmod 700 /server/pgsql
@@ -50,3 +54,5 @@ chmod 700 /server/pgsql
 chown postgres:postgres /server/run/pgsql
 chmod 775 /server/run/pgsql
 ```
+
+:::
