@@ -20,7 +20,7 @@ apt install postgresql-15 -y
 ```
 
 ::: tip 关于版本选择
-如果安装版本 14 有中文手册，15 暂时还没有中文手册 `[2023-08-02]`
+v14 有 [[中文文档]](http://www.postgres.cn/docs/14/index.html)
 
-postgresql-14 的 [中文手册](http://www.postgres.cn/docs/14/index.html) 基本已经翻译完成，所以我选择这个版本来入门 pgsql
+v15 还没有中文手册 `[2023-08-02]`
 :::
