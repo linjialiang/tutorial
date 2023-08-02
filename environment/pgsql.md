@@ -31,9 +31,22 @@ v15 还没有中文手册 `[2023-08-02]`
 
 ```bash [操作]
 cp /etc/postgresql/15/main/postgresql.conf{,.bak}
+vim /etc/postgresql/15/main/postgresql.conf
 ```
 
 <<<@/assets/environment/source/pgsql/postgresql.conf{ini} [新配置]
 <<<@/assets/environment/source/pgsql/postgresql.conf.bak{ini} [原始配置]
 
 :::
+
+## 权限
+
+```bash
+# 数据目录
+chown postgres:postgres /server/pgsql
+chmod 700 /server/pgsql
+
+# pid unix_socket
+chown postgres:postgres /server/run/pgsql
+chmod 775 /server/run/pgsql
+```
