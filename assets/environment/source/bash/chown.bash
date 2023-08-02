@@ -11,10 +11,6 @@ func_chown_phpfpm(){
     chown root:root $1
 }
 
-func_chown_pgsql(){
-    chown pgsql:pgsql $1
-}
-
 func_chown_redis(){
     chown redis:redis $1
 }
@@ -31,11 +27,6 @@ chown_nginx_array=(
 chown_phpfpm_array=(
     "/server/run/php"
     "/server/logs/php"
-);
-
-chown_pgsql_array=(
-    "/server/run/pgsql"
-    "/server/logs/pgsql"
 );
 
 chown_redis_array=(
@@ -62,14 +53,6 @@ do
    func_chown_phpfpm ${chown_phpfpm_array[i]}
 done
 echo "-----phpfpm 用户权限目录设置结束-----"
-
-echo "-----开始设置 pgsql 用户权限目录-----"
-for((i=0;i<${#chown_pgsql_array[*]};i++));
-do
-   echo ${chown_pgsql_array[i]}
-   func_chown_pgsql ${chown_pgsql_array[i]}
-done
-echo "-----pgsql 用户权限目录设置结束-----"
 
 echo "-----开始设置 redis 用户权限目录-----"
 for((i=0;i<${#chown_redis_array[*]};i++));
