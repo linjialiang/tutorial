@@ -43,7 +43,6 @@ vim /etc/postgresql/15/main/postgresql.conf
 ```
 
 <<<@/assets/environment/source/pgsql/postgresql.conf{ini} [新配置]
-<<<@/assets/environment/source/pgsql/postgresql.conf.bak{ini} [原始配置]
 
 ```bash [权限]
 # 数据目录
@@ -55,4 +54,14 @@ chown postgres:postgres /server/run/pgsql
 chmod 775 /server/run/pgsql
 ```
 
+```bash [初始化数据]
+# 先移除数据的默认位置
+mv /var/lib/postgresql/15/main{,.bak}
+
+# 再初始化数据到指定目录
+su - postgres
+/usr/lib/postgresql/15/bin/initdb -D /server/pgsql
+```
+
+<<<@/assets/environment/source/pgsql/postgresql.conf.bak{ini} [原始配置]
 :::
