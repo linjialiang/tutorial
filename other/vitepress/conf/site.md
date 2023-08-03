@@ -324,7 +324,7 @@ export default {
 - Type: `string`
 - Default: `./.vitepress/cache`
 
-缓存文件的目录，相对于 [项目根目录](./route#root-dir) 。
+缓存文件的目录，相对于 [项目根目录](../route#root-dir) 。
 
 ```ts
 export default {

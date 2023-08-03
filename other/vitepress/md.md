@@ -102,7 +102,7 @@ lang: en-US
 ::: info
 此数据将可用于页面的其余部分，以及所有自定义和主题组件
 
-有关更多详细信息，请参阅配置里的[[前言配置]](../config#frontmatter-config)。
+有关更多详细信息，请参阅配置里的[[前言配置]](./config#frontmatter-config)。
 :::
 
 ## GitHub 样式表

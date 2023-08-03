@@ -300,7 +300,7 @@ Hex Editor 用于支持十六进制格式显示文件，并支持修改，需要
 
 ### 1. ESLint
 
-vscode 支持 ESLint，关于 ESLint 请到 [基础工具](/basic-tools/eslint) 里查阅
+vscode 支持 ESLint，关于 ESLint 请到 [基础工具（暂无）] 里查阅
 
 ### 2. npm Intellisense
 
