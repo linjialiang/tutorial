@@ -73,3 +73,5 @@ su - postgres
 <<<@/assets/environment/source/service/postgresql.service.bak{ini} [原始 1]
 <<<@/assets/environment/source/service/postgresql@.service.bak{ini} [原始 2]
 :::
+
+## 创建用户
