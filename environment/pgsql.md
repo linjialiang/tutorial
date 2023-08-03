@@ -94,7 +94,7 @@ GRANT admin_group TO admin;
 GRANT admin_group TO admin_lan;
 -- 为组角色授予超级用户权限
 ALTER ROLE admin_group SUPERUSER;
--- 让成员角色临时获得SUPERUSER权限
+-- 让成员角色临时获得组权限
 SET ROLE admin_group;
 ```
 
