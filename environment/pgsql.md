@@ -88,8 +88,10 @@ psql
 CREATE ROLE admin_group INHERIT;
 -- 创建成员角色 (该角色可以登录)
 CREATE USER admin WITH PASSWORD '1';
+CREATE USER admin_lan WITH PASSWORD '1';
 -- 为组角色添加成员角色
 GRANT admin_group TO admin;
+GRANT admin_group TO admin_lan;
 -- 为组角色授予超级用户权限
 ALTER ROLE admin_group SUPERUSER;
 -- 让成员角色临时获得SUPERUSER权限
