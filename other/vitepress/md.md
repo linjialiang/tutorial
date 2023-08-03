@@ -641,8 +641,8 @@ const config: UserConfig = {
 export default config;
 ```
 
-<<< @/assets/vitepress/snippets.ts
-<<< @/assets/vitepress/vscode_region.ts
+<<< @/assets/vitepress/snippets.ts [源码自带多种功能]
+<<< @/assets/vitepress/vscode_region.ts#snippet{1 js:line-numbers} [外部设置功能]
 ````
 
 ```js [config.js]

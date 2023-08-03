@@ -74,4 +74,38 @@ su - postgres
 <<<@/assets/environment/source/service/postgresql@.service.bak{ini} [原始 2]
 :::
 
-## 创建用户
+## 创建角色
+
+::: code-group
+
+```bash [psql登录]
+su - postgres
+psql
+```
+
+```sql [创建角色]
+-- 创建组角色 (该角色不可登录)
+CREATE ROLE admin_group INHERIT;
+-- 创建成员角色 (该角色可以登录)
+CREATE USER admin WITH PASSWORD '1';
+-- 为组角色添加成员角色
+GRANT admin_group TO admin;
+-- 为组角色授予超级用户权限
+ALTER ROLE admin_group SUPERUSER;
+-- 让成员角色临时获得SUPERUSER权限
+SET ROLE admin_group;
+```
+
+<<<@/assets/environment/source/pgsql/pg_hba/pg_hba_1.conf{ini} [修改 pg_hba 配置]
+
+```sql [登录]
+# 本地 unix_socket 通过密码登录
+psql -U admin -d postgres -W
+```
+
+```sql [删除角色]
+DROP ROLE admin_group;
+DROP ROLE admin;
+```
+
+:::
