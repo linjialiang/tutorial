@@ -60,7 +60,7 @@ mv /var/lib/postgresql/15/main{,.bak}
 
 # 再初始化数据到指定目录
 su - postgres
-/usr/lib/postgresql/15/bin/initdb -D /server/pgsql
+/usr/lib/postgresql/15/bin/initdb -D /server/pgsql --auth-local peer --auth-host scram-sha-256 --no-instructions
 ```
 
 <<<@/assets/environment/source/pgsql/postgresql.conf.bak{ini} [原始配置]
