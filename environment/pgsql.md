@@ -96,7 +96,7 @@ ALTER ROLE admin_group SUPERUSER;
 SET ROLE admin_group;
 ```
 
-<<<@/assets/environment/source/pgsql/pg_hba/pg_hba_1.conf{7 ini} [修改 pg_hba 配置]
+<<<@/assets/environment/source/pgsql/pg_hba/pg_hba_1.conf{7-8 ini} [修改 pg_hba 配置]
 
 ```sql [登录]
 # 本地 unix_socket 通过密码登录
