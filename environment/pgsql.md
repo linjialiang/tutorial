@@ -69,7 +69,7 @@ su - postgres
 ## 修改 systemctl 单元文件
 
 ::: code-group
-<<<@/assets/environment/source/service/postgresql.service{ini} [新]
+<<<@/assets/environment/source/service/postgresql@.service{ini} [新]
 <<<@/assets/environment/source/service/postgresql.service.bak{ini} [原始 1]
 <<<@/assets/environment/source/service/postgresql@.service.bak{ini} [原始 2]
 :::
