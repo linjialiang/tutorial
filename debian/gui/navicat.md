@@ -13,7 +13,7 @@ Navicat 是 `.appimage` 格式，双击即可使用
 
 2. 配置 `/etc/hosts` 文件；
 
-   ```bash{11}
+   ```bash
    127.0.0.1	localhost
    192.168.10.101	lenovo
 
@@ -24,11 +24,13 @@ Navicat 是 `.appimage` 格式，双击即可使用
 
    127.0.0.1	tp.io core.qyadmin.io
    127.0.0.1	php-environment.io
-   0.0.0.0		activate.navicat.com
+   0.0.0.0		activate.navicat.com // [!code ++]
    ```
 
-3. 将 `navicat-config.tar` 包解压到 `~/home/emad/.config/` 目录下。
+3. 将 `navicat-config.tar` 包解压到 `~/.config/` 目录下。
 
-最后 双击 `.appimage` 文件，完成破解
+::: tip 提示
+双击 `.appimage` 文件启动，完成破解
 
-> 破解网站 `https://navicat.rainss.cc`
+破解网站 `https://navicat.rainss.cc`
+:::
