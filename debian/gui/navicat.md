@@ -30,3 +30,5 @@ Navicat 是 `.appimage` 格式，双击即可使用
 3. 将 `navicat-config.tar` 包解压到 `~/home/emad/.config/` 目录下。
 
 最后 双击 `.appimage` 文件，完成破解
+
+> 破解网站 `https://navicat.rainss.cc`
