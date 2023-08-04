@@ -9,6 +9,7 @@ const sidebar = [
   { text: 'VSCode', link: `${path.main}vscode` },
   { text: 'Sublime Text', link: `${path.main}sublime` },
   { text: '输入法', link: `${path.main}pinyin` },
+  { text: 'Navicat', link: `${path.main}navicat` },
 ];
 
 export default sidebar;

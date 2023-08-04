@@ -206,3 +206,7 @@ export VANA_LICENSE_TO="emad"
 ### 输入法
 
 见 [输入法独立章节](./pinyin)
+
+### Navicat
+
+见 [Navicat 独立章节](./navicat)
