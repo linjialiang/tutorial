@@ -37,4 +37,7 @@ Navicat 是 `.appimage` 格式，双击即可使用
 
 ::: details desktop
 <<<@/assets/debian/gui/desktop/navicat16-premium.desktop{bash}
+
+::: tip
+图标和执行文件放到指定位置
 :::
