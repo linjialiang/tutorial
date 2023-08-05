@@ -34,3 +34,7 @@ Navicat 是 `.appimage` 格式，双击即可使用
 
 破解网站 `https://navicat.rainss.cc`
 :::
+
+::: details desktop
+<<<@/assets/debian/gui/desktop/navicat16-premium.desktop
+:::
