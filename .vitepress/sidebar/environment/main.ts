@@ -10,6 +10,7 @@ const sidebar = [
     collapsed: true,
     items: [
       { text: 'MySQL', link: `${path.main}mysql` },
+      { text: '编译MySQL', link: `${path.main}mysql_compile` },
       { text: 'Sqlite3', link: `${path.main}sqlite3` },
       { text: 'PostgreSQL', link: `${path.main}pgsql` },
     ],
