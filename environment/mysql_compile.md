@@ -25,7 +25,9 @@ titleTemplate: 环境搭建教程
 8、perl(不做 test 就不需要)。
 
 ```bash
-apt update && apt install -y gcc g++ cmake pkg-config libssl3 libssl-dev libncurses5-dev libncursesw5-dev libaio-dev dpkg-dev libsasl2-dev libudev-dev libbison-dev libldap-dev
+apt update && apt install -y gcc g++ cmake
+apt update && apt install -y libncursesada11-dev
+# pkg-config libssl3 libssl-dev libncurses5-dev libncursesw5-dev libaio-dev dpkg-dev libsasl2-dev libudev-dev libbison-dev libldap-dev
 ```
 
 ## 编译
@@ -42,9 +44,27 @@ ls -l
 ```bash
 mkdir /server/mysqld
 mkdir build
-cd build
 # 这里使用 systemd 方式，采用最简选项编译，具体配置由 my.cnf 实现
 cmake -DWITH_BOOST=../boost/boost_1_77_0/ -DWITH_SYSTEMD=1 -DCMAKE_INSTALL_PREFIX=/server/mysqld ..
+
+cmake \
+-DCMAKE_INSTALL_PREFIX=/server/mysqld \
+-DWITH_BOOST=./boost/boost_1_77_0 \
+-DSYSCONFDIR=/etc \
+-DWITH_SYSTEMD=1 \
+-DWITH_INNOBASE_STORAGE_ENGINE=1 \
+-DWITH_PARTITION_STORAGE_ENGINE=1 \
+-DWITH_FEDERATED_STORAGE_ENGINE=1 \
+-DWITH_BLACKHOLE_STORAGE_ENGINE=1 \
+-DWITH_MYISAM_STORAGE_ENGINE=1 \
+-DWITH_MEMORY_STORAGE_ENGINE=1 \
+-DENABLED_LOCAL_INFILE=1 \
+-DWITH_READLINE=1 \
+-DMYSQL_TCP_PORT=3306 \
+-DEXTRA_CHARSETS=all \
+-DDEFAULT_CHARSET=utf8 \
+-DDEFAULT_COLLATION=utf8_general_ci
+
 # mysql 编译时间很长，最好用单核处理，这样不影响其它工作正常进行
 make
 make install
