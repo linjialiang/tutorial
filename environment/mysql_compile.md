@@ -47,6 +47,8 @@ chown mysql:mysql /server/logs/mysql
 
 ## 编译
 
+在不了解干什么的时候，尽量使用 MySQL 的默认值，并且 MySQL 很多参数都可以通过 my.ini 重新修改。
+
 ```bash
 cd /package
 tar -xzf mysql-boost-8.0.34.tar.gz
@@ -59,39 +61,41 @@ cmake .. \
 -DDOWNLOAD_BOOST_TIMEOUT=60 \
 -DWITH_BOOST=/package/mysql-8.0.34/boost/boost_1_77_0 \
 -DMYSQL_UNIX_ADDR=/server/run/mysql \
+-DWITH_SSL=system \
 -DWITH_SYSTEMD=1 \
--DSYSTEMD_PID_DIR=/server/run/mysql \
--DWITH_SSL=system
+-DSYSTEMD_PID_DIR=/server/run/mysql
 
 cmake --build .
 cmake --install .
 ```
 
-::: details 具体加哪些参数呢？请往下看：
+### cmake 选项说明
 
-1.  使用 SysV 方式启动，cmake 命令如下
+| commom                     | note                                                |
+| -------------------------- | --------------------------------------------------- |
+| `-DCMAKE_INSTALL_PREFIX`   | MySQL 安装基目录                                    |
+| `-DWITH_BOOST`             | 构建 MySQL 需要 Boost 库                            |
+| `-DDOWNLOAD_BOOST`         | boost 查不到，是否下载 Boost 库                     |
+| `-DDOWNLOAD_BOOST_TIMEOUT` | 下载 Boost 库的超时秒数                             |
+| `-DMYSQL_UNIX_ADDR`        | 服务器侦听 socket 连接的 Unix Socket 绝对路径文件名 |
+| `-DWITH_SSL`               | 启用 SSL 支持，`system` 是使用系统自带的 openssl    |
+| `-DWITH_SYSTEMD`           | 是否启用 systemd 支持文件的安装                     |
+| `-DSYSTEMD_PID_DIR`        | 由 systemd 管理时，创建 PID 文件的绝对路径文件名    |
+| `-DMYSQL_DATADIR`          | MySQL 数据目录的位置                                |
+| `-DSYSTEMD_SERVICE_NAME`   | 由 systemd 管理时，要使用的 MySQL 服务的名称        |
+| `-DSYSCONFDIR`             | my.cnf 默认绝对路径文件名                           |
 
-    ```bash
-    # 对上层目录，其实就是mysql源码进行cmake，用于生成Makefile文件
-    cmake -DWITH_BOOST=../boost/boost_1_77_0/ -DCMAKE_INSTALL_PREFIX=/usr/local/mysql/ ..
-    ```
+### 启用 systemd 支持文件
 
-2.  使用 systemd 方式启动(`-DWITH_SYSTEMD=1`)，cmake 命令如下:
+选项 `-DWITH_SYSTEMD=1` 用于启用 systemd 支持文件；
 
-    ```bash
-    # 生成systemd文件(即用于放到`/etc/systemd/systemd`中的文件)，否则默认是用SysV方式启动的，文件会放
-    # 在/etc/init.d/中，当然SysV方式也是可以用systemctl来调用的，只不过它会自动调用/etc/init.d/中的文件
-    # 如果在docker中，就不能用systemd的方式了，因为docker中没有systemd
-    cmake -DWITH_BOOST=../boost/boost_1_77_0/ -DWITH_SYSTEMD=1 -DCMAKE_INSTALL_PREFIX=/usr/local/mysql/ ..
-    ```
+启用后将安装 systemd 支持文件，并且不再安装 `mysqld_safe` 和 `System V 初始化` 等脚本；
 
-3.  使用官方的 cmake 选项(`-DBUILD_CONFIG=mysql_release`)，命令如下：
+在 systemd 不可用的平台上，启用 WITH_SYSTEMD 会导致 CMake 出错。
 
-    ```bash
-    cmake -DWITH_BOOST=../boost/boost_1_77_0/ -DBUILD_CONFIG=mysql_release -DCMAKE_INSTALL_PREFIX=/usr/local/mysql/ ..
-    ```
+## 配置
 
-:::
+### systemd 单元
 
 ### 数据初始化
 
