@@ -5,13 +5,19 @@ titleTemplate: 环境搭建教程
 
 # {{ $frontmatter.title }}
 
-由于 MySQL 没有 Debian12 的源，所以这里只能选择编译安装
+MySQL 没有为 Debian12 做适配，所以最好的选择就是自己编译安装
 
 ## 下载源码包
 
 ![Mysql 源码包](/assets/environment/images/01.png)
 
-上图需要下载第二个，即包含“Includes Boost Headers”的那个，Boost 是一个 C++标准库，因为 mysql 主要是用 C++写的，它依赖于 C++标准库(即 Boost)，如果你下载第一个，那么你还要自己去下载 Boost，而且你自己下载的版本还未必对的上你此时需要编译的 mysql 的版本，所以我们直接下载带 boost 库的，这样 mysql 官方已经给你匹配好了版本。
+::: tip 提示
+如果没有特殊要求，建议下载 `mysql-boost-version.tar.gz` ，这是包含 `Boost(Includes Boost Headers)` 的源码包；
+
+Boost 是一个 C++标准库，因为 mysql 主要是用 C++写的，它依赖于 C++标准库(即 Boost)；
+
+如果下载的是不含`boost`的包，你还要自己去下载对应版本的 Boost，自己下载的 boost 版本未必能满足当前正在编译的 mysql 版本。
+:::
 
 ## 编译前依赖准备
 
