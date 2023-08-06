@@ -35,12 +35,36 @@ apt update && apt install -y gcc g++ cmake
 apt update && apt install -y libncursesada11-dev libtirpc-dev
 ```
 
+## 创建用户
+
+```bash
+useradd -c 'This is the MySQL service user' -u 2005 -s /usr/sbin/nologin mysql
+mkdir -p /server/mysql/data /server/run/mysql /server/logs/mysql
+chown mysql:mysql /server/mysql/data
+chown mysql:mysql /server/run/mysql
+chown mysql:mysql /server/logs/mysql
+```
+
 ## 编译
 
 ```bash
 cd /package
 tar -xzf mysql-boost-8.0.34.tar.gz
 cd /package/mysql-8.0.34
+mkdir /package/mysql-8.0.34/build
+cd /package/mysql-8.0.34/build
+cmake .. \
+-DCMAKE_INSTALL_PREFIX=/server/mysql \
+-DDOWNLOAD_BOOST=1 \
+-DWITH_BOOST=/package/mysql-8.0.34/boost \
+-DMYSQL_UNIX_ADDR=/server/run/mysql \
+-DWITH_SYSTEMD=true \
+-DSYSTEMD_PID_DIR=/server/run/mysql \
+-DSYSTEMD_SERVICE_NAME=mysqld-80 \
+-DWITH_SSL=system
+
+cmake --build .
+cmake --install .
 ```
 
 ```bash
@@ -50,22 +74,7 @@ mkdir build
 cmake -DWITH_BOOST=../boost/boost_1_77_0/ -DWITH_SYSTEMD=1 -DCMAKE_INSTALL_PREFIX=/server/mysqld ..
 
 cmake \
--DCMAKE_INSTALL_PREFIX=/server/mysqld \
--DWITH_BOOST=./boost/boost_1_77_0 \
--DSYSCONFDIR=/etc \
--DWITH_SYSTEMD=1 \
--DWITH_INNOBASE_STORAGE_ENGINE=1 \
--DWITH_PARTITION_STORAGE_ENGINE=1 \
--DWITH_FEDERATED_STORAGE_ENGINE=1 \
--DWITH_BLACKHOLE_STORAGE_ENGINE=1 \
--DWITH_MYISAM_STORAGE_ENGINE=1 \
--DWITH_MEMORY_STORAGE_ENGINE=1 \
--DENABLED_LOCAL_INFILE=1 \
--DWITH_READLINE=1 \
--DMYSQL_TCP_PORT=3306 \
--DEXTRA_CHARSETS=all \
--DDEFAULT_CHARSET=utf8 \
--DDEFAULT_COLLATION=utf8_general_ci
+
 
 # mysql 编译时间很长，最好用单核处理，这样不影响其它工作正常进行
 make
@@ -97,15 +106,6 @@ make install
     ```
 
 :::
-
-## 创建用户
-
-```bash
-useradd -c 'This is the MySQL service user' -u 2005 -s /usr/sbin/nologin mysql
-chown mysql:mysql /server/data
-chown mysql:mysql /server/run/mysqld
-chown mysql:mysql /server/logs/mysqld
-```
 
 ### 数据初始化
 
