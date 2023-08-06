@@ -33,7 +33,6 @@ Boost 是一个 C++标准库，因为 mysql 主要是用 C++写的，它依赖�
 ```bash
 apt update && apt install -y gcc g++ cmake
 apt update && apt install -y libncursesada11-dev
-# pkg-config libssl3 libssl-dev libncurses5-dev libncursesw5-dev libaio-dev dpkg-dev libsasl2-dev libudev-dev libbison-dev libldap-dev
 ```
 
 ## 编译
