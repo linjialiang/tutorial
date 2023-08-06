@@ -25,7 +25,7 @@ Boost 是一个 C++标准库，因为 mysql 主要是用 C++写的，它依赖�
 2. gcc
 3. g++
 4. openssl
-5. Boost(一个 C++标准库，我们下载的 Mysql 已自带 Boost)；
+5. Boost(一个 C++标准库，MySQL 包自带 Boost)；
 6. ncurses 库
 7. 充足的内存（最好有 2GB 以上的空闲内存，不够的话就添加虚拟内存）；
 8. perl(不做 test 就不需要)。
