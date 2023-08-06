@@ -32,7 +32,7 @@ Boost 是一个 C++标准库，因为 mysql 主要是用 C++写的，它依赖�
 
 ```bash
 apt update && apt install -y gcc g++ cmake
-apt update && apt install -y libncursesada11-dev
+apt update && apt install -y libncursesada11-dev libtirpc-dev
 ```
 
 ## 编译
@@ -40,11 +40,8 @@ apt update && apt install -y libncursesada11-dev
 ```bash
 cd /package
 tar -xzf mysql-boost-8.0.34.tar.gz
-cd mysql-boost-8.0.34
-ls -l
+cd /package/mysql-8.0.34
 ```
-
-发现没有`configure`文件，但是有一个“CMakeLists.txt”文件，说明 mysql 是需要用 cmake 来编译的。
 
 ```bash
 mkdir /server/mysqld
