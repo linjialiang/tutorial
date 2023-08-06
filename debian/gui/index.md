@@ -74,6 +74,13 @@ fc-list|grep 'my-fonts'
 
 :::
 
+## 快捷键
+
+::: details 显示桌面
+![](/assets/debian/gui/006-1.png)
+![](/assets/debian/gui/006-1.png)
+:::
+
 ## 常用桌面软件安装
 
 ### 无需配置软件
