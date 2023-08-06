@@ -21,14 +21,14 @@ Boost 是一个 C++标准库，因为 mysql 主要是用 C++写的，它依赖�
 
 ## 编译前依赖准备
 
-1、cmake 3.75 或更高的版本；
-2、gcc 7.1 或更高版本
-3、g++
-4、openssl 1.0.1 或更高版本；
-5、Boost(一个 C++标准库，我们下载的 Mysql 已经是带 Boost 的了)；
-6、ncurses 库
-7、充足的内存（最好有 2GB 以上的空闲内存，不够的话就添加虚拟内存）；
-8、perl(不做 test 就不需要)。
+1. cmake
+2. gcc
+3. g++
+4. openssl
+5. Boost(一个 C++标准库，我们下载的 Mysql 已自带 Boost)；
+6. ncurses 库
+7. 充足的内存（最好有 2GB 以上的空闲内存，不够的话就添加虚拟内存）；
+8. perl(不做 test 就不需要)。
 
 ```bash
 apt update && apt install -y gcc g++ cmake
