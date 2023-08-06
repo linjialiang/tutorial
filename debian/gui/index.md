@@ -78,7 +78,7 @@ fc-list|grep 'my-fonts'
 
 ::: details 显示桌面
 ![](/assets/debian/gui/006-1.png)
-![](/assets/debian/gui/006-1.png)
+![](/assets/debian/gui/006-2.png)
 :::
 
 ## 常用桌面软件安装
