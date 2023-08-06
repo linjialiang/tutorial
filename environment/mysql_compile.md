@@ -56,29 +56,15 @@ cd /package/mysql-8.0.34/build
 cmake .. \
 -DCMAKE_INSTALL_PREFIX=/server/mysql \
 -DDOWNLOAD_BOOST=1 \
--DWITH_BOOST=/package/mysql-8.0.34/boost \
+-DDOWNLOAD_BOOST_TIMEOUT=60 \
+-DWITH_BOOST=/package/mysql-8.0.34/boost/boost_1_77_0 \
 -DMYSQL_UNIX_ADDR=/server/run/mysql \
--DWITH_SYSTEMD=true \
+-DWITH_SYSTEMD=1 \
 -DSYSTEMD_PID_DIR=/server/run/mysql \
--DSYSTEMD_SERVICE_NAME=mysqld-80 \
 -DWITH_SSL=system
 
 cmake --build .
 cmake --install .
-```
-
-```bash
-mkdir /server/mysqld
-mkdir build
-# 这里使用 systemd 方式，采用最简选项编译，具体配置由 my.cnf 实现
-cmake -DWITH_BOOST=../boost/boost_1_77_0/ -DWITH_SYSTEMD=1 -DCMAKE_INSTALL_PREFIX=/server/mysqld ..
-
-cmake \
-
-
-# mysql 编译时间很长，最好用单核处理，这样不影响其它工作正常进行
-make
-make install
 ```
 
 ::: details 具体加哪些参数呢？请往下看：
