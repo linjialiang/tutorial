@@ -31,8 +31,10 @@ Boost 是一个 C++标准库，因为 mysql 主要是用 C++写的，它依赖�
 8. perl(不做 test 就不需要)。
 
 ```bash
-apt update && apt install -y gcc g++ cmake
-apt update && apt install -y libncursesada11-dev libtirpc-dev
+apt update
+apt install -y gcc g++ cmake
+apt install -y libncursesada11-dev libtirpc-dev
+apt install -y dpkg-dev libldap-dev libsasl2-dev libbison-dev libudev-dev
 ```
 
 ## 创建用户
@@ -57,13 +59,17 @@ mkdir /package/mysql-8.0.34/build
 cd /package/mysql-8.0.34/build
 cmake .. \
 -DCMAKE_INSTALL_PREFIX=/server/mysql \
+-DWITH_BOOST=/package/mysql-8.0.34/boost/boost_1_77_0 \
 -DDOWNLOAD_BOOST=1 \
 -DDOWNLOAD_BOOST_TIMEOUT=60 \
--DWITH_BOOST=/package/mysql-8.0.34/boost/boost_1_77_0 \
 -DMYSQL_UNIX_ADDR=/server/run/mysql \
 -DWITH_SSL=system \
 -DWITH_SYSTEMD=1 \
--DSYSTEMD_PID_DIR=/server/run/mysql
+-DSYSTEMD_PID_DIR=/server/run/mysql \
+-DMYSQL_DATADIR=/server/mysql/data \
+-DSYSTEMD_SERVICE_NAME=mysqld \
+-DSYSCONFDIR=/server/mysql/data/my.cnf
+
 
 cmake --build .
 cmake --install .
