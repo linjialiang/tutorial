@@ -100,8 +100,8 @@ cmake --install .
 ## 配置
 
 ::: code-group
-<<<@/assets/environment/source/mysql/init.sql [111]
-<<<@/assets/environment/source/mysql/my.cnf{ini} [111]
+<<<@/assets/environment/source/mysql/init.sql [init.sql]
+<<<@/assets/environment/source/mysql/my.cnf{ini} [my.cnf]
 :::
 
 ### systemd 单元
