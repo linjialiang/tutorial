@@ -61,7 +61,7 @@ cmake .. \
 -DWITH_BOOST=/package/mysql-8.0.34/boost/boost_1_77_0 \
 -DDOWNLOAD_BOOST=1 \
 -DDOWNLOAD_BOOST_TIMEOUT=60 \
--DMYSQL_UNIX_ADDR=/server/run/mysql \
+-DMYSQL_UNIX_ADDR=/server/run/mysql/mysqld.sock \
 -DWITH_SSL=system \
 -DWITH_SYSTEMD=1 \
 -DSYSTEMD_PID_DIR=/server/run/mysql \
