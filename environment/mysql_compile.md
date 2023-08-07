@@ -99,12 +99,16 @@ cmake --install .
 
 ## 配置
 
+### mysql 配置文件
+
 ::: code-group
 <<<@/assets/environment/source/mysql/init.sql [init.sql]
 <<<@/assets/environment/source/mysql/my.cnf{ini} [my.cnf]
 :::
 
 ### systemd 单元
+
+目录： /server/lib/systemd/system/
 
 ### 数据初始化
 
