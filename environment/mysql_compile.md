@@ -115,7 +115,18 @@ cmake --install .
 
 ### systemd 单元
 
-目录： /server/lib/systemd/system/
+::: code-group
+
+```bash [mysqld]
+cd /xxx
+systemctl enable ./mysqld.service
+systemctl enable ./mysqld@.service
+systemctl daemon-reload
+```
+
+<<<@/assets/environment/source/service/mysqld.service{bash} [mysqld.service]
+<<<@/assets/environment/source/service/mysqld@.service{bash} [mysqld@.service]
+:::
 
 ### 数据初始化
 
