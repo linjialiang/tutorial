@@ -69,22 +69,33 @@ cd /package/mysql-8.0.34
 mkdir /package/mysql-8.0.34/build
 cd /package/mysql-8.0.34/build
 cmake .. \
+-DWITH_DEBUG=1 \
 -DCMAKE_INSTALL_PREFIX=/server/mysql \
 -DMYSQL_DATADIR=/server/data \
--DWITH_DEBUG=1 \
+-DSYSCONFDIR=/server/etc/mysql \
+-DTMPDIR=/server/tmp/mysql \
+
+-DMYSQL_TCP_PORT=3306 \
+-DMYSQL_UNIX_ADDR=/server/run/mysql/mysqld.sock \
+
+-DDEFAULT_CHARSET=utf8mb4 \
+-DDEFAULT_COLLATION=utf8mb4_general_ci \
+
 -DWITH_BOOST=/package/mysql-8.0.34/boost/boost_1_77_0 \
 -DDOWNLOAD_BOOST=1 \
 -DDOWNLOAD_BOOST_TIMEOUT=60 \
--DWITH_SSL=system \
+
+
+
 -DWITH_SYSTEMD=1 \
--DDEFAULT_CHARSET=utf8mb4 \
--DDEFAULT_COLLATION=utf8mb4_general_ci \
--DMYSQL_UNIX_ADDR=/server/run/mysql/mysqld.sock \
 -DSYSTEMD_PID_DIR=/server/run/mysql \
 -DSYSTEMD_SERVICE_NAME=mysqld \
--DSYSCONFDIR=/etc/mysql/ \
+
+-DENABLED_LOCAL_INFILE=1 \
+-DFORCE_COLORED_OUTPUT=1 \
+
 -DWITH_MYSQLX=0 \
--DINSTALL_LIBDIR=/server/xxx \
+-DWITH_UNIT_TESTS=0 \
 -DINSTALL_MYSQLTESTDIR=
 
 cmake --build .
@@ -93,24 +104,29 @@ cmake --install .
 
 ### cmake 选项说明
 
-| commom                     | note                                                |
-| -------------------------- | --------------------------------------------------- |
-| `-DCMAKE_INSTALL_PREFIX`   | MySQL 安装基目录                                    |
-| `-DMYSQL_DATADIR`          | MySQL 数据目录的位置                                |
-| `-DWITH_DEBUG`             | 是否开启调式模式，开启后可以调式代码                |
-| `-DWITH_BOOST`             | 构建 MySQL 需要 Boost 库                            |
-| `-DDOWNLOAD_BOOST`         | boost 查不到，是否下载 Boost 库                     |
-| `-DDOWNLOAD_BOOST_TIMEOUT` | 下载 Boost 库的超时秒数                             |
-| `-DMYSQL_UNIX_ADDR`        | 服务器侦听 socket 连接的 Unix Socket 绝对路径文件名 |
-| `-DWITH_SSL`               | 启用 SSL 支持，`system` 是使用系统自带的 openssl    |
-| `-DWITH_SYSTEMD`           | 是否启用 systemd 支持文件的安装                     |
-| `-DSYSTEMD_PID_DIR`        | 由 systemd 管理时，创建 PID 文件的绝对路径文件名    |
-| `-DSYSTEMD_SERVICE_NAME`   | 由 systemd 管理时，要使用的 MySQL 服务的名称        |
-| `-DSYSCONFDIR`             | my.cnf 默认绝对路径文件名                           |
-| `-DDEFAULT_CHARSET`        | 默认字符集                                          |
-| `-DDEFAULT_COLLATION`      | 排序规则                                            |
-| `-DWITH_MYSQLX`            | 是否启用 X 协议，默认开启                           |
-| `-DINSTALL_MYSQLTESTDIR`   | 是否安装单元测试目录(mysql-test)，不需要就设为空值  |
+| commom                   | note                                               |
+| ------------------------ | -------------------------------------------------- |
+| -DWITH_DEBUG             | 是否开启调式模式，开启的同时会禁用优化             |
+| -DCMAKE_INSTALL_PREFIX   | MySQL 安装基目录                                   |
+| -DMYSQL_DATADIR          | MySQL 数据目录                                     |
+| -DSYSCONFDIR             | 选项文件目录                                       |
+| -DTMPDIR                 | 临时文件的位置                                     |
+| -DDEFAULT_CHARSET        | 默认字符集                                         |
+| -DDEFAULT_COLLATION      | 排序规则                                           |
+| -DDOWNLOAD_BOOST         | boost 查不到，是否下载 Boost 库                    |
+| -DDOWNLOAD_BOOST_TIMEOUT | 下载 Boost 库的超时秒数                            |
+| -DENABLED_LOCAL_INFILE   | 是否支持将本地文件转换为数据库数据                 |
+| -DFORCE_COLORED_OUTPUT   | 编译时是否为 gcc 和 clang 启用彩色编译器输出       |
+| -DWITH_BOOST             | 构建 MySQL 需要 Boost 库                           |
+| -DMYSQL_TCP_PORT         | TCP/IP 端口号                                      |
+| -DMYSQL_UNIX_ADDR        | Unix 套接字文件                                    |
+| -DWITH_SYSTEMD           | 启用 systemd 支持文件的安装                        |
+| -DSYSTEMD_PID_DIR        | systemd 下的 PID 文件的目录                        |
+| -DSYSTEMD_SERVICE_NAME   | systemd 下的 MySQL 服务名称                        |
+| -DWITH_MYSQLX            | 是否启用 X 协议，默认开启                          |
+| -DINSTALL_MYSQLTESTDIR   | 是否安装单元测试目录(mysql-test)，不需要就设为空值 |
+| -DWITH_UNIT_TESTS        | 是否使用单元测试编译 MySQL                         |
+| -DWITH_SSL               | SSL 支持类型，默认 system ，使用系统自带 openssl   |
 
 ### 启用 systemd 支持文件
 
