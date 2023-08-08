@@ -15,6 +15,10 @@ func_chown_redis(){
     chown redis:redis $1
 }
 
+func_chown_mysql(){
+    chown mysql:mysql $1
+}
+
 func_chown_www(){
     chown ${WEB_USER}:${WEB_USER_GROUP} $1
 }
@@ -31,6 +35,11 @@ chown_phpfpm_array=(
 
 chown_redis_array=(
     "/server/run/redis"
+    "/server/logs/redis"
+);
+
+chown_mysql_array=(
+    "/server/data"
     "/server/logs/redis"
 );
 

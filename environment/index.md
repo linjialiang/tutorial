@@ -25,9 +25,10 @@ PHP 环境目录
 |   |  ├─ conf              nginx配置文件
 |   |  └─ ...
 |   |
-|   ├─ pgsql                pgSql的数据目录
-|   |  ├─ data              pgSql的数据目录
+|   ├─ mysql                mysql的基目录
 |   |  └─ ...
+|   |
+|   ├─ data                 mysql的数据目录
 |   |
 |   ├─ php                  PHP 版本目录
 |   |  ├─ 80                PHP8.0
@@ -43,24 +44,27 @@ PHP 环境目录
 |   |
 |   ├─ run                 run
 |   |  ├─ nginx            nginx的run目录
-|   |  ├─ pgsql            pgSql的run目录
+|   |  ├─ mysql            mysql的run目录
 |   |  ├─ redis            redis的run目录
 |   |  ├─ sqlite3          sqlite3的run目录
 |   |  ├─ php              php的run目录
 |   |  └─ ...
 |   |
 |   ├─ default             缺省站点路径
-|   |   ├─ phpinfo.php     phpinfo
 |   |   ├─ index.php       缺省站点提示页面
 |   |
 |   ├─ sites               虚拟主机配置文件目录
 |   |
 |   ├─ logs                服务器相关日志文件目录
 |   |  ├─ nginx            nginx日志目录
-|   |  ├─ pgsql            pgSql日志目录
+|   |  ├─ mysql            mysql日志目录
 |   |  ├─ redis            redis日志目录
 |   |  ├─ sqlite3          sqlite3日志目录
 |   |  ├─ php              php日志目录
+|   |
+|   ├─ tmp                 临时文件存放基目录
+|   |  ├─ mysql            mysql的临时目录
+|   |  ├─ ...
 |   |
 ├─ /www                    站点根目录
 |
