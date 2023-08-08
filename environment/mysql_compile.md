@@ -39,14 +39,9 @@ apt install -y libncursesada11-dev libtirpc-dev dpkg-dev libldap-dev libsasl2-de
 ## 创建用户
 
 ```bash
-useradd -c 'This is the MySQL service user' -u 2005 -s /usr/sbin/nologin mysql
-mkdir -p /server/mysql/ /server/data /server/run/mysql /server/logs/mysql
-chown mysql:mysql /server/mysql /server/data /server/logs/mysql /server/run/mysql
-chmod 750 /server/mysql /server/data /server/logs/mysql /server/run/mysql
-
-mkdir /etc/mysql
-chown mysql:mysql /etc/mysql
-chmod 750 /etc/mysql
+chown mysql:mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql
+chown root:mysql /server/mysql
+chmod 0750 /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql
 ```
 
 ## 查询有关 CMake 支持的选项的信息
@@ -73,27 +68,19 @@ cmake .. \
 -DCMAKE_INSTALL_PREFIX=/server/mysql \
 -DMYSQL_DATADIR=/server/data \
 -DSYSCONFDIR=/server/etc/mysql \
--DTMPDIR=/server/tmp/mysql \
-
+-DTMPDIR=/server/run/mysql \
 -DMYSQL_TCP_PORT=3306 \
--DMYSQL_UNIX_ADDR=/server/run/mysql/mysqld.sock \
-
+-DMYSQL_UNIX_ADDR=/server/run/mysql/mysqld-80.sock \
 -DDEFAULT_CHARSET=utf8mb4 \
 -DDEFAULT_COLLATION=utf8mb4_general_ci \
-
 -DWITH_BOOST=/package/mysql-8.0.34/boost/boost_1_77_0 \
 -DDOWNLOAD_BOOST=1 \
 -DDOWNLOAD_BOOST_TIMEOUT=60 \
-
-
-
 -DWITH_SYSTEMD=1 \
 -DSYSTEMD_PID_DIR=/server/run/mysql \
--DSYSTEMD_SERVICE_NAME=mysqld \
-
+-DSYSTEMD_SERVICE_NAME=mysqld-80 \
 -DENABLED_LOCAL_INFILE=1 \
 -DFORCE_COLORED_OUTPUT=1 \
-
 -DWITH_MYSQLX=0 \
 -DWITH_UNIT_TESTS=0 \
 -DINSTALL_MYSQLTESTDIR=
