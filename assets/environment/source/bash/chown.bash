@@ -42,7 +42,6 @@ chown_mysql_array=(
     "/server/data"
     "/server/run/mysql"
     "/server/logs/mysql"
-    "/server/tmp/mysql"
     "/server/etc/mysql"
 );
 
