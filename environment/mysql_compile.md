@@ -66,12 +66,17 @@ cmake .. \
 -DWITH_BOOST=/package/mysql-8.0.34/boost/boost_1_77_0 \
 -DDOWNLOAD_BOOST=1 \
 -DDOWNLOAD_BOOST_TIMEOUT=60 \
--DMYSQL_UNIX_ADDR=/server/run/mysql/mysqld.sock \
 -DWITH_SSL=system \
 -DWITH_SYSTEMD=1 \
+-DDEFAULT_CHARSET=utf8mb4 \
+-DDEFAULT_COLLATION=utf8mb4_general_ci \
+-DMYSQL_UNIX_ADDR=/server/run/mysql/mysqld.sock \
 -DSYSTEMD_PID_DIR=/server/run/mysql \
 -DSYSTEMD_SERVICE_NAME=mysqld \
--DSYSCONFDIR=/etc/mysql/my.cnf
+-DSYSCONFDIR=/etc/mysql/ \
+-DWITH_MYSQLX=0 \
+-DINSTALL_LIBDIR=/server/xxx \
+-DINSTALL_MYSQLTESTDIR=
 
 cmake --build .
 cmake --install .
@@ -93,6 +98,10 @@ cmake --install .
 | `-DSYSTEMD_PID_DIR`        | 由 systemd 管理时，创建 PID 文件的绝对路径文件名    |
 | `-DSYSTEMD_SERVICE_NAME`   | 由 systemd 管理时，要使用的 MySQL 服务的名称        |
 | `-DSYSCONFDIR`             | my.cnf 默认绝对路径文件名                           |
+| `-DDEFAULT_CHARSET`        | 默认字符集                                          |
+| `-DDEFAULT_COLLATION`      | 排序规则                                            |
+| `-DWITH_MYSQLX`            | 是否启用 X 协议，默认开启                           |
+| `-DINSTALL_MYSQLTESTDIR`   | 是否安装单元测试目录(mysql-test)，不需要就设为空值  |
 
 ### 启用 systemd 支持文件
 
@@ -101,6 +110,10 @@ cmake --install .
 启用后将安装 systemd 支持文件，并且不再安装 `mysqld_safe` 和 `System V 初始化` 等脚本；
 
 在 systemd 不可用的平台上，启用 WITH_SYSTEMD 会导致 CMake 出错。
+
+### 什么是 X Plugin
+
+MySQL X Plugin 是 MySQL 的一种插件，它可以在 MySQL 服务器中运行，为 Python 和 JavaScript 等编程语言提供 API 接口。
 
 ## 配置
 
