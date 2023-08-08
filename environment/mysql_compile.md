@@ -40,17 +40,13 @@ apt install -y libncursesada11-dev libtirpc-dev dpkg-dev libldap-dev libsasl2-de
 
 ```bash
 useradd -c 'This is the MySQL service user' -u 2005 -s /usr/sbin/nologin mysql
-mkdir -p /server/mysql/data /server/run/mysql /server/logs/mysql
-chown mysql:mysql /server/mysql/data
-chown mysql:mysql /server/run/mysql
-chown mysql:mysql /server/logs/mysql
+mkdir -p /server/mysql/ /server/data /server/run/mysql /server/logs/mysql
+chown mysql:mysql /server/mysql /server/data /server/logs/mysql /server/run/mysql
+chmod 750 /server/mysql /server/data /server/logs/mysql /server/run/mysql
 
-find /server/mysql/data -type f -exec chmod 640 {} \;
-find /server/mysql/data -type d -exec chmod 750 {} \;
-find /server/run/mysql -type f -exec chmod 644 {} \;
-find /server/run/mysql -type d -exec chmod 755 {} \;
-find /server/logs/mysql -type f -exec chmod 640 {} \;
-find /server/logs/mysql -type d -exec chmod 750 {} \;
+mkdir /etc/mysql
+chown mysql:mysql /etc/mysql
+chmod 750 /etc/mysql
 ```
 
 ## 编译
@@ -72,9 +68,9 @@ cmake .. \
 -DWITH_SSL=system \
 -DWITH_SYSTEMD=1 \
 -DSYSTEMD_PID_DIR=/server/run/mysql \
--DMYSQL_DATADIR=/server/mysql/data \
+-DMYSQL_DATADIR=/server/data \
 -DSYSTEMD_SERVICE_NAME=mysqld \
--DSYSCONFDIR=/server/mysql/data/my.cnf
+-DSYSCONFDIR=/etc/mysql/my.cnf
 
 cmake --build .
 cmake --install .
@@ -119,8 +115,7 @@ cmake --install .
 <<<@/assets/environment/source/service/mysqld.service{bash} [mysqld.service]
 
 ```bash [mysqld]
-systemctl enable ./mysqld.service
-systemctl enable ./mysqld@.service
+systemctl enable mysqld.service
 systemctl daemon-reload
 ```
 
@@ -130,7 +125,7 @@ systemctl daemon-reload
 
 ```bash
 # root 有密码，并且标记为过期，非系统 root 用户登录，必须创建一个新密码
-mysqld --defaults-file=/server/mysql/etc/my.cnf --initialize --user=mysql
+mysqld --defaults-file=/etc/mysql/my.cnf --initialize --user=mysql
 # root 没有密码，如果要开启可插拔认证，选择没有密码
-mysqld --defaults-file=/server/mysql/etc/my.cnf --initialize-insecure --user=mysql
+mysqld --defaults-file=/etc/mysql/my.cnf --initialize-insecure --user=mysql
 ```
