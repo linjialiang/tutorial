@@ -61,6 +61,8 @@ mkdir /package/mysql-8.0.34/build
 cd /package/mysql-8.0.34/build
 cmake .. \
 -DCMAKE_INSTALL_PREFIX=/server/mysql \
+-DMYSQL_DATADIR=/server/data \
+-DWITH_DEBUG=1 \
 -DWITH_BOOST=/package/mysql-8.0.34/boost/boost_1_77_0 \
 -DDOWNLOAD_BOOST=1 \
 -DDOWNLOAD_BOOST_TIMEOUT=60 \
@@ -68,7 +70,6 @@ cmake .. \
 -DWITH_SSL=system \
 -DWITH_SYSTEMD=1 \
 -DSYSTEMD_PID_DIR=/server/run/mysql \
--DMYSQL_DATADIR=/server/data \
 -DSYSTEMD_SERVICE_NAME=mysqld \
 -DSYSCONFDIR=/etc/mysql/my.cnf
 
@@ -81,6 +82,8 @@ cmake --install .
 | commom                     | note                                                |
 | -------------------------- | --------------------------------------------------- |
 | `-DCMAKE_INSTALL_PREFIX`   | MySQL 安装基目录                                    |
+| `-DMYSQL_DATADIR`          | MySQL 数据目录的位置                                |
+| `-DWITH_DEBUG`             | 是否开启调式模式，开启后可以调式代码                |
 | `-DWITH_BOOST`             | 构建 MySQL 需要 Boost 库                            |
 | `-DDOWNLOAD_BOOST`         | boost 查不到，是否下载 Boost 库                     |
 | `-DDOWNLOAD_BOOST_TIMEOUT` | 下载 Boost 库的超时秒数                             |
@@ -88,7 +91,6 @@ cmake --install .
 | `-DWITH_SSL`               | 启用 SSL 支持，`system` 是使用系统自带的 openssl    |
 | `-DWITH_SYSTEMD`           | 是否启用 systemd 支持文件的安装                     |
 | `-DSYSTEMD_PID_DIR`        | 由 systemd 管理时，创建 PID 文件的绝对路径文件名    |
-| `-DMYSQL_DATADIR`          | MySQL 数据目录的位置                                |
 | `-DSYSTEMD_SERVICE_NAME`   | 由 systemd 管理时，要使用的 MySQL 服务的名称        |
 | `-DSYSCONFDIR`             | my.cnf 默认绝对路径文件名                           |
 
