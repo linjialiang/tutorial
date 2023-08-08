@@ -116,23 +116,21 @@ cmake --install .
 ### systemd 单元
 
 ::: code-group
+<<<@/assets/environment/source/service/mysqld.service{bash} [mysqld.service]
 
 ```bash [mysqld]
-cd /xxx
 systemctl enable ./mysqld.service
 systemctl enable ./mysqld@.service
 systemctl daemon-reload
 ```
 
-<<<@/assets/environment/source/service/mysqld.service{bash} [mysqld.service]
-<<<@/assets/environment/source/service/mysqld@.service{bash} [mysqld@.service]
 :::
 
 ### 数据初始化
 
 ```bash
 # root 有密码，并且标记为过期，非系统 root 用户登录，必须创建一个新密码
-mysqld --defaults-file=/sever/mysql/data/my.cnf --initialize --user=mysql
+mysqld --defaults-file=/server/mysql/etc/my.cnf --initialize --user=mysql
 # root 没有密码，如果要开启可插拔认证，选择没有密码
-mysqld --defaults-file=/sever/mysql/data/my.cnf --initialize-insecure --user=mysql
+mysqld --defaults-file=/server/mysql/etc/my.cnf --initialize-insecure --user=mysql
 ```
