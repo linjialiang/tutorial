@@ -3,7 +3,6 @@
 [Unit]
 Description=MySQL Server
 Documentation=man:mysqld(8)
-Documentation=http://dev.mysql.com/doc/refman/en/using-systemd.html
 After=network-online.target
 Wants=network-online.target
 After=syslog.target
@@ -13,7 +12,7 @@ User=mysql
 Group=mysql
 Type=notify
 TimeoutSec=0
-ExecStart=/server/mysql/bin/mysqld --defaults-file=/etc/mysql/my.cnf
+ExecStart=/server/mysql/bin/mysqld --defaults-file=/server/etc/mysql/my.cnf
 LimitNOFILE = 10000
 Restart=on-failure
 PrivateTmp=false
