@@ -49,6 +49,15 @@ chown mysql:mysql /etc/mysql
 chmod 750 /etc/mysql
 ```
 
+## 查询有关 CMake 支持的选项的信息
+
+```bash
+cd /package/mysql-8.0.34/build
+cmake .. -LH
+# 选项写入文件
+cmake .. -LH > options.list
+```
+
 ## 编译
 
 在不了解干什么的时候，尽量使用 MySQL 的默认值，并且 MySQL 很多参数都可以通过 my.ini 重新修改。
