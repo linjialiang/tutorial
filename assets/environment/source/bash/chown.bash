@@ -2,7 +2,6 @@
 WEB_USER='emad'
 WEB_USER_GROUP='emad'
 
-# chown.bash
 func_chown_nginx(){
     chown root:root $1
 }
@@ -39,8 +38,12 @@ chown_redis_array=(
 );
 
 chown_mysql_array=(
+    "/server/mysql"
     "/server/data"
-    "/server/logs/redis"
+    "/server/run/mysql"
+    "/server/logs/mysql"
+    "/server/tmp/mysql"
+    "/server/etc/mysql"
 );
 
 chown_www_array=(
@@ -70,6 +73,14 @@ do
    func_chown_redis ${chown_redis_array[i]}
 done
 echo "-----redis 用户权限目录设置结束-----"
+
+echo "-----开始设置 mysql 用户权限目录-----"
+for((i=0;i<${#chown_mysql_array[*]};i++));
+do
+   echo ${chown_mysql_array[i]}
+   func_chown_mysql ${chown_mysql_array[i]}
+done
+echo "-----mysql 用户权限目录设置结束-----"
 
 echo "-----开始设置 开发者 用户权限目录-----"
 for((i=0;i<${#chown_www_array[*]};i++));
