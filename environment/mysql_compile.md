@@ -85,8 +85,11 @@ cmake .. \
 -DWITH_UNIT_TESTS=0 \
 -DINSTALL_MYSQLTESTDIR=
 
-cmake --build .
-cmake --install .
+make -j4
+make install
+
+# cmake --build .
+# cmake --install .
 ```
 
 ### cmake 选项说明
