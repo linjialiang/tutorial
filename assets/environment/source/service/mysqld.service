@@ -13,10 +13,9 @@ User=mysql
 Group=mysql
 Type=notify
 TimeoutSec=0
-ExecStart=/server/mysql/bin/mysqld --defaults-file=/server/mysql/etc/my.cnf
+ExecStart=/server/mysql/bin/mysqld --defaults-file=/etc/mysql/my.cnf
 LimitNOFILE = 10000
 Restart=on-failure
-RestartPreventExitStatus=1
 PrivateTmp=false
 
 [Install]
