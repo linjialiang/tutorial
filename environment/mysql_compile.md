@@ -131,10 +131,6 @@ systemctl daemon-reload
 ### 数据初始化
 
 ```bash
-chown mysql:mysql /server/mysql/data
-find /server/mysql/data -type f -exec chmod 640 {} \;
-find /server/mysql/data -type d -exec chmod 750 {} \;
-
 # root 有密码，并且标记为过期，非系统 root 用户登录，必须创建一个新密码
 mysqld --defaults-file=/sever/mysql/data/my.cnf --initialize --user=mysql
 # root 没有密码，如果要开启可插拔认证，选择没有密码
