@@ -87,9 +87,6 @@ cmake .. \
 
 make -j4
 make install
-
-# cmake --build .
-# cmake --install .
 ```
 
 ### cmake 选项说明
@@ -154,7 +151,7 @@ mysqld --defaults-file=/server/etc/mysql/my.cnf --initialize-insecure --user=mys
 <<<@/assets/environment/source/service/mysqld.service{bash} [mysqld.service]
 
 ```bash [mysqld]
-systemctl enable mysqld.service
+systemctl enable mysqld-80.service
 systemctl daemon-reload
 ```
 
