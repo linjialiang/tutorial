@@ -1,7 +1,7 @@
-# /usr/lib/systemd/system/mysqld.service
+# /usr/lib/systemd/system/mysqld-80.service
 
 [Unit]
-Description=MySQL Server
+Description=MySQL Server 8.0.x
 Documentation=man:mysqld(8)
 After=network-online.target
 Wants=network-online.target
@@ -11,9 +11,7 @@ After=syslog.target
 User=mysql
 Group=mysql
 Type=notify
-TimeoutSec=0
 ExecStart=/server/mysql/bin/mysqld --defaults-file=/server/etc/mysql/my.cnf
-LimitNOFILE = 10000
 Restart=on-failure
 PrivateTmp=false
 
