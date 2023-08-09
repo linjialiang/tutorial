@@ -462,6 +462,7 @@ PHP-FPM 配置文件可分成两种
 PHP-FPM 的主配置文件选项基本上都是使用默认，所以案例选项很少
 
 ::: details php 主配置文件案例
+::: code-group
 <<<@/assets/environment/source/php/74/php-fpm.conf.ini [7.4]
 <<<@/assets/environment/source/php/80/php-fpm.conf.ini [8.0]
 <<<@/assets/environment/source/php/81/php-fpm.conf.ini [8.1]
@@ -478,6 +479,7 @@ PHP-FPM 工作池进程配置文件有多个，并且支持随意命名，但为
    - 接收其它站点，命名 `default.conf`
 
 ::: details 通用工作池案例
+::: code-group
 <<<@/assets/environment/source/php/74/php-fpm.d/default.conf.ini [7.4]
 <<<@/assets/environment/source/php/80/php-fpm.d/default.conf.ini [8.0]
 <<<@/assets/environment/source/php/81/php-fpm.d/default.conf.ini [8.1]
@@ -485,6 +487,7 @@ PHP-FPM 工作池进程配置文件有多个，并且支持随意命名，但为
 :::
 
 ::: details 其他工作池案例
+::: code-group
 <<<@/assets/environment/source/php/82/php-fpm.d/tp.conf.ini [tp 工作池]
 <<<@/assets/environment/source/php/82/php-fpm.d/qy.conf.ini [勤易工作池]
 :::
@@ -535,26 +538,24 @@ PHP-FPM 自带了一套比较完善的进程管理指令，编译完成后还会
 <<<@/assets/environment/source/service/php/phpfpm82.service.ini [php8.2]
 :::
 
-### 3. 创建单元文件
+::: code-group
 
-```bash
+```bash [创建单元文件]
 mv /path/phpfpm*.service /usr/lib/systemd/system/
 ```
 
-### 4. 加入开机启动
-
-```bash
+```bash [加入开机启动]
 systemctl enable phpfpm74
 systemctl enable phpfpm80
 systemctl enable phpfpm81
 systemctl enable phpfpm82
 ```
 
-### 5. 重新加载 Systemd 配置文件
-
-```bash
+```bash [重载Systemd]
 systemctl daemon-reload
 ```
+
+:::
 
 ::: tip 注意事项：
 
