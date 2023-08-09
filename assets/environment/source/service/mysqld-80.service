@@ -1,5 +1,4 @@
 # /usr/lib/systemd/system/mysqld-80.service
-
 [Unit]
 Description=MySQL Server 8.0.x
 Documentation=man:mysqld(8)
