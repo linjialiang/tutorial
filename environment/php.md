@@ -79,25 +79,37 @@ PHP 扩展库按加载时间可分为：`动态库(共享扩展)` 和 `静态库
 
 将 PECL 扩展源码拷贝到 php 的 ext 目录下
 
-```bash
+::: code-group
+
+```bash [进扩展目录]
 cd /package/php_ext
-# 拷贝到 php 7.4 源码的扩展目录
+```
+
+```bash [拷贝到7.4]
 cp -p -r redis-5.3.7 /package/php-7.4.33/ext/redis
 cp -p -r yaml-2.2.3 /package/php-7.4.33/ext/yaml
 cp -p -r apcu-5.1.22 /package/php-7.4.33/ext/apcu
-# 拷贝到 php 8.0 源码的扩展目录
+```
+
+```bash [拷贝到8.0]
 cp -p -r redis-5.3.7 /package/php-8.0.29/ext/redis
 cp -p -r yaml-2.2.3 /package/php-8.0.29/ext/yaml
 cp -p -r apcu-5.1.22 /package/php-8.0.29/ext/apcu
-# 拷贝到 php 8.1 源码的扩展目录
+```
+
+```bash [拷贝到8.1]
 cp -p -r redis-5.3.7 /package/php-8.1.21/ext/redis
 cp -p -r yaml-2.2.3 /package/php-8.1.21/ext/yaml
 cp -p -r apcu-5.1.22 /package/php-8.1.21/ext/apcu
-# 拷贝到 php 8.2 源码的扩展目录
+```
+
+```bash [拷贝到8.2]
 cp -p -r redis-5.3.7 /package/php-8.2.8/ext/redis
 cp -p -r yaml-2.2.3 /package/php-8.2.8/ext/yaml
 cp -p -r apcu-5.1.22 /package/php-8.2.8/ext/apcu
 ```
+
+:::
 
 ### 2. 重新生成 php 配置
 
@@ -113,20 +125,27 @@ apt install autoconf -y
 
 ::: details 重新生成 configure 配置脚本
 
-```bash
-# php7.4 重新生成 configure 配置脚本
+::: code-group
+
+```bash [7.4重新生成]
 cd /package/php-7.4.33/
 mv configure{,.original}
 ./buildconf --force
-# php8.0 重新生成 configure 配置脚本
+```
+
+```bash [8.0重新生成]
 cd /package/php-8.0.29/
 mv configure{,.original}
 ./buildconf --force
-# php8.1 重新生成 configure 配置脚本
+```
+
+```bash [8.1重新生成]
 cd /package/php-8.1.21/
 mv configure{,.original}
 ./buildconf --force
-# php8.2 重新生成 configure 配置脚本
+```
+
+```bash [8.2重新生成]
 cd /package/php-8.2.8/
 mv configure{,.original}
 ./buildconf --force
@@ -152,17 +171,13 @@ echo $PKG_CONFIG_PATH
 
 将所需路径加入到当前终端临时的环境变量中
 
-::: details 加入单个路径：
+::: code-group
 
-```bash
+```bash [加入单个路径]
 export PKG_CONFIG_PATH=/path/to/pkgConfig_1:$PKG_CONFIG_PATH
 ```
 
-:::
-
-::: details 加入多个路径：
-
-```bash
+```bash [加入多个路径]
 export PKG_CONFIG_PATH=/path/to/pkgConfig_1:/path/to/pkgConfig_2:$PKG_CONFIG_PATH
 ```
 
@@ -243,20 +258,12 @@ sqlite3          SQLite - SQL database engine
 ./configure -h > configure.txt
 ```
 
-::: details 7.4 构建选项预览
-<<<@/assets/environment/source/php/configure/74.ini
-:::
-
-::: details 8.0 构建选项预览
-<<<@/assets/environment/source/php/configure/80.ini
-:::
-
-::: details 8.1 构建选项预览
-<<<@/assets/environment/source/php/configure/81.ini
-:::
-
-::: details 8.2 构建选项预览
-<<<@/assets/environment/source/php/configure/82.ini
+::: details 构建选项预览
+::: code-group
+<<<@/assets/environment/source/php/configure/74.ini [7.4]
+<<<@/assets/environment/source/php/configure/80.ini [8.0]
+<<<@/assets/environment/source/php/configure/81.ini [8.1]
+<<<@/assets/environment/source/php/configure/82.ini [8.2]
 :::
 
 ### 5. 进入构建目录
@@ -274,20 +281,12 @@ cd /package/php-8.2.8/build_php/
 
 ### 6. 安装指令
 
-::: details 7.4 构建指令参考
-<<<@/assets/environment/source/php/build/74.bash
-:::
-
-::: details 8.0 构建指令参考
-<<<@/assets/environment/source/php/build/80.bash
-:::
-
-::: details 8.1 构建指令参考
-<<<@/assets/environment/source/php/build/81.bash
-:::
-
-::: details 8.2 构建指令参考
-<<<@/assets/environment/source/php/build/82.bash
+::: details 构建指令参考
+::: code-group
+<<<@/assets/environment/source/php/build/74.bash [7.4]
+<<<@/assets/environment/source/php/build/80.bash [8.0]
+<<<@/assets/environment/source/php/build/81.bash [8.1]
+<<<@/assets/environment/source/php/build/82.bash [8.2]
 :::
 
 ::: tip 构建指令区别：
@@ -320,9 +319,9 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 
 通过下面的指令可以快速获取到 PHP 配置文件存放路径
 
-::: details 使用 php 程序
+::: code-group
 
-```bash
+```bash [使用 php 程序]
 # php7.4
 /server/php/74/bin/php --ini
 # php8.0
@@ -333,11 +332,7 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 /server/php/82/bin/php --ini
 ```
 
-:::
-
-::: details 使用 php-config 程序
-
-```bash
+```bash [使用 php-config 程序]
 # php7.4
 /server/php/74/bin/php-config --ini-path
 # php8.0
@@ -352,9 +347,9 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 
 ### 3. 拷贝配置文件
 
-::: details 部署环境：
+::: code-group
 
-```bash
+```bash [部署环境]
 # php7.4
 cp /package/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
 # php8.0
@@ -365,11 +360,7 @@ cp /package/php-8.1.21/php.ini-production /server/php/81/lib/php.ini
 cp /package/php-8.2.8/php.ini-production /server/php/82/lib/php.ini
 ```
 
-:::
-
-::: details 开发环境：
-
-```bash
+```bash [开发环境]
 # php7.4
 cp /package/php-7.4.33/php.ini-development /server/php/74/lib/php.ini
 # php8.0
