@@ -553,52 +553,22 @@ pm.max_requests         = 1000      # 设置每个子进程重生之前服务的
 
 PHP-FPM 自带了一套比较完善的进程管理指令，编译完成后还会在构建目录下生成 Systemd Unit 文件
 
-### 1. 默认模板
+::: details 默认模板
 
-::: details php7.4 参考案例：
-
-> 路径：/package/php-7.4.33/build_php/sapi/fpm/php-fpm.service
-
-<<<@/assets/environment/source/service/php/74/php-fpm.service.ini
+::: code-group
+<<<@/assets/environment/source/service/php/74/php-fpm.service.ini [php7.4]
+<<<@/assets/environment/source/service/php/80/php-fpm.service.ini [php8.0]
+<<<@/assets/environment/source/service/php/81/php-fpm.service.ini [php8.1]
+<<<@/assets/environment/source/service/php/82/php-fpm.service.ini [php8.2]
 :::
 
-::: details php8.0 参考案例：
+::: details 案例参考
 
-> 路径：/package/php-8.0.29/build_php/sapi/fpm/php-fpm.service
-
-<<<@/assets/environment/source/service/php/80/php-fpm.service.ini
-:::
-
-::: details php8.1 参考案例：
-
-> 路径：/package/php-8.1.21/build_php/sapi/fpm/php-fpm.service
-
-<<<@/assets/environment/source/service/php/81/php-fpm.service.ini
-:::
-
-::: details php8.2 参考案例：
-
-> 路径：/package/php-8.2.8/build_php/sapi/fpm/php-fpm.service
-
-<<<@/assets/environment/source/service/php/82/php-fpm.service.ini
-:::
-
-### 2. 案例参考
-
-::: details php7.4 参考案例：
-<<<@/assets/environment/source/service/php/phpfpm74.service.ini
-:::
-
-::: details php8.0 参考案例：
-<<<@/assets/environment/source/service/php/phpfpm80.service.ini
-:::
-
-::: details php8.1 参考案例：
-<<<@/assets/environment/source/service/php/phpfpm81.service.ini
-:::
-
-::: details php8.2 参考案例：
-<<<@/assets/environment/source/service/php/phpfpm82.service.ini
+::: code-group
+<<<@/assets/environment/source/service/php/phpfpm74.service.ini [php7.4]
+<<<@/assets/environment/source/service/php/phpfpm80.service.ini [php8.0]
+<<<@/assets/environment/source/service/php/phpfpm81.service.ini [php8.1]
+<<<@/assets/environment/source/service/php/phpfpm82.service.ini [php8.2]
 :::
 
 ### 3. 创建单元文件
