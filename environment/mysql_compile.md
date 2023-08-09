@@ -39,9 +39,9 @@ apt install -y libncursesada11-dev libtirpc-dev dpkg-dev libldap-dev libsasl2-de
 ## 创建用户
 
 ```bash
-chown mysql:mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql
+chown mysql:mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql
 chown root:mysql /server/mysql
-chmod 0750 /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql
+chmod 0750 /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql
 ```
 
 ## 查询有关 CMake 支持的选项的信息
