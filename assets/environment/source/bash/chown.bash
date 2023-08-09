@@ -43,6 +43,7 @@ chown_mysql_array=(
     "/server/run/mysql"
     "/server/logs/mysql"
     "/server/etc/mysql"
+    "/server/tmp/mysql"
 );
 
 chown_www_array=(
