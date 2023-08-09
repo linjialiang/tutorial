@@ -116,7 +116,7 @@ setopt no_nomatch
 ::: tip
 如果宿主机通过 xshell 远程链接的话，只需要在宿主机上安装 `MesloLGM NF` 字体，并在 xshell 上选择使用 `MesloLGM NF` 字体即可
 
-如果你是安装在本地电脑上，则需要 GUI 支持（即必须安装桌面），然后对使用的终端软件，设置字体即可，配置上类似于 [oh-my-posh](../basic-tools/powershell/use#win11-系统)
+如果你是安装在本地电脑上，则需要 GUI 支持（即必须安装桌面），然后对使用的终端软件，设置字体即可，配置上类似于 [oh-my-posh]
 :::
 
 ::: details 完整案例
