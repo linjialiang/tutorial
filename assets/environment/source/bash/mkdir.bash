@@ -12,6 +12,7 @@ server_array=(
     "/server/run"
     "/server/logs"
     "/server/etc"
+    "/server/tmp"
 
     "/server/nginx"
     "/server/run/nginx"
@@ -35,6 +36,7 @@ server_array=(
     "/server/mysql"
     "/server/data"
     "/server/etc/mysql"
+    "/server/tmp/mysql"
     "/server/run/mysql"
     "/server/logs/mysql"
 
