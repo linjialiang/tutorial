@@ -68,102 +68,9 @@ apt install zsh-syntax-highlighting zsh-autosuggestions -y
 
 :::
 
-## 使用主题
+## 自定义主题样式
 
-### 1. 修改主题
-
-ZSH_THEME 全局变量用于设置主题
-
-```bash
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster"
-```
-
-### 2. 优化主题
-
-zsh 的主题虽然很美观，但是设置上通常都按作者的意愿来的，我们需要稍微调整下。
-
-下面是针对 agnoster 主题的调整（最近喜欢 `robbyrussell` 主题）
-
-> 说明： oh-my-zsh 推荐使用 `robbyrussell`， 而 oh-my-posh 则推荐使用 `agnoster`
-
-### 3. 配置文件路径
-
-- agnoster : `~/.oh-my-zsh/themes/agnoster.zsh-theme`
-
-- zsh 终端配置文件 : `~/.zshrc`
-
-::: tip 两者关系
-被修改的是 zsh 终端配置文件，
-
-zsh 终端配置文件参考当前主题配置文件来修改
-
-:::
-
-### 4. 使用 agnoster 主题
-
-::: details 修改主题：
-
-```bash
-# ~/.zshrc 修改
-
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster"
-```
-
-:::
-
-底部需要添加两处内容，用于覆盖主题配置文件
-
-::: details 去掉主机名：
-
-```bash
-# ~/.oh-my-zsh/themes/agnoster.zsh-theme 自带
-
-prompt_context() {
-    if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-        prompt_segment black default "%(!.%{%F{yellow}%}.)%n@%m"
-    fi
-}
-```
-
-```bash
-# ~/.zshrc 添加用于覆盖主题自带
-
-prompt_context() {
-    if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-        prompt_segment black default "%(!.%{%F{yellow}%}.)%n"
-    fi
-}
-```
-
-:::
-
-::: details 去掉全路径：
-
-```bash
-# ~/.oh-my-zsh/themes/agnoster.zsh-theme 自带
-
-prompt_dir() {
-    prompt_segment blue $CURRENT_FG '%~'
-}
-```
-
-```bash
-# ~/.zshrc 添加用于覆盖主题自带
-
-prompt_dir() {
-    prompt_segment blue $CURRENT_FG '%c'
-}
-```
-
-:::
-
-### 5. 使用 robbyrussell 主题
-
-使用 `robbyrussell` 我们无法实时获取当前用户，这会造成一些麻烦
-
-而 `robbyrussell` 主题的代码非常简单，我们可以直接不使用主题，自定义 zsh 样式：
+自定义的样式更加简洁
 
 ```bash
 # ~/.zshrc
@@ -193,7 +100,16 @@ hostnamectl set-hostname <更短的主机名>
 
 :::
 
-### 6. 字体支持
+## 通配符不支持问题
+
+zsh 默认不支持通配符，需要增加一条语句
+
+```bash
+# ~/.zshrc
+setopt no_nomatch
+```
+
+## 字体支持
 
 `oh-my-zsh` 的主题有一些特殊的图标，需要安装特殊字体支持，这里推荐安装 [Nerd Fonts](https://www.nerdfonts.com/) 系列的 [MesloLGM NF](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip) 字体
 
@@ -202,14 +118,3 @@ hostnamectl set-hostname <更短的主机名>
 
 如果你是安装在本地电脑上，则需要 GUI 支持（即必须安装桌面），然后对使用的终端软件，设置字体即可，配置上类似于 [oh-my-posh](../basic-tools/powershell/use#win11-系统)
 :::
-
-## 附录
-
-### 1. 解决 zsh 不支持通配符
-
-```bash
-vim ~/.zshrc
-
-# zsh配置文件中加入一条语句即可
-setopt no_nomatch
-```
