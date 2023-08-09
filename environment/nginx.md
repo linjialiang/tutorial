@@ -52,21 +52,16 @@ pkg-config --list-all
 
 ### 1. 构建指令
 
-::: details 进入构建目录
+::: code-group
 
-```bash
+```bash [进入构建目录]
 mkdir /package/nginx-1.24.0/build_nginx
 cd /package/nginx-1.24.0
 ```
 
-:::
+<<<@/assets/environment/source/nginx/build_now.bash [本次构建指令]
+<<<@/assets/environment/source/nginx/build_all.bash [全部构建指令]
 
-::: details 本次构建指令
-<<<@/assets/environment/source/nginx/build_now.bash
-:::
-
-::: details 允许构建的全部指令
-<<<@/assets/environment/source/nginx/build_all.bash
 :::
 
 ### 2. 编译安装
