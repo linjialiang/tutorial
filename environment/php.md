@@ -461,20 +461,11 @@ PHP-FPM 配置文件可分成两种
 
 PHP-FPM 的主配置文件选项基本上都是使用默认，所以案例选项很少
 
-::: details php7.4 主配置文件案例
-<<<@/assets/environment/source/php/74/php-fpm.conf.ini
-:::
-
-::: details php8.0 主配置文件案例
-<<<@/assets/environment/source/php/80/php-fpm.conf.ini
-:::
-
-::: details php8.1 主配置文件案例
-<<<@/assets/environment/source/php/81/php-fpm.conf.ini
-:::
-
-::: details php8.2 主配置文件案例
-<<<@/assets/environment/source/php/82/php-fpm.conf.ini
+::: details php 主配置文件案例
+<<<@/assets/environment/source/php/74/php-fpm.conf.ini [7.4]
+<<<@/assets/environment/source/php/80/php-fpm.conf.ini [8.0]
+<<<@/assets/environment/source/php/81/php-fpm.conf.ini [8.1]
+<<<@/assets/environment/source/php/82/php-fpm.conf.ini [8.2]
 :::
 
 ### 3. 工作池配置文件
@@ -486,35 +477,17 @@ PHP-FPM 工作池进程配置文件有多个，并且支持随意命名，但为
    - 接收 tp6 站点，命名 `tp.conf`；
    - 接收其它站点，命名 `default.conf`
 
-- 通用工作池案例
+::: details 通用工作池案例
+<<<@/assets/environment/source/php/74/php-fpm.d/default.conf.ini [7.4]
+<<<@/assets/environment/source/php/80/php-fpm.d/default.conf.ini [8.0]
+<<<@/assets/environment/source/php/81/php-fpm.d/default.conf.ini [8.1]
+<<<@/assets/environment/source/php/82/php-fpm.d/default.conf.ini [8.2]
+:::
 
-  ::: details php7.4 通用工作池案例
-  <<<@/assets/environment/source/php/74/php-fpm.d/default.conf.ini
-  :::
-
-  ::: details php8.0 通用工作池案例
-  <<<@/assets/environment/source/php/80/php-fpm.d/default.conf.ini
-  :::
-
-  ::: details php8.1 通用工作池案例
-  <<<@/assets/environment/source/php/81/php-fpm.d/default.conf.ini
-  :::
-
-  ::: details php8.2 通用工作池案例
-  <<<@/assets/environment/source/php/82/php-fpm.d/default.conf.ini
-  :::
-
-- tp 工作池案例
-
-  ::: details php8.2 tp 工作池案例
-  <<<@/assets/environment/source/php/82/php-fpm.d/tp.conf.ini
-  :::
-
-- 勤易工作池案例
-
-  ::: details php8.2 勤易工作池案例
-  <<<@/assets/environment/source/php/82/php-fpm.d/qy.conf.ini
-  :::
+::: details 其他工作池案例
+<<<@/assets/environment/source/php/82/php-fpm.d/tp.conf.ini [tp 工作池]
+<<<@/assets/environment/source/php/82/php-fpm.d/qy.conf.ini [勤易工作池]
+:::
 
 ### 4. 工作进程配置参数
 
