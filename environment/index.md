@@ -89,7 +89,7 @@ PHP 环境目录
 ::: details /package 目录
 
 1. nginx-1.24.0.tar.gz
-2. openssl-3.0.9.tar.gz
+2. openssl-3.0.10.tar.gz
 3. pcre2-10.42.tar.bz2
 4. zlib-1.2.13.tar.gz
 5. redis-7.0.12.tar.gz
