@@ -118,3 +118,7 @@ setopt no_nomatch
 
 如果你是安装在本地电脑上，则需要 GUI 支持（即必须安装桌面），然后对使用的终端软件，设置字体即可，配置上类似于 [oh-my-posh](../basic-tools/powershell/use#win11-系统)
 :::
+
+::: details 完整案例
+<<<@/assets/debian/config/zshrc.bash
+:::
