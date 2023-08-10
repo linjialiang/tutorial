@@ -52,6 +52,8 @@ chown mysql:emad -R /server/mysql /server/data /server/etc/mysql /server/logs/my
 find /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql -type f -exec chmod 640 {} \;
 find /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql -type d -exec chmod 750 {} \;
 chmod 750 -R /server/mysql/bin
+# php 可能需要读取 mysql 的 unix socket 文件
+chmod 755 /server/run/mysql
 ```
 
 :::

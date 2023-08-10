@@ -964,35 +964,30 @@ extension=rdkafka
 
 ## 权限
 
-```bash
-chown root:root -R /server/php
-find /server/php -type f -exec chmod 640 {} \;
-find /server/php -type d -exec chmod 750 {} \;
+::: code-group
+
+```bash [部署]
+chown root:root -R /server/php /server/logs/php /server/run/php
+find /server/php /server/logs/php -type f -exec chmod 640 {} \;
+find /server/php /server/logs/php -type d -exec chmod 750 {} \;
 # 可执行文件需要执行权限
-chmod 750 -R /server/php/82/bin
-chmod 750 -R /server/php/82/sbin
-
-chown root:root -R /server/logs/php
-chmod 750 /server/logs/php
-# 日志用户 root 权限 600
-
-chown root:root -R /server/run/php
+chmod 750 -R /server/php/82/bin /server/php/82/sbin
 # 如果不设置成 755 php-fpm的监听用户nginx将无法读取和执行 unix socket 文件
+# socket 用户nginx/权限660
+# pid 用户root/权限644
 chmod 755 /server/run/php
-# socket 用户 nginx 权限 660
-# pid 用户 root 权限 644
 ```
 
-::: danger 开发环境说明
-开发环境，比如 phpstrom 等 ide 需要拿到 php 权限，可以将开发用户加入到 root 或权限改成 750
-
-```bash
-usermod -G phpfpm root
-# 或者
-find /server/php -type f -exec chmod 644 {} \;
-find /server/php -type d -exec chmod 755 {} \;
-chmod 755 -R /server/php/82/bin
-chmod 755 -R /server/php/82/sbin
+```bash [开发]
+chown root:emad -R /server/php /server/logs/php /server/run/php
+find /server/php /server/logs/php -type f -exec chmod 640 {} \;
+find /server/php /server/logs/php -type d -exec chmod 750 {} \;
+# 可执行文件需要执行权限
+chmod 750 -R /server/php/82/bin /server/php/82/sbin
+# 如果不设置成 755 php-fpm的监听用户nginx将无法读取和执行 unix socket 文件
+# socket 用户nginx/权限660
+# pid 用户root/权限644
+chmod 755 /server/run/php
 ```
 
 :::
