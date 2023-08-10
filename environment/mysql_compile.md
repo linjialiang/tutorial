@@ -168,3 +168,82 @@ systemctl daemon-reload
 ```
 
 :::
+
+## 身份验证插件
+
+MySQL 常用的身份验证插件有 3 种：
+
+| plugin                 | note |
+| ---------------------- | ---- |
+| auth_socket            | 本地 |
+| caching_sha2_password  | 新的 |
+| mysql_native_password​ | 旧的 |
+
+### auth_socket
+
+auth_socket.so 是动态插件，需手动配置才能生效，全称是 `套接字对等凭据可插拔身份验证`
+
+auth_socket 身份验证插件通过 Unix 套接字文件从本地主机连接的客户端进行身份验证。
+
+该插件使用 SO_PEERCRED 套接字选项来获取有关运行客户端程序的用户的信息。因此，该插件只能在支持 SO_PEERCRED 选项的系统上使用，例如 Linux。
+
+::: code-group
+
+```ini [安装]
+# 修改 my.cnf 后，重新启动服务器以使新设置生效。
+
+# /server/etc/my.cnf
+[mysqld]
+plugin-load-add=auth_socket.so
+```
+
+```bash [临时安装]
+# 在运行时加载插件，重启失效
+mysql> INSTALL PLUGIN auth_socket SONAME 'auth_socket.so';
+# 临时卸载，重启失效
+mysql> UNINSTALL PLUGIN auth_socket;
+```
+
+```bash [验证安装]
+mysql> SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS WHERE PLUGIN_NAME LIKE '%socket%';
++-------------+---------------+
+| PLUGIN_NAME | PLUGIN_STATUS |
++-------------+---------------+
+| auth_socket | ACTIVE        |
++-------------+---------------+
+1 row in set (0.02 sec)
+```
+
+```sql [使用]
+-- 添加用户，采用 CREATE USER
+CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
+-- 添加用户，'root'@'localhost' 用户除了系统root登录外还支持系统emad用户登录
+CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'emad';
+
+-- 更新用户，采用 ALTER USER
+ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
+-- 更新用户，'root'@'localhost' 用户除了系统root登录外还支持系统emad用户登录
+ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'emad';
+
+-- 删除 'root'@'localhost' 用户
+DROP USER 'root'@'localhost';
+```
+
+:::
+
+### caching_sha2_password
+
+从 `MySQL 8.0.4` 开始，MySQL 默认身份验证插件从 mysql_native_password​ 改为 caching_sha2_password
+
+客户端如果是从 TCP/IP 连接 MySQL 的现在都推荐使用 `caching_sha2_password`，它更加的安全可靠，不过速度略有牺牲
+
+::: tip 提示
+
+PHP 在 8.0 以后，开始支持 ​​caching_sha2_password​​ 身份验证
+
+如果条件允许，建议使用 ​​caching_sha2_password​​ 作为身份认证插件
+:::
+
+```
+
+```
