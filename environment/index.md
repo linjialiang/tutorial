@@ -111,8 +111,8 @@ PHP 环境目录
 
 ::: tip 说明
 
-- nginx 和 php-fpm 的主进程是 root
-- redis、postgresql 的主进程可以自己设定用户
+- nginx、php-fpm、sqlite3 的主进程用户是 root
+- redis、mysql 的主进程可以是指定的非特权用户
 
 :::
 
@@ -123,6 +123,7 @@ PHP 环境目录
 | 用户名 | 说明               |
 | ------ | ------------------ |
 | redis  | redis 主进程用户   |
+| mysql  | mysql 主进程用户   |
 | nginx  | nginx 子进程用户   |
 | phpfpm | php-fpm 子进程用户 |
 | www    | 操作文件用户       |
