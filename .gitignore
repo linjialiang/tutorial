@@ -1,6 +1,0 @@
-.idea/
-node_modules
-.vitepress/dist/
-.vitepress/cache/
-.vitepress/.temp/
-.pnpm-debug.log
