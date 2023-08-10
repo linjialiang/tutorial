@@ -266,3 +266,11 @@ DROP USER 'admin'@'1192.168.%.%';
 ```
 
 :::
+
+::: tip 查看用户的验证插件
+
+```sql
+select user, host, plugin, authentication_string from mysql.user;
+```
+
+:::
