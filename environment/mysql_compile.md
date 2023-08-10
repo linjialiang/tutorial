@@ -255,7 +255,8 @@ ALTER USER 'admin'@'192.168.%.%' IDENTIFIED WITH caching_sha2_password BY '1';
 
 ```sql [用户授权]
 -- ALL 对应 ON 后面表的全部功能
--- ON 授权权限，没有ON是授权角色
+-- 使用 ON 时，该语句授予权限
+-- 如果没有 ON ，该语句将授予角色
 -- *.* 授权 所有数据库.所有表
 -- WITH GRANT OPTION 能够向其他用户授予或撤消您自己拥有的权限
 GRANT ALL ON *.* TO 'admin'@'192.168.%.%' WITH GRANT OPTION;
