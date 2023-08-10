@@ -214,10 +214,10 @@ mysql> SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS WHERE P
 1 row in set (0.02 sec)
 ```
 
-```sql [使用]
--- 添加用户，采用 CREATE USER
+```sql [使用用户]
+-- 创建用户，采用 CREATE USER
 CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
--- 添加用户，'root'@'localhost' 用户除了系统root登录外还支持系统emad用户登录
+-- 创建用户，'root'@'localhost' 用户除了系统root登录外还支持系统emad用户登录
 CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'emad';
 
 -- 更新用户，采用 ALTER USER
@@ -233,17 +233,36 @@ DROP USER 'root'@'localhost';
 
 ### caching_sha2_password
 
-从 `MySQL 8.0.4` 开始，MySQL 默认身份验证插件从 mysql_native_password​ 改为 caching_sha2_password
+从 `MySQL 8.0.4` 开始，MySQL 默认身份验证插件从 mysql_native_password​ 改为 caching_sha2_password；
 
-客户端如果是从 TCP/IP 连接 MySQL 的现在都推荐使用 `caching_sha2_password`，它更加的安全可靠，不过速度略有牺牲
+客户端如果是从 TCP/IP 连接 MySQL 的现在都推荐使用 `caching_sha2_password`，它更加的安全可靠，不过速度略有牺牲；
 
-::: tip 提示
+caching_sha2_password 是 MySQL 捆绑插件，无需额外载入。
 
-PHP 在 8.0 以后，开始支持 ​​caching_sha2_password​​ 身份验证
+::: code-group
 
-如果条件允许，建议使用 ​​caching_sha2_password​​ 作为身份认证插件
+```sql [创建用户]
+-- WITH caching_sha2_password 指定插件，8.0.4以后默认就是 caching_sha2_password
+-- BY '1' 设置密码为1，mysql会自动进行对应的加密处理
+-- WITH 和 BY 都可以省略，但是 WITH 必须在 BY 前面（未指定插件，如何加密）
+CREATE USER 'admin'@'192.168.%.%' IDENTIFIED WITH caching_sha2_password BY '1';
+```
+
+```sql [更新用户]
+-- 备注同创建
+ALTER USER 'admin'@'192.168.%.%' IDENTIFIED WITH caching_sha2_password BY '1';
+```
+
+```sql [用户授权]
+-- ALL 对应 ON 后面表的全部功能
+-- ON 授权权限，没有ON是授权角色
+-- *.* 授权 所有数据库.所有表
+-- WITH GRANT OPTION 能够向其他用户授予或撤消您自己拥有的权限
+GRANT ALL ON *.* TO 'emad'@'192.168.%.%' WITH GRANT OPTION;
+```
+
+```sql [删除用户]
+DROP USER 'admin'@'1192.168.%.%';
+```
+
 :::
-
-```
-
-```
