@@ -86,21 +86,23 @@ logfile "/server/logs/redis/redis.log"
 
 ### 2. 权限
 
-```bash
-chown redis:redis -R /server/redis
-find /server/redis -type f -exec chmod 640 {} \;
-find /server/redis -type d -exec chmod 750 {} \;
-# 可执行文件需要执行权限
+::: code-group
+
+```bash [部署]
+chown redis:redis -R /server/redis /server/logs/redis /server/run/redis
+find /server/redis /server/logs/redis /server/run/redis -type f -exec chmod 640 {} \;
+find /server/redis /server/logs/redis /server/run/redis -type d -exec chmod 750 {} \;
 chmod 750 -R /server/redis/bin
-
-chown redis:redis -R /server/logs/redis
-chmod 750 /server/logs/redis
-# 日志文件 权限 redis 644
-
-chown redis:redis -R /server/run/redis
-chmod 750 /server/run/redis
-# pid 权限 redis 644
 ```
+
+```bash [开发]
+chown redis:emad -R /server/redis /server/logs/redis /server/run/redis
+find /server/redis /server/logs/redis /server/run/redis -type f -exec chmod 640 {} \;
+find /server/redis /server/logs/redis /server/run/redis -type d -exec chmod 750 {} \;
+chmod 750 -R /server/redis/bin
+```
+
+:::
 
 ### 3. 配置文件参数
 
