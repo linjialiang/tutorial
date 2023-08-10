@@ -277,3 +277,7 @@ select user, host, plugin, authentication_string from mysql.user;
 ```
 
 :::
+
+::: tip 关于授权
+https://dev.mysql.com/doc/refman/8.0/en/grant.html
+:::
