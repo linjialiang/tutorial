@@ -80,7 +80,6 @@ PHP 环境目录
 ::: code-group
 <<<@/assets/environment/source/bash/user.bash [用户]
 <<<@/assets/environment/source/bash/mkdir.bash [创建]
-<<<@/assets/environment/source/bash/chown.bash [权限]
 <<<@/assets/environment/source/bash/tar.bash [解压]
 :::
 
@@ -95,8 +94,8 @@ PHP 环境目录
 5. redis-7.0.12.tar.gz
 6. sqlite-autoconf-3420000.tar.gz
 7. php-8.2.8.tar.xz
-8. php-8.1.21.tar.xz
-9. php-8.0.29.tar.xz
+8. php-8.1.22.tar.xz
+9. php-8.0.30.tar.xz
 10. mysql-boost-8.0.34.tar.gz
 
 :::

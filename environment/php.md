@@ -67,8 +67,8 @@ PHP 扩展库按加载时间可分为：`动态库(共享扩展)` 和 `静态库
 本次计划构建 2 个 php 版本：
 
 1. `php 7.4.33`
-2. `php 8.0.29`
-3. `php 8.1.21`
+2. `php 8.0.30`
+3. `php 8.1.22`
 4. `php 8.2.8`
 
 ## 静态编译 PECL 扩展
@@ -92,15 +92,15 @@ cp -p -r apcu-5.1.22 /package/php-7.4.33/ext/apcu
 ```
 
 ```bash [拷贝到8.0]
-cp -p -r redis-5.3.7 /package/php-8.0.29/ext/redis
-cp -p -r yaml-2.2.3 /package/php-8.0.29/ext/yaml
-cp -p -r apcu-5.1.22 /package/php-8.0.29/ext/apcu
+cp -p -r redis-5.3.7 /package/php-8.0.30/ext/redis
+cp -p -r yaml-2.2.3 /package/php-8.0.30/ext/yaml
+cp -p -r apcu-5.1.22 /package/php-8.0.30/ext/apcu
 ```
 
 ```bash [拷贝到8.1]
-cp -p -r redis-5.3.7 /package/php-8.1.21/ext/redis
-cp -p -r yaml-2.2.3 /package/php-8.1.21/ext/yaml
-cp -p -r apcu-5.1.22 /package/php-8.1.21/ext/apcu
+cp -p -r redis-5.3.7 /package/php-8.1.22/ext/redis
+cp -p -r yaml-2.2.3 /package/php-8.1.22/ext/yaml
+cp -p -r apcu-5.1.22 /package/php-8.1.22/ext/apcu
 ```
 
 ```bash [拷贝到8.2]
@@ -134,13 +134,13 @@ mv configure{,.original}
 ```
 
 ```bash [8.0重新生成]
-cd /package/php-8.0.29/
+cd /package/php-8.0.30/
 mv configure{,.original}
 ./buildconf --force
 ```
 
 ```bash [8.1重新生成]
-cd /package/php-8.1.21/
+cd /package/php-8.1.22/
 mv configure{,.original}
 ./buildconf --force
 ```
@@ -217,8 +217,8 @@ apt install postgresql-server-dev-all -y
 
 ```bash
 mkdir /package/php-7.4.33/build_php
-mkdir /package/php-8.0.29/build_php
-mkdir /package/php-8.1.21/build_php
+mkdir /package/php-8.0.30/build_php
+mkdir /package/php-8.1.22/build_php
 mkdir /package/php-8.2.8/build_php
 ```
 
@@ -272,9 +272,9 @@ sqlite3          SQLite - SQL database engine
 # php7.4 构建目录
 cd /package/php-7.4.33/build_php/
 # php8.0 构建目录
-cd /package/php-8.0.29/build_php/
+cd /package/php-8.0.30/build_php/
 # php8.1 构建目录
-cd /package/php-8.1.21/build_php/
+cd /package/php-8.1.22/build_php/
 # php8.2 构建目录
 cd /package/php-8.2.8/build_php/
 ```
@@ -353,9 +353,9 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 # php7.4
 cp /package/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
 # php8.0
-cp /package/php-8.0.29/php.ini-production /server/php/80/lib/php.ini
+cp /package/php-8.0.30/php.ini-production /server/php/80/lib/php.ini
 # php8.1
-cp /package/php-8.1.21/php.ini-production /server/php/81/lib/php.ini
+cp /package/php-8.1.22/php.ini-production /server/php/81/lib/php.ini
 # php8.2
 cp /package/php-8.2.8/php.ini-production /server/php/82/lib/php.ini
 ```
@@ -364,9 +364,9 @@ cp /package/php-8.2.8/php.ini-production /server/php/82/lib/php.ini
 # php7.4
 cp /package/php-7.4.33/php.ini-development /server/php/74/lib/php.ini
 # php8.0
-cp /package/php-8.0.29/php.ini-development /server/php/80/lib/php.ini
+cp /package/php-8.0.30/php.ini-development /server/php/80/lib/php.ini
 # php8.1
-cp /package/php-8.1.21/php.ini-development /server/php/81/lib/php.ini
+cp /package/php-8.1.22/php.ini-development /server/php/81/lib/php.ini
 # php8.2
 cp /package/php-8.2.8/php.ini-development /server/php/82/lib/php.ini
 ```
