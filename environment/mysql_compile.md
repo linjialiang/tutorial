@@ -258,7 +258,7 @@ ALTER USER 'admin'@'192.168.%.%' IDENTIFIED WITH caching_sha2_password BY '1';
 -- ON 授权权限，没有ON是授权角色
 -- *.* 授权 所有数据库.所有表
 -- WITH GRANT OPTION 能够向其他用户授予或撤消您自己拥有的权限
-GRANT ALL ON *.* TO 'emad'@'192.168.%.%' WITH GRANT OPTION;
+GRANT ALL ON *.* TO 'admin'@'192.168.%.%' WITH GRANT OPTION;
 ```
 
 ```sql [删除用户]
