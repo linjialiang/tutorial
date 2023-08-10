@@ -36,13 +36,25 @@ apt install -y gcc g++ cmake
 apt install -y libncursesada11-dev libtirpc-dev dpkg-dev libldap-dev libsasl2-dev libbison-dev libudev-dev
 ```
 
-## 创建用户
+## 权限
 
-```bash
-chown mysql:mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql
-chown root:mysql /server/mysql
-chmod 750 /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql
+::: code-group
+
+```bash [部署]
+chown mysql:mysql -R /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql
+find /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql -type f -exec chmod 640 {} \;
+find /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql -type d -exec chmod 750 {} \;
+chmod 750 -R /server/mysql/bin
 ```
+
+```bash [开发]
+chown mysql:emad -R /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql
+find /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql -type f -exec chmod 640 {} \;
+find /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql -type d -exec chmod 750 {} \;
+chmod 750 -R /server/mysql/bin
+```
+
+:::
 
 ## 查询有关 CMake 支持的选项的信息
 
