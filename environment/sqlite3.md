@@ -32,4 +32,24 @@ make install
 
 :::
 
+## 权限
+
+::: code-group
+
+```bash [部署]
+chown root:root -R /server/sqlite3
+find /server/sqlite3 -type f -exec chmod 640 {} \;
+find /server/sqlite3 -type d -exec chmod 750 {} \;
+chmod 750 -R /server/sqlite3/bin
+```
+
+```bash [开发]
+chown root:emad -R /server/sqlite3
+find /server/sqlite3 -type f -exec chmod 640 {} \;
+find /server/sqlite3 -type d -exec chmod 750 {} \;
+chmod 750 -R /server/sqlite3/bin
+```
+
+:::
+
 到此，sqlite3 简单构建安装就完成了，不需要配置就可以使用
