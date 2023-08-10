@@ -10,6 +10,7 @@ const sidebar = [
   { text: 'Sublime Text', link: `${path.main}sublime` },
   { text: '输入法', link: `${path.main}pinyin` },
   { text: 'Navicat', link: `${path.main}navicat` },
+  { text: 'NodeJS', link: `${path.main}nodejs` },
 ];
 
 export default sidebar;

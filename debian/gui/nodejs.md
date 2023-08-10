@@ -4,20 +4,29 @@
 
 apt 源自带的 nodejs 版本比较低，下面使用 nodejs 官方最新稳定包安装
 
-```bash
-# 下载并解压
-wget https://nodejs.org/dist/v18.14.0/node-v18.14.0-linux-x64.tar.xz
-tar -xJf node-v18.14.0-linux-x64.tar.xz -C /server/
-mv node-v18.14.0-linux-x64 node
+::: code-group
 
-# 将可执行文件目录，加入用户环境变量 ~/.zshrc ～/.bashrc
+```bash [下载并解压]
+wget https://nodejs.org/dist/v18.17.1/node-v18.17.1-linux-x64.tar.xz
+tar -xJf node-v18.17.1-linux-x64.tar.xz -C /server/
+mv /server/node{-v18.17.1-linux-x64,}
+```
+
+```bash [设置权限]
+chown emad:emad /server/node
+```
+
+```bash [加入环境变量]
+# ~/.zshrc
 PATH=${PATH}:/server/node/bin
 export PATH
 ```
 
+:::
+
 ## 配置 npm 源
 
-需要将 npm 源修改成淘宝镜像
+将 npm 源修改成淘宝镜像，如使用官方源，可能需要用到代理工具
 
 ```bash
 # 查看当前源地址
@@ -43,16 +52,22 @@ nrm use taobao
 
 ## 常用全局包安装
 
-```bash
-# 升级 npm 到最新
-npm i npm -g
+::: code-group
 
+```bash [正常]
+# 升级 npm 到最新
+npm update npm -g
 # 安装 pnpm
 npm i pnpm -g
 ```
 
-::: warning 警告
-linux 下使用 `-g` 操作写入的是系统全局，而不是登录用户全局，因此需要 root 权限
+```bash [代理]
+# 升级 npm 到最新
+proxychains npm update npm -g
+# 安装 pnpm
+proxychains npm i pnpm -g
+```
+
 :::
 
 ## nvm
@@ -86,7 +101,7 @@ nvm 用于管理 nodejs 版本，在当前用户下安装即可，不需要使�
 
     # 使用系统自带的 nodejs 版本
     nvm use system
-    Now using system version of node: v18.14.0 (npm v9.4.1)
+    Now using system version of node: v18.17.1 (npm v9.4.1)
     ```
 
 ### 安装 nvm
