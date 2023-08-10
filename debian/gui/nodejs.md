@@ -13,7 +13,7 @@ mv /server/node{-v18.17.1-linux-x64,}
 ```
 
 ```bash [设置权限]
-chown emad:emad /server/node
+chown emad:emad -R /server/node
 ```
 
 ```bash [加入环境变量]
