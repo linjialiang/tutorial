@@ -187,7 +187,6 @@ chmod 755 /www
 ```
 
 ```bash [开发]
-# 设置站点用户
 chown emad:emad /www
 chmod 755 /www
 ```
