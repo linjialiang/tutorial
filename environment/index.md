@@ -179,22 +179,22 @@ redis 只针对 redis
 
 ### 1. 设置站点用户权限
 
-```bash
-# 设置站点用户
-chown www:www -R /www/
+::: code-group
 
-# 设置站点文件权限
-find /www/ -type f -exec chmod 640 {} \;
-
-# 设置站点目录权限
-find /www/ -type d -exec chmod 750 {} \;
-
-# 站点上层目录
-chown root:root /www/ # 用户及用户组设为 [root] 更加安全
-chmod 755 /www/ # 权限设为 [755]
+```bash [部署]
+chown root:root /www
+chmod 755 /www
 ```
 
-::: tip tp 站点案例：
+```bash [开发]
+# 设置站点用户
+chown emad:emad /www
+chmod 755 /www
+```
+
+:::
+
+::: details tp 站点案例：
 
 ::: code-group
 
