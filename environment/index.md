@@ -198,22 +198,40 @@ chmod 755 /www/ # 权限设为 [755]
 
 ::: code-group
 
+```bash [权限分析]
+- 对于php文件，phpfpm 需要读取权限
+- 对于页面文件，nginx 需要读取权限
+- 对于入口文件，phpfpm和nginx都需要读取权限
+- 对于上传文件，phpfpm需要读写权限，nginx需要读取权限
+- 对于日志缓存目录，phpfpm需要读写权限
+- 如果是开发环境，开发用户对所有文件都要读写权限
+```
+
 ```bash [部署]
 chown phpfpm:phpfpm -R /www/tp
-chown phpfpm:nginx -R /www/tp/public/static /www/tp/public
 find /www/tp -type f -exec chmod 440 {} \;
 find /www/tp -type d -exec chmod 550 {} \;
-chmod 440 /www/tp/public/index.php
+# 部分目录需确保nginx可以访问和进入
+chmod phpfpm:nginx -R /www/tp /www/tp/public /www/tp/public/static /www/tp/public/static/upload
+# 部分文件需确保nginx可以访问
+chmod 440 /www/tp/public/{index.php,favicon.ico,robots.txt}
+# 缓存和上传目录需要写入权限
 chmod 750 /www/tp/public/static/upload /www/tp/runtime
 ```
 
 ```bash [开发]
-chown emad:emad -R /www/tp
-find /www/tp -type f -exec chmod 740 {} \;
-find /www/tp -type d -exec chmod 750 {} \;
-chmod 740 /www/tp/public/index.php
-chmod 770 /www/tp/public/static/upload /www/tp/runtime
 usermod -G emad phpfpm
+
+chown emad:emad -R /www/tp
+find /www/tp -type f -exec chmod 640 {} \;
+find /www/tp -type d -exec chmod 750 {} \;
+# 确保phpfpm和nginx可以访问public目录
+chmod 755 /www/tp /www/tp/public
+chmod 744 /www/tp/public/{index.php,favicon.ico,robots.txt}
+# php读写 nginx读
+chmod 775 /www/tp/public/static/upload
+# php读写
+chmod 770 /www/tp/runtime
 
 # ~/.profile
 # 第9行 umask 022 改成 umask 027
