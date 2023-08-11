@@ -196,6 +196,8 @@ chmod 755 /www/ # 权限设为 [755]
 
 ::: tip tp 站点案例：
 
+::: code-group
+
 ```bash [部署]
 chown phpfpm:phpfpm -R /www/tp
 chown phpfpm:nginx -R /www/tp/public/static /www/tp/public
