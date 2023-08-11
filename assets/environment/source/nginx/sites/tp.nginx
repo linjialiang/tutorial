@@ -1,8 +1,8 @@
-# /server/sites/*.conf
+# /server/sites/tp.nginx
 server
 {
     listen 80;
-    server_name tp.com;
+    server_name tp.io;
     root /www/tp/public;
 
     access_log /server/logs/nginx/tp.log;
@@ -35,10 +35,17 @@ server
 
     # 对所有存在 .php 的url地址做转发处理
     # 去掉 \.php$ 中的 $ 是为了不匹配行末，即可以匹配 .php/，以实现 path_info
-    location ~ \.php
+    # ^/index.php 是为了只匹配 public/index.php，真正实现唯一入口
+    location ~* \.php
     {
+        # 非 /index.php 的 .php 文件禁止访问
+        location ~ ^(?!/index\.php)
+        {
+            deny all;
+        }
+
         # 转发的 phpfpm 版本
-        fastcgi_pass                unix:/server/run/php/qy.sock;
+        fastcgi_pass                unix:/server/run/php/82.sock;
 
         # 根据文件名转发，完全不需要配置 fastcgi_index
         # fastcgi_index   index.php;
