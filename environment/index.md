@@ -239,32 +239,6 @@ umask 027 # 创建的文件权限是 640 目录权限是 750
 
 :::
 
-### 2. 加入用户组
-
-```bash
-# 清空用户的附加用户组
-usermod -G '' www
-usermod -G '' nginx
-usermod -G '' phpfpm
-
-# 为用户添加附加用户组
-
-# 用户 nginx 针对[静态文件]需要具有读取权限
-usermod -G www nginx
-# [用户phpfpm] 通常需要加入 [用户组www]，需要php操作文件或目录时，上级目录权限设为 [phpfpm 750] 即可
-usermod -G www phpfpm
-# [用户www] 通常不需要加入其他用户组
-usermod -G '' www
-```
-
-::: warning 部署环境权限如下：
-
-1. 静态文件 nginx:nginx 400
-2. php 文件 phpfpm:phpfpm 400
-3. 操作目录 phpfpm:phpfpm 700 (上传目录、日志目录、缓存目录等)
-
-:::
-
 ::: danger 开发用户 umask 权限设置：
 
 ```bash
