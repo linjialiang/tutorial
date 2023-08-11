@@ -194,16 +194,28 @@ chown root:root /www/ # 用户及用户组设为 [root] 更加安全
 chmod 755 /www/ # 权限设为 [755]
 ```
 
-::: tip tp6 站点案例：
+::: tip tp 站点案例：
 
-```bash
-chown www:www -R /www/tp6/
-# 正常文件权限设为640
-find /www/tp6/ -type f -exec chmod 640 {} \;
-find /www/tp6/ -type d -exec chmod 750 {} \;
+```bash [部署]
+chown phpfpm:phpfpm -R /www/tp
+chown phpfpm:nginx -R /www/tp/public/static /www/tp/public
+find /www/tp -type f -exec chmod 440 {} \;
+find /www/tp -type d -exec chmod 550 {} \;
+chmod 440 /www/tp/public/index.php
+chmod 750 /www/tp/public/static/upload /www/tp/runtime
+```
 
-# 需要 php-fpm 处理的目录权限设为 [770]
-chmod 770 /www/tp6/runtime/ /www/tp6/public/static/upload/
+```bash [开发]
+chown emad:emad -R /www/tp
+find /www/tp -type f -exec chmod 740 {} \;
+find /www/tp -type d -exec chmod 750 {} \;
+chmod 740 /www/tp/public/index.php
+chmod 770 /www/tp/public/static/upload /www/tp/runtime
+usermod -G emad phpfpm
+
+# ~/.profile
+# 第9行 umask 022 改成 umask 027
+umask 027 # 创建的文件权限是 640 目录权限是 750
 ```
 
 :::
