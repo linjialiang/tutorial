@@ -177,60 +177,65 @@ redis 只针对 redis
 
 下面这是开发环境的案例
 
-### 1. 设置站点用户权限
+### 1. 设置站点根目录权限
 
-```bash
-# 设置站点用户
-chown www:www -R /www/
+::: code-group
 
-# 设置站点文件权限
-find /www/ -type f -exec chmod 640 {} \;
-
-# 设置站点目录权限
-find /www/ -type d -exec chmod 750 {} \;
-
-# 站点上层目录
-chown root:root /www/ # 用户及用户组设为 [root] 更加安全
-chmod 755 /www/ # 权限设为 [755]
+```bash [部署]
+chown root:root /www
+chmod 755 /www
 ```
 
-::: tip tp6 站点案例：
-
-```bash
-chown www:www -R /www/tp6/
-# 正常文件权限设为640
-find /www/tp6/ -type f -exec chmod 640 {} \;
-find /www/tp6/ -type d -exec chmod 750 {} \;
-
-# 需要 php-fpm 处理的目录权限设为 [770]
-chmod 770 /www/tp6/runtime/ /www/tp6/public/static/upload/
+```bash [开发]
+chown emad:emad /www
+chmod 755 /www
 ```
 
 :::
 
-### 2. 加入用户组
+### 2. tp 站点权限案例
 
-```bash
-# 清空用户的附加用户组
-usermod -G '' www
-usermod -G '' nginx
-usermod -G '' phpfpm
+::: code-group
 
-# 为用户添加附加用户组
-
-# 用户 nginx 针对[静态文件]需要具有读取权限
-usermod -G www nginx
-# [用户phpfpm] 通常需要加入 [用户组www]，需要php操作文件或目录时，上级目录权限设为 [phpfpm 750] 即可
-usermod -G www phpfpm
-# [用户www] 通常不需要加入其他用户组
-usermod -G '' www
+```bash [权限分析]
+- 对于php文件，phpfpm 需要读取权限
+- 对于页面文件，nginx 需要读取权限
+- 对于入口文件，phpfpm和nginx都需要读取权限
+- 对于上传文件，phpfpm需要读写权限，nginx需要读取权限
+- 对于日志缓存目录，phpfpm需要读写权限
+- 如果是开发环境，开发用户对所有文件都要读写权限
 ```
 
-::: warning 部署环境权限如下：
+```bash [部署]
+chown phpfpm:phpfpm -R /www/tp
+find /www/tp -type f -exec chmod 440 {} \;
+find /www/tp -type d -exec chmod 550 {} \;
+# 部分目录需确保nginx可以访问和进入
+chmod phpfpm:nginx -R /www/tp /www/tp/public /www/tp/public/static /www/tp/public/static/upload
+# 部分文件需确保nginx可以访问
+chmod 440 /www/tp/public/{index.php,favicon.ico,robots.txt}
+# 缓存和上传目录需要写入权限
+chmod 750 /www/tp/public/static/upload /www/tp/runtime
+```
 
-1. 静态文件 nginx:nginx 400
-2. php 文件 phpfpm:phpfpm 400
-3. 操作目录 phpfpm:phpfpm 700 (上传目录、日志目录、缓存目录等)
+```bash [开发]
+usermod -G emad phpfpm
+
+chown emad:emad -R /www/tp
+find /www/tp -type f -exec chmod 640 {} \;
+find /www/tp -type d -exec chmod 750 {} \;
+# 确保phpfpm和nginx可以访问public目录
+chmod 755 /www/tp /www/tp/public
+chmod 744 /www/tp/public/{index.php,favicon.ico,robots.txt}
+# php读写 nginx读
+chmod 775 /www/tp/public/static/upload
+# php读写
+chmod 770 /www/tp/runtime
+
+# ~/.profile
+# 第9行 umask 022 改成 umask 027
+umask 027 # 创建的文件权限是 640 目录权限是 750
+```
 
 :::
 

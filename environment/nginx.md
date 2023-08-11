@@ -11,15 +11,14 @@ Nginx 是现如今性能最强劲的 Web 服务器及反向代理服务器
 
 ### 1. 查看构建参数
 
-查看当前版本全部构建参数
+::: code-group
 
-```bash
+```bash [common]
 cd /package/nginx-1.24.0
 ./configure --help > help.ini
 ```
 
-::: details 当前版本全部构建参数
-<<<@/assets/environment/source/nginx/help.ini
+<<<@/assets/environment/source/nginx/help.ini [全部参数]
 :::
 
 ### 2. 模块依赖环境
@@ -79,14 +78,14 @@ make install
 
 使用 curl 检测是否成功
 
-```bash
+::: code-group
+
+```bash [common]
 /server/nginx/sbin/nginx
 curl -I 127.0.0.1
 ```
 
-成功信号：
-
-```bash
+```bash [成功信号]
 HTTP/1.1 200 OK
 Server: nginx/1.22.1
 Date: Tue, 30 Aug 2022 11:50:51 GMT
@@ -98,11 +97,11 @@ ETag: "630df98c-267"
 Accept-Ranges: bytes
 ```
 
-失败信号：
-
-```bash
+```bash [失败信号]
 curl: (7) Failed to connect to 127.0.0.1 port 80: 拒绝连接
 ```
+
+:::
 
 ::: tip 亲测：
 `nginx-1.24.0` 在 `Debian 12` 下，能完成上面两套指令的构建
