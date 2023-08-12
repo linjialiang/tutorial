@@ -136,8 +136,26 @@ wps 需要额外安装两组字体，安装方式见 [[手工安装字体]](#ins
 
 :::
 
+::: 不支持中文输入法
+
+::: code-group
+
+```bash [ibus]
+# /usr/bin/wps 开头文件增加
+export XMODIFIERS="@im=ibus"
+export QT_IM_MODULE="ibus"
+```
+
+```bash [ibus]
+# /usr/bin/wps 开头文件增加
+export XMODIFIERS="@im=fcitx"
+export QT_IM_MODULE="fcitx"
+```
+
+:::
+
 ::: danger 警告
-WPS 请使用 dpkg 安装，否则会卡在中途无法退出，退出后 apt 会被锁住
+WPS 请使用 dpkg 安装，使用 apt 安装会卡在中途无法退出，退出后 apt 会被锁住
 
 apt 锁住，通常需要自行根据命令行提示进行解锁
 :::
