@@ -91,7 +91,7 @@ PHP 环境目录
 2. openssl-3.0.10.tar.gz
 3. pcre2-10.42.tar.bz2
 4. zlib-1.2.13.tar.gz
-5. redis-7.0.12.tar.gz
+5. redis-7.2.0.tar.gz
 6. sqlite-autoconf-3420000.tar.gz
 7. php-8.2.9.tar.xz
 8. php-8.1.22.tar.xz
