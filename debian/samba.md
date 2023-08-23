@@ -43,8 +43,6 @@ service nmbd restart
 
 :::
 
-:::
-
 ## 管理
 
 ::: code-group
