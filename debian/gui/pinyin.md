@@ -52,3 +52,36 @@ style:
 ```
 
 3. 重新部署 ibus-rime
+
+## 小狼毫输入法
+
+小狼毫是 `中州韵输入法引擎(Rime)` 官方为 Windows 系统制作的输入法
+
+### 安装输入法
+
+去[中州韵输入法引擎官网](https://rime.im/) 下载最新的小狼毫输入法，双击 `weasel-0.15.0.0-installer.exe` 安装
+
+::: tip 安装注意事项
+请使用默认安装路径，为后续配置输入法做准备
+:::
+
+## 配置输入法
+
+[雾凇拼音](https://github.com/iDvel/rime-ice) 是 Rime 的一个配置仓库，配置雾凇拼音如下：
+
+1. Rime 退出算法服务；
+   ![配置解压到用户文件夹](/assets/debian/gui/007.png)
+2. 进入 Rime 的 `用户文件夹` 并备份原始内容，路径如：`C:\Users\Administrator\AppData\Roaming\Rime`；
+3. 去 git 仓库下载[最新源码包](https://github.com/iDvel/rime-ice/archive/refs/heads/main.zip)；
+4. 将雾凇拼音的配置源码解压到 `用户文件夹`
+
+   - 路径：C:\Users\Administrator\AppData\Roaming\Rime
+
+   ![配置解压到用户文件夹](/assets/debian/gui/008.png)
+   ![用户文件夹](/assets/debian/gui/009.png)
+
+5. cho
+
+   ![用户文件夹](/assets/debian/gui/010.png)
+
+## 使用输入法
