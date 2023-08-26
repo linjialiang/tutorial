@@ -73,15 +73,25 @@ style:
    ![配置解压到用户文件夹](/assets/debian/gui/007.png)
 2. 进入 Rime 的 `用户文件夹` 并备份原始内容，路径如：`C:\Users\Administrator\AppData\Roaming\Rime`；
 3. 去 git 仓库下载[最新源码包](https://github.com/iDvel/rime-ice/archive/refs/heads/main.zip)；
-4. 将雾凇拼音的配置源码解压到 `用户文件夹`
+4. 将雾凇拼音的配置源码解压到 `用户文件夹`；
 
    - 路径：C:\Users\Administrator\AppData\Roaming\Rime
 
    ![配置解压到用户文件夹](/assets/debian/gui/008.png)
-   ![用户文件夹](/assets/debian/gui/009.png)
+   ![用户文件夹最终效果](/assets/debian/gui/009.png)
 
-5. cho
+5. 小狼毫需要重启电脑；
+6. 设置输入法；
 
-   ![用户文件夹](/assets/debian/gui/010.png)
+   ![输入法设定](/assets/debian/gui/010.png)
+   ![基本不更新](/assets/debian/gui/011.png)
+   ![选中输入法](/assets/debian/gui/012.png)
+   ![现代蓝界面](/assets/debian/gui/013.png)
+
+7. 完成！
 
 ## 使用输入法
+
+通过快捷键 `F4` 或 `Ctrl - ~` 调出 Rime 方案选单，按需求选择
+
+![Rime方案选单](/assets/debian/gui/015.png)
