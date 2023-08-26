@@ -83,7 +83,9 @@ head:
 ```
 
 ```ts [HeadConfig 结构]
-type HeadConfig = [string, Record<string, string>] | [string, Record<string, string>, string];
+type HeadConfig =
+  | [string, Record<string, string>]
+  | [string, Record<string, string>, string];
 ```
 
 :::
@@ -123,8 +125,8 @@ hero:
   text: PHP 环境搭建
   tagline: 基于Debian发行版的PHP环境搭建教程
   image:
-    src: '/assets/svg/php.svg'
-    alt: 'PHP 环境搭建'
+    src: "/svg/php.svg"
+    alt: "PHP 环境搭建"
   actions:
     - theme: brand
       text: 环境搭建
@@ -148,18 +150,18 @@ layout: home
 
 features:
   - icon:
-      light: /assets/svg/linux.svg
-      dark: /assets/svg/debian.svg
+      light: /svg/linux.svg
+      dark: /svg/debian.svg
     title: Debian 教程
     details: Linux发行版
     link: /debian/index
   - icon:
-      src: /assets/svg/nginx.svg
+      src: /svg/nginx.svg
     title: Nginx 教程
     details: Web服务器
     link: /nginx/index
   - icon:
-      src: /assets/svg/other.svg
+      src: /svg/other.svg
     title: Other
     details: 其它文档
     link: /other/index

@@ -7,8 +7,8 @@ hero:
   text: PHP 环境搭建
   tagline: 基于Debian的php环境搭建及其系列教程
   image:
-    src: '/assets/svg/php.svg'
-    alt: 'PHP 环境搭建'
+    src: "/svg/php.svg"
+    alt: "PHP 环境搭建"
   actions:
     - theme: brand
       text: 环境搭建
@@ -22,90 +22,90 @@ hero:
 
 features:
   - icon:
-      light: /assets/svg/linux.svg
-      dark: /assets/svg/debian.svg
+      light: /svg/linux.svg
+      dark: /svg/debian.svg
     title: Debian 教程
     details: Linux发行版
     link: /debian/index
   - icon:
-      light: /assets/svg/docker.svg
-      dark: /assets/svg/k8s.svg
+      light: /svg/docker.svg
+      dark: /svg/k8s.svg
     title: Docker 教程
     details: 讲解完整的分布式系统支撑平台
     link: /docker/index
   - icon:
-      src: /assets/svg/nginx.svg
+      src: /svg/nginx.svg
     title: Nginx 教程
     details: Web服务器
     link: /nginx/index
   - icon:
-      src: /assets/svg/mysql.svg
+      src: /svg/mysql.svg
     title: MySQL 教程
     details: 最流行的开源关系型数据库
     link: /sql/mysql/index
   - icon:
-      src: /assets/svg/redis.svg
+      src: /svg/redis.svg
     title: Redis 教程
     details: 最流行的键值型数据库(内存型)
     link: /redis/index
   - icon:
-      src: /assets/svg/mongodb.svg
+      src: /svg/mongodb.svg
     title: MongoDB 教程
     details: 最流行的文档数据库
     link: /mongodb/index
   - icon:
-      dark: /assets/svg/sqlite-dark.svg
-      light: /assets/svg/sqlite-light.svg
+      dark: /svg/sqlite-dark.svg
+      light: /svg/sqlite-light.svg
     title: Sqlite3 教程
     details: 轻量级关系型数据库
     link: /sql/sqlite3/index
   - icon:
-      src: /assets/svg/pgsql.svg
+      src: /svg/pgsql.svg
     title: PostgreSQL 教程
     details: 最强大的开源关系型数据库
     link: /sql/pgsql/index
   - icon:
-      src: /assets/svg/kafka.svg
+      src: /svg/kafka.svg
     title: Kafka 教程
     details: 高吞吐量的开源分布式发布订阅消息系统
     link: /kafka/index
   - icon:
-      src: /assets/svg/php.svg
+      src: /svg/php.svg
     title: PHP 教程
     details: PHP语言解释器
     link: /php/index
   - icon:
-      src: /assets/svg/html.svg
+      src: /svg/html.svg
     title: HTML 教程
     details: HTML5基础
     link: /html/index
   - icon:
-      src: /assets/svg/css.svg
+      src: /svg/css.svg
     title: CSS3 教程
     details: CSS3
     link: /css/index
   - icon:
-      src: /assets/svg/js.svg
+      src: /svg/js.svg
     title: JavaScript 教程
     details: JavaScript 的 ES5 部分
     link: /js/index
   - icon:
-      src: /assets/svg/es6.svg
+      src: /svg/es6.svg
     title: ES6 教程
     details: JavaScript 的 ES6+ 部分
     link: /es6/index
   - icon:
-      src: /assets/svg/vue.svg
+      src: /svg/vue.svg
     title: Vue3 教程
     details: Vue3
     link: /vue/index
   - icon:
-      src: /assets/svg/other.svg
+      src: /svg/other.svg
     title: Other
     details: 其它文档
     link: /other/index
   - icon:
-      src: /assets/svg/clash.svg
+      src: /svg/clash.svg
     title: Clash
     details: Clash
     link: /other/clash/index
