@@ -22,3 +22,5 @@ apt install ffmpeg -y
 1. 去 https://github.com/BtbN/FFmpeg-Builds 下载最新版
 2. 下载 GPL 开源协议版本 `ffmpeg-n6.0-latest-win64-gpl-6.0.zip`
 3. 解压到指定目录，并将 bin 目录添加到环境变量 PATH 中
+
+## 使用
