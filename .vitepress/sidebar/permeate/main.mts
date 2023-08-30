@@ -2,6 +2,10 @@ const path = {
   main: "/permeate/",
 };
 
-const sidebar = [{ text: "概述", link: `${path.main}` }];
+const sidebar = [
+  { text: "概述", link: `${path.main}` },
+  { text: "OWASP-Benchmark", link: `${path.main}owasp` },
+  { text: "burpsuite_pro", link: `${path.main}burpsuite` },
+];
 
 export default sidebar;
