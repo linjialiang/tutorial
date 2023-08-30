@@ -9,6 +9,7 @@ import kafka from "./kafka/main.mjs";
 import mongodb from "./mongodb/main.mjs";
 import nginx from "./nginx/main.mjs";
 import other from "./other/main.mjs";
+import permeate from "./permeate/main.mjs";
 import php from "./php/main.mjs";
 import redis from "./redis/main.mjs";
 import sql from "./sql/main.mjs";
@@ -30,6 +31,7 @@ const sidebar = {
   "/es6/": es6,
   "/vue/": vue,
   "/other/": other,
+  "/permeate/": permeate,
 };
 
 export default sidebar;

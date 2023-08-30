@@ -109,4 +109,9 @@ features:
     title: Clash
     details: Clash
     link: /other/clash/index
+  - icon:
+      src: /svg/permeate.svg
+    title: permeate
+    details: 渗透
+    link: /permeate/index
 ---
