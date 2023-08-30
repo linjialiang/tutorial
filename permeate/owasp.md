@@ -64,7 +64,7 @@ chmod +x ./runRemoteAccessibleBenchmark.sh
 ```
 
 ```bash [后台启动]
-nohup ./runRemoteAccessibleBenchmark.sh >/dev/null 2>&1 &
+nohup ./runRemoteAccessibleBenchmark.sh >/tmp/owasp.log &
 ```
 
 :::
