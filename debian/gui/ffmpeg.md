@@ -24,3 +24,30 @@ apt install ffmpeg -y
 3. 解压到指定目录，并将 bin 目录添加到环境变量 PATH 中
 
 ## 使用
+
+::: code-group
+
+```bash [格式转换]
+# avi 转成 mp4
+ffmpeg -i input.avi output.mp4
+```
+
+```batch [批量转换]
+@echo off
+set Ext=*.mkv,*.webm
+set Path=E:\midea\倪海厦\人纪
+set NewPath=E:\midea\倪海厦\media
+echo ====== 开始转换 ======
+for /r %Path% %%a in (%Ext%) do (
+  echo 正在转换：%%a
+  REM bat批处理文件外部程序使用绝对路径，设置到环境变量无效
+  REM 启用英特尔核心显卡加速转码
+  C:\sf\ffmpeg\bin\ffmpeg.exe -c:v h264_qsv -i "%%a" -c:v h264_qsv "%NewPath%\%%~na.mp4"
+  REM 启用英特尔独立显卡(N卡)加速转码
+  REM C:\sf\ffmpeg\bin\ffmpeg.exe -c:v h264_cuvid -i "%%a" -c:v h264_nvenc "%NewPath%\%%~na.mp4"
+)
+echo ====== 转换完成 ======
+pause
+```
+
+:::
