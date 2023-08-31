@@ -41,9 +41,11 @@ echo ====== 开始转换 ======
 for /r %Path% %%a in (%Ext%) do (
   echo 正在转换：%%a
   REM bat批处理文件外部程序使用绝对路径，设置到环境变量无效
-  REM 启用英特尔核心显卡加速转码
-  C:\sf\ffmpeg\bin\ffmpeg.exe -c:v h264_qsv -i "%%a" -c:v h264_qsv "%NewPath%\%%~na.mp4"
-  REM 启用英特尔独立显卡(N卡)加速转码
+  REM 启用自动加速转码
+  C:\sf\ffmpeg\bin\ffmpeg.exe -hwaccel auto -i "%%a" -c:v h264_qsv "%NewPath%\%%~na.mp4"
+  REM 启用英特尔核心显卡加速转码（源转码文件必须是h264）
+  REM C:\sf\ffmpeg\bin\ffmpeg.exe -c:v h264_qsv -i "%%a" -c:v h264_qsv "%NewPath%\%%~na.mp4"
+  REM 启用英特尔独立显卡(N卡)加速转码（源文件必须是h264）
   REM C:\sf\ffmpeg\bin\ffmpeg.exe -c:v h264_cuvid -i "%%a" -c:v h264_nvenc "%NewPath%\%%~na.mp4"
 )
 echo ====== 转换完成 ======
