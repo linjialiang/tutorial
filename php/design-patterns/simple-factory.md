@@ -37,3 +37,7 @@ titleTemplate: PHP 设计模式教程
 <<<@/assets/php/design-patterns/simple-factory/sms/run.php [执行脚本]
 
 :::
+
+::: info 创建工厂方法一定要使用 static 吗？
+答：需要常驻的全部 static，如果是按需实例化的就 `new 对象`，完了再使用 `->` 去调用方法
+:::
