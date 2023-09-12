@@ -9,6 +9,7 @@
 // | CreateTime: 2023-09-12 16:58:28
 // +----------------------------------------------------------------------
 declare(strict_types=1);
+
 namespace sms;
 
 interface Message
