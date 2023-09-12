@@ -22,3 +22,18 @@ titleTemplate: PHP 设计模式教程
 代码就实现了创建对象的工作：根据我们传入的自定义标识符（apple、huawei），来返回对应类型的 Product 对象。
 
 上面引入了 Phone 接口类，用于规定不同产品类型必须申明的方法
+
+## 短信模块
+
+场景：公司同时使用了阿里云、腾讯云、百度云 3 家的短信服务商，需要在不同场景下使用不同的短信服务商
+
+::: code-group
+
+<<<@/assets/php/design-patterns/simple-factory/sms/Message.php [短信接口]
+<<<@/assets/php/design-patterns/simple-factory/sms/Ali.php [阿里云短信]
+<<<@/assets/php/design-patterns/simple-factory/sms/Baidu.php [百度云手机]
+<<<@/assets/php/design-patterns/simple-factory/sms/Tx.php [腾讯云手机]
+<<<@/assets/php/design-patterns/simple-factory/sms/MessageFactory.php [简单工厂类]
+<<<@/assets/php/design-patterns/simple-factory/sms/run.php [执行脚本]
+
+:::
