@@ -31,8 +31,8 @@ titleTemplate: PHP 设计模式教程
 
 <<<@/assets/php/design-patterns/simple-factory/sms/Message.php [短信接口]
 <<<@/assets/php/design-patterns/simple-factory/sms/Ali.php [阿里云短信]
-<<<@/assets/php/design-patterns/simple-factory/sms/Baidu.php [百度云手机]
-<<<@/assets/php/design-patterns/simple-factory/sms/Tx.php [腾讯云手机]
+<<<@/assets/php/design-patterns/simple-factory/sms/Baidu.php [百度云短信]
+<<<@/assets/php/design-patterns/simple-factory/sms/Tx.php [腾讯云短信]
 <<<@/assets/php/design-patterns/simple-factory/sms/MessageFactory.php [简单工厂类]
 <<<@/assets/php/design-patterns/simple-factory/sms/run.php [执行脚本]
 
