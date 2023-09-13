@@ -7,7 +7,7 @@ titleTemplate: PHP 设计模式教程
 
 学习设计模式前，最好先掌握如何阅读 UML 建模
 
-![](/assets/php/design-patterns/uml/01.avif')
+![UML 类图总览](/assets/php/design-patterns/uml/01.png)
 
 ## UML 类图
 
@@ -42,4 +42,8 @@ titleTemplate: PHP 设计模式教程
 | '#'  | 表示保护(protected) |
 | '+'  | 表示公开(public)    |
 
+:::
+
+::: danger 图片来源
+图片来源于网络
 :::
