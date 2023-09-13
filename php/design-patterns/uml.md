@@ -38,9 +38,9 @@ titleTemplate: PHP 设计模式教程
 
 | 符号 | 说明                |
 | ---- | ------------------- |
-| '-'  | 表示私有(private)   |
-| '#'  | 表示保护(protected) |
-| '+'  | 表示公开(public)    |
+| `-`  | 表示私有(private)   |
+| `#`  | 表示保护(protected) |
+| `+`  | 表示公开(public)    |
 
 :::
 
