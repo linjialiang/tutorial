@@ -1,13 +1,11 @@
 ---
-title: UML建模
+title: UML 类图
 titleTemplate: PHP 设计模式教程
 ---
 
 # {{ $frontmatter.title }}
 
-学习设计模式前，最好先掌握如何阅读 UML 建模
-
-![UML 类图总览](/assets/php/design-patterns/uml/01.png)
+学习设计模式前，最好先掌握 UML 类图
 
 ## UML 类图
 
