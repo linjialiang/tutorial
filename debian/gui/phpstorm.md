@@ -45,7 +45,7 @@ JetBrains               部署根目录
 
 ::: details PhpStorm
 ::: code-group
-<<<@/assets/debian/jetbrains/phpstorm/phpstorm64.vmoptions{ini} [phpstorm64.vmoptions]
+<<<@/assets/debian/jetbrains/phpstorm/phpstorm64.exe.vmoptions{ini} [phpstorm64.exe.vmoptions]
 <<<@/assets/debian/jetbrains/phpstorm/idea.properties{ini} [idea.properties]
 :::
 
