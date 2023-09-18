@@ -33,11 +33,17 @@ titleTemplate: PHP 设计模式教程
 
 属性和方法前面的符号代表它们的访问控制（可见性）
 
-| 符号 | 访问控制  |
-| ---- | --------- |
-| +    | public    |
-| -    | private   |
-| #    | protected |
+| 符号 | 访问控制        | 描述   |
+| ---- | --------------- | ------ |
+| -    | private         | 私有   |
+| #    | protected       | 受保护 |
+| +    | public          | 公有   |
+| ~    | package private | 包私有 |
+
+![访问控制](/assets/php/design-patterns/uml/02.png)
+
+- 属性的图标是空心
+- 方法的图标是实心
 
 :::
 
