@@ -72,8 +72,10 @@ titleTemplate: PHP 设计模式教程
 | abstract class | 抽象类（斜体）  |
 | trait          | 代码复用-特征类 |
 
-::: tip 关于代码复用
-PlantUML 没有定义代码复用，只能通过备注来表达
+![类的类型](/assets/php/design-patterns/uml/03.svg)
+
+::: tip 关于特征类
+PlantUML 没有代码复用的语法，只能通过类+备注 `<<trait>>`来表达
 :::
 
 ## 类之间的关系表示
