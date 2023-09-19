@@ -59,7 +59,9 @@ titleTemplate: PHP 设计模式教程
 
 - 静态: `{static}` 下划线
 - 抽象: `{abstract}` 斜体字
-- 防止覆盖: `{final}` 显示 final 文字，因为 PlantUML 没有对 final 特殊处理
+- 防止覆盖: `{final}` PlantUML 不支持 final，只能通过备注来表达
+
+![final 特征](/assets/php/design-patterns/uml/05.svg)
 
 :::
 
@@ -71,14 +73,16 @@ titleTemplate: PHP 设计模式教程
 | interface      | 接口类（斜体）  |
 | abstract class | 抽象类（斜体）  |
 | trait          | 代码复用-特征类 |
+| final class    | 最终类          |
 
 ![类的类型](/assets/php/design-patterns/uml/03.svg)
 
-::: tip 关于特征类
-PlantUML 没有代码复用的语法，只能通过类+备注 `<<trait>>`来表达
+::: tip 关于特征类和最终类
+PlantUML 不支持 php 的特征类和最终类，只能通过类+模板 `<<trait>>`来表达
+
+如果一个类被声明为 final，则不能被继承，所以这里称 `最终类`
 :::
 
-::: warning 如何区分不同类型的类？
-:::
+### 如何区分不同类型的类？
 
 ## 类之间的关系表示
