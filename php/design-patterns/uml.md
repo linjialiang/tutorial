@@ -78,4 +78,7 @@ titleTemplate: PHP 设计模式教程
 PlantUML 没有代码复用的语法，只能通过类+备注 `<<trait>>`来表达
 :::
 
+::: warning 如何区分不同类型的类？
+:::
+
 ## 类之间的关系表示
