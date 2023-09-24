@@ -19,7 +19,7 @@ titleTemplate: 其他文档
 
 ## PowerShell
 
-### 安装 PowerShell
+### 安装
 
 下载并安装 [PowerShell 7.x](https://github.com/PowerShell/PowerShell/releases)
 
@@ -31,7 +31,7 @@ New-Item -Path $PROFILE -Type File -Force
 
 :::
 
-### 常用插件
+### 插件
 
 ::: info 安装插件
 
@@ -77,6 +77,6 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\robbyrussell.omp.json" | In
 
 :::
 
-::: details 完整的配置文件
+### 完整的配置文件
+
 <<<@/assets/other/powershell/Microsoft.PowerShell_profile.ps1
-:::
