@@ -28,3 +28,7 @@ titleTemplate: PHP 设计模式教程
 在软件工程中，行为设计模式是识别对象之间常见的通信模式并实现这些模式的设计模式。
 
 通过这样做，这些模式增加了执行这种通信的灵活性。
+
+::: details PHP 面向对象
+![面向对象](/assets/php/design-patterns/uml/oo.svg)
+:::

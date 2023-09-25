@@ -1,3 +1,4 @@
+import mdItCustomAttrs from "markdown-it-custom-attrs";
 import { defineConfig } from "vitepress";
 import environmentNav from "./nav/environment.mjs";
 import otherNav from "./nav/other.mjs";
@@ -13,7 +14,15 @@ export default defineConfig({
   description: "基于Debian的php环境搭建及其系列教程",
   head: [["link", { rel: "icon", href: "/favicon.ico" }]],
   lastUpdated: true,
-  markdown: { lineNumbers: false },
+  markdown: {
+    lineNumbers: false,
+    config: (md) => {
+      // use more markdown-it plugins!
+      md.use(mdItCustomAttrs, "image", {
+        "data-popup": "img",
+      });
+    },
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: "/logo.png",
