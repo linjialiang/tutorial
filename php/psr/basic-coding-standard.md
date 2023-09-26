@@ -59,3 +59,38 @@ PHP 代码 必须 且只可使用 `不带 BOM 的 UTF-8` 编码
 <<<@/assets/php/psr/basic-coding-standard/03.php
 
 :::
+
+## 类成员
+
+类里有 3 中成员：
+
+1. 类常量
+2. 类属性（变量）
+3. 类方法（函数）
+
+::: details 类常量
+
+类常量必须用大写字母声明，并带有下划线分隔符
+
+```php
+<?php
+namespace Vendor\Model;
+
+class Foo
+{
+    const VERSION = '1.0';
+    const DATE_APPROVED = '2012-06-01';
+}
+```
+
+:::
+
+::: details 类属性
+类属性尽可能使用首字母小写的驼峰法命名规则 `$camelCase`
+
+如果类属性超过 3 个字母，可以使用小写字母+下划线的写法 `$under_score`
+:::
+
+::: details 类方法
+类方法名必须使用首字母小写的驼峰法命名规则 `camelCase()`
+:::
