@@ -37,9 +37,21 @@ PHP 代码 必须 且只可使用 `不带 BOM 的 UTF-8` 编码
 - 修改全局或静态变量
 - 从文件阅读或写入文件等等
 
-:::
-
 ::: code-group
 <<<@/assets/php/psr/basic-coding-standard/01.php [反例]
 <<<@/assets/php/psr/basic-coding-standard/02.php [仅申明]
+:::
+
+## 命名空间和类名
+
+命名空间和类名必须遵循 `PSR-4` 自动加载规范，即：
+
+每个类都独立为一个文件，并且至少存在一个层级的名称空间
+
+::: info 名称空间层级
+
+- 一层：如：`core` `think` `app`
+- 两层：如：`core\route` `think\model` `app\controller`
+- 三层：如：`app\test\controller` `app\admin\controller`
+
 :::
