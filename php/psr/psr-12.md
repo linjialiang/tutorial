@@ -46,7 +46,7 @@ titleTemplate: PSR 教程
 
 3. 类型必须使用缩写
 
-   ::: tip 标量类型不支持别名
+   ::: tip
    PHP 自身也不支持标量类型 (`bool` `int` `float` `string`) 使用别名
    :::
 
@@ -67,7 +67,7 @@ titleTemplate: PSR 教程
 7. 一个或多个基于常量的 use 声明语句
 8. 其余代码
 
-::: tip 提示
+::: tip
 import 语句不能以前导反斜杠开头，因为它们必须始终完全合格。
 
 也就是说 use 导入的类、函数、常量时，不能使用 `反斜杠开头`
@@ -75,4 +75,29 @@ import 语句不能以前导反斜杠开头，因为它们必须始终完全合�
 
 ::: details 以下示例说明了所有块的完整列表：
 <<<@/assets/php/psr/psr-12/01.php
+:::
+
+::: details 使用深度不能超过 2 层的复合命名空间
+
+很少出现这种复合命名空间，因为现代框架都不会这样定义类的命名空间
+
+::: code-group
+
+```php [允许的最大混合深度]
+use Vendor\Package\SomeNamespace\{
+    SubnamespaceOne\ClassA,
+    SubnamespaceOne\ClassB,
+    SubnamespaceTwo\ClassY,
+    ClassZ,
+};
+```
+
+```php [不允许的混合深度]
+use Vendor\Package\SomeNamespace\{
+    SubnamespaceOne\AnotherNamespace\ClassA,
+    SubnamespaceOne\ClassB,
+    ClassZ,
+};
+```
+
 :::
