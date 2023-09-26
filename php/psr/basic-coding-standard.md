@@ -48,10 +48,14 @@ PHP 代码 必须 且只可使用 `不带 BOM 的 UTF-8` 编码
 
 每个类都独立为一个文件，并且至少存在一个层级的名称空间
 
+类名必须以类似 `StudlyCaps` 形式的大写开头的驼峰命名方式声明
+
 ::: info 名称空间层级
 
 - 一层：如：`core` `think` `app`
 - 两层：如：`core\route` `think\model` `app\controller`
 - 三层：如：`app\test\controller` `app\admin\controller`
+
+<<<@/assets/php/psr/basic-coding-standard/03.php
 
 :::
