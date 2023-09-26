@@ -1,4 +1,9 @@
-# 基本编码标准
+---
+title: 基本编码标准
+titleTemplate: PSR 教程
+---
+
+# {{ $frontmatter.title }}
 
 PHP 代码应该严格使用这部分标准
 
@@ -38,8 +43,8 @@ PHP 代码 必须 且只可使用 `不带 BOM 的 UTF-8` 编码
 - 从文件阅读或写入文件等等
 
 ::: code-group
-<<<@/assets/php/psr/basic-coding-standard/01.php [反例]
-<<<@/assets/php/psr/basic-coding-standard/02.php [仅申明]
+<<<@/assets/php/psr/psr-1/01.php [反例]
+<<<@/assets/php/psr/psr-1/02.php [仅申明]
 :::
 
 ## 命名空间和类名
@@ -56,7 +61,7 @@ PHP 代码 必须 且只可使用 `不带 BOM 的 UTF-8` 编码
 - 两层：如：`core\route` `think\model` `app\controller`
 - 三层：如：`app\test\controller` `app\admin\controller`
 
-<<<@/assets/php/psr/basic-coding-standard/03.php
+<<<@/assets/php/psr/psr-1/03.php
 
 :::
 
