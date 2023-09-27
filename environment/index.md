@@ -86,24 +86,24 @@ PHP 环境目录
 ::: details /package 目录
 
 1. nginx-1.24.0.tar.gz
-2. openssl-3.0.10.tar.gz
+2. openssl-3.0.11.tar.gz
 3. pcre2-10.42.tar.bz2
-4. zlib-1.2.13.tar.gz
-5. redis-7.2.0.tar.gz
+4. zlib-1.3.tar.xz
+5. redis-7.2.1.tar.gz
 6. sqlite-autoconf-3420000.tar.gz
-7. php-8.2.9.tar.xz
-8. php-8.1.22.tar.xz
-9. php-8.0.30.tar.xz
-10. mysql-boost-8.0.34.tar.gz
+7. php-8.2.10.tar.xz
+8. mysql-boost-8.0.34.tar.gz
 
 :::
 
 ::: details /package/php_ext 目录
 
 1. apcu-5.1.22.tgz
-2. redis-5.3.7.tgz
-3. yaml-2.2.3.tgz
-4. xdebug-3.2.2.tgz
+2. mongodb-1.16.2.tgz
+3. rdkafka-6.0.3.tgz
+4. redis-6.0.1.tgz
+5. xdebug-3.2.2.tgz
+6. yaml-2.2.3.tgz
 
 :::
 
