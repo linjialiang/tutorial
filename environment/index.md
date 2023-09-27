@@ -237,10 +237,12 @@ umask 027 # 创建的文件权限是 640 目录权限是 750
 
 :::
 
-::: danger 开发用户 umask 权限设置：
+::: danger 警告
+
+开发用户 umask 权限修改：
 
 ```bash
-vim ~/.profile
+# ~/.profile
 # 第9行 umask 022处新建一行
 umask 027 # 创建的文件权限是 640 目录权限是 750
 ```
