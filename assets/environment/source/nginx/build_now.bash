@@ -32,5 +32,5 @@
 # 外库路径
 --with-pcre=/package/pcre2-10.42 \
 --with-pcre-jit \
---with-zlib=/package/zlib-1.2.13 \
---with-openssl=/package/openssl-3.0.10
+--with-zlib=/package/zlib-1.3 \
+--with-openssl=/package/openssl-3.0.11

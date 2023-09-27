@@ -26,7 +26,7 @@ cd /package/nginx-1.24.0
 ::: code-group
 
 ```bash [编译环境]
-apt install gcc make
+apt install gcc make -y
 ```
 
 ```bash [模块依赖包]
