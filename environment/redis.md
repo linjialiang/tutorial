@@ -24,7 +24,7 @@ Redis 构建相对简单
 ### 1. 构建指令
 
 ```bash
-cd /package/redis-7.2.0/
+cd /package/redis-7.2.1/
 make
 ```
 
@@ -64,7 +64,7 @@ redis 源码包中自带了 1 个配置文件，我们这里可以直接拷贝�
 ### 1. 拷贝配置文件
 
 ```bash
-cp -p -r /package/redis-7.2.0/redis.conf /server/redis/redis.conf
+cp -p -r /package/redis-7.2.1/redis.conf /server/redis/redis.conf
 ```
 
 ::: info 本次修改了 3 处：
