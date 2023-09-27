@@ -7,6 +7,8 @@ titleTemplate: 环境搭建教程
 
 ::: danger 警告
 php 重新生成 configure 时会报警告，预测是 Debian12 自带工具太新导致，该系列教程放到 debian12 更新一个版本后再继续
+
+::: tip 从 `PHP 8.2.10` 开始不再警告
 :::
 
 PHP（`PHP: Hypertext Preprocessor`，超文本预处理器的字母缩写）是一种被广泛应用的开放源代码的多用途脚本语言，它可嵌入到 HTML 中，尤其适合 web 开发。
@@ -86,27 +88,27 @@ cd /package/php_ext
 ```
 
 ```bash [拷贝到7.4]
-cp -p -r redis-5.3.7 /package/php-7.4.33/ext/redis
+cp -p -r redis-6.0.1 /package/php-7.4.33/ext/redis
 cp -p -r yaml-2.2.3 /package/php-7.4.33/ext/yaml
 cp -p -r apcu-5.1.22 /package/php-7.4.33/ext/apcu
 ```
 
 ```bash [拷贝到8.0]
-cp -p -r redis-5.3.7 /package/php-8.0.30/ext/redis
+cp -p -r redis-6.0.1 /package/php-8.0.30/ext/redis
 cp -p -r yaml-2.2.3 /package/php-8.0.30/ext/yaml
 cp -p -r apcu-5.1.22 /package/php-8.0.30/ext/apcu
 ```
 
 ```bash [拷贝到8.1]
-cp -p -r redis-5.3.7 /package/php-8.1.22/ext/redis
+cp -p -r redis-6.0.1 /package/php-8.1.22/ext/redis
 cp -p -r yaml-2.2.3 /package/php-8.1.22/ext/yaml
 cp -p -r apcu-5.1.22 /package/php-8.1.22/ext/apcu
 ```
 
 ```bash [拷贝到8.2]
-cp -p -r redis-5.3.7 /package/php-8.2.9/ext/redis
-cp -p -r yaml-2.2.3 /package/php-8.2.9/ext/yaml
-cp -p -r apcu-5.1.22 /package/php-8.2.9/ext/apcu
+cp -p -r redis-6.0.1 /package/php-8.2.10/ext/redis
+cp -p -r yaml-2.2.3 /package/php-8.2.10/ext/yaml
+cp -p -r apcu-5.1.22 /package/php-8.2.10/ext/apcu
 ```
 
 :::
@@ -146,7 +148,7 @@ mv configure{,.original}
 ```
 
 ```bash [8.2重新生成]
-cd /package/php-8.2.9/
+cd /package/php-8.2.10/
 mv configure{,.original}
 ./buildconf --force
 ```
@@ -219,7 +221,7 @@ apt install postgresql-server-dev-all -y
 mkdir /package/php-7.4.33/build_php
 mkdir /package/php-8.0.30/build_php
 mkdir /package/php-8.1.22/build_php
-mkdir /package/php-8.2.9/build_php
+mkdir /package/php-8.2.10/build_php
 ```
 
 ### 3. 环境变量
@@ -276,7 +278,7 @@ cd /package/php-8.0.30/build_php/
 # php8.1 构建目录
 cd /package/php-8.1.22/build_php/
 # php8.2 构建目录
-cd /package/php-8.2.9/build_php/
+cd /package/php-8.2.10/build_php/
 ```
 
 ### 6. 安装指令
@@ -357,7 +359,7 @@ cp /package/php-8.0.30/php.ini-production /server/php/80/lib/php.ini
 # php8.1
 cp /package/php-8.1.22/php.ini-production /server/php/81/lib/php.ini
 # php8.2
-cp /package/php-8.2.9/php.ini-production /server/php/82/lib/php.ini
+cp /package/php-8.2.10/php.ini-production /server/php/82/lib/php.ini
 ```
 
 ```bash [开发环境]
@@ -368,7 +370,7 @@ cp /package/php-8.0.30/php.ini-development /server/php/80/lib/php.ini
 # php8.1
 cp /package/php-8.1.22/php.ini-development /server/php/81/lib/php.ini
 # php8.2
-cp /package/php-8.2.9/php.ini-development /server/php/82/lib/php.ini
+cp /package/php-8.2.10/php.ini-development /server/php/82/lib/php.ini
 ```
 
 :::
@@ -738,16 +740,16 @@ composer install
 ```bash
 cd /package/php_ext
 # 拷贝到 php 8.2 源码的扩展目录
-cp -p -r redis-5.3.7 /package/php-8.2.9/ext/redis
-cp -p -r yaml-2.2.3 /package/php-8.2.9/ext/yaml
-cp -p -r apcu-5.1.22 /package/php-8.2.9/ext/apcu
+cp -p -r redis-6.0.1 /package/php-8.2.10/ext/redis
+cp -p -r yaml-2.2.3 /package/php-8.2.10/ext/yaml
+cp -p -r apcu-5.1.22 /package/php-8.2.10/ext/apcu
 ```
 
 > 重新生成 configure 配置脚本
 
 ```bash
 # php8.2 重新生成 configure 配置脚本
-cd /package/php-8.2.9/
+cd /package/php-8.2.10/
 mv configure{,.original}
 ./buildconf --force
 ```
@@ -759,7 +761,7 @@ PHP 没有跨大版本更新，并且没有新增扩展，通常不需要安装�
 ### 3. 创建构建目录
 
 ```bash
-mkdir /package/php-8.2.9/build_php
+mkdir /package/php-8.2.10/build_php
 ```
 
 ### 4. 环境变量
@@ -774,7 +776,7 @@ export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
 
 ```bash
 # php8.1 构建目录
-cd /package/php-8.2.9/build_php/
+cd /package/php-8.2.10/build_php/
 ```
 
 ### 6. 构建指令
@@ -960,6 +962,25 @@ make install
 ```ini
 # /server/php/82/lib/php.ini
 extension=rdkafka
+```
+
+### 5. MongoDB
+
+> 安装：
+
+```bash
+cd /package/php_ext/mongodb-1.16.2
+phpize
+./configure --with-php-config=/server/php/82/bin/php-config
+make -j2
+make install
+```
+
+> 配置：
+
+```ini
+# /server/php/82/lib/php.ini
+extension=mongodb
 ```
 
 ## 权限
