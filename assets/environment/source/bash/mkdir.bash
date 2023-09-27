@@ -27,13 +27,17 @@ server_array=(
     "/server/logs/sqlite3"
 
     "/server/php"
-    "/server/php/80"
-    "/server/php/81"
     "/server/php/82"
     "/server/run/php"
     "/server/logs/php"
 
     "/server/mysql"
+    "/server/data"
+    "/server/etc/mysql"
+    "/server/tmp/mysql"
+    "/server/run/mysql"
+    "/server/logs/mysql"
+
     "/server/data"
     "/server/etc/mysql"
     "/server/tmp/mysql"
