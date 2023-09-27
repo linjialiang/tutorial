@@ -20,6 +20,13 @@ alias ls="ls ${LS_OPTIONS} -F"
 alias lsa="ls ${LS_OPTIONS} -aF"
 alias ll="ls ${LS_OPTIONS} -lF"
 alias lla="ls ${LS_OPTIONS} -laF"
-# 使用 echo $PATH 查询，将需要的路径写入
-PATH=${PATH}:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
-export PATH
+# 这里使用 echo $PATH 查询，将未加入环境变量的路径写入
+# emad用户需要，root用户不需要
+# PATH=${PATH}:/usr/local/sbin:/usr/sbin:/sbin
+# 下面的，安装对象包后开启
+# PATH=${PATH}:/server/node/bin
+# PATH=${PATH}:/server/mysql/bin
+# PATH=${PATH}:/server/php/82/bin:/server/php/82/sbin
+# PATH=${PATH}:/server/nginx/sbin
+# PATH=${PATH}:/server/sqlite3/bin
+# export PATH
