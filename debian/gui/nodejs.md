@@ -7,7 +7,7 @@ apt 源自带的 nodejs 版本比较低，下面使用 nodejs 官方最新稳定
 ::: code-group
 
 ```bash [下载并解压]
-wget https://nodejs.org/dist/v18.17.1/node-v18.17.1-linux-x64.tar.xz
+wget https://nodejs.org/dist/v18.18.0/node-v18.18.0-linux-x64.tar.xz
 tar -xJf node-v18.17.1-linux-x64.tar.xz -C /server/
 mv /server/node{-v18.17.1-linux-x64,}
 ```

@@ -4,6 +4,7 @@ const path = {
 
 const sidebar = [
   { text: "概述", link: `${path.main}` },
+  { text: "nodejs", link: `${path.main}nodejs` },
   { text: "VMware", link: `${path.main}vmware` },
   { text: "PhpStorm", link: `${path.main}phpstorm` },
   { text: "VSCode", link: `${path.main}vscode` },
