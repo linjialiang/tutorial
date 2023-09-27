@@ -203,11 +203,21 @@ invalid users = user1, user2        # 禁止访问该共享的用户
     create mask = 0640
     directory mask = 0750
     comment = "sites root dir"
-    path = /server/www
-    valid users = www
-    write list = www
-    force group = www
-    force user = www
+    path = /www
+    valid users = emad
+    write list = emad
+    force group = emad
+    force user = emad
+[git]
+    browseable = yes
+    create mask = 0640
+    directory mask = 0750
+    comment = "git repository root dir"
+    path = /home/emad/git
+    valid users = emad
+    write list = emad
+    force group = emad
+    force user = emad
 ```
 
 :::
@@ -215,28 +225,17 @@ invalid users = user1, user2        # 禁止访问该共享的用户
 ::: details www 用户登录，上传文件所属用户为 root:
 
 ```bash
-[default]
-    browseable = yes
-    create mask = 0644
-    directory mask = 0755
-    comment = "sites default dir"
-    path = /server/default
-    valid users = www
-    write list = www
-    force group = root
-    force user = root
-    admin users = www
-[sites]
+[server]
     browseable = yes
     create mask = 0644
     directory mask = 0755
     comment = "nginx sites config dir"
-    path = /server/sites
-    valid users = www
-    write list = www
+    path = /server
+    valid users = emad
+    write list = emad
     force group = root
     force user = root
-    admin users = www
+    admin users = emad
 ```
 
 :::
