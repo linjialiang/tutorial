@@ -453,3 +453,83 @@ $app->get('/hello/{name}', function ($name) use ($app) {
 :::
 
 ## 4. 流程控制
+
+如下是主要的流程控制风格规则：
+
+- 流程控制关键词之后 必须 要有一个空格
+- 左括号后面 不能 有空格
+- 右括号前面 不能 有空格
+- 右括号与左大括号之间 必须 要有一个空格
+- 流程主体 必须 要缩进一次
+- 流程主体 必须 在左大括号之后另起一行
+- 右大括号 必须 在流程主体之后另起一行
+
+每个流程控制主体 必须 以封闭的括号结束。这将标准化流程结构，同时减少由于流程中添加新的内容而引入错误的可能性
+
+### 4.01 if 结构
+
+if 结构如下。注意括号，空格，和大括号的位置；else 和 elseif 都在同一行，和右大括号一样在主体的前面
+
+```php
+if ($expr1) {
+    // if body
+} elseif ($expr2) {
+    // elseif body
+} else {
+    // else body;
+}
+```
+
+应该 使用关键词 `elseif` 替换 `else if`，这样所有的控制关键词看起来都像单个词。
+
+括号中的表达式 可能 会被分开为多行，每一行至少缩进一次。如果这样做，第一个条件 必须 在新的一行。右括号和左大括号 必须 在同一行，而且中间有一个空格。条件中间的布尔控制符 必须 在每一行的开头或者结尾，而不是混在一起。
+
+```php
+if (
+    $expr1
+    && $expr2
+) {
+    // if body
+} elseif (
+    $expr3
+    && $expr4
+) {
+    // elseif body
+}
+```
+
+### 4.02 switch 结构
+
+switch 结构如下。
+
+注意括号，空格和大括号的位置。case 必须 缩进一次从 switch 开始， break 关键词 (或者其他终止关键词) 必须 缩进和 case 主体保持一致。必须 要有一个像 // no break 这样的注释在不为空且不需要中断的 case 主体之中。
+
+```php
+switch ($expr) {
+    case 0:
+        echo 'First case, with a break';
+        break;
+    case 1:
+        echo 'Second case, which falls through';
+        // no break
+    case 2:
+    case 3:
+    case 4:
+        echo 'Third case, return instead of break';
+        return;
+    default:
+        echo 'Default case';
+        break;
+}
+```
+
+括号中的表达式 可能 会被分开多行，每一行至少要缩进一次。如果这样做，第一个条件 必须 在新的一行。右括号和左大括号 必须 在同一行，而且中间有一个空格。条件中间的布尔控制符 必须 在一行的开头或者结尾，而不是混在一起。
+
+```php
+switch (
+    $expr1
+    && $expr2
+) {
+    // structure body
+}
+```
