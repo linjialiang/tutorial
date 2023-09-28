@@ -234,3 +234,186 @@ class Talker
 ```
 
 :::
+
+### 属性和常量
+
+- 所有属性必须声明可见性
+- 所有常量必须声明可见性
+- 关键字 `var` 不得用于声明属性
+- 每条声明语句不得声明多于一个属性
+- 属性名不得用单个下划线开头表明其受保护的或私有的可见性。也就是说，一个下划线开头显然是没有意义的
+- 类型声明和属性名之间必须有一个空格
+
+::: details 一个属性声明看上去如下所示：
+
+```php
+namespace Vendor\Package;
+
+class ClassName
+{
+    public $foo = null;
+    public static int $bar = 0;
+}
+```
+
+:::
+
+### 方法和函数
+
+- 所有的方法 必须 事先声明类型。
+- 方法命名 一定不可 用单个下划线来区分是 protected 或 private 类型。也就是说，不要用一个没有意义的下划线开头。
+- 方法和函数名称中，方法命名后面 一定不可 使用空格。方法开始的花括号 必须 写在方法声明后自成一行， 结束花括号也 必须 写在方法后面自成一行。开始左括号后和结束右括号前，都 一定不可 有空格符。
+
+::: details 一个方法的声明应该如下所示。注意括号，逗号，空格和花括号的位置：
+
+```php
+namespace Vendor\Package;
+
+class ClassName
+{
+    public function fooBarBaz($arg1, &$arg2, $arg3 = [])
+    {
+        // 方法主体
+    }
+}
+```
+
+::: tip 一个函数的声明应该如下所示。注意括号，逗号，空格和花括号的位置：
+
+```php
+function fooBarBaz($arg1, &$arg2, $arg3 = [])
+{
+    // 函数主体
+}
+```
+
+:::
+
+### 方法和函数参数
+
+::: code-group
+
+```php [规则1]
+// 在参数列表中， 不得 在每个逗号前存在空格，且 必须 在每个逗号后有一个空格
+// 方法和函数中带有默认值的参数 必须 放在参数列表的最后
+namespace Vendor\Package;
+
+class ClassName
+{
+    public function foo(int $arg1, &$arg2, $arg3 = [])
+    {
+        // 方法主体
+    }
+}
+```
+
+```php [规则2]
+// 当参数列表分成多行时，右圆括号和左花括号 必须 放在同一行且单独成行，两者之间存在一个空格。
+// 参数列表 可以 分为多行，每行参数缩进一次。当这么做时，第一个参数 必须 放在下一行，且每行 必须 只能有一个参数。
+namespace Vendor\Package;
+
+class ClassName
+{
+    public function aVeryLongMethodName(
+        ClassTypeHint $arg1,
+        &$arg2,
+        array $arg3 = []
+    ) {
+        // 方法主体
+    }
+}
+```
+
+```php [规则3]
+// 当你定义一个返回值类型声明时，冒号后面的类型声明 必须 用空格符隔开。冒号和声明 必须 在同一行，且跟参数列表后的结束括号之间没有空格。
+declare(strict_types=1);
+
+namespace Vendor\Package;
+
+class ReturnTypeVariations
+{
+    public function functionName(int $arg1, $arg2): string
+    {
+        return 'foo';
+    }
+
+    public function anotherFunction(
+        string $foo,
+        string $bar,
+        int $baz
+    ): string {
+        return 'foo';
+    }
+}
+```
+
+```php [规则4]
+// 在可空类型声明中，问号和类型声明之间不能有空格。
+// 当在参数之前使用引用运算符 & 时，引用运算符之后不能有空格，例如上面的示例。
+declare(strict_types=1);
+
+namespace Vendor\Package;
+
+class ReturnTypeVariations
+{
+    public function functionName(?string $arg1, ?int &$arg2): ?string
+    {
+        return 'foo';
+    }
+}
+```
+
+```php [规则5]
+// 可变参数声明的三个点和参数名称之间不能有空格：
+public function process(string $algorithm, ...$parts)
+{
+    // 函数体
+}
+```
+
+```php [规则6]
+// 当同时使用引用运算符和可变参数运算符时，它们之间不能有任何空格：
+public function process(string $algorithm, &...$parts)
+{
+    // 函数体
+}
+```
+
+:::
+
+### 修饰符
+
+- 如果是 `abstract` 或 `final` ，那么方法和常量的访问控制声明必须是可见的
+- 如果是 `static` ，该修饰符声明必须位于访问控制声明之后
+
+```php
+namespace Vendor\Package;
+
+abstract class ClassName
+{
+    protected static $foo;
+
+    abstract protected function zim();
+
+    final public static function bar()
+    {
+        // 请求体
+    }
+}
+```
+
+::: tip 附录
+
+| 访问控制  | 是否可见 |
+| --------- | -------- |
+| public    | 可见     |
+| protected | 可见     |
+| private   | 不可见   |
+
+| 类型   | 修饰符                           |
+| ------ | -------------------------------- |
+| 类     | `abstract`、 `final`             |
+| 类常量 | `final`                          |
+| 类方法 | `abstract`、 `final` 和 `static` |
+
+:::
