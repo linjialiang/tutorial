@@ -7,5 +7,6 @@
     "owasp",
     "phpfpm",
     "usermod"
-  ]
+  ],
+  "svg.preview.background": "custom"
 }
