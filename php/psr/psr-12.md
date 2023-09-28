@@ -50,7 +50,9 @@ titleTemplate: PSR 教程
    PHP 自身也不支持标量类型 (`bool` `int` `float` `string`) 使用别名
    :::
 
-## 声明语句、命名空间语句以及导入语句
+## 类语句
+
+这里介绍声明语句、命名空间语句以及导入语句
 
 一个 PHP 文件的头部可能会包含多个块。
 
@@ -101,3 +103,76 @@ use Vendor\Package\SomeNamespace\{
 ```
 
 :::
+
+## 类、属性和方法
+
+术语`类`指的是所有 `类`、`接口` 和 `traits(特征、代码复用)`
+
+1. 任何注释和语句不得跟在其右花括号后的同一行
+
+2. 当实例化一个类时，后面的圆括号必须写出来，即使没有参数传进其构造函数
+
+   ```php
+   new Foo();
+   ```
+
+### 继承和实现
+
+- 关键字 `extends(继承)` 和 `implements(实现)` 必须在类名的同一行声明
+- 类的左花括号必须另起一行
+- 右花括号必须跟在类主体的下一行
+- 类的左花括号必须独自成行，且不得在其上一行或下一行存在空行
+- 右花括号必须独自成行，且不得在其上一行存在空行
+
+```php
+namespace Vendor\Package;
+
+use FooClass;
+use BarClass as Bar;
+use OtherVendor\OtherPackage\BazClass;
+
+class ClassName extends ParentClass implements \ArrayAccess, \Countable
+{
+    // 常量，属性，方法
+}
+```
+
+::: details 对于接口实现
+如果有接口，实现接口和继承父类可以分为多行，前者每行需缩进一次
+
+当这么做时，第一个接口必须写在下一行，且每行必须只能写一个接口，每个后续行缩进一次
+
+```php
+namespace Vendor\Package;
+
+use FooClass;
+use BarClass as Bar;
+use OtherVendor\OtherPackage\BazClass;
+
+class ClassName extends ParentClass implements
+    \ArrayAccess,
+    \Countable,
+    \Serializable
+{
+    // 常量，属性，方法
+}
+```
+
+:::
+
+### 实现 traits
+
+在类里面用于实现 trait 的关键字 `use` 必须在左花括号的下一行声明
+
+```php
+<?php
+
+namespace Vendor\Package;
+
+use Vendor\Package\FirstTrait;
+
+class ClassName
+{
+    use FirstTrait; // 必须在类的左花括号的下一行声明
+}
+```
