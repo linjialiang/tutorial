@@ -13,19 +13,19 @@ titleTemplate: PSR 教程
 <<<@/assets/php/psr/psr-12/01.php
 :::
 
-## 总则
+## 1. 总则
 
-### 基本编码标准
+### 1.01 基本编码标准
 
 代码必须遵循 `PSR-1` 中列出的所有规则
 
-### 文件
+### 1.02 文件
 
 1. 所有的 PHP 文件必须使用 `Unix LF`（linefeed）行结束
 2. 所有的 PHP 文件必须以非空行结束，并以一个 `LF` 结束
 3. 在只包含 PHP 的文件中必须 `省略` 结束的 `?>` 标签
 
-### 代码行
+### 1.03 代码行
 
 1. 行长度不得有硬限制
 2. 行长度的软限制必须为 120 个字符
@@ -34,11 +34,11 @@ titleTemplate: PSR 教程
 5. 可以添加空行以提高可读性并指示相关的代码块，除非明确禁止
 6. 每行不能有多个语句
 
-### 缩进
+### 1.04 缩进
 
 代码必须为每个缩进级别使用 4 个空格的缩进，并且不能使用缩进标签
 
-### 关键词和类型
+### 0.05 关键词和类型
 
 1. PHP 的所有[[关键词]](https://www.php.net/manual/zh/reserved.keywords.php)和[[类型]](https://www.php.net/manual/zh/reserved.other-reserved-words.php)都必须使用小写。
 
@@ -50,7 +50,7 @@ titleTemplate: PSR 教程
    PHP 自身也不支持标量类型 (`bool` `int` `float` `string`) 使用别名
    :::
 
-## 类语句
+## 2. 类语句
 
 这里介绍声明语句、命名空间语句以及导入语句
 
@@ -104,7 +104,7 @@ use Vendor\Package\SomeNamespace\{
 
 :::
 
-## 类、属性和方法
+## 3. 类、属性和方法
 
 术语`类`指的是所有 `类`、`接口` 和 `traits(特征、代码复用)`
 
@@ -116,7 +116,7 @@ use Vendor\Package\SomeNamespace\{
    new Foo();
    ```
 
-### 继承和实现
+### 3.01 继承和实现
 
 - 关键字 `extends(继承)` 和 `implements(实现)` 必须在类名的同一行声明
 - 类的左花括号必须另起一行
@@ -160,7 +160,7 @@ class ClassName extends ParentClass implements
 
 :::
 
-### 实现 traits
+### 3.02 实现 traits
 
 ::: code-group
 
@@ -235,7 +235,7 @@ class Talker
 
 :::
 
-### 属性和常量
+### 3.03 属性和常量
 
 - 所有属性必须声明可见性
 - 所有常量必须声明可见性
@@ -258,7 +258,7 @@ class ClassName
 
 :::
 
-### 方法和函数
+### 3.04 方法和函数
 
 - 所有的方法 必须 事先声明类型。
 - 方法命名 一定不可 用单个下划线来区分是 protected 或 private 类型。也就是说，不要用一个没有意义的下划线开头。
@@ -289,7 +289,7 @@ function fooBarBaz($arg1, &$arg2, $arg3 = [])
 
 :::
 
-### 方法和函数参数
+### 3.05 方法和函数参数
 
 ::: code-group
 
@@ -381,7 +381,7 @@ public function process(string $algorithm, &...$parts)
 
 :::
 
-### 修饰符
+### 3.06 修饰符
 
 - 如果是 `abstract` 或 `final` ，那么方法和常量的访问控制声明必须是可见的
 - 如果是 `static` ，该修饰符声明必须位于访问控制声明之后
@@ -417,3 +417,39 @@ abstract class ClassName
 | 类方法 | `abstract`、 `final` 和 `static` |
 
 :::
+
+### 3.07 方法和函数的调用
+
+当我们在进行方法或者函数调用的时候，方法名或函数名与左括号之间不能出现空格，在右括号之后也不能出现空格，并且在右括号之前也不能有空格。在参数列表中，每个逗号前面不能有空格，每个逗号后面必须有一个空格。
+
+```php
+bar();
+$foo->bar($arg1);
+Foo::bar($arg2, $arg3);
+```
+
+参数列表可以分为多行，每行后面缩进一次。这样做时，列表中的第一项必须位于下一行，并且每一行必须只有一个参数。跨多个行拆分单个参数 (就像匿名函数或者数组那样) 并不构成拆分参数列表本身。
+
+::: code-group
+
+```php [规则1]
+$foo->bar(
+    $longArgument,
+    $longerArgument,
+    $muchLongerArgument
+);
+```
+
+```php [规则2]
+somefunction($foo, $bar, [
+  // ...
+], $baz);
+
+$app->get('/hello/{name}', function ($name) use ($app) {
+    return 'Hello ' . $app->escape($name);
+});
+```
+
+:::
+
+## 4. 流程控制
