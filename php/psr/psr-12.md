@@ -162,11 +162,10 @@ class ClassName extends ParentClass implements
 
 ### 实现 traits
 
-在类里面用于实现 trait 的关键字 `use` 必须在左花括号的下一行声明
+::: code-group
 
-```php
-<?php
-
+```php [规则1]
+// 在类里面用于实现 trait 的关键字 `use` 必须在左花括号的下一行声明
 namespace Vendor\Package;
 
 use Vendor\Package\FirstTrait;
@@ -176,3 +175,62 @@ class ClassName
     use FirstTrait; // 必须在类的左花括号的下一行声明
 }
 ```
+
+```php [规则2]
+// 每个导入类的 trait 必须 每行一个包含声明，且每个包含声明 必须 有其 use 导入语句
+namespace Vendor\Package;
+
+use Vendor\Package\FirstTrait;
+use Vendor\Package\SecondTrait;
+use Vendor\Package\ThirdTrait;
+
+class ClassName
+{
+    use FirstTrait;
+    use SecondTrait;
+    use ThirdTrait;
+}
+```
+
+```php [规则3]
+// 在类文件中，如果在使用’use Trait’之后没有其他内容了 ，类名右大括号必须另起一行
+namespace Vendor\Package;
+
+use Vendor\Package\FirstTrait;
+
+class ClassName
+{
+    use FirstTrait;
+}
+```
+
+```php [规则4]
+// 如有其他内容，两者之间需空一行
+namespace Vendor\Package;
+
+use Vendor\Package\FirstTrait;
+
+class ClassName
+{
+    use FirstTrait;
+
+    private $property;
+}
+```
+
+```php [规则5]
+// 当使用 insteadof 和 as 运算符时，它们必须如图所示使用，注意缩进、间距和另起一行
+class Talker
+{
+    use A;
+    use B {
+        A::smallTalk insteadof B;
+    }
+    use C {
+        B::bigTalk insteadof C;
+        C::mediumTalk as FooBar;
+    }
+}
+```
+
+:::
