@@ -91,7 +91,7 @@ PHP 环境目录
 4. zlib-1.3.tar.xz
 5. redis-7.2.1.tar.gz
 6. sqlite-autoconf-3430100.tar.gz
-7. php-8.2.10.tar.xz
+7. php-8.2.11.tar.xz
 8. mysql-boost-8.0.34.tar.gz
 
 :::
