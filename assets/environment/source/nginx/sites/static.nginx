@@ -1,4 +1,4 @@
-# /server/sites/*.conf
+# /server/sites/*.nginx
 
 server
 {

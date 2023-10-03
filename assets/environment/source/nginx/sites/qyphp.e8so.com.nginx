@@ -1,4 +1,4 @@
-# /server/sites/*.conf
+# /server/sites/*.nginx
 server
 {
     #SSL 默认访问端口号为 443
@@ -25,8 +25,8 @@ server
         return 403;
     }
 
-    # include custom/cache;             # 部署环境启用
-    # include custom/limit_req_server;  # 部署环境启用
+    # include custom/cache;
+    # include custom/limit_req_server;
 
     location /
     {
