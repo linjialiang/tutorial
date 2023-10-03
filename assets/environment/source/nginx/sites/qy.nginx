@@ -1,4 +1,4 @@
-# /server/sites/*.conf
+# /server/sites/*.(conf|nginx)
 server
 {
     listen 80;
@@ -32,9 +32,14 @@ server
     }
 
     # 对所有存在 .php 的url地址做转发处理
-    # 去掉 \.php$ 中的 $ 是为了不匹配行末，即可以匹配 .php/，以实现 path_info
-    location ~ \.php
+    location ~* \.php$
     {
+        # 唯一入口限制：非 /index.php 禁止访问
+        location ~* ^(?!/index\.php)
+        {
+            deny all;
+        }
+
         # 转发的 php-fpm 版本
         fastcgi_pass        unix:/server/run/php/qy.sock;
 

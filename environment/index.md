@@ -198,9 +198,9 @@ chmod 755 /www
 ```bash [权限分析]
 - 对于php文件，phpfpm 需要读取权限
 - 对于页面文件，nginx 需要读取权限
-- 对于入口文件，phpfpm和nginx都需要读取权限
 - 对于上传文件，phpfpm需要读写权限，nginx需要读取权限
 - 对于缓存目录，phpfpm需要读写权限
+- 对于入口文件，phpfpm需要读取权限, nginx不需要任何权限（直接走代理转发）
 - 如果是开发环境，开发用户对所有文件都应该拥有读写权限
 ```
 
@@ -240,9 +240,9 @@ chmod 770 /www/tp/runtime
 ```bash [权限分析]
 - 对于php文件，phpfpm 需要读取权限
 - 对于页面文件，nginx 需要读取权限
-- 对于入口文件，phpfpm和nginx都需要读取权限
 - 对于上传文件，phpfpm需要读写权限，nginx需要读取权限
 - 对于缓存目录，phpfpm需要读写权限
+- 对于入口文件，phpfpm需要读取权限, nginx不需要任何权限（直接走代理转发）
 - 如果是开发环境，开发用户对所有文件都应该拥有读写权限
 ```
 
@@ -282,6 +282,13 @@ find /www/laravel/storage/ -type d -exec chmod 770 {} \;
 # ~/.profile
 # 第9行 umask 022处新建一行
 umask 027 # 创建的文件权限是 640 目录权限是 750
+```
+
+注意: `bash/zsh 配置文件` 开头需要增加一行：
+
+```bash
+# ~/.(bashrc|zshrc)
+source ~/.profile
 ```
 
 :::

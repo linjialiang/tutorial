@@ -279,6 +279,10 @@ server 区块里的 `zone=with_ip` 对应 http 区块里的 `$binary_remote_addr
 <<<@/assets/environment/source/nginx/sites/qy.nginx
 :::
 
+::: details laravel 站点
+<<<@/assets/environment/source/nginx/sites/laravel.nginx
+:::
+
 ::: details ssl 站点案例
 <<<@/assets/environment/source/nginx/sites/qyphp.e8so.com.nginx
 :::
