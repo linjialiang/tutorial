@@ -33,17 +33,8 @@ server
         try_files $uri $uri/ /index.php?$query_string;
     }
 
-    location ~ \.php
-    {
-        # 转发的 php-fpm 版本
-        fastcgi_pass        unix:/server/run/php/qy.sock;
-
-        # 根据文件名转发，完全不需要配置 fastcgi_index
-        # fastcgi_index     index.php;
-
-        # 载入官方最新版的 fastcgi_params
-        include             fastcgi.conf;
-    }
+    # 对文件类型为 .php 的url请求做转发处理
+    include custom/php_forward;
 
     # 禁止访问的目录或文件
     include custom/no_access;

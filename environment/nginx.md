@@ -188,12 +188,10 @@ nginx 配置仅有一个入口文件，统一称做 `主配置文件`
 
 ### 1. 主配置文件
 
-::: details 主配置
-<<<@/assets/environment/source/nginx/nginx.nginx
-:::
-
-::: details 默认站点
-<<<@/assets/environment/source/nginx/default.nginx
+::: code-group
+<<<@/assets/environment/source/nginx/nginx.conf{nginx} [主配置]
+<<<@/assets/environment/source/nginx/default.nginx [默认站点]
+<<<@/assets/environment/source/nginx/php_forward{nginx} [php 文件转发]
 :::
 
 ### 2. fastcgi 参数模版
@@ -202,7 +200,6 @@ nginx 自带了两个 fastcgi 参数模版，这里推荐使用官方最新的 `
 
 ::: tip 提示
 如果不符合项目需求，还可以自定义 fastcgi 参数配置模板
-
 :::
 
 ::: info 移除 PATH_INFO
@@ -213,14 +210,9 @@ nginx+php-fpm 不论如何配置，PATH_INFO 始终为空，暂无法解决，�
 
 站点不经常变动的静态文件，可以让客户端缓存，以减轻服务器压力
 
-::: details 统一缓存模板案例
-<<<@/assets/environment/source/nginx/cache.nginx
-:::
-
-::: details 禁用缓存模板案例
-如果你的站点静态文件实时变动，则应该禁用缓存
-
-<<<@/assets/environment/source/nginx/no_cache.nginx
+::: code-group
+<<<@/assets/environment/source/nginx/cache{nginx} [统一缓存模板案例]
+<<<@/assets/environment/source/nginx/no_cache{nginx} [禁用缓存模板案例]
 :::
 
 ### 4. 开启压缩
@@ -228,7 +220,7 @@ nginx+php-fpm 不论如何配置，PATH_INFO 始终为空，暂无法解决，�
 nginx 支持对文件开启 gzip 压缩，以加快网络传输速度
 
 ::: details html 缓存模板案例
-<<<@/assets/environment/source/nginx/gzip.nginx
+<<<@/assets/environment/source/nginx/gzip{nginx}
 :::
 
 ### 5. 限制请求数量
@@ -238,7 +230,7 @@ nginx 通过 `http 区块` 和 `server 区块` 结合可以限制请求数量
 http 区块配置请查看[概述](#概述)下的主配置文件
 
 ::: details server 区块限制请求数量
-<<<@/assets/environment/source/nginx/limit_req_server.nginx
+<<<@/assets/environment/source/nginx/limit_req_server{nginx}
 :::
 
 ::: tip 提示
@@ -252,7 +244,7 @@ server 区块里的 `zone=with_ip` 对应 http 区块里的 `$binary_remote_addr
 `nginx server` 可以对特定文件和目录进行访问限制
 
 ::: details 文件禁止访问
-<<<@/assets/environment/source/nginx/no_access.nginx
+<<<@/assets/environment/source/nginx/no_access{nginx}
 :::
 
 ### 7. 跨域请求
@@ -262,29 +254,17 @@ server 区块里的 `zone=with_ip` 对应 http 区块里的 `$binary_remote_addr
 跨域请求没有单独文件，按需写入对应站点的 `location 区块`
 
 ::: details 跨域请求
-<<<@/assets/environment/source/nginx/cross_domain.nginx
+<<<@/assets/environment/source/nginx/cross_domain{nginx}
 :::
 
 ### 8. 站点配置案例
 
-::: details 静态站点
-<<<@/assets/environment/source/nginx/sites/static.nginx
-:::
-
-::: details tp 站点
-<<<@/assets/environment/source/nginx/sites/tp.nginx
-:::
-
-::: details qy 站点
-<<<@/assets/environment/source/nginx/sites/qy.nginx
-:::
-
-::: details laravel 站点
-<<<@/assets/environment/source/nginx/sites/laravel.nginx
-:::
-
-::: details ssl 站点案例
-<<<@/assets/environment/source/nginx/sites/qyphp.e8so.com.nginx
+::: code-group
+<<<@/assets/environment/source/nginx/sites/static.nginx [静态站点]
+<<<@/assets/environment/source/nginx/sites/tp.nginx [tp 站点]
+<<<@/assets/environment/source/nginx/sites/qy.nginx [qy 站点]
+<<<@/assets/environment/source/nginx/sites/laravel.nginx [laravel 站点]
+<<<@/assets/environment/source/nginx/sites/qyphp.e8so.com.nginx [ssl 站点案例]
 :::
 
 ### 10. SSL 证书权限
