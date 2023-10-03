@@ -223,7 +223,7 @@ chown emad:emad -R /www/tp
 find /www/tp -type f -exec chmod 640 {} \;
 find /www/tp -type d -exec chmod 750 {} \;
 # 确保phpfpm和nginx可以访问public目录
-chmod 755 /www/tp /www/tp/public
+chmod 755 /www/tp /www/tp/public /www/tp/public/static/
 chmod 744 /www/tp/public/{favicon.ico,robots.txt}
 # php读写 nginx读
 chmod 775 /www/tp/public/static/upload
@@ -266,12 +266,13 @@ chown emad:emad -R /www/laravel
 find /www/laravel -type f -exec chmod 640 {} \;
 find /www/laravel -type d -exec chmod 750 {} \;
 # 确保phpfpm和nginx可以访问public目录
-chmod 755 /www/laravel /www/laravel/public
-chmod 744 /www/laravel/public/{favicon.ico,robots.txt}
+chmod 755 /www/laravel /www/laravel/public /www/laravel/public/static/
+chmod 644 /www/laravel/public/{favicon.ico,robots.txt}
 # php读写 nginx读
 chmod 775 /www/laravel/public/static/upload
 # php读写
 find /www/laravel/storage/ -type d -exec chmod 770 {} \;
+chmod 750 /www/laravel/storage/
 ```
 
 :::

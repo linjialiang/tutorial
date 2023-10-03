@@ -3,7 +3,7 @@
 # 结尾新增的内容
 # MY_IP=`hostname -I`
 # PS1='[${debian_chroot:+($debian_chroot)}\u@${MY_IP} \W]\$ ' 这是用户
-source ~/.profile
+source ${HOME}/.profile
 PS1='[${debian_chroot:+($debian_chroot)}\u \W]\$ '
 
 eval "`dircolors`"
