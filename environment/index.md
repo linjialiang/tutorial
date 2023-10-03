@@ -211,7 +211,7 @@ find /www/tp -type d -exec chmod 550 {} \;
 # 部分目录需确保nginx可以访问和进入
 chmod phpfpm:nginx -R /www/tp /www/tp/public /www/tp/public/static /www/tp/public/static/upload
 # 部分文件需确保nginx可以访问
-chmod 440 /www/tp/public/{index.php,favicon.ico,robots.txt}
+chmod 440 /www/tp/public/{favicon.ico,robots.txt}
 # 缓存和上传目录需要写入权限
 chmod 750 /www/tp/public/static/upload /www/tp/runtime
 ```
@@ -224,7 +224,7 @@ find /www/tp -type f -exec chmod 640 {} \;
 find /www/tp -type d -exec chmod 750 {} \;
 # 确保phpfpm和nginx可以访问public目录
 chmod 755 /www/tp /www/tp/public
-chmod 744 /www/tp/public/{index.php,favicon.ico,robots.txt}
+chmod 744 /www/tp/public/{favicon.ico,robots.txt}
 # php读写 nginx读
 chmod 775 /www/tp/public/static/upload
 # php读写
@@ -253,7 +253,7 @@ find /www/laravel -type d -exec chmod 550 {} \;
 # 部分目录需确保nginx可以访问和进入
 chmod phpfpm:nginx -R /www/laravel /www/laravel/public /www/laravel/public/static /www/laravel/public/static/upload
 # 部分文件需确保nginx可以访问
-chmod 440 /www/laravel/public/{index.php,favicon.ico,robots.txt}
+chmod 440 /www/laravel/public/{favicon.ico,robots.txt}
 # 缓存和上传目录需要写入权限
 chmod 750 /www/laravel/public/static/upload
 find /www/laravel/storage/ -type d -exec chmod 750 {} \;
@@ -267,7 +267,7 @@ find /www/laravel -type f -exec chmod 640 {} \;
 find /www/laravel -type d -exec chmod 750 {} \;
 # 确保phpfpm和nginx可以访问public目录
 chmod 755 /www/laravel /www/laravel/public
-chmod 744 /www/laravel/public/{index.php,favicon.ico,robots.txt}
+chmod 744 /www/laravel/public/{favicon.ico,robots.txt}
 # php读写 nginx读
 chmod 775 /www/laravel/public/static/upload
 # php读写
