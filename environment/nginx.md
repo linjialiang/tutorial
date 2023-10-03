@@ -216,20 +216,13 @@ nginx 支持对文件开启 gzip 压缩，以加快网络传输速度
 nginx 通过 `http 区块` 和 `server 区块` 结合可以限制请求数量
 
 ::: code-group
-<<<@/assets/environment/source/nginx/nginx.conf{nginx} [http 区块]
+<<<@/assets/environment/source/nginx/limit_req_http.nginx [http 区块]
 <<<@/assets/environment/source/nginx/limit_req_server.nginx [server 区块]
-:::
 
 ::: tip 提示
 server 区块里的 `zone=with_ip` 对应 http 区块里的 `$binary_remote_addr` ，可以直接限制同 ip 地址的访问频率
 
 对于不同站点(server 区块) ，设置可能各不相同，直接在站点文件中设置即可
-
-http 区块配置请查看 [[主配置文件]](#main-conf)
-
-server 区块限制请求数量：
-
-<<<@/assets/environment/source/nginx/limit_req_server.nginx
 :::
 
 ::: details 6. 文件禁止访问
