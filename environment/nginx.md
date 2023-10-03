@@ -207,8 +207,8 @@ nginx+php-fpm 不论如何配置，PATH_INFO 始终为空，暂无法解决，�
 :::
 
 ::: details 4. 开启压缩
-nginx 支持对文件开启 gzip 压缩，以加快网络传输速度
-::: details html 缓存模板案例
+nginx 支持对文件开启 gzip 压缩，以加快网络传输速度，下面是 html 缓存模板案例：
+
 <<<@/assets/environment/source/nginx/gzip.nginx
 :::
 
