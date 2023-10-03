@@ -200,8 +200,8 @@ chmod 755 /www
 - 对于页面文件，nginx 需要读取权限
 - 对于入口文件，phpfpm和nginx都需要读取权限
 - 对于上传文件，phpfpm需要读写权限，nginx需要读取权限
-- 对于日志缓存目录，phpfpm需要读写权限
-- 如果是开发环境，开发用户对所有文件都要读写权限
+- 对于缓存目录，phpfpm需要读写权限
+- 如果是开发环境，开发用户对所有文件都应该拥有读写权限
 ```
 
 ```bash [部署]
@@ -229,10 +229,49 @@ chmod 744 /www/tp/public/{index.php,favicon.ico,robots.txt}
 chmod 775 /www/tp/public/static/upload
 # php读写
 chmod 770 /www/tp/runtime
+```
 
-# ~/.profile
-# 第9行 umask 022 改成 umask 027
-umask 027 # 创建的文件权限是 640 目录权限是 750
+:::
+
+### 3. laravel 站点权限案例
+
+::: code-group
+
+```bash [权限分析]
+- 对于php文件，phpfpm 需要读取权限
+- 对于页面文件，nginx 需要读取权限
+- 对于入口文件，phpfpm和nginx都需要读取权限
+- 对于上传文件，phpfpm需要读写权限，nginx需要读取权限
+- 对于缓存目录，phpfpm需要读写权限
+- 如果是开发环境，开发用户对所有文件都应该拥有读写权限
+```
+
+```bash [部署]
+chown phpfpm:phpfpm -R /www/laravel
+find /www/laravel -type f -exec chmod 440 {} \;
+find /www/laravel -type d -exec chmod 550 {} \;
+# 部分目录需确保nginx可以访问和进入
+chmod phpfpm:nginx -R /www/laravel /www/laravel/public /www/laravel/public/static /www/laravel/public/static/upload
+# 部分文件需确保nginx可以访问
+chmod 440 /www/laravel/public/{index.php,favicon.ico,robots.txt}
+# 缓存和上传目录需要写入权限
+chmod 750 /www/laravel/public/static/upload
+find /www/laravel/storage/ -type d -exec chmod 750 {} \;
+```
+
+```bash [开发]
+usermod -G emad phpfpm
+
+chown emad:emad -R /www/laravel
+find /www/laravel -type f -exec chmod 640 {} \;
+find /www/laravel -type d -exec chmod 750 {} \;
+# 确保phpfpm和nginx可以访问public目录
+chmod 755 /www/laravel /www/laravel/public
+chmod 744 /www/laravel/public/{index.php,favicon.ico,robots.txt}
+# php读写 nginx读
+chmod 775 /www/laravel/public/static/upload
+# php读写
+find /www/laravel/storage/ -type d -exec chmod 770 {} \;
 ```
 
 :::
