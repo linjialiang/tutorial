@@ -178,87 +178,73 @@ make -j2
 
 ## 配置
 
-### 概述
-
 nginx 配置仅有一个入口文件，统一称做 `主配置文件`
 
 `主配置文件` 通过 `include` 指令加载其它文件中的配置信息，统一称做 `子配置文件`
 
 下面是一些具有代表性的配置文件，提供参考：
 
-### 1. 主配置文件
-
+::: details 1. 主配置文件 {#main-conf}
 ::: code-group
 <<<@/assets/environment/source/nginx/nginx.conf{nginx} [主配置]
 <<<@/assets/environment/source/nginx/default.nginx [默认站点]
-<<<@/assets/environment/source/nginx/php_forward{nginx} [php 文件转发]
+<<<@/assets/environment/source/nginx/php_forward.nginx [php 文件转发]
 :::
 
-### 2. fastcgi 参数模版
-
+::: details 2. fastcgi 参数模版
 nginx 自带了两个 fastcgi 参数模版，这里推荐使用官方最新的 `fastcgi.conf`
 
-::: tip 提示
 如果不符合项目需求，还可以自定义 fastcgi 参数配置模板
-:::
-
-::: info 移除 PATH_INFO
+::: tip 移除 PATH_INFO
 nginx+php-fpm 不论如何配置，PATH_INFO 始终为空，暂无法解决，而且对业务来讲 PATH_INFO 并没有提供任何优秀的作用，所以决定移除 PATH_INFO
 :::
 
-### 3. 缓存模板
-
+::: details 3. 缓存模板
 站点不经常变动的静态文件，可以让客户端缓存，以减轻服务器压力
-
 ::: code-group
-<<<@/assets/environment/source/nginx/cache{nginx} [统一缓存模板案例]
-<<<@/assets/environment/source/nginx/no_cache{nginx} [禁用缓存模板案例]
+<<<@/assets/environment/source/nginx/cache.nginx [统一缓存模板案例]
+<<<@/assets/environment/source/nginx/no_cache.nginx [禁用缓存模板案例]
 :::
 
-### 4. 开启压缩
-
+::: details 4. 开启压缩
 nginx 支持对文件开启 gzip 压缩，以加快网络传输速度
-
 ::: details html 缓存模板案例
-<<<@/assets/environment/source/nginx/gzip{nginx}
+<<<@/assets/environment/source/nginx/gzip.nginx
 :::
 
-### 5. 限制请求数量
-
+::: details 5. 限制请求数量
 nginx 通过 `http 区块` 和 `server 区块` 结合可以限制请求数量
 
-http 区块配置请查看[概述](#概述)下的主配置文件
-
-::: details server 区块限制请求数量
-<<<@/assets/environment/source/nginx/limit_req_server{nginx}
+::: code-group
+<<<@/assets/environment/source/nginx/nginx.conf{nginx} [http 区块]
+<<<@/assets/environment/source/nginx/limit_req_server.nginx [server 区块]
 :::
 
 ::: tip 提示
 server 区块里的 `zone=with_ip` 对应 http 区块里的 `$binary_remote_addr` ，可以直接限制同 ip 地址的访问频率
 
-不同 server 区块，设置都不相同，直接在站点文件中设置即可
+对于不同站点(server 区块) ，设置可能各不相同，直接在站点文件中设置即可
+
+http 区块配置请查看 [[主配置文件]](#main-conf)
+
+server 区块限制请求数量：
+
+<<<@/assets/environment/source/nginx/limit_req_server.nginx
 :::
 
-### 6. 文件禁止访问
-
+::: details 6. 文件禁止访问
 `nginx server` 可以对特定文件和目录进行访问限制
 
-::: details 文件禁止访问
-<<<@/assets/environment/source/nginx/no_access{nginx}
+<<<@/assets/environment/source/nginx/no_access.nginx
 :::
 
-### 7. 跨域请求
+::: details 7. 跨域请求
+`nginx server` 可以配置跨域请求，跨域请求没有单独文件，按需写入对应站点的 `location 区块`
 
-`nginx server` 可以配置跨域请求
-
-跨域请求没有单独文件，按需写入对应站点的 `location 区块`
-
-::: details 跨域请求
-<<<@/assets/environment/source/nginx/cross_domain{nginx}
+<<<@/assets/environment/source/nginx/cross_domain.nginx
 :::
 
-### 8. 站点配置案例
-
+::: details 8. 站点配置案例
 ::: code-group
 <<<@/assets/environment/source/nginx/sites/static.nginx [静态站点]
 <<<@/assets/environment/source/nginx/sites/tp.nginx [tp 站点]
@@ -267,20 +253,17 @@ server 区块里的 `zone=with_ip` 对应 http 区块里的 `$binary_remote_addr
 <<<@/assets/environment/source/nginx/sites/qyphp.e8so.com.nginx [ssl 站点案例]
 :::
 
-### 10. SSL 证书权限
+::: details 9. SSL 证书权限
 
 SSL 证书的存放目录及其文件的权限只应该让需要的程序看到，比如只让 nginx 的主进程用户读取
 
-::: details 查看 nginx 主进程用户
-
 ```bash
+# 查看 nginx 主进程用户
 ps -ef|grep -E "nginx|PID"|grep -E "master|PID"|grep -v grep
 ps aux|grep -E "nginx|PID"|grep -E "master|PID"|grep -v grep
 ```
 
-:::
-
-::: details 设置 SSL 证书权限
+::: tip 设置 SSL 证书权限
 
 本次测试环境的 nginx 主进程用户是 root 用户
 

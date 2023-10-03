@@ -1,3 +1,5 @@
+# /server/nginx/conf/custom/php_forward
+
 location ~* \.php$
 {
   # 唯一入口限制：非 /index.php 禁止访问
