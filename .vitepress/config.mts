@@ -11,22 +11,7 @@ export default defineConfig({
   lang: "zh-CN",
   title: "Tutorial",
   description: "程序员系列教程",
-  head: [
-    ["link", { rel: "icon", href: "/favicon.ico" }],
-    [
-      "link",
-      {
-        rel: "stylesheet",
-        href: "/static/base.css",
-      },
-    ],
-    [
-      "script",
-      {
-        src: "/static/base.js",
-      },
-    ],
-  ],
+  head: [["link", { rel: "icon", href: "/favicon.ico" }]],
   lastUpdated: true,
   markdown: {
     lineNumbers: false,
