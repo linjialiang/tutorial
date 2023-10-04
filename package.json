@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "markdown-it-custom-attrs": "^1.0.2",
-    "vitepress": "1.0.0-rc.14"
+    "vitepress": "1.0.0-rc.20"
   },
   "scripts": {
     "dev": "vitepress dev",
