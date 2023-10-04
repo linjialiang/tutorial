@@ -1,4 +1,3 @@
-import mdItCustomAttrs from "markdown-it-custom-attrs";
 import { defineConfig } from "vitepress";
 import environmentNav from "./nav/environment.mjs";
 import otherNav from "./nav/other.mjs";
@@ -18,25 +17,19 @@ export default defineConfig({
       "link",
       {
         rel: "stylesheet",
-        href: "/static/fancybox/fancybox.css",
+        href: "/static/base.css",
       },
     ],
     [
       "script",
       {
-        src: "/static/fancybox/fancybox.umd.js",
+        src: "/static/base.js",
       },
     ],
   ],
   lastUpdated: true,
   markdown: {
     lineNumbers: false,
-    config: (md) => {
-      // use more markdown-it plugins!
-      md.use(mdItCustomAttrs, "image", {
-        "data-fancybox": "gallery",
-      });
-    },
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
