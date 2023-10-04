@@ -10,8 +10,8 @@ import sidebar from "./sidebar/main.mjs";
 export default defineConfig({
   base: "/",
   lang: "zh-CN",
-  title: "PHP Environment",
-  description: "基于Debian的php环境搭建及其系列教程",
+  title: "Tutorial",
+  description: "程序员系列教程",
   head: [["link", { rel: "icon", href: "/favicon.ico" }]],
   lastUpdated: true,
   markdown: {
@@ -81,7 +81,7 @@ export default defineConfig({
     ],
     sidebar: sidebar,
     footer: {
-      message: "PHP 环境搭建及其系列教程",
+      message: "程序员系列教程",
       copyright: "Copyright © 2023-present 地上马",
     },
   },

@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: PHP Environment
-  text: PHP 环境搭建
-  tagline: 基于Debian的php环境搭建及其系列教程
+  name: Tutorial
+  text: 程序员系列教程
+  tagline: 程序员系列教程
   image:
     src: "/svg/php.svg"
     alt: "PHP 环境搭建"
