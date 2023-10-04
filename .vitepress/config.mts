@@ -12,14 +12,29 @@ export default defineConfig({
   lang: "zh-CN",
   title: "Tutorial",
   description: "程序员系列教程",
-  head: [["link", { rel: "icon", href: "/favicon.ico" }]],
+  head: [
+    ["link", { rel: "icon", href: "/favicon.ico" }],
+    [
+      "link",
+      {
+        rel: "stylesheet",
+        href: "/static/fancybox/fancybox.css",
+      },
+    ],
+    [
+      "script",
+      {
+        src: "/static/fancybox/fancybox.umd.js",
+      },
+    ],
+  ],
   lastUpdated: true,
   markdown: {
     lineNumbers: false,
     config: (md) => {
       // use more markdown-it plugins!
       md.use(mdItCustomAttrs, "image", {
-        "data-popup": "img",
+        "data-fancybox": "gallery",
       });
     },
   },
