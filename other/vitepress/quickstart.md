@@ -44,7 +44,8 @@ VitePress 附带一个命令行设置向导，可帮助您搭建基本项目的�
 [[安装]](#stupe)后，通过运行以下命令启动向导：
 
 ```bash
-pnpm exec vitepress init
+pnpm dlx vitepress init
+# pnpm exec vitepress init
 ```
 
 ::: details 您会看到几个简单的问题：
