@@ -710,7 +710,7 @@ VitePress 使用 markdown-it 作为 Markdown 渲染器。
 ::: code-group
 
 ```bash [安装包]
-npm add -D markdown-it-mathjax3
+pnpm add -D markdown-it-mathjax3
 ```
 
 ```ts [配置]
