@@ -1,4 +1,9 @@
-# 什么是 VitePress ？
+---
+title: 什么是 VitePress ？
+titleTemplate: VitePress 教程
+---
+
+# {{ $frontmatter.title }}
 
 VitePress 是一个静态网站生成器（[SSG](#SSG)），旨在构建快速，以内容为中心的网站。
 

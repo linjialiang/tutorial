@@ -19,7 +19,7 @@ VitePress 可以使用 `markdown.anchor` 选项配置定位点的呈现，支持
 ```md [标头]
 ...
 
-项目[根目录](#root-dir)和[源目录](#source-dir)。
+项目[根[[toc]]](#root-dir)和[源目录](#source-dir)。
 
 ### 项目根目录 {#root-dir}
 
@@ -155,9 +155,9 @@ lang: en-US
 [[toc]]
 ```
 
-输出：
-
+::: details 输出：
 [[toc]]
+:::
 
 ## 自定义容器
 
@@ -225,7 +225,7 @@ This is a details block.
 ::: details 单击查看代码
 
 ```js
-console.log('Hello, VitePress!');
+console.log("Hello, VitePress!");
 ```
 
 :::
@@ -240,7 +240,7 @@ console.log('Hello, VitePress!');
 ::: details 单击查看代码
 
 ```js
-console.log('Hello, VitePress!');
+console.log("Hello, VitePress!");
 ```
 
 :::
@@ -272,7 +272,7 @@ export default {
 
 ```js [输出 js]
 export default {
-  name: 'MyComponent',
+  name: "MyComponent",
   // ...
 };
 ```
@@ -375,7 +375,7 @@ export default {
 export default {
   data() {
     return {
-      msg: 'Highlighted!', // [!code hl]
+      msg: "Highlighted!", // [!code hl]
     };
   },
 };
@@ -407,7 +407,7 @@ export default {
 export default {
   data() {
     return {
-      msg: 'Focused!', // [!code focus]
+      msg: "Focused!", // [!code focus]
     };
   },
 };
@@ -431,7 +431,7 @@ export default {
   data() {
     // [!code focus:4]
     return {
-      msg: 'Focused!',
+      msg: "Focused!",
     };
   },
 };
@@ -494,8 +494,8 @@ export default {
 export default {
   data() {
     return {
-      msg: 'Error', // [!code error]
-      msg: 'Warning', // [!code warning]
+      msg: "Error", // [!code error]
+      msg: "Warning", // [!code warning]
     };
   },
 };
@@ -537,8 +537,8 @@ const line3 = 'This is line 3'
 
 ```ts {1} [禁用行号输出]
 // 配置里禁用了行号
-const line2 = 'This is line 2';
-const line3 = 'This is line 3';
+const line2 = "This is line 2";
+const line3 = "This is line 3";
 ```
 
 ```ts:line-numbers {1} [启用行号输出]
@@ -657,7 +657,7 @@ export default config;
 ```
 
 ```ts [config.ts]
-import type { UserConfig } from 'vitepress';
+import type { UserConfig } from "vitepress";
 
 const config: UserConfig = {
   // ...

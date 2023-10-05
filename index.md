@@ -1,4 +1,7 @@
 ---
+title: Tutorial
+titleTemplate: 程序员系列教程
+
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
@@ -16,9 +19,6 @@ hero:
     - theme: alt
       text: SQL
       link: /sql/common/
-    - theme: alt
-      text: 自述
-      link: /readme
 
 features:
   - icon:

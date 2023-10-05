@@ -1,4 +1,7 @@
 ---
+title: 概述
+titleTemplate: VitePress 教程
+
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
