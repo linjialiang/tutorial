@@ -179,6 +179,8 @@ features:
 
 控制是否显示导航栏。
 
+说人话：控制当前页面右上角导航是否显示
+
 - Name: `navbar`
 - Type: `boolean`
 - Default: `true`
@@ -197,6 +199,8 @@ navbar: false
 ### sidebar
 
 控制是否显示侧边栏。
+
+说人话：控制当前页面左侧文件列表导航是否显示
 
 - Name: `sidebar`
 - Type: `boolean`
@@ -229,7 +233,7 @@ sidebar: false
 | `true`   | 标题列表导航呈现到右侧 |
 | `'left'` | 标题列表导航呈现到左侧 |
 
-### outline
+### 大纲
 
 大纲中要为页面显示的页眉级别
 
