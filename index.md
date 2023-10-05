@@ -100,7 +100,7 @@ features:
     details: 其它文档
     link: /other/index
   - icon:
-      src: /svg/wangdoc.svg
+      src: /svg/wangdoc.png
     title: wangdoc
     details: 网道
     link: http://wangdoc.e8so.com
