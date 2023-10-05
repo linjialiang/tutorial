@@ -702,3 +702,24 @@ VitePress 使用 markdown-it 作为 Markdown 渲染器。
 
 具体请参阅 [[配置:应用配置]](./config#markdown) 可配置属性的完整列表。
 :::
+
+## 数学方程式
+
+要启用它，您需要安装 `markdown-it-mathjax3` 并在配置文件中将 `markdown.math` 设置为 `true`：
+
+::: code-group
+
+```bash [安装包]
+npm add -D markdown-it-mathjax3
+```
+
+```ts [配置]
+// .vitepress/config.(js|ts|mts)
+export default {
+  markdown: {
+    math: true,
+  },
+};
+```
+
+:::

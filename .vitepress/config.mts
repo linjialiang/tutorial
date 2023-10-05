@@ -15,6 +15,7 @@ export default defineConfig({
   lastUpdated: true,
   markdown: {
     lineNumbers: false,
+    math: true,
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
