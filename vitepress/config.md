@@ -7,14 +7,6 @@ titleTemplate: VitePress 教程
 
 本篇讲解 VitePress 常见配置
 
-## 站点配置
-
-<!--@include: @/vitepress/conf/site.md-->
-
-## 前言配置 {#frontmatter-config}
-
-<!--@include: @/vitepress/conf/frontmatter.md-->
-
 ## 命令行界面
 
 使用指定目录作为根目录启动 VitePress 开发服务器。默认为当前目录。

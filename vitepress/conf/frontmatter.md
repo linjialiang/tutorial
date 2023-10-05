@@ -1,8 +1,15 @@
-前言配置支持基于页面的配置。
+---
+title: 前言配置
+titleTemplate: VitePress 教程
+---
+
+# {{ $frontmatter.title }}
+
+`前言配置` 就是 `frontmatter` 配置，它支持基于页面的配置。
 
 在每个 markdown 文件中，您可以使用前言配置来覆盖站点级或主题级配置选项。
 
-此外，还有一些只能在前言中定义的配置选项。
+此外，部分配置选项只能在前言中定义。
 
 ::: info 示例：
 
@@ -21,7 +28,7 @@ editLink: true
 
 :::
 
-### 页面的标题 {#frontmatter-config-title}
+## 页面标题 {#frontmatter-config-title}
 
 - Name: `title`
 - Type: `string`
@@ -34,7 +41,7 @@ title: VitePress
 ---
 ```
 
-### 标题的后缀 {#frontmatter-config-title-template}
+## 标题后缀模板 {#frontmatter-config-title-template}
 
 - Name: `titleTemplate`
 - Type: `string | boolean`
@@ -48,7 +55,7 @@ titleTemplate: Vite & Vue powered static site generator
 ---
 ```
 
-### 页面的说明 {#frontmatter-config-description}
+## 页面描述 {#frontmatter-config-description}
 
 - Name: `description`
 - Type: `string`
@@ -61,7 +68,7 @@ description: VitePress
 ---
 ```
 
-### 额外头标记 {#frontmatter-config-head}
+## 额外头标记 {#frontmatter-config-head}
 
 - Name: `head`
 - Type: `HeadConfig[]`
@@ -90,11 +97,11 @@ type HeadConfig =
 
 :::
 
-### 默认主题特性
+## 默认主题特性
 
 以下前言选项仅在使用默认主题时适用
 
-#### 页面布局
+### 页面布局
 
 - Name: `layout`
 - Type: `doc | home | page`
@@ -112,7 +119,7 @@ layout: doc
 | `home` | 主页”的特殊布局。您可以添加额外的选项，例如 `hero` 和 `features` ，以快速创建漂亮的登录页面。 |
 | `page` | 类似于 `doc` ，但它不对内容应用任何样式。当您想要创建完全自定义的页面时很有用。               |
 
-#### hero
+### hero <Badge type="tip" text="仅 home 类型页面" />
 
 定义当 `layout` 设置为 `home` 时 `hero` 部分的内容才有效。
 
@@ -140,7 +147,7 @@ hero:
 ---
 ```
 
-#### features
+### features <Badge type="tip" text="仅 home 类型页面" />
 
 定义当 `layout` 设置为 `home` 时 `features` 部分的内容才有效。
 
@@ -168,7 +175,45 @@ features:
 ---
 ```
 
-#### aside
+### navbar
+
+控制是否显示导航栏。
+
+- Name: `navbar`
+- Type: `boolean`
+- Default: `true`
+
+| 选项    | 说明   |
+| ------- | ------ |
+| `true`  | 展示   |
+| `false` | 不展示 |
+
+```yaml
+---
+navbar: false
+---
+```
+
+### sidebar
+
+控制是否显示侧边栏。
+
+- Name: `sidebar`
+- Type: `boolean`
+- Default: `true`
+
+| 选项    | 说明   |
+| ------- | ------ |
+| `true`  | 展示   |
+| `false` | 不展示 |
+
+```yaml
+---
+sidebar: false
+---
+```
+
+### aside
 
 定义文档布局中搁置组件的位置。
 
@@ -184,7 +229,7 @@ features:
 | `true`   | 标题列表导航呈现到右侧 |
 | `'left'` | 标题列表导航呈现到左侧 |
 
-#### outline
+### outline
 
 大纲中要为页面显示的页眉级别
 
@@ -205,7 +250,7 @@ features:
 它与 [[config.themeConfig.outline]](https://vitepress.dev/reference/default-theme-config#outline) 相同，它覆盖了主题配置。
 :::
 
-#### 最近更新
+### 最近更新
 
 是否在当前页面的页脚中显示 `上次更新时间` 文本：
 
@@ -224,7 +269,7 @@ lastUpdated: false
 ---
 ```
 
-#### 编辑链接
+### 编辑链接
 
 是否在当前页面的页脚中显示 `编辑链接`：
 
@@ -241,4 +286,44 @@ lastUpdated: false
 ---
 editLink: false
 ---
+```
+
+### footer
+
+控制是否显示页脚。
+
+- Name: `footer`
+- Type: `boolean`
+- Default: `true`
+
+| 选项    | 说明   |
+| ------- | ------ |
+| `true`  | 展示   |
+| `false` | 不展示 |
+
+```yaml
+---
+footer: false
+---
+```
+
+### pageClass
+
+将额外的类名添加到特定页面
+
+- Name: `pageClass`
+- Type: `string`
+
+```yaml
+---
+pageClass: custom-page-class
+---
+```
+
+然后您可以在 `.vitepress/theme/custom.css` 文件中自定义此特定页面的样式：
+
+```css
+.custom-page-class {
+  /* page-specific styles */
+}
 ```
