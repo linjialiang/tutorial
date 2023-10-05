@@ -7,7 +7,7 @@ titleTemplate: VitePress 教程
 
 ::: details 使用前你的电脑需要满足以下条件：
 
-1. 安装 node.js 并 >= 16
+1. 安装 node.js 并 >= 18
 2. 支持通过其命令行界面(bash、cmd 等)访问 VitePress
 3. 支持 Markdown 语法的文本编辑器（强烈推荐 [vscode](/other/vscode/)）
 
@@ -33,8 +33,37 @@ yarn add -D vitepress
 
 :::
 
-::: tip 关于包管理器
-由于 pnpm 包管理器更省磁盘资源，今后操作会尽可能多的使用 pnpm 包管理器
+::: details 缺少包的警告
+
+如果使用 PNPM，可能会出现 `@docsearch/js` 缺少的警告。
+
+这不会阻止 VitePress 工作。如果您希望取消此警告，请将以下内容添加到您的 `package.json`：
+
+```json
+"pnpm": {
+  "peerDependencyRules": {
+    "ignoreMissing": [
+      "@algolia/client-search",
+      "search-insights"
+    ]
+  }
+}
+```
+
+:::
+
+::: tip 注意
+VitePress 是一个仅支持 `ESM` 的软件包。
+
+不要使用 `require()` 来导入它，并确保您的 `package.json` 包含：
+
+```json
+{
+  "type": "module"
+}
+```
+
+或者将相关文件的文件扩展名更改为 `.mjs/.mts` ，比如：`.vitepress/config.js` 。有关详细信息，请参阅 [[Vite 的故障排除指南]](http://vitejs.dev/guide/troubleshooting.html#this-package-is-esm-only)。另外，在异步 CJS 上下文中，你可以使用 `await import('vitepress')`。
 :::
 
 ## 向导
@@ -110,10 +139,10 @@ Tips:
 
 ## 安装依赖
 
-像上面我们选择了自定义主题，就应该显示安装 vue 作为项目依赖：
+像上面我们选择了自定义主题，就应该显式安装 vue 作为项目依赖：
 
 ```bash
-pnpm add -D vue
+pnpm add vue
 ```
 
 ## 项目结构

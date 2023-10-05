@@ -4,7 +4,7 @@ const path = {
 
 const guide = [
   { text: "介绍", link: `${path.main}guide/introduction/` },
-  { text: "快速开始", link: `${path.main}quickstart` },
+  { text: "快速开始", link: `${path.main}guide/introduction/quickstart` },
   { text: "路由", link: `${path.main}route` },
   { text: "Markdown", link: `${path.main}md` },
   { text: "部署指南", link: `${path.main}deploy` },
