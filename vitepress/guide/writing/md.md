@@ -169,46 +169,46 @@ lang: en-US
 
 ```md
 ::: info
-This is an info box.
+这是信息
 :::
 
 ::: tip
-This is a tip.
+这是提示
 :::
 
 ::: warning
-This is a warning.
+这是警告
 :::
 
 ::: danger
-This is a dangerous warning.
+这是危险
 :::
 
 ::: details
-This is a details block.
+这是可折叠区块
 :::
 ```
 
 输出：
 
 ::: info
-This is an info box.
+这是信息
 :::
 
 ::: tip
-This is a tip.
+这是提示
 :::
 
 ::: warning
-This is a warning.
+这是警告
 :::
 
 ::: danger
-This is a dangerous warning.
+这是危险
 :::
 
 ::: details
-This is a details block.
+这是可折叠区块
 :::
 
 ### 自定义标题
