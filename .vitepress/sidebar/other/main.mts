@@ -1,4 +1,5 @@
 import clash from "./clash.mjs";
+import js from "./js.mjs";
 import vscode from "./vscode.mjs";
 import wechat from "./wechat.mjs";
 
@@ -11,6 +12,7 @@ const sidebar = [
   { text: "vscode", collapsed: true, items: vscode },
   { text: "clash", collapsed: true, items: clash },
   { text: "wechat", collapsed: true, items: wechat },
+  { text: "javascript", collapsed: true, items: js },
 ];
 
 export default sidebar;
