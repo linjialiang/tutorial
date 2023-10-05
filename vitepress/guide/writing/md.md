@@ -724,34 +724,68 @@ export default {
 
 :::
 
-::: details 案例
+### 案例
 
-输入：
+::: details 输入：
 
 ```md
-When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are
+当 $a \ne 0$，有两种解决方案 $(ax^2 + bx + c = 0)$ 和
 $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
 
-**Maxwell's equations:**
+**麦克斯韦方程:**
 
-| equation                                                                                                                                                                  | description                                                                            |
+| 方程                                                                                                                                                                      | 描述                                                                                   |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | $\nabla \cdot \vec{\mathbf{B}}  = 0$                                                                                                                                      | divergence of $\vec{\mathbf{B}}$ is zero                                               |
 | $\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t}  = \vec{\mathbf{0}}$                                                          | curl of $\vec{\mathbf{E}}$ is proportional to the rate of change of $\vec{\mathbf{B}}$ |
 | $\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} = \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} = 4 \pi \rho$ | _wha?_                                                                                 |
 ```
 
-输出：
+:::
 
-When $a \ne 0$, there are two solutions to $(ax^2 + bx + c = 0)$ and they are
+::: details 输出：
+
+当 $a \ne 0$，有两种解决方案 $(ax^2 + bx + c = 0)$ 和
 $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a} $$
 
-**Maxwell's equations:**
+**麦克斯韦方程:**
 
-| equation                                                                                                                                                                  | description                                                                            |
+| 方程                                                                                                                                                                      | 描述                                                                                   |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | $\nabla \cdot \vec{\mathbf{B}}  = 0$                                                                                                                                      | divergence of $\vec{\mathbf{B}}$ is zero                                               |
 | $\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t}  = \vec{\mathbf{0}}$                                                          | curl of $\vec{\mathbf{E}}$ is proportional to the rate of change of $\vec{\mathbf{B}}$ |
 | $\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} = \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} = 4 \pi \rho$ | _wha?_                                                                                 |
 
 :::
+
+## 高级配置
+
+VitePress 使用 [[markdown-it]](https://github.com/markdown-it/markdown-it) 作为 Markdown 渲染器。上面的许多扩展都是通过自定义插件实现的。
+
+您可以使用 `markdown-it` 中的 `markdown` 选项进一步自定义 `.vitepress/config.js` 实例：
+
+```ts
+import markdownItAnchor from "markdown-it-anchor";
+import markdownItFoo from "markdown-it-foo";
+
+module.exports = {
+  markdown: {
+    // options for markdown-it-anchor
+    // https://github.com/valeriangalliat/markdown-it-anchor#usage
+    anchor: {
+      permalink: markdownItAnchor.permalink.headerLink(),
+    },
+
+    // options for @mdit-vue/plugin-toc
+    // https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-toc#options
+    toc: { level: [1, 2] },
+
+    config: (md) => {
+      // use more markdown-it plugins!
+      md.use(markdownItFoo);
+    },
+  },
+};
+```
+
+完整可选配置请参阅 [[配置参考：应用配置]]()
