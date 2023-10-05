@@ -124,5 +124,5 @@ VitePress 路由功能不止这些，部分内容会涉及到 Vue3，具体请�
 {#vitepress-dir}
 
 ::: tip .vitepress
-.vitepress 目录是 VitePress 配置文件、开发服务器缓存、生成输出和可选主题自定义代码的默认保留位置
+`.vitepress` 目录是 VitePress 配置文件、开发服务器缓存、生成输出和可选主题自定义代码的默认保留位置
 :::
