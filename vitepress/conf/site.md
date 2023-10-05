@@ -527,12 +527,38 @@ export default {
 
 :::
 
-以下是您可以在此对象中使用的所有选项：
-
+::: details 以下是您可以在此对象中使用的所有选项：
 <<<@/assets/vitepress/MarkdownOptions.ts
+:::
 
 ### vite
 
-::: danger 更多站点配置
-站点配置的更多内容请阅读 [[官方手册]](https://vitepress.dev/reference/site-config)
-:::
+- Type: `import('vite').UserConfig`
+
+将原始 [`Vite Config`](https://vitejs.dev/config/) 传递到内部 Vite dev 服务器/捆绑包。
+
+```ts
+export default {
+  vite: {
+    // Vite config options
+  },
+};
+```
+
+### vue
+
+- Type: `import('@vitejs/plugin-vue').Options`
+
+将原始 [`@vitejs/plugin-vue`选项](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options)传递给内部插件实例。
+
+```ts
+export default {
+  vue: {
+    // @vitejs/plugin-vue options
+  },
+};
+```
+
+## 构建挂钩
+
+这部分内容请查看 [[官方手册]](https://vitepress.dev/reference/site-config#build-hooks)
