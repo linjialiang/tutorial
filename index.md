@@ -75,26 +75,6 @@ features:
     details: PHP语言解释器
     link: /php/index
   - icon:
-      src: /svg/html.svg
-    title: HTML 教程
-    details: HTML5基础
-    link: /html/index
-  - icon:
-      src: /svg/css.svg
-    title: CSS3 教程
-    details: CSS3
-    link: /css/index
-  - icon:
-      src: /svg/js.svg
-    title: JavaScript 教程
-    details: JavaScript 的 ES5 部分
-    link: /js/index
-  - icon:
-      src: /svg/es6.svg
-    title: ES6 教程
-    details: JavaScript 的 ES6+ 部分
-    link: /es6/index
-  - icon:
       src: /svg/vue.svg
     title: Vue3 教程
     details: Vue3
@@ -119,4 +99,9 @@ features:
     title: Other
     details: 其它文档
     link: /other/index
+  - icon:
+      src: /svg/wangdoc.svg
+    title: wangdoc
+    details: 网道
+    link: http://wangdoc.e8so.com
 ---
