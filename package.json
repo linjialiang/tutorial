@@ -1,7 +1,8 @@
 {
   "type": "module",
   "devDependencies": {
-    "vitepress": "1.0.0-rc.20"
+    "vitepress": "1.0.0-rc.20",
+    "vue": "^3.3.4"
   },
   "scripts": {
     "dev": "vitepress dev",
@@ -15,8 +16,5 @@
         "search-insights"
       ]
     }
-  },
-  "dependencies": {
-    "vue": "^3.3.4"
   }
 }

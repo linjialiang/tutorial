@@ -142,7 +142,7 @@ Tips:
 像上面我们选择了自定义主题，就应该显式安装 vue 作为项目依赖：
 
 ```bash
-pnpm add vue
+pnpm add -D vue
 ```
 
 ## 项目结构
