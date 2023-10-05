@@ -18,7 +18,7 @@ hero:
       link: /vitepress/guide/
     - theme: alt
       text: 配置参考
-      link: /vitepress/config
+      link: /vitepress/conf/site
 
 features:
   - icon: 📝

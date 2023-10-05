@@ -1,3 +1,10 @@
+---
+title: 站点配置
+titleTemplate: VitePress 教程
+---
+
+# {{ $frontmatter.title }}
+
 站点配置是可以定义站点的全局设置的位置。
 
 应用程序配置选项定义适用于每个 VitePress 站点的设置，无论它使用什么主题。
@@ -33,7 +40,7 @@ export default {
 假设您的 IDE 支持它，这应该在 `JavaScript` 和 `TypeScript` 中都有效。
 
 ```ts
-import { defineConfig } from 'vitepress';
+import { defineConfig } from "vitepress";
 
 export default defineConfig({
   // ...
@@ -45,7 +52,7 @@ export default defineConfig({
 默认情况下， `defineConfig` 帮助程序需要默认主题的主题配置类型：
 
 ```ts
-import { defineConfig } from 'vitepress';
+import { defineConfig } from "vitepress";
 
 export default defineConfig({
   themeConfig: {
@@ -57,8 +64,8 @@ export default defineConfig({
 如果使用自定义主题并希望对主题配置进行类型检查，则需要改用 `defineConfigWithTheme` ，并通过泛型参数传递自定义主题的配置类型：
 
 ```ts
-import { defineConfigWithTheme } from 'vitepress';
-import type { ThemeConfig } from 'your-theme';
+import { defineConfigWithTheme } from "vitepress";
+import type { ThemeConfig } from "your-theme";
 
 export default defineConfigWithTheme<ThemeConfig>({
   themeConfig: {
@@ -104,7 +111,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
 ```ts [config.ts]
 export default {
-  title: 'My Awesome Site',
+  title: "My Awesome Site",
 };
 ```
 
@@ -128,8 +135,8 @@ export default {
 
 ```ts [config.ts]
 export default {
-  title: 'My Awesome Site',
-  titleTemplate: 'Custom Suffix',
+  title: "My Awesome Site",
+  titleTemplate: "Custom Suffix",
 };
 ```
 
@@ -147,7 +154,7 @@ export default {
 
 ```ts [config.ts]
 export default {
-  titleTemplate: ':title - Custom Suffix',
+  titleTemplate: ":title - Custom Suffix",
 };
 ```
 
@@ -182,7 +189,7 @@ export default {
 
 ```ts
 export default {
-  description: 'A VitePress site',
+  description: "A VitePress site",
 };
 ```
 
@@ -207,16 +214,16 @@ export default {
 export default {
   head: [
     [
-      'link',
-      { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+      "link",
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
       // would render:
       //
       // <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     ],
 
     [
-      'script',
-      { id: 'register-sw' },
+      "script",
+      { id: "register-sw" },
       `;(() => {
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/sw.js')
@@ -237,7 +244,9 @@ export default {
 ```
 
 ```ts [HeadConfig 类型]
-type HeadConfig = [string, Record<string, string>] | [string, Record<string, string>, string];
+type HeadConfig =
+  | [string, Record<string, string>]
+  | [string, Record<string, string>, string];
 ```
 
 :::
@@ -252,7 +261,7 @@ type HeadConfig = [string, Record<string, string>] | [string, Record<string, str
 
 ```ts
 export default {
-  lang: 'en-US',
+  lang: "en-US",
 };
 ```
 
@@ -268,7 +277,7 @@ export default {
 
 ```ts
 export default {
-  base: '/base/',
+  base: "/base/",
 };
 ```
 
@@ -284,7 +293,7 @@ export default {
 
 ```ts
 export default {
-  srcDir: './src',
+  srcDir: "./src",
 };
 ```
 
@@ -300,7 +309,7 @@ export default {
 
 ```ts
 export default {
-  srcExclude: ['**/README.md', '**/TODO.md'],
+  srcExclude: ["**/README.md", "**/TODO.md"],
 };
 ```
 
@@ -314,7 +323,7 @@ export default {
 
 ```ts
 export default {
-  outDir: '../public',
+  outDir: "../public",
 };
 ```
 
@@ -328,7 +337,7 @@ export default {
 
 ```ts
 export default {
-  cacheDir: './.vitepress/.vite',
+  cacheDir: "./.vitepress/.vite",
 };
 ```
 
@@ -356,14 +365,14 @@ export default {
 export default {
   ignoreDeadLinks: [
     // ignore exact url "/playground"
-    '/playground',
+    "/playground",
     // ignore all localhost links
     /^https?:\/\/localhost/,
     // ignore all links include "/repl/""
     /\/repl\//,
     // custom function, ignore all links include "ignore"
     (url) => {
-      return url.toLowerCase().includes('ignore');
+      return url.toLowerCase().includes("ignore");
     },
   ],
 };
@@ -414,7 +423,7 @@ export default defineConfig({ lastUpdated: true });
 ```ts
 export default defineConfig({
   lastUpdated: true,
-  themeConfig: { lastUpdatedText: '最近更新' },
+  themeConfig: { lastUpdatedText: "最近更新" },
 });
 ```
 

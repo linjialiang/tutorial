@@ -27,7 +27,7 @@ const guide = [
 ];
 
 const reference = [
-  { text: "配置", link: `${path.main}config` },
+  { text: "站点配置", link: `${path.main}conf/site` },
   { text: "默认主题", link: `${path.main}default-theme` },
 ];
 
