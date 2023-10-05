@@ -2,12 +2,16 @@ const path = {
   main: "/vitepress/",
 };
 
-const guide = [
+const introduction = [
   { text: "介绍", link: `${path.main}guide/introduction/` },
   { text: "快速开始", link: `${path.main}guide/introduction/quickstart` },
   { text: "路由", link: `${path.main}guide/introduction/route` },
+  { text: "部署指南", link: `${path.main}guide/introduction/deploy` },
+];
+
+const guide = [
+  {text: "介绍", collapsed: true, items: introduction },
   { text: "Markdown", link: `${path.main}md` },
-  { text: "部署指南", link: `${path.main}deploy` },
   { text: "表情符号", link: `${path.main}emoji` },
 ];
 

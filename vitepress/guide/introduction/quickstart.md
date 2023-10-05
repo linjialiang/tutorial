@@ -282,4 +282,4 @@ pnpm docs:preview
 2. 要了解在页面上能做什么，一个很好的起点是阅读 [[Markdown 扩展]](/other/vitepress/md) 。
 3. 要探索默认文档主题提供的功能，请查看 [[默认主题配置参考](/other/vitepress/default-theme)。
 4. 如果要进一步自定义网站的外观，请探索如何 [[扩展默认主题]](https://vitepress.dev/guide/extending-default-theme) 或 [[构建自定义主题]](https://vitepress.dev/guide/custom-theme)。
-5. 文档站点形成后，请务必阅读 [[部署指南]](/other/vitepress/deploy)。
+5. 文档站点形成后，请务必阅读 [[部署指南]](./deploy)。
