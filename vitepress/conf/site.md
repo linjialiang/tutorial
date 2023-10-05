@@ -11,9 +11,9 @@ titleTemplate: VitePress 教程
 
 例如，网站的基目录或标题。
 
-### 总览
+## 总览
 
-#### 配置文件
+### 配置文件
 
 配置文件始终从 `<root>/.vitepress/config.[ext]` 解析，其中 `<root>` 是你的 VitePress 项目根目录，`[ext]` 是受支持的文件扩展名之一。
 
@@ -23,21 +23,21 @@ TypeScript 是开箱即用的。支持的扩展包括 `.js`、`.ts`、`.cjs`、`
 
 ```ts
 export default {
-    // app level config options
-    lang: 'zh-CN',
-    title: 'PHP Environment',
-    description: '基于Debian的php环境搭建教程',
-    ...
-}
+  // app level config options
+  lang: "zh-CN",
+  title: "Tutorial",
+  description: "程序员系列教程",
+  // ...
+};
 ```
 
 :::
 
-#### 配置智能感知
+### 配置智能感知
 
-使用 `defineConfig` 帮助程序将为配置选项提供 TypeScript 驱动的智能感知。
+使用 `defineConfig` helper 程序将为配置选项提供基于 TypeScript 的智能感知。
 
-假设您的 IDE 支持它，这应该在 `JavaScript` 和 `TypeScript` 中都有效。
+如果您的 IDE 支持它，在 `JavaScript` 和 `TypeScript` 中应该都有效。
 
 ```ts
 import { defineConfig } from "vitepress";
@@ -47,9 +47,9 @@ export default defineConfig({
 });
 ```
 
-#### 类型化主题配置
+### 类型化主题配置
 
-默认情况下， `defineConfig` 帮助程序需要默认主题的主题配置类型：
+默认情况下， `defineConfig` help 程序需要默认主题的主题配置类型：
 
 ```ts
 import { defineConfig } from "vitepress";
@@ -74,7 +74,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 });
 ```
 
-#### Vite, Vue & Markdown Config
+### Vite, Vue & Markdown Config
 
 - Vite
 
@@ -92,9 +92,9 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   您可以使用 VitePress 配置中的 [[markdown 选项]](#markdown) 配置底层 [Markdown-It](https://github.com/markdown-it/markdown-it) 实例。
 
-### 站点元数据
+## 站点元数据
 
-#### 网站标题
+### 网站标题
 
 - Name: `title`
 - Type: `string`
@@ -121,7 +121,7 @@ export default {
 
 :::
 
-#### 标题后缀
+### 标题后缀模板
 
 - Name: `titleTemplate`
 - Type: `string | boolean`
@@ -146,7 +146,7 @@ export default {
 
 :::
 
-##### 完全自定义标题
+#### 完全自定义标题
 
 若要完全自定义标题的呈现方式，可以在 `titleTemplate` 中使用 `:title` 符号：
 
@@ -168,7 +168,7 @@ export default {
 
 示例页面的标题将是 `Hello - Custom Suffix` 。
 
-##### 禁用标题后缀
+#### 禁用标题后缀
 
 可以将该选项设置为 `false` 以禁用标题后缀：
 
@@ -178,7 +178,7 @@ export default {
 };
 ```
 
-#### 网站说明
+### 网站说明
 
 - Name: `description`
 - Type: `string`
@@ -193,7 +193,7 @@ export default {
 };
 ```
 
-#### 头部
+### 头部
 
 - Name: `head`
 - Type: `string`
@@ -201,7 +201,7 @@ export default {
 - 可以通过每页的[[前言配置]](#frontmatter-config-head)追加
 
 ::: warning 注意
-`head` 通过前言配置是 `追加` 而不是 `覆盖`
+`head` 通过前言配置(frontmatter)是 `追加` 而不是 `覆盖`
 :::
 
 要在页面 HTML 的 `<head>` 标记中呈现的其他元素。
@@ -216,11 +216,8 @@ export default {
     [
       "link",
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" },
-      // would render:
-      //
-      // <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     ],
-
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
     [
       "script",
       { id: "register-sw" },
@@ -229,18 +226,20 @@ export default {
           navigator.serviceWorker.register('/sw.js')
         }
       })()`,
-      // would render:
-      //
-      // <script id="register-sw">
-      // ;(() => {
-      //   if ('serviceWorker' in navigator) {
-      //     navigator.serviceWorker.register('/sw.js')
-      //   }
-      // })()
-      // </script>
     ],
   ],
 };
+
+// 渲染后:
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="icon" href="/favicon.ico">
+<script id="register-sw">
+  ;(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+    }
+  })()
+</script>
 ```
 
 ```ts [HeadConfig 类型]
@@ -251,7 +250,7 @@ type HeadConfig =
 
 :::
 
-#### 网址 lang 属性
+### 网址 lang 属性
 
 - Name: `lang`
 - Type: `string`
@@ -260,12 +259,13 @@ type HeadConfig =
 这将在页面 HTML 中呈现为 `<html lang="en-US">` 标记
 
 ```ts
+// 中文
 export default {
-  lang: "en-US",
+  lang: "zh-CN",
 };
 ```
 
-#### 部署站点的基本 URL
+### 部署站点的基本 URL
 
 - Name: `base`
 - Type: `string`
@@ -275,15 +275,63 @@ export default {
 
 如果计划将站点部署到 `https://foo.github.io/bar/` ，则应将 `base` 设置为 `'/bar/'` 。它应始终以斜杠开头和结尾。
 
-```ts
+::: code-group
+
+```ts [部署到根目录]
+export default {
+  base: "/",
+};
+```
+
+```ts [部署到base目录]
 export default {
   base: "/base/",
 };
 ```
 
-### 构建
+```ts [部署到doc目录]
+export default {
+  base: "/doc/",
+};
+```
 
-#### 源目录
+:::
+
+## 路由
+
+### cleanUrls
+
+- Name: `cleanUrls`
+- Type: `boolean`
+- Default: `false`
+
+当设置为 `true` 时，VitePress 将从 URL 中删除尾随的 `.html` 。另请参阅[[生成干净的 URL]](https://vitepress.dev/guide/routing#generating-clean-url)。
+
+::: warning 需要服务器支持
+启用此功能可能需要在您的托管平台上进行其他配置。
+
+为了使它工作，你的服务器必须能够在访问 `/foo` 时提供 `/foo.html` 而不需要重定向。
+:::
+
+### 重写
+
+- Name: `rewrites`
+- Type: `Record<string, string>`
+- Default: 没有默认值
+
+定义自定义 `目录<->URL` 的映射。有关详细信息，请参阅[[路由：路由重写]](https://vitepress.dev/guide/routing#route-rewrites)。
+
+```ts
+export default {
+  rewrites: {
+    "source/:page": "destination/:page",
+  },
+};
+```
+
+## 构建
+
+### 源目录
 
 - Name: `srcDir`
 - Type: `string`
@@ -297,7 +345,7 @@ export default {
 };
 ```
 
-#### 排除文件
+### 排除文件
 
 - Name: `srcExclude`
 - Type: `string`
@@ -313,7 +361,7 @@ export default {
 };
 ```
 
-#### 输出目录
+### 输出目录
 
 - Name: `outDir`
 - Type: `string`
@@ -327,7 +375,21 @@ export default {
 };
 ```
 
-#### 缓存目录
+### 资源目录
+
+- Name: `assetsDir`
+- Type: `string`
+- Default: `assets`
+
+资源文件的目录。另请参见：[[资源目录]](https://vitejs.dev/config/build-options.html#build-assetsdir)。
+
+```ts
+export default {
+  assetsDir: "static",
+};
+```
+
+### 缓存目录
 
 - Name: `cacheDir`
 - Type: `string`
@@ -343,7 +405,7 @@ export default {
 
 更多内容请参阅： [Vite 缓存目录](https://vitejs.dev/config/shared-options.html#cachedir) 。
 
-#### 死链验证
+### 忽略死链接验证
 
 - Name: `ignoreDeadLinks`
 - Type: `boolean | 'localhostLinks' | (string | RegExp | ((link: string) => boolean))[]`
@@ -359,7 +421,7 @@ export default {
 };
 ```
 
-::: details 也可以是确切的 url 字符串、正则表达式模式或自定义过滤器函数的数组
+::: details 也可以是准确的 url 字符串、正则表达式模式或自定义过滤器函数的数组
 
 ```ts
 export default {
@@ -380,13 +442,19 @@ export default {
 
 :::
 
-### 主题
+### mpa <Badge type="warning" text="实验" />
 
-#### 是否启用深色模式
+具体请 [[阅读官网]](https://vitepress.dev/reference/site-config#mpa)
+
+## 主题
+
+### 是否启用深色模式
 
 - Name: `appearance`
-- Type: `boolean | 'dark'`
+- Type: `boolean | 'dark' | 'force-dark' | import('@vueuse/core').UseDarkOptions`
 - Default: `true`
+
+通过在 `＜html＞` 元素上添加 `.dark` 类来实现是否启用暗模式。
 
 ```ts
 export default { appearance: true };
@@ -400,9 +468,11 @@ export default { appearance: true };
 
 ::: tip 此选项注入一个内联脚本
 该脚本使用 `vitepress-theme-appearance` 键从本地存储还原用户设置。这可确保在呈现页面之前应用 `.dark` 类以避免闪烁。
+
+`appearance.initialValue` 只能是 `'dark' | undefined` ，不支持引用或 getter。
 :::
 
-#### 是否启用最新更新
+### 是否启用最新更新
 
 - Name: `lastUpdated`
 - Type: `boolean`
@@ -429,21 +499,39 @@ export default defineConfig({
 
 :::
 
+## 定制
+
 ### Markdown 选项 {#markdown}
+
+- Type: `MarkdownOption`
 
 VitePress 使用 Markdown-it 作为解析器，使用 Shiki 来突出显示语言语法。
 
 在此选项中，您可以传递各种与 Markdown 相关的选项以满足您的需求。
 
-::: info 例如：禁用行数
+::: code-group
 
-```ts
+```ts [写法]
+export default {
+  markdown: {
+    // ...
+  },
+};
+```
+
+```ts [禁用行数]
 export default {
   markdown: { lineNumbers: false },
 };
 ```
 
 :::
+
+以下是您可以在此对象中使用的所有选项：
+
+<<<@/assets/vitepress/MarkdownOptions.ts
+
+### vite
 
 ::: danger 更多站点配置
 站点配置的更多内容请阅读 [[官方手册]](https://vitepress.dev/reference/site-config)
