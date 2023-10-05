@@ -5,8 +5,12 @@
     "frontmatter",
     "laravel",
     "owasp",
+    "pgsql",
     "phpfpm",
-    "usermod"
+    "usermod",
+    "vitepress",
+    "wangdoc",
+    "wechat"
   ],
   "svg.preview.background": "custom"
 }
