@@ -12,7 +12,7 @@ hero:
   actions:
     - theme: brand
       text: 使用指南
-      link: /vitepress/guide/introduction/
+      link: /vitepress/guide/
     - theme: alt
       text: 配置参考
       link: /vitepress/config
