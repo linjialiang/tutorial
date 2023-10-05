@@ -9,11 +9,11 @@ titleTemplate: VitePress 教程
 
 ## 站点配置
 
-<!--@include: @/other/vitepress/conf/site.md-->
+<!--@include: @/vitepress/conf/site.md-->
 
 ## 前言配置 {#frontmatter-config}
 
-<!--@include: @/other/vitepress/conf/frontmatter.md-->
+<!--@include: @/vitepress/conf/frontmatter.md-->
 
 ## 命令行界面
 
