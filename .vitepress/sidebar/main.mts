@@ -1,10 +1,6 @@
-import css from "./css/main.mjs";
 import debian from "./debian/main.mjs";
 import docker from "./docker/main.mjs";
 import environment from "./environment/main.mjs";
-import es6 from "./es6/main.mjs";
-import html from "./html/main.mjs";
-import js from "./js/main.mjs";
 import kafka from "./kafka/main.mjs";
 import mongodb from "./mongodb/main.mjs";
 import nginx from "./nginx/main.mjs";
@@ -26,10 +22,6 @@ const sidebar = {
   "/redis/": redis,
   "/kafka/": kafka,
   "/php/": php,
-  "/html/": html,
-  "/css/": css,
-  "/js/": js,
-  "/es6/": es6,
   "/vue/": vue,
   "/vitepress/": vitepress,
   "/other/": other,
