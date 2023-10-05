@@ -29,6 +29,10 @@ guide/getting-started.md  -->  /guide/getting-started.html
 
 :::
 
+::: tip
+生成的 HTML 可以托管在任何可以提供静态文件的 Web 服务器上。
+:::
+
 ## 根目录和源目录 {#root-and-source-dir}
 
 VitePress 项目的文件结构中有两个重要概念：项目[根目录](#root-dir)和[源目录](#source-dir)。
