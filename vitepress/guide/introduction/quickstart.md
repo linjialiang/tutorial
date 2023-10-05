@@ -179,13 +179,42 @@ pnpm add -D vue
 
 :::
 
+`docs` 目录被认为是 VitePress 站点的项目根目录。`.vitepress` 目录是 VitePress 的配置文件、开发服务器缓存、构建输出和可选的主题自定义代码的保留位置。
+
 ::: tip 提示
 默认情况下，VitePress 将其开发服务器缓存存储在 `.vitepress/cache` 中，并将生产构建输出存储在 `.vitepress/dist` 中。
 
-如果使用 Git，则应将它们添加到 `.gitignore` 文件中。
-
-当然这些位置也可以配置。
+如果使用 Git，则应将它们添加到 `.gitignore` 文件中。当然这些位置也可以在配置文件里修改。
 :::
+
+## 配置文件
+
+配置文件（`.vitepress/config.(js|ts|mts)`）允许您自定义 VitePress 站点的各个方面，最基本的选项是站点的标题和描述：
+
+```ts
+// .vitepress/config.mts
+export default {
+  // site-level options
+  title: "VitePress",
+  description: "Just playing around.",
+
+  themeConfig: {
+    // theme-level options
+  },
+};
+```
+
+您还可以通过 `themeConfig` 选项配置主题的行为。有关所有配置选项的详细信息，请参阅[[配置参考]](https://vitepress.dev/reference/site-config)。
+
+## 源文件
+
+`.vitepress` 目录外的 Markdown 文件被认为是源文件。
+
+VitePress 使用基于文件的路由：每个 `.md` 文件被编译成具有相同路径的对应 `.html` 文件。
+
+例如，`index.md` 将被编译为 `index.html`，并且可以在生成的 VitePress 站点的根路径 `/` 处访问。
+
+VitePress 还提供了生成干净 URL、重写路径和动态生成页面的能力。这些将在 [[路由指南]](https://vitepress.dev/guide/routing) 中介绍。
 
 ## 启动并运行
 
@@ -243,10 +272,14 @@ pnpm docs:preview
 
 :::
 
+更多命令行用法请参见 [[CLI 参考]](https://vitepress.dev/reference/cli)
+
+开发服务器应该在 `http://localhost:5173` 运行。访问浏览器中的 URL，查看您的新网站的运行！
+
 ## 下一步
 
-1. 要了解 markdown 文件如何映射到生成的 HTML，请继续阅读 [路由指南](/other/vitepress/route)。
-2. 要了解在页面上能做什么，一个很好的起点是阅读 [Markdown 扩展](/other/vitepress/md) 。
-3. 要探索默认文档主题提供的功能，请查看 [默认主题配置参考](/other/vitepress/default-theme)。
-4. 如果要进一步自定义网站的外观，请探索如何 [扩展默认主题](https://vitepress.dev/guide/extending-default-theme) 或 [构建自定义主题](https://vitepress.dev/guide/custom-theme)。
-5. 文档站点形成后，请务必阅读 [部署指南](/other/vitepress/deploy)。
+1. 要了解 markdown 文件如何映射到生成的 HTML，请继续阅读 [[路由指南]](./route)。
+2. 要了解在页面上能做什么，一个很好的起点是阅读 [[Markdown 扩展]](/other/vitepress/md) 。
+3. 要探索默认文档主题提供的功能，请查看 [[默认主题配置参考](/other/vitepress/default-theme)。
+4. 如果要进一步自定义网站的外观，请探索如何 [[扩展默认主题]](https://vitepress.dev/guide/extending-default-theme) 或 [[构建自定义主题]](https://vitepress.dev/guide/custom-theme)。
+5. 文档站点形成后，请务必阅读 [[部署指南]](/other/vitepress/deploy)。
