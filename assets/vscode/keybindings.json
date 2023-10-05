@@ -9,13 +9,13 @@
     "command": "wwm.aligncode"
   },
   {
-    // "key": "ctrl+k ctrl+shift+u", // windows
-    "key": "ctrl+k ctrl+alt+u", // linux
+    "key": "ctrl+k ctrl+shift+u", // windows
+    // "key": "ctrl+k ctrl+alt+u", // linux
     "command": "editor.action.transformToUppercase"
   },
   {
-    // "key": "ctrl+k ctrl+shift+l", // windows
-    "key": "ctrl+k ctrl+alt+l", // linux
+    "key": "ctrl+k ctrl+shift+l", // windows
+    // "key": "ctrl+k ctrl+alt+l", // linux
     "command": "editor.action.transformToLowercase"
   },
   {

@@ -8,7 +8,6 @@ const nav = [
   { text: "MongoDB 教程", link: "/mongodb/" },
   { text: "Kafka 教程", link: "/kafka/" },
   { text: "PHP 教程", link: "/php/" },
-  { text: "VitePress 教程", link: "/vitepress/" },
 ];
 
 export default nav;

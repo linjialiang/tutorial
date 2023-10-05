@@ -100,18 +100,23 @@ features:
     details: Vue3
     link: /vue/index
   - icon:
-      src: /svg/other.svg
-    title: Other
-    details: 其它文档
-    link: /other/index
+      src: /svg/vitepress.svg
+    title: VitePress
+    details: VitePress文档
+    link: /vitepress/index
   - icon:
-      src: /svg/clash.svg
-    title: Clash
-    details: Clash
-    link: /other/clash/index
+      src: /svg/vscode.svg
+    title: VSCode
+    details: Visual Studio Code
+    link: /other/vscode/index
   - icon:
       src: /svg/permeate.svg
     title: permeate
     details: 渗透
     link: /permeate/index
+  - icon:
+      src: /svg/other.svg
+    title: Other
+    details: 其它文档
+    link: /other/index
 ---
