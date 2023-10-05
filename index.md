@@ -11,7 +11,7 @@ hero:
     alt: "PHP 环境搭建"
   actions:
     - theme: brand
-      text: 环境搭建
+      text: PHP 环境搭建
       link: /environment/
     - theme: alt
       text: SQL
