@@ -9,7 +9,7 @@ VitePress 是一个静态网站生成器（[SSG](#SSG)），旨在构建快速�
 
 简单地说，VitePress 获取您用 Markdown 编写的源内容，对其应用主题，并生成可以轻松部署在任何地方的静态 HTML 页面。
 
-[点此进入](https://vitepress.dev/) VitePress 官网
+[[点此进入]](https://vitepress.dev/) VitePress 官网
 
 ## 用例
 
