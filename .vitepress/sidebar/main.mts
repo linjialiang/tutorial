@@ -13,6 +13,7 @@ import permeate from "./permeate/main.mjs";
 import php from "./php/main.mjs";
 import redis from "./redis/main.mjs";
 import sql from "./sql/main.mjs";
+import vitepress from "./vitepress/main.mjs";
 import vue from "./vue/main.mjs";
 
 const sidebar = {
@@ -30,6 +31,7 @@ const sidebar = {
   "/js/": js,
   "/es6/": es6,
   "/vue/": vue,
+  "/vitepress/": vitepress,
   "/other/": other,
   "/permeate/": permeate,
 };
