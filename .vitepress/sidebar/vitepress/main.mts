@@ -12,11 +12,18 @@ const introduction = [
 const writing = [
   { text: "Markdown扩展 ", link: `${path.main}guide/writing/md` },
   { text: "表情符号", link: `${path.main}guide/writing/emoji` },
+  { text: "资源处理", link: `${path.main}guide/writing/resources` },
+  { text: "frontmatter", link: `${path.main}guide/writing/frontmatter` },
+  { text: "markdown中使用Vue", link: `${path.main}guide/writing/using-vue` },
+  { text: "国际化", link: `${path.main}guide/writing/i18n` },
 ];
+
+const custom = [{ text: "概述", link: `${path.main}guide/customization/` }];
 
 const guide = [
   { text: "介绍", collapsed: true, items: introduction },
   { text: "写作", collapsed: true, items: writing },
+  { text: "定制", collapsed: true, items: custom },
 ];
 
 const reference = [
