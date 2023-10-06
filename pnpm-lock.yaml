@@ -1234,10 +1234,10 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  registry.npmmirror.com/vite@4.4.10:
-    resolution: {integrity: sha512-TzIjiqx9BEXF8yzYdF2NTf1kFFbjMjUSV0LFZ3HyHoI3SGSPLnnFUKiIQtL3gl2AjHvMrprOvQ3amzaHgQlAxw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite/-/vite-4.4.10.tgz}
+  registry.npmmirror.com/vite@4.4.11:
+    resolution: {integrity: sha512-ksNZJlkcU9b0lBwAGZGGaZHCMqHsc8OpgtoYhsQ4/I2v5cnpmmmqe5pM4nv/4Hn6G/2GhTdj0DhZh2e+Er1q5A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite/-/vite-4.4.11.tgz}
     name: vite
-    version: 4.4.10
+    version: 4.4.11
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -1297,7 +1297,7 @@ packages:
       markdown-it-mathjax3: registry.npmmirror.com/markdown-it-mathjax3@4.3.2
       minisearch: registry.npmmirror.com/minisearch@6.1.0
       shiki: registry.npmmirror.com/shiki@0.14.4
-      vite: registry.npmmirror.com/vite@4.4.10
+      vite: registry.npmmirror.com/vite@4.4.11
       vue: registry.npmmirror.com/vue@3.3.4
     transitivePeerDependencies:
       - '@algolia/client-search'
