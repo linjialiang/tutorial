@@ -32,6 +32,8 @@ const defaultTheme = [
   { text: "侧边栏", link: `${path.main}conf/default-theme/sidebar` },
   { text: "主页", link: `${path.main}conf/default-theme/home` },
   { text: "页脚", link: `${path.main}conf/default-theme/footer` },
+  { text: "布局", link: `${path.main}conf/default-theme/layout` },
+  { text: "徽章", link: `${path.main}conf/default-theme/badge` },
 ];
 
 const reference = [
