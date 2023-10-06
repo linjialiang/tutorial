@@ -21,6 +21,11 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     logo: "/logo.png",
     lastUpdatedText: "最近更新",
+    // --------- 仅移动端显示 start
+    darkModeSwitchLabel: "切换主题",
+    sidebarMenuLabel: "栏目",
+    returnToTopLabel: "返回顶部",
+    // 仅移动端显示 end ---------
     socialLinks: [
       {
         icon: "github",

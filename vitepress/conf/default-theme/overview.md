@@ -420,6 +420,50 @@ export interface LastUpdatedOptions {
 
 :::
 
+## algolia
+
+- Name: `algolia`
+- Type: `AlgoliaSearch`
+
+支持使用 [Algolia DocSearch](https://docsearch.algolia.com/docs/what-is-docsearch) 搜索文档站点的选项。在[默认主题：搜索](https://vitepress.dev/reference/default-theme-search)中了解更多信息
+
+```ts
+export interface AlgoliaSearchOptions extends DocSearchProps {
+  locales?: Record<string, Partial<DocSearchProps>>;
+}
+```
+
+[在这里](https://github.com/vuejs/vitepress/blob/main/types/docsearch.d.ts)查看完整选项。
+
+## carbonAds
+
+- Name: `carbonAds`
+- Type: `CarbonAdsOptions`
+
+::: code-group
+
+```ts [选项]
+export default {
+  themeConfig: {
+    carbonAds: {
+      code: "your-carbon-code",
+      placement: "your-carbon-placement",
+    },
+  },
+};
+```
+
+```ts [结构]
+export interface CarbonAdsOptions {
+  code: string;
+  placement: string;
+}
+```
+
+:::
+
+在[默认主题：Carbon Ads](https://vitepress.dev/reference/default-theme-carbon-ads)中了解更多信息
+
 ## 文档页脚
 
 - Name: `docFooter`
@@ -451,34 +495,58 @@ export interface DocFooter {
 
 :::
 
-## 暗模式开关标签 <Badge type="info" text="移动端" />
+## 暗模式开关标签 <Badge type="info" text="仅移动端显示" />
 
 - Name: `darkModeSwitchLabel`
 - Type: `string`
 - Default: `Appearance`
 
-可用于自定义暗模式开关标签。此标签仅显示在移动视图中。
+可用于自定义暗模式开关标签名称。此标签名称仅显示在移动视图中。
 
-## 侧边栏菜单 <Badge type="info" text="移动端" />
+```ts
+export default {
+  themeConfig: {
+    darkModeSwitchLabel: "主题切换",
+  },
+};
+```
+
+## 侧边栏菜单 <Badge type="info" text="仅移动端显示" />
 
 - Name: `sidebarMenuLabel`
 - Type: `string`
 - Default: `Menu`
 
-可用于自定义侧边栏菜单标签。此标签仅显示在移动视图中。
+可用于自定义侧边栏菜单标签名称。此标签名称仅显示在移动视图中。
 
-## 返回顶部按钮 <Badge type="info" text="移动端" />
+```ts
+export default {
+  themeConfig: {
+    sidebarMenuLabel: "栏目",
+  },
+};
+```
+
+## 返回顶部按钮 <Badge type="info" text="仅移动端显示" />
 
 - Name: `returnToTopLabel`
 - Type: `string`
 - Default: `Return to top`
 
-可用于自定义返回顶部按钮的标签。此标签仅显示在移动视图中。
+可用于自定义返回顶部按钮的标签名称。此标签名称仅显示在移动视图中。
 
-## 语言切换按钮 <Badge type="info" text="移动端" />
+```ts
+export default {
+  themeConfig: {
+    returnToTopLabel: "返回顶部",
+  },
+};
+```
+
+## 语言切换按钮 <Badge type="info" text="仅移动端显示" />
 
 - Name: `langMenuLabel`
 - Type: `string`
 - Default: `Change language`
 
-可用于自定义导航栏中语言切换按钮的 `aria` 标签。这仅在您使用的是 i18n 时使用。
+可用于自定义导航栏中语言切换按钮的 `aria` 标签名称。这仅在您使用的是 `i18n` 时使用。
