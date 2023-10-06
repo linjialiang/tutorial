@@ -1,11 +1,64 @@
-### i18nRouting
+---
+title: 默认主题配置
+titleTemplate: VitePress 教程
+---
 
-详情请阅读 [[官方手册]](https://vitepress.dev/reference/default-theme-config#i18nrouting)
+# {{ $frontmatter.title }}
 
-### LOGO 图标
+主题配置可让您自定义主题。
 
-- Name: logo
-- Type: ThemeableImage
+您可以通过配置文件中的 `themeConfig` 选项定义主题配置：
+
+```ts
+export default {
+  lang: "zh-CN",
+  title: "VitePress",
+  description: "Vite & Vue Powered 静态站点生成器",
+
+  // 主题相关配置。
+  themeConfig: {
+    logo: "/logo.svg",
+    nav: [
+      // ...
+    ],
+    sidebar: {
+      // ...
+    },
+  },
+};
+```
+
+::: warning 警告
+此页面上记录的选项仅适用于默认主题。不同的主题需要不同的主题配置。使用自定义主题时，主题配置对象将传递给主题，以便主题可以基于它定义条件行为。
+:::
+
+## i18nRouting
+
+- Name: `i18nRouting`
+- Type: `boolean`
+
+将区域设置更改为 `zh` 将使 `URL` 从 `/foo`（或`/en/foo/`）更改为`/zh-CN/foo`。
+
+::: details 通过将 `themeConfig.i18nRouting` 设置为 `false` 来禁用此行为：
+
+```ts
+import { defineConfig } from "vitepress";
+
+export default defineConfig({
+  themeConfig: {
+    i18nRouting: false,
+  },
+});
+```
+
+::: tip
+国际化相关内容请阅读[官网文档](https://vitepress.dev/guide/i18n)
+:::
+
+## logo 图标
+
+- Name: `logo`
+- Type: `ThemeableImage`
 
 要在导航栏中显示的 logo 图标，紧挨着网站标题。
 
@@ -16,35 +69,38 @@
 ```ts [示例]
 export default {
   themeConfig: {
-    logo: '/logo.svg',
+    logo: "/logo.svg",
   },
 };
 ```
 
-```ts [ThemeableImage 结构]
-type ThemeableImage = string | { src: string; alt?: string } | { light: string; dark: string; alt?: string };
+```ts [结构]
+type ThemeableImage =
+  | string
+  | { src: string; alt?: string }
+  | { light: string; dark: string; alt?: string };
 ```
 
 :::
 
-### 默认站点标题
+## 默认站点标题
 
-- Name: siteTitle
+- Name: `siteTitle`
 - Type: `string | false`
 
-您可以自定义此项以替换导航中的默认站点标题（应用程序配置中的 title ）。
+您可以自定义此项以替换导航中的默认站点标题（应用程序配置中的 `title` ）。
 
-当设置为 false 时，导航中的标题将被禁用。当 logo 已包含网站标题文本时很有用。
+当设置为 `false` 时，导航中的标题将被禁用。当 `logo` 已包含网站标题文本时很有用。
 
 ```ts
 export default {
   themeConfig: {
-    siteTitle: 'Hello World',
+    siteTitle: "Hello World",
   },
 };
 ```
 
-### 导航栏菜单
+## 导航栏菜单
 
 - Name: nav
 - Type: `NavItem`
@@ -57,13 +113,13 @@ export default {
 export default {
   themeConfig: {
     nav: [
-      { text: 'Guide', link: '/guide' },
+      { text: "Guide", link: "/guide" },
       {
-        text: 'Dropdown Menu',
+        text: "Dropdown Menu",
         items: [
-          { text: 'Item A', link: '/item-1' },
-          { text: 'Item B', link: '/item-2' },
-          { text: 'Item C', link: '/item-3' },
+          { text: "Item A", link: "/item-1" },
+          { text: "Item B", link: "/item-2" },
+          { text: "Item C", link: "/item-3" },
         ],
       },
     ],
@@ -71,7 +127,7 @@ export default {
 };
 ```
 
-```ts [NavItem 结构]
+```ts [结构]
 type NavItem = NavItemWithLink | NavItemWithChildren;
 
 interface NavItemWithLink {
@@ -96,7 +152,7 @@ interface NavItemWithChildren {
 
 :::
 
-### 侧边栏菜单
+## 侧边栏菜单
 
 - Name: `sidebar`
 - Type: `Sidebar`
@@ -110,19 +166,19 @@ export default {
   themeConfig: {
     sidebar: [
       {
-        text: 'Guide',
+        text: "Guide",
         items: [
-          { text: 'Introduction', link: '/introduction' },
-          { text: 'Getting Started', link: '/getting-started' },
-          ...
-        ]
-      }
-    ]
-  }
-}
+          { text: "Introduction", link: "/introduction" },
+          { text: "Getting Started", link: "/getting-started" },
+          // ...
+        ],
+      },
+    ],
+  },
+};
 ```
 
-```ts [NavItem 结构]
+```ts [结构]
 export type Sidebar = SidebarItem[] | SidebarMulti;
 
 export interface SidebarMulti {
@@ -158,14 +214,14 @@ export type SidebarItem = {
 
 :::
 
-### aside
+## aside
 
 当前文件的标题列表导航
 
 - Name: `aside`
 - Type: `boolean | 'left'`
 - Default: `true`
-- 可以通过每页的前言覆盖
+- 可以通过每页的[前言](./../frontmatter#aside)覆盖
 
 | 选项     | 说明                   |
 | -------- | ---------------------- |
@@ -173,7 +229,17 @@ export type SidebarItem = {
 | `true`   | 标题列表导航呈现到右侧 |
 | `'left'` | 标题列表导航呈现到左侧 |
 
-### outline
+如果要对所有视口禁用该选项，则应改用 `outline: false`
+
+```ts
+export default {
+  themeConfig: {
+    outline: false,
+  },
+};
+```
+
+## outline
 
 大纲中要为页面显示的页眉级别
 
@@ -191,19 +257,19 @@ export type SidebarItem = {
 | `'deep'`           | 列表展示 `h2-h6` 全部标题 |
 | `false`            | 不展示                    |
 
-### outlineTitle
+## outlineTitle
 
 可用于自定义右侧边栏的标题（在大纲链接的顶部）。这在用另一种语言编写文档时很有用。
 
 ```ts
 export default {
   themeConfig: {
-    outlineTitle: '大纲',
+    outlineTitle: "大纲",
   },
 };
 ```
 
-### socialLinks
+## socialLinks
 
 - Name: `SocialLink[]`
 
@@ -215,12 +281,15 @@ export default {
 export default {
   themeConfig: {
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/linjialiang/php-environment.git' },
+      {
+        icon: "github",
+        link: "https://github.com/linjialiang/php-environment.git",
+      },
       {
         icon: {
           svg: '<svg t="1685882013964" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7153" width="600" height="600"><path d="M512 1024C229.222 1024 0 794.778 0 512S229.222 0 512 0s512 229.222 512 512-229.222 512-512 512z m259.149-568.883h-290.74a25.293 25.293 0 0 0-25.292 25.293l-0.026 63.206c0 13.952 11.315 25.293 25.267 25.293h177.024c13.978 0 25.293 11.315 25.293 25.267v12.646a75.853 75.853 0 0 1-75.853 75.853h-240.23a25.293 25.293 0 0 1-25.267-25.293V417.203a75.853 75.853 0 0 1 75.827-75.853h353.946a25.293 25.293 0 0 0 25.267-25.292l0.077-63.207a25.293 25.293 0 0 0-25.268-25.293H417.152a189.62 189.62 0 0 0-189.62 189.645V771.15c0 13.977 11.316 25.293 25.294 25.293h372.94a170.65 170.65 0 0 0 170.65-170.65V480.384a25.293 25.293 0 0 0-25.293-25.267z" fill="#d81e06" p-id="7154"></path></svg>',
         },
-        link: 'https://gitee.com/linjialiang/php-environment.git',
+        link: "https://gitee.com/linjialiang/php-environment.git",
       },
     ],
   },
@@ -234,21 +303,21 @@ interface SocialLink {
 }
 
 type SocialLinkIcon =
-  | 'discord'
-  | 'facebook'
-  | 'github'
-  | 'instagram'
-  | 'linkedin'
-  | 'mastodon'
-  | 'slack'
-  | 'twitter'
-  | 'youtube'
+  | "discord"
+  | "facebook"
+  | "github"
+  | "instagram"
+  | "linkedin"
+  | "mastodon"
+  | "slack"
+  | "twitter"
+  | "youtube"
   | { svg: string };
 ```
 
 :::
 
-### 页脚配置
+## 页脚配置
 
 - Name: `footer`
 - Type: `Footer`
@@ -261,8 +330,8 @@ type SocialLinkIcon =
 export default {
   themeConfig: {
     footer: {
-      message: 'PHP 环境搭建及其系列教程',
-      copyright: 'Copyright © 2023-present 地上马',
+      message: "PHP 环境搭建及其系列教程",
+      copyright: "Copyright © 2023-present 地上马",
     },
   },
 };
@@ -277,7 +346,7 @@ export interface Footer {
 
 :::
 
-### editLink
+## editLink
 
 - Name: `editLink`
 - Type: `EditLink`
@@ -293,8 +362,8 @@ export interface Footer {
 export default {
   themeConfig: {
     editLink: {
-      pattern: 'https://github.com/linjialiang/php-environment/main/:path',
-      text: '在 github 上编辑',
+      pattern: "https://github.com/linjialiang/php-environment/main/:path",
+      text: "在 github 上编辑",
     },
   },
 };
@@ -309,7 +378,7 @@ export interface EditLink {
 
 :::
 
-### lastUpdatedText
+## lastUpdatedText
 
 - Name: `lastUpdatedText`
 - Type: `string`
@@ -320,12 +389,12 @@ export interface EditLink {
 ```ts
 export default {
   themeConfig: {
-    lastUpdatedText: '最近更新',
+    lastUpdatedText: "最近更新",
   },
 };
 ```
 
-### docFooter
+## docFooter
 
 - Name: `docFooter`
 - Type: `DocFooter`
@@ -340,8 +409,8 @@ export default {
 export default {
   themeConfig: {
     docFooter: {
-      prev: '上一页',
-      next: '下一页',
+      prev: "上一页",
+      next: "下一页",
     },
   },
 };
@@ -356,7 +425,7 @@ export interface DocFooter {
 
 :::
 
-### 暗模式开关标签 <Badge type="info" text="移动端" />
+## 暗模式开关标签 <Badge type="info" text="移动端" />
 
 - Name: `darkModeSwitchLabel`
 - Type: `string`
@@ -364,7 +433,7 @@ export interface DocFooter {
 
 可用于自定义暗模式开关标签。此标签仅显示在移动视图中。
 
-### 侧边栏菜单 <Badge type="info" text="移动端" />
+## 侧边栏菜单 <Badge type="info" text="移动端" />
 
 - Name: `sidebarMenuLabel`
 - Type: `string`
@@ -372,7 +441,7 @@ export interface DocFooter {
 
 可用于自定义侧边栏菜单标签。此标签仅显示在移动视图中。
 
-### 返回顶部按钮 <Badge type="info" text="移动端" />
+## 返回顶部按钮 <Badge type="info" text="移动端" />
 
 - Name: `returnToTopLabel`
 - Type: `string`
@@ -380,7 +449,7 @@ export interface DocFooter {
 
 可用于自定义返回顶部按钮的标签。此标签仅显示在移动视图中。
 
-### 语言切换按钮 <Badge type="info" text="移动端" />
+## 语言切换按钮 <Badge type="info" text="移动端" />
 
 - Name: `langMenuLabel`
 - Type: `string`

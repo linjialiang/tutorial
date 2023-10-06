@@ -26,12 +26,16 @@ const guide = [
   { text: "定制", collapsed: true, items: custom },
 ];
 
+const defaultTheme = [
+  { text: "概述", link: `${path.main}conf/default-theme/overview` },
+];
+
 const reference = [
   { text: "站点配置", link: `${path.main}conf/site` },
   { text: "前言配置", link: `${path.main}conf/frontmatter` },
   { text: "运行时API", link: `${path.main}conf/runtime-api` },
   { text: "命令行界面", link: `${path.main}conf/cli` },
-  { text: "默认主题", link: `${path.main}default-theme` },
+  { text: "默认主题", collapsed: true, items: defaultTheme },
 ];
 
 const sidebar = [
