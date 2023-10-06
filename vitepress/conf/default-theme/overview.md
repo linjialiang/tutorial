@@ -259,6 +259,9 @@ export default {
 
 ## outlineTitle
 
+- Name: `outlineTitle`
+- Type: `Outline \| Outline['level'] \| false`
+
 可用于自定义右侧边栏的标题（在大纲链接的顶部）。这在用另一种语言编写文档时很有用。
 
 ```ts
@@ -271,7 +274,8 @@ export default {
 
 ## socialLinks
 
-- Name: `SocialLink[]`
+- Name: `socialLinks`
+- Type: `SocialLink[]`
 
 您可以定义此选项以在导航中显示带有图标的社交帐户链接
 
