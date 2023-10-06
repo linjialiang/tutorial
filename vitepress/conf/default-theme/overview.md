@@ -296,10 +296,11 @@ export default {
 };
 ```
 
-```ts [SocialLink 结构]
+```ts [结构]
 interface SocialLink {
   icon: SocialLinkIcon;
   link: string;
+  ariaLabel?: string;
 }
 
 type SocialLinkIcon =
@@ -330,14 +331,14 @@ type SocialLinkIcon =
 export default {
   themeConfig: {
     footer: {
-      message: "PHP 环境搭建及其系列教程",
-      copyright: "Copyright © 2023-present 地上马",
+      message: "程序员系列教程",
+      copyright: "Copyright © 2023-present linjialiang",
     },
   },
 };
 ```
 
-```ts [SocialLink 结构]
+```ts [结构]
 export interface Footer {
   message?: string;
   copyright?: string;
@@ -350,7 +351,7 @@ export interface Footer {
 
 - Name: `editLink`
 - Type: `EditLink`
-- 可以通过每页的前言覆盖
+- 可以通过每页的[前言](./../frontmatter#edit-link)覆盖
 
 编辑链接允许您显示一个链接，用于在 Git 管理服务（如 GitHub 或 Github）上编辑页面。
 

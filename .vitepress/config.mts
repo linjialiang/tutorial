@@ -76,7 +76,7 @@ export default defineConfig({
     sidebar: sidebar,
     footer: {
       message: "程序员系列教程",
-      copyright: "Copyright © 2023-present 地上马",
+      copyright: "Copyright © 2023-present linjialiang",
     },
   },
 });
