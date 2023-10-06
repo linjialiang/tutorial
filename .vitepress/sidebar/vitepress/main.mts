@@ -36,6 +36,7 @@ const defaultTheme = [
   { text: "徽章", link: `${path.main}conf/default-theme/badge` },
   { text: "团队页面", link: `${path.main}conf/default-theme/team` },
   { text: "上下页", link: `${path.main}conf/default-theme/prev-next` },
+  { text: "Edit链接", link: `${path.main}conf/default-theme/edit-link` },
 ];
 
 const reference = [
