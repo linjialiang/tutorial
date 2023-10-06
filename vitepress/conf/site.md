@@ -265,7 +265,7 @@ export default {
 };
 ```
 
-### 部署站点的基本 URL
+### 部署站点的基本 URL {#base}
 
 - Name: `base`
 - Type: `string`

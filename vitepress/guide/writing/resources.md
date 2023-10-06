@@ -33,7 +33,7 @@ titleTemplate: VitePress 教程
 
 请注意，您应该使用根绝对路径引用放置在 `public` 中的文件-例如，`public/icon.png` 应该始终在源代码中引用为 `/icon.png`
 
-## 基本 URL
+## 基本 URL {#base-url}
 
 如果您的站点部署到非根 URL，则需要在 base 中设置.vitepress/config.js 选项。例如，如果您计划将您的站点部署到https://foo.github.io/bar/，那么base应该设置为'/bar/'（它应该始终以斜线开始和结束）。
 
