@@ -172,4 +172,4 @@ export default {
 
 ## 联系我们
 
-参考 [socialLinks](./overview#socialLinks)
+参考 [socialLinks](./overview#sociallinks)
