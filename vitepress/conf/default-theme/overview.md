@@ -543,10 +543,26 @@ export default {
 };
 ```
 
-## 语言切换按钮 <Badge type="info" text="仅移动端显示" />
+## 语言切换按钮 <Badge type="info" text="仅使用i18n时显示" />
 
 - Name: `langMenuLabel`
 - Type: `string`
 - Default: `Change language`
 
 可用于自定义导航栏中语言切换按钮的 `aria` 标签名称。这仅在您使用的是 `i18n` 时使用。
+
+## 外部链接图标
+
+- Name: `externalLinkIcon`
+- Type: `boolean`
+- Default: `false`
+
+是否在 markdown 中的外部链接旁边显示外部链接图标。
+
+```ts
+export default {
+  themeConfig: {
+    externalLinkIcon: true,
+  },
+};
+```
