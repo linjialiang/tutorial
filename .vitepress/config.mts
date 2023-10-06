@@ -22,6 +22,7 @@ export default defineConfig({
     logo: "/logo.png",
     lastUpdatedText: "最近更新",
     externalLinkIcon: true,
+    langMenuLabel: "切换语言",
     // --------- 仅移动端显示 start
     darkModeSwitchLabel: "切换主题",
     sidebarMenuLabel: "栏目",

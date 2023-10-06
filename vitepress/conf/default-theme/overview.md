@@ -551,6 +551,14 @@ export default {
 
 可用于自定义导航栏中语言切换按钮的 `aria` 标签名称。这仅在您使用的是 `i18n` 时使用。
 
+```ts
+export default {
+  themeConfig: {
+    langMenuLabel: "切换语言",
+  },
+};
+```
+
 ## 外部链接图标
 
 - Name: `externalLinkIcon`
