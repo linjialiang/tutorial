@@ -45,7 +45,7 @@ export default defineConfig({
       text: "在 github 上编辑",
     },
     outline: "deep",
-    i18nRouting: false,
+    i18nRouting: true,
     outlineTitle: "大纲",
     docFooter: {
       prev: "上一页",
@@ -84,6 +84,23 @@ export default defineConfig({
     footer: {
       message: "程序员系列教程",
       copyright: "Copyright © 2023-present linjialiang",
+    },
+  },
+  locales: {
+    root: {
+      label: "汉语",
+      lang: "zh-CN",
+      link: "/zh/", // 默认是根目录 "/" --显示在导航栏翻译菜单上，可以是外部的
+    },
+    en: {
+      label: "English",
+      lang: "en", // 可选，将作为`lang`属性添加到`html`标签上
+      link: "/en/doc", // 默认是 "/en/" --显示在导航栏翻译菜单上，可以是外部的
+    },
+    fr: {
+      label: "French",
+      lang: "fr", // 可选，将作为`lang`属性添加到`html`标签上
+      link: "/fr/doc", // 默认是 "/fr/" --显示在导航栏翻译菜单上，可以是外部的
     },
   },
 });
