@@ -11,7 +11,7 @@ titleTemplate: VitePress 教程
 
 此外，部分配置选项只能在前言中定义。
 
-::: info 示例：
+::: details 示例用法：
 
 ```md
 ---
@@ -20,7 +20,7 @@ editLink: true
 ---
 ```
 
-您可以通过 Vue 表达式中的 $frontmatter 全局访问前言数据：
+您可以通过 Vue 表达式中的全局变量 `$frontmatter` 访问前言数据：
 
 ```md
 {{ $frontmatter.title }}
