@@ -28,6 +28,7 @@ const guide = [
 
 const defaultTheme = [
   { text: "概述", link: `${path.main}conf/default-theme/overview` },
+  { text: "Nav", link: `${path.main}conf/default-theme/nav` },
 ];
 
 const reference = [

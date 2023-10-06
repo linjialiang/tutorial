@@ -94,7 +94,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
 ## 站点元数据
 
-### 网站标题
+### 网站标题 {#title}
 
 - Name: `title`
 - Type: `string`
