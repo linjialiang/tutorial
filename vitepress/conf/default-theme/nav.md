@@ -43,3 +43,5 @@ export default {
   },
 };
 ```
+
+如果要添加 alt 属性或基于暗/亮模式自定义，也可以将对象作为徽标传递。详情请参阅 [`themeConfig.logo`](./overview#logo)

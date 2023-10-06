@@ -55,7 +55,7 @@ export default defineConfig({
 国际化相关内容请阅读[官网文档](https://vitepress.dev/guide/i18n)
 :::
 
-## logo 图标
+## logo 图标 {#logo}
 
 - Name: `logo`
 - Type: `ThemeableImage`
