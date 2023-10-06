@@ -99,7 +99,7 @@ interface Router {
 
 如果您正在使用或演示的组件不是 SSR 友好的（例如，包含自定义指令），您可以将它们包装在 `ClientOnly` 组件中。
 
-```template
+```vue
 <ClientOnly>
   <NonSSRFriendlyComponent />
 </ClientOnly>
