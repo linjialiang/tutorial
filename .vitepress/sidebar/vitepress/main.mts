@@ -29,6 +29,8 @@ const guide = [
 const defaultTheme = [
   { text: "概述", link: `${path.main}conf/default-theme/overview` },
   { text: "Nav", link: `${path.main}conf/default-theme/nav` },
+  { text: "侧边栏", link: `${path.main}conf/default-theme/sidebar` },
+  { text: "主页", link: `${path.main}conf/default-theme/home` },
 ];
 
 const reference = [
