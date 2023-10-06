@@ -385,17 +385,42 @@ export interface EditLink {
 - Type: `string`
 - Default: `Last updated`
 
-设置最近更新时间之前显示的前缀文本
+允许自定义最近更新的文本和日期格式。
 
-```ts
+::: code-group
+
+```ts [示例]
 export default {
   themeConfig: {
-    lastUpdatedText: "最近更新",
+    lastUpdated: {
+      text: "最近更新",
+      formatOptions: {
+        dateStyle: "full",
+        timeStyle: "medium",
+      },
+    },
   },
 };
 ```
 
-## docFooter
+```ts [结构]
+export interface LastUpdatedOptions {
+  /**
+   * @default 'Last updated'
+   */
+  text?: string;
+
+  /**
+   * @default
+   * { dateStyle: 'short',  timeStyle: 'short' }
+   */
+  formatOptions?: Intl.DateTimeFormatOptions & { forceLocale?: boolean };
+}
+```
+
+:::
+
+## 文档页脚
 
 - Name: `docFooter`
 - Type: `DocFooter`
