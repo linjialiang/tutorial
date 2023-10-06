@@ -66,7 +66,7 @@ VitePress 是一个仅支持 `ESM` 的软件包。
 或者将相关文件的文件扩展名更改为 `.mjs/.mts` ，比如：`.vitepress/config.js` 。有关详细信息，请参阅 [[Vite 的故障排除指南]](http://vitejs.dev/guide/troubleshooting.html#this-package-is-esm-only)。另外，在异步 CJS 上下文中，你可以使用 `await import('vitepress')`。
 :::
 
-## 向导
+## 安装向导 {#setup-wizard}
 
 VitePress 附带一个命令行设置向导，可帮助您搭建基本项目的基架。
 

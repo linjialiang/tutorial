@@ -444,7 +444,9 @@ export default {
 
 ### mpa <Badge type="warning" text="实验" />
 
-具体请 [[阅读官网]](https://vitepress.dev/reference/site-config#mpa)
+vitepress 默认采用 `spa` 模式构建成单页面，使用 js 控制。
+
+而启用 `mpa` 模式是构建成多页面，不需要 js 控制，对搜索引擎 SEO 优化可能更友好，具体请 [[阅读官网]](https://vitepress.dev/reference/site-config#mpa)
 
 ## 主题
 
