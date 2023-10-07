@@ -124,3 +124,87 @@ export default defineConfig({
   },
 });
 ```
+
+## 自定义内容呈现器
+
+您可以自定义用于在索引之前呈现 markdown 内容的函数：
+
+```ts
+import { defineConfig } from "vitepress";
+
+export default defineConfig({
+  themeConfig: {
+    search: {
+      provider: "local",
+      options: {
+        /**
+         * @param {string} src
+         * @param {import('vitepress').MarkdownEnv} env
+         * @param {import('markdown-it')} md
+         */
+        _render(src, env, md) {
+          // return html string
+        },
+      },
+    },
+  },
+});
+```
+
+此函数将从客户端站点数据中剥离，因此您可以在其中使用 Node.js API。
+
+::: details 示例：从搜索中排除页面
+
+```ts
+import { defineConfig } from "vitepress";
+
+export default defineConfig({
+  themeConfig: {
+    search: {
+      provider: "local",
+      options: {
+        _render(src, env, md) {
+          const html = md.render(src, env);
+          if (env.frontmatter?.search === false) return "";
+          if (env.relativePath.startsWith("some/path")) return "";
+          return html;
+        },
+      },
+    },
+  },
+});
+```
+
+::: warning 注意
+如果提供了自定义的 `_render` 函数，您需要在前言(frontmatter)自己处理 `search: false` 。
+
+此外，在调用 `md.render` 之前， `env` 对象不会被完全填充，因此`env` 对象任何可选的属性（如：frontmatter）的检查，都应该在调用之后进行。
+:::
+
+::: details 示例：转换内容-添加锚点
+
+```ts
+import { defineConfig } from "vitepress";
+
+export default defineConfig({
+  themeConfig: {
+    search: {
+      provider: "local",
+      options: {
+        _render(src, env, md) {
+          const html = md.render(src, env);
+          if (env.frontmatter?.title)
+            return md.render(`# ${env.frontmatter.title}`) + html;
+          return html;
+        },
+      },
+    },
+  },
+});
+```
+
+:::
+
+## Algolia 搜索
+
+Algolia 相关内容请阅读 [官方文档](https://vitepress.dev/reference/default-theme-search#algolia-search)
