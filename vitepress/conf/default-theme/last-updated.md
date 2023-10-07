@@ -8,7 +8,9 @@ titleTemplate: VitePress 教程
 最后一个内容的更新时间将显示在页面的右下角。要启用它，请在配置中添加 `lastUpdated` 选项。
 
 ::: tip
-您需要提交 markdown 文件以查看更新的时间。
+lastUpdated 依赖于项目的版本控制工具，您需要提交 markdown 文件，才能查看更新的时间。
+
+作者使用 git 作为版本控制工具来管理项目
 :::
 
 ## 全局配置
