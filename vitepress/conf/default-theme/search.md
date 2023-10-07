@@ -93,7 +93,7 @@ export default defineConfig({
 
 ## miniSearch 选项
 
-`miniSearch` 是 VitePress 自带的搜索功能，您可以像这样配置 MiniSearch：
+VitePress 支持 `miniSearch` 搜索功能，您可以像这样配置 MiniSearch：
 
 ```ts
 import { defineConfig } from "vitepress";
