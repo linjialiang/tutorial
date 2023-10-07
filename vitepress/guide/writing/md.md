@@ -102,7 +102,7 @@ lang: en-US
 ::: info
 此数据将可用于页面的其余部分，以及所有自定义和主题组件
 
-有关更多详细信息，请参阅配置里的[[前言配置]](./config#frontmatter-config)。
+有关更多详细信息，请参阅配置里的[[前言配置]](./../conf/rontmatter)。
 :::
 
 ## GitHub 样式表
@@ -515,7 +515,7 @@ export default {
 };
 ```
 
-有关更多详细信息，请参阅 [[markdown 选项]](./config#markdown)。
+有关更多详细信息，请参阅 [[markdown 选项]](/vitepress/conf/site#markdown)。
 
 您可以在受防护的代码块中添加 `:line-numbers` / `:no-line-numbers` 标记，以覆盖配置中设置的值。
 
@@ -579,9 +579,9 @@ export default {
 :::
 
 ::: tip 提示
-`@` 的值对应于 [[项目源目录]](./route#source-dir)
+`@` 的值对应于 [[项目源目录]](./../introduction/route#source-dir)
 
-默认情况下，它跟 VitePress [[项目根目录]](./route#root-dir) 一样，除非配置了 `srcDir` 选项
+默认情况下，它跟 VitePress [[项目根目录]](./../introduction/route#root-dir) 一样，除非配置了 `srcDir` 选项
 :::
 
 ::: details 可以使用 `VSCode 区域` 功能，仅展示包含代码文件的相应部分
@@ -692,15 +692,8 @@ VitePress 可以将 Markdown 文件包含在另一个 Markdown 文件中。
 不过由于表情符号内容过多这里就不展示了，大家自己试验下
 :::
 
-::: warning 高级配置
-
-VitePress 使用 markdown-it 作为 Markdown 渲染器。
-
-上面的许多扩展都是通过自定义插件实现的。
-
-您可以使用 `.vitepress/config.js` 中的 `markdown 选项` 进一步自定义 markdown-it 实例。
-
-具体请参阅 [[配置:应用配置]](./config#markdown) 可配置属性的完整列表。
+::: warning
+请注意，如果您的文件不存在，这不会抛出错误。因此，在使用此功能时，请确保内容按预期呈现。
 :::
 
 ## 数学方程式
@@ -788,4 +781,4 @@ module.exports = {
 };
 ```
 
-完整可选配置请参阅 [[配置参考：应用配置]]()
+完整可选配置请参阅 [[配置参考：应用配置]](/vitepress/conf/site#markdown)
