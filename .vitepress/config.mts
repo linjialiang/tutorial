@@ -51,7 +51,7 @@ export default defineConfig({
       },
     ],
     editLink: {
-      pattern: "https://gitee.com/linjialiang/tutorial/main/:path",
+      pattern: "https://gitee.com/linjialiang/tutorial/blob/main/:path",
       text: "在 gitee 上编辑",
     },
     outline: "deep",
