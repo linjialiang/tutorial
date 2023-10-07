@@ -383,11 +383,10 @@ export interface EditLink {
 
 :::
 
-## lastUpdatedText
+## lastUpdated
 
-- Name: `lastUpdatedText`
-- Type: `string`
-- Default: `Last updated`
+- Name: `lastUpdated`
+- Type: `LastUpdatedOptions`
 
 允许自定义最近更新的文本和日期格式。
 
