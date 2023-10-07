@@ -38,6 +38,7 @@ const defaultTheme = [
   { text: "上下页", link: `${path.main}conf/default-theme/prev-next` },
   { text: "Edit链接", link: `${path.main}conf/default-theme/edit-link` },
   { text: "最后更新时间", link: `${path.main}conf/default-theme/last-updated` },
+  { text: "搜索", link: `${path.main}conf/default-theme/search` },
 ];
 
 const reference = [
