@@ -1,23 +1,22 @@
+// import flexSearchIndexOptions from "flexsearch";
 import { defineConfig } from "vitepress";
-import {
-  chineseSearchOptimize,
-  pagefindPlugin,
-} from "vitepress-plugin-pagefind";
+// import { SearchPlugin } from "vitepress-plugin-search";
 import environmentNav from "./nav/environment.mjs";
 import otherNav from "./nav/other.mjs";
 import tutorialNav from "./nav/tutorial.mjs";
 import webNav from "./nav/web.mjs";
 import sidebar from "./sidebar/main.mjs";
 
+// const options = {
+//   ...flexSearchIndexOptions,
+//   previewLength: 100, //搜索结果预览长度
+//   buttonLabel: "搜索",
+//   placeholder: "情输入关键词",
+// };
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  vite: {
-    plugins: [
-      pagefindPlugin({
-        customSearchQuery: chineseSearchOptimize,
-      }),
-    ],
-  },
+  // vite: { plugins: [SearchPlugin(options)] },
   base: "/",
   lang: "zh-CN",
   title: "Tutorial",

@@ -2,9 +2,7 @@
   "type": "module",
   "devDependencies": {
     "markdown-it-mathjax3": "^4.3.2",
-    "pagefind": "^1.0.3",
     "vitepress": "1.0.0-rc.20",
-    "vitepress-plugin-pagefind": "^0.2.10",
     "vue": "^3.3.4"
   },
   "scripts": {
