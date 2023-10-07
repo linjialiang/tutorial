@@ -4,7 +4,7 @@ titleTemplate: VitePress 教程
 outline: 2
 ---
 
-# {{ $frontmatter.title }}
+# 徽章
 
 您可以使用徽章向标题添加状态。例如，指定节的类型或支持的版本可能很有用。
 

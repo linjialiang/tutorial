@@ -3,7 +3,7 @@ title: 主页
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# 主页
 
 VitePress 默认主题提供了一个主页布局，你也可以看到在这个网站的主页上使用。您可以在任何页面上使用它，只需在 `frontmatter` 中指定 `layout: home`。
 

@@ -3,7 +3,7 @@ title: 安装 Redis
 titleTemplate: 环境搭建教程
 ---
 
-# {{ $frontmatter.title }}
+# 安装 Redis
 
 [redis](https://redis.io/download) 是当下最热门的键值对(Key-Value)存储数据库
 

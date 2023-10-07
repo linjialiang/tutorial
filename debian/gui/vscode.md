@@ -3,7 +3,7 @@ title: VSCode
 titleTemplate: Debian 教程
 ---
 
-# {{ $frontmatter.title }}
+# VSCode
 
 ## 安装
 

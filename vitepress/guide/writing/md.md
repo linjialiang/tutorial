@@ -3,7 +3,7 @@ title: Markdown 扩展
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# Markdown 扩展
 
 VitePress 内置了 Markdown 扩展，下面是详细介绍。
 

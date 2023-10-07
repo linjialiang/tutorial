@@ -3,7 +3,7 @@ title: 安装 PHP
 titleTemplate: 环境搭建教程
 ---
 
-# {{ $frontmatter.title }}
+# 安装 PHP
 
 ::: danger 警告
 php 重新生成 configure 时会报警告，预测是 Debian12 自带工具太新导致，该系列教程放到 debian12 更新一个版本后再继续

@@ -3,7 +3,7 @@ title: 搜索
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# 搜索
 
 VitePress 支持使用浏览器内索引的模糊全文搜索，这要归功于 [minisearch](https://github.com/lucaong/minisearch/)。
 

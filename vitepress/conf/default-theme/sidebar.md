@@ -3,7 +3,7 @@ title: 侧边栏
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# 侧边栏
 
 侧边栏（`Sidebar`）是文档的主要导航块。您可以在 `themeConfig.sidebar` 中配置侧边栏菜单。
 

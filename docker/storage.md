@@ -3,7 +3,7 @@ title: 在 Docker 中管理数据
 titleTemplate: Docker 教程
 ---
 
-# {{ $frontmatter.title }}
+# 在 Docker 中管理数据
 
 默认情况下，在容器内创建的所有文件都存储在可写容器层上。这意味着：
 

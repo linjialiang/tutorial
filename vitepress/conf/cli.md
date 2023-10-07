@@ -3,7 +3,7 @@ title: 命令行界面
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# 命令行界面
 
 ## `vitepress dev`
 

@@ -3,7 +3,7 @@ title: 设置
 titleTemplate: vscode 教程
 ---
 
-# {{ $frontmatter.title }}
+# 设置
 
 用户可以修改的设置主要有 3 种级别：
 

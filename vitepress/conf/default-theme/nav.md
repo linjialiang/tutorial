@@ -3,7 +3,7 @@ title: Nav
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# Nav
 
 `Nav`是显示在页面顶部的导航栏。它包含网站标题、全局菜单链接等。
 

@@ -3,7 +3,7 @@ title: 安装操作系统
 titleTemplate: Debian 教程
 ---
 
-# {{ $frontmatter.title }}
+# 安装操作系统
 
 在 vmware 安装发行版本 debian12，全部过程
 

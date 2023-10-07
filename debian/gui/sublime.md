@@ -3,7 +3,7 @@ title: Sublime Text
 titleTemplate: Debian 教程
 ---
 
-# {{ $frontmatter.title }}
+# Sublime Text
 
 ## 安装
 

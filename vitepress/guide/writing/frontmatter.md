@@ -3,7 +3,7 @@ title: frontmatter
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# frontmatter
 
 frontmatter 是文件最上方以 `---` 分隔的区域，用于指定个别文件的变量
 

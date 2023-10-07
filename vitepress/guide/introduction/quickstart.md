@@ -3,7 +3,7 @@ title: 快速开始
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# 快速开始
 
 ::: details 使用前你的电脑需要满足以下条件：
 

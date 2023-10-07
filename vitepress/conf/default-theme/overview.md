@@ -3,7 +3,7 @@ title: 默认主题配置
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# 默认主题配置
 
 主题配置可让您自定义主题。
 

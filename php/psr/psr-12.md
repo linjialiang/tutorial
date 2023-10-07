@@ -3,7 +3,7 @@ title: 扩展编码风格指南
 titleTemplate: PSR 教程
 ---
 
-# {{ $frontmatter.title }}
+# 扩展编码风格指南
 
 `PSR-12` 取代 `PSR-2` 成为新的扩展编码风格指南 ，`PSR-12` 遵守 `PSR-1(基本编码标准)`
 

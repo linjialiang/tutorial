@@ -3,7 +3,7 @@ title: 前言配置
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# 前言配置
 
 `前言配置` 就是 `frontmatter` 配置，它支持基于页面的配置。
 

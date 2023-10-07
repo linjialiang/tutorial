@@ -3,7 +3,7 @@ title: 概述
 titleTemplate: PSR 教程
 ---
 
-# {{ $frontmatter.title }}
+# 概述
 
 PSR 是 PHP 标准建议，截止 2023/9/26 日通过的提案有 14 种：
 

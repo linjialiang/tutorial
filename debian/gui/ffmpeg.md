@@ -3,7 +3,7 @@ title: ffmpeg
 titleTemplate: Debian 教程
 ---
 
-# {{ $frontmatter.title }}
+# ffmpeg
 
 ffmpeg 是一款功能强大的多媒体处理工具，可以用来进行各种格式的转换。
 

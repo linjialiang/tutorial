@@ -3,7 +3,7 @@ title: 基本编码标准
 titleTemplate: PSR 教程
 ---
 
-# {{ $frontmatter.title }}
+# 基本编码标准
 
 PHP 代码应该严格使用这部分标准
 

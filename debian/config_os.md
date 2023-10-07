@@ -3,7 +3,7 @@ title: 配置操作系统
 titleTemplate: Debian 教程
 ---
 
-# {{ $frontmatter.title }}
+# 配置操作系统
 
 不管是云服务器、虚拟终端、还是桌面系统，新安装的 Debian 系统都是比较干净的，为了能符合我们使用，很有必要对系统进行适当的配置
 
@@ -481,7 +481,7 @@ chmod 644 ~/.ssh/authorized_keys
 私钥是直接给客户端保管的，比如：Windows 用户需要导入到 `xshell` 等 SSH 客户端里
 
 ::: details xshell 导入秘钥对
-![xshell导入秘钥对](/assets/debian/key.png 'xshell导入秘钥对')
+![xshell导入秘钥对](/assets/debian/key.png "xshell导入秘钥对")
 :::
 
 ::: tip

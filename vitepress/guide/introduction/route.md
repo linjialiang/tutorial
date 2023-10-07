@@ -3,7 +3,7 @@ title: 路由
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# 路由
 
 VitePress 使用基于文件的路由，这意味着生成的 HTML 页面是从源 Markdown 文件的目录结构映射的。
 

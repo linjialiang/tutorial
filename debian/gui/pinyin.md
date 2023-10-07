@@ -3,7 +3,7 @@ title: 拼音输入法
 titleTemplate: Debian 教程
 ---
 
-# {{ $frontmatter.title }}
+# 拼音输入法
 
 Linux 上的输入法框架主要是 `fcitx` 和 `ibus` 两类
 

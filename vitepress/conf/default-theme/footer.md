@@ -3,7 +3,7 @@ title: 页脚
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# 页脚
 
 当设置了 `themeConfig.footer` 时，VitePress 将在页面底部显示全局页脚。
 

@@ -3,7 +3,7 @@ title: 安装 OWASP
 titleTemplate: 渗透测试
 ---
 
-# {{ $frontmatter.title }}
+# 安装 OWASP
 
 ## 必要环境
 

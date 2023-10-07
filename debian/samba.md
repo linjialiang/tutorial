@@ -3,7 +3,7 @@ title: Samba
 titleTemplate: Debian 教程
 ---
 
-# {{ $frontmatter.title }}
+# Samba
 
 Samba 是用来让 UNIX 系列的操作系统与微软 Windows 操作系统的 SMB 网络协定做连结。
 

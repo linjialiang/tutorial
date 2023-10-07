@@ -3,7 +3,7 @@ title: VMware
 titleTemplate: Debian 教程
 ---
 
-# {{ $frontmatter.title }}
+# VMware
 
 VMware 是 `.bundle` 格式的文件，安装特别简单
 

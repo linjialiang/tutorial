@@ -3,7 +3,7 @@ title: Navicat
 titleTemplate: Debian 教程
 ---
 
-# {{ $frontmatter.title }}
+# Navicat
 
 Navicat 是 `.appimage` 格式，双击即可使用
 

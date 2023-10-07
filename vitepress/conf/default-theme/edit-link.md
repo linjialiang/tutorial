@@ -3,7 +3,7 @@ title: Edit Link
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# Edit Link
 
 编辑链接允许您在 Git 管理服务（如 `GitHub` 或 `Gitee`）上显示一个链接来编辑页面。要启用它，请在配置中添加 `themeConfig.editLink` 选项。
 

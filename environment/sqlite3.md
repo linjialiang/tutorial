@@ -3,7 +3,7 @@ title: 安装 Sqlite3
 titleTemplate: 环境搭建教程
 ---
 
-# {{ $frontmatter.title }}
+# 安装 Sqlite3
 
 [sqlite3](https://www.sqlite.org) 是一款轻型数据库
 

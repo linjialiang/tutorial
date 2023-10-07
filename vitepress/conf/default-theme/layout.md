@@ -3,7 +3,7 @@ title: 布局
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# 布局
 
 您可以通过 md 文件前言的 `layout` 参数来选择页面布局。有 3 个布局选项，`doc`、`page` 和 `home`。如果未指定任何内容，则该页面将被视为 `doc` 页面。
 

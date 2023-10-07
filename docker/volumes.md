@@ -3,7 +3,7 @@ title: 使用 Volumes 持久存储
 titleTemplate: Docker 教程
 ---
 
-# {{ $frontmatter.title }}
+# 使用 Volumes 持久存储
 
 卷(volumes)是持久保存由 Docker 容器生成和使用的数据类型的首选机制。虽然绑定挂载(Bind mounts)取决于主机的目录结构和操作系统，但卷完全由 Docker 管理。与绑定挂载相比，卷有几个优点：
 

@@ -3,7 +3,7 @@ title: 站点配置
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# 站点配置
 
 站点配置是可以定义站点的全局设置的位置。
 

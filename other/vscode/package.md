@@ -3,7 +3,7 @@ title: 插件
 titleTemplate: vscode 教程
 ---
 
-# {{ $frontmatter.title }}
+# 插件
 
 在不深入了解 VSCode 的情况下，插件的内容会是最多的。
 
@@ -160,7 +160,7 @@ src/module-b/foo.ts
 
 ```ts [用法]
 {
-  import {} from 'module-a/foo.ts';
+  import {} from "module-a/foo.ts";
 }
 ```
 

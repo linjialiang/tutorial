@@ -3,7 +3,7 @@ title: 安装 MongoDB
 titleTemplate: 环境搭建教程
 ---
 
-# {{ $frontmatter.title }}
+#
 
 MongoDB 是最流行的非关系型数据库
 

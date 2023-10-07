@@ -3,7 +3,7 @@ title: UML 类图
 titleTemplate: PHP 设计模式教程
 ---
 
-# {{ $frontmatter.title }}
+# UML 类图
 
 学习设计模式前，最好先掌握 UML 类图
 

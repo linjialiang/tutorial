@@ -3,7 +3,7 @@ title: 编译安装 MySQL
 titleTemplate: 环境搭建教程
 ---
 
-# {{ $frontmatter.title }}
+# 编译安装 MySQL
 
 MySQL 没有为 Debian12 做适配，所以最好的选择就是自己编译安装
 

@@ -3,7 +3,7 @@ title: 运行时API
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# 运行时 API
 
 VitePress 提供了几个内置的 API，让您可以访问应用程序数据。VitePress 还附带了一些可以在全局范围内使用的内置组件。
 

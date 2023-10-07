@@ -3,7 +3,7 @@ title: 编译安装 nginx
 titleTemplate: 环境搭建教程
 ---
 
-# {{ $frontmatter.title }}
+# 编译安装 nginx
 
 Nginx 是现如今性能最强劲的 Web 服务器及反向代理服务器
 

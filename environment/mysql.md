@@ -3,7 +3,7 @@ title: 安装 MySQL
 titleTemplate: 环境搭建教程
 ---
 
-# {{ $frontmatter.title }}
+# 安装 MySQL
 
 PHP 项目首选关系型数据库是 MySQL，这里以 MySQL8.0 为例
 

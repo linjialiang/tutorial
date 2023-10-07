@@ -3,7 +3,7 @@ title: 安装 Burp Suite
 titleTemplate: 渗透测试
 ---
 
-# {{ $frontmatter.title }}
+# 安装 Burp Suite
 
 ## 安装
 

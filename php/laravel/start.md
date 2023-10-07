@@ -3,7 +3,7 @@ title: 概述
 titleTemplate: 让 laravel 运行起来
 ---
 
-# {{ $frontmatter.title }}
+# 概述
 
 [laravel 中文社区的 wiki](https://learnku.com/laravel/wikis) 开发环境有很多，这里推荐使用跟线上环境尽量一致的环境
 

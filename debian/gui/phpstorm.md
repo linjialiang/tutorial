@@ -3,7 +3,7 @@ title: PhpStorm
 titleTemplate: Debian 教程
 ---
 
-# {{ $frontmatter.title }}
+# PhpStorm
 
 ## 安装 PhpStorm
 

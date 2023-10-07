@@ -3,7 +3,7 @@ title: 在 Debian 上安装 Docker 引擎
 titleTemplate: Docker 教程
 ---
 
-# {{ $frontmatter.title }}
+# 在 Debian 上安装 Docker 引擎
 
 Docker 引擎是一种开源容器化技术，用于构建和容器化应用程序。Docker 引擎充当客户端-服务器应用程序，具有：
 

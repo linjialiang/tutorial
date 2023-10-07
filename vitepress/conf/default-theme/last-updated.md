@@ -3,7 +3,7 @@ title: Last Updated
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# Last Updated
 
 md 文件最后一次更新内容的时间将显示在页面的右下角。要启用它，请在配置中添加 `lastUpdated` 选项。
 

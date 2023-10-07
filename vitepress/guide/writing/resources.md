@@ -3,7 +3,7 @@ title: 资源处理
 titleTemplate: VitePress 教程
 ---
 
-# {{ $frontmatter.title }}
+# 资源处理
 
 所有 Markdown 文件都被编译成 Vue 组件并由 Vite 处理。
 
