@@ -1,4 +1,8 @@
 import { defineConfig } from "vitepress";
+import {
+  chineseSearchOptimize,
+  pagefindPlugin,
+} from "vitepress-plugin-pagefind";
 import environmentNav from "./nav/environment.mjs";
 import otherNav from "./nav/other.mjs";
 import tutorialNav from "./nav/tutorial.mjs";
@@ -7,6 +11,13 @@ import sidebar from "./sidebar/main.mjs";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  vite: {
+    plugins: [
+      pagefindPlugin({
+        customSearchQuery: chineseSearchOptimize,
+      }),
+    ],
+  },
   base: "/",
   lang: "zh-CN",
   title: "Tutorial",
