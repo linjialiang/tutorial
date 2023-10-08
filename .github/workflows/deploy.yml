@@ -62,9 +62,9 @@ jobs:
         with:
           path: .vitepress/dist
 
-  # 部署工作
-  deploy:
-    uses: JamesIves/github-pages-deploy-action@v4
-    with:
-      folder: .vitepress/dist
-      clean: true
+    # 部署工作
+    deploy:
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: .vitepress/dist
+        clean: true
