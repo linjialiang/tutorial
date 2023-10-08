@@ -61,10 +61,8 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: .vitepress/dist
-
-    # 部署工作
-    deploy:
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        folder: .vitepress/dist
-        clean: true
+  deploy:
+    uses: JamesIves/github-pages-deploy-action@v4
+    with:
+      folder: dist
+      clean: true
