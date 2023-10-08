@@ -62,7 +62,13 @@ jobs:
         with:
           path: .vitepress/dist
   deploy:
-    uses: JamesIves/github-pages-deploy-action@v4
-    with:
-      folder: dist
-      clean: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2

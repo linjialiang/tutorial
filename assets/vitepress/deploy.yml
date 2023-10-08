@@ -1,5 +1,5 @@
 # 构建VitePress站点并将其部署到GitHub Pages的示例工作流
-name: Tutorial 网站部署到 pages 分支
+name: deploy tutorial site to GitHub Pages
 
 on:
   # 在针对“main”分支的推送上运行。如果使用“master”分支作为默认分支，请将其更改为“master”。
@@ -66,6 +66,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy
     steps:
-      - name: 部署到 GitHub 页面
+      - name: deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
