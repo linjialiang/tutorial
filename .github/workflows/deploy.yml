@@ -49,12 +49,13 @@ jobs:
         run: pnpm install # 或 npm ci / yarn install / bun install
       - name: Build with VitePress
         run: |
+          pnpm install --no-frozen-lockfile
           pnpm build # pnpm docs:build or npm run docs:build / yarn docs:build / bun run docs:build
-          touch docs/.vitepress/dist/.nojekyll
+          touch .vitepress/dist/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: docs/.vitepress/dist
+          path: .vitepress/dist
 
   # 部署工作
   deploy:
