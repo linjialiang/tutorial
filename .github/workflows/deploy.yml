@@ -43,8 +43,6 @@ jobs:
         with:
           node-version: 18
           cache: pnpm # 或 npm / yarn
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
       - name: Install dependencies
         run: pnpm install # 或 npm ci / yarn install / bun install
       - name: Build with VitePress
