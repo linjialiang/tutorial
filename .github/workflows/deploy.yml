@@ -4,15 +4,14 @@ name: deploy tutorial site to GitHub Pages
 on:
   # 在针对“main”分支的推送上运行。如果使用“master”分支作为默认分支，请将其更改为“master”。
   push:
-    branches:
-      - main
+    branches: [main]
 
   # 允许您从“操作”选项卡手动运行此工作流
   workflow_dispatch:
 
 # 设置GITHUB_TOKEN的权限以允许部署到GITHUB页面
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -23,40 +22,46 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # 构建工作
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: pnpm
-
+          fetch-depth: 0 # 如果未启用lastUpdated，则不需要
+      # 如果使用pnpm，请取消注释
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
         with:
-          version: latest
-
+          version: 8.8.0
+          run_install: false
+      # - uses: oven-sh/setup-bun@v1 # 如果您使用Bun，请取消注释
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm # 或 npm / yarn
       - name: Setup Pages
         uses: actions/configure-pages@v3
-
-      - name: Install and Build
+      - name: Install dependencies
+        run: pnpm install # 或 npm ci / yarn install / bun install
+      - name: Build with VitePress
         run: |
           pnpm install --no-frozen-lockfile
-          pnpm build
-          touch .vitepress/dist/.nojekyll
-
+          pnpm build # pnpm docs:build or npm run docs:build / yarn docs:build / bun run docs:build
+          touch .vitepress/dist/.nojekyll # 子目录下是 doc/.vitepress/dist/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: .vitepress/dist
+          path: .vitepress/dist # 子目录下是 doc/.vitepress/dist
+
+  # 部署工作
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
     name: Deploy
