@@ -22,7 +22,7 @@ T7USULHBNF-eyJsaWNlbnNlSWQiOiJUN1VTVUxIQk5GIiwibGljZW5zZWVOYW1lIjoiZ3VyZ2xlcyB0d
 
 :::
 
-::: tip 插件
+::: details 插件
 
 ::: code-group
 
