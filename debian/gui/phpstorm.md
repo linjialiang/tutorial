@@ -65,10 +65,6 @@ JetBrains               部署根目录
 
 <!--@include: @/assets/debian/jetbrains/code.md-->
 
-::: tip 提示
-推荐使用 jetbrains-toolbox 工具安装 PhpStorm 等 JetBrains 系列软件，不过遗憾的是 `PhpStorm 2023.1.3` 以后无法正常激活
-:::
-
 ## 桌面文件
 
 ::: code-group
