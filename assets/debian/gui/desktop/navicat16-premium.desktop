@@ -2,7 +2,7 @@
 [Desktop Entry]
 Categories=Development
 Comment=Database Development Tool
-Exec=/home/emad/sf/navicat/navicat16-premium-cs-linux.appimage
+Exec="/home/emad/sf/navicat/navicat16-premium-cs-linux.appimage" %f %u
 Icon=/home/emad/sf/navicat/navicat16-premium.png
 Name=Navicat Premium 16
 StartupNotify=true
