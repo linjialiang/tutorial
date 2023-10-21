@@ -15,15 +15,13 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 alias bat='batcat'
 alias cls='clear'
 setopt no_nomatch
-eval "`dircolors`"
 alias l="exa -galFihH --sort=Name"
+alias la="exa -aF"
 # 这里使用 echo $PATH 查询，将未加入环境变量的路径写入
-# emad用户需要，root用户不需要
-# PATH=${PATH}:/usr/local/sbin:/usr/sbin:/sbin
+PATH=${PATH}:/usr/local/sbin:/usr/sbin:/sbin
 # 下面的，安装对象包后开启
 # PATH=${PATH}:/server/node/bin
 # PATH=${PATH}:/server/mysql/bin
 # PATH=${PATH}:/server/php/82/bin:/server/php/82/sbin
-# PATH=${PATH}:/server/nginx/sbin
-# PATH=${PATH}:/server/sqlite3/bin
-# export PATH
+# PATH=${PATH}:/server/nginx/sbin:/server/sqlite3/bin:/server/redis/bin
+export PATH
