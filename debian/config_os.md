@@ -264,30 +264,31 @@ dpkg-reconfigure tzdata
 ## 常用软件包
 
 ```bash
-apt install exa wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git proxychains4 -y
+apt install exa joe wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git proxychains4 -y
 ```
 
 ::: details 详情
 
 1. exa -- ls 替代工具
-2. wget -- 传输工具
-3. curl -- 传输工具
-4. vim -- vim 编辑器(桌面可以加上 vim-gtk3)
-5. bat -- bat 用于替代 cat，默认指令是 batcat，可以设置别名
-6. htop -- 交互式的进程浏览器，用于替代 top 命令
-7. tar -- 打包工具
-8. gzip -- 压缩工具
-9. bzip2 -- 压缩工具
-10. xz-utils -- 压缩工具
-11. zip -- 压缩工具（composer 会用到）
-12. unzip -- 解压工具（composer 会用到）
-13. lrzsz -- 传输工具
-14. Git -- Git 版本控制管理工具(部署环境不需要安装)
-15. proxychains4 -- 代理工具
-16. neofetch -- 查看系统信息
-17. ntpdate -- 解决时间差 8 小时问题
-18. firewalld -- 防火墙工具
-19. fzf -- 命令行模糊查询工具
+2. joe -- 大文件编辑器
+3. wget -- 传输工具
+4. curl -- 传输工具
+5. vim -- vim 编辑器(桌面可以加上 vim-gtk3)
+6. bat -- bat 用于替代 cat，默认指令是 batcat，可以设置别名
+7. htop -- 交互式的进程浏览器，用于替代 top 命令
+8. tar -- 打包工具
+9. gzip -- 压缩工具
+10. bzip2 -- 压缩工具
+11. xz-utils -- 压缩工具
+12. zip -- 压缩工具（composer 会用到）
+13. unzip -- 解压工具（composer 会用到）
+14. lrzsz -- 传输工具
+15. Git -- Git 版本控制管理工具(部署环境不需要安装)
+16. proxychains4 -- 代理工具
+17. neofetch -- 查看系统信息
+18. ntpdate -- 解决时间差 8 小时问题
+19. firewalld -- 防火墙工具
+20. fzf -- 命令行模糊查询工具
 
 :::
 
@@ -354,7 +355,7 @@ alias bat='batcat'
 ```bash
 # vimcdoc-2.4.0 针对 vim 9.0
 wget https://github.com/yianwillis/vimcdoc/releases/download/v2.4.0/vimcdoc-2.4.0.tar.gz
-tar zxvf vimcdoc-<version>.tar.gz
+tar -xzf vimcdoc-<version>.tar.gz
 cd vimcdoc-<version>
 
 # 安装方式一：原有英文文档不受影响
@@ -506,14 +507,14 @@ chmod 644 ~/.ssh/authorized_keys
 ```bash
 # ~/.ssh/config`
 Host 254_root
-    HostName                    192.168.10.254
+    HostName                    192.168.66.254
     Port                        22
     User                        root
     IdentityFile                /path/key.pem
     IdentitiesOnly              yes
     PreferredAuthentications    publickey
 Host 254_www
-    HostName                    192.168.10.254
+    HostName                    192.168.66.254
     Port                        22
     User                        www
     IdentityFile                /path/key.pem
