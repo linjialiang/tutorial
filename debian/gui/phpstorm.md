@@ -11,34 +11,29 @@ titleTemplate: Debian 教程
 
 ### 目录
 
-> 下面假设根目录为： `/home/emad/JetBrains/`
+> 项目根目录为： `~/jetbrains/`
 
 ```
-JetBrains               部署根目录
+jetbrains               部署根目录
 ├─app                   应用目录
-│  ├─PhpStorm           PHP的IDE
-│  ├─DataGrip           数据库管理工具
+│  ├─phpstorm           PHP的IDE
 │  ├─ ...               更多应用
 │
-├─data                  应用数据目录
-│  ├─PhpStorm           PhpStorm 应用数据
-│  │  ├─stubs-zh        PhpStorm 中文版存根
+├─custom                应用数据目录
+│  ├─phpstorm           PhpStorm 应用数据
+│  │  ├─stubs           PhpStorm 中文版存根
 │  │  ├─ ...
 │  │
-│  ├─DataGrip           DataGrip 应用数据
 │  ├─ ...               更多应用数据
 │
-├─tools                 激活工具
+├─crack                 激活工具
 │  ├─ja-netfilter.jar   激活程序
-│  ├─config-jetbrains   激活配置目录
-│  ├─logs-jetbrains     激活日志目录
-│  └─ ...               没啥用可移除的
+│  └─ ...
 │
 ```
 
 ::: tip 激活工具
 在项目中 [[点击下载]](/assets/debian/jetbrains/tools.tar.xz) 激活工具
-
 :::
 
 ### 修改应用配置文件
