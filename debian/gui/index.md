@@ -144,7 +144,9 @@ wps 需要额外安装两组字体，安装方式见 [[手工安装字体]](#ins
 
 :::
 
-::: 不支持中文输入法
+::: details 不支持中文输入法
+
+从 `debian 12.2.0` 开始没有遇到这个问题
 
 ::: code-group
 
@@ -154,7 +156,7 @@ export XMODIFIERS="@im=ibus"
 export QT_IM_MODULE="ibus"
 ```
 
-```bash [ibus]
+```bash [fcitx]
 # /usr/bin/wps 开头文件增加
 export XMODIFIERS="@im=fcitx"
 export QT_IM_MODULE="fcitx"
