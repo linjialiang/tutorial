@@ -70,14 +70,14 @@ jetbrains               部署根目录
 <<<@/assets/debian/jetbrains/desktop/pycharm.desktop{ini} [PyCharm]
 :::
 
-::: tip 桌面文件路径
-
-| 路径                          | 说明     |
+| 桌面文件路径                  | 说明     |
 | ----------------------------- | -------- |
 | ～/.local/share/applications  | 用户级别 |
 | /usr/local/share/applications | 全部用户 |
 | /usr/share/applications       | 全部用户 |
 
+::: tip 提示
+`*.desktop` 文件里面的路径必须是基于根目录的绝对路径，使用家目录是不行的
 :::
 
 ## php 文件头部
