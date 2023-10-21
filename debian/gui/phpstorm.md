@@ -68,9 +68,10 @@ JetBrains               部署根目录
 ## 桌面文件
 
 ::: code-group
-<<<@/assets/debian/jetbrains/desktop/phpstorm.desktop{ini} [PhpStorm]
-<<<@/assets/debian/jetbrains/desktop/datagrip.desktop{ini} [DataGrip]
 <<<@/assets/debian/jetbrains/desktop/clion.desktop{ini} [CLion]
+<<<@/assets/debian/jetbrains/desktop/datagrip.desktop{ini} [DataGrip]
+<<<@/assets/debian/jetbrains/desktop/goland.desktop{ini} [goland]
+<<<@/assets/debian/jetbrains/desktop/phpstorm.desktop{ini} [PhpStorm]
 <<<@/assets/debian/jetbrains/desktop/pycharm.desktop{ini} [PyCharm]
 :::
 

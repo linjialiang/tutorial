@@ -1,11 +1,11 @@
 [Desktop Entry]
 Name=DataGrip
-Icon=/home/emad/JetBrains/app/DataGrip/bin/datagrip.svg
+Icon=~/jetbrains/app/datagrip/bin/datagrip.svg
 StartupWMClass=jetbrains-datagrip
 Comment=The IDE for databases and SQL
-Exec="/home/emad/JetBrains/app/DataGrip/bin/datagrip.sh" %u
-Version=1.0
+Exec="~/jetbrains/app/datagrip/bin/datagrip.sh" %f %u
+Version=2023.2.2
 Type=Application
-Categories=Development;IDE;
+Categories=Development;IDE;Jetbrains;
 Terminal=false
 StartupNotify=true
