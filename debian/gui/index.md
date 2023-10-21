@@ -129,6 +129,12 @@ apt install obs-studio
 
 :::
 
+::: details 将 tabby 设为默认终端
+![](/assets/debian/gui/tabby/1.png)
+![](/assets/debian/gui/tabby/2.png)
+![](/assets/debian/gui/tabby/3.png)
+:::
+
 ### WPS
 
 ```bash
