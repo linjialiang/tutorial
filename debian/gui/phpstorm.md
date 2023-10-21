@@ -36,6 +36,12 @@ jetbrains               部署根目录
 在项目中 [[点击下载]](/assets/debian/jetbrains/tools.tar.xz) 激活工具
 :::
 
+::: warning 权限问题
+值得一说的是：有一次我从 Windows 操作系统上下载源码包并分装完绿色版后压缩源码，拷贝到 Linux 系统上，解压时出现了权限不足问题。
+
+我起先还以为是缺少 JAVA 的运行时环境(JER)，装了大半天，结果还是不行。后来才发现，其实只是权限不足导致的，事实上 JetBrains 每个 IDE 都自带了适配的 JER。
+:::
+
 ### 修改应用配置文件
 
 ::: details PhpStorm
