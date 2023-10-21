@@ -16,11 +16,7 @@ alias bat='batcat'
 alias cls='clear'
 setopt no_nomatch
 eval "`dircolors`"
-export LS_OPTIONS='--color=auto'
-alias ls="ls ${LS_OPTIONS} -F"
-alias lsa="ls ${LS_OPTIONS} -aF"
-alias ll="ls ${LS_OPTIONS} -lF"
-alias lla="ls ${LS_OPTIONS} -laF"
+alias l="exa -galFihH --sort=Name"
 # 这里使用 echo $PATH 查询，将未加入环境变量的路径写入
 # emad用户需要，root用户不需要
 # PATH=${PATH}:/usr/local/sbin:/usr/sbin:/sbin
