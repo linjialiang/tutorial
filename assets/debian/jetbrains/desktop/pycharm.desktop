@@ -1,9 +1,9 @@
 [Desktop Entry]
 Name=pycharm
-Icon=~/jetbrains/app/pycharm/bin/pycharm.svg
+Icon=/home/emad/jetbrains/app/pycharm/bin/pycharm.svg
 StartupWMClass=jetbrains-pycharm
 Comment=A smart IDE for Python
-Exec="~/jetbrains/app/pycharm/bin/pycharm.sh" %f %u
+Exec="/home/emad/jetbrains/app/pycharm/bin/pycharm.sh" %f %u
 Version=2023.2.3
 Type=Application
 Categories=Development;IDE;Jetbrains;

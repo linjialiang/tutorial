@@ -1,9 +1,9 @@
 [Desktop Entry]
 Name=goland
-Icon=~/jetbrains/app/goland/bin/goland.svg
+Icon=/home/emad/jetbrains/app/goland/bin/goland.svg
 StartupWMClass=jetbrains-goland
-Comment=A smart IDE for go
-Exec="~/jetbrains/app/goland/bin/goland.sh" %f %u
+Comment=A smart IDE for goland
+Exec="/home/emad/jetbrains/app/goland/bin/goland.sh" %f %u
 Version=2023.2.3
 Type=Application
 Categories=Development;IDE;Jetbrains;
