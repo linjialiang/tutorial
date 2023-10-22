@@ -264,42 +264,45 @@ dpkg-reconfigure tzdata
 ## 常用软件包
 
 ```bash
-apt install pigz exa joe wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git proxychains4 -y
+apt install pigz pixz exa joe wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git proxychains4 -y
 ```
 
 ::: details 详情
 
 1. exa -- ls 替代工具
-2. pigz -- tar 多线程压缩/解压
-3. joe -- 大文件编辑器
-4. wget -- 传输工具
-5. curl -- 传输工具
-6. vim -- vim 编辑器(桌面可以加上 vim-gtk3)
-7. bat -- bat 用于替代 cat，默认指令是 batcat，可以设置别名
-8. htop -- 交互式的进程浏览器，用于替代 top 命令
-9. tar -- 打包工具
-10. gzip -- 压缩工具
-11. bzip2 -- 压缩工具
-12. xz-utils -- 压缩工具
-13. zip -- 压缩工具（composer 会用到）
-14. unzip -- 解压工具（composer 会用到）
-15. lrzsz -- 传输工具
-16. Git -- Git 版本控制管理工具(部署环境不需要安装)
-17. proxychains4 -- 代理工具
-18. neofetch -- 查看系统信息
-19. ntpdate -- 解决时间差 8 小时问题
-20. firewalld -- 防火墙工具
-21. fzf -- 命令行模糊查询工具
+2. pigz -- tar.gz 多线程压缩/解压
+3. pixz -- tar.xz 多线程压缩/解压
+4. joe -- 大文件编辑器
+5. wget -- 传输工具
+6. curl -- 传输工具
+7. vim -- vim 编辑器(桌面可以加上 vim-gtk3)
+8. bat -- bat 用于替代 cat，默认指令是 batcat，可以设置别名
+9. htop -- 交互式的进程浏览器，用于替代 top 命令
+10. tar -- 打包工具
+11. gzip -- 压缩工具
+12. bzip2 -- 压缩工具
+13. xz-utils -- 压缩工具
+14. zip -- 压缩工具（composer 会用到）
+15. unzip -- 解压工具（composer 会用到）
+16. lrzsz -- 传输工具
+17. Git -- Git 版本控制管理工具(部署环境不需要安装)
+18. proxychains4 -- 代理工具
+19. neofetch -- 查看系统信息
+20. ntpdate -- 解决时间差 8 小时问题
+21. firewalld -- 防火墙工具
+22. fzf -- 命令行模糊查询工具
 
 ::: tip 案例
 
 > 使用多线程解压缩
 
 ```bash
-# 压缩
-tar --use-compress-program=pigz -cJf app.tar.xz app
-# 解压缩
-tar --use-compress-program=pigz -xJf app.tar.xz
+# 压缩 注意是 cf 不是 czf/cJf
+tar --use-compress-program=pigz -cf app.tar.gz app
+tar --use-compress-program=pixz -cf app.tar.xz app
+# 解压 注意是 xf 不是 xzf/xJf
+tar --use-compress-program=pigz -xf app.tar.gz
+tar --use-compress-program=pixz -xf app.tar.xz
 ```
 
 :::
