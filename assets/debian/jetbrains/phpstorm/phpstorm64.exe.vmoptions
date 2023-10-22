@@ -20,10 +20,10 @@
 -Dawt.usesystemAAFontSettings=lcd
 -Dawt.java2d.opengl=true
 
--XX:ErrorFile=/home/emad/jetbrains/custom/phpstorm/logs/java_error_in_idea_%p.log
--XX:HeapDumpPath=/home/emad/jetbrains/custom/phpstorm/logs/java_error_in_idea.hprof
+-XX:ErrorFile=/home/emad/jetbrains/crack/log-jetbrains/java_error_in_phpstorm_%p.log
+-XX:HeapDumpPath=/home/emad/jetbrains/crack/log-jetbrains/java_error_in_phpstorm.hprof
 
 --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
 --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
 
--javaagent:/home/emad/jetbrains/crack/ja-netfilter.jar=phpstorm
+-javaagent:/home/emad/jetbrains/crack/ja-netfilter.jar=jetbrains

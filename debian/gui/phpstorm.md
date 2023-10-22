@@ -74,6 +74,7 @@ jetbrains               部署根目录
 <<<@/assets/debian/jetbrains/desktop/goland.desktop{ini} [goland]
 <<<@/assets/debian/jetbrains/desktop/phpstorm.desktop{ini} [PhpStorm]
 <<<@/assets/debian/jetbrains/desktop/pycharm.desktop{ini} [PyCharm]
+<<<@/assets/debian/jetbrains/desktop/idea.desktop{ini} [idea]
 :::
 
 | 桌面文件路径                  | 说明     |

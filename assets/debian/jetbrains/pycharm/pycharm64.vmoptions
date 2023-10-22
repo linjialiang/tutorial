@@ -18,10 +18,10 @@
 -Dkotlinx.coroutines.debug=off
 -Dsun.tools.attach.tmp.only=true
 
--XX:ErrorFile=$USER_HOME/java_error_in_idea_%p.log
--XX:HeapDumpPath=$USER_HOME/java_error_in_idea.hprof
+-XX:ErrorFile=/home/emad/jetbrains/crack/log-jetbrains/java_error_in_pycharm_%p.log
+-XX:HeapDumpPath=/home/emad/jetbrains/crack/log-jetbrains/java_error_in_pycharm.hprof
 
 --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
 --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
 
--javaagent:/home/emad/JetBrains/tools/ja-netfilter.jar=jetbrains
+-javaagent:/home/emad/jetbrains/crack/ja-netfilter.jar=jetbrains
