@@ -291,6 +291,17 @@ apt install pigz exa joe wget curl vim bat htop tar gzip bzip2 xz-utils zip unzi
 20. firewalld -- 防火墙工具
 21. fzf -- 命令行模糊查询工具
 
+::: tip 案例
+
+> 使用多线程解压缩
+
+```bash
+# 压缩
+tar --use-compress-program=pigz -cJf app.tar.xz app
+# 解压缩
+tar --use-compress-program=pigz -xJf app.tar.xz
+```
+
 :::
 
 ### 配置 Git
