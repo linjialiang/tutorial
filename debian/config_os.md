@@ -264,31 +264,32 @@ dpkg-reconfigure tzdata
 ## 常用软件包
 
 ```bash
-apt install exa joe wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git proxychains4 -y
+apt install pigz exa joe wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git proxychains4 -y
 ```
 
 ::: details 详情
 
 1. exa -- ls 替代工具
-2. joe -- 大文件编辑器
-3. wget -- 传输工具
-4. curl -- 传输工具
-5. vim -- vim 编辑器(桌面可以加上 vim-gtk3)
-6. bat -- bat 用于替代 cat，默认指令是 batcat，可以设置别名
-7. htop -- 交互式的进程浏览器，用于替代 top 命令
-8. tar -- 打包工具
-9. gzip -- 压缩工具
-10. bzip2 -- 压缩工具
-11. xz-utils -- 压缩工具
-12. zip -- 压缩工具（composer 会用到）
-13. unzip -- 解压工具（composer 会用到）
-14. lrzsz -- 传输工具
-15. Git -- Git 版本控制管理工具(部署环境不需要安装)
-16. proxychains4 -- 代理工具
-17. neofetch -- 查看系统信息
-18. ntpdate -- 解决时间差 8 小时问题
-19. firewalld -- 防火墙工具
-20. fzf -- 命令行模糊查询工具
+2. pigz -- tar 多线程压缩/解压
+3. joe -- 大文件编辑器
+4. wget -- 传输工具
+5. curl -- 传输工具
+6. vim -- vim 编辑器(桌面可以加上 vim-gtk3)
+7. bat -- bat 用于替代 cat，默认指令是 batcat，可以设置别名
+8. htop -- 交互式的进程浏览器，用于替代 top 命令
+9. tar -- 打包工具
+10. gzip -- 压缩工具
+11. bzip2 -- 压缩工具
+12. xz-utils -- 压缩工具
+13. zip -- 压缩工具（composer 会用到）
+14. unzip -- 解压工具（composer 会用到）
+15. lrzsz -- 传输工具
+16. Git -- Git 版本控制管理工具(部署环境不需要安装)
+17. proxychains4 -- 代理工具
+18. neofetch -- 查看系统信息
+19. ntpdate -- 解决时间差 8 小时问题
+20. firewalld -- 防火墙工具
+21. fzf -- 命令行模糊查询工具
 
 :::
 

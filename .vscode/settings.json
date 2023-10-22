@@ -36,6 +36,7 @@
     "pgsql",
     "phpfpm",
     "phpstorm",
+    "pigz",
     "proxychains",
     "publickey",
     "randomart",
