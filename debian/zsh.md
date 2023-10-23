@@ -122,3 +122,29 @@ setopt no_nomatch
 ::: details 完整案例
 <<<@/assets/debian/config/zshrc.bash
 :::
+
+## 问题修复
+
+::: details 1. oh-my-zsh 自动补全，tab 时，前面会多两个字符，并且无法删除
+
+因为 `~/.profile` 里将语音设为最简单的 `C` 导致的
+
+```bash
+# 修改 ~/.profile 文件
+
+# 方式一：将结尾的两行注释掉，并使用 dpkg-reconfigure locales 将默认LANG设为 zh_CN.UTF-8
+# LANG=C
+# LANGUAGE=C
+
+# 方式二：将结尾的 LANGUAGE 注释掉，将 LANG 设为 zh_CN.UTF-8
+LANG=zh_CN.UTF-8
+# LANGUAGE=C
+```
+
+```bash
+# 重启或使用如下语法
+source ~/.profile
+source ~/.zshrc
+```
+
+:::
