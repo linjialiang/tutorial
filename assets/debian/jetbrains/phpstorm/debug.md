@@ -2,7 +2,7 @@
 
 ### 1. 正确配置 xdebug 插件
 
-具体内容请查阅[php 动态安装 pecl 扩展](./../../environment/php#动态安装-pecl-扩展)
+具体内容请查阅[php 动态安装 pecl 扩展](/environment/php#动态安装-pecl-扩展)
 
 ### 2. 安装浏览器扩展
 
