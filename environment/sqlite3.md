@@ -24,7 +24,7 @@ titleTemplate: 环境搭建教程
 ::: info 构建指令
 
 ```bash
-cd /package/sqlite-autoconf-3430100/
+cd /package/sqlite-autoconf-3430200/
 ./configure --prefix=/server/sqlite3
 make
 make install
