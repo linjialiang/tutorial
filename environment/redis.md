@@ -67,9 +67,9 @@ redis 源码包中自带了 1 个配置文件，我们这里可以直接拷贝�
 cp -p -r /package/redis-7.2.2/redis.conf /server/redis/redis.conf
 ```
 
-::: info 本次修改了 3 处：
+::: code-group
 
-```bash
+```bash [redis.conf]
 # /server/redis/redis.conf
 
 # 以守护进程的方式运行
@@ -80,6 +80,17 @@ pidfile /server/run/redis/redis.pid
 requirepass 1
 # 日志路径
 logfile "/server/logs/redis/redis.log"
+# 指定本地数据库存放目录 默认的 ./ 遇到过权限问题
+dir /server/redis/data
+```
+
+```bash [sysctl.conf]
+# /etc/sysctl.conf
+
+# 控制 Redis 进程是否允许使用虚拟内存
+# 1：Redis进程可以使用比物理内存更多的虚拟内存
+# 0：Redis进程只能使用物理内存，不允许使用超过物理内存的虚拟内存。
+vm.overcommit_memory 1
 ```
 
 :::
