@@ -87,10 +87,10 @@ dir /server/redis/data
 ```bash [sysctl.conf]
 # /etc/sysctl.conf
 
-# 控制 Redis 进程是否允许使用虚拟内存
-# 1：Redis进程可以使用比物理内存更多的虚拟内存
-# 0：Redis进程只能使用物理内存，不允许使用超过物理内存的虚拟内存。
-vm.overcommit_memory=1
+# 控制进程是否允许使用虚拟内存
+#   - 0：进程只能使用物理内存
+#   - 1：进程可以使用比物理内存更多的虚拟内存
+vm.overcommit_memory = 1
 ```
 
 :::
