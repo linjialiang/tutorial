@@ -101,7 +101,7 @@ PHP 环境目录
 1. apcu-5.1.22.tgz
 2. mongodb-1.16.2.tgz
 3. rdkafka-6.0.3.tgz
-4. redis-6.0.1.tgz
+4. redis-6.0.2.tgz
 5. xdebug-3.2.2.tgz
 6. yaml-2.2.3.tgz
 
