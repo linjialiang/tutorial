@@ -2,6 +2,7 @@
   "cSpell.words": [
     "backports",
     "batcat",
+    "bootloader",
     "burpsuite",
     "cdimage",
     "Dawt",
@@ -11,6 +12,7 @@
     "Dkotlinx",
     "dpkg",
     "Dsun",
+    "efibootmgr",
     "emad",
     "firewalld",
     "frontmatter",
@@ -45,6 +47,7 @@
     "shadowsocks",
     "SIGABRT",
     "tzdata",
+    "UEFI",
     "usermod",
     "usesystem",
     "vimcdoc",
