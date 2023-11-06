@@ -86,12 +86,12 @@ PHP 环境目录
 ::: details /package 目录
 
 1. nginx-1.24.0.tar.gz
-2. openssl-3.0.11.tar.gz
+2. openssl-3.0.12.tar.gz
 3. pcre2-10.42.tar.bz2
 4. zlib-1.3.tar.xz
-5. redis-7.2.2.tar.gz
-6. sqlite-autoconf-3430200.tar.gz
-7. php-8.2.11.tar.xz
+5. redis-7.2.3.tar.gz
+6. sqlite-autoconf-3440000.tar.gz
+7. php-8.2.12.tar.xz
 8. mysql-boost-8.0.34.tar.gz
 
 :::
