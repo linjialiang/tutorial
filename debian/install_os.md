@@ -144,7 +144,7 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=custo
 # 备注掉原来的全部代码...
 # custom
 GRUB_DEFAULT=0
-GRUB_TIMEOUT=0
+GRUB_TIMEOUT=5
 GRUB_DISTRIBUTOR=Debian
 GRUB_CMDLINE_LINUX="quiet splash"
 GRUB_CMDLINE_WINDOWS="quiet intel_iommu=on"
