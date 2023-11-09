@@ -2,7 +2,7 @@
   "type": "module",
   "devDependencies": {
     "markdown-it-mathjax3": "^4.3.2",
-    "vitepress": "1.0.0-rc.20",
+    "vitepress": "1.0.0-rc.25",
     "vue": "^3.3.4"
   },
   "scripts": {
