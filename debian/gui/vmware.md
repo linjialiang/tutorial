@@ -8,8 +8,8 @@ titleTemplate: Debian 教程
 VMware 是 `.bundle` 格式的文件，安装特别简单
 
 ```bash
-chmod +x ./VMware-Workstation-Full-17.0.2-21581411.x86_64.bundle
-./VMware-Workstation-Full-17.0.2-21581411.x86_64.bundle
+chmod +x ./VMware-Workstation-Full-17.5.0-22583795.x86_64.bundle
+./VMware-Workstation-Full-17.5.0-22583795.x86_64.bundle
 ```
 
 ## VMware 依赖项
