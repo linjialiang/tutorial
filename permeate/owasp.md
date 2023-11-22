@@ -53,6 +53,7 @@ ldd /usr/lib/jdk8/bin/java
 ```bash [安装]
 git clone https://github.com/OWASP-Benchmark/BenchmarkJava.git
 cd BenchmarkJava
+# 构建前 mvn 建议设为阿里云镜像
 # 构建
 mvn compile
 # 本地访问 localhost:8443/benchmark/
@@ -68,3 +69,19 @@ nohup ./runRemoteAccessibleBenchmark.sh >/tmp/owasp.log &
 ```
 
 :::
+
+## 配置国内镜像
+
+文件 `/etc/maven/setting.xml` 内 `mirrors` 标签下 增加一个 `mirror` 子标签
+
+```xml
+<mirrors>
+  <!-- 阿里仓库 -->
+  <mirror>
+    <id>aliyunmaven</id>
+    <mirrorOf>*</mirrorOf>
+    <name>阿里云公共仓库</name>
+    <url>https://maven.aliyun.com/repository/public</url>
+  </mirror>
+</mirrors>
+```
