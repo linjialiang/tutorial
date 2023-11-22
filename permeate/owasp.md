@@ -90,3 +90,5 @@ ps -ef|grep BenchmarkJava
   </mirror>
 </mirrors>
 ```
+
+## 开启自动运行靶场
