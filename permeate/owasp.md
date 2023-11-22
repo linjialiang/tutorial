@@ -18,7 +18,7 @@ apt install git maven -y
 
 ## 安装 Java 8
 
-去[[Java 官网]](https://www.oracle.com/java/technologies/downloads/)可以下载到最新的Java8—— [[jdk-8u381-linux-x64.tar.gz]](https://download.oracle.com/otn/java/jdk/8u381-b09/8c876547113c4e4aab3c868e9e0ec572/jdk-8u381-linux-x64.tar.gz)
+去[[Java 官网]](https://www.oracle.com/java/technologies/downloads/)可以下载到最新的Java8—— [[dk-8u391-linux-x64.tar.gz]](https://download.oracle.com/otn/java/jdk/8u391-b13/b291ca3e0c8548b5a51d5a5f50063037/jdk-8u391-linux-x64.tar.gz)
 
 ::: code-group
 
