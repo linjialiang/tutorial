@@ -65,7 +65,12 @@ chmod +x ./runRemoteAccessibleBenchmark.sh
 ```
 
 ```bash [后台启动]
-nohup ./runRemoteAccessibleBenchmark.sh >/tmp/owasp.log &
+# 输出到 /tmp/owasp.log 文件
+nohup ./runRemoteAccessibleBenchmark.sh > /tmp/owasp.log &
+# 内容不输出
+nohup ./runRemoteAccessibleBenchmark.sh > /dev/null 2>&1 &
+# 查看
+ps -ef|grep BenchmarkJava
 ```
 
 :::
