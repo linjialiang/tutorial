@@ -111,6 +111,12 @@ cp -p -r yaml-2.2.3 /package/php-8.2.12/ext/yaml
 cp -p -r apcu-5.1.22 /package/php-8.2.12/ext/apcu
 ```
 
+```bash [拷贝到8.3]
+cp -p -r redis-6.0.2 /package/php-8.3.0/ext/redis
+cp -p -r yaml-2.2.3 /package/php-8.3.0/ext/yaml
+cp -p -r apcu-5.1.22 /package/php-8.3.0/ext/apcu
+```
+
 :::
 
 ### 2. 重新生成 php 配置
