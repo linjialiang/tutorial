@@ -31,7 +31,7 @@ PHP 环境目录
 |   ├─ data                 mysql的数据目录
 |   |
 |   ├─ php                  PHP 版本目录
-|   |  ├─ 82                PHP8.2
+|   |  ├─ 83                PHP8.3
 |   |  └─ ...
 |   |
 |   ├─ sqlite3             sqlite3
@@ -89,21 +89,19 @@ PHP 环境目录
 2. openssl-3.0.12.tar.gz
 3. pcre2-10.42.tar.bz2
 4. zlib-1.3.tar.xz
-5. redis-7.2.3.tar.gz
-6. sqlite-autoconf-3440000.tar.gz
-7. php-8.2.12.tar.xz
+5. redis-redis-7.2.3.tar.gz
+6. sqlite-autoconf-3440200.tar.gz
+7. php-8.3.0.tar.xz
 8. mysql-boost-8.0.35.tar.gz
 
 :::
 
 ::: details /package/php_ext 目录
 
-1. apcu-5.1.22.tgz
-2. mongodb-1.16.2.tgz
-3. rdkafka-6.0.3.tgz
-4. redis-6.0.2.tgz
-5. xdebug-3.2.2.tgz
-6. yaml-2.2.3.tgz
+1. apcu-5.1.23.tgz
+2. redis-6.0.2.tgz
+3. xdebug-3.3.0alpha3.tgz
+4. yaml-2.2.3.tgz
 
 :::
 
