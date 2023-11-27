@@ -93,18 +93,6 @@ cp -p -r yaml-2.2.3 /package/php-7.4.33/ext/yaml
 cp -p -r apcu-5.1.23 /package/php-7.4.33/ext/apcu
 ```
 
-```bash [拷贝到8.0]
-cp -p -r redis-6.0.2 /package/php-8.0.30/ext/redis
-cp -p -r yaml-2.2.3 /package/php-8.0.30/ext/yaml
-cp -p -r apcu-5.1.23 /package/php-8.0.30/ext/apcu
-```
-
-```bash [拷贝到8.1]
-cp -p -r redis-6.0.2 /package/php-8.1.22/ext/redis
-cp -p -r yaml-2.2.3 /package/php-8.1.22/ext/yaml
-cp -p -r apcu-5.1.23 /package/php-8.1.22/ext/apcu
-```
-
 ```bash [拷贝到8.2]
 cp -p -r redis-6.0.2 /package/php-8.2.12/ext/redis
 cp -p -r yaml-2.2.3 /package/php-8.2.12/ext/yaml
@@ -141,20 +129,14 @@ mv configure{,.original}
 ./buildconf --force
 ```
 
-```bash [8.0重新生成]
-cd /package/php-8.0.30/
-mv configure{,.original}
-./buildconf --force
-```
-
-```bash [8.1重新生成]
-cd /package/php-8.1.22/
-mv configure{,.original}
-./buildconf --force
-```
-
 ```bash [8.2重新生成]
 cd /package/php-8.2.12/
+mv configure{,.original}
+./buildconf --force
+```
+
+```bash [8.3重新生成]
+cd /package/php-8.3.0/
 mv configure{,.original}
 ./buildconf --force
 ```
@@ -225,9 +207,8 @@ apt install postgresql-server-dev-all -y
 
 ```bash
 mkdir /package/php-7.4.33/build_php
-mkdir /package/php-8.0.30/build_php
-mkdir /package/php-8.1.22/build_php
 mkdir /package/php-8.2.12/build_php
+mkdir /package/php-8.3.0/build_php
 ```
 
 ### 3. 环境变量
@@ -269,9 +250,8 @@ sqlite3          SQLite - SQL database engine
 ::: details 构建选项预览
 ::: code-group
 <<<@/assets/environment/source/php/configure/74.ini [7.4]
-<<<@/assets/environment/source/php/configure/80.ini [8.0]
-<<<@/assets/environment/source/php/configure/81.ini [8.1]
 <<<@/assets/environment/source/php/configure/82.ini [8.2]
+<<<@/assets/environment/source/php/configure/83.ini [8.3]
 :::
 
 ### 5. 进入构建目录
@@ -279,12 +259,10 @@ sqlite3          SQLite - SQL database engine
 ```bash
 # php7.4 构建目录
 cd /package/php-7.4.33/build_php/
-# php8.0 构建目录
-cd /package/php-8.0.30/build_php/
-# php8.1 构建目录
-cd /package/php-8.1.22/build_php/
 # php8.2 构建目录
 cd /package/php-8.2.12/build_php/
+# php8.3 构建目录
+cd /package/php-8.3.0/build_php/
 ```
 
 ### 6. 安装指令
@@ -292,9 +270,8 @@ cd /package/php-8.2.12/build_php/
 ::: details 构建指令参考
 ::: code-group
 <<<@/assets/environment/source/php/build/74.bash [7.4]
-<<<@/assets/environment/source/php/build/80.bash [8.0]
-<<<@/assets/environment/source/php/build/81.bash [8.1]
 <<<@/assets/environment/source/php/build/82.bash [8.2]
+<<<@/assets/environment/source/php/build/83.bash [8.3]
 :::
 
 ::: tip 构建指令区别：
@@ -332,23 +309,19 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 ```bash [使用 php 程序]
 # php7.4
 /server/php/74/bin/php --ini
-# php8.0
-/server/php/80/bin/php --ini
-# php8.1
-/server/php/81/bin/php --ini
 # php8.2
 /server/php/82/bin/php --ini
+# php8.3
+/server/php/83/bin/php --ini
 ```
 
 ```bash [使用 php-config 程序]
 # php7.4
 /server/php/74/bin/php-config --ini-path
-# php8.0
-/server/php/80/bin/php-config --ini-path
-# php8.1
-/server/php/81/bin/php-config --ini-path
 # php8.2
 /server/php/82/bin/php-config --ini-path
+# php8.3
+/server/php/83/bin/php-config --ini-path
 ```
 
 :::
@@ -360,23 +333,19 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 ```bash [部署环境]
 # php7.4
 cp /package/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
-# php8.0
-cp /package/php-8.0.30/php.ini-production /server/php/80/lib/php.ini
-# php8.1
-cp /package/php-8.1.22/php.ini-production /server/php/81/lib/php.ini
 # php8.2
 cp /package/php-8.2.12/php.ini-production /server/php/82/lib/php.ini
+# php8.3
+cp /package/php-8.3.0/php.ini-production /server/php/83/lib/php.ini
 ```
 
 ```bash [开发环境]
 # php7.4
 cp /package/php-7.4.33/php.ini-development /server/php/74/lib/php.ini
-# php8.0
-cp /package/php-8.0.30/php.ini-development /server/php/80/lib/php.ini
-# php8.1
-cp /package/php-8.1.22/php.ini-development /server/php/81/lib/php.ini
 # php8.2
 cp /package/php-8.2.12/php.ini-development /server/php/82/lib/php.ini
+# php8.3
+cp /package/php-8.3.0/php.ini-development /server/php/83/lib/php.ini
 ```
 
 :::
@@ -388,12 +357,10 @@ cp /package/php-8.2.12/php.ini-development /server/php/82/lib/php.ini
 ```bash
 # php7.4
 /server/php/74/bin/php --ini
-# php8.0
-/server/php/80/bin/php --ini
-# php8.1
-/server/php/81/bin/php --ini
 # php8.2
 /server/php/82/bin/php --ini
+# php8.3
+/server/php/83/bin/php --ini
 ```
 
 ### 5. 开启 OPcache
@@ -472,9 +439,8 @@ PHP-FPM 的主配置文件选项基本上都是使用默认，所以案例选项
 ::: details php 主配置文件案例
 ::: code-group
 <<<@/assets/environment/source/php/74/php-fpm.conf.ini [7.4]
-<<<@/assets/environment/source/php/80/php-fpm.conf.ini [8.0]
-<<<@/assets/environment/source/php/81/php-fpm.conf.ini [8.1]
 <<<@/assets/environment/source/php/82/php-fpm.conf.ini [8.2]
+<<<@/assets/environment/source/php/83/php-fpm.conf.ini [8.3]
 :::
 
 ### 3. 工作池配置文件
@@ -489,15 +455,14 @@ PHP-FPM 工作池进程配置文件有多个，并且支持随意命名，但为
 ::: details 通用工作池案例
 ::: code-group
 <<<@/assets/environment/source/php/74/php-fpm.d/default.conf.ini [7.4]
-<<<@/assets/environment/source/php/80/php-fpm.d/default.conf.ini [8.0]
-<<<@/assets/environment/source/php/81/php-fpm.d/default.conf.ini [8.1]
 <<<@/assets/environment/source/php/82/php-fpm.d/default.conf.ini [8.2]
+<<<@/assets/environment/source/php/83/php-fpm.d/default.conf.ini [8.3]
 :::
 
 ::: details 其他工作池案例
 ::: code-group
-<<<@/assets/environment/source/php/82/php-fpm.d/tp.conf.ini [tp 工作池]
-<<<@/assets/environment/source/php/82/php-fpm.d/qy.conf.ini [勤易工作池]
+<<<@/assets/environment/source/php/83/php-fpm.d/tp.conf.ini [tp 工作池]
+<<<@/assets/environment/source/php/83/php-fpm.d/qy.conf.ini [勤易工作池]
 :::
 
 ### 4. 工作进程配置参数
@@ -532,18 +497,16 @@ PHP-FPM 自带了一套比较完善的进程管理指令，编译完成后还会
 
 ::: code-group
 <<<@/assets/environment/source/service/php/74/php-fpm.service.ini [php7.4]
-<<<@/assets/environment/source/service/php/80/php-fpm.service.ini [php8.0]
-<<<@/assets/environment/source/service/php/81/php-fpm.service.ini [php8.1]
 <<<@/assets/environment/source/service/php/82/php-fpm.service.ini [php8.2]
+<<<@/assets/environment/source/service/php/83/php-fpm.service.ini [php8.3]
 :::
 
 ::: details 案例参考
 
 ::: code-group
 <<<@/assets/environment/source/service/php/phpfpm74.service.ini [php7.4]
-<<<@/assets/environment/source/service/php/phpfpm80.service.ini [php8.0]
-<<<@/assets/environment/source/service/php/phpfpm81.service.ini [php8.1]
 <<<@/assets/environment/source/service/php/phpfpm82.service.ini [php8.2]
+<<<@/assets/environment/source/service/php/phpfpm83.service.ini [php8.3]
 :::
 
 ::: code-group
@@ -554,9 +517,8 @@ mv /path/phpfpm*.service /usr/lib/systemd/system/
 
 ```bash [加入开机启动]
 systemctl enable phpfpm74
-systemctl enable phpfpm80
-systemctl enable phpfpm81
 systemctl enable phpfpm82
+systemctl enable phpfpm83
 ```
 
 ```bash [重载Systemd]
@@ -591,14 +553,14 @@ Composer 是一个 PHP 依赖管理工具，开发环境必备
 推荐直接使用阿里云镜像 [下载 composer](https://mirrors.tencent.com/composer/composer.phar)
 
 ```bash
-# 进入 php8.2 的 bin 目录
-cd /server/php/82/bin
+# 进入 php8.3 的 bin 目录
+cd /server/php/83/bin
 # 下载 composer.phar
 curl -O https://mirrors.tencent.com/composer/composer.phar
 # 添加执行权限
 chmod +x composer.phar
 # 软链接到当前目录
-ln -s /server/php/82/bin/composer.phar /usr/local/bin/composer
+ln -s /server/php/83/bin/composer.phar /usr/local/bin/composer
 ```
 
 ::: tip 更多国内镜像
@@ -619,10 +581,10 @@ ln -s /server/php/82/bin/composer.phar /usr/local/bin/composer
 # 切换到开发者用户
 su www
 # 使用阿里云 Composer 全量镜像
-/server/php/82/bin/php /usr/local/bin/composer config -g repo.packagist composer https://mirrors.cloud.tencent.com/composer/
+/server/php/83/bin/php /usr/local/bin/composer config -g repo.packagist composer https://mirrors.cloud.tencent.com/composer/
 
 # 取消使用阿里云 Composer 全量镜像
-/server/php/82/bin/php /usr/local/bin/composer config -g --unset repos.packagist
+/server/php/83/bin/php /usr/local/bin/composer config -g --unset repos.packagist
 ```
 
 ### 3. 升级
@@ -632,8 +594,8 @@ su www
 ```bash
 # 切换到开发者用户
 su www
-/server/php/82/bin/php /usr/local/bin/composer -V
-/server/php/82/bin/php /usr/local/bin/composer self-update
+/server/php/83/bin/php /usr/local/bin/composer -V
+/server/php/83/bin/php /usr/local/bin/composer self-update
 ```
 
 ### 4. 加入环境变量中
@@ -648,7 +610,7 @@ su www
 # 切换到开发者用户
 su www
 # ~/.bashrc 和 ~/.zshrc  文件底部增加
-PATH=${PATH}:/server/php/82/bin:/server/php/82/sbin
+PATH=${PATH}:/server/php/83/bin:/server/php/83/sbin
 export PATH
 ```
 
