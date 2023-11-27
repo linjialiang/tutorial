@@ -243,9 +243,6 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
 -- 更新用户，'root'@'localhost' 用户除了系统root登录外还支持系统emad用户登录
 ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'emad';
 
--- 查看用户认证插件
-SELECT user, host, plugin, authentication_string FROM mysql.user;
-
 -- 删除 'root'@'localhost' 用户
 DROP USER 'root'@'localhost';
 ```
@@ -295,6 +292,16 @@ DROP USER 'admin'@'1192.168.%.%';
 
 ```sql
 select user, host, plugin, authentication_string from mysql.user;
+
+-- +------------------+-----------+-----------------------+------------------------------------------------------------------------+
+-- | user             | host      | plugin                | authentication_string                                                  |
+-- +------------------+-----------+-----------------------+------------------------------------------------------------------------+
+-- | mysql.infoschema | localhost | caching_sha2_password | $A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED |
+-- | mysql.session    | localhost | caching_sha2_password | $A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED |
+-- | mysql.sys        | localhost | caching_sha2_password | $A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED |
+-- | root             | localhost | auth_socket           | emad                                                                   |
+-- +------------------+-----------+-----------------------+------------------------------------------------------------------------+
+
 ```
 
 :::
