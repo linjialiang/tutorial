@@ -1,6 +1,6 @@
 # /server/nginx/conf/custom/default.conf
 
-## php8.2 默认站点
+## php8.3 默认站点
 server
 {
     listen 80;
