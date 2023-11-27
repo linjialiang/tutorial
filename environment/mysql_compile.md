@@ -243,6 +243,9 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
 -- 更新用户，'root'@'localhost' 用户除了系统root登录外还支持系统emad用户登录
 ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'emad';
 
+-- 查看用户认证插件
+SELECT user, host, plugin, authentication_string FROM mysql.user;
+
 -- 删除 'root'@'localhost' 用户
 DROP USER 'root'@'localhost';
 ```
