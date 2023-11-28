@@ -440,9 +440,9 @@ PHP-FPM 的主配置文件选项基本上都是使用默认，所以案例选项
 
 ::: details php 主配置文件案例
 ::: code-group
-<<<@/assets/environment/source/php/74/php-fpm.conf.ini [7.4]
-<<<@/assets/environment/source/php/82/php-fpm.conf.ini [8.2]
-<<<@/assets/environment/source/php/83/php-fpm.conf.ini [8.3]
+<<<@/assets/environment/source/php/74/php-fpm.conf{ini} [7.4]
+<<<@/assets/environment/source/php/82/php-fpm.conf{ini} [8.2]
+<<<@/assets/environment/source/php/83/php-fpm.conf{ini} [8.3]
 :::
 
 ### 3. 工作池配置文件
@@ -456,15 +456,15 @@ PHP-FPM 工作池进程配置文件有多个，并且支持随意命名，但为
 
 ::: details 通用工作池案例
 ::: code-group
-<<<@/assets/environment/source/php/74/php-fpm.d/default.conf.ini [7.4]
-<<<@/assets/environment/source/php/82/php-fpm.d/default.conf.ini [8.2]
-<<<@/assets/environment/source/php/83/php-fpm.d/default.conf.ini [8.3]
+<<<@/assets/environment/source/php/74/php-fpm.d/default.conf{ini} [7.4]
+<<<@/assets/environment/source/php/82/php-fpm.d/default.conf{ini} [8.2]
+<<<@/assets/environment/source/php/83/php-fpm.d/default.conf{ini} [8.3]
 :::
 
 ::: details 其他工作池案例
 ::: code-group
-<<<@/assets/environment/source/php/83/php-fpm.d/tp.conf.ini [tp 工作池]
-<<<@/assets/environment/source/php/83/php-fpm.d/qy.conf.ini [勤易工作池]
+<<<@/assets/environment/source/php/83/php-fpm.d/tp.conf{ini} [tp 工作池]
+<<<@/assets/environment/source/php/83/php-fpm.d/qy.conf{ini} [勤易工作池]
 :::
 
 ### 4. 工作进程配置参数
@@ -498,17 +498,17 @@ PHP-FPM 自带了一套比较完善的进程管理指令，编译完成后还会
 ::: details 默认模板
 
 ::: code-group
-<<<@/assets/environment/source/service/php/74/php-fpm.service.ini [php7.4]
-<<<@/assets/environment/source/service/php/82/php-fpm.service.ini [php8.2]
-<<<@/assets/environment/source/service/php/83/php-fpm.service.ini [php8.3]
+<<<@/assets/environment/source/service/php/74/php-fpm.service{ini} [php7.4]
+<<<@/assets/environment/source/service/php/82/php-fpm.service{ini} [php8.2]
+<<<@/assets/environment/source/service/php/83/php-fpm.service{ini} [php8.3]
 :::
 
 ::: details 案例参考
 
 ::: code-group
-<<<@/assets/environment/source/service/php/phpfpm74.service.ini [php7.4]
-<<<@/assets/environment/source/service/php/phpfpm82.service.ini [php8.2]
-<<<@/assets/environment/source/service/php/phpfpm83.service.ini [php8.3]
+<<<@/assets/environment/source/service/php/php74-fpm.service{ini} [php7.4]
+<<<@/assets/environment/source/service/php/php82-fpm.service{ini} [php8.2]
+<<<@/assets/environment/source/service/php/php83-fpm.service{ini} [php8.3]
 :::
 
 ::: code-group
