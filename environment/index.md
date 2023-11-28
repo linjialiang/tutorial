@@ -100,7 +100,7 @@ PHP 环境目录
 
 1. apcu-5.1.23.tgz
 2. redis-6.0.2.tgz
-3. xdebug-3.3.0alpha3.tgz
+3. xdebug-3.3.0alpha3.tgz `php8.3.0编译失败`
 4. yaml-2.2.3.tgz
 
 :::
