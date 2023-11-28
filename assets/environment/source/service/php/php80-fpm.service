@@ -1,11 +1,11 @@
 [Unit]
-Description=The PHP 8.1 FastCGI Process Manager
+Description=The PHP 8.0 FastCGI Process Manager
 After=network.target
 
 [Service]
 Type=simple
-PIDFile=/server/run/php/phpfpm81.pid
-ExecStart=/server/php/81/sbin/php-fpm --nodaemonize --fpm-config /server/php/81/etc/php-fpm.conf
+PIDFile=/server/run/php/php80-fpm.pid
+ExecStart=/server/php/80/sbin/php-fpm --nodaemonize --fpm-config /server/php/80/etc/php-fpm.conf
 ExecReload=/bin/kill -USR2 $MAINPID
 PrivateTmp=true
 ProtectSystem=full

@@ -478,7 +478,7 @@ user                    = phpfpm    # 子进程用户，默认为 nobody
 group                   = phpfpm    # 子进程用户组，默认为 nobody
 
 # 工作池进程对应的监听地址，可选 监听端口 或 socket文件
-listen                  = /server/run/php/phpfpm81-default.sock
+listen                  = /server/run/php/php81-fpm-default.sock
 
 listen.backlog          = -1        # 设置 listen 的最大值，-1表示无限制，默认值：-1
 listen.owner            = nginx     # 子进程监听用户，默认为 nobody，仅支持监听对象是 unix 套接字
@@ -518,9 +518,9 @@ mv /path/phpfpm*.service /usr/lib/systemd/system/
 ```
 
 ```bash [加入开机启动]
-systemctl enable phpfpm74
-systemctl enable phpfpm82
-systemctl enable phpfpm83
+systemctl enable php74-fpm
+systemctl enable php82-fpm
+systemctl enable php83-fpm
 ```
 
 ```bash [重载Systemd]
