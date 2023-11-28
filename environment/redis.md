@@ -84,6 +84,11 @@ logfile "/server/logs/redis/redis.log"
 dir /server/redis/data
 ```
 
+```bash [创建目录]
+# redis 用户需要有写入权限
+mkdir /server/redis/data
+```
+
 ```bash [sysctl.conf]
 # /etc/sysctl.conf
 
