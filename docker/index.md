@@ -45,20 +45,6 @@ Docker 是一种运行于 `Linux` 和 `Windows` 上的软件，用于创建、�
 Windows 容器用户空间是通过 Docker 来完成与 Windows 容器之间交互的。
 ```
 
-:::
-
-:::code-group
-
-```md [Windows 容器 vs Linux 容器]
-运行中的容器共享宿主机的内核，理解这一点是很重要的。
-
-这意味着一个基于 Windows 的容器化应用在 Linux 主机上是无法运行的。
-
-简单地理解： Windows 容器需要运行在 Windows 宿主机之上，Linux 容器（Linux Container）需要运行在 Linux 宿主机上。
-
-但是 ，Windows 版 Docker（由 Docker 公司提供的为 Windows 10 设计的产品）可以在 Windows 容器模式和 Linux 容器模式之间进行切换。
-```
-
 ```md [Mac 容器现状]
 迄今为止，还没有出现 Mac 容器（Mac Container）。
 
@@ -79,6 +65,16 @@ Kubernetes 也提供了一个可插拔的容器运行时接口 CRI。
 CRI 能够帮助 Kubernetes 实现将运行时环境从 Docker 快速替换为其他容器运行时。
 ```
 
+:::
+
+::: tip Windows 容器 vs Linux 容器
+运行中的容器共享宿主机的内核，理解这一点是很重要的。
+
+这意味着一个基于 Windows 的容器化应用在 Linux 主机上是无法运行的。
+
+简单地理解： Windows 容器需要运行在 Windows 宿主机之上，Linux 容器（Linux Container）需要运行在 Linux 宿主机上。
+
+但是 ，Windows 版 Docker（由 Docker 公司提供的为 Windows 10 设计的产品）可以在 Windows 容器模式和 Linux 容器模式之间进行切换。
 :::
 
 ## 走进 Docker
