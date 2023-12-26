@@ -15,6 +15,7 @@ const official = [
 
 const sidebar = [
   { text: "Docker概览", link: `${path.main}` },
+  { text: "安装Docker", link: `${path.main}/install` },
   { text: "官方手册", collapsed: true, items: official },
 ];
 
