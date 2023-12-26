@@ -58,3 +58,27 @@ Kubernetes 也提供了一个可插拔的容器运行时接口 CRI。CRI 能够�
 ```
 
 :::
+
+## 走进 Docker
+
+Docker 是一种运行于 Linux 和 Windows 上的软件，用于创建、管理和编排容器。
+
+Docker 是在 GitHub 上开发的 [Moby 开源项目](https://github.com/moby/moby) 的一部分。
+
+Docker 公司，位于旧金山，是整个 `Moby 开源项目` 的维护者。Docker 公司还提供包含支持服务的商业版本的 Docker。
+
+下面针对每个概念进行详细介绍。此外还包含对容器生态的探讨，以及对开放容器计划（Open Container Initiative, OCI）的介绍。
+
+### 1. Docker 名称由来
+
+`Docker` 一词来自英国口语，意为码头工人（Dock Worker），即从船上装卸货物的人。
+
+### 2. Docker 运行时与编排引擎
+
+多数技术人员在谈到 Docker 时，主要是指 Docker 引擎。
+
+Docker 引擎是用于运行和编排容器的基础设施工具。是运行容器的核心容器运行时。
+
+其他 Docker 产品都是围绕 `Docker 引擎` 进行开发和集成的。如下图所示：Docker 引擎位于中心，其他产品基于 Docker 引擎的核心功能进行集成。
+
+![docker产品结构示意图](/assets/docker/001.png "docker产品结构示意图")
