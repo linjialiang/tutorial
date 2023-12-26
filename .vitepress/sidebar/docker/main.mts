@@ -14,7 +14,7 @@ const official = [
 ];
 
 const sidebar = [
-  { text: "概述", link: `${path.main}` },
+  { text: "Docker概览", link: `${path.main}` },
   { text: "官方手册", collapsed: true, items: official },
 ];
 
