@@ -5,7 +5,7 @@ titleTemplate: Docker 教程
 
 # 概述
 
-学习 Docker 前需要了解几个概念
+Docker 前需要了解几个概念：
 
 ::: code-group
 
@@ -44,6 +44,10 @@ Docker 是一种运行于 `Linux` 和 `Windows` 上的软件，用于创建、�
 
 Windows 容器用户空间是通过 Docker 来完成与 Windows 容器之间交互的。
 ```
+
+:::
+
+:::code-group
 
 ```md [Windows 容器 vs Linux 容器]
 运行中的容器共享宿主机的内核，理解这一点是很重要的。
