@@ -14,11 +14,8 @@ const official = [
 ];
 
 const sidebar = [
-  {
-    text: "官方手册",
-    collapsed: true,
-    items: official,
-  },
+  { text: "概述", link: `${path.main}` },
+  { text: "官方手册", collapsed: true, items: official },
 ];
 
 export default sidebar;
