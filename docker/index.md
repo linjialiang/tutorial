@@ -51,4 +51,10 @@ Windows 容器用户空间是通过 Docker 来完成与 Windows 容器之间交�
 即使是在 Windows 上，我们也是优先运行 Linux 容器，而不是直接运行 Windows 容器，毕竟 Linux 容器才是最稳定和高效的容器技术
 ```
 
+```md [Kubernetes]
+Kubernetes 是 容器之上的一个平台，现在采用 Docker 实现其底层容器相关的操作。
+
+Kubernetes 也提供了一个可插拔的容器运行时接口 CRI。CRI 能够帮助 Kubernetes 实现将运行时环境从 Docker 快速替换为其他容器运行时。
+```
+
 :::
