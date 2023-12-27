@@ -91,7 +91,7 @@ PHP 环境目录
 4. zlib-1.3.tar.xz
 5. redis-7.2.3.tar.gz
 6. sqlite-autoconf-3440200.tar.gz
-7. php-8.3.0.tar.xz
+7. php-8.3.1.tar.xz
 8. mysql-boost-8.0.35.tar.gz
 
 :::
@@ -100,7 +100,7 @@ PHP 环境目录
 
 1. apcu-5.1.23.tgz
 2. redis-6.0.2.tgz
-3. xdebug-3.3.0alpha3.tgz `php8.3.0编译失败`
+3. xdebug-3.3.1.tgz
 4. yaml-2.2.3.tgz
 
 :::
