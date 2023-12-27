@@ -1,28 +1,15 @@
 # /server/nginx/conf/custom/default.conf
 
-## php8.3 默认站点
+# 默认站点
 server
 {
-    listen 80;
-    server_name 82.php.com;
+    listen 80 default;
     root /server/default;
-    index index.php;
+    index index.html;
 
-    location /
+    location ~ \.php
     {
-        access_log      off;    # 关闭访问日志
-        log_not_found   off;    # 关闭错误日志
-    }
-
-    allow 192.168.10.0/24;  # 允许 192.168.10 段的局域网访问
-    allow 192.168.66.0/24;  # 允许 192.168.66 段的局域网访问
-    deny all;               # 拒绝 其他IP访问
-
-    # php-fpm 转发
-    location ~* \.php$
-    {
-        fastcgi_pass        unix:/server/run/php/82.sock;
-        include             fastcgi.conf;
+    	deny all;
     }
 }
 
