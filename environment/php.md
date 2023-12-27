@@ -846,9 +846,8 @@ cd /package/php_ext/imagick-3.7.0
 phpize
 # 构建指令
 ./configure \
---with-php-config=/server/php/82/bin/php-config \
-# --with-php-config=/server/php/81/bin/php-config \
-# --with-php-config=/server/php/80/bin/php-config \
+--with-php-config=/server/php/83/bin/php-config \
+# --with-php-config=/server/php/82/bin/php-config \
 # --with-php-config=/server/php/74/bin/php-config \
 --with-imagick=/server/ImageMagick/
 # 编译并安装
