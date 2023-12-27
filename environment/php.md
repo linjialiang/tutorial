@@ -86,6 +86,12 @@ PHP 扩展库按加载时间可分为：`动态库(共享扩展)` 和 `静态库
 cd /package/php_ext
 ```
 
+```bash [拷贝到8.3]
+cp -p -r redis-6.0.2 /package/php-8.3.1/ext/redis
+cp -p -r yaml-2.2.3 /package/php-8.3.1/ext/yaml
+cp -p -r apcu-5.1.23 /package/php-8.3.1/ext/apcu
+```
+
 ```bash [拷贝到7.4]
 cp -p -r redis-6.0.2 /package/php-7.4.33/ext/redis
 cp -p -r yaml-2.2.3 /package/php-7.4.33/ext/yaml
@@ -96,12 +102,6 @@ cp -p -r apcu-5.1.23 /package/php-7.4.33/ext/apcu
 cp -p -r redis-6.0.2 /package/php-8.2.12/ext/redis
 cp -p -r yaml-2.2.3 /package/php-8.2.12/ext/yaml
 cp -p -r apcu-5.1.23 /package/php-8.2.12/ext/apcu
-```
-
-```bash [拷贝到8.3]
-cp -p -r redis-6.0.2 /package/php-8.3.1/ext/redis
-cp -p -r yaml-2.2.3 /package/php-8.3.1/ext/yaml
-cp -p -r apcu-5.1.23 /package/php-8.3.1/ext/apcu
 ```
 
 :::
@@ -122,6 +122,12 @@ apt install autoconf -y
 
 ::: code-group
 
+```bash [8.3重新生成]
+cd /package/php-8.3.1/
+mv configure{,.original}
+./buildconf --force
+```
+
 ```bash [7.4重新生成]
 cd /package/php-7.4.33/
 mv configure{,.original}
@@ -130,12 +136,6 @@ mv configure{,.original}
 
 ```bash [8.2重新生成]
 cd /package/php-8.2.12/
-mv configure{,.original}
-./buildconf --force
-```
-
-```bash [8.3重新生成]
-cd /package/php-8.3.1/
 mv configure{,.original}
 ./buildconf --force
 ```
@@ -271,9 +271,9 @@ cd /package/php-8.3.1/build_php/
 
 ::: details 构建指令参考
 ::: code-group
+<<<@/assets/environment/source/php/build/83.bash [8.3]
 <<<@/assets/environment/source/php/build/74.bash [7.4]
 <<<@/assets/environment/source/php/build/82.bash [8.2]
-<<<@/assets/environment/source/php/build/83.bash [8.3]
 :::
 
 ::: tip 构建指令区别：
@@ -440,9 +440,9 @@ PHP-FPM 的主配置文件选项基本上都是使用默认，所以案例选项
 
 ::: details php 主配置文件案例
 ::: code-group
+<<<@/assets/environment/source/php/83/php-fpm.conf{ini} [8.3]
 <<<@/assets/environment/source/php/74/php-fpm.conf{ini} [7.4]
 <<<@/assets/environment/source/php/82/php-fpm.conf{ini} [8.2]
-<<<@/assets/environment/source/php/83/php-fpm.conf{ini} [8.3]
 :::
 
 ### 3. 工作池配置文件
@@ -456,9 +456,9 @@ PHP-FPM 工作池进程配置文件有多个，并且支持随意命名，但为
 
 ::: details 通用工作池案例
 ::: code-group
+<<<@/assets/environment/source/php/83/php-fpm.d/default.conf{ini} [8.3]
 <<<@/assets/environment/source/php/74/php-fpm.d/default.conf{ini} [7.4]
 <<<@/assets/environment/source/php/82/php-fpm.d/default.conf{ini} [8.2]
-<<<@/assets/environment/source/php/83/php-fpm.d/default.conf{ini} [8.3]
 :::
 
 ::: details 其他工作池案例
@@ -498,17 +498,17 @@ PHP-FPM 自带了一套比较完善的进程管理指令，编译完成后还会
 ::: details 默认模板
 
 ::: code-group
+<<<@/assets/environment/source/service/php/83/php-fpm.service{ini} [php8.3]
 <<<@/assets/environment/source/service/php/74/php-fpm.service{ini} [php7.4]
 <<<@/assets/environment/source/service/php/82/php-fpm.service{ini} [php8.2]
-<<<@/assets/environment/source/service/php/83/php-fpm.service{ini} [php8.3]
 :::
 
 ::: details 案例参考
 
 ::: code-group
+<<<@/assets/environment/source/service/php/php83-fpm.service{ini} [php8.3]
 <<<@/assets/environment/source/service/php/php74-fpm.service{ini} [php7.4]
 <<<@/assets/environment/source/service/php/php82-fpm.service{ini} [php8.2]
-<<<@/assets/environment/source/service/php/php83-fpm.service{ini} [php8.3]
 :::
 
 ::: code-group
