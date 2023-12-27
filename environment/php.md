@@ -897,7 +897,7 @@ Swoole 是一个使用 C++ 语言编写的基于异步事件驱动和协程的�
 在 php.ini 配置文件的 `960` 行附近加入已经安装的扩展即可，如：
 
 ```ini
-# /server/php/82/lib/php.ini
+# /server/php/83/lib/php.ini
 extension=imagick
 extension=swoole
 
@@ -906,10 +906,9 @@ zend_extension=xdebug
 xdebug.mode=develop,trace,debug
 xdebug.client_host=127.0.0.1
 ; xdebug.client_host=192.168.6.254
-xdebug.client_port=9082
+xdebug.client_port=9083
 ; xdebug.client_port=9074
-; xdebug.client_port=9080
-; xdebug.client_port=9081
+; xdebug.client_port=9082
 ```
 
 ### 4. rdkafka
@@ -923,7 +922,7 @@ apt install librdkafka-dev -y
 # 安装 php-rdkafka 扩展
 cd /package/php_ext/rdkafka-6.0.3
 phpize
-./configure --with-php-config=/server/php/82/bin/php-config
+./configure --with-php-config=/server/php/83/bin/php-config
 make -j2
 make install
 ```
@@ -931,7 +930,7 @@ make install
 > 配置：
 
 ```ini
-# /server/php/82/lib/php.ini
+# /server/php/83/lib/php.ini
 extension=rdkafka
 ```
 
@@ -942,7 +941,7 @@ extension=rdkafka
 ```bash
 cd /package/php_ext/mongodb-1.16.2
 phpize
-./configure --with-php-config=/server/php/82/bin/php-config
+./configure --with-php-config=/server/php/83/bin/php-config
 make -j2
 make install
 ```
@@ -950,7 +949,7 @@ make install
 > 配置：
 
 ```ini
-# /server/php/82/lib/php.ini
+# /server/php/83/lib/php.ini
 extension=mongodb
 ```
 
@@ -963,7 +962,7 @@ chown root:root -R /server/php /server/logs/php /server/run/php
 find /server/php /server/logs/php -type f -exec chmod 640 {} \;
 find /server/php /server/logs/php -type d -exec chmod 750 {} \;
 # 可执行文件需要执行权限
-chmod 750 -R /server/php/82/bin /server/php/82/sbin
+chmod 750 -R /server/php/83/bin /server/php/83/sbin
 # 如果不设置成 755 php-fpm的监听用户nginx将无法读取和执行 unix socket 文件
 # socket 用户nginx/权限660
 # pid 用户root/权限644
@@ -975,7 +974,7 @@ chown root:emad -R /server/php /server/logs/php /server/run/php
 find /server/php /server/logs/php -type f -exec chmod 640 {} \;
 find /server/php /server/logs/php -type d -exec chmod 750 {} \;
 # 可执行文件需要执行权限
-chmod 750 -R /server/php/82/bin /server/php/82/sbin
+chmod 750 -R /server/php/83/bin /server/php/83/sbin
 # 如果不设置成 755 php-fpm的监听用户nginx将无法读取和执行 unix socket 文件
 # socket 用户nginx/权限660
 # pid 用户root/权限644
