@@ -45,3 +45,11 @@ Docker Desktop 减少了在复杂设置上花费的时间，因此您可以专�
 Docker 当前有两个引擎版本可供选择：社区版（Community Edition，CE）和企业版（Enterprise Edition，EE）。
 
 通常我们都会选择免费的社区版 Docker 引擎。
+
+::: top docker 一键安装命令
+
+```bash
+curl -fsSL https://get.docker.com | bash -s docker--mirror Aliyun
+```
+
+:::
