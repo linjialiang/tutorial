@@ -46,7 +46,7 @@ Docker 当前有两个引擎版本可供选择：社区版（Community Edition�
 
 通常我们都会选择免费的社区版 Docker 引擎。
 
-::: top docker 一键安装命令
+::: tip docker 一键安装命令
 
 ```bash
 curl -fsSL https://get.docker.com | bash -s docker--mirror Aliyun
