@@ -49,7 +49,7 @@ Docker 当前有两个引擎版本可供选择：社区版（Community Edition�
 ::: tip docker 一键安装命令
 
 ```bash
-curl -fsSL https://get.docker.com | bash -s docker--mirror Aliyun
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 ```
 
 :::
