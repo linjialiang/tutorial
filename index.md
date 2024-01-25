@@ -43,6 +43,16 @@ features:
     details: 网道
     link: http://wangdoc.e8so.com
   - icon:
+      src: /svg/eslint.svg
+    title: ESLint 教程
+    details: ESLint
+    link: /eslint/index
+  - icon:
+      src: /svg/prettier.svg
+    title: Prettier 教程
+    details: Prettier
+    link: /prettier/index
+  - icon:
       src: /svg/php.svg
     title: PHP 教程
     details: PHP语言解释器
@@ -52,11 +62,6 @@ features:
     title: Nginx 教程
     details: Web服务器
     link: /nginx/index
-  - icon:
-      src: /svg/redis.svg
-    title: Redis 教程
-    details: 最流行的键值型数据库(内存型)
-    link: /redis/index
   - icon:
       src: /svg/mysql.svg
     title: MySQL 教程
@@ -74,6 +79,16 @@ features:
     details: 最强大的开源关系型数据库
     link: /sql/pgsql/index
   - icon:
+      src: /svg/redis.svg
+    title: Redis 教程
+    details: 最流行的键值型数据库(内存型)
+    link: /redis/index
+  - icon:
+      src: /svg/mongodb.svg
+    title: MongoDB 教程
+    details: 最流行的文档数据库
+    link: /mongodb/index
+  - icon:
       light: /svg/docker.svg
       dark: /svg/k8s.svg
     title: Docker 教程
@@ -84,26 +99,6 @@ features:
     title: permeate
     details: 渗透
     link: /permeate/index
-  - icon:
-      src: /svg/mongodb.svg
-    title: MongoDB 教程
-    details: 最流行的文档数据库
-    link: /mongodb/index
-  - icon:
-      src: /svg/kafka.svg
-    title: Kafka 教程
-    details: 高吞吐量的开源分布式发布订阅消息系统
-    link: /kafka/index
-  - icon:
-      src: /svg/eslint.svg
-    title: ESLint 教程
-    details: ESLint
-    link: /eslint/index
-  - icon:
-      src: /svg/prettier.svg
-    title: Prettier 教程
-    details: Prettier
-    link: /prettier/index
   - icon:
       src: /svg/other.svg
     title: Other

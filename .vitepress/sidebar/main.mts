@@ -2,7 +2,6 @@ import debian from "./debian/main.mjs";
 import docker from "./docker/main.mjs";
 import environment from "./environment/main.mjs";
 import eslint from "./eslint/main.mjs";
-import kafka from "./kafka/main.mjs";
 import mongodb from "./mongodb/main.mjs";
 import nginx from "./nginx/main.mjs";
 import other from "./other/main.mjs";
@@ -21,7 +20,6 @@ const sidebar = {
   "/sql/": sql,
   "/mongodb/": mongodb,
   "/redis/": redis,
-  "/kafka/": kafka,
   "/php/": php,
   "/eslint/": eslint,
   "/prettier/": prettier,
