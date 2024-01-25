@@ -8,15 +8,17 @@
 <<<@/assets/js/listen-dynamic-element.js
 :::
 
-## npm 国内镜像
+::: details npm 国内镜像
 
 ```bash
-# npm 软件源改为淘宝镜像
+# npm 将软件源地址改为淘宝镜像地址
 npm config set registry https://registry.npmmirror.com
 
-# 查看npm当前镜像源
+# npm查看当前源地址
 npm get registry
 
-# npm 软件源恢复官方默认
+# npm 将软件源地址恢复成官方默认地址
 npm config set registry https://registry.npmjs.org
 ```
+
+:::
