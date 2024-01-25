@@ -95,10 +95,15 @@ features:
     details: 高吞吐量的开源分布式发布订阅消息系统
     link: /kafka/index
   - icon:
-      src: /svg/vue.svg
-    title: Vue3 教程
-    details: Vue3
-    link: /vue/index
+      src: /svg/eslint.svg
+    title: ESLint 教程
+    details: ESLint
+    link: /eslint/index
+  - icon:
+      src: /svg/prettier.svg
+    title: Prettier 教程
+    details: Prettier
+    link: /prettier/index
   - icon:
       src: /svg/other.svg
     title: Other

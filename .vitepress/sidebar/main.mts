@@ -1,16 +1,17 @@
 import debian from "./debian/main.mjs";
 import docker from "./docker/main.mjs";
 import environment from "./environment/main.mjs";
+import eslint from "./eslint/main.mjs";
 import kafka from "./kafka/main.mjs";
 import mongodb from "./mongodb/main.mjs";
 import nginx from "./nginx/main.mjs";
 import other from "./other/main.mjs";
 import permeate from "./permeate/main.mjs";
 import php from "./php/main.mjs";
+import prettier from "./prettier/main.mjs";
 import redis from "./redis/main.mjs";
 import sql from "./sql/main.mjs";
 import vitepress from "./vitepress/main.mjs";
-import vue from "./vue/main.mjs";
 
 const sidebar = {
   "/environment/": environment,
@@ -22,7 +23,8 @@ const sidebar = {
   "/redis/": redis,
   "/kafka/": kafka,
   "/php/": php,
-  "/vue/": vue,
+  "/eslint/": eslint,
+  "/prettier/": prettier,
   "/vitepress/": vitepress,
   "/other/": other,
   "/permeate/": permeate,
