@@ -19,4 +19,4 @@ const sidebar = [
   { text: "PHP", link: `${path.main}php` },
 ];
 
-export default sidebar;
+export { sidebar as environment };

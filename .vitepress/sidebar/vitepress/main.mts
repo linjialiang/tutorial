@@ -59,4 +59,4 @@ const sidebar = [
   { text: "配置参考", collapsed: true, items: reference },
 ];
 
-export default sidebar;
+export { sidebar as vitepress };

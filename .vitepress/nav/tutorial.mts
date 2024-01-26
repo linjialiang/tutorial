@@ -7,7 +7,6 @@ const nav = [
   { text: "SQL 教程", link: "/sql/common/" },
   { text: "Docker 教程", link: "/docker/" },
   { text: "MongoDB 教程", link: "/mongodb/" },
-  { text: "Kafka 教程", link: "/kafka/" },
 ];
 
 export default nav;

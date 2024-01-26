@@ -15,4 +15,4 @@ const sidebar = [
   { text: "javascript", collapsed: true, items: js },
 ];
 
-export default sidebar;
+export { sidebar as other };

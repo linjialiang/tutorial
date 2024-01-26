@@ -19,4 +19,4 @@ const sidebar = [
   { text: "官方手册", collapsed: true, items: official },
 ];
 
-export default sidebar;
+export { sidebar as docker };

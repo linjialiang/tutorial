@@ -8,4 +8,4 @@ const sidebar = [
   { text: "burpsuite_pro", link: `${path.main}burpsuite` },
 ];
 
-export default sidebar;
+export { sidebar as permeate };

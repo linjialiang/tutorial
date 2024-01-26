@@ -6,4 +6,4 @@ const sidebar = [
   { text: "Bash", collapsed: true, items: [...bash] },
 ];
 
-export default sidebar;
+export { sidebar as debian };

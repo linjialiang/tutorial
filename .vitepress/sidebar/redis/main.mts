@@ -4,4 +4,4 @@ const path = {
 
 const sidebar = [{ text: "概述", link: `${path.main}` }];
 
-export default sidebar;
+export { sidebar as redis };

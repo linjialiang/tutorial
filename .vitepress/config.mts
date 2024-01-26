@@ -5,7 +5,21 @@ import environmentNav from "./nav/environment.mjs";
 import otherNav from "./nav/other.mjs";
 import tutorialNav from "./nav/tutorial.mjs";
 import webNav from "./nav/web.mjs";
-import sidebar from "./sidebar/main.mjs";
+import {
+  debian,
+  docker,
+  environment,
+  eslint,
+  mongodb,
+  nginx,
+  other,
+  permeate,
+  php,
+  prettier,
+  redis,
+  sql,
+  vitepress,
+} from "./sidebar/main.mjs";
 
 // const options = {
 //   ...flexSearchIndexOptions,
@@ -92,7 +106,21 @@ export default defineConfig({
       { text: "前端", items: webNav },
       { text: "其他", items: otherNav },
     ],
-    sidebar: sidebar,
+    sidebar: {
+      "/environment/": environment,
+      "/debian/": debian,
+      "/docker/": docker,
+      "/nginx/": nginx,
+      "/sql/": sql,
+      "/mongodb/": mongodb,
+      "/redis/": redis,
+      "/php/": php,
+      "/eslint/": eslint,
+      "/prettier/": prettier,
+      "/vitepress/": vitepress,
+      "/other/": other,
+      "/permeate/": permeate,
+    },
     footer: {
       message: "程序员系列教程",
       copyright: "Copyright © 2023-present linjialiang",

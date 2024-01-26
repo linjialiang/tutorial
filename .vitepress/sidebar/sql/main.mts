@@ -10,4 +10,4 @@ const sidebar = [
   { text: "PostgreSQL", collapsed: true, items: [...pgsql] },
 ];
 
-export default sidebar;
+export { sidebar as sql };

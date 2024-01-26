@@ -14,4 +14,4 @@ const sidebar = [
   { text: "laravel", collapsed: true, items: [...laravel] },
 ];
 
-export default sidebar;
+export { sidebar as php };

@@ -1,31 +1,13 @@
-import debian from "./debian/main.mjs";
-import docker from "./docker/main.mjs";
-import environment from "./environment/main.mjs";
-import eslint from "./eslint/main.mjs";
-import mongodb from "./mongodb/main.mjs";
-import nginx from "./nginx/main.mjs";
-import other from "./other/main.mjs";
-import permeate from "./permeate/main.mjs";
-import php from "./php/main.mjs";
-import prettier from "./prettier/main.mjs";
-import redis from "./redis/main.mjs";
-import sql from "./sql/main.mjs";
-import vitepress from "./vitepress/main.mjs";
-
-const sidebar = {
-  "/environment/": environment,
-  "/debian/": debian,
-  "/docker/": docker,
-  "/nginx/": nginx,
-  "/sql/": sql,
-  "/mongodb/": mongodb,
-  "/redis/": redis,
-  "/php/": php,
-  "/eslint/": eslint,
-  "/prettier/": prettier,
-  "/vitepress/": vitepress,
-  "/other/": other,
-  "/permeate/": permeate,
-};
-
-export default sidebar;
+export * from "./debian/main.mjs";
+export * from "./docker/main.mjs";
+export * from "./environment/main.mjs";
+export * from "./eslint/main.mjs";
+export * from "./mongodb/main.mjs";
+export * from "./nginx/main.mjs";
+export * from "./other/main.mjs";
+export * from "./permeate/main.mjs";
+export * from "./php/main.mjs";
+export * from "./prettier/main.mjs";
+export * from "./redis/main.mjs";
+export * from "./sql/main.mjs";
+export * from "./vitepress/main.mjs";
