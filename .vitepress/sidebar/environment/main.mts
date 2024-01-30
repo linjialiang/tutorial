@@ -11,7 +11,7 @@ const sidebar = [
     items: [
       { text: "MySQL", link: `${path.main}mysql_compile` },
       { text: "Sqlite3", link: `${path.main}sqlite3` },
-      { text: "PostgreSQL", link: `${path.main}pgsql` },
+      { text: "PostgreSQL", link: `${path.main}pgsql_compile` },
     ],
   },
   { text: "Redis", link: `${path.main}redis` },
