@@ -12,20 +12,26 @@ titleTemplate: 环境搭建教程
 下面是 `Debian 12.x` 发行版编译 PostgreSQL 16.1 需要的依赖项
 
 ```bash
-apt install -y build-essential libpam0g-dev libssl-dev uuid-dev zlib1g-dev llvm systemd libreadline-dev icu-devtools
+apt install -y build-essential libpam0g-dev systemd libssl-dev uuid-dev zlib1g-dev liblz4-dev libzstd-dev llvm libreadline-dev icu-devtools pkg-config clang libossp-uuid-dev libsystemd-dev
 ```
 
-| package         | note                                                 |
-| --------------- | ---------------------------------------------------- |
-| build-essential | 包含 GNU 编译器集合（GCC）和其他编译工具的基本软件包 |
-| libpam0g-dev    | 用于 PAM 支持的开发库                                |
-| libssl-dev      | 用于 OpenSSL 支持的开发库                            |
-| uuid-dev        | 用于 OSSP UUID 库的开发库                            |
-| zlib1g-dev      | 用于 LZ4 和 Zstandard 压缩算法的开发库               |
-| llvm            | 用于 LLVM 支持的基本软件包                           |
-| systemd         | 用于 systemd 支持的基本软件包                        |
-| libreadline-dev | 提供命令行编辑功能的开发库                           |
-| icu-devtools    | 用于国际化支持的开发工具                             |
+| package          | note                                                              |
+| ---------------- | ----------------------------------------------------------------- |
+| build-essential  | 包含 GNU 编译器集合（GCC）和其他编译工具的基本软件包              |
+| libpam0g-dev     | 用于 PAM 支持的开发库                                             |
+| libssl-dev       | 用于 OpenSSL 支持的开发库                                         |
+| uuid-dev         | 用于 OSSP UUID 库的开发库                                         |
+| llvm             | 用于 LLVM 支持的基本软件包                                        |
+| systemd          | 用于 systemd 支持的基本软件包(系统默认自带)                       |
+| libreadline-dev  | 提供命令行编辑功能的开发库                                        |
+| icu-devtools     | 用于国际化支持的开发工具                                          |
+| pkg-config       | 管理库文件的工具，它提供了一种在编译和链接时自动添加库文件的方法  |
+| clang            | clang 编译器                                                      |
+| zlib1g-dev       | 用于 zlib 压缩和解压缩数据的开发库                                |
+| liblz4-dev       | 用于 LZ4 压缩算法的开发库                                         |
+| libzstd-dev      | 用于 Zstandard 压缩算法的开发库                                   |
+| libossp-uuid-dev | 用于生成 UUID 的库                                                |
+| libsystemd-dev   | 用于开发与 systemd 相关的应用程序的包，它提供了一组头文件和库文件 |
 
 ## 编译
 
@@ -34,11 +40,11 @@ apt install -y build-essential libpam0g-dev libssl-dev uuid-dev zlib1g-dev llvm 
 ```bash [用户及权限]
 adduser postgres
 mkdir -p /server/pgsql /server/data/pgsql
+chmod 750 /server/data/pgsql
 chown postgres /server/data/pgsql
 ```
 
 ```bash [进入构建目录]
-cd /package/
 mkdir /package/postgresql-16.1/build_pgsql
 cd /package/postgresql-16.1/build_pgsql
 ```
@@ -56,6 +62,12 @@ cd /package/postgresql-16.1/build_pgsql
 --with-lz4 \
 --with-zstd \
 --with-openssl
+```
+
+```bash [安装指令]
+make -j2
+make check
+make install
 ```
 
 ```bash [数据初始化]
