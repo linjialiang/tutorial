@@ -20,7 +20,7 @@ C 语言编译器主要有四种，分别是 `MSVC`/`GCC`/`MinGW`/`Clang+LLVM`
 :::
 
 ```bash
-apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libossp-uuid-dev libsystemd-dev libpam0g-dev icu-devtools
+apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libossp-uuid-dev libsystemd-dev libpam0g-dev libicu-dev
 ```
 
 ::: details 依赖包说明
@@ -39,7 +39,7 @@ apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline
 | libpam0g-dev     | 用于 PAM 支持的开发库                                             |
 | llvm             | 用于 LLVM 支持的基本软件包                                        |
 | clang            | clang 编译器                                                      |
-| icu-devtools     | 包含了一些用于开发和调试 ICU 应用程序的工具                       |
+| libicu-dev       | 包含了一些用于开发和调试 ICU 应用程序的工具                       |
 
 :::
 
