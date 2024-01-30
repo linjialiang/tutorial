@@ -15,7 +15,7 @@ titleTemplate: 环境搭建教程
 apt install -y build-essential libpam0g-dev systemd libssl-dev uuid-dev zlib1g-dev liblz4-dev libzstd-dev llvm libreadline-dev icu-devtools pkg-config clang libossp-uuid-dev libsystemd-dev
 ```
 
-::: details 依赖说明
+::: details 依赖包说明
 
 | package          | note                                                              |
 | ---------------- | ----------------------------------------------------------------- |
