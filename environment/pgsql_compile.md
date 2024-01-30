@@ -15,6 +15,8 @@ titleTemplate: 环境搭建教程
 apt install -y build-essential libpam0g-dev systemd libssl-dev uuid-dev zlib1g-dev liblz4-dev libzstd-dev llvm libreadline-dev icu-devtools pkg-config clang libossp-uuid-dev libsystemd-dev
 ```
 
+::: details 依赖说明
+
 | package          | note                                                              |
 | ---------------- | ----------------------------------------------------------------- |
 | build-essential  | 包含 GNU 编译器集合（GCC）和其他编译工具的基本软件包              |
@@ -32,6 +34,8 @@ apt install -y build-essential libpam0g-dev systemd libssl-dev uuid-dev zlib1g-d
 | libzstd-dev      | 用于 Zstandard 压缩算法的开发库                                   |
 | libossp-uuid-dev | 用于生成 UUID 的库                                                |
 | libsystemd-dev   | 用于开发与 systemd 相关的应用程序的包，它提供了一组头文件和库文件 |
+
+:::
 
 ## 编译
 
