@@ -88,6 +88,7 @@ cd /package/postgresql-16.1/build_pgsql
 ```
 
 ```bash [编译指令]
+# 使用postgres账户安装
 ../configure --prefix=/server/pgsql \
 --datadir=/server/data/pgsql \
 --enable-debug \
@@ -101,17 +102,22 @@ cd /package/postgresql-16.1/build_pgsql
 ```
 
 ```bash [安装指令]
+# 使用postgres账户安装
 make -j2
 make check
 # 使用root账户安装
+su
 make install
+# 由于编译时已经指定--datadir，编译完就已经初始化数据库，修改权限即可
+chown postgres:root -R /server/data/pgsql
+chown postgres:root -R /server/pgsql
 ```
 
 ```bash [数据初始化]
 su - postgres
 # 初始化 pgsql 数据库，-D 参数指定数据目录路径，
 # 执行命令后将在指定目录下创建必要的文件和目录结构
-/server/pgsql/bin/initdb -D /server/data/pgsql
+# /server/pgsql/bin/initdb -D /server/data/pgsql
 # 启动 pgsql 数据库服务器，-D 参数指定数据目录路径，-l 参数指定了日志文件的路径，
 # 执行命令后数据库服务器将开始运行，并记录日志到指定的文件中。
 /server/pgsql/bin/pg_ctl -D /server/data/pgsql -l logfile start
