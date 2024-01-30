@@ -9,6 +9,24 @@ titleTemplate: 环境搭建教程
 
 ## 编译前依赖准备
 
+下面是 `Debian 12.x` 发行版编译 PostgreSQL 16.1 需要的依赖项
+
+```bash
+apt install -y build-essential libpam0g-dev libssl-dev uuid-dev zlib1g-dev llvm systemd libreadline-dev icu-devtools
+```
+
+| package         | note                                                 |
+| --------------- | ---------------------------------------------------- |
+| build-essential | 包含 GNU 编译器集合（GCC）和其他编译工具的基本软件包 |
+| libpam0g-dev    | 用于 PAM 支持的开发库                                |
+| libssl-dev      | 用于 OpenSSL 支持的开发库                            |
+| uuid-dev        | 用于 OSSP UUID 库的开发库                            |
+| zlib1g-dev      | 用于 LZ4 和 Zstandard 压缩算法的开发库               |
+| llvm            | 用于 LLVM 支持的基本软件包                           |
+| systemd         | 用于 systemd 支持的基本软件包                        |
+| libreadline-dev | 提供命令行编辑功能的开发库                           |
+| icu-devtools    | 用于国际化支持的开发工具                             |
+
 ## 编译
 
 ::: code-group
