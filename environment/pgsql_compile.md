@@ -18,7 +18,7 @@ PostgreSql 官方推荐使用 GCC 最新版编译器来构建
 :::
 
 ```bash
-apt install -y make llvm clang pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libpam0g-dev libossp-uuid-dev libsystemd-dev
+apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libossp-uuid-dev libsystemd-dev
 ```
 
 ::: details 依赖包说明
@@ -26,17 +26,17 @@ apt install -y make llvm clang pkg-config zlib1g-dev liblz4-dev libzstd-dev libr
 | package          | note                                                              |
 | ---------------- | ----------------------------------------------------------------- |
 | make             | 常用的构建工具，用于自动化编译和链接程序                          |
-| llvm             | 用于 LLVM 支持的基本软件包                                        |
-| clang            | clang 编译器                                                      |
 | pkg-config       | 管理库文件的工具，它提供了一种在编译和链接时自动添加库文件的方法  |
 | zlib1g-dev       | 用于 zlib 压缩和解压缩数据的开发库                                |
 | liblz4-dev       | 用于 LZ4 压缩算法的开发库                                         |
 | libzstd-dev      | 用于 Zstandard 压缩算法的开发库                                   |
 | libreadline-dev  | 提供命令行编辑功能的开发库                                        |
 | libssl-dev       | 用于 OpenSSL 支持的开发库                                         |
-| libpam0g-dev     | 用于 PAM 支持的开发库                                             |
 | libossp-uuid-dev | 基于 OSSP uuid 库的开发库                                         |
 | libsystemd-dev   | 用于开发与 systemd 相关的应用程序的包，它提供了一组头文件和库文件 |
+| libpam0g-dev     | 用于 PAM 支持的开发库                                             |
+| llvm             | 用于 LLVM 支持的基本软件包                                        |
+| clang            | clang 编译器                                                      |
 
 :::
 
@@ -60,6 +60,8 @@ apt install -y make llvm clang pkg-config zlib1g-dev liblz4-dev libzstd-dev libr
 
 :::
 
+## 编译
+
 ::: code-group
 
 ```bash [用户及权限]
@@ -76,7 +78,15 @@ cd /package/postgresql-16.1/build_pgsql
 ```
 
 ```bash [编译指令]
-# 见下方...
+../configure --prefix=/server/pgsql \
+--datadir=/server/data/pgsql \
+--enable-debug \
+--with-pgport=5432 \
+--with-systemd \
+--with-ossp-uuid \
+--with-lz4 \
+--with-zstd \
+--with-openssl
 ```
 
 ```bash [数据初始化]
@@ -96,26 +106,6 @@ su - postgres
 # 这个命令用于启动 PostgreSQL 命令行客户端，并连接到名为 "test" 的数据库。
 # 执行该命令后，你将进入一个交互式的 PostgreSQL 命令行界面，可以执行 SQL 查询和操作。
 /server/pgsql/bin/psql test
-```
-
-:::
-
-## GCC 版编译
-
-::: code-group
-
-```bash [编译指令]
-../configure --prefix=/server/pgsql \
---datadir=/server/data/pgsql \
---enable-debug \
---with-pgport=5432 \
---with-llvm \
---with-pam \
---with-systemd \
---with-ossp-uuid \
---with-lz4 \
---with-zstd \
---with-openssl
 ```
 
 :::
