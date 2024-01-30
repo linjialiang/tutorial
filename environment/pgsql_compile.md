@@ -20,7 +20,7 @@ C 语言编译器主要有四种，分别是 `MSVC`/`GCC`/`MinGW`/`Clang+LLVM`
 :::
 
 ```bash
-apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libossp-uuid-dev libsystemd-dev libpam0g-dev
+apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libossp-uuid-dev libsystemd-dev libpam0g-dev icu-devtools
 ```
 
 ::: details 依赖包说明
@@ -39,6 +39,7 @@ apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline
 | libpam0g-dev     | 用于 PAM 支持的开发库                                             |
 | llvm             | 用于 LLVM 支持的基本软件包                                        |
 | clang            | clang 编译器                                                      |
+| icu-devtools     | 包含了一些用于开发和调试 ICU 应用程序的工具                       |
 
 :::
 
@@ -70,13 +71,19 @@ apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline
 ```bash [用户及权限]
 adduser postgres
 mkdir -p /server/pgsql /server/data/pgsql
-chmod 700 /server/data/pgsql
-chown postgres /server/data/pgsql
+chmod 700 /server/pgsql /server/data/pgsql
+chown postgres /server/pgsql /server/data/pgsql
 ```
 
 ```bash [进入构建目录]
-su - postgres
+mkdir /package
+cd /package
+wget https://ftp.postgresql.org/pub/source/v16.1/postgresql-16.1.tar.bz2
+tar -xjf postgresql-16.1.tar.bz2
 mkdir /package/postgresql-16.1/build_pgsql
+chown postgres -R /package/postgresql-16.1
+# 所有的操作都在postgresql账户下完成
+su - postgres
 cd /package/postgresql-16.1/build_pgsql
 ```
 
