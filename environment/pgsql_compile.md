@@ -72,7 +72,7 @@ apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline
 adduser postgres
 mkdir -p /server/pgsql /server/data/pgsql
 chmod 700 /server/pgsql /server/data/pgsql
-chown postgres /server/pgsql /server/data/pgsql
+chown postgres /server/data/pgsql
 ```
 
 ```bash [进入构建目录]
@@ -81,9 +81,9 @@ cd /package
 wget https://ftp.postgresql.org/pub/source/v16.1/postgresql-16.1.tar.bz2
 tar -xjf postgresql-16.1.tar.bz2
 mkdir /package/postgresql-16.1/build_pgsql
-chown postgres -R /package/postgresql-16.1
-# 所有的操作都在postgresql账户下完成
-su - postgres
+chown postgres:root -R /package/postgresql-16.1
+# 所有的编译操作都在postgresql账户下完成
+su postgres
 cd /package/postgresql-16.1/build_pgsql
 ```
 
@@ -103,6 +103,7 @@ cd /package/postgresql-16.1/build_pgsql
 ```bash [安装指令]
 make -j2
 make check
+# 使用root账户安装
 make install
 ```
 
