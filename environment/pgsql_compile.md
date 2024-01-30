@@ -100,14 +100,17 @@ cd /package/postgresql-16.1/build_pgsql
 --with-openssl
 ```
 
+```bash [安装指令]
+make -j2
+make check
+make install
+```
+
 ```bash [数据初始化]
 su - postgres
 # 初始化 pgsql 数据库，-D 参数指定数据目录路径，
 # 执行命令后将在指定目录下创建必要的文件和目录结构
 /server/pgsql/bin/initdb -D /server/data/pgsql
-```
-
-```bash [测试]
 # 启动 pgsql 数据库服务器，-D 参数指定数据目录路径，-l 参数指定了日志文件的路径，
 # 执行命令后数据库服务器将开始运行，并记录日志到指定的文件中。
 /server/pgsql/bin/pg_ctl -D /server/data/pgsql -l logfile start
