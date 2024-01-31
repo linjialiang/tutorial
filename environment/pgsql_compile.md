@@ -20,29 +20,29 @@ C 语言编译器主要有四种： `MSVC`/`GCC`/`MinGW`/`Clang+LLVM`
 :::
 
 ```bash
-apt install -y make pkg-config llvm clang zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libossp-uuid-dev libicu-dev libpam0g-dev libsystemd-dev libxml2-dev libxslt1-dev
+apt install -y make pkg-config clang zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libossp-uuid-dev libpam0g-dev libsystemd-dev libxslt1-dev
 ```
 
 ::: details 依赖包说明
 
-| package          | note                                                              |
-| ---------------- | ----------------------------------------------------------------- |
-| make             | 常用的构建工具，用于自动化编译和链接程序                          |
-| pkg-config       | 管理库文件的工具，它提供了一种在编译和链接时自动添加库文件的方法  |
-| zlib1g-dev       | 用于 zlib 压缩和解压缩数据的开发库                                |
-| liblz4-dev       | 用于 LZ4 压缩算法的开发库                                         |
-| libzstd-dev      | 用于 Zstandard 压缩算法的开发库                                   |
-| libreadline-dev  | 提供命令行编辑功能的开发库                                        |
-| libssl-dev       | 用于 OpenSSL 支持的开发库                                         |
-| libossp-uuid-dev | 基于 OSSP uuid 库的开发库                                         |
-| libsystemd-dev   | 用于开发与 systemd 相关的应用程序的包，它提供了一组头文件和库文件 |
-| libpam0g-dev     | 用于 PAM 支持的开发库                                             |
-| llvm             | 用于 LLVM 支持的基本软件包                                        |
-| clang            | c/c++ 编译器，`llvm+clang` 是套组合                               |
-| gcc              | c/c++ 编译器套件                                                  |
-| libicu-dev       | 包含了一些用于开发和调试 ICU 应用程序的工具                       |
-| libxml2-dev      | 包含用于开发 XML 应用程序的库和头文件                             |
-| libxslt1-dev     | 包含用于开发 XSLT 应用程序的库和头文件                            |
+| package          | note                                                               |
+| ---------------- | ------------------------------------------------------------------ |
+| make             | 常用的构建工具，用于自动化编译和链接程序                           |
+| pkg-config       | 管理库文件的工具，它提供了一种在编译和链接时自动添加库文件的方法   |
+| zlib1g-dev       | 用于 zlib 压缩和解压缩数据的开发库                                 |
+| liblz4-dev       | 用于 LZ4 压缩算法的开发库                                          |
+| libzstd-dev      | 用于 Zstandard 压缩算法的开发库                                    |
+| libreadline-dev  | 提供命令行编辑功能的开发库                                         |
+| libssl-dev       | 用于 OpenSSL 支持的开发库                                          |
+| libossp-uuid-dev | 基于 OSSP uuid 库的开发库                                          |
+| libsystemd-dev   | 用于开发与 systemd 相关的应用程序的包，它提供了一组头文件和库文件  |
+| libpam0g-dev     | 用于 PAM 支持的开发库                                              |
+| clang            | c/c++ 编译器，`llvm+clang` 是套组合                                |
+| llvm             | 用于 LLVM 支持的基本软件包(安装 clang 时自动安装)                  |
+| gcc              | c/c++ 编译器套件                                                   |
+| libicu-dev       | 包含了一些用于开发和调试 ICU 应用程序的工具(安装 clang 时自动安装) |
+| libxml2-dev      | 包含用于开发 XML 应用程序的库和头文件 (安装 clang 时自动安装)      |
+| libxslt1-dev     | 包含用于开发 XSLT 应用程序的库和头文件                             |
 
 :::
 
