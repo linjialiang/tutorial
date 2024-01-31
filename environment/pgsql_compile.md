@@ -78,13 +78,15 @@ postgres hard   nofile        65535
 ```
 
 ```bash [用户及权限]
-mkdir -p /server/{pgsql,pgData}
-chmod 750 /server/{pgsql,pgData}
-chown postgres:postgres /server/{pgsql,pgData}
-
 groupadd postgres
 useradd -g postgres -s /bin/zsh -m postgres
 passwd postgres
+cp -r /root/{.oh-my-zsh,.zshrc} /home/postgres
+chown postgres:postgres /home/postgres/{.oh-my-zsh,.zshrc}
+
+mkdir -p /server/{pgsql,pgData}
+chmod 750 /server/{pgsql,pgData}
+chown postgres:postgres /server/{pgsql,pgData}
 
 su - postgres
 wget https://ftp.postgresql.org/pub/source/v16.1/postgresql-16.1.tar.bz2
