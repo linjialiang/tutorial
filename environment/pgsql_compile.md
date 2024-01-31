@@ -66,7 +66,8 @@ apt install -y build-essential make pkg-config clang llvm-dev zlib1g-dev liblz4-
 | --with-openssl        | 启用 OpenSSL 支持，用于加密通信                    |
 
 - `--enable-debug`：启用后，可以在调试器中运行程序来分析问题，这会大大增加已安装的可执行文件的大小，并且在非 GCC 编译器上它通常也会禁用编译器优化，生产环境中只建议在选择 GCC 编译器时添加此选项。
-- 编译器：`llvm+clang` 跟 `gcc` 是两个编译器，是互斥的，如果要启用 `--with-llvm` 就不要使用 `gcc`
+- 编译器：`llvm+clang` 跟 `gcc` 是两个编译器，是互斥的，如果要启用 `--with-llvm` 就要使用 `clang`
+- 安装 clang 的时候会自动安装 gcc，因为安装 clang 包依赖 gcc
 
 :::
 
