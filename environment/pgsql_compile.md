@@ -20,7 +20,7 @@ C 语言编译器主要有四种，分别是 `MSVC`/`GCC`/`MinGW`/`Clang+LLVM`
 :::
 
 ```bash
-apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libossp-uuid-dev libsystemd-dev libpam0g-dev libicu-dev
+apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libossp-uuid-dev libicu-dev
 ```
 
 ::: details 依赖包说明
@@ -84,26 +84,22 @@ passwd postgres
 cp -r /root/{.oh-my-zsh,.zshrc} /home/postgres
 chown postgres:postgres /home/postgres/{.oh-my-zsh,.zshrc}
 
-mkdir -p /server/{pgsql,pgData}
-chmod 750 /server/{pgsql,pgData}
-chown postgres:postgres /server/{pgsql,pgData}
+mkdir -p /server/{postgres,pgData}
+chmod 750 /server/{postgres,pgData}
+chown postgres:postgres /server/{postgres,pgData}
 
 su - postgres
 wget https://ftp.postgresql.org/pub/source/v16.1/postgresql-16.1.tar.bz2
 tar -xjf postgresql-16.1.tar.bz2 -C ~/
 chown postgres:postgres -R ~/postgresql-16.1
-mkdir ~/postgresql-16.1/build_pgsql
+mkdir ~/postgresql-16.1/build_postgres
 ```
 
 ```bash [编译指令]
-cd ~/postgresql-16.1/build_pgsql
+cd ~/postgresql-16.1/build_postgres
 # 使用postgres账户编译
 ../configure --prefix=/server/pgsql \
---datadir=/server/pgData \
 --enable-debug \
---with-pgport=5432 \
---with-systemd \
---with-pam \
 --with-ossp-uuid \
 --with-lz4 \
 --with-zstd \
@@ -121,10 +117,10 @@ make install
 su - postgres
 # 初始化 pgsql 数据库，-D 参数指定数据目录路径，
 # 执行命令后将在指定目录下创建必要的文件和目录结构
-# /server/pgsql/bin/initdb -D /server/data/pgsql
+# /server/pgsql/bin/initdb -D /server/pgData
 # 启动 pgsql 数据库服务器，-D 参数指定数据目录路径，-l 参数指定了日志文件的路径，
 # 执行命令后数据库服务器将开始运行，并记录日志到指定的文件中。
-/server/pgsql/bin/pg_ctl -D /server/data/pgsql -l logfile start
+/server/pgsql/bin/pg_ctl -D /server/pgData -l logfile start
 # 这个命令用于创建一个名为 "test" 的新数据库。
 # 执行该命令后，将在数据库中创建一个名为 "test" 的新数据库。
 /server/pgsql/bin/createdb test
