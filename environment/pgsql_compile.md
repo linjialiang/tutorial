@@ -20,7 +20,7 @@ C 语言编译器主要有四种，分别是 `MSVC`/`GCC`/`MinGW`/`Clang+LLVM`
 :::
 
 ```bash
-apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libossp-uuid-dev libicu-dev
+apt install -y make pkg-config llvm clang zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libossp-uuid-dev libicu-dev libpam0g-dev libsystemd-dev
 ```
 
 ::: details 依赖包说明
@@ -38,7 +38,8 @@ apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline
 | libsystemd-dev   | 用于开发与 systemd 相关的应用程序的包，它提供了一组头文件和库文件 |
 | libpam0g-dev     | 用于 PAM 支持的开发库                                             |
 | llvm             | 用于 LLVM 支持的基本软件包                                        |
-| clang            | clang 编译器                                                      |
+| clang            | c/c++ 编译器，`llvm+clang` 是套组合                               |
+| gcc              | c/c++ 编译器套件                                                  |
 | libicu-dev       | 包含了一些用于开发和调试 ICU 应用程序的工具                       |
 
 :::
@@ -50,15 +51,15 @@ apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline
 | --prefix=PREFIX       | 指定安装路径                                       |
 | --datadir=DIR         | 指定数据目录路径                                   |
 | --enable-debug        | 启用调试模式                                       |
+| --with-CC=CMD         | 指定 C 编译器（GCC/Clang 不区分大小写）            |
+| --with-llvm           | 启用基于 LLVM 的 JIT 支持，优化适合 `OLTP/OLAP`    |
 | --with-pgport=PORTNUM | 指定 pgsql 服务器监听的端口号                      |
-| --with-systemd        | 启用 systemd 支持，用于管理 pgsql 服务             |
 | --with-pam            | 允许 pgsql 使用系统的 PAM 认证机制进行用户身份验证 |
+| --with-systemd        | 确保 PostgreSQL 与 systemd 服务和日志系统集成      |
 | --with-ossp-uuid      | 启用 OSSP UUID 库的支持，用于生成唯一标识符        |
 | --with-lz4            | 启用 LZ4 压缩算法的支持                            |
 | --with-zstd           | 启用 Zstandard 压缩算法的支持                      |
 | --with-openssl        | 启用 OpenSSL 支持，用于加密通信                    |
-| --with-CC=CMD         | 指定 C 编译器（GCC/CLANG）                         |
-| --with-llvm           | 启用 LLVM 支持，允许使用 LLVM 进行优化             |
 
 - `--enable-debug`：启用后，可以在调试器中运行程序来分析问题，这会大大增加已安装的可执行文件的大小，并且在非 GCC 编译器上它通常也会禁用编译器优化，生产环境中只建议在选择 GCC 编译器时添加此选项。
 - 编译器：`llvm+clang` 跟 `gcc` 是两个编译器，是互斥的，如果要启用 `--with-llvm` 就不要使用 `gcc`
@@ -96,10 +97,15 @@ mkdir ~/postgresql-16.1/build_postgres
 ```
 
 ```bash [编译指令]
-cd ~/postgresql-16.1/build_postgres
 # 使用postgres账户编译
+su - postgres
+cd ~/postgresql-16.1/build_postgres
 ../configure --prefix=/server/pgsql \
 --enable-debug \
+--with-CC=Clang \
+--with-llvm \
+--with-pam \
+--with-systemd \
 --with-ossp-uuid \
 --with-lz4 \
 --with-zstd \
