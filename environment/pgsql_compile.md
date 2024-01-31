@@ -113,7 +113,9 @@ cd ~/postgresql-16.1/build_postgres
 --with-ossp-uuid \
 --with-lz4 \
 --with-zstd \
---with-openssl
+--with-openssl \
+--with-libxml \
+--with-libxslt
 ```
 
 ```bash [安装指令]
