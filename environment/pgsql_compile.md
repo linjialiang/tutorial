@@ -105,7 +105,7 @@ mkdir ~/postgresql-16.1/build_postgres
 # 使用postgres账户编译
 su - postgres
 cd ~/postgresql-16.1/build_postgres
-../configure --prefix=/server/pgsql \
+../configure --prefix=/server/postgres \
 --enable-debug \
 --with-CC=clang \
 --with-llvm \
@@ -130,10 +130,10 @@ make install
 su - postgres
 # 初始化 pgsql 数据库，-D 参数指定数据目录路径，
 # 执行命令后将在指定目录下创建必要的文件和目录结构
-# /server/pgsql/bin/initdb -D /server/pgData
+/server/pgsql/bin/initdb -D /server/pgData -E UTF8 --locale=zh_CN.utf8 -U postgres
 # 启动 pgsql 数据库服务器，-D 参数指定数据目录路径，-l 参数指定了日志文件的路径，
 # 执行命令后数据库服务器将开始运行，并记录日志到指定的文件中。
-/server/pgsql/bin/pg_ctl -D /server/pgData -l logfile start
+/server/pgsql/bin/pg_ctl -D /server/pgData  -l logfile start
 # 这个命令用于创建一个名为 "test" 的新数据库。
 # 执行该命令后，将在数据库中创建一个名为 "test" 的新数据库。
 /server/pgsql/bin/createdb test
