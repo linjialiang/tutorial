@@ -12,15 +12,15 @@ titleTemplate: 环境搭建教程
 下面是 `Debian 12.x` 发行版编译 PostgreSQL 16.1 需要的依赖项。
 
 ::: tip 必要说明
-PostgreSql 官方推荐使用 GCC 最新版编译器来构建，我们也会使用 GCC 编译器来构建；
+PostgreSql 官方推荐使用 GCC 最新版编译器来构建，但为了支持 JIT 这里用的是 `llvm+clang` 编译器套件；
 
 GCC 编辑器不支持 JIT 即时编译功能，即时编译需要增加 `--with-llvm` 选项，需要使用 `llvm+clang` 编译器组合。
 
-C 语言编译器主要有四种，分别是 `MSVC`/`GCC`/`MinGW`/`Clang+LLVM`
+C 语言编译器主要有四种： `MSVC`/`GCC`/`MinGW`/`Clang+LLVM`
 :::
 
 ```bash
-apt install -y make pkg-config llvm clang zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libossp-uuid-dev libicu-dev libpam0g-dev libsystemd-dev
+apt install -y make pkg-config llvm clang zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libossp-uuid-dev libicu-dev libpam0g-dev libsystemd-dev libxml2-dev libxslt1-dev
 ```
 
 ::: details 依赖包说明
@@ -41,6 +41,8 @@ apt install -y make pkg-config llvm clang zlib1g-dev liblz4-dev libzstd-dev libr
 | clang            | c/c++ 编译器，`llvm+clang` 是套组合                               |
 | gcc              | c/c++ 编译器套件                                                  |
 | libicu-dev       | 包含了一些用于开发和调试 ICU 应用程序的工具                       |
+| libxml2-dev      | 包含用于开发 XML 应用程序的库和头文件                             |
+| libxslt1-dev     | 包含用于开发 XSLT 应用程序的库和头文件                            |
 
 :::
 
@@ -57,6 +59,8 @@ apt install -y make pkg-config llvm clang zlib1g-dev liblz4-dev libzstd-dev libr
 | --with-pam            | 允许 pgsql 使用系统的 PAM 认证机制进行用户身份验证 |
 | --with-systemd        | 确保 PostgreSQL 与 systemd 服务和日志系统集成      |
 | --with-ossp-uuid      | 启用 OSSP UUID 库的支持，用于生成唯一标识符        |
+| --with-libxml         | 支持 XML 数据类型                                  |
+| --with-libxslt        | 支持 XSLT 转换，扩展 XML 处理能力                  |
 | --with-lz4            | 启用 LZ4 压缩算法的支持                            |
 | --with-zstd           | 启用 Zstandard 压缩算法的支持                      |
 | --with-openssl        | 启用 OpenSSL 支持，用于加密通信                    |
