@@ -54,8 +54,8 @@ apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline
 | --with-systemd        | 启用 systemd 支持，用于管理 pgsql 服务             |
 | --with-pam            | 允许 pgsql 使用系统的 PAM 认证机制进行用户身份验证 |
 | --with-ossp-uuid      | 启用 OSSP UUID 库的支持，用于生成唯一标识符        |
-| --with-lz4            | zlib 启用 LZ4 压缩算法的支持                       |
-| --with-zstd           | zlib 启用 Zstandard 压缩算法的支持                 |
+| --with-lz4            | 启用 LZ4 压缩算法的支持                            |
+| --with-zstd           | 启用 Zstandard 压缩算法的支持                      |
 | --with-openssl        | 启用 OpenSSL 支持，用于加密通信                    |
 | --with-CC=CMD         | 指定 C 编译器（GCC/CLANG）                         |
 | --with-llvm           | 启用 LLVM 支持，允许使用 LLVM 进行优化             |
