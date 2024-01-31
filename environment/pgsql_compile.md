@@ -61,7 +61,7 @@ apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline
 | --with-llvm           | 启用 LLVM 支持，允许使用 LLVM 进行优化             |
 
 - `--enable-debug`：启用后，可以在调试器中运行程序来分析问题，这会大大增加已安装的可执行文件的大小，并且在非 GCC 编译器上它通常也会禁用编译器优化，生产环境中只建议在选择 GCC 编译器时添加此选项。
-- 编译器：`llvm+clang` 跟 `gcc` 是两个编译器，时互斥的，如果要启用 `--with-llvm` 就不要使用 `gcc`
+- 编译器：`llvm+clang` 跟 `gcc` 是两个编译器，是互斥的，如果要启用 `--with-llvm` 就不要使用 `gcc`
 
 :::
 
