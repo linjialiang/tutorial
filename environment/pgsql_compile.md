@@ -93,10 +93,10 @@ wget https://ftp.postgresql.org/pub/source/v16.1/postgresql-16.1.tar.bz2
 tar -xjf postgresql-16.1.tar.bz2 -C ~/
 chown postgres:postgres -R ~/postgresql-16.1
 mkdir ~/postgresql-16.1/build_pgsql
-cd ~/postgresql-16.1/build_pgsql
 ```
 
 ```bash [编译指令]
+cd ~/postgresql-16.1/build_pgsql
 # 使用postgres账户编译
 ../configure --prefix=/server/pgsql \
 --datadir=/server/pgData \
