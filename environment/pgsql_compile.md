@@ -104,6 +104,8 @@ mkdir ~/postgresql-16.1/build_postgres
 
 ```bash [编译指令]
 # 使用postgres账户编译
+# 关于生产环境要不要添加 --enable-debug 选项问题：使用gcc编译器时可以启用debug
+# 使用 llvm+clang 编译器套件时不应该启用debug，因为llvm可以优化pgsql性能，而使用 --enable-debug 选项，通常会禁用编译器的性能优化
 su - postgres
 cd ~/postgresql-16.1/build_postgres
 ../configure --prefix=/server/postgres \
