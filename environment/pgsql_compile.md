@@ -69,29 +69,34 @@ apt install -y make gcc pkg-config zlib1g-dev liblz4-dev libzstd-dev libreadline
 
 ::: code-group
 
-```bash [用户及权限]
-adduser postgres
-mkdir -p /server/pgsql /server/data/pgsql
-chmod 700 /server/pgsql /server/data/pgsql
-chown postgres /server/data/pgsql
+```bash [系统配置]
+# 修改操作系统打开最大文件句柄数
+# /etc/security/limits.conf 结尾添加下面两行
+# 进行这一步操作的目的是防止linux操作系统内打开文件句柄数量的限制，避免不必要的故障
+postgres soft   nofile         65535
+postgres hard   nofile        65535
 ```
 
-```bash [进入构建目录]
-mkdir /package
-cd /package
+```bash [用户及权限]
+mkdir -p /server/{pgsql,pgData}
+chmod 750 /server/{pgsql,pgData}
+chown postgres:postgres /server/{pgsql,pgData}
+
+groupadd postgres
+useradd -g postgres -s /bin/zsh -m postgres
+passwd postgres
+
+su - postgres
 wget https://ftp.postgresql.org/pub/source/v16.1/postgresql-16.1.tar.bz2
-tar -xjf postgresql-16.1.tar.bz2
-mkdir /package/postgresql-16.1/build_pgsql
-chown postgres:root -R /package/postgresql-16.1
-# 所有的编译操作都在postgresql账户下完成
-su postgres
-cd /package/postgresql-16.1/build_pgsql
+tar -xjf postgresql-16.1.tar.bz2 -C ~/
+mkdir ~/postgresql-16.1/build_pgsql
+chown postgres:postgres -R ~/postgresql-16.1
 ```
 
 ```bash [编译指令]
-# 使用postgres账户安装
+# 使用postgres账户编译
 ../configure --prefix=/server/pgsql \
---datadir=/server/data/pgsql \
+--datadir=/server/pgData \
 --enable-debug \
 --with-pgport=5432 \
 --with-systemd \
@@ -106,12 +111,7 @@ cd /package/postgresql-16.1/build_pgsql
 # 使用postgres账户安装
 make -j2
 make check
-# 使用root账户安装
-su
 make install
-# 由于编译时已经指定--datadir，编译完就已经初始化数据库，修改权限即可
-chown postgres:root -R /server/data/pgsql
-chown postgres:root -R /server/pgsql
 ```
 
 ```bash [数据初始化]
