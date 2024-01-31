@@ -91,8 +91,9 @@ chown postgres:postgres /server/{pgsql,pgData}
 su - postgres
 wget https://ftp.postgresql.org/pub/source/v16.1/postgresql-16.1.tar.bz2
 tar -xjf postgresql-16.1.tar.bz2 -C ~/
-mkdir ~/postgresql-16.1/build_pgsql
 chown postgres:postgres -R ~/postgresql-16.1
+mkdir ~/postgresql-16.1/build_pgsql
+cd ~/postgresql-16.1/build_pgsql
 ```
 
 ```bash [编译指令]
