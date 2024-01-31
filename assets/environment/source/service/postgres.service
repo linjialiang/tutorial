@@ -1,4 +1,6 @@
-# /lib/systemd/system/postgresql.service
+# /lib/systemd/system/postgres.service
+# 参考案例来自官方文档 https://www.postgresql.org/docs/16/server-start.html
+
 [Unit]
 Description=PostgreSQL database server
 Documentation=man:postgres(1)

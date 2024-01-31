@@ -149,7 +149,7 @@ su - postgres
 
 ## systemd 单元文件
 
-<<<@/assets/environment/source/service/postgresql.service{bash}
+<<<@/assets/environment/source/service/postgres.service{bash}
 
 ::: tip 注意
 使用 `Type=notify` 需要在编译构建阶段 configure 时，使用 `--with-systemd` 选项
