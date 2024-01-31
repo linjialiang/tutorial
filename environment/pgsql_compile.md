@@ -39,7 +39,8 @@ apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev 
 | libpam0g-dev     | 用于 PAM 支持的开发库                                              |
 | clang            | c/c++ 编译器，`llvm+clang` 是套组合                                |
 | llvm             | 用于 LLVM 支持的基本软件包(安装 clang 时自动安装)                  |
-| gcc              | c/c++ 编译器套件                                                   |
+| llvm-dev         | 包含了 LLVM 项目的所有源代码文件，以及一些用于构建和测试的工具和库 |
+| gcc              | c/c++ 编译器套件(这里使用 llvm+clang，这个没啥用了)                |
 | libicu-dev       | 包含了一些用于开发和调试 ICU 应用程序的工具(安装 clang 时自动安装) |
 | libxml2-dev      | 包含用于开发 XML 应用程序的库和头文件 (安装 clang 时自动安装)      |
 | libxslt1-dev     | 包含用于开发 XSLT 应用程序的库和头文件                             |
@@ -124,6 +125,8 @@ cd ~/postgresql-16.1/build_postgres
 make -j2
 make check
 make install
+# 编译安装完后记得移除源码包，节省空间
+rm -rf ~/postgresql-16.1 ~/postgresql-16.1.tar.bz2
 ```
 
 ```bash [数据初始化]
