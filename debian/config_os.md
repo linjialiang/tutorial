@@ -163,7 +163,7 @@ DenyUsers postgres
 
 [[上小节]](#noSshLogin) 的方法虽然能禁止用户 A 通过 ssh 登录，但只要登录了其它用户，再通过 su 即可登录用户 A。
 
-解决办法是在[[上小节]](#noSshLogin)的基础上，再将用户的登录权限设为 `/sbin/nologin` 即可
+解决办法：在 [[上小节]](#noSshLogin) 的基础上，再将用户 A 的 shell 设为 `/sbin/nologin` 即可。
 
 ```bash
 usermod -s /sbin/nologin userA
