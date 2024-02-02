@@ -9,7 +9,7 @@ useradd -c 'php-fpm service work process user' -u 2005 -s /usr/sbin/nologin phpf
 
 # 创建 postgres 用户
 groupadd postgres
-useradd -g postgres -s /bin/zsh -m postgres
+useradd -c 'postgres service main process user' -g postgres -s /bin/zsh -m postgres
 cp -r /root/{.oh-my-zsh,.zshrc} /home/postgres
 chown postgres:postgres /home/postgres/{.oh-my-zsh,.zshrc}
 passwd postgres
