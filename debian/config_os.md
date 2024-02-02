@@ -167,7 +167,7 @@ DenyUsers postgres
 
 ```bash
 usermod -s /sbin/nologin userA
-# `su` 指令只有 root 特权用户才能通过 `-s` 重新指定 shell
+# /sbin/nologin 代表被限制的 shell，只有 root 特权用户才能通过 `-s` 重新指定 shell 并登录
 su userA -s /bin/zsh
 ```
 
