@@ -7,10 +7,6 @@ titleTemplate: 环境搭建教程
 
 下面开始手工搭建 PHP 的开发环境、部署环境
 
-::: warning
-从 2024/02/02 起，PHP 开发环境从 `LNMP` 改成 `LNPP` ，为此专门上个分支版本
-:::
-
 ## 测试环境
 
 测试环境 `虚拟机` 的系统参数如下：
@@ -29,16 +25,13 @@ PHP 环境目录
 |   |  ├─ conf              nginx配置文件
 |   |  └─ ...
 |   |
-|   ├─ mysql                mysql的基目录
+|   ├─ postgres             postgres的基目录
 |   |  └─ ...
 |   |
-|   ├─ data                 mysql的数据目录
+|   ├─ pgData               postgres的数据目录
 |   |
 |   ├─ php                  PHP 版本目录
 |   |  ├─ 83                PHP8.3
-|   |  └─ ...
-|   |
-|   ├─ sqlite3             sqlite3
 |   |  └─ ...
 |   |
 |   ├─ redis               redis
@@ -46,9 +39,8 @@ PHP 环境目录
 |   |
 |   ├─ run                 run
 |   |  ├─ nginx            nginx的run目录
-|   |  ├─ mysql            mysql的run目录
+|   |  ├─ postgres         postgres的run目录
 |   |  ├─ redis            redis的run目录
-|   |  ├─ sqlite3          sqlite3的run目录
 |   |  ├─ php              php的run目录
 |   |  └─ ...
 |   |
@@ -59,13 +51,12 @@ PHP 环境目录
 |   |
 |   ├─ logs                服务器相关日志文件目录
 |   |  ├─ nginx            nginx日志目录
-|   |  ├─ mysql            mysql日志目录
+|   |  ├─ postgres         postgres日志目录
 |   |  ├─ redis            redis日志目录
-|   |  ├─ sqlite3          sqlite3日志目录
 |   |  ├─ php              php日志目录
 |   |
 |   ├─ tmp                 临时文件存放基目录
-|   |  ├─ mysql            mysql的临时目录
+|   |  ├─ postgres         postgres的临时目录
 |   |  ├─ ...
 |   |
 ├─ /www                    站点根目录
