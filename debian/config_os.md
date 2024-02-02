@@ -119,31 +119,29 @@ Linux 桌面下自带终端的 SSH 远程体验还行，至于更多工具请阅
 1. `用户名+密码` 验证登录
 2. `密钥对` 验证登录(这是被推荐的)，[点击查看](#ssh-密钥登录)
 
-::: details 允许 root 登录
+::: details 允许 root 密码登录
 
-> 为了安全起见，sshd 默认关闭了 root 用户的登录，配置系统时我们需要开启 root 登录：
+ssh 默认禁止 root 用户使用密码登录，必要时可以开启允许密码登录：
 
-- 备份 sshd 配置文件并打开：
+::: code-group
 
-  ```bash
-  cp /etc/ssh/sshd_config{,.bak}
-  vi /etc/ssh/sshd_config
-  ```
+```bash [备份]
+# 备份 sshd 配置文件并打开
+cp /etc/ssh/sshd_config{,.bak}
+vi /etc/ssh/sshd_config
+```
 
-- ssh 允许 Root 用户登录：
+```bash
+# ssh 允许 Root 用户登录：
+# PermitRootLogin prohibit-password
+PermitRootLogin yes
+```
 
-  ```bash
-  # PermitRootLogin prohibit-password
-  PermitRootLogin yes
-  ```
+## 禁止账户通过 ssh 登录
 
-:::
+需要注意的是， `PermitRootLogin` 指令并不是禁止账户通过 ssh 登录，只是限制 root 账户不能以账号密码的方式登录。
 
-::: warning 关于部署环境
-部署环境产品上线后，为了安全起见，SSH 应该禁止使用 root 用户登录
-
-如果真有必要，也应该使用密钥对的方式登录，并且密钥对应该设置严谨的 `密钥锁码`
-:::
+在正式的生产环境下，我们可以直接禁止 `root/postgres` 等特殊账户通过 ssh 直接登录。
 
 ## 配置网络（桥接模式）
 

@@ -12,7 +12,7 @@ titleTemplate: 环境搭建教程
 测试环境 `虚拟机` 的系统参数如下：
 
 - 系统 :` Debian GNU/Linux 12 (Bookworm) x86_64`
-- 内核 : `6.1.0-10-amd64`
+- 内核 : `6.1.7-10-amd64`
 
 ::: details PHP 环境目录结构
 
