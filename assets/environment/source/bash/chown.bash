@@ -76,7 +76,7 @@ echo "-----开始设置 mysql 用户权限目录-----"
 for((i=0;i<${#chown_postgres_array[*]};i++));
 do
    echo ${chown_postgres_array[i]}
-   func_chown_mysql ${chown_mysql_array[i]}
+   func_chown_postgres ${chown_postgres_array[i]}
 done
 echo "-----mysql 用户权限目录设置结束-----"
 
