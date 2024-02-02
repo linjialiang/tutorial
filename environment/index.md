@@ -64,6 +64,7 @@ PHP 环境目录
 └─
 ```
 
+::: warning 新版使用 PostgreSQL 替代 `mysql/mongodb/sqlite3` 三者的作用，以后 `mysql/mongodb/sqlite3` 的安装教程不再积极维护
 :::
 
 ## 脚本文件
