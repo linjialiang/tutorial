@@ -9,14 +9,14 @@ const sidebar = [
     text: "SQL",
     collapsed: true,
     items: [
+      { text: "PostgreSQL", link: `${path.main}pgsql_compile` },
       { text: "MySQL", link: `${path.main}mysql_compile` },
       { text: "Sqlite3", link: `${path.main}sqlite3` },
-      { text: "PostgreSQL", link: `${path.main}pgsql_compile` },
     ],
   },
   { text: "Redis", link: `${path.main}redis` },
-  { text: "MongoDB", link: `${path.main}mongodb` },
   { text: "PHP", link: `${path.main}php` },
+  { text: "MongoDB", link: `${path.main}mongodb` },
 ];
 
 export { sidebar as environment };
