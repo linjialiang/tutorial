@@ -40,6 +40,8 @@ chown_redis_array=(
 chown_postgres_array=(
     "/server/postgres"
     "/server/pgData"
+    "/server/run/postgres"
+    "/server/logs/postgres"
 );
 
 chown_www_array=(
