@@ -22,27 +22,13 @@ server_array=(
     "/server/run/redis"
     "/server/logs/redis"
 
-    "/server/sqlite3"
-    "/server/run/sqlite3"
-    "/server/logs/sqlite3"
-
     "/server/php"
-    "/server/php/82"
+    "/server/php/83"
     "/server/run/php"
     "/server/logs/php"
 
-    "/server/mysql"
-    "/server/data"
-    "/server/etc/mysql"
-    "/server/tmp/mysql"
-    "/server/run/mysql"
-    "/server/logs/mysql"
-
-    "/server/data"
-    "/server/etc/mysql"
-    "/server/tmp/mysql"
-    "/server/run/mysql"
-    "/server/logs/mysql"
+    "/server/postgres"
+    "/server/pgData"
 
     "/server/sites"
     "/server/sites/ssl"

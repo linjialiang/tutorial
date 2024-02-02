@@ -14,8 +14,8 @@ func_chown_redis(){
     chown redis:redis $1
 }
 
-func_chown_mysql(){
-    chown mysql:mysql $1
+func_chown_postgres(){
+    chown postgres:postgres $1
 }
 
 func_chown_www(){
@@ -37,13 +37,9 @@ chown_redis_array=(
     "/server/logs/redis"
 );
 
-chown_mysql_array=(
-    "/server/mysql"
-    "/server/data"
-    "/server/run/mysql"
-    "/server/logs/mysql"
-    "/server/etc/mysql"
-    "/server/tmp/mysql"
+chown_postgres_array=(
+    "/server/postgres"
+    "/server/pgData"
 );
 
 chown_www_array=(
@@ -75,9 +71,9 @@ done
 echo "-----redis 用户权限目录设置结束-----"
 
 echo "-----开始设置 mysql 用户权限目录-----"
-for((i=0;i<${#chown_mysql_array[*]};i++));
+for((i=0;i<${#chown_postgres_array[*]};i++));
 do
-   echo ${chown_mysql_array[i]}
+   echo ${chown_postgres_array[i]}
    func_chown_mysql ${chown_mysql_array[i]}
 done
 echo "-----mysql 用户权限目录设置结束-----"
