@@ -163,23 +163,13 @@ DenyUsers postgres
 
 [[上小节]](#noSshLogin) 的方法虽然能禁止用户 A 通过 ssh 登录，但只要登录了其它用户，再通过 su 即可登录用户 A。
 
-需要注意的是 `PermitRootLogin` 指令并不是禁止账户通过 ssh 登录，只是限制 root 账户不能以账号密码的方式登录。
+解决办法是在[[上小节]](#noSshLogin)的基础上，再将用户的登录权限设为 `/sbin/nologin` 即可
 
-在正式的生产环境下，我们可以直接禁止 `root/postgres` 等特殊账户通过 ssh 直接登录。
-
-::: code-group
-
-```bash [AllowUsers]
-# AllowUsers 选项指定允许通过SSH登录的用户列表，只有列出的用户才能使用SSH登录到服务器
-AllowUsers root emad
+```bash
+usermod -s /sbin/nologin userA
+# `su` 指令只有 root 特权用户才能通过 `-s` 重新指定 shell
+su userA -s /bin/zsh
 ```
-
-```bash [DenyUsers]
-# DenyUsers 选项指定禁止通过SSH登录的用户列表，列出的用户将无法使用SSH登录到服务器
-DenyUsers postgres
-```
-
-:::
 
 ## 配置网络（桥接模式）
 
