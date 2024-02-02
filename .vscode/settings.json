@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "apcu",
     "backports",
     "batcat",
     "bootloader",
@@ -59,6 +60,7 @@
     "openapi",
     "opengl",
     "owasp",
+    "pcre",
     "PEERCRED",
     "pgsql",
     "phpfpm",
@@ -80,6 +82,7 @@
     "vitepress",
     "wangdoc",
     "wechat",
+    "xdebug",
     "xshell"
   ],
   "svg.preview.background": "custom"

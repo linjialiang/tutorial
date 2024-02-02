@@ -81,13 +81,12 @@ PHP 环境目录
 ::: details /package 目录
 
 1. nginx-1.24.0.tar.gz
-2. openssl-3.0.12.tar.gz
+2. openssl-3.0.13.tar.gz
 3. pcre2-10.42.tar.bz2
-4. zlib-1.3.tar.xz
-5. redis-7.2.3.tar.gz
-6. sqlite-autoconf-3440200.tar.gz
-7. php-8.3.1.tar.xz
-8. mysql-boost-8.0.35.tar.gz
+4. zlib-1.3.1.tar.xz
+5. redis-7.2.4.tar.gz
+6. php-8.3.2.tar.xz
+7. postgresql-16.1.tar.bz2
 
 :::
 
@@ -102,8 +101,8 @@ PHP 环境目录
 
 ::: tip 说明
 
-- nginx、php-fpm、sqlite3 的主进程用户是 root
-- redis、mysql 的主进程可以是指定的非特权用户
+- nginx、php-fpm 的主进程用户是 root
+- redis、postgres 的主进程可以是指定的非特权用户
 
 :::
 
@@ -111,13 +110,13 @@ PHP 环境目录
 
 在用户脚本中我们可以看到，我们创建了 4 个用户
 
-| 用户名 | 说明               |
-| ------ | ------------------ |
-| redis  | redis 主进程用户   |
-| mysql  | mysql 主进程用户   |
-| nginx  | nginx 子进程用户   |
-| phpfpm | php-fpm 子进程用户 |
-| www    | 操作文件用户       |
+| 用户名     | 说明                |
+| ---------- | ------------------- |
+| redis      | redis 主进程用户    |
+| postgres   | postgres 主进程用户 |
+| nginx      | nginx 子进程用户    |
+| phpfpm     | php-fpm 子进程用户  |
+| `emad/www` | 操作文件用户        |
 
 ::: tip 操作文件用户
 如果是在本机搭建环境，直接用你的登陆用户作为操作文件的用户即可
