@@ -289,6 +289,6 @@ source ~/.profile
 
 ## 编译器选择
 
-::: warning PostgreSQL 推荐使用 `CLANG+LVVM` 编译套件，`--with-lvvm` 启用 JIT 支持，能提升查询性能；其余软件优先使用 `GCC` 编译套件。
+::: warning PostgreSQL 推荐使用 `CLANG+LLVM` 编译套件，`--with-llvm` 启用 JIT 支持，能提升查询性能；其余软件优先使用 `GCC` 编译套件。
 :::
 .
