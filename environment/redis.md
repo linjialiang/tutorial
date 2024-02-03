@@ -49,6 +49,18 @@ cd ~/redis-7.2.4/
 make BUILD_TLS=yes -j2
 ```
 
+```bash [开启持久化]
+# 检测编译结果前，配置文件可以开启AOF持久化，否者编译可能会出错
+# 启用 AOF 持久化
+# appendonly no
+appendonly yes
+
+# 启用 RDB 持久化
+# save 3600 1 300 100 60 10000
+save 3600 1 300 100 60 10000
+# 其它参数通常使用默认即可
+```
+
 ```bash [检测编译结果]
 make test
 # 当出现高亮信息 `\o/ All tests passed without errors!` 证明测试通过
