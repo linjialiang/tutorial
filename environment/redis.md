@@ -24,6 +24,7 @@ Redis 构建相对简单
 ### 1. 构建指令
 
 ```bash
+su - redis -s /bin/zsh
 cd /package/redis-7.2.4/
 make
 ```
