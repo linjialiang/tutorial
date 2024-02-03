@@ -17,6 +17,26 @@ titleTemplate: 环境搭建教程
 apt install tcl -y
 ```
 
+## 权限
+
+::: code-group
+
+```bash [部署]
+chown redis:redis -R /server/redis /server/logs/redis /server/run/redis
+find /server/redis /server/logs/redis /server/run/redis -type f -exec chmod 640 {} \;
+find /server/redis /server/logs/redis /server/run/redis -type d -exec chmod 750 {} \;
+chmod 750 -R /server/redis/bin
+```
+
+```bash [开发]
+chown redis:emad -R /server/redis /server/logs/redis /server/run/redis
+find /server/redis /server/logs/redis /server/run/redis -type f -exec chmod 640 {} \;
+find /server/redis /server/logs/redis /server/run/redis -type d -exec chmod 750 {} \;
+chmod 750 -R /server/redis/bin
+```
+
+:::
+
 ## 构建安装
 
 Redis 构建相对简单
@@ -25,7 +45,7 @@ Redis 构建相对简单
 
 ```bash
 su - redis -s /bin/zsh
-cd /package/redis-7.2.4/
+cd ~/redis-7.2.4/
 make
 ```
 
@@ -65,7 +85,7 @@ redis 源码包中自带了 1 个配置文件，我们这里可以直接拷贝�
 ### 1. 拷贝配置文件
 
 ```bash
-cp -p -r /package/redis-7.2.4/redis.conf /server/redis/redis.conf
+cp -p -r ~/redis-7.2.4/redis.conf /server/redis/redis.conf
 ```
 
 ::: code-group
@@ -97,26 +117,6 @@ mkdir /server/redis/data
 #   - 0：进程只能使用物理内存
 #   - 1：进程可以使用比物理内存更多的虚拟内存
 vm.overcommit_memory = 1
-```
-
-:::
-
-### 2. 权限
-
-::: code-group
-
-```bash [部署]
-chown redis:redis -R /server/redis /server/logs/redis /server/run/redis
-find /server/redis /server/logs/redis /server/run/redis -type f -exec chmod 640 {} \;
-find /server/redis /server/logs/redis /server/run/redis -type d -exec chmod 750 {} \;
-chmod 750 -R /server/redis/bin
-```
-
-```bash [开发]
-chown redis:emad -R /server/redis /server/logs/redis /server/run/redis
-find /server/redis /server/logs/redis /server/run/redis -type f -exec chmod 640 {} \;
-find /server/redis /server/logs/redis /server/run/redis -type d -exec chmod 750 {} \;
-chmod 750 -R /server/redis/bin
 ```
 
 :::
