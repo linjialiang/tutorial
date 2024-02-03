@@ -108,6 +108,7 @@ bind 127.0.0.1 192.168.66.254
 # 启用 RDB 持久化
 save 3600 1 300 100 60 10000
 # 指定本地数据库存放目录 默认的 ./ 遇到过权限问题
+# 注意：RDB和AOF文件都将在此目录下创建
 dir /server/redis/rdbData
 
 # 启用 AOF 持久化
@@ -289,19 +290,20 @@ Redis 分为 RDB 和 AOF 两种持久化，而同时开启 `RDB` 和 `AOF` 就�
 # - 60秒（1分钟）内有至少1万个key发生变化；
 save 3600 1 300 100 60 10000 # 如果设为 save "" 代表关闭
 # 当后台保存出错时，是否停止写入操作。
-# 默认为yes，表示如果后台保存失败，那么Redis将停止接收写请求。
+# - 默认为yes，表示如果后台保存失败，那么Redis将停止接收写请求。
 stop-writes-on-bgsave-error yes
 # 是否开启RDB文件压缩。
-# 默认为yes，表示Redis会在保存RDB文件时进行压缩，以节省磁盘空间。
+# - 默认为yes，表示Redis会在保存RDB文件时进行压缩，以节省磁盘空间。
 rdbcompression yes
 # 是否开启RDB文件校验和。
-# 默认为yes，表示Redis会在保存RDB文件时计算校验和，用于检查RDB文件是否损坏。
+# - 默认为yes，表示Redis会在保存RDB文件时计算校验和，用于检查RDB文件是否损坏。
 rdbchecksum yes
 # 指定RDB文件的名称。默认为 dump.rdb
 dbfilename dump.rdb
 # 是否删除旧的RDB文件。默认为no，表示Redis不会删除旧的RDB文件。
 rdb-del-sync-files no
 # 指定RDB文件的存储目录
+# - 注意：AOF文件，也将在此目录中创建
 dir /server/redis/rdbData
 ```
 
@@ -309,22 +311,36 @@ dir /server/redis/rdbData
 # AOF 全称 “APPEND ONLY MODE” 是实时记录操作，默认配置可以恢复1秒前的数据
 # -- AOF还可以通过混合持久化的方式，结合RDB的快照来提高启动效率和数据恢复的速度。
 
+# 是否开启AOF持久化。
+# - 默认为no，表示关闭AOF持久化。
+# - 如果设置为yes，则开启AOF持久化。
 appendonly yes
-
+# 指定AOF文件的名称。默认为 appendonly.aof
 appendfilename "appendonly.aof"
-
+# 指定AOF文件的存储目录。默认为当前工作目录
 appenddirname "appendonlydir"
-
+# 设置AOF文件同步的频率。
+# - 默认为 everysec，表示每秒同步一次。
+# - 可选值有 everysec/always/no
 appendfsync everysec
-
+# 在AOF重写期间是否进行同步。
+# - 默认为no，表示在AOF重写期间不进行同步。
+# - 如果设置为yes，则在AOF重写期间进行同步。
 no-appendfsync-on-rewrite no
-
+# 设置自动触发AOF重写的条件，即当AOF文件大小超过上一次重写后大小的百分之多少时触发。
+# - 默认为100，表示每次重写都会触发。
 auto-aof-rewrite-percentage 100
+# 设置自动触发AOF重写的最小文件大小。默认为 64Mb
 auto-aof-rewrite-min-size 64mb
+# 当AOF文件被截断时，是否加载截断后的AOF文件。
+# - 默认为yes，表示加载截断后的AOF文件。
 aof-load-truncated yes
-aof-use-rdb-preamble yes
+# 是否在AOF文件中添加RDB格式的前导部分。
+# - 默认为yes，表示添加前导部分。
+aof-use-rdb-preamble yes # yes即开启混合持久化 整体格式为：[RDB file][AOF tail]
+# 是否在AOF文件中添加时间戳。
+# - 默认为no，表示不添加时间戳。
 aof-timestamp-enabled no
-
 ```
 
 :::
