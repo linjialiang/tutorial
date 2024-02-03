@@ -41,31 +41,26 @@ chmod 750 -R /server/redis/bin
 
 Redis 构建相对简单
 
-### 1. 构建指令
+::: code-group
 
-```bash
+```bash [构建指令]
 su - redis -s /bin/zsh
 cd ~/redis-7.2.4/
 make
 ```
 
-### 2. 检测编译情况
-
-```bash
+```bash [检测编译结果]
 make test
+# 当出现高亮信息 `\o/ All tests passed without errors!` 证明测试通过
 ```
 
-::: tip
-当出现高亮信息 `\o/ All tests passed without errors!` 证明测试通过
-:::
-
-### 3. 安装并指定目录
-
-```bash
+```bash [安装并指定目录]
 make install PREFIX=/server/redis
 ```
 
-### 4. 文件说明
+:::
+
+::: details 文件说明
 
 刚刚安装好的 Redis 很简洁，只有 1 个 `目录 bin` 和 `bin 下面的 6 个文件`：
 
@@ -78,15 +73,17 @@ make install PREFIX=/server/redis
 | redis-sentinel  |                         |
 | redis-check-aof |                         |
 
+:::
+
 ## 配置文件
 
 redis 源码包中自带了 1 个配置文件，我们这里可以直接拷贝该配置文件，按自己需要修改相应配置
 
 ### 1. 拷贝配置文件
 
-```bash
+````bash
 cp -p -r ~/redis-7.2.4/redis.conf /server/redis/redis.conf
-```
+```.
 
 ::: code-group
 
@@ -103,7 +100,7 @@ requirepass 1
 logfile "/server/logs/redis/redis.log"
 # 指定本地数据库存放目录 默认的 ./ 遇到过权限问题
 dir /server/redis/data
-```
+````
 
 ```bash [创建目录]
 # redis 用户需要有写入权限
