@@ -56,7 +56,7 @@ apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev 
 | --enable-debug        | 启用调试模式                                       |
 | --with-CC=CMD         | 指定 C 编译器( gcc/clang 注意是区分大小写的)       |
 | --with-llvm           | 启用基于 LLVM 的 JIT 支持，优化适合 `OLTP/OLAP`    |
-| --with-pgport=PORTNUM | 指定 pgsql 服务器监听的端口号                      |
+| --with-pgport=PortNum | 指定 pgsql 服务器监听的端口号                      |
 | --with-pam            | 允许 pgsql 使用系统的 PAM 认证机制进行用户身份验证 |
 | --with-systemd        | 确保 PostgreSQL 与 systemd 服务和日志系统集成      |
 | --with-ossp-uuid      | 启用 OSSP UUID 库的支持，用于生成唯一标识符        |
@@ -141,7 +141,7 @@ su - postgres -s /bin/zsh
 ```bash [测试]
 # 启动 pgsql 数据库服务器，-D 参数指定数据目录路径，-l 参数指定了日志文件的路径，
 # 执行命令后数据库服务器将开始运行，并记录日志到指定的文件中。
-/server/pgsql/bin/pg_ctl -D /server/pgData  -l logfile start
+/server/pgsql/bin/pg_ctl -D /server/pgData  -l logFile start
 # 这个命令用于创建一个名为 "test" 的新数据库。
 # 执行该命令后，将在数据库中创建一个名为 "test" 的新数据库。
 /server/pgsql/bin/createdb test
