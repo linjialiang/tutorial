@@ -33,6 +33,7 @@ chown_phpfpm_array=(
 );
 
 chown_redis_array=(
+    "/server/redis"
     "/server/run/redis"
     "/server/logs/redis"
 );
