@@ -554,11 +554,11 @@ chmod 750 -R /server/nginx/sbin
 
 chown root:root -R /server/logs/nginx
 chmod 750 /server/logs/nginx
-# 日志文件权限 root 644
+# -- 因为日志文件权限是 root 644
 
 chown root:root -R /server/run/nginx
 chmod 750 /server/run/nginx
-# pid文件权限 root 644
+# -- 因为pid文件权限是 root/644
 ```
 
 ```bash [开发]
@@ -572,11 +572,11 @@ chmod 750 -R /server/nginx/sbin
 
 chown root:emad -R /server/logs/nginx
 chmod 750 /server/logs/nginx
-# 日志文件权限 root 644
+# -- 因为日志文件权限是 root 644
 
 chown root:emad -R /server/run/nginx
 chmod 750 /server/run/nginx
-# pid文件权限 root 644
+# -- 因为pid文件权限是 root/644
 ```
 
 :::
