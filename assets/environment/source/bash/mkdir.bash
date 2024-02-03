@@ -19,6 +19,7 @@ server_array=(
     "/server/logs/nginx"
 
     "/server/redis"
+    "/server/redis/data"
     "/server/run/redis"
     "/server/logs/redis"
 
