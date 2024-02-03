@@ -14,7 +14,7 @@ titleTemplate: 环境搭建教程
 测试编译结果会用到 tcl
 
 ```bash
-apt install tcl -y
+apt install tcl libssl-dev -y
 ```
 
 ## 权限
