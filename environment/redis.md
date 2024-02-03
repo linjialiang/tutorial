@@ -46,7 +46,7 @@ Redis 构建相对简单
 ```bash [构建指令]
 su - redis -s /bin/zsh
 cd ~/redis-7.2.4/
-make
+make BUILD_TLS=yes -j2
 ```
 
 ```bash [检测编译结果]
