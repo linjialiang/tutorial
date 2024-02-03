@@ -277,7 +277,7 @@ vm.overcommit_memory = 1
 
 Redis 的持久化是它的一大特性，可以将内存中的数据写入到硬盘中；
 
-Redis 分为 RDB 和 AOF 两种持久化，而同时开启 `RDB` 和 `AOF` 就被称做混合持久化。
+Redis 分为 RDB 和 AOF 两种持久化，而 `AOF` 又可以结合 `RDB` 实现混合持久化。
 
 ::: code-group
 
