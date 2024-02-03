@@ -345,6 +345,34 @@ aof-timestamp-enabled no
 
 :::
 
+### 4. 启用 SSL 功能
+
+Redis 支持通过 SSL/TLS 协议进行加密通信，可以提供更高的安全性。要启动 Redis 的 SSL 功能，需要按照以下步骤进行配置：
+
+TODO redis 启用 SSL 功能放在后面实现，还有点问题
+
+::: code-group
+
+```bash [生成证书和密钥文件]
+# 在启动 Redis 之前，需要先生成证书和密钥文件
+su - redis -s /bin/zsh
+cd /server/redis
+openssl req -x509 -newkey rsa:4096 -keyout redis.key -out redis.crt -days 365 -nodes
+chmod 600 redis.key
+chmod 644 redis.crt
+```
+
+```bash [修改 Redis 配置文件]
+# /server/redis/redis.conf
+# 在 Redis 的配置文件中添加以下内容：
+port 0 # 禁用非ssl链接
+tls-port 6379
+tls-cert-file /server/redis/redis.crt
+tls-key-file /server/redis/redis.key
+```
+
+:::
+
 ## 配置 redis 系统单元
 
 推荐统一使用 systemd 管理各种服务
