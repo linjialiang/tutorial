@@ -100,6 +100,13 @@ requirepass 1
 logfile "/server/logs/redis/redis.log"
 # 指定本地数据库存放目录 默认的 ./ 遇到过权限问题
 dir /server/redis/data
+
+# ===================== 启用混合持久化 =====================
+# 启用 AOF 持久化
+appendonly yes
+# 启用 RDB 持久化
+save 3600 1 300 100 60 10000
+# 其它参数通常使用默认即可
 ```
 
 ```bash [创建目录]
@@ -118,47 +125,47 @@ vm.overcommit_memory = 1
 
 :::
 
-### 2.. 配置文件参数
+### 2. 配置文件参数
 
-下面是 Redis 配置文件常见的参数：
+::: details 下面是 Redis 配置文件常见的参数：
 
-1. `daemonize no`
+1.  `daemonize no`
 
-   Redis 默认不是以守护进程的方式运行，可以通过该配置项修改，使用 yes 启用守护进程（Windows 不支持守护线程的配置为 no ）
+    Redis 默认不是以守护进程的方式运行，可以通过该配置项修改，使用 yes 启用守护进程（Windows 不支持守护线程的配置为 no ）
 
-2. `pidfile /var/run/redis.pid`
+2.  `pidfile /var/run/redis.pid`
 
-   Redis 默认不是以守护进程的方式运行，可以通过该配置项修改，使用 yes 启用守护进程（Windows 不支持守护线程的配置为 no ）
+    Redis 默认不是以守护进程的方式运行，可以通过该配置项修改，使用 yes 启用守护进程（Windows 不支持守护线程的配置为 no ）
 
-3. `port 6379`
+3.  `port 6379`
 
-   指定 Redis 监听端口，默认端口为 6379，作者在自己的一篇博文中解释了为什么选用 6379 作为默认端口，因为 6379 在手机按键上 MERZ 对应的号码，而 MERZ 取自意大利歌女 Alessia Merz 的名字
+    指定 Redis 监听端口，默认端口为 6379，作者在自己的一篇博文中解释了为什么选用 6379 作为默认端口，因为 6379 在手机按键上 MERZ 对应的号码，而 MERZ 取自意大利歌女 Alessia Merz 的名字
 
-4. `bind 127.0.0.1 -::1`
+4.  `bind 127.0.0.1 -::1`
 
-   绑定的主机地址
+    绑定的主机地址
 
-5. `timeout 300`
+5.  `timeout 300`
 
-   当客户端闲置多长秒后关闭连接，如果指定为 0 ，表示关闭该功能
+    当客户端闲置多长秒后关闭连接，如果指定为 0 ，表示关闭该功能
 
-6. `loglevel notice`
+6.  `loglevel notice`
 
-   指定日志记录级别，Redis 总共支持四个级别：debug、verbose、notice、warning，默认为 notice
+    指定日志记录级别，Redis 总共支持四个级别：debug、verbose、notice、warning，默认为 notice
 
-7. `logfile ""`
+7.  `logfile ""`
 
-   日志记录方式，默认为标准输出，如果配置 Redis 为守护进程方式运行，而这里又配置为日志记录方式为标准输出，则日志将会发送给 /dev/null
+    日志记录方式，默认为标准输出，如果配置 Redis 为守护进程方式运行，而这里又配置为日志记录方式为标准输出，则日志将会发送给 /dev/null
 
-8. `databases 16`
+8.  `databases 16`
 
-   设置数据库的数量，默认数据库为 16，可以使用 SELECT 命令在连接上指定数据库 id
+    设置数据库的数量，默认数据库为 16，可以使用 SELECT 命令在连接上指定数据库 id
 
-9. `save <seconds> <changes> [<seconds> <changes> ...]`
+9.  `save <seconds> <changes> [<seconds> <changes> ...]`
 
-   指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合，Redis 默认配置文件中提供了三个条件：
+    指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合，Redis 默认配置文件中提供了三个条件：
 
-   `save 3600 1 300 100 60 10000`: 3600 秒（1 小时）内有 1 个更改；300 秒（5 分钟）内有 100 个更改；60 秒内有 10000 个更改
+    `save 3600 1 300 100 60 10000`: 3600 秒（1 小时）内有 1 个更改；300 秒（5 分钟）内有 100 个更改；60 秒内有 10000 个更改
 
 10. `rdbcompression yes`
 
@@ -254,6 +261,24 @@ vm.overcommit_memory = 1
 30. `include /path/to/local.conf`
 
     指定包含其它的配置文件，可以在同一主机上多个 Redis 实例之间使用同一份配置文件，而同时各个实例又拥有自己的特定配置文件
+
+:::
+
+### 3. 混合持久化
+
+Redis 的持久化是它的一大特性，可以将内存中的数据写入到硬盘中；
+
+Redis 分为 RDB 和 AOF 两种持久化，而同时开启 `RDB` 和 `AOF` 就被称做混合持久化。
+
+::: code-group
+
+```bash [RDB配置]
+# RDB 也叫 快照(Snapshotting)
+# 启用 RDB 持久化
+save 3600 1 300 100 60 10000 # 设为 save "" 代表关闭
+```
+
+:::
 
 ## 配置 redis 系统单元
 
