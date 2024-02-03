@@ -44,8 +44,8 @@
 # 外库路径
 --with-pcre=/package/pcre2-10.42 \
 --with-pcre-jit \
---with-zlib=/package/zlib-1.3 \
---with-openssl=/package/openssl-3.0.12
+--with-zlib=/package/zlib-1.3.1 \
+--with-openssl=/package/openssl-3.0.13
 
 # 开启调试，生产环境下建议禁用
 --with-debug
