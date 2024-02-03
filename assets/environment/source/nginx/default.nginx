@@ -7,9 +7,10 @@ server
     root /server/default;
     index index.html;
 
-    location !~* \.((html?)|css|js|png|(jpe?g)|gif|ico)
+    # 处理不以指定扩展名结尾的请求
+    location ~* \.(?!jpg$|jpeg$|png$|html$|css$|js$|ico$|gif$|txt$)[a-zA-Z0-9_\-]+$
     {
-    	deny all;
+        deny all;
     }
 }
 
