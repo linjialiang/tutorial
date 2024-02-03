@@ -81,9 +81,9 @@ redis 源码包中自带了 1 个配置文件，我们这里可以直接拷贝�
 
 ### 1. 拷贝配置文件
 
-````bash
+```bash
 cp -p -r ~/redis-7.2.4/redis.conf /server/redis/redis.conf
-```.
+```
 
 ::: code-group
 
@@ -100,7 +100,7 @@ requirepass 1
 logfile "/server/logs/redis/redis.log"
 # 指定本地数据库存放目录 默认的 ./ 遇到过权限问题
 dir /server/redis/data
-````
+```
 
 ```bash [创建目录]
 # redis 用户需要有写入权限
@@ -260,7 +260,7 @@ vm.overcommit_memory = 1
 推荐统一使用 systemd 管理各种服务
 
 ::: details 系统单元配置
-<<<@/assets/environment/source/service/redis.service.ini
+<<<@/assets/environment/source/service/redis.service{ini}
 :::
 
 ### 1. 具体操作：
