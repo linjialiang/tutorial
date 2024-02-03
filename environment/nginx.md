@@ -320,7 +320,7 @@ linux 服务器推荐使用 `Systemd 单元(Unit)` 来管理守护进程，下�
    ```
 
    ::: details nginx.service 参考案例
-   <<<@/assets/environment/source/service/nginx.service.ini
+   <<<@/assets/environment/source/service/nginx.service{ini}
    :::
 
 2. 将 nginx.service 加入开机启动
