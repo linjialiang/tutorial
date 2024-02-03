@@ -34,7 +34,7 @@ chown_phpfpm_array=(
 
 chown_redis_array=(
     "/server/redis"
-    "/server/redis/data"
+    "/server/redis/rdbData"
     "/server/run/redis"
     "/server/logs/redis"
 );
