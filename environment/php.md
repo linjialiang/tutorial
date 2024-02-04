@@ -557,7 +557,8 @@ cd /server/php/83/bin
 # 下载 composer.phar
 curl -O https://mirrors.tencent.com/composer/composer.phar
 # 添加执行权限
-chmod +x composer.phar
+chown phpfpm:emad composer.phar
+chmod 770 composer.phar
 # 软链接到当前目录
 ln -s /server/php/83/bin/composer.phar /usr/local/bin/composer
 ```
