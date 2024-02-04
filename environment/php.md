@@ -549,7 +549,7 @@ Composer 是一个 PHP 依赖管理工具，开发环境必备
 
 ### 1. 安装
 
-推荐直接使用阿里云镜像 [下载 composer](https://mirrors.tencent.com/composer/composer.phar)
+推荐直接使用腾讯云镜像 [下载 composer](https://mirrors.tencent.com/composer/composer.phar)
 
 ```bash
 # 进入 php8.3 的 bin 目录
