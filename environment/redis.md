@@ -414,15 +414,15 @@ cd /server/redis/ssl/
 
 # 2.1 生成服务器私钥 (tls-key-file)
 # - 使用 OpenSSL 生成一个 2048 位的 RSA 私钥，用于服务器：
-openssl genrsa -out server.key 2048
+openssl genrsa -out redis.key 2048
 
 # 2.2 生成服务器证书签名请求 (CSR) (不是最终证书):
 # - 使用私钥生成 CSR，这将提示你输入一些识别信息：
-openssl req -new -key server.key -out server.csr
+openssl req -new -key redis.key -out redis.csr
 
 # 2.3 签署服务器证书 (tls-cert-file):
 # - 使用 CA 证书和私钥签署服务器的 CSR，生成服务器证书：
-openssl x509 -req -days 365 -in server.csr -CA ./ca/ca.crt -CAkey ./ca/ca.key -set_serial 01 -out server.crt
+openssl x509 -req -days 365 -in redis.csr -CA ./ca/ca.crt -CAkey ./ca/ca.key -set_serial 01 -out redis.crt
 ```
 
 ```bash [客户端证书和密钥]
@@ -450,13 +450,13 @@ openssl x509 -req -days 365 -in client.csr -CA ./ca/ca_client.crt -CAkey ./ca/ca
 # 在 Redis 的配置文件中添加以下内容：
 port 0
 tls-port 6379
-tls-cert-file /server/redis/ssl/server.crt
-tls-key-file /server/redis/ssl/server.key
+tls-cert-file /server/redis/ssl/redis.crt
+tls-key-file /server/redis/ssl/redis.key
 tls-client-key-dir /server/redis/ssl/ca/
-tls-client-cert-file /server/redis/ssl/client.crt
-tls-client-key-file /server/redis/ssl/client.key
+# tls-client-cert-file /server/redis/ssl/client.crt
+# tls-client-key-file /server/redis/ssl/client.key
 # 开启双向认证支持
-tls-auth-clients optional
+# tls-auth-clients optional
 ```
 
 ### 3. 分发证书
