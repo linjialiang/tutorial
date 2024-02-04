@@ -380,35 +380,95 @@ ps aux|grep -E "redis|PID" |grep -v grep
 
 Redis 支持通过 SSL/TLS 协议进行加密通信，可以提供更高的安全性。要启动 Redis 的 SSL 功能，需要按照以下步骤进行配置：
 
-::: code-group
+### 1. 生成 TLS 证书和密钥
 
-```bash [服务器端key]
-# 在启动 Redis 之前，需要生成自签名证书和密钥文件
+生成 TLS 证书和密钥涉及到多个步骤，包括创建私钥、生成证书签名请求（CSR）、签署证书以及分发证书。以下是详细的操作说明：
+
+```bash [创建证书目录]
 su - redis -s /bin/zsh
-cd /server/redis
-openssl req -x509 -newkey rsa:4096 -keyout redis.key -out redis.crt -days 36500 -nodes
-chmod 600 redis.key
-chmod 644 redis.crt
+mkdir /server/redis/ssl
+cd /server/redis/ssl
 ```
 
-```bash [客户端key]
-# 可以为客户端生成单独的自签名证书和密钥文件
-su - redis -s /bin/zsh
-cd /server/redis
-openssl req -x509 -newkey rsa:4096 -keyout redis.key -out redis.crt -days 36500 -nodes
-chmod 600 client.key
-chmod 644 client.crt
+```bash [服务器证书和密钥]
+# 1. 开启SSL后，服务器证书和密钥是必须的
+# 1.1 生成服务器私钥 (tls-key-file)
+# - 使用 OpenSSL 生成一个 2048 位的 RSA 私钥，用于服务器：
+openssl genrsa -out server.key 2048
+
+# 1.2 生成服务器证书签名请求 (CSR) (不是最终证书):
+# - 使用私钥生成 CSR，这将提示你输入一些识别信息：
+openssl req -new -key server.key -out server.csr
+
+# 1.3 生成 CA 根证书 (tls-ca-cert-file):
+# - 如果你还没有 CA 根证书和私钥，你需要先生成一个。这个过程类似于生成服务器私钥和 CSR，但是你需要创建一个自签名的 CA 证书：
+openssl genrsa -out ca.key 2048
+openssl req -x509 -new -nodes -key ca.key -sha256 -days 3650 -out ca.crt
+
+# 1.4 签署服务器证书 (tls-cert-file):
+# - 使用 CA 证书和私钥签署服务器的 CSR，生成服务器证书：
+openssl x509 -req -days 365 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
 ```
 
-```bash [修改 Redis 配置文件]
+```bash [本机客户端证书和密钥]
+# 2. 如果 redis 开启双向TLS认证(tls-auth-clients optional)，并且想要客户端证书认证，就需要生成客户端证书和密钥
+# - 这里以本机客户端为例，只不过本机客户端通常不需要双向认证，因为本机传输基本上不会存在安全泄露问题
+
+# 2.1 生成 CA 根证书 (tls-ca-cert-file):
+# - 本机客户端的CA根证书跟服务器CA根证书保持一致即可，没有安全隐患
+
+# 2.2 生成客户端私钥 (tls-client-key-file):
+# - 为每个客户端生成私钥，会更加安全
+# - 为本机客户端生成私钥
+openssl genrsa -out client.key 2048
+
+# 2.3 生成客户端证书签名请求 (CSR) (不是最终证书):
+# - 为每个客户端生成对应的CSR，会更加安全
+# - 为本机客户端生成CSR：
+openssl req -new -key client.key -out client.csr
+
+# 2.4 签署客户端证书 (tls-client-cert-file):
+# - 使用CA证书和私钥签署客户端的CSR，为每个客户端生成CRT证书，会更加安全
+# - 为本机客户端生成CRT证书：
+openssl x509 -req -days 365 -in client.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out client.crt
+```
+
+```bash [外网客户端证书和密钥]
+# 3. 外网链接做客户端证书认证，会更加安全
+# - 这里以宿主机客户端为例
+
+# 3.1 为宿主机客户端生成 CA 根证书 (tls-ca-cert-file):
+openssl genrsa -out ca_host.key 2048
+openssl req -x509 -new -nodes -key ca_host.key -sha256 -days 3650 -out ca_host.crt
+
+# 3.2 为宿主机客户端生成私钥 (tls-client-key-file):
+openssl genrsa -out client_host.key 2048
+
+# 3.3 为宿主机客户端生成CSR (不是最终证书):
+openssl req -new -key client_host.key -out client_host.csr
+
+# 3.4 签署客户端证书 (tls-client-cert-file):
+# - 为宿主机客户端生成CRT证书
+openssl x509 -req -days 365 -in client_host.csr -CA ca_host.crt -CAkey ca_host.key -set_serial 01 -out client_host.crt
+```
+
+### 2. 配置 Redis 服务器
+
+```bash
 # /server/redis/redis.conf
 # 在 Redis 的配置文件中添加以下内容：
 port 0 # 禁用非ssl链接
 tls-port 6379
 tls-cert-file /server/redis/redis.crt
 tls-key-file /server/redis/redis.key
-tls-client-cert-file client.crt
-tls-client-key-file client.key
+tls-ca-cert-file /server/redis/ca.crt
+# 下面这两个是针对redis-cli客户端的，通常可以不用验证
+tls-client-cert-file /server/redis/client.crt
+tls-client-key-file /server/redis/client.key
 ```
 
-:::
+### 3. 分发证书
+
+将 CA 证书（ca.crt）分发给所有客户端，以便它们能够验证服务器的身份。
+
+如果使用了客户端证书认证，还需要将客户端证书（client.crt）分发给客户端，并将 CA 证书分发给服务器，以便服务器能够验证客户端的身份。
