@@ -94,8 +94,9 @@ PHP 环境目录
 ```[[/package/php_ext]]
 1. apcu-5.1.23.tgz
 2. redis-6.0.2.tgz
-3. xdebug-3.3.1.tgz
-4. yaml-2.2.3.tgz
+3. yaml-2.2.3.tgz
+4. xdebug-3.3.1.tgz
+5. mongodb-1.17.2.tgz
 ```
 
 :::
@@ -291,4 +292,3 @@ source ~/.profile
 
 ::: warning PostgreSQL 推荐使用 `CLANG+LLVM` 编译套件，`--with-llvm` 启用 JIT 支持，能提升查询性能；其余软件优先使用 `GCC` 编译套件。
 :::
-.

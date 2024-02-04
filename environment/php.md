@@ -906,9 +906,9 @@ xdebug.client_port=9083
 
 ### 4. rdkafka
 
-> 安装：
+::: code-group
 
-```bash
+```bash [安装]
 # 安装依赖库 librdkafka
 apt install librdkafka-dev -y
 
@@ -920,18 +920,20 @@ make -j2
 make install
 ```
 
-> 配置：
-
-```ini
+```ini [配置]
 # /server/php/83/lib/php.ini
 extension=rdkafka
 ```
 
+:::
+
 ### 5. MongoDB
 
-> 安装：
+在实际工作中 PostgreSQL 通常可以取代 MySQL 和 MongoDB
 
-```bash
+::: code-group
+
+```bash [安装]
 cd /package/php_ext/mongodb-1.16.2
 phpize
 ./configure --with-php-config=/server/php/83/bin/php-config
@@ -939,12 +941,12 @@ make -j2
 make install
 ```
 
-> 配置：
-
-```ini
+```ini [配置]
 # /server/php/83/lib/php.ini
 extension=mongodb
 ```
+
+:::
 
 ## 权限
 
