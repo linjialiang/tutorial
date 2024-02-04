@@ -380,17 +380,24 @@ ps aux|grep -E "redis|PID" |grep -v grep
 
 Redis 支持通过 SSL/TLS 协议进行加密通信，可以提供更高的安全性。要启动 Redis 的 SSL 功能，需要按照以下步骤进行配置：
 
-TODO redis 启用 SSL 功能放在后面实现，还有点问题
-
 ::: code-group
 
-```bash [生成证书和密钥文件]
-# 在启动 Redis 之前，需要先生成证书和密钥文件
+```bash [服务器端key]
+# 在启动 Redis 之前，需要生成自签名证书和密钥文件
 su - redis -s /bin/zsh
 cd /server/redis
-openssl req -x509 -newkey rsa:4096 -keyout redis.key -out redis.crt -days 365 -nodes
+openssl req -x509 -newkey rsa:4096 -keyout redis.key -out redis.crt -days 36500 -nodes
 chmod 600 redis.key
 chmod 644 redis.crt
+```
+
+```bash [客户端key]
+# 可以为客户端生成单独的自签名证书和密钥文件
+su - redis -s /bin/zsh
+cd /server/redis
+openssl req -x509 -newkey rsa:4096 -keyout redis.key -out redis.crt -days 36500 -nodes
+chmod 600 client.key
+chmod 644 client.crt
 ```
 
 ```bash [修改 Redis 配置文件]
