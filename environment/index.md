@@ -79,8 +79,9 @@ PHP 环境目录
 
 ## 安装包列表
 
-::: details /package 目录
+::: code-group
 
+```[[/package]]
 1. nginx-1.24.0.tar.gz
 2. openssl-3.0.13.tar.gz
 3. pcre2-10.42.tar.bz2
@@ -88,15 +89,14 @@ PHP 环境目录
 5. redis-7.2.4.tar.gz
 6. php-8.3.2.tar.xz
 7. postgresql-16.1.tar.bz2
+```
 
-:::
-
-::: details /package/php_ext 目录
-
+```[[/package/php_ext]]
 1. apcu-5.1.23.tgz
 2. redis-6.0.2.tgz
 3. xdebug-3.3.1.tgz
 4. yaml-2.2.3.tgz
+```
 
 :::
 
