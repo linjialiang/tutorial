@@ -221,20 +221,15 @@ mkdir /package/php-8.3.2/build_php
 
 ```bash
 export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
-```
 
-使用下面指令检查，sqlite3 是否正确加入
-
-```bash
+# 使用下面指令检查，sqlite3 是否正确加入
 pkg-config --list-all | grep sqlite3
-```
 
-::: details 加入成功显示：
-
-```bash
+# 加入成功显示：
 sqlite3          SQLite - SQL database engine
 ```
 
+::: tip 如果服务器上未安装 sqlite3，则需要安装 `libsqlite3-dev` 依赖库，这样也不用将 `pkgconfig` 加入到 PKG_CONFIG_PATH 环境变量中
 :::
 
 ### 4. 查看构建选项
