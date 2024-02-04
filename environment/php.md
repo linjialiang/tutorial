@@ -189,13 +189,15 @@ pkg-config --list-all
 本次构建 PHP 必要的依赖项：
 
 ```bash
-apt install g++ libcurl4-openssl-dev libssl-dev libavif-dev libwebp-dev libonig-dev libyaml-dev libffi-dev libsystemd-dev libgmp-dev libsodium-dev libzip-dev gawk -y
+apt install libsystemd-dev libsqlite3-dev libcurl4-openssl-dev libffi-dev libgmp-dev g++ libonig-dev libigbinary-dev -y
+
+apt install libssl-dev libavif-dev libwebp-dev libyaml-dev libsodium-dev libzip-dev gawk -y
 
 # php 8.3.0 开始如果要启用 capstone
 apt install libcapstone-dev -y
 
-# php 的 pgsql 扩展需要，如果服务器已安装了 postgresql 则不需要安装这个 dev
-apt install postgresql-server-dev-all -y
+# libpq-dev 包含 libpq库(是 PostgreSQL 官方的客户端库)，用于与 PostgreSQL 服务器进行通信
+apt install libpq-dev -y
 ```
 
 ::: tip
