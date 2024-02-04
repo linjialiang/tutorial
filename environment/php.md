@@ -862,7 +862,6 @@ make install
 xdebug 是 php 的断点调试工具
 
 ```bash
-apt install libtool -y
 cd /package/php_ext/xdebug-3.3.1
 phpize
 ./configure --enable-xdebug --with-php-config=/server/php/83/bin/php-config
