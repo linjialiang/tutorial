@@ -35,4 +35,6 @@
 --enable-sysvshm \
 --enable-apcu \
 --enable-redis \
+--enable-redis-igbinary \
+--enable-redis-msgpack \
 --with-yaml
