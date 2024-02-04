@@ -189,9 +189,7 @@ pkg-config --list-all
 本次构建 PHP 必要的依赖项：
 
 ```bash
-apt install libsystemd-dev libsqlite3-dev libcurl4-openssl-dev libffi-dev libgmp-dev g++ libonig-dev libigbinary-dev -y
-
-apt install libssl-dev libavif-dev libwebp-dev libyaml-dev libsodium-dev libzip-dev gawk -y
+apt install libsystemd-dev libsqlite3-dev libcurl4-openssl-dev libffi-dev libgmp-dev g++ libonig-dev libigbinary-dev libsodium-dev libyaml-dev libzip-dev -y
 
 # php 8.3.0 开始如果要启用 capstone
 apt install libcapstone-dev -y
