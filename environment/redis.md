@@ -384,6 +384,8 @@ Redis 支持通过 SSL/TLS 协议进行加密通信，可以提供更高的安�
 
 生成 TLS 证书和密钥涉及到多个步骤，包括创建私钥、生成证书签名请求（CSR）、签署证书以及分发证书。以下是详细的操作说明：
 
+::: code-group
+
 ```bash [CA根证书]
 # 生成 CA 根证书 (tls-ca-cert-file):
 # - CA根证书用于生成服务器或客户端的签署证书，可以使用不同的CA根证书来生成不同身份的客户端签署证书
@@ -439,6 +441,8 @@ openssl req -new -key client.key -out client.csr
 openssl x509 -req -days 365 -in client.csr -CA ./ca/ca_client.crt -CAkey ./ca/ca_client.key -set_serial 01 -out client.crt
 ```
 
+:::
+
 ### 2. 配置 Redis 服务器
 
 ```bash
@@ -446,13 +450,13 @@ openssl x509 -req -days 365 -in client.csr -CA ./ca/ca_client.crt -CAkey ./ca/ca
 # 在 Redis 的配置文件中添加以下内容：
 port 0
 tls-port 6379
-tls-cert-file /server/redis/ssl/redis.crt
-tls-key-file /server/redis/ssl/redis.key
+tls-cert-file /server/redis/ssl/server.crt
+tls-key-file /server/redis/ssl/server.key
 tls-client-key-dir /server/redis/ssl/ca/
-# 开启双向认证支持
-tls-auth-clients optional
 tls-client-cert-file /server/redis/ssl/client.crt
 tls-client-key-file /server/redis/ssl/client.key
+# 开启双向认证支持
+tls-auth-clients optional
 ```
 
 ### 3. 分发证书
