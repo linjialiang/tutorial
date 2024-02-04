@@ -407,6 +407,8 @@ port 0 # 禁用非ssl链接
 tls-port 6379
 tls-cert-file /server/redis/redis.crt
 tls-key-file /server/redis/redis.key
+tls-client-cert-file client.crt
+tls-client-key-file client.key
 ```
 
 :::
