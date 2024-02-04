@@ -938,6 +938,7 @@ cd /package/php_ext/mongodb-1.17.2
 phpize
 ./configure --enable-mongodb --with-php-config=/server/php/83/bin/php-config
 make -j2
+make test
 make install
 ```
 
