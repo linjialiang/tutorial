@@ -186,7 +186,7 @@ pkg-config --list-all
 
 ### 1. 安装依赖
 
-本次构建 PHP 必要的依赖项：
+本次 PHP 编译，系统还需要如下依赖项：
 
 ```bash
 apt install libsystemd-dev libsqlite3-dev libcurl4-openssl-dev libffi-dev libgmp-dev g++ libonig-dev libigbinary-dev libsodium-dev libyaml-dev libzip-dev -y
