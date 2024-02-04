@@ -444,12 +444,13 @@ openssl x509 -req -days 365 -in client.csr -CA ./ca/ca_client.crt -CAkey ./ca/ca
 ```bash
 # /server/redis/redis.conf
 # 在 Redis 的配置文件中添加以下内容：
-port 0 # 禁用非ssl链接
+port 0
 tls-port 6379
 tls-cert-file /server/redis/ssl/redis.crt
 tls-key-file /server/redis/ssl/redis.key
-tls-ca-cert-file /server/redis/ssl/ca/ca.crt
-# 下面这两个是针对redis-cli客户端的，通常可以不用验证
+tls-client-key-dir /server/redis/ssl/ca/
+# 开启双向认证支持
+tls-auth-clients optional
 tls-client-cert-file /server/redis/ssl/client.crt
 tls-client-key-file /server/redis/ssl/client.key
 ```
