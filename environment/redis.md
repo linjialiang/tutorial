@@ -396,15 +396,15 @@ Redis 支持通过 SSL/TLS 协议进行加密通信，可以提供更高的安�
 # -- 为了更加安全，有时颁发证书时会设成仅客户端证书或仅服务器证书的属性
 su - redis -s /bin/zsh
 mkdir -p /server/redis/ssl/ca
-cd /server/redis/ssl/ca/
+cd /server/redis/ssl/
 
 # 1.1 为服务端生成CA根证书:
 openssl genrsa -out ca.key 2048
-openssl req -x509 -new -nodes -key ca.key -sha256 -days 3650 -out ca.crt
+openssl req -x509 -new -nodes -key ca.key -sha256 -days 3650 -out ./ca/ca.crt
 
 # 1.2 为客户端生成CA根证书:
 openssl genrsa -out ca_client.key 2048
-openssl req -x509 -new -nodes -key ca_client.key -sha256 -days 3650 -out ca_client.crt
+openssl req -x509 -new -nodes -key ca_client.key -sha256 -days 3650 -out ./ca/ca_client.crt
 ```
 
 ```bash [服务端证书和密钥]
