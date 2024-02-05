@@ -17,26 +17,6 @@ titleTemplate: 环境搭建教程
 apt install tcl libssl-dev -y
 ```
 
-## 权限
-
-::: code-group
-
-```bash [部署]
-chown redis:redis -R /server/redis /server/logs/redis /server/run/redis
-find /server/redis /server/logs/redis /server/run/redis -type f -exec chmod 640 {} \;
-find /server/redis /server/logs/redis /server/run/redis -type d -exec chmod 750 {} \;
-chmod 750 -R /server/redis/bin
-```
-
-```bash [开发]
-chown redis:emad -R /server/redis /server/logs/redis /server/run/redis
-find /server/redis /server/logs/redis /server/run/redis -type f -exec chmod 640 {} \;
-find /server/redis /server/logs/redis /server/run/redis -type d -exec chmod 750 {} \;
-chmod 750 -R /server/redis/bin
-```
-
-:::
-
 ## 构建安装
 
 Redis 构建相对简单
@@ -401,7 +381,7 @@ chmod +x ./gen-test-certs.sh
 #   tests/tls/redis.{crt,key}       没有限制的证书和私钥
 #   tests/tls/client.{crt,key}      限制为SSL客户端使用的证书和私钥
 #   tests/tls/server.{crt,key}      限制为SSL服务器使用的证书和私钥
-#   tests/tls/redis.dh              DH参数文件
+#   tests/tls/redis.dh              DH参数文件，新版openssl已经不建议使用
 ```
 
 :::
@@ -439,3 +419,23 @@ tls-auth-clients optional   # 开启双向认证支持，允许客户端验证
 将 CA 证书（ca.crt）分发给所有客户端，以便它们能够验证服务器的身份。
 
 如果使用了客户端证书认证，还需要将客户端证书（client.crt）分发给客户端，并将 CA 证书分发给服务器，以便服务器能够验证客户端的身份。
+
+## 权限
+
+::: code-group
+
+```bash [部署]
+chown redis:redis -R /server/redis /server/logs/redis /server/run/redis
+find /server/redis /server/logs/redis /server/run/redis -type f -exec chmod 640 {} \;
+find /server/redis /server/logs/redis /server/run/redis -type d -exec chmod 750 {} \;
+chmod 750 -R /server/redis/bin
+```
+
+```bash [开发]
+chown redis:emad -R /server/redis /server/logs/redis /server/run/redis
+find /server/redis /server/logs/redis /server/run/redis -type f -exec chmod 640 {} \;
+find /server/redis /server/logs/redis /server/run/redis -type d -exec chmod 750 {} \;
+chmod 750 -R /server/redis/bin
+```
+
+:::
