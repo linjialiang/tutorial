@@ -152,10 +152,28 @@ su - postgres -s /bin/zsh
 
 :::
 
-## systemd 单元文件
+## systemd 单元
 
-<<<@/assets/environment/source/service/postgres.service{bash}
+::: code-group
+
+<<<@/assets/environment/source/service/postgres.service{bash} [unit]
+
+```bash [开机启动]
+systemctl enable postgres
+systemctl daemon-reload
+```
+
+:::
 
 ::: tip 注意
 使用 `Type=notify` 需要在编译构建阶段 configure 时，使用 `--with-systemd` 选项
 :::
+
+## 配置文件
+
+PostgreSQL 主要有以下几个配置文件：
+
+1. `postgresql.auto.conf`：这个文件包含了一些自动生成的配置项，例如数据目录、端口号等。它通常在初始化数据库时自动生成，并包含在 postgresql.conf 文件中。
+2. `postgresql.conf`：这是主要的配置文件，用于设置数据库的各种参数和选项。它包含了许多可配置的参数，例如内存分配、连接数限制、日志记录等。通过编辑该文件，可以自定义数据库的行为。
+3. `pg_hba.conf`：这个文件用于配置数据库的身份验证方式。它定义了不同类型连接（如本地连接、TCP/IP 连接）的认证方法。你可以根据需要设置不同的认证方式，例如信任所有用户、使用密码加密等。
+4. `pg_ident.conf`：这个文件用于配置数据库的用户映射。它允许将外部系统（如操作系统用户）映射到数据库用户。通过配置该文件，可以实现对外部系统的用户进行身份验证和授权。
