@@ -376,88 +376,55 @@ ps -ef|grep -E "redis|PID" |grep -v grep
 ps aux|grep -E "redis|PID" |grep -v grep
 ```
 
-## 启用 SSL 功能
+## 启用 TLS 功能
 
 Redis 支持通过 SSL/TLS 协议进行加密通信，可以提供更高的安全性。要启动 Redis 的 SSL 功能，需要按照以下步骤进行配置：
 
 ### 1. 生成 TLS 证书和密钥
 
-生成 TLS 证书和密钥涉及到多个步骤，包括创建私钥、生成证书签名请求（CSR）、签署证书以及分发证书。以下是详细的操作说明：
+生成 TLS 证书和密钥涉及到多个步骤，包括创建私钥、生成证书签名请求（CSR）、签署证书以及分发证书。
+
+::: details 源码包自带生成工具
+redis 源码包上的 `gen-test-certs.sh` 脚本，用于一键生成 TLS 相关证书和密钥：
 
 ::: code-group
+<<<@/assets/environment/source/redis/gen-test-certs.sh [脚本]
 
-```bash [CA根证书]
-# 生成 CA 根证书 (tls-ca-cert-file):
-# - CA根证书用于生成服务器或客户端的签署证书，可以使用不同的CA根证书来生成不同身份的客户端签署证书
-# -- tls-ca-cert-file: 如果 redis 只有1个CA根证书，用该参数指定CA根证书路径
-# -- tls-client-key-dir：如果 redis 有多个CA根证书，需要将CA根证书集中放在同个目录下，用该参数指定目录路径
-# - 何时使用多个CA根证书？
-# -- 通常，Redis对服务端功能（接受连接）和客户端功能（从主机复制、建立集群总线连接等）使用相同的CA根证书
-# -- 为了更加安全，有时颁发证书时会设成仅客户端证书或仅服务器证书的属性
+```bash [执行脚本]
 su - redis -s /bin/zsh
-mkdir -p /server/redis/ssl/ca
-cd /server/redis/ssl/
-
-# 1.1 为服务端生成CA根证书:
-openssl genrsa -out ca.key 2048
-openssl req -x509 -new -nodes -key ca.key -sha256 -days 365 -out ./ca/ca.crt
-
-# 1.2 为客户端生成CA根证书:
-openssl genrsa -out ca_client.key 2048
-openssl req -x509 -new -nodes -key ca_client.key -sha256 -days 365 -out ./ca/ca_client.crt
-```
-
-```bash [服务端证书和密钥]
-# 2. 开启SSL后，服务器证书和密钥是必须的
-su - redis -s /bin/zsh
-cd /server/redis/ssl/
-
-# 2.1 生成服务器私钥 (tls-key-file)
-# - 使用 OpenSSL 生成一个 2048 位的 RSA 私钥，用于服务器：
-openssl genrsa -out redis.key 2048
-
-# 2.2 生成服务器证书签名请求 (CSR) (不是最终证书):
-# - 使用私钥生成 CSR，这将提示你输入一些识别信息：
-openssl req -new -key redis.key -out redis.csr
-
-# 2.3 签署服务器证书 (tls-cert-file):
-# - 使用 CA 证书和私钥签署服务器的 CSR，生成服务器证书：
-openssl x509 -req -days 365 -in redis.csr -CA ./ca/ca.crt -CAkey ca.key -set_serial 01 -out redis.crt
-```
-
-```bash [客户端证书和密钥]
-# 3. redis 开启双向TLS认证(tls-auth-clients optional) 后客户端可以使用客户端证书认证，增加安全性
-# - 这里以本机客户端为例，只不过本机客户端通常不需要双向认证，因为本机传输基本上不存在安全泄露问题
-su - redis -s /bin/zsh
-cd /server/redis/ssl/
-
-# 3.1 生成客户端私钥 (tls-client-key-file):
-openssl genrsa -out client.key 2048
-
-# 3.2 生成客户端证书签名请求 (CSR) (不是最终证书):
-openssl req -new -key client.key -out client.csr
-
-# 3.3 签署客户端证书 (tls-client-cert-file):
-openssl x509 -req -days 365 -in client.csr -CA ./ca/ca_client.crt -CAkey ca_client.key -set_serial 01 -out client.crt
+chmod +x ./gen-test-certs.sh
+./gen-test-certs.sh
 ```
 
 :::
 
 ### 2. 配置 Redis 服务器
 
-```bash
+::: code-group
+
+```bash [禁用双向认证]
 # /server/redis/redis.conf
-# 在 Redis 的配置文件中添加以下内容：
+port 0  # port 设为 0 禁用非 tls 连接
+tls-port 6379
+tls-cert-file /server/redis/tls/redis.crt
+tls-key-file /server/redis/tls/redis.key
+tls-client-key-file /server/redis/tls/ca.crt
+tls-auth-clients no # 客户端不验证
+```
+
+```bash [启用双向认证]
+# /server/redis/redis.conf
 port 0
 tls-port 6379
-tls-cert-file /server/redis/ssl/redis.crt
-tls-key-file /server/redis/ssl/redis.key
-tls-client-key-dir /server/redis/ssl/ca/
-# tls-client-cert-file /server/redis/ssl/client.crt
-# tls-client-key-file /server/redis/ssl/client.key
-# 开启双向认证支持
-# tls-auth-clients optional
+tls-cert-file /server/redis/tls/server.crt
+tls-key-file /server/redis/tls/server.key
+tls-client-key-file /server/redis/tls/ca.crt
+tls-client-cert-file /server/redis/tls/client.crt
+tls-client-key-file /server/redis/tls/client.key
+tls-auth-clients optional   # 开启双向认证支持，客户端需要验证
 ```
+
+:::
 
 ### 3. 分发证书
 
