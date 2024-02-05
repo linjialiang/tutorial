@@ -386,6 +386,12 @@ chmod +x ./gen-test-certs.sh
 
 :::
 
+::: tip 文件权限
+gen-test-certs.sh 脚本生成的文件，只需要 400 即可；
+
+开发环境：为方便修改以及 emad 用户通过 redis-cli 登录，使用 640 权限。
+:::
+
 ### 2. 配置 Redis 服务器
 
 ::: code-group
