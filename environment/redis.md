@@ -422,7 +422,7 @@ openssl req -new -key redis.key -out redis.csr
 
 # 2.3 签署服务器证书 (tls-cert-file):
 # - 使用 CA 证书和私钥签署服务器的 CSR，生成服务器证书：
-openssl x509 -req -days 365 -in redis.csr -CA ./ca/ca.crt -CAkey ./ca/ca.key -set_serial 01 -out redis.crt
+openssl x509 -req -days 365 -in redis.csr -CA ./ca/ca.crt -CAkey ca.key -set_serial 01 -out redis.crt
 ```
 
 ```bash [客户端证书和密钥]
@@ -438,7 +438,7 @@ openssl genrsa -out client.key 2048
 openssl req -new -key client.key -out client.csr
 
 # 3.3 签署客户端证书 (tls-client-cert-file):
-openssl x509 -req -days 365 -in client.csr -CA ./ca/ca_client.crt -CAkey ./ca/ca_client.key -set_serial 01 -out client.crt
+openssl x509 -req -days 365 -in client.csr -CA ./ca/ca_client.crt -CAkey ca_client.key -set_serial 01 -out client.crt
 ```
 
 :::
