@@ -135,19 +135,19 @@ rm -rf ~/postgresql-16.1 ~/postgresql-16.1.tar.bz2
 su - postgres -s /bin/zsh
 # 初始化 pgsql 数据库，-D 参数指定数据目录路径，
 # 执行命令后将在指定目录下创建必要的文件和目录结构
-/server/pgsql/bin/initdb -D /server/pgData -E UTF8 --locale=zh_CN.utf8 -U postgres
+/server/postgres/bin/initdb -D /server/pgData -E UTF8 --locale=zh_CN.utf8 -U postgres
 ```
 
 ```bash [测试]
 # 启动 pgsql 数据库服务器，-D 参数指定数据目录路径，-l 参数指定了日志文件的路径，
 # 执行命令后数据库服务器将开始运行，并记录日志到指定的文件中。
-/server/pgsql/bin/pg_ctl -D /server/pgData  -l logFile start
+/server/postgres/bin/pg_ctl -D /server/pgData  -l logFile start
 # 这个命令用于创建一个名为 "test" 的新数据库。
 # 执行该命令后，将在数据库中创建一个名为 "test" 的新数据库。
-/server/pgsql/bin/createdb test
+/server/postgres/bin/createdb test
 # 这个命令用于启动 PostgreSQL 命令行客户端，并连接到名为 "test" 的数据库。
 # 执行该命令后，你将进入一个交互式的 PostgreSQL 命令行界面，可以执行 SQL 查询和操作。
-/server/pgsql/bin/psql test
+/server/postgres/bin/psql test
 ```
 
 :::
