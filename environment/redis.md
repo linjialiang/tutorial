@@ -418,6 +418,15 @@ tls-client-key-file /server/redis/tls/client.key
 tls-auth-clients optional   # 开启双向认证支持，允许客户端验证
 ```
 
+````bash [redis-cli登录]
+# 双向认证
+redis-cli --tls \
+--cacert /server/redis/tls/ca.crt \
+--cert /server/redis/tls/client.crt \
+--key /server/redis/tls/client.key
+
+# 客户端不做验证
+redis-cli --tls --cacert /server/redis/tls/ca.crt
 :::
 
 ### 3. 分发证书
@@ -435,7 +444,7 @@ chown redis:redis -R /server/redis /server/logs/redis /server/run/redis
 find /server/redis /server/logs/redis /server/run/redis -type f -exec chmod 640 {} \;
 find /server/redis /server/logs/redis /server/run/redis -type d -exec chmod 750 {} \;
 chmod 750 -R /server/redis/bin
-```
+````
 
 ```bash [开发]
 chown redis:emad -R /server/redis /server/logs/redis /server/run/redis
