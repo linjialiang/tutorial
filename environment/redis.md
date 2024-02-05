@@ -396,6 +396,14 @@ chmod +x ./gen-test-certs.sh
 ./gen-test-certs.sh
 ```
 
+```bash [生成文件]
+#   tests/tls/ca.{crt,key}          自签名CA证书和私钥
+#   tests/tls/redis.{crt,key}       没有限制的证书和私钥
+#   tests/tls/client.{crt,key}      限制为SSL客户端使用的证书和私钥
+#   tests/tls/server.{crt,key}      限制为SSL服务器使用的证书和私钥
+#   tests/tls/redis.dh              DH参数文件
+```
+
 :::
 
 ### 2. 配置 Redis 服务器
@@ -409,7 +417,7 @@ tls-port 6379
 tls-cert-file /server/redis/tls/redis.crt
 tls-key-file /server/redis/tls/redis.key
 tls-client-key-file /server/redis/tls/ca.crt
-tls-auth-clients no # 客户端不验证
+tls-auth-clients no # 客户端不会验证
 ```
 
 ```bash [启用双向认证]
@@ -421,7 +429,7 @@ tls-key-file /server/redis/tls/server.key
 tls-client-key-file /server/redis/tls/ca.crt
 tls-client-cert-file /server/redis/tls/client.crt
 tls-client-key-file /server/redis/tls/client.key
-tls-auth-clients optional   # 开启双向认证支持，客户端需要验证
+tls-auth-clients optional   # 开启双向认证支持，允许客户端验证
 ```
 
 :::
