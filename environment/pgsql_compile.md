@@ -236,6 +236,45 @@ log_rotation_size = 10M
 
 :::
 
+### 3. 启用 TLS
+
+PostgreSQL 本身支持使用 ssl 连接来加密客户端/服务器通信，以提高安全性。这需要在客户端和服务器系统上都安装 OpenSSL，并且在 PostgreSQL 构建时启用 ssl 支持
+
+::: warning 注意：在 PostgreSQL 中 SSL 指的就是 TLS
+:::
+
+#### [创建自签名证书指南](https://www.postgresql.org/docs/current/ssl-tcp.html#SSL-CERTIFICATE-CREATION)
+
+SSL 登录验证通常分为 `单向验证` 和 `双向验证` 两种方式：
+
+1. 单向验证（One-way SSL）：也被称为服务器端验证，指的是服务器要求客户端提供身份验证证书，以证明客户端的身份。在单向验证中，服务器会向客户端发送自己的证书，但不会要求客户端提供证书。这种方式可以确保客户端与正确的服务器进行通信，但无法验证客户端的身份。
+
+2. 双向验证（Two-way SSL）：也被称为相互验证，指的是服务器和客户端都需要提供身份验证证书。在双向验证中，服务器会向客户端发送自己的证书，并要求客户端提供证书。客户端收到服务器的证书后，会对其进行验证，确认服务器的身份。然后，客户端会向服务器提供自己的证书，服务器也会对其进行验证，确认客户端的身份。这种方式可以确保客户端与正确的服务器进行通信，并且可以验证客户端的身份。
+
+::: details 单向验证
+
+单向验证需要 `服务器私钥/服务器自签名证书`，不需要 `ca根证书/客户端私钥/客户端部署证书/服务器部署证书`
+
+::: code-group
+
+```bash [单向验证]
+mkdir /server/postgres/tls
+cd /server/postgres/tls/
+# 要为服务器创建一个简单的自签名证书，有效期为365天，
+# - 请使用以下OpenSSL命令，将 [debian12-lnpp] 替换为服务器的主机名：
+openssl req -new -x509 -days 365 -nodes -text -out server.crt \
+-keyout server.key -subj "/CN=debian12-lnpp"
+```
+
+```bash [配置]
+# /server/pgData/postgresql.conf
+ssl = on
+ssl_cert_file = '/server/postgres/tls/server.crt'
+ssl_key_file = '/server/postgres/tls/server.key'
+```
+
+:::
+
 ## 权限
 
 ```bash
