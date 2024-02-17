@@ -179,7 +179,52 @@ PostgreSQL 主要有以下几个配置文件：
 3. `pg_hba.conf`：这个文件用于配置数据库的身份验证方式。它定义了不同类型连接（如本地连接、TCP/IP 连接）的认证方法。你可以根据需要设置不同的认证方式，例如信任所有用户、使用密码加密等。
 4. `pg_ident.conf`：这个文件用于配置数据库的用户映射。它允许将外部系统（如操作系统用户）映射到数据库用户。通过配置该文件，可以实现对外部系统的用户进行身份验证和授权。
 
-### 1.
+### 1. 基本配置
+
+```bash [基本]
+external_pid_file = '/server/run/postgres/postgres.pid'
+listen_addresses = 'localhost,192.168.66.254'
+port = 5432
+unix_socket_directories = '/server/run/postgres'
+```
+
+### 2. 日志配置
+
+::: code-group
+
+```bash [日志基本]
+# 包括错误日志，访问日志等各种日志
+log_destination = 'jsonlog'
+logging_collector = on
+log_directory = '/server/logs/postgres'
+log_file_mode = 0600
+```
+
+```bash [方案一]
+# 方案一：日志保留指定天数(推荐)
+log_truncate_on_rotation = on       # on 轮换日志文件时，如文件存在，则覆盖内容
+log_filename = 'postgresql-%d.log'  # %a保留一周、%d保留[01,31]
+log_rotation_age = 1d               # 每天轮换日志文件
+log_rotation_size = 0               # 日志文件大小不限制
+```
+
+```bash [方案二]
+# 方案二：日志按天来
+log_truncate_on_rotation = off      # off 轮换日志文件时，如文件存在，则追加内容
+log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
+log_rotation_age = 1d
+log_rotation_size = 0
+```
+
+```bash [方案三]
+# 方案二：日志按大小来
+log_truncate_on_rotation = off
+log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
+log_rotation_age = 0
+log_rotation_size = 10M
+```
+
+:::
 
 ## 权限
 
