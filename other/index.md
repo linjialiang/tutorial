@@ -81,7 +81,7 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\robbyrussell.omp.json" | In
 
 <<<@/assets/other/powershell/Microsoft.PowerShell_profile.ps1
 
-## 创建自签名证书流程
+## 自签名证书创建流程
 
 通常使用 OpenSSL 工具来创建自签名证书，下面是生成双向验证所需的证书流程：
 
