@@ -139,6 +139,7 @@ su - postgres -s /bin/zsh
 ```
 
 ```bash [测试]
+# 这些指令通常不需要使用
 # 启动 pgsql 数据库服务器，-D 参数指定数据目录路径，-l 参数指定了日志文件的路径，
 # 执行命令后数据库服务器将开始运行，并记录日志到指定的文件中。
 /server/postgres/bin/pg_ctl -D /server/pgData  -l logFile start
