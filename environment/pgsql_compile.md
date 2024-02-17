@@ -257,7 +257,7 @@ SSL 登录验证通常分为 `单向验证` 和 `双向验证` 两种方式：
 
 ::: code-group
 
-```bash [单向验证]
+```bash [自签名证书]
 su postgres -s /bin/zsh
 mkdir /server/postgres/tls
 cd /server/postgres/tls/
@@ -286,21 +286,57 @@ ssl_key_file = '/server/postgres/tls/server.key'
 
 ::: code-group
 
-```bash [双向验证]
+```bash [CA根证书]
 su postgres -s /bin/zsh
 mkdir /server/postgres/tls
 cd /server/postgres/tls/
-# 1. 首先创建一个证书签名请求（CSR）和一个私钥文件：
+
+# 1. 首先创建 [颁发机构CA根证书]
+# - 1.1 创建证书签名请求（CSR）和证书私钥文件：
 openssl req -new -nodes -text -out root.csr -keyout root.key -subj "/CN=debian12-lnpp"
-# 注意：确保私钥仅属主用户有权限，否则服务器会拒绝
-chmod 600 root.key
+chmod 600 root.key  # 注意：确保私钥仅属主用户有权限，否则服务器会拒绝
+# - 1.2 使用 [证书签名请求+证书私钥+openssl配置] 创建 [颁发机构CA根证书]
+#   - 使用 openssl version -d 指令可以获取 openssl.cnf 路径
+openssl x509 -req -in root.csr -text -days 3650 \
+-extfile /etc/ssl/openssl.cnf -extensions v3_ca \
+-signkey root.key -out root.crt
+chmod 600 root.* # 安全起见，全部设为仅属主可见
+```
+
+```bash [服务器证书]
+# 2. 创建 [服务器部署证书]
+# - 2.1 创建服务器签名请求（CSR）和服务器私钥文件
+openssl req -new -nodes -text -out server.csr \
+-keyout server.key -subj "/CN=debian12-lnpp"
+chmod 600 server.key  # 注意：确保私钥仅属主用户有权限，否则服务器会拒绝
+# - 2.2 使用 [CA根证书+证书私钥+服务器私钥] 创建 [服务器部署证书]
+openssl x509 -req -in server.csr -text -days 365 \
+-CA root.crt -CAkey root.key -CAcreateserial \
+-out server.crt
+chmod 600 server.* # 安全起见，全部设为仅属主可见
+```
+
+```bash [客户端证书]
+# 客户端证书由服务器生成，提供给客户端使用
+# 3. 创建 [客户端部署证书]
+# - 3.1 创建客户端签名请求（CSR）和客户端私钥文件
+openssl req -new -nodes -text -out clint.csr \
+-keyout clint.key -subj "/CN=debian12-lnpp"
+# - 3.2 使用 [CA根证书+证书私钥+客户端私钥] 创建 [客户端部署证书]
+openssl x509 -req -in clint.csr -text -days 365 \
+-CA root.crt -CAkey root.key -CAcreateserial \
+-out clint.crt
+chmod 600 clint.*  # 客户端证书是提供给特定客户的，安全起见，全部设为仅属主可见
 ```
 
 ```bash [配置]
 # /server/pgData/postgresql.conf
 ssl = on
+ssl_ca_file = '/server/postgres/tls/root.crt'
 ssl_cert_file = '/server/postgres/tls/server.crt'
-ssl_key_file = '/server/postgres/tls/server.key'
+ssl_crl_file = ''
+ssl_crl_dir = ''
+ssl_key_file = ''/server/postgres/tls/server.key'
 ```
 
 :::
