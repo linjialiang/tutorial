@@ -190,53 +190,7 @@ port = 5432
 unix_socket_directories = '/server/run/postgres'
 ```
 
-### 2. 日志配置
-
-::: code-group
-
-```bash [日志基本]
-# /server/pgData/postgresql.conf
-
-# 包括错误日志，访问日志等各种日志
-log_destination = 'jsonlog'
-logging_collector = on
-log_directory = '/server/logs/postgres'
-log_file_mode = 0600
-```
-
-```bash [方案一]
-# /server/pgData/postgresql.conf
-
-# 方案一：日志保留指定天数(推荐)
-log_truncate_on_rotation = on       # on 轮换日志文件时，如文件存在，则覆盖内容
-log_filename = 'postgresql-%d.log'  # %a保留一周、%d保留[01,31]
-log_rotation_age = 1d               # 每天轮换日志文件
-log_rotation_size = 0               # 日志文件大小不限制
-```
-
-```bash [方案二]
-# /server/pgData/postgresql.conf
-
-# 方案二：日志按天来
-log_truncate_on_rotation = off      # off 轮换日志文件时，如文件存在，则追加内容
-log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
-log_rotation_age = 1d
-log_rotation_size = 0
-```
-
-```bash [方案三]
-# /server/pgData/postgresql.conf
-
-# 方案二：日志按大小来
-log_truncate_on_rotation = off
-log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
-log_rotation_age = 0
-log_rotation_size = 10M
-```
-
-:::
-
-### 3. 启用 TLS
+### 2. 启用 TLS
 
 PostgreSQL 本身支持使用 ssl 连接来加密客户端/服务器通信，以提高安全性。这需要在客户端和服务器系统上都安装 OpenSSL，并且在 PostgreSQL 构建时启用 ssl 支持
 
@@ -356,6 +310,66 @@ ssl_key_file = '/server/postgres/tls/server.key'
 2. 签名创建证书的指南来源于 [`Postgres 官方文档`](https://www.postgresql.org/docs/current/ssl-tcp.html#SSL-CERTIFICATE-CREATION)
 
 3. 虽然自签名证书可用，但在实际生产中建议使用由证书颁发机构（CA）（通常是企业范围的根 CA）签名的证书。而双向验证也必须要 `CA根证书`
+
+:::
+
+### 3. WAL
+
+WAL 即 Write-Ahead Logging，是一种实现事务日志的标准方法。
+
+后面实现
+
+### 4. REPLICATION
+
+后面实现
+
+### 5. 查询调优
+
+后面实现
+
+### 4. 日志配置
+
+::: code-group
+
+```bash [日志基本]
+# /server/pgData/postgresql.conf
+
+# 包括错误日志，访问日志等各种日志
+log_destination = 'jsonlog'
+logging_collector = on
+log_directory = '/server/logs/postgres'
+log_file_mode = 0600
+```
+
+```bash [方案一]
+# /server/pgData/postgresql.conf
+
+# 方案一：日志保留指定天数(推荐)
+log_truncate_on_rotation = on       # on 轮换日志文件时，如文件存在，则覆盖内容
+log_filename = 'postgresql-%d.log'  # %a保留一周、%d保留[01,31]
+log_rotation_age = 1d               # 每天轮换日志文件
+log_rotation_size = 0               # 日志文件大小不限制
+```
+
+```bash [方案二]
+# /server/pgData/postgresql.conf
+
+# 方案二：日志按天来
+log_truncate_on_rotation = off      # off 轮换日志文件时，如文件存在，则追加内容
+log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
+log_rotation_age = 1d
+log_rotation_size = 0
+```
+
+```bash [方案三]
+# /server/pgData/postgresql.conf
+
+# 方案二：日志按大小来
+log_truncate_on_rotation = off
+log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
+log_rotation_age = 0
+log_rotation_size = 10M
+```
 
 :::
 
