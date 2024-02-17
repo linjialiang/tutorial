@@ -80,3 +80,36 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\robbyrussell.omp.json" | In
 ### 完整的配置文件
 
 <<<@/assets/other/powershell/Microsoft.PowerShell_profile.ps1
+
+## 创建自签名证书流程
+
+通常使用 OpenSSL 工具来创建自签名证书，下面是生成双向验证所需的证书流程：
+
+::: code-group
+
+```bash [CA根证书]
+# ca.{crt,key} 自签名CA证书和CA私钥
+openssl req -newkey rsa:2048 -nodes -keyout ca.key -x509 -days 365 -out ca.crt
+```
+
+```bash [服务器]
+# server.{crt,key} 服务器使用的证书和私钥
+# 生成服务器私钥
+openssl genrsa -out server.key 2048
+# 生成服务器证书请求（CSR） 中间产物
+openssl req -new -key server.key -out server.csr
+# 使用[自签名CA证书和CA私钥]签署服务器证书
+openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -days 365
+```
+
+```bash [客户端]
+# client.{crt,key} 客户端使用的证书和私钥
+# 生成客户端私钥
+openssl genrsa -out client.key 2048
+# 生成客户端证书请求（CSR） 中间产物
+openssl req -new -key client.key -out client.csr
+# 使用[自签名CA证书和CA私钥]签署客户端证书
+openssl x509 -req -in client.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out client.crt -days 365
+```
+
+:::
