@@ -252,7 +252,7 @@ cd /server/postgres/tls/
 
 # 1. 首先创建 [颁发机构CA根证书]
 # - 1.1 创建证书签名请求（CSR）和证书私钥文件：
-openssl req -new -nodes -text -out root.csr -keyout root.key -subj "/CN=debian12-lnpp"
+openssl req -new -nodes -text -out root.csr -keyout root.key -subj "/CN=lnpp/O=PostgreSQL"
 chmod 600 root.key  # 注意：确保私钥仅属主用户有权限，否则服务器会拒绝
 # - 1.2 使用 [证书签名请求+证书私钥+openssl配置] 创建 [颁发机构CA根证书]
 #   - 使用 openssl version -d 指令可以获取 openssl.cnf 路径
@@ -266,7 +266,7 @@ chmod 600 root.* # 安全起见，全部设为仅属主可见
 # 2. 创建 [服务器部署证书]
 # - 2.1 创建服务器签名请求（CSR）和服务器私钥文件
 openssl req -new -nodes -text -out server.csr \
--keyout server.key -subj "/CN=debian12-lnpp"
+-keyout server.key -subj "/CN=lnpp/O=PostgreSQL"
 chmod 600 server.key  # 注意：确保私钥仅属主用户有权限，否则服务器会拒绝
 # - 2.2 使用 [CA根证书+证书私钥+服务器私钥] 创建 [服务器部署证书]
 openssl x509 -req -in server.csr -text -days 365 \
@@ -279,7 +279,7 @@ chmod 600 server.* # 安全起见，全部设为仅属主可见
 # 3. 创建 [客户端证书]
 # - 3.1 创建客户端签名请求（CSR）和客户端私钥文件
 openssl req -new -nodes -text -out clint-emad.csr \
--keyout clint-emad.key -subj "/CN=debian12-lnpp/O=emad"
+-keyout clint-emad.key -subj "/CN=emad/O=PostgreSQL"
 # - 3.2 使用 [CA根证书+证书私钥+客户端私钥] 创建 [客户端证书]
 openssl x509 -req -in clint-emad.csr -text -days 365 \
 -CA root.crt -CAkey root.key -CAcreateserial \
