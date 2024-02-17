@@ -179,3 +179,12 @@ PostgreSQL 主要有以下几个配置文件：
 4. `pg_ident.conf`：这个文件用于配置数据库的用户映射。它允许将外部系统（如操作系统用户）映射到数据库用户。通过配置该文件，可以实现对外部系统的用户进行身份验证和授权。
 
 ## 权限
+
+```bash
+chown postgres:postgres -R /server/postgres /server/pgData /server/logs/postgres /server/run/postgres
+find /server/postgres /server/logs/postgres /server/run/postgres -type f -exec chmod 640 {} \;
+find /server/postgres /server/logs/postgres /server/run/postgres -type d -exec chmod 750 {} \;
+find /server/pgData -type f -exec chmod 600 {} \;
+find /server/pgData -type d -exec chmod 700 {} \;
+chmod 750 -R /server/postgres/bin
+```
