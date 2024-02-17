@@ -182,8 +182,10 @@ PostgreSQL 主要有以下几个配置文件：
 ### 1. 基本配置
 
 ```bash [基本]
+# /server/pgData/postgresql.conf
+
 external_pid_file = '/server/run/postgres/postgres.pid'
-listen_addresses = 'localhost,192.168.66.254'
+listen_addresses = '127.0.0.1,192.168.66.254'
 port = 5432
 unix_socket_directories = '/server/run/postgres'
 ```
@@ -193,6 +195,8 @@ unix_socket_directories = '/server/run/postgres'
 ::: code-group
 
 ```bash [日志基本]
+# /server/pgData/postgresql.conf
+
 # 包括错误日志，访问日志等各种日志
 log_destination = 'jsonlog'
 logging_collector = on
@@ -201,6 +205,8 @@ log_file_mode = 0600
 ```
 
 ```bash [方案一]
+# /server/pgData/postgresql.conf
+
 # 方案一：日志保留指定天数(推荐)
 log_truncate_on_rotation = on       # on 轮换日志文件时，如文件存在，则覆盖内容
 log_filename = 'postgresql-%d.log'  # %a保留一周、%d保留[01,31]
@@ -209,6 +215,8 @@ log_rotation_size = 0               # 日志文件大小不限制
 ```
 
 ```bash [方案二]
+# /server/pgData/postgresql.conf
+
 # 方案二：日志按天来
 log_truncate_on_rotation = off      # off 轮换日志文件时，如文件存在，则追加内容
 log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
@@ -217,6 +225,8 @@ log_rotation_size = 0
 ```
 
 ```bash [方案三]
+# /server/pgData/postgresql.conf
+
 # 方案二：日志按大小来
 log_truncate_on_rotation = off
 log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
