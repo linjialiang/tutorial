@@ -184,10 +184,10 @@ PostgreSQL 主要有以下几个配置文件：
 ```bash [基本]
 # /server/pgData/postgresql.conf
 
-external_pid_file = '/server/run/postgres/postgres.pid'
+#external_pid_file = '/server/run/postgres/postgres.pid'
 listen_addresses = '127.0.0.1,192.168.66.254'
-port = 5432
-unix_socket_directories = '/server/run/postgres'
+#port = 5432
+#unix_socket_directories = '/server/run/postgres'
 ```
 
 ### 2. 启用 TLS
