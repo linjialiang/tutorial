@@ -327,7 +327,7 @@ WAL 即 Write-Ahead Logging，是一种实现事务日志的标准方法。
 
 后面实现
 
-### 4. 日志配置
+### 6. 日志配置
 
 ::: code-group
 
