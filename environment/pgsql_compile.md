@@ -182,9 +182,9 @@ PostgreSQL 主要有以下几个配置文件：
 ## 权限
 
 ```bash
-chown postgres:postgres -R /server/postgres /server/pgData /server/logs/postgres /server/run/postgres
-find /server/postgres /server/logs/postgres /server/run/postgres -type f -exec chmod 640 {} \;
-find /server/postgres /server/logs/postgres /server/run/postgres -type d -exec chmod 750 {} \;
+chown postgres:postgres -R /server/postgres /server/pgData /server/logs/postgres /server/run/postgres /server/etc/postgres
+find /server/postgres /server/logs/postgres /server/run/postgres /server/etc/postgres -type f -exec chmod 640 {} \;
+find /server/postgres /server/logs/postgres /server/run/postgres /server/etc/postgres -type d -exec chmod 750 {} \;
 find /server/pgData -type f -exec chmod 600 {} \;
 find /server/pgData -type d -exec chmod 700 {} \;
 chmod 750 -R /server/postgres/bin

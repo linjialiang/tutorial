@@ -32,6 +32,7 @@ server_array=(
     "/server/pgData"
     "/server/run/postgres"
     "/server/logs/postgres"
+    "/server/etc/postgres"
 
     "/server/sites"
     "/server/sites/ssl"

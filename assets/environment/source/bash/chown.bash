@@ -44,6 +44,7 @@ chown_postgres_array=(
     "/server/pgData"
     "/server/run/postgres"
     "/server/logs/postgres"
+    "/server/etc/postgres"
 );
 
 chown_www_array=(
