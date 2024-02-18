@@ -399,7 +399,7 @@ log_rotation_size = 10M
 
 :::
 
-## 角色
+## 数据库角色
 
 PostgreSQL 使用角色的概念管理数据库访问权限。一个角色可以被看成是一个数据库用户或者是一个数据库用户组，这取决于角色被怎样设置。
 
@@ -409,25 +409,57 @@ PostgreSQL 使用角色的概念管理数据库访问权限。一个角色可以
 
 ::: code-group
 
-```sql [基本操作]
--- 查看角色
+```sql [角色]
+-- 查看角色列表 (psql可以使用 \du 列出现有角色)
 SELECT rolname FROM pg_roles;
--- 创建角色
-CREATE ROLE role_admin;
--- 创建数据库超级角色
-CREATE ROLE role_admin SUPERUSER;
--- 创建允许登录的角色（相当于用户）
-CREATE ROLE emad LOGIN;
--- 组角色admin增加成员emad，多个成员以逗号,隔开
-GRANT role_admin TO emad;
--- 组角色admin移除成员emad，多个成员以逗号,隔开
-REVOKE role_admin TO emad;
--- 用户emad修改密码
-ALTER USER emad WITH PASSWORD '1';
--- 用户emad 授予超级橘色
-ALTER USER emad WITH SUPERUSER;
--- 删除角色
-DROP ROLE admin;
+-- 创建角色（不允许登录），角色不能批量创建
+CREATE ROLE name;
+-- 移除角色，2种方式等效，移除多个角色用逗号分隔
+DROP ROLE name1,name2;
+DROP USER name1,name2;
+```
+
+```sql [角色属性]
+-- 登录特权属性，创建允许登录的角色，2种方式等效
+CREATE ROLE user_a LOGIN;
+CREATE USER user_b;
+-- 设置 password 属性，仅pg_hba.conf对应行需要口令验证时才有意义
+CREATE ROLE user_c LOGIN PASSWORD '1'
+-- 超级用户特权属性，绕开除登录特权外的所有权限检查
+CREATE ROLE role_a SUPERUSER;
+-- 创建数据库特权属性
+CREATE ROLE role_b CREATEDB;
+-- 授予角色特权属性
+CREATE ROLE role_c CREATEROLE;
+-- 同时赋予多个属性
+CREATE ROLE role_admin SUPERUSER CREATEDB CREATEROLE;
+
+-- user_A修改密码
+ALTER USER user_a WITH PASSWORD '1';
+-- 授予user_A超级用户特权属性
+ALTER USER user_a WITH SUPERUSER;
+```
+
+```sql [角色继承]
+-- 组角色增加成员，多个成员以逗号,隔开
+GRANT role_admin TO user_a,user_b,user_c;
+-- 组角色移除成员，多个成员以逗号,隔开
+REVOKE role_admin FROM user_a,user_b;
+
+-- 成员角色默认继承除特殊权限属性{LOGIN|SUPERUSER|CREATEDB|CREATEROLE}外普通权限
+--  如果成员角色带有 NOINHERIT 属性，则不会继承组角色的任何权限
+--  使用 set role group_name 后临时获取组角色全部权限，但成员角色自身权限不存在
+
+-- 案例，user_c 继承 role_c; role_c 继承 role_b
+GRANT role_b TO role_c;
+GRANT role_c TO user_c;
+-- 登录 role_c，由于 role_b/role_c 只有特权属性，所以 user_c 暂时没有任何权限
+-- 下面这步骤后，该回话权限将变成role_c的权限，user_c自身权限已经无关
+SET ROLE role_c
+-- 下面这步骤后，该回话权限将变成role_b的权限
+SET ROLE role_b
+-- 下面这步骤后，权限不变，因为 user_c 并没有 role_a 的继承权
+SET ROLE role_a
 ```
 
 :::
