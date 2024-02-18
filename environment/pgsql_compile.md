@@ -307,9 +307,23 @@ ssl_cert_file = '/server/postgres/tls/server.crt'
 ssl_key_file = '/server/postgres/tls/server.key'
 ```
 
-```bash [pg_hba]
+```bash [pg_hba案例]
 # /server/pgData/pg_hba.conf
-# 仅支持ssl/all全部数据库/emad用户/允许连接的客户端IP段/密码使用scram-sha-256加密方式/认证选项verify-full
+
+# hostssl 指 tcp/ip 一定是 ssl 传输的，这个跟客户端是否勾选 [使用ssl] 没有关系
+
+# 仅支持ssl/all全部数据库/emad用户/允许连接的客户端IP段/密码使用scram-sha-256加密方式/服务器不验证客户端
+# - 客户端不需要勾选 [使用ssl]
+hostssl    all      emad            192.168.0.0/16          scram-sha-256
+
+# 仅支持ssl/all全部数据库/emad用户/允许连接的客户端IP段/密码使用scram-sha-256加密方式/服务器验证客户端
+# - 这是双向验证，客户端必须勾选 [使用ssl]，表示客户端也是ssl传输
+# - 认证选项verify-ca：服务器将验证客户端的证书是否由一个受信任的证书颁发机构签署
+hostssl    all      emad            192.168.0.0/16          scram-sha-256   clientcert=verify-ca
+
+# 仅支持ssl/all全部数据库/emad用户/允许连接的客户端IP段/密码使用scram-sha-256加密方式/服务器验证客户端
+# - 这是双向验证，客户端必须勾选 [使用ssl]，表示客户端也是ssl传输
+# - 认证选项verify-full：服务器不仅验证证书链，还将检查用户名或其映射是否与所提供的证书的 cn（通用名称）相匹配
 hostssl    all      emad            192.168.0.0/16          scram-sha-256   clientcert=verify-full
 ```
 
