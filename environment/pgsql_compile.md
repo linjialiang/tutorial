@@ -454,12 +454,14 @@ REVOKE role_admin FROM user_a,user_b;
 GRANT role_b TO role_c;
 GRANT role_c TO user_c;
 -- 登录 role_c，由于 role_b/role_c 只有特权属性，所以 user_c 暂时没有任何权限
--- 下面这步骤后，该回话权限将变成role_c的权限，user_c自身权限已经无关
-SET ROLE role_c
--- 下面这步骤后，该回话权限将变成role_b的权限
-SET ROLE role_b
+-- 下面这步骤后，该回话权限将变成 role_c 的权限，user_c 自身权限已经无关
+SET ROLE role_c;
+-- 下面这步骤后，该回话权限将变成 role_b 的权限
+SET ROLE role_b;
 -- 下面这步骤后，权限不变，因为 user_c 并没有 role_a 的继承权
-SET ROLE role_a
+SET ROLE role_a;
+-- 下面这步骤后，权限变成 user_c 的权限
+SET ROLE user_c;
 ```
 
 :::
