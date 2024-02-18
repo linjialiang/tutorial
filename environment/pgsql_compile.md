@@ -284,13 +284,13 @@ chmod 600 server.* # 安全起见，全部设为仅属主可见
 # - 如果对应的hostssl行没有设置认证选项，则客户端只需要开启SSL，客户端是否认证由客户端自己控制
 # - 如果对应的hostssl行加入了认证选项【clientcert={verify-ca|verify-full}】，则客户端需要开启SSL，并使用正确的客户端验证
 # - 如果对应的hostssl行加入了 【clientcert=verify-full】 认证选项，则CN对应的值必须是数据库登录用户名
-openssl req -new -nodes -text -out clint-emad.csr \
--keyout clint-emad.key -subj "/CN=emad/O=PostgreSQL"
+openssl req -new -nodes -text -out client-emad.csr \
+-keyout client-emad.key -subj "/CN=emad/O=PostgreSQL"
 # - 3.2 使用 [CA根证书+证书私钥+客户端私钥] 创建 [客户端证书]
-openssl x509 -req -in clint-emad.csr -text -days 365 \
+openssl x509 -req -in client-emad.csr -text -days 365 \
 -CA root.crt -CAkey root.key -CAcreateserial \
--out clint-emad.crt
-chmod 600 clint-emad.*  # 客户端证书是提供给特定客户的，安全起见，全部设为仅属主可见
+-out client-emad.crt
+chmod 600 client-emad.*  # 客户端证书是提供给特定客户的，安全起见，全部设为仅属主可见
 ```
 
 ```bash [吊销证书]
