@@ -396,7 +396,11 @@ CREATE ROLE emad LOGIN;
 -- 组角色admin增加成员emad，多个成员以逗号,隔开
 GRANT role_admin TO emad;
 -- 组角色admin移除成员emad，多个成员以逗号,隔开
-REVOKE role_admin TO emad,emad1,emad2;
+REVOKE role_admin TO emad;
+-- 用户emad修改密码
+ALTER USER emad WITH PASSWORD '1';
+-- 用户emad 授予超级橘色
+ALTER USER emad WITH SUPERUSER;
 -- 删除角色
 DROP ROLE admin;
 ```
