@@ -307,6 +307,12 @@ ssl_cert_file = '/server/postgres/tls/server.crt'
 ssl_key_file = '/server/postgres/tls/server.key'
 ```
 
+```bash [pg_hba]
+# /server/pgData/pg_hba.conf
+# 仅支持ssl/all全部数据库/emad用户/允许连接的客户端IP段/密码使用scram-sha-256加密方式/认证选项verify-full
+hostssl    all      emad            192.168.0.0/16          scram-sha-256   clientcert=verify-full
+```
+
 :::
 
 ::: warning 注意
