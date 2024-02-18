@@ -468,6 +468,22 @@ SET ROLE user_c;
 
 ## 客户端权限
 
+::: code-group
+
+```bash [psql]
+# pg_hba.conf
+hostssl    all      emad            192.168.0.0/16          scram-sha-256   clientcert=verify-full
+# psql 登录
+psql "dbname=postgres user=emad host=192.168.66.254 sslmode=verify-full sslrootcert=/server/postgres/tls/root.crt sslcert=/server/postgres/tls/clint-emad.crt sslkey=/server/postgres/tls/clint-emad.key"
+
+# pg_hba.conf
+hostnossl    all      emad            192.168.0.0/16          scram-sha-256
+# psql 登录
+psql "dbname=postgres user=emad host=192.168.66.254"
+```
+
+:::
+
 ## 权限
 
 ```bash
