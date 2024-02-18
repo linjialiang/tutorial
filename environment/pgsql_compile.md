@@ -347,7 +347,7 @@ log_file_mode = 0600
 
 # 方案一：日志保留指定天数(推荐)
 log_truncate_on_rotation = on       # on 轮换日志文件时，如文件存在，则覆盖内容
-log_filename = 'postgresql-%d.log'  # %a保留一周、%d保留[01,31]
+log_filename = 'postgres-%d.log'  # %a保留一周、%d保留[01,31]
 log_rotation_age = 1d               # 每天轮换日志文件
 log_rotation_size = 0               # 日志文件大小不限制
 ```
@@ -357,7 +357,7 @@ log_rotation_size = 0               # 日志文件大小不限制
 
 # 方案二：日志按天来
 log_truncate_on_rotation = off      # off 轮换日志文件时，如文件存在，则追加内容
-log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
+log_filename = 'postgres-%Y-%m-%d_%H%M%S.log'
 log_rotation_age = 1d
 log_rotation_size = 0
 ```
@@ -367,7 +367,7 @@ log_rotation_size = 0
 
 # 方案二：日志按大小来
 log_truncate_on_rotation = off
-log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'
+log_filename = 'postgres-%Y-%m-%d_%H%M%S.log'
 log_rotation_age = 0
 log_rotation_size = 10M
 ```
