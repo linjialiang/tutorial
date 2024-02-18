@@ -266,8 +266,10 @@ chmod 600 root.* # 安全起见，全部设为仅属主可见
 ```bash [服务器证书]
 # 2. 创建 [服务器部署证书]
 # - 2.1 创建服务器签名请求（CSR）和服务器私钥文件
+# - 如果客户端使用了 【verify-full】 SSL模式，则CN对应的值必须是客户端连接数据库时的[服务器主机ip]
+#       如，服务器IP或服务器回环地址: 127.0.0.1 或 192.168.66.254 或 localhost 等
 openssl req -new -nodes -text -out server.csr \
--keyout server.key -subj "/CN=lnpp/O=PostgreSQL"
+-keyout server.key -subj "/CN=192.168.66.254/O=PostgreSQL"
 chmod 600 server.key  # 注意：确保私钥仅属主用户有权限，否则服务器会拒绝
 # - 2.2 使用 [CA根证书+证书私钥+服务器私钥] 创建 [服务器部署证书]
 openssl x509 -req -in server.csr -text -days 365 \
@@ -279,13 +281,16 @@ chmod 600 server.* # 安全起见，全部设为仅属主可见
 ```bash [客户端证书]
 # 3. 创建 [客户端证书]
 # - 3.1 创建客户端签名请求（CSR）和客户端私钥文件
-openssl req -new -nodes -text -out clint-lenovo.csr \
--keyout clint-lenovo.key -subj "/CN=lenovo/O=PostgreSQL"
+# - 如果对应的hostssl行没有设置认证选项，则客户端只需要开启SSL，客户端是否认证由客户端自己控制
+# - 如果对应的hostssl行加入了认证选项【clientcert={verify-ca|verify-full}】，则客户端需要开启SSL，并使用正确的客户端验证
+# - 如果对应的hostssl行加入了 【clientcert=verify-full】 认证选项，则CN对应的值必须是数据库登录用户名
+openssl req -new -nodes -text -out clint-emad.csr \
+-keyout clint-emad.key -subj "/CN=emad/O=PostgreSQL"
 # - 3.2 使用 [CA根证书+证书私钥+客户端私钥] 创建 [客户端证书]
-openssl x509 -req -in clint-lenovo.csr -text -days 365 \
+openssl x509 -req -in clint-emad.csr -text -days 365 \
 -CA root.crt -CAkey root.key -CAcreateserial \
--out clint-lenovo.crt
-chmod 600 clint-lenovo.*  # 客户端证书是提供给特定客户的，安全起见，全部设为仅属主可见
+-out clint-emad.crt
+chmod 600 clint-emad.*  # 客户端证书是提供给特定客户的，安全起见，全部设为仅属主可见
 ```
 
 ```bash [吊销证书]
