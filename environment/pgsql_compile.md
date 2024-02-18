@@ -382,6 +382,27 @@ PostgreSQL 使用角色的概念管理数据库访问权限。一个角色可以
 
 角色的概念把 `用户` 和 `组` 的概念都包括在内。在 PostgreSQL 版本 8.1 之前，用户和组是完全不同的两种实体，但是现在只有角色。任意角色都可以扮演用户、组或者两者。
 
+::: code-group
+
+```sql [基本操作]
+-- 查看角色
+SELECT rolname FROM pg_roles;
+-- 创建角色
+CREATE ROLE role_admin;
+-- 创建数据库超级角色
+CREATE ROLE role_admin SUPERUSER;
+-- 创建允许登录的角色（相当于用户）
+CREATE ROLE emad LOGIN;
+-- 组角色admin增加成员emad，多个成员以逗号,隔开
+GRANT role_admin TO emad;
+-- 组角色admin移除成员emad，多个成员以逗号,隔开
+REVOKE role_admin TO emad,emad1,emad2;
+-- 删除角色
+DROP ROLE admin;
+```
+
+:::
+
 ## 客户端权限
 
 ## 权限
