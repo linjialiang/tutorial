@@ -69,7 +69,7 @@ PHP 扩展库按加载时间可分为：`动态库(共享扩展)` 和 `静态库
 1. `php 7.4.x`
 2. `php 8.3.x`
 
-## 静态编译 PECL 扩展
+## 静态编译 PECL 扩展 {#pecl-static-bulid}
 
 本次静态编译下面这些 PECL 扩展：
 
@@ -688,26 +688,9 @@ composer install
 服务器升级 PHP 乃至任何软件升级前，都应该先存快照，备份一份
 :::
 
-### 1. 静态编译 Redis 扩展
+### 1. 静态编译 PECL 扩展
 
-> 拷贝 redis 扩展源码到 ext 目录
-
-```bash
-cd /package/php_ext
-# 拷贝到 php 8.2 源码的扩展目录
-cp -p -r redis-6.0.2 /package/php-8.2.12/ext/redis
-cp -p -r yaml-2.2.3 /package/php-8.2.12/ext/yaml
-cp -p -r apcu-5.1.23 /package/php-8.2.12/ext/apcu
-```
-
-> 重新生成 configure 配置脚本
-
-```bash
-# php8.2 重新生成 configure 配置脚本
-cd /package/php-8.2.12/
-mv configure{,.original}
-./buildconf --force
-```
+具体见上述[静态编译 PECL 扩展](#pecl-static-bulid)
 
 ### 2. 安装依赖
 
