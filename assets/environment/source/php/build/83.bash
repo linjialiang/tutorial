@@ -35,6 +35,5 @@
 --enable-sysvshm \
 --enable-apcu \
 --enable-redis \
---enable-mongodb \
 --with-rdkafka \
 --with-yaml
