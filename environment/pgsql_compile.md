@@ -290,7 +290,16 @@ openssl req -new -nodes -text -out client-emad.csr \
 openssl x509 -req -in client-emad.csr -text -days 365 \
 -CA root.crt -CAkey root.key -CAcreateserial \
 -out client-emad.crt
-chmod 600 client-emad.*  # 客户端证书是提供给特定客户的，安全起见，全部设为仅属主可见
+
+# - admin 用户
+openssl req -new -nodes -text -out client-admin.csr \
+-keyout client-admin.key -subj "/CN=admin/O=PostgreSQL"
+
+openssl x509 -req -in client-admin.csr -text -days 365 \
+-CA root.crt -CAkey root.key -CAcreateserial \
+-out client-admin.crt
+
+chmod 600 client-*  # 客户端证书是提供给特定客户的，安全起见，全部设为仅属主可见
 ```
 
 ```bash [吊销证书]
