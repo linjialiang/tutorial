@@ -64,19 +64,20 @@ PHP 扩展库按加载时间可分为：`动态库(共享扩展)` 和 `静态库
 
 开始之前我们需要先使用预先准备好的 bash 脚本，解压文件和授权目录，具体参考 [脚本文件](./index#脚本文件)
 
-本次计划构建 3 个 php 版本：
+本次计划构建 2 个 php 版本：
 
 1. `php 7.4.x`
-2. `php 8.2.x`
-3. `php 8.3.x`
+2. `php 8.3.x`
 
 ## 静态编译 PECL 扩展
 
-本次只对 3 个扩展进行静态编译：
+本次静态编译下面这些 PECL 扩展：
 
-1. redis
-2. yaml
-3. apcu
+1. apcu
+2. redis
+3. yaml
+4. mongodb
+5. rdkafka
 
 ### 1. 拷贝扩展源码
 
@@ -89,21 +90,19 @@ cd /package/php_ext
 ```
 
 ```bash [拷贝到8.3]
+cp -p -r apcu-5.1.23 /package/php-8.3.3/ext/apcu
 cp -p -r redis-6.0.2 /package/php-8.3.3/ext/redis
 cp -p -r yaml-2.2.3 /package/php-8.3.3/ext/yaml
-cp -p -r apcu-5.1.23 /package/php-8.3.3/ext/apcu
+cp -p -r mongodb-1.17.2 /package/php-8.3.3/ext/mongodb
+cp -p -r rdkafka-6.0.3 /package/php-8.3.3/ext/rdkafka
 ```
 
 ```bash [拷贝到7.4]
+cp -p -r apcu-5.1.23 /package/php-7.4.33/ext/apcu
 cp -p -r redis-6.0.2 /package/php-7.4.33/ext/redis
 cp -p -r yaml-2.2.3 /package/php-7.4.33/ext/yaml
-cp -p -r apcu-5.1.23 /package/php-7.4.33/ext/apcu
-```
-
-```bash [拷贝到8.2]
-cp -p -r redis-6.0.2 /package/php-8.2.12/ext/redis
-cp -p -r yaml-2.2.3 /package/php-8.2.12/ext/yaml
-cp -p -r apcu-5.1.23 /package/php-8.2.12/ext/apcu
+cp -p -r mongodb-1.17.2 /package/php-7.4.33/ext/mongodb
+cp -p -r rdkafka-6.0.3 /package/php-7.4.33/ext/rdkafka
 ```
 
 :::
@@ -132,12 +131,6 @@ mv configure{,.original}
 
 ```bash [7.4重新生成]
 cd /package/php-7.4.33/
-mv configure{,.original}
-./buildconf --force
-```
-
-```bash [8.2重新生成]
-cd /package/php-8.2.12/
 mv configure{,.original}
 ./buildconf --force
 ```
