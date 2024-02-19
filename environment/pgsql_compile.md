@@ -472,14 +472,14 @@ SET ROLE user_c;
 
 ```bash [psql]
 # pg_hba.conf
-hostssl     all      all            192.168.0.0/16          scram-sha-256   clientcert=verify-full
+hostssl     all      admin          192.168.0.0/16          scram-sha-256   clientcert=verify-full
 hostssl     all      user_c         192.168.0.0/16          scram-sha-256   clientcert=verify-ca
 hostnossl   all      user_a         192.168.0.0/16          scram-sha-256
 
 # psql 登录 emad
-psql "dbname=postgres user=emad host=192.168.66.254 sslmode=verify-full sslrootcert=/server/postgres/tls/root.crt sslcert=/server/postgres/tls/client-emad.crt sslkey=/server/postgres/tls/client-emad.key"
+psql "dbname=postgres user=admin host=192.168.66.254 sslmode=verify-full sslrootcert=/server/postgres/tls/root.crt sslcert=/server/postgres/tls/client-admin.crt sslkey=/server/postgres/tls/client-admin.key"
 # psql 登录 user_c
-psql "dbname=postgres user=emad host=192.168.66.254 sslmode=verify-ca sslrootcert=/server/postgres/tls/root.crt sslcert=/server/postgres/tls/client-emad.crt sslkey=/server/postgres/tls/client-emad.key"
+psql "dbname=postgres user=user_c host=192.168.66.254 sslmode=verify-ca sslrootcert=/server/postgres/tls/root.crt sslcert=/server/postgres/tls/client-emad.crt sslkey=/server/postgres/tls/client-emad.key"
 # psql 登录 user_a
 psql "dbname=postgres user=user_a host=192.168.66.254"
 ```
