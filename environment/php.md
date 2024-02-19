@@ -690,7 +690,7 @@ composer install
 
 ### 1. 静态编译 PECL 扩展
 
-具体见上述[静态编译 PECL 扩展](#pecl-static-bulid)
+具体见上述[[静态编译 PECL 扩展]](#pecl-static-bulid)
 
 ### 2. 安装依赖
 
