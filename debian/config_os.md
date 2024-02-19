@@ -52,12 +52,12 @@ vi /etc/apt/sources.list
 
 :::
 
-::: details 镜像列表:
+::: details 镜像列表
 ::: code-group
-<<<@/assets/debian/apt/zkd-all.bash [中科大-完整]
 <<<@/assets/debian/apt/zkd-server.bash [中科大-服务器]
-<<<@/assets/debian/apt/tx-all.bash [腾讯云内网-完整]
 <<<@/assets/debian/apt/tx-server.bash [腾讯云内网-服务器]
+<<<@/assets/debian/apt/zkd-all.bash [中科大-完整]
+<<<@/assets/debian/apt/tx-all.bash [腾讯云内网-完整]
 :::
 
 ::: tip 提示
@@ -307,6 +307,7 @@ apt install pigz pixz exa joe wget curl vim bat htop tar gzip bzip2 xz-utils zip
 20. ntpdate -- 解决时间差 8 小时问题
 21. firewalld -- 防火墙工具
 22. fzf -- 命令行模糊查询工具
+23. open-vm-tools -- VMware Tools 的开源版本
 
 ::: tip 案例
 
