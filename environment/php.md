@@ -241,7 +241,6 @@ sqlite3          SQLite - SQL database engine
 ::: details 构建选项预览
 ::: code-group
 <<<@/assets/environment/source/php/configure/74.ini [7.4]
-<<<@/assets/environment/source/php/configure/82.ini [8.2]
 <<<@/assets/environment/source/php/configure/83.ini [8.3]
 :::
 
@@ -250,8 +249,6 @@ sqlite3          SQLite - SQL database engine
 ```bash
 # php7.4 构建目录
 cd /package/php-7.4.33/build_php/
-# php8.2 构建目录
-cd /package/php-8.2.12/build_php/
 # php8.3 构建目录
 cd /package/php-8.3.3/build_php/
 ```
@@ -262,7 +259,6 @@ cd /package/php-8.3.3/build_php/
 ::: code-group
 <<<@/assets/environment/source/php/build/83.bash [8.3]
 <<<@/assets/environment/source/php/build/74.bash [7.4]
-<<<@/assets/environment/source/php/build/82.bash [8.2]
 :::
 
 ::: tip 构建指令区别：
