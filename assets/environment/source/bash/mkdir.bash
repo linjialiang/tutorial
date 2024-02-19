@@ -11,6 +11,8 @@ server_array=(
     "/server/default"
     "/server/run"
     "/server/logs"
+    "/server/etc"
+    "/server/tmp"
 
     "/server/nginx"
     "/server/run/nginx"
