@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # 设定压缩文件根目录
-TAR_DIR="/home/emad/debian/environment"
+# TAR_DIR="/home/emad/debian/environment"
+TAR_DIR="/package"
 # 设置解压路径根目录
 PACKAGE_DIR="/package"
 
@@ -19,9 +20,6 @@ do
     echo "bz2解压" $i
     tar -xjf $i -C ${PACKAGE_DIR}
 done
-
-# 进入php目录
-cd "${TAR_DIR}/php"
 
 for i in `ls *.tar.xz`;
 do
