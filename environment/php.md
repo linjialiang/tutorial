@@ -832,7 +832,9 @@ make install
 
 xdebug 是 php 的断点调试工具
 
-```bash
+::: code-group
+
+```bash [编译]
 cd /package/php_ext/xdebug-3.3.1
 phpize
 ./configure --enable-xdebug --with-php-config=/server/php/83/bin/php-config
@@ -841,9 +843,7 @@ make -j4
 make install
 ```
 
-::: details xdebug 配置
-
-```ini
+```ini [配置]
 # /server/php/83/lib/php.ini
 
 [xdebug]
@@ -856,7 +856,9 @@ xdebug.client_port=9083
 ; xdebug.client_port=9082
 ```
 
-::: warning 如果要同时使用 XDEBUG 和 OPCache，则必须将 XDEBUG 的 Zend_EXTENSION 行放在 OPCache 行的下方，如：
+:::
+
+::: tip 同时使用 Xdebug 和 OPCache 时，`zend_extension=xdebug` 须在 `zend_extension=opcache` 下面：
 
 ```ini
 zend_extension=opcache
