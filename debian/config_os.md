@@ -52,22 +52,12 @@ vi /etc/apt/sources.list
 
 :::
 
-> 镜像列表:
-
-::: details 中科大镜像-完整版:
-<<<@/assets/debian/apt/zkd-all.bash
-:::
-
-::: details 中科大镜像-服务器版:
-<<<@/assets/debian/apt/zkd-server.bash
-:::
-
-::: details 腾讯云内网-完整版:
-<<<@/assets/debian/apt/tx-all.bash
-:::
-
-::: details 腾讯云内网-服务器版:
-<<<@/assets/debian/apt/tx-server.bash
+::: details 镜像列表:
+::: code-group
+<<<@/assets/debian/apt/zkd-all.bash [中科大-完整]
+<<<@/assets/debian/apt/zkd-server.bash [中科大-服务器]
+<<<@/assets/debian/apt/tx-all.bash [腾讯云内网-完整]
+<<<@/assets/debian/apt/tx-server.bash [腾讯云内网-服务器]
 :::
 
 ::: tip 提示
