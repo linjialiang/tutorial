@@ -89,9 +89,9 @@ cd /package/php_ext
 ```
 
 ```bash [拷贝到8.3]
-cp -p -r redis-6.0.2 /package/php-8.3.2/ext/redis
-cp -p -r yaml-2.2.3 /package/php-8.3.2/ext/yaml
-cp -p -r apcu-5.1.23 /package/php-8.3.2/ext/apcu
+cp -p -r redis-6.0.2 /package/php-8.3.3/ext/redis
+cp -p -r yaml-2.2.3 /package/php-8.3.3/ext/yaml
+cp -p -r apcu-5.1.23 /package/php-8.3.3/ext/apcu
 ```
 
 ```bash [拷贝到7.4]
@@ -125,7 +125,7 @@ apt install autoconf -y
 ::: code-group
 
 ```bash [8.3重新生成]
-cd /package/php-8.3.2/
+cd /package/php-8.3.3/
 mv configure{,.original}
 ./buildconf --force
 ```
@@ -212,7 +212,7 @@ apt install libpq-dev -y
 ```bash
 mkdir /package/php-7.4.33/build_php
 mkdir /package/php-8.2.12/build_php
-mkdir /package/php-8.3.2/build_php
+mkdir /package/php-8.3.3/build_php
 ```
 
 ### 3. 环境变量
@@ -261,7 +261,7 @@ cd /package/php-7.4.33/build_php/
 # php8.2 构建目录
 cd /package/php-8.2.12/build_php/
 # php8.3 构建目录
-cd /package/php-8.3.2/build_php/
+cd /package/php-8.3.3/build_php/
 ```
 
 ### 6. 安装指令
@@ -335,7 +335,7 @@ cp /package/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
 # php8.2
 cp /package/php-8.2.12/php.ini-production /server/php/82/lib/php.ini
 # php8.3
-cp /package/php-8.3.2/php.ini-production /server/php/83/lib/php.ini
+cp /package/php-8.3.3/php.ini-production /server/php/83/lib/php.ini
 ```
 
 ```bash [开发环境]
@@ -344,7 +344,7 @@ cp /package/php-7.4.33/php.ini-development /server/php/74/lib/php.ini
 # php8.2
 cp /package/php-8.2.12/php.ini-development /server/php/82/lib/php.ini
 # php8.3
-cp /package/php-8.3.2/php.ini-development /server/php/83/lib/php.ini
+cp /package/php-8.3.3/php.ini-development /server/php/83/lib/php.ini
 ```
 
 :::

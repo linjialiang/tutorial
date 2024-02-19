@@ -81,22 +81,23 @@ PHP 环境目录
 
 ::: code-group
 
-```[[/package]]
+```[软件包]
 1. nginx-1.24.0.tar.gz
 2. openssl-3.0.13.tar.gz
-3. pcre2-10.42.tar.bz2
-4. zlib-1.3.1.tar.xz
+3. pcre2-10.43.tar.bz2
+6. php-8.3.3.tar.xz
+7. postgresql-16.2.tar.bz2
 5. redis-7.2.4.tar.gz
-6. php-8.3.2.tar.xz
-7. postgresql-16.1.tar.bz2
+4. zlib-1.3.1.tar.xz
 ```
 
-```[[/package/php_ext]]
+```[php扩展包]
 1. apcu-5.1.23.tgz
 2. redis-6.0.2.tgz
 3. yaml-2.2.3.tgz
-4. xdebug-3.3.1.tgz
-5. mongodb-1.17.2.tgz
+4. mongodb-1.17.2.tgz
+5. rdkafka-6.0.3.tgz
+6. xdebug-3.3.1.tgz
 ```
 
 :::
