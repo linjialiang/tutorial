@@ -327,19 +327,6 @@ hostssl    all      emad            192.168.0.0/16          scram-sha-256   clie
 hostssl    all      emad            192.168.0.0/16          scram-sha-256   clientcert=verify-full
 ```
 
-```bash [pg_hba案例]
-# /server/pgData/pg_hba.conf
-
-# 用户 user_c 与全部数据库建立连接，使用ssl协议，使用双向认证，并验证证书的通用名称(CN)
-hostssl    all      all             192.168.0.0/16          scram-sha-256   clientcert=verify-full
-# 用户 user_c 与全部数据库建立连接，使用ssl协议，使用双向认证，不严重证书的通用名称(CN)
-hostssl    all      test_a          192.168.0.0/16          scram-sha-256   clientcert=verify-ca
-# 用户 user_b 与全部数据库建立连接，使用ssl协议，允许单向认证
-hostssl    all      user_b          192.168.0.0/16          scram-sha-256
-# 用户 user_c 与数据库 db_c 建立连接时，使用非ssl协议
-hostnossl  db_c     user_c          192.168.0.0/16          scram-sha-256
-```
-
 :::
 
 ::: warning 注意
