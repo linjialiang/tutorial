@@ -53,19 +53,14 @@ pkg-config --list-all
 
 ::: code-group
 
-```bash [进入构建目录]
+```bash [构建目录]
 mkdir /package/nginx-1.24.0/build_nginx
 cd /package/nginx-1.24.0
 ```
 
 <<<@/assets/environment/source/nginx/build_now.bash [本次构建指令]
-<<<@/assets/environment/source/nginx/build_all.bash [全部构建指令]
 
-:::
-
-### 2. 编译安装
-
-```bash
+```bash [编译安装]
 # 4核以上可以使用 make -j4 编译
 make -j4
 # 不挂起，后台执行
@@ -74,7 +69,11 @@ nohup make -j4 &
 make install
 ```
 
-### 3. 测试
+<<<@/assets/environment/source/nginx/build_all.bash [全部构建指令]
+
+:::
+
+### 2. 测试
 
 使用 curl 检测是否成功
 
