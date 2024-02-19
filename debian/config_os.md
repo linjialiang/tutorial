@@ -307,7 +307,7 @@ apt install pigz pixz exa joe wget curl vim bat htop tar gzip bzip2 xz-utils zip
 20. ntpdate -- 解决时间差 8 小时问题
 21. firewalld -- 防火墙工具
 22. fzf -- 命令行模糊查询工具
-23. open-vm-tools -- VMware Tools 的开源版本
+23. open-vm-tools -- VMware Tools 的开源实现
 
 ::: tip 案例
 
