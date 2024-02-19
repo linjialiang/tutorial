@@ -315,7 +315,7 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 
 :::
 
-### 3. 拷贝配置文件
+### 3. 拷贝配置文件 {#copy-config-file}
 
 ::: code-group
 
@@ -751,7 +751,7 @@ make install
 
 ### 10. 配置文件
 
-具体见[拷贝配置文件](#_3-拷贝配置文件)
+具体见[[拷贝配置文件]](#copy-config-file)
 
 ::: info 说明
 小版本升级一般不需要修改配置文件、动态扩展也不需要重新构建
@@ -855,7 +855,7 @@ zend_extension=xdebug
 
 Swoole 是一个使用 C++ 语言编写的基于异步事件驱动和协程的并行网络通信引擎，为 PHP 提供协程、高性能网络编程支持
 
-### 4. 开启动态扩展
+::: details 开启动态扩展
 
 在 php.ini 配置文件的 `960` 行附近加入已经安装的扩展即可，如：
 
@@ -873,6 +873,8 @@ xdebug.client_port=9083
 ; xdebug.client_port=9074
 ; xdebug.client_port=9082
 ```
+
+:::
 
 ### 4. rdkafka
 
