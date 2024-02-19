@@ -75,6 +75,7 @@ PHP 环境目录
 <<<@/assets/environment/source/bash/user.bash [用户]
 <<<@/assets/environment/source/bash/mkdir.bash [创建]
 <<<@/assets/environment/source/bash/tar.bash [解压]
+<<<@/assets/environment/source/bash/chown.bash [授权]
 :::
 
 ## 安装包列表
