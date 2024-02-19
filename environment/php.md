@@ -487,7 +487,6 @@ PHP-FPM 自带了一套比较完善的进程管理指令，编译完成后还会
 ::: code-group
 <<<@/assets/environment/source/service/php/83/php-fpm.service{ini} [php8.3]
 <<<@/assets/environment/source/service/php/74/php-fpm.service{ini} [php7.4]
-<<<@/assets/environment/source/service/php/82/php-fpm.service{ini} [php8.2]
 :::
 
 ::: details 案例参考
@@ -495,7 +494,6 @@ PHP-FPM 自带了一套比较完善的进程管理指令，编译完成后还会
 ::: code-group
 <<<@/assets/environment/source/service/php/php83-fpm.service{ini} [php8.3]
 <<<@/assets/environment/source/service/php/php74-fpm.service{ini} [php7.4]
-<<<@/assets/environment/source/service/php/php82-fpm.service{ini} [php8.2]
 :::
 
 ::: code-group
@@ -506,7 +504,6 @@ mv /path/phpfpm*.service /usr/lib/systemd/system/
 
 ```bash [加入开机启动]
 systemctl enable php74-fpm
-systemctl enable php82-fpm
 systemctl enable php83-fpm
 ```
 
