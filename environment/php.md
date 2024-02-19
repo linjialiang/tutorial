@@ -841,28 +841,10 @@ make -j4
 make install
 ```
 
-::: warning 注意
-如果要同时使用 XDEBUG 和 OPCache，则必须将 XDEBUG 的 Zend_EXTENSION 行放在 OPCache 行的下方，如：
-
-```ini
-zend_extension=opcache
-zend_extension=xdebug
-```
-
-:::
-
-### 3. swoole
-
-Swoole 是一个使用 C++ 语言编写的基于异步事件驱动和协程的并行网络通信引擎，为 PHP 提供协程、高性能网络编程支持
-
-::: details 开启动态扩展
-
-在 php.ini 配置文件的 `960` 行附近加入已经安装的扩展即可，如：
+::: details xdebug 配置
 
 ```ini
 # /server/php/83/lib/php.ini
-extension=imagick
-extension=swoole
 
 [xdebug]
 zend_extension=xdebug
@@ -874,7 +856,18 @@ xdebug.client_port=9083
 ; xdebug.client_port=9082
 ```
 
+::: warning 如果要同时使用 XDEBUG 和 OPCache，则必须将 XDEBUG 的 Zend_EXTENSION 行放在 OPCache 行的下方，如：
+
+```ini
+zend_extension=opcache
+zend_extension=xdebug
+```
+
 :::
+
+### 3. swoole
+
+Swoole 是一个使用 C++ 语言编写的基于异步事件驱动和协程的并行网络通信引擎，为 PHP 提供协程、高性能网络编程支持
 
 ### 4. rdkafka
 
@@ -917,6 +910,17 @@ make install
 ```ini [配置]
 # /server/php/83/lib/php.ini
 extension=mongodb
+```
+
+:::
+
+::: tip 开启动态扩展
+
+```ini
+extension=imagick
+extension=swoole
+extension=mongodb
+extension=rdkafka
 ```
 
 :::
