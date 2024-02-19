@@ -204,7 +204,6 @@ apt install libpq-dev -y
 
 ```bash
 mkdir /package/php-7.4.33/build_php
-mkdir /package/php-8.2.12/build_php
 mkdir /package/php-8.3.3/build_php
 ```
 
