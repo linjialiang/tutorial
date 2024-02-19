@@ -291,10 +291,10 @@ openssl x509 -req -in client-emad.csr -text -days 365 \
 -CA root.crt -CAkey root.key -CAcreateserial \
 -out client-emad.crt
 
-# - admin 用户
+# - admin 用户 私钥+签名请求
 openssl req -new -nodes -text -out client-admin.csr \
 -keyout client-admin.key -subj "/CN=admin/O=PostgreSQL"
-
+# - admin 用户 部署证书
 openssl x509 -req -in client-admin.csr -text -days 365 \
 -CA root.crt -CAkey root.key -CAcreateserial \
 -out client-admin.crt
