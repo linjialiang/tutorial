@@ -23,6 +23,11 @@ Redis 构建相对简单
 
 ::: code-group
 
+```bash [源码包迁移]
+mv /package/redis-7.2.4 /home/redis
+chown redis:redis -R /home/redis
+```
+
 ```bash [构建指令]
 su - redis -s /bin/zsh
 cd ~/redis-7.2.4/
