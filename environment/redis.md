@@ -25,7 +25,7 @@ Redis 构建相对简单
 
 ```bash [源码包迁移]
 mv /package/redis-7.2.4 /home/redis
-chown redis:redis -R /home/redis
+chown redis:redis -R /home/redis/redis-7.2.4
 ```
 
 ```bash [构建指令]
