@@ -307,7 +307,7 @@ ssl_cert_file = '/server/postgres/tls/server.crt'
 ssl_key_file = '/server/postgres/tls/server.key'
 ```
 
-```bash [pg_hba案例]
+```bash [pg_hba说明]
 # /server/pgData/pg_hba.conf
 
 # hostssl 指 tcp/ip 一定是 ssl 传输的，这个跟客户端是否勾选 [使用ssl] 没有关系
@@ -325,6 +325,19 @@ hostssl    all      emad            192.168.0.0/16          scram-sha-256   clie
 # - 这是双向验证，客户端必须勾选 [使用ssl]，表示客户端也是ssl传输
 # - 认证选项verify-full：服务器不仅验证证书链，还将检查用户名或其映射是否与所提供的证书的 cn（通用名称）相匹配
 hostssl    all      emad            192.168.0.0/16          scram-sha-256   clientcert=verify-full
+```
+
+```bash [pg_hba案例]
+# /server/pgData/pg_hba.conf
+
+# 用户 user_c 与全部数据库建立连接，使用ssl协议，使用双向认证，并验证证书的通用名称(CN)
+hostssl    all      all             192.168.0.0/16          scram-sha-256   clientcert=verify-full
+# 用户 user_c 与全部数据库建立连接，使用ssl协议，使用双向认证，不严重证书的通用名称(CN)
+hostssl    all      test_a          192.168.0.0/16          scram-sha-256   clientcert=verify-ca
+# 用户 user_b 与全部数据库建立连接，使用ssl协议，允许单向认证
+hostssl    all      user_b          192.168.0.0/16          scram-sha-256
+# 用户 user_c 与数据库 db_c 建立连接时，使用非ssl协议
+hostnossl  db_c     user_c          192.168.0.0/16          scram-sha-256
 ```
 
 :::
