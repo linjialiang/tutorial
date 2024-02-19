@@ -105,7 +105,7 @@ appendonly yes
 
 ```bash [创建目录]
 # redis 用户需要有写入权限
-mkdir /server/redis/data
+mkdir /server/redis/rdbData
 ```
 
 ```bash [sysctl.conf]
@@ -379,8 +379,10 @@ redis 源码包上的 `./utils/gen-test-certs.sh` 脚本，用于一键生成 TL
 
 ```bash [执行脚本]
 su - redis -s /bin/zsh
+cd ~/redis-7.2.4/utils
 chmod +x ./gen-test-certs.sh
 ./gen-test-certs.sh
+cp -r ~/redis-7.2.4/utils/tests/tls /server/redis
 ```
 
 ```bash [生成文件]
