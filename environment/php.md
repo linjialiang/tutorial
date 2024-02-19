@@ -76,8 +76,7 @@ PHP 扩展库按加载时间可分为：`动态库(共享扩展)` 和 `静态库
 1. apcu
 2. redis
 3. yaml
-4. mongodb
-5. rdkafka
+4. rdkafka
 
 ### 1. 拷贝扩展源码
 
@@ -93,7 +92,6 @@ cd /package/php_ext
 cp -p -r apcu-5.1.23 /package/php-8.3.3/ext/apcu
 cp -p -r redis-6.0.2 /package/php-8.3.3/ext/redis
 cp -p -r yaml-2.2.3 /package/php-8.3.3/ext/yaml
-cp -p -r mongodb-1.17.2 /package/php-8.3.3/ext/mongodb
 cp -p -r rdkafka-6.0.3 /package/php-8.3.3/ext/rdkafka
 ```
 
@@ -101,7 +99,6 @@ cp -p -r rdkafka-6.0.3 /package/php-8.3.3/ext/rdkafka
 cp -p -r apcu-5.1.23 /package/php-7.4.33/ext/apcu
 cp -p -r redis-6.0.2 /package/php-7.4.33/ext/redis
 cp -p -r yaml-2.2.3 /package/php-7.4.33/ext/yaml
-cp -p -r mongodb-1.17.2 /package/php-7.4.33/ext/mongodb
 cp -p -r rdkafka-6.0.3 /package/php-7.4.33/ext/rdkafka
 ```
 
@@ -182,13 +179,16 @@ pkg-config --list-all
 本次 PHP 编译，系统还需要如下依赖项：
 
 ```bash
-apt install libsystemd-dev libsqlite3-dev libcurl4-openssl-dev libffi-dev libgmp-dev g++ libonig-dev libigbinary-dev libsodium-dev libyaml-dev libzip-dev -y
+apt install g++ php-dev libsystemd-dev libsqlite3-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libyaml-dev libzip-dev -y
 
 # php 8.3.0 开始如果要启用 capstone
 apt install libcapstone-dev -y
 
 # libpq-dev 包含 libpq库(是 PostgreSQL 官方的客户端库)，用于与 PostgreSQL 服务器进行通信
 apt install libpq-dev -y
+
+# rdkafka
+apt install librdkafka-dev -y
 ```
 
 ::: tip
