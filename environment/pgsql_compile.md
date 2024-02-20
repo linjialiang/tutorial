@@ -348,15 +348,23 @@ hostssl    all      emad            192.168.0.0/16          scram-sha-256   clie
 
 :::
 
-### 3. WAL
+### 3. 预写式日志
 
-WAL 即 Write-Ahead Logging，是一种实现事务日志的标准方法。
+预写式日志(WAL) 即 Write-Ahead Logging，是一种实现事务日志的标准方法。
 
-后面实现
+```bash [配置]
+# /server/pgData/postgresql.conf
 
-### 4. REPLICATION
+# 启用复制至少是 replica
+wal_level = replica
+archive_mode = on
+# 把 WAL 片段拷贝到目录 /server/logs/postgres/wal_archive/
+archive_command = 'test ! -f /server/logs/postgres/wal_archive/%f && cp %p /server/logs/postgres/wal_archive/%f'
+```
 
-后面实现
+### 4. 复制
+
+复制(REPLICATION)，这里只介绍基于 WAL 通信的流复制
 
 ### 5. 查询调优
 
