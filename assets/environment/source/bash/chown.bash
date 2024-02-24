@@ -23,26 +23,22 @@ func_chown_www(){
 }
 
 chown_nginx_array=(
-    "/server/run/nginx"
     "/server/logs/nginx"
 );
 
 chown_phpfpm_array=(
-    "/server/run/php"
     "/server/logs/php"
 );
 
 chown_redis_array=(
     "/server/redis"
     "/server/redis/rdbData"
-    "/server/run/redis"
     "/server/logs/redis"
 );
 
 chown_postgres_array=(
     "/server/postgres"
     "/server/pgData"
-    "/server/run/postgres"
     "/server/logs/postgres"
 );
 
