@@ -213,8 +213,6 @@ chmod 750 /www/tp/public/static/upload /www/tp/runtime
 ```
 
 ```bash [开发]
-usermod -G emad phpfpm
-
 chown emad:emad -R /www/tp
 find /www/tp -type f -exec chmod 640 {} \;
 find /www/tp -type d -exec chmod 750 {} \;
@@ -256,8 +254,6 @@ find /www/laravel/storage/ -type d -exec chmod 750 {} \;
 ```
 
 ```bash [开发]
-usermod -G emad phpfpm
-
 chown emad:emad -R /www/laravel
 find /www/laravel -type f -exec chmod 640 {} \;
 find /www/laravel -type d -exec chmod 750 {} \;
