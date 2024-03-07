@@ -61,7 +61,7 @@ chmod 755 /server/run/mysql
 ## 查询有关 CMake 支持的选项的信息
 
 ```bash
-cd /package/mysql-8.0.35/build
+cd /package/mysql-8.0.36/build
 cmake .. -LH
 # 选项写入文件
 cmake .. -LH > options.list
@@ -73,10 +73,10 @@ cmake .. -LH > options.list
 
 ```bash
 cd /package
-tar -xzf mysql-boost-8.0.35.tar.gz
-cd /package/mysql-8.0.35
-mkdir /package/mysql-8.0.35/build
-cd /package/mysql-8.0.35/build
+tar -xzf mysql-boost-8.0.36.tar.gz
+cd /package/mysql-8.0.36
+mkdir /package/mysql-8.0.36/build
+cd /package/mysql-8.0.36/build
 cmake .. \
 -DWITH_DEBUG=1 \
 -DCMAKE_INSTALL_PREFIX=/server/mysql \
@@ -86,7 +86,7 @@ cmake .. \
 -DMYSQL_UNIX_ADDR=/server/run/mysql/mysqld-80.sock \
 -DDEFAULT_CHARSET=utf8mb4 \
 -DDEFAULT_COLLATION=utf8mb4_general_ci \
--DWITH_BOOST=/package/mysql-8.0.35/boost/boost_1_77_0 \
+-DWITH_BOOST=/package/mysql-8.0.36/boost/boost_1_77_0 \
 -DDOWNLOAD_BOOST=1 \
 -DDOWNLOAD_BOOST_TIMEOUT=60 \
 -DWITH_SYSTEMD=1 \
