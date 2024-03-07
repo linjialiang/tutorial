@@ -668,3 +668,19 @@ nohup ss-local -c /etc/shadowsocks-libev/local.json >/dev/null 2>&1 &
 > 以后只要使用 `ss.bash` 指令即可启用
 
 :::
+
+## 清理
+
+```bash
+apt clean
+apt autoclean
+apt autoremove --purge
+
+# 清理无用的包
+apt install deborphan -y
+deborphan
+
+# 磁盘可视化清理工具
+apt install ncdu -y
+ncdu
+```
