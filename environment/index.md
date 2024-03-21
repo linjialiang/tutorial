@@ -86,7 +86,7 @@ PHP 环境目录
 1. nginx-1.24.0.tar.gz
 2. openssl-3.0.13.tar.gz
 3. pcre2-10.43.tar.bz2
-6. php-8.3.3.tar.xz
+6. php-8.3.4.tar.xz
 7. postgresql-16.2.tar.bz2
 5. redis-7.2.4.tar.gz
 4. zlib-1.3.1.tar.xz
