@@ -487,6 +487,28 @@ SET ROLE user_c;
 
 ::: code-group
 
+```bash [禁用客户端连接规则]
+# pg_hba.conf
+# 除了 local 外，其它类型的【无条件地允许客户端连接(trust)】都应该禁用
+# "local" is for Unix domain socket connections only
+local   all             all                                     trust
+# 通过TCP/IP连接的本地客户端，无条件建立连接【需要禁用】
+# host    all             all             127.0.0.1/32            trust
+# host    all             all             ::1/128                 trust
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+local   replication     all
+# 对于replication权限的用户，通过TCP/IP无条件建立连接 【需要禁用】
+# host    replication     all             127.0.0.1/32            trust
+# host    replication     all             ::1/128                 trust
+
+# 自定义
+# 局域网和外网需要使用 ssl认证+密码认证 建立连接
+hostssl   all   admin,qyphp   192.168.0.0/16    scram-sha-256   clientcert=verify-full
+# 本地仅需要通过 密码认证 建立连接
+hostnossl all   admin,qyphp   127.0.0.1/32      scram-sha-256
+```
+
 ```bash [psql]
 # pg_hba.conf
 hostssl     all      admin          192.168.0.0/16          scram-sha-256   clientcert=verify-full
