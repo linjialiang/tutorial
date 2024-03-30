@@ -92,14 +92,12 @@ cd /package/php_ext
 cp -p -r apcu-5.1.23 /package/php-8.3.4/ext/apcu
 cp -p -r redis-6.0.2 /package/php-8.3.4/ext/redis
 cp -p -r yaml-2.2.3 /package/php-8.3.4/ext/yaml
-cp -p -r rdkafka-6.0.3 /package/php-8.3.4/ext/rdkafka
 ```
 
 ```bash [拷贝到7.4]
 cp -p -r apcu-5.1.23 /package/php-7.4.33/ext/apcu
 cp -p -r redis-6.0.2 /package/php-7.4.33/ext/redis
 cp -p -r yaml-2.2.3 /package/php-7.4.33/ext/yaml
-cp -p -r rdkafka-6.0.3 /package/php-7.4.33/ext/rdkafka
 ```
 
 :::

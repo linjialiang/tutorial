@@ -35,5 +35,4 @@
 --enable-sysvshm \
 --enable-apcu \
 --enable-redis \
---with-rdkafka \
 --with-yaml
