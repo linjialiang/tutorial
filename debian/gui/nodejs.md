@@ -32,7 +32,7 @@ export PATH
 # 查看当前源地址
 npm config get registry
 # 将源设为淘宝镜像
-npm config set registry https://registry.npm.taobao.org
+npm config set registry https://registry.npmmirror.com/
 # 恢复默认
 npm config set registry https://registry.npmjs.org
 ```
