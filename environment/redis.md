@@ -405,6 +405,17 @@ gen-test-certs.sh 脚本生成的文件，只需要 400 即可；
 
 ::: code-group
 
+```bash [非tls/tls同时开启]
+# /server/redis/redis.conf
+# 这里需要注意 非tls和tls端口不能重复
+port 6379
+tls-port 6380
+tls-cert-file /server/redis/tls/redis.crt
+tls-key-file /server/redis/tls/redis.key
+tls-ca-cert-file /server/redis/tls/ca.crt
+tls-auth-clients no # 客户端不会验证
+```
+
 ```bash [禁用双向认证]
 # /server/redis/redis.conf
 port 0  # port 设为 0 禁用非 tls 连接
