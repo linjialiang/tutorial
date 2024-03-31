@@ -32,6 +32,7 @@ import {
 export default defineConfig({
   // vite: { plugins: [SearchPlugin(options)] },
   base: "/",
+  ignoreDeadLinks: true,
   lang: "zh-CN",
   title: "Tutorial",
   description: "程序员系列教程",
