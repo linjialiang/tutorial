@@ -12,6 +12,12 @@ useradd -c 'postgres service main process user' -g postgres -u 2001 -s /sbin/nol
 cp -r /root/{.oh-my-zsh,.zshrc} /home/postgres
 chown postgres:postgres /home/postgres/{.oh-my-zsh,.zshrc}
 
+# 创建 MySQL 用户
+groupadd -g 2006 mysql
+useradd -c 'mysql service main process user' -g mysql -u 2006 -s /sbin/nologin -m mysql
+cp -r /root/{.oh-my-zsh,.zshrc} /home/mysql
+chown mysql:mysql /home/mysql/{.oh-my-zsh,.zshrc}
+
 # 创建 redis 用户
 groupadd -g 2002 redis
 useradd -c 'redis service main process user' -g redis -u 2002 -s /sbin/nologin -m redis
