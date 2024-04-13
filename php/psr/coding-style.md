@@ -90,7 +90,7 @@ import 语句不能以前导反斜杠开头，因为它们必须始终完全合�
 :::
 
 ::: details 以下示例说明了所有块的完整列表：
-<<<@/assets/php/psr/coding-style/01.php
+<<<@/assets/php/psr/coding-style/03.php
 :::
 
 ::: details 使用深度不能超过 2 层的复合命名空间
@@ -110,6 +110,7 @@ use Vendor\Package\SomeNamespace\{
 
 ```php [不允许的混合深度]
 use Vendor\Package\SomeNamespace\{
+    // 组中的命名空间段太多
     SubnamespaceOne\AnotherNamespace\ClassA,
     SubnamespaceOne\ClassB,
     ClassZ,
@@ -117,6 +118,19 @@ use Vendor\Package\SomeNamespace\{
 ```
 
 :::
+
+当希望在包含 PHP 外部标记的文件中声明严格类型时，严格类型的声明必须在文件的第 1 行并使用“PHP 的开始标记和结束标记”，如：
+
+```php{1}
+<?php declare(strict_types=1) ?> // [!code focus]
+<html>
+<body>
+    <?php
+        // ... additional PHP code ...
+    ?>
+</body>
+</html>
+```
 
 ## 3. 类、属性和方法
 
