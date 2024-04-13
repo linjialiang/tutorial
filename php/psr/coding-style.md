@@ -132,6 +132,16 @@ use Vendor\Package\SomeNamespace\{
 </html>
 ```
 
+`declare` 语句不能包含任何空格，并且必须是 `declare(strict_types=1)`，
+
+另外`declare`允许块声明语句，块声明必须被格式化如下：
+
+```php
+declare(ticks=1) {
+    // some code
+}
+```
+
 ## 3. 类、属性和方法
 
 术语`类`指的是所有 `类(class)`、`接口(interface)` 和 `trait(特征、代码复用)`
@@ -143,6 +153,12 @@ use Vendor\Package\SomeNamespace\{
    ```php
    new Foo();
    ```
+
+如果 class 不包含其他声明（例如，一个异常的存在只是为了用新类型扩展另一个异常）， 然后类的主体应该缩写为{}，并放置在与前一个符号相同的行上， 被一个空格隔开。举例来说：
+
+```php
+class MyException extends \RuntimeException {}
+```
 
 ### 3.01 继承和实现
 
@@ -188,7 +204,7 @@ class ClassName extends ParentClass implements
 
 :::
 
-### 3.02 实现 traits
+### 3.02 实现 trait
 
 ::: code-group
 
