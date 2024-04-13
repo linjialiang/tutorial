@@ -425,28 +425,26 @@ public function process(string $algorithm, &...$parts)
 
 :::
 
-### 3.6 修饰符
+### 3.6 修饰符关键字
 
-- 如果是 `abstract` 或 `final` ，那么方法和常量的访问控制声明必须是可见的
-- 如果是 `static` ，该修饰符声明必须位于访问控制声明之后
+类、属性和方法具有许多关键字修饰符，这些修饰符改变 引擎和语言处理它们。如果存在，它们必须按以下顺序排列：
 
-```php
-namespace Vendor\Package;
+1. 继承修饰符: `abstract` 或 `final`
+2. 可见性修改器：`public`、`protected` 或 `private`
+3. 范围修改器：`static`
+4. 突变修饰符：`readonly`
+5. 类型声明
+6. 名称
 
-abstract class ClassName
-{
-    protected static $foo;
+所有的关键字必须出现在同一行，并必须由空白符分隔。
 
-    abstract protected function zim();
-
-    final public static function bar()
-    {
-        // 请求体
-    }
-}
-```
+::: details 以下是修饰符关键字用法的正确示例：
+<<<@/assets/php/psr/coding-style/04.php
+:::
 
 ::: tip 附录
+
+> 属性/方法 通用访问控制修饰符：
 
 | 访问控制  | 是否可见 |
 | --------- | -------- |
@@ -454,11 +452,14 @@ abstract class ClassName
 | protected | 可见     |
 | private   | 不可见   |
 
-| 类型   | 修饰符                           |
-| ------ | -------------------------------- |
-| 类     | `abstract`、 `final`             |
-| 类常量 | `final`                          |
-| 类方法 | `abstract`、 `final` 和 `static` |
+> 特定类型的修饰符：
+
+| 类型   | 修饰符                         |
+| ------ | ------------------------------ |
+| 类     | `abstract/final` 和 `readonly` |
+| 类方法 | `abstract/final` 和 `static`   |
+| 类常量 | `final`                        |
+| 类属性 | `static`、`readonly`           |
 
 :::
 
