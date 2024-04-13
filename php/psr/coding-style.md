@@ -333,7 +333,7 @@ function fooBarBaz($arg1, &$arg2, $arg3 = [])
 
 :::
 
-### 3.05 方法和函数参数
+### 3.05 方法和参数
 
 ::: code-group
 
