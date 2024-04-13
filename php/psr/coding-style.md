@@ -493,9 +493,23 @@ somefunction($foo, $bar, [
 $app->get('/hello/{name}', function ($name) use ($app) {
     return 'Hello ' . $app->escape($name);
 });
+
+// 如果使用命名参数，则参数名称之间不得有空格 和冒号，并且在冒号和参数值之间必须有一个空格。举例来说：
+somefunction($a, b: $b, c: 'c');
+// 方法链接可以放在单独的行上，每一行缩进一次。当这样做时，第一个 方法必须在下一行。举例来说：
+$someInstance
+    ->create()
+    ->prepare()
+    ->run();
 ```
 
 :::
+
+### 3.8 函数可调用引用
+
+一个函数或方法可以通过提供`...`代替参数来创建闭包。
+
+如果是这样的话，`...`必须不包括任何空格之前或之后。也就是说，正确的格式是 `foo(...)`。
 
 ## 4. 流程控制
 
@@ -577,4 +591,143 @@ switch (
 ) {
     // structure body
 }
+```
+
+类似地，一个 match 表达式看起来像下面这样。注意位置 圆括号、空格和大括号。
+
+```php
+<?php
+
+$returnValue = match ($expr) {
+    0 => 'First case',
+    1, 2, 3 => multipleCases(),
+    default => 'Default case',
+};
+```
+
+### 4.3 while 语句
+
+while 语句看起来像下面这样。请注意， 圆括号、空格和大括号。
+
+```php
+<?php
+
+while ($expr) {
+    // structure body
+}
+```
+
+括号中的表达式可以拆分为多行，其中每行 后续行至少缩进一次。这样做的第一个条件是 必须在下一行。右括号和左大括号必须是 在它们之间有一个空间的直线上放置在一起。布尔 条件之间的运算符必须始终位于线，而不是两者的混合。
+
+```php
+<?php
+
+while (
+    $expr1
+    && $expr2
+) {
+    // structure body
+}
+```
+
+类似地，do while 语句看起来如下所示。注意位置 圆括号、空格和大括号。
+
+```php
+<?php
+
+do {
+    // structure body;
+} while ($expr);
+```
+
+括号中的表达式可以拆分为多行，其中每行 后续行至少缩进一次。这样做的第一个条件是 必须在下一行。条件之间的布尔运算符必须 总是在开头或结尾，而不是两者兼而有之。举例来说：
+
+```php
+<?php
+
+do {
+    // structure body;
+} while (
+    $expr1
+    && $expr2
+);
+```
+
+### 4.4 for
+
+for 语句看起来像下面这样。注意括号的位置， 空格和大括号。
+
+```php
+<?php
+
+for ($i = 0; $i < 10; $i++) {
+    // for body
+}
+```
+
+括号中的表达式可以拆分为多行，其中每行 后续行至少缩进一次。当这样做时，第一个表达式 必须在下一行。右括号和左大括号必须是 在它们之间有一个空间的直线上放置在一起。举例来说：
+
+```php
+<?php
+
+for (
+    $i = 0;
+    $i < 10;
+    $i++
+) {
+    // for body
+}
+```
+
+### 4.5 foreach
+
+while 语句看起来像下面这样。请注意， 圆括号、空格和大括号。
+
+```php
+<?php
+
+foreach ($iterable as $key => $value) {
+    // foreach body
+}
+```
+
+### 4.6 try, catch, finally
+
+try-catch-finally 块看起来像下面这样。请注意， 圆括号、空格和大括号。
+
+```php
+<?php
+
+try {
+    // try body
+} catch (FirstThrowableType $e) {
+    // catch body
+} catch (OtherThrowableType | AnotherThrowableType $e) {
+    // catch body
+} finally {
+    // finally body
+}
+```
+
+## 5. 运营商
+
+操作符的样式规则按 arity（它们采用的操作数）分组。
+
+当操作符周围允许有空格时，可以使用多个空格。 用于可读性目的。
+
+这里没有描述的所有操作符都是未定义的。
+
+### 6.1 一元运算符
+
+递增/递减运算符之间不得有任何空格 operator 和 operator：
+
+```php
+$i++;
+++$j;
+```
+
+类型转换操作符在括号内不能有任何空格，并且必须与它们所在的变量分隔开。 在一个空格上运行：
+
+```php
+$intValue = (int) $input;
 ```
