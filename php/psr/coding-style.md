@@ -160,7 +160,7 @@ declare(ticks=1) {
 class MyException extends \RuntimeException {}
 ```
 
-### 3.01 继承和实现
+### 3.1 继承和实现
 
 - 关键字 `extends(继承)` 和 `implements(实现)` 必须在类名的同一行声明
 - 类的左花括号必须另起一行
@@ -204,7 +204,7 @@ class ClassName extends ParentClass implements
 
 :::
 
-### 3.02 实现 trait
+### 3.2 实现 trait
 
 ::: code-group
 
@@ -279,7 +279,7 @@ class Talker
 
 :::
 
-### 3.03 属性和常量
+### 3.3 属性和常量
 
 - 所有属性必须声明可见性
 - 所有常量必须声明可见性
@@ -302,7 +302,7 @@ class ClassName
 
 :::
 
-### 3.04 方法和函数
+### 3.4 方法和函数
 
 - 所有的方法 必须 事先声明类型。
 - 方法命名 一定不可 用单个下划线来区分是 protected 或 private 类型。也就是说，不要用一个没有意义的下划线开头。
@@ -333,7 +333,7 @@ function fooBarBaz($arg1, &$arg2, $arg3 = [])
 
 :::
 
-### 3.05 方法和参数
+### 3.5 方法和参数
 
 ::: code-group
 
@@ -425,7 +425,7 @@ public function process(string $algorithm, &...$parts)
 
 :::
 
-### 3.06 修饰符
+### 3.6 修饰符
 
 - 如果是 `abstract` 或 `final` ，那么方法和常量的访问控制声明必须是可见的
 - 如果是 `static` ，该修饰符声明必须位于访问控制声明之后
@@ -462,7 +462,7 @@ abstract class ClassName
 
 :::
 
-### 3.07 方法和函数的调用
+### 3.7 方法和函数的调用
 
 当我们在进行方法或者函数调用的时候，方法名或函数名与左括号之间不能出现空格，在右括号之后也不能出现空格，并且在右括号之前也不能有空格。在参数列表中，每个逗号前面不能有空格，每个逗号后面必须有一个空格。
 
@@ -510,7 +510,7 @@ $app->get('/hello/{name}', function ($name) use ($app) {
 
 每个流程控制主体 必须 以封闭的括号结束。这将标准化流程结构，同时减少由于流程中添加新的内容而引入错误的可能性
 
-### 4.01 if 结构
+### 4.1 if 结构
 
 if 结构如下。注意括号，空格，和大括号的位置；else 和 elseif 都在同一行，和右大括号一样在主体的前面
 
@@ -542,7 +542,7 @@ if (
 }
 ```
 
-### 4.02 switch 结构
+### 4.2 switch 结构
 
 switch 结构如下。
 
