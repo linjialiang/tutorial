@@ -108,7 +108,7 @@ use Vendor\Package\SomeNamespace\{
 
 ## 3. 类、属性和方法
 
-术语`类`指的是所有 `类`、`接口` 和 `traits(特征、代码复用)`
+术语`类`指的是所有 `类(class)`、`接口(interface)` 和 `trait(特征、代码复用)`
 
 1. 任何注释和语句不得跟在其右花括号后的同一行
 
