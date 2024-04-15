@@ -5,6 +5,9 @@ titleTemplate: 环境搭建教程
 
 # 安装 Sqlite3
 
+::: danger 不在维护
+:::
+
 [sqlite3](https://www.sqlite.org) 是一款轻型数据库
 
 :::tip sqlite3 的一些特点
