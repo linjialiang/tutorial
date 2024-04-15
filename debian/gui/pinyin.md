@@ -112,3 +112,49 @@ style:
 通过快捷键 `F4` 或 `Ctrl - ~` 调出 Rime 方案选单，按需求选择
 
 ![Rime方案选单](/assets/debian/gui/015.png)
+
+## fcitx5 输入法
+
+如果使用 `ibus` 输入法框架不是很满意，可以尝试`fcitx5` 输入法框架
+
+安装前 fcitx5 输入法框架前，建议卸载 `fcitx` 和 `ibus` 相关输入法
+
+::: code-group
+
+```bash [卸载]
+apt --purge autoremove fcitx ibus* fcitx-*
+```
+
+```bash [安装]
+apt install fcitx5 fcitx5-chinese-addons fcitx5-rime fcitx5-pinyin
+```
+
+:::
+
+::: details 配置
+![](/assets/debian/gui/004.png)
+![](/assets/debian/gui/005.png)
+:::
+
+## 使用 rime-ice 词库
+
+```bash
+cd ~/.config/fcitx5/
+mv rime{,.bak}
+git clone git@github.com:iDvel/rime-ice.git
+```
+
+> 点击部署 > 然后重启系统
+
+## 配置横排显示
+
+1. 创建或修改 `~/.config/fcitx5/rime/build/fcitx5_rime.yaml` 文件
+
+2. 添加或修改 `horizontal: true`
+
+```yaml
+style:
+  horizontal: true
+```
+
+3. 重新部署 fcitx5-rime
