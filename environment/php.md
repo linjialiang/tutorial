@@ -85,19 +85,19 @@ PHP 扩展库按加载时间可分为：`动态库(共享扩展)` 和 `静态库
 ::: code-group
 
 ```bash [进扩展目录]
-cd /package/php_ext
+cd /home/php-fpm/php_ext
 ```
 
 ```bash [拷贝到8.3]
-cp -p -r apcu-5.1.23 /package/php-8.3.4/ext/apcu
-cp -p -r redis-6.0.2 /package/php-8.3.4/ext/redis
-cp -p -r yaml-2.2.3 /package/php-8.3.4/ext/yaml
+cp -p -r apcu-5.1.23 /home/php-fpm/php-8.3.4/ext/apcu
+cp -p -r redis-6.0.2 /home/php-fpm/php-8.3.4/ext/redis
+cp -p -r yaml-2.2.3 /home/php-fpm/php-8.3.4/ext/yaml
 ```
 
 ```bash [拷贝到7.4]
-cp -p -r apcu-5.1.23 /package/php-7.4.33/ext/apcu
-cp -p -r redis-6.0.2 /package/php-7.4.33/ext/redis
-cp -p -r yaml-2.2.3 /package/php-7.4.33/ext/yaml
+cp -p -r apcu-5.1.23 /home/php-fpm/php-7.4.33/ext/apcu
+cp -p -r redis-6.0.2 /home/php-fpm/php-7.4.33/ext/redis
+cp -p -r yaml-2.2.3 /home/php-fpm/php-7.4.33/ext/yaml
 ```
 
 :::
@@ -119,13 +119,13 @@ apt install autoconf -y
 ::: code-group
 
 ```bash [8.3重新生成]
-cd /package/php-8.3.4/
+cd /home/php-fpm/php-8.3.4/
 mv configure{,.original}
 ./buildconf --force
 ```
 
 ```bash [7.4重新生成]
-cd /package/php-7.4.33/
+cd /home/php-fpm/php-7.4.33/
 mv configure{,.original}
 ./buildconf --force
 ```
@@ -201,8 +201,8 @@ apt install librdkafka-dev -y
 ### 2. 创建构建目录
 
 ```bash
-mkdir /package/php-7.4.33/build_php
-mkdir /package/php-8.3.4/build_php
+mkdir /home/php-fpm/php-7.4.33/build_php
+mkdir /home/php-fpm/php-8.3.4/build_php
 ```
 
 ### 3. 环境变量
@@ -246,9 +246,9 @@ sqlite3          SQLite - SQL database engine
 
 ```bash
 # php7.4 构建目录
-cd /package/php-7.4.33/build_php/
+cd /home/php-fpm/php-7.4.33/build_php/
 # php8.3 构建目录
-cd /package/php-8.3.4/build_php/
+cd /home/php-fpm/php-8.3.4/build_php/
 ```
 
 ### 6. 安装指令
@@ -319,20 +319,20 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 
 ```bash [部署环境]
 # php7.4
-cp /package/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
+cp /home/php-fpm/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
 # php8.2
-cp /package/php-8.2.12/php.ini-production /server/php/82/lib/php.ini
+cp /home/php-fpm/php-8.2.12/php.ini-production /server/php/82/lib/php.ini
 # php8.3
-cp /package/php-8.3.4/php.ini-production /server/php/83/lib/php.ini
+cp /home/php-fpm/php-8.3.4/php.ini-production /server/php/83/lib/php.ini
 ```
 
 ```bash [开发环境]
 # php7.4
-cp /package/php-7.4.33/php.ini-development /server/php/74/lib/php.ini
+cp /home/php-fpm/php-7.4.33/php.ini-development /server/php/74/lib/php.ini
 # php8.2
-cp /package/php-8.2.12/php.ini-development /server/php/82/lib/php.ini
+cp /home/php-fpm/php-8.2.12/php.ini-development /server/php/82/lib/php.ini
 # php8.3
-cp /package/php-8.3.4/php.ini-development /server/php/83/lib/php.ini
+cp /home/php-fpm/php-8.3.4/php.ini-development /server/php/83/lib/php.ini
 ```
 
 :::
@@ -697,7 +697,7 @@ PHP 没有跨大版本更新，并且没有新增扩展，通常不需要安装�
 ### 3. 创建构建目录
 
 ```bash
-mkdir /package/php-8.2.12/build_php
+mkdir /home/php-fpm/php-8.2.12/build_php
 ```
 
 ### 4. 环境变量
@@ -712,7 +712,7 @@ export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
 
 ```bash
 # php8.1 构建目录
-cd /package/php-8.2.12/build_php/
+cd /home/php-fpm/php-8.2.12/build_php/
 ```
 
 ### 6. 构建指令
@@ -795,7 +795,7 @@ apt install libtool -y
 # 如果 make check 没有报错，下面这些依赖可以不用安装
 apt install libheif-dev liblcms2-dev libopenjp2-7-dev liblqr-1-0-dev libopenexr-dev libwmf-dev libpango1.0-dev libraw-dev libraqm-dev libdjvulibre-dev libzstd-dev -y
 mkdir /server/ImageMagick
-cd /package/ImageMagick-7.1.0-51/
+cd /home/php-fpm/ImageMagick-7.1.0-51/
 ./configure --prefix=/server/ImageMagick/
 make
 make check
@@ -808,7 +808,7 @@ make install
 
 ```bash
 export PKG_CONFIG_PATH=/server/ImageMagick/lib/pkgconfig
-cd /package/php_ext/imagick-3.7.0
+cd /home/php-fpm/php_ext/imagick-3.7.0
 phpize
 # 构建指令
 ./configure \
@@ -833,7 +833,7 @@ xdebug 是 php 的断点调试工具
 ::: code-group
 
 ```bash [编译]
-cd /package/php_ext/xdebug-3.3.1
+cd /home/php-fpm/php_ext/xdebug-3.3.1
 phpize
 ./configure --enable-xdebug --with-php-config=/server/php/83/bin/php-config
 # ./configure --enable-xdebug --with-php-config=/server/php/74/bin/php-config
@@ -878,7 +878,7 @@ Swoole 是一个使用 C++ 语言编写的基于异步事件驱动和协程的�
 apt install librdkafka-dev -y
 
 # 安装 php-rdkafka 扩展
-cd /package/php_ext/rdkafka-6.0.3
+cd /home/php-fpm/php_ext/rdkafka-6.0.3
 phpize
 ./configure --with-php-config=/server/php/83/bin/php-config
 make -j2
@@ -899,7 +899,7 @@ extension=rdkafka
 ::: code-group
 
 ```bash [安装]
-cd /package/php_ext/mongodb-1.18.0
+cd /home/php-fpm/php_ext/mongodb-1.18.0
 phpize
 ./configure --enable-mongodb --with-php-config=/server/php/83/bin/php-config
 make -j2
