@@ -1,5 +1,5 @@
 ./configure --prefix=/server/nginx \
---builddir=/package/nginx-1.24.0/build_nginx \
+--builddir=/home/nginx/nginx-1.24.0/build_nginx \
 --without-select_module \
 --without-poll_module \
 --with-threads \
@@ -23,7 +23,7 @@
 --with-http_degradation_module \
 --with-http_slice_module \
 --with-http_stub_status_module \
---with-pcre=/package/pcre2-10.43 \
+--with-pcre=/home/nginx/pcre2-10.43 \
 --with-pcre-jit \
---with-zlib=/package/zlib-1.3.1 \
---with-openssl=/package/openssl-3.0.13
+--with-zlib=/home/nginx/zlib-1.3.1 \
+--with-openssl=/home/nginx/openssl-3.0.13

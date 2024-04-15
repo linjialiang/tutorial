@@ -49,8 +49,9 @@ pkg-config --list-all
 ::: code-group
 
 ```bash [构建目录]
-mkdir /package/nginx-1.24.0/build_nginx
-cd /package/nginx-1.24.0
+su - nginx -s /bin/zsh
+mkdir ~/nginx-1.24.0/build_nginx
+cd ~/nginx-1.24.0
 ```
 
 <<<@/assets/environment/source/nginx/build_now.bash [本次构建指令]
