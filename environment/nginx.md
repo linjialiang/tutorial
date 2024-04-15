@@ -541,37 +541,37 @@ server
 ::: code-group
 
 ```bash [部署]
-chown root:root -R /server/nginx
+chown nginx:nginx -R /server/nginx
 find /server/nginx -type f -exec chmod 640 {} \;
 find /server/nginx -type d -exec chmod 750 {} \;
-# conf和sbin目录下的内容权限 root 640
+# conf和sbin目录下的内容权限 nginx 640
 # 其他的*_temp不是很重要
 # 可执行文件需要执行权限
 chmod 750 -R /server/nginx/sbin
 
-chown root:root -R /server/logs/nginx
+chown nginx:nginx -R /server/logs/nginx
 chmod 750 /server/logs/nginx
-# -- 因为日志文件权限是 root 644
+# -- 因为日志文件权限是 nginx 644
 
-chown root:root -R /server/run/nginx
+chown nginx:nginx -R /server/run/nginx
 chmod 750 /server/run/nginx
-# -- 因为pid文件权限是 root/644
+# -- 因为pid文件权限是 nginx/644
 ```
 
 ```bash [开发]
-chown root:emad -R /server/nginx
+chown nginx:emad -R /server/nginx
 find /server/nginx -type f -exec chmod 640 {} \;
 find /server/nginx -type d -exec chmod 750 {} \;
-# conf和sbin目录下的内容权限 root 640
+# conf和sbin目录下的内容权限 nginx 640
 # 其他的*_temp不是很重要
 # 可执行文件需要执行权限
 chmod 750 -R /server/nginx/sbin
 
-chown root:emad -R /server/logs/nginx
+chown nginx:emad -R /server/logs/nginx
 chmod 750 /server/logs/nginx
-# -- 因为日志文件权限是 root 644
+# -- 因为日志文件权限是 nginx 644
 
-chown root:emad -R /server/run/nginx
+chown nginx:emad -R /server/run/nginx
 chmod 750 /server/run/nginx
 # -- 因为pid文件权限是 root/644
 ```
