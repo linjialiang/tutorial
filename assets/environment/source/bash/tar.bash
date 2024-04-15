@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
 # 设定压缩文件根目录
-# TAR_DIR="/home/emad/debian/environment"
-TAR_DIR="/package"
+TAR_DIR="./"
 # 设置解压路径根目录
-PACKAGE_DIR="/package"
+PACKAGE_DIR="./"
 
 # 进入压缩文件根目录
 cd ${TAR_DIR}
@@ -27,15 +26,17 @@ do
     tar -xJf $i -C ${PACKAGE_DIR}
 done
 
-# 进入php_ext目录
-cd "${TAR_DIR}/php_ext"
+if [ -d "${TAR_DIR}/php_ext" ]; then
+    # 进入php_ext目录
+    cd "${TAR_DIR}/php_ext"
 
-EXT_DIR="${PACKAGE_DIR}/php_ext"
-for i in `ls *.tgz`;
-do
-    echo "tgz解压" $i
-    tar -xzf $i -C ${EXT_DIR}
-done
+    EXT_DIR="${PACKAGE_DIR}/php_ext"
+    for i in `ls *.tgz`;
+    do
+        echo "tgz解压" $i
+        tar -xzf $i -C ${EXT_DIR}
+    done
 
-cd ${EXT_DIR}
-rm package.xml
+    cd ${EXT_DIR}
+    rm package.xml
+fi
