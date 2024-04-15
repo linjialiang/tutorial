@@ -3,7 +3,10 @@ title: 安装 MongoDB
 titleTemplate: 环境搭建教程
 ---
 
-#
+# 安装 MongoDB
+
+::: danger 不维护
+:::
 
 MongoDB 是最流行的非关系型数据库
 
