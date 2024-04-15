@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
-WEB_USER='emad'
-WEB_USER_GROUP='emad'
-
 func_chown_nginx(){
-    chown root:root $1
+    chown nginx:nginx $1
 }
 
 func_chown_phpfpm(){
-    chown root:root $1
+    chown php-fpm:php-fpm $1
 }
 
 func_chown_redis(){
@@ -18,8 +15,12 @@ func_chown_postgres(){
     chown postgres:postgres $1
 }
 
+func_chown_mysql(){
+    chown mysql:mysql $1
+}
+
 func_chown_www(){
-    chown ${WEB_USER}:${WEB_USER_GROUP} $1
+    chown emad:emad $1
 }
 
 chown_nginx_array=(
@@ -44,6 +45,15 @@ chown_postgres_array=(
     "/server/pgData"
     "/server/run/postgres"
     "/server/logs/postgres"
+);
+
+chown_mysql_array=(
+    "/server/mysql"
+    "/server/data"
+    "/server/run/mysql"
+    "/server/logs/mysql"
+    "/server/etc"
+    "/server/tmp"
 );
 
 chown_www_array=(
@@ -74,11 +84,19 @@ do
 done
 echo "-----redis 用户权限目录设置结束-----"
 
-echo "-----开始设置 mysql 用户权限目录-----"
+echo "-----开始设置 postgres 用户权限目录-----"
 for((i=0;i<${#chown_postgres_array[*]};i++));
 do
    echo ${chown_postgres_array[i]}
    func_chown_postgres ${chown_postgres_array[i]}
+done
+echo "-----postgres 用户权限目录设置结束-----"
+
+echo "-----开始设置 mysql 用户权限目录-----"
+for((i=0;i<${#chown_mysql_array[*]};i++));
+do
+   echo ${chown_mysql_array[i]}
+   func_chown_mysql ${chown_mysql_array[i]}
 done
 echo "-----mysql 用户权限目录设置结束-----"
 

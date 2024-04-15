@@ -35,6 +35,13 @@ server_array=(
 
     "/server/sites"
     "/server/sites/ssl"
+    
+    "/server/mysql"
+    "/server/data"
+    "/server/run/mysql"
+    "/server/logs/mysql"
+    "/server/etc/mysql"
+    "/server/tmp/mysql"
 )
 
 package_array=(
