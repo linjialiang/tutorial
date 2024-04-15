@@ -124,6 +124,5 @@
     "XMODIFIERS",
     "xshell",
     "zstd"
-  ],
-  "svg.preview.background": "custom"
+  ]
 }
