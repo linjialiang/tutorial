@@ -81,25 +81,14 @@ apt install fcitx5 fcitx5-chinese-addons fcitx5-rime fcitx5-pinyin
 ### 使用 rime-ice 词库
 
 ```bash
-cd ~/.config/fcitx5/
+cd ~/.local/share/fcitx5/
 mv rime{,.bak}
-git clone git@github.com:iDvel/rime-ice.git
+# git clone git@github.com:iDvel/rime-ice.git rime
+# 为了加速，这个是同步仓库
+git clone git@e.coding.net:madnesslin/default/rime-ice.git rime
 ```
 
 > 点击部署 > 然后重启系统
-
-### 配置横排显示
-
-1. 创建或修改 `~/.config/fcitx5/rime/build/fcitx5_rime.yaml` 文件
-
-2. 添加或修改 `horizontal: true`
-
-```yaml
-style:
-  horizontal: true
-```
-
-3. 重新部署 fcitx5-rime
 
 ## 小狼毫输入法
 
