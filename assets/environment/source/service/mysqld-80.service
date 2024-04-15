@@ -7,9 +7,9 @@ Wants=network-online.target
 After=syslog.target
 
 [Service]
+Type=notify
 User=mysql
 Group=mysql
-Type=notify
 ExecStart=/server/mysql/bin/mysqld --defaults-file=/server/etc/mysql/my.cnf
 Restart=on-failure
 PrivateTmp=false

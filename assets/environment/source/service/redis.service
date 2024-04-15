@@ -5,9 +5,9 @@ Description=redis-7.2.x
 After=network.target
 
 [Service]
+Type=forking
 User=redis
 Group=redis
-Type=forking
 PIDFile=/server/run/redis/redis.pid
 ExecStart=/server/redis/bin/redis-server /server/redis/redis.conf
 ExecReload=/bin/kill -s HUP $MAINPID

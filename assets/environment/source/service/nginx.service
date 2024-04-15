@@ -6,6 +6,8 @@ After=network.target
 
 [Service]
 Type=forking
+User=nginx
+Group=nginx
 ExecStartPre=/server/nginx/sbin/nginx -t
 ExecStart=/server/nginx/sbin/nginx -c /server/nginx/conf/nginx.conf
 ExecReload=/server/nginx/sbin/nginx -s reload
