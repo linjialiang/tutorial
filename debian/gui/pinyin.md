@@ -90,6 +90,16 @@ git clone git@e.coding.net:madnesslin/default/rime-ice.git rime
 
 > 点击部署 > 然后重启系统
 
+### 安装主题
+
+```bash
+apt install fcitx5-material-color -y
+```
+
+::: details 配置
+![](/assets/debian/gui/017.png)
+:::
+
 ## 小狼毫输入法
 
 小狼毫是 `中州韵输入法引擎(Rime)` 官方为 Windows 系统制作的输入法
