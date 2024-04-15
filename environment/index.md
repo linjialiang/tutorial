@@ -69,7 +69,7 @@ PHP 环境目录
 └─
 ```
 
-::: warning 因开发需求原因：SQLite 和 MongoDB 不再积极维护，主要精力转移到 MySQL + PostgreSQL 维护上
+::: warning 因精力原因： SQLite 和 MongoDB 数据库不再维护， MySQL/PostgreSQL/Redis 继续维护
 :::
 
 ## 脚本文件
@@ -91,11 +91,11 @@ PHP 环境目录
 1. nginx-1.24.0.tar.gz
 2. openssl-3.0.13.tar.gz
 3. pcre2-10.43.tar.bz2
-4. php-8.3.4.tar.xz
-5. postgresql-16.2.tar.bz2
-6. mysql-boost-8.0.36.tar
-7. redis-7.2.4.tar.gz
-8. zlib-1.3.1.tar.xz
+4. zlib-1.3.1.tar.xz
+5. redis-7.2.4.tar.gz
+6. postgresql-16.2.tar.bz2
+7. mysql-boost-8.0.36.tar
+8. php-8.3.4.tar.xz
 ```
 
 ```md [php扩展包]
