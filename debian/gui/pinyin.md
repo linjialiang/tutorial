@@ -75,8 +75,7 @@ apt install fcitx5 fcitx5-chinese-addons fcitx5-rime fcitx5-pinyin
 :::
 
 ::: details 配置
-![](/assets/debian/gui/004.png)
-![](/assets/debian/gui/005.png)
+![](/assets/debian/gui/016.png)
 :::
 
 ### 使用 rime-ice 词库
