@@ -30,7 +30,7 @@ apt install ibus-rime
 ![](/assets/debian/gui/005.png)
 :::
 
-## 使用 rime-ice 词库
+### 使用 rime-ice 词库
 
 ```bash
 cd ~/.config/ibus
@@ -40,7 +40,7 @@ git clone git@github.com:iDvel/rime-ice.git
 
 > 点击部署 > 然后重启系统
 
-## 配置横排显示
+### 配置横排显示
 
 1. 创建或修改 `~/.config/ibus/rime/build/ibus_rime.yaml` 文件
 
@@ -136,7 +136,7 @@ apt install fcitx5 fcitx5-chinese-addons fcitx5-rime fcitx5-pinyin
 ![](/assets/debian/gui/005.png)
 :::
 
-## 使用 rime-ice 词库
+### 使用 rime-ice 词库
 
 ```bash
 cd ~/.config/fcitx5/
@@ -146,7 +146,7 @@ git clone git@github.com:iDvel/rime-ice.git
 
 > 点击部署 > 然后重启系统
 
-## 配置横排显示
+### 配置横排显示
 
 1. 创建或修改 `~/.config/fcitx5/rime/build/fcitx5_rime.yaml` 文件
 
