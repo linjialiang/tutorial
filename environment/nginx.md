@@ -14,7 +14,7 @@ Nginx 是现如今性能最强劲的 Web 服务器及反向代理服务器
 ::: code-group
 
 ```bash [common]
-cd /package/nginx-1.24.0
+cd /home/nginx/nginx-1.24.0
 ./configure --help > help.ini
 ```
 
@@ -133,7 +133,7 @@ make -j2
 - 其次，拷贝新的主文件,到指定目录
 
   ```bash
-  cp -p -r /package/nginx-1.24.0/build_nginx/nginx /server/nginx/sbin/
+  cp -p -r /home/nginx/nginx-1.24.0/build_nginx/nginx /server/nginx/sbin/
   ```
 
 ### 4. 升级操作
