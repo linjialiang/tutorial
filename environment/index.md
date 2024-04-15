@@ -30,6 +30,11 @@ PHP 环境目录
 |   |
 |   ├─ pgData               postgres的数据目录
 |   |
+|   ├─ mysql                mysql的基目录
+|   |  └─ ...
+|   |
+|   ├─ data                 mysql的数据目录
+|   |
 |   ├─ php                  PHP 版本目录
 |   |  ├─ 83                PHP8.3
 |   |  └─ ...
@@ -64,7 +69,7 @@ PHP 环境目录
 └─
 ```
 
-::: warning 新版使用 PostgreSQL 替代 `mysql/mongodb/sqlite3` 三者的作用，以后 `mysql/mongodb/sqlite3` 的安装教程不再积极维护
+::: warning 因开发需求原因：SQLite 和 MongoDB 不再积极维护，主要精力转移到 MySQL + PostgreSQL 维护上
 :::
 
 ## 脚本文件
@@ -82,17 +87,18 @@ PHP 环境目录
 
 ::: code-group
 
-```[软件包]
+```md [软件包]
 1. nginx-1.24.0.tar.gz
 2. openssl-3.0.13.tar.gz
 3. pcre2-10.43.tar.bz2
-6. php-8.3.4.tar.xz
-7. postgresql-16.2.tar.bz2
-5. redis-7.2.4.tar.gz
-4. zlib-1.3.1.tar.xz
+4. php-8.3.4.tar.xz
+5. postgresql-16.2.tar.bz2
+6. mysql-boost-8.0.36.tar
+7. redis-7.2.4.tar.gz
+8. zlib-1.3.1.tar.xz
 ```
 
-```[php扩展包]
+```md [php扩展包]
 1. apcu-5.1.23.tgz
 2. redis-6.0.2.tgz
 3. yaml-2.2.3.tgz
