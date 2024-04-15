@@ -1,9 +1,9 @@
 [Desktop Entry]
 Name=PhpStorm
-Icon=/home/emad/jetbrains/app/phpstorm/bin/phpstorm.svg
-StartupWMClass=jetbrains-phpstorm
+Icon=/home/emad/jetbrains/app/PhpStrom/bin/phpstorm.svg
+StartupWMClass=PhpStrom
 Comment=A smart IDE for PHP and Web
-Exec="/home/emad/jetbrains/app/phpstorm/bin/phpstorm.sh" %f %u
+Exec="/home/emad/jetbrains/app/PhpStrom/bin/phpstorm.sh" %f %u
 Version=2023.2.3
 Type=Application
 Categories=Development;IDE;
