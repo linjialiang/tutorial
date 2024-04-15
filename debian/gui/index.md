@@ -7,13 +7,25 @@ titleTemplate: Debian GUI 教程
 
 这里的内容基本上都是在 Xfce 和 Gnome 桌面上测试的，如果使用其他桌面可能会遇到问题，需要自行解决
 
-## Xfce 部分软件不支持 ibus 解决
+## Xfce 部分软件不支持输入法解决
 
-```bash
-# ~/.profile 结尾加入，然后重启
-GTK_IM_MODULE=ibus
-export GTK_IM_MODULE
+在 `~/.profile` 结尾加入，然后重启系统
+
+::: code-group
+
+```bash [IBus]
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS="@im=ibus"
 ```
+
+```bash [fcitx5]
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5
+export XMODIFIERS="@im=fcitx5"
+```
+
+:::
 
 ## 家目录的子目录改成英文
 
