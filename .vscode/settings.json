@@ -1,6 +1,7 @@
 {
   "cSpell.words": [
     "apcu",
+    "autoremove",
     "backports",
     "batcat",
     "bootloader",
@@ -29,12 +30,14 @@
     "DWITH",
     "efibootmgr",
     "emad",
+    "Fcitx",
     "firewalld",
     "frontmatter",
     "gitee",
     "gssapi",
     "hostbased",
     "hprof",
+    "ibus",
     "INFILE",
     "initdb",
     "intellij",

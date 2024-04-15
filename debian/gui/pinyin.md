@@ -5,13 +5,16 @@ titleTemplate: Debian 教程
 
 # 拼音输入法
 
-Linux 上的输入法框架主要是 `fcitx` 和 `ibus` 两类
+Linux 上的输入法框架主要是 `Fcitx`、`Fcitx5` 和 `IBus` 三种，通过使用经验来讲：
 
-往常使用经验来讲： `ibus` 对 GKT+ 桌面比较友好， `fcitx` 对 QT+ 桌面比较友好
+- IBus 对 GKT 包比较友好
+- Fcitx 对 QT 包比较友好
+- Fcitx5 作为 Fcitx 的更新版本，对 `GKT包` 和 `QT包` 都有较好的支持
+- 针对 Wayland 桌面协议：暂时只有 Fcitx5 提供了基本支持
 
-## ibus 输入法
+## IBus 输入法
 
-安装前 ibus 输入法框架前，建议卸载 `fcitx` 和 `fcitx5` 相关输入法
+安装前 IBus 输入法框架前，建议卸载 `Fcitx` 和 `Fcitx5` 相关输入法
 
 ::: code-group
 
@@ -115,9 +118,9 @@ style:
 
 ## fcitx5 输入法
 
-如果使用 `ibus` 输入法框架不是很满意，可以尝试`fcitx5` 输入法框架
+如果使用 `IBus` 输入法框架不满意，可以尝试`Fcitx5` 输入法框架
 
-安装前 fcitx5 输入法框架前，建议卸载 `fcitx` 和 `ibus` 相关输入法
+安装前 Fcitx5 输入法框架前，建议卸载 `Fcitx` 和 `IBus` 相关输入法
 
 ::: code-group
 
