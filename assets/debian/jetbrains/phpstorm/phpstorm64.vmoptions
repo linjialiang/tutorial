@@ -1,13 +1,8 @@
 -Xms128m
 -Xmx2048m
--XX:ReservedCodeCacheSize=512m
--XX:+UseG1GC
--XX:SoftRefLRUPolicyMSPerMB=50
--XX:CICompilerCount=2
 -XX:+HeapDumpOnOutOfMemoryError
 -XX:-OmitStackTraceInFastThrow
 -XX:+IgnoreUnrecognizedVMOptions
--XX:CompileCommand=exclude,com/intellij/openapi/vfs/impl/FilePartNodeRoot,trieDescend
 -ea
 -Dsun.io.useCanonCaches=false
 -Dsun.java2d.metal=true
@@ -16,12 +11,15 @@
 -Djdk.attach.allowAttachSelf=true
 -Djdk.module.illegalAccess.silent=true
 -Dkotlinx.coroutines.debug=off
+-XX:CICompilerCount=2
+-XX:ReservedCodeCacheSize=512m
+-XX:CompileCommand=exclude,com/intellij/openapi/vfs/impl/FilePartNodeRoot,trieDescend
+-XX:SoftRefLRUPolicyMSPerMB=50
+-Dsun.tools.attach.tmp.only=true
+-Dawt.lock.fair=true
 
--Dawt.usesystemAAFontSettings=lcd
--Dawt.java2d.opengl=true
-
--XX:ErrorFile=/home/emad/jetbrains/crack/log-jetbrains/java_error_in_phpstorm_%p.log
--XX:HeapDumpPath=/home/emad/jetbrains/crack/log-jetbrains/java_error_in_phpstorm.hprof
+-XX:ErrorFile=/home/emad/jetbrains/crack/logs-jetbrains/java_error_in_phpstorm_%p.log
+-XX:HeapDumpPath=/home/emad/jetbrains/crack/logs-jetbrains/java_error_in_phpstorm.hprof
 
 --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
 --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED

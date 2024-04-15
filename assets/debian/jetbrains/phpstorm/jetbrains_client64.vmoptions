@@ -1,5 +1,5 @@
--Xms256m
--Xmx750m
+-Xmx1500m
+-Xms128m
 -XX:+HeapDumpOnOutOfMemoryError
 -XX:-OmitStackTraceInFastThrow
 -XX:+IgnoreUnrecognizedVMOptions
