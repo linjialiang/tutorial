@@ -7,6 +7,12 @@ titleTemplate: Debian GUI 教程
 
 这里的内容基本上都是在 Xfce 和 Gnome 桌面上测试的，如果使用其他桌面可能会遇到问题，需要自行解决
 
+## 卸载不使用的自带软件
+
+```bash
+apt autoremove --purge xfburn xsane synaptic xfce4-screenshooter parole libreoffice libreoffice*  -y
+```
+
 ## Xfce 部分软件不支持输入法解决
 
 在 `~/.profile` 结尾加入，然后重启系统
