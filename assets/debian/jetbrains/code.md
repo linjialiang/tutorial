@@ -1,3 +1,9 @@
+::: info
+请将项目放在家目录下：`/home/emad/jetbrains`
+
+将 `*.desktop` 文件放到 `/home/emad/.local/share/applications/` 目录下
+:::
+
 ::: code-group
 
 ```txt [PhpStorm]
