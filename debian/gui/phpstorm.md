@@ -33,7 +33,7 @@ jetbrains               部署根目录
 ```
 
 ::: tip 激活工具
-在项目中 [[点击下载]](/assets/debian/jetbrains/tools.tar.xz) 激活工具
+在项目中 [[点击下载]](/assets/debian/jetbrains/crack.7z) 激活工具
 :::
 
 ::: warning 权限问题
