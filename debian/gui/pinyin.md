@@ -69,8 +69,10 @@ apt --purge autoremove fcitx ibus* fcitx-*
 ```
 
 ```bash [安装]
-# fcitx5-pinyin 好像没必要安装了
-apt install fcitx5 fcitx5-chinese-addons fcitx5-rime fcitx5-pinyin
+apt install fcitx5 fcitx5-rime
+
+# 下面这些在实测中，发现没有必要安装
+apt install fcitx5-chinese-addons fcitx5-pinyin
 ```
 
 :::
