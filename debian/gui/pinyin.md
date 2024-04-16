@@ -88,7 +88,7 @@ apt install fcitx5-pinyin
 cd ~/.local/share/fcitx5/
 mv rime{,.bak}
 # git clone git@github.com:iDvel/rime-ice.git rime
-# 为了加速，这个是同步仓库
+# 为了加速，这个是同步仓库，建议删除 .git 目录
 git clone git@e.coding.net:madnesslin/default/rime-ice.git rime
 ```
 
