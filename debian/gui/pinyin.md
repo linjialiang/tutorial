@@ -69,6 +69,7 @@ apt --purge autoremove fcitx ibus* fcitx-*
 ```
 
 ```bash [安装]
+# fcitx5-pinyin 好像没必要安装了
 apt install fcitx5 fcitx5-chinese-addons fcitx5-rime fcitx5-pinyin
 ```
 
@@ -76,6 +77,7 @@ apt install fcitx5 fcitx5-chinese-addons fcitx5-rime fcitx5-pinyin
 
 ::: details 配置
 ![](/assets/debian/gui/016.png)
+![](/assets/debian/gui/018.png)
 :::
 
 ### 使用 rime-ice 词库
