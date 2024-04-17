@@ -42,6 +42,22 @@ pkg-config --list-all
 
 :::
 
+### 3. 允许 nginx 绑定低于 1024 的端口
+
+Linux 默认只允许 root 特权用户绑定低于 1024 的端口，通过 `CAP_NET_BIND_SERVICE` 设置可以允许 nginx 绑定低于 1024 的端口
+
+::: code-group
+
+```bash [启用CAP_NET_BIND_SERVICE能力]
+setcap cap_net_bind_service=+eip /server/nginx/sbin/nginx
+```
+
+```bash [移除CAP_NET_BIND_SERVICE能力]
+setcap -r /server/nginx/sbin/nginx
+```
+
+:::
+
 ## 开始构建
 
 ### 1. 构建指令
