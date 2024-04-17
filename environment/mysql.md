@@ -283,10 +283,10 @@ mysql> UNINSTALL PLUGIN auth_socket;
    CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
    # 更新用户，采用 ALTER USER
    ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
-   # 首次添加用户，'root'@'localhost' 用户除了系统root登录外还支持系统www用户登录
-   CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'www';
-   # 更新用户，'root'@'localhost' 用户除了系统root登录外还支持系统www用户登录
-   ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'www';
+   # 首次添加用户，'root'@'localhost' 用户除了系统root登录外还支持系统mysql用户登录
+   CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'mysql';
+   # 更新用户，'root'@'localhost' 用户除了系统root登录外还支持系统mysql用户登录
+   ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'mysql';
 
    # 删除 'root'@'localhost' 用户
    DROP USER 'root'@'localhost';

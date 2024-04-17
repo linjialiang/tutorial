@@ -564,7 +564,7 @@ ln -s /server/php/83/bin/composer.phar /usr/local/bin/composer
 
 ```bash
 # 切换到开发者用户
-su www
+su emad
 # 使用阿里云 Composer 全量镜像
 /server/php/83/bin/php /usr/local/bin/composer config -g repo.packagist composer https://mirrors.cloud.tencent.com/composer/
 
@@ -578,7 +578,7 @@ su www
 
 ```bash
 # 切换到开发者用户
-su www
+su emad
 /server/php/83/bin/php /usr/local/bin/composer -V
 /server/php/83/bin/php /usr/local/bin/composer self-update
 ```
@@ -593,7 +593,7 @@ su www
 
 ```ini
 # 切换到开发者用户
-su www
+su emad
 # ~/.bashrc 和 ~/.zshrc  文件底部增加
 PATH=${PATH}:/server/php/83/bin:/server/php/83/sbin
 export PATH
@@ -667,7 +667,7 @@ phpMyAdmin 需要配置
 phpRedisAdmin 需要使用 composer 安装依赖后，才能正常使用
 
 ```bash
-use www
+su emad
 cd /server/default/pra/
 composer install
 ```
