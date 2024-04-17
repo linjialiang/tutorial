@@ -177,7 +177,7 @@ pkg-config --list-all
 本次 PHP 编译，系统还需要如下依赖项：
 
 ```bash
-apt install g++ php-dev libsystemd-dev libsqlite3-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libyaml-dev libzip-dev -y
+apt install g++ libsystemd-dev libsqlite3-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libyaml-dev libzip-dev -y
 
 # php 8.3.0 开始如果要启用 capstone
 apt install libcapstone-dev -y
