@@ -95,7 +95,7 @@ PHP 环境目录
 5. redis-7.2.4.tar.gz
 6. postgresql-16.2.tar.bz2
 7. mysql-boost-8.0.36.tar
-8. php-8.3.4.tar.xz
+8. php-8.3.6.tar.xz
 ```
 
 ```md [php扩展包]
