@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
 # 设定压缩文件根目录
-TAR_DIR="./"
+TAR_DIR="/home/emad/environment/"
 # 设置解压路径根目录
-PACKAGE_DIR="./"
+PACKAGE_DIR="/home/emad/package/"
+
+if [ ! -d ${PACKAGE_DIR} ]; then
+    mkdir -p "${PACKAGE_DIR}php_ext"
+fi
 
 # 进入压缩文件根目录
 cd ${TAR_DIR}
