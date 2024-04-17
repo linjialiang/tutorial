@@ -275,10 +275,10 @@ ps aux|grep -E "nginx|PID"|grep -E "master|PID"|grep -v grep
 
 ::: tip 设置 SSL 证书权限
 
-本次测试环境的 nginx 主进程用户是 root 用户
+本次测试环境的 nginx 主进程用户是 nginx 用户
 
 ```bash
-chown root -R /server/ssl/
+chown nginx -R /server/ssl/
 chmod 700 /server/ssl/
 chmod 400 /server/ssl/*
 ```
