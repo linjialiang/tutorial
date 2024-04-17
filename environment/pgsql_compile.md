@@ -80,8 +80,8 @@ apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev 
 # 修改操作系统打开最大文件句柄数
 # /etc/security/limits.conf 结尾添加下面两行
 # 进行这一步操作的目的是防止linux操作系统内打开文件句柄数量的限制，避免不必要的故障
-postgres soft   nofile         65535
-postgres hard   nofile        65535
+postgres  soft  nofile  65535
+postgres  hard  nofile  65535
 ```
 
 ```bash [用户及权限]
