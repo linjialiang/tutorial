@@ -466,8 +466,8 @@ group                   = php-fpm    # 子进程用户组，默认为 nobody
 listen                  = /server/run/php/php81-fpm-default.sock
 
 listen.backlog          = -1        # 设置 listen 的最大值，-1表示无限制，默认值：-1
-listen.owner            = nginx     # 子进程监听用户，默认为 nobody，仅支持监听对象是 unix 套接字
-listen.group            = nginx     # 子进程监听用户组，默认为 nobody，仅支持监听对象是 unix 套接字
+listen.owner            = www       # 子进程监听用户，默认为 nobody，仅支持监听对象是 unix 套接字
+listen.group            = www       # 子进程监听用户组，默认为 nobody，仅支持监听对象是 unix 套接字
 listen.mode             = 0660      # 监听权限，仅支持监听对象是 unix 套接字
 listen.allowed_clients  = 127.0.0.1 # 设置允许连接到 FastCGI 的服务器IP，默认仅允许本地访问
 

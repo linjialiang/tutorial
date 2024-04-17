@@ -42,9 +42,13 @@ pkg-config --list-all
 
 :::
 
-### 3. 允许 nginx 绑定低于 1024 的端口
+### 3. CAP_NET_BIND_SERVICE
 
-Linux 默认只允许 root 特权用户绑定低于 1024 的端口，通过 `CAP_NET_BIND_SERVICE` 设置可以允许 nginx 绑定低于 1024 的端口
+`CAP_NET_BIND_SERVICE` 是 Linux 内核中的一个能力（capability），它允许进程绑定低于 `1024` 的端口。这个能力通常用于网络服务程序，如 Web 服务器、邮件服务器等，以便它们能够监听系统保留的低端口。
+
+在 Linux 系统中，只有 root 用户和具有 `CAP_NET_BIND_SERVICE` 能力的进程才能绑定低于 `1024` 的端口。为了给一个应用程序设置这个能力，可以使用 setcap 命令。
+
+本次 nginx 的 master 进程用户是 nginx 而非 root，所以需要为程序设置 `CAP_NET_BIND_SERVICE`
 
 ::: code-group
 

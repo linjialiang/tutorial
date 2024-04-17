@@ -35,3 +35,6 @@ groupadd -g 2006 mysql
 useradd -c 'mysql service main process user' -g mysql -u 2006 -s /sbin/nologin -m mysql
 cp -r /root/{.oh-my-zsh,.zshrc} /home/mysql
 chown mysql:mysql -R /home/mysql/{.oh-my-zsh,.zshrc}
+
+# 创建 WEB 用户
+useradd -c 'site viewer user' -u 2007 -s /usr/sbin/nologin www
