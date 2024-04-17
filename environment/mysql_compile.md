@@ -235,13 +235,14 @@ mysql> SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS WHERE P
 ```sql [使用用户]
 -- 创建用户，采用 CREATE USER
 CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
--- 创建用户，'root'@'localhost' 用户除了系统root登录外还支持mysql用户登录
-CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'mysql';
+-- 创建用户，'root'@'localhost' 用户除了系统root登录外还支持emad用户登录
+CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'emad';
 
 -- 更新用户，采用 ALTER USER
 ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
--- 更新用户，'root'@'localhost' 用户除了系统root登录外还支持mysql用户登录
-ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'mysql';
+-- 更新用户，'root'@'localhost' 用户除了系统root登录外还支持emad用户登录
+-- mysql系统账户作为 mysql 的主账号，无需授权也可以支持登录 root 用户的
+ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'emad';
 
 -- 删除 'root'@'localhost' 用户
 DROP USER 'root'@'localhost';
