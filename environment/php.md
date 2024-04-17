@@ -264,7 +264,7 @@ php8.1 默认已经对 openssl 启用 `pcre-jit` 实现正则即时编译
 
 php8.1 的 gd 扩展增加的 `--with-avif` 选项
 
-php8.3 增加 `--with-capstone` 选项呢
+php8.3 增加 `--with-capstone` 选项
 :::
 
 ### 7. 编译并安装
