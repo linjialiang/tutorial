@@ -87,6 +87,7 @@ requirepass 1
 # 日志路径
 logfile "/server/logs/redis/redis.log"
 # 开启本地和局域网
+# 提示：确保监听的任意1个ip网卡存在，否则全部都无法正常连接
 bind 127.0.0.1 192.168.66.254
 
 # ====== 启用混合持久化
