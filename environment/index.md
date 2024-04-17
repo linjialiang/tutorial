@@ -134,19 +134,24 @@ PHP 环境目录
 其中 nginx 用户不仅是子进程(worker)用户，也是 nginx 主进程(master)的用户，这是因为：
 
 ```md
-主进程用户需要拥有子进程用户的全部权限：
+> 主进程用户需要拥有子进程用户的全部权限：
 
 - 主进程是特权用户(root)时，子进程才能设为其它非特权用户；
-- 主进程是非特权用户，子进程只能跟主进程是同一个用户
+- 主进程是非特权用户，子进程只能跟主进程是同一个用户。
+
+> nginx 配置文件 `user` 指令解释：
+
+- `user` 指令是用于指定子进程(worker)用户和用户组
+- `user` 指令只有当主进程(master)用户是超级用户(root)是才有意义，否则会被忽略掉
 ```
 
 :::
 
 ### 用户职责
 
-- www 是 nginx worker 进程的 Unix 用户
-- php-fpm 是 FPM 子进程的 Unix 用户
-- emad 是开发者操作项目资源、文件的用户
+- `用户 nginx` 是 nginx worker 进程的 Unix 用户
+- `用户 php-fpm` 是 FPM 子进程的 Unix 用户
+- `用户 emad` 是开发者操作项目资源、文件的用户
 
 ### 用户权限
 
@@ -156,13 +161,13 @@ PHP 环境目录
 redis 只针对 redis
 ```
 
-```md [www]
+```md [nginx]
 - 对静态文件需提供 `读` 的权限
 - 对 php-fpm 的 `unix socket` 文件提供了读写的权限
 
-浏览器等客户端使用 www 用户浏览网站：1)加载静态文件; 2) php-fpm 的 `unix socket` 文件传输
+浏览器等客户端使用 nginx 用户浏览网站：1)加载静态文件; 2) php-fpm 的 `unix socket` 文件传输
 
-1. 使用 socket 转发，www 用户可作为 FPM 的监听用户，如：监听 socket、连接 web 服务器，权限设为 660
+1. 使用 socket 转发，nginx 用户可作为 FPM 的监听用户，如：监听 socket、连接 web 服务器，权限设为 660
 2. 使用 IP 转发，FPM 无需监听用户
 ```
 
@@ -209,10 +214,10 @@ chmod 755 /www
 
 ```bash [权限分析]
 - 对于php文件，php-fpm 需要读取权限
-- 对于页面文件，www 需要读取权限
-- 对于上传文件，php-fpm 需要读写权限，www需要读取权限
+- 对于页面文件，nginx 需要读取权限
+- 对于上传文件，php-fpm 需要读写权限，nginx需要读取权限
 - 对于缓存目录，php-fpm 需要读写权限
-- 对于入口文件，php-fpm 需要读取权限, www不需要任何权限（直接走代理转发）
+- 对于入口文件，php-fpm 需要读取权限, nginx不需要任何权限（直接走代理转发）
 - 如果是开发环境，开发用户对所有文件都应该拥有读写权限
 ```
 
@@ -220,9 +225,9 @@ chmod 755 /www
 chown php-fpm:php-fpm -R /www/tp
 find /www/tp -type f -exec chmod 440 {} \;
 find /www/tp -type d -exec chmod 550 {} \;
-# 部分目录需确保www可以访问和进入
-chmod php-fpm:www -R /www/tp /www/tp/public /www/tp/public/static /www/tp/public/static/upload
-# 部分文件需确保www可以访问
+# 部分目录需确保nginx可以访问和进入
+chmod php-fpm:nginx -R /www/tp /www/tp/public /www/tp/public/static /www/tp/public/static/upload
+# 部分文件需确保nginx可以访问
 chmod 440 /www/tp/public/{favicon.ico,robots.txt}
 # 缓存和上传目录需要写入权限
 chmod 750 /www/tp/public/static/upload /www/tp/runtime
@@ -234,10 +239,10 @@ usermod -G emad php-fpm
 chown emad:emad -R /www/tp
 find /www/tp -type f -exec chmod 640 {} \;
 find /www/tp -type d -exec chmod 750 {} \;
-# 确保php-fpm和www可以访问public目录
+# 确保php-fpm和nginx可以访问public目录
 chmod 755 /www/tp /www/tp/public /www/tp/public/static/
 chmod 744 /www/tp/public/{favicon.ico,robots.txt}
-# php读写 www读
+# php读写 nginx读
 chmod 775 /www/tp/public/static/upload
 # php读写
 chmod 770 /www/tp/runtime
@@ -251,10 +256,10 @@ chmod 770 /www/tp/runtime
 
 ```bash [权限分析]
 - 对于php文件，php-fpm 需要读取权限
-- 对于页面文件，www 需要读取权限
-- 对于上传文件，php-fpm需要读写权限，www需要读取权限
+- 对于页面文件，nginx 需要读取权限
+- 对于上传文件，php-fpm需要读写权限，nginx需要读取权限
 - 对于缓存目录，php-fpm需要读写权限
-- 对于入口文件，php-fpm需要读取权限, www不需要任何权限（直接走代理转发）
+- 对于入口文件，php-fpm需要读取权限, nginx不需要任何权限（直接走代理转发）
 - 如果是开发环境，开发用户对所有文件都应该拥有读写权限
 ```
 
@@ -262,9 +267,9 @@ chmod 770 /www/tp/runtime
 chown php-fpm:php-fpm -R /www/laravel
 find /www/laravel -type f -exec chmod 440 {} \;
 find /www/laravel -type d -exec chmod 550 {} \;
-# 部分目录需确保www可以访问和进入
-chmod php-fpm:www -R /www/laravel /www/laravel/public /www/laravel/public/static /www/laravel/public/static/upload
-# 部分文件需确保www可以访问
+# 部分目录需确保nginx可以访问和进入
+chmod php-fpm:nginx -R /www/laravel /www/laravel/public /www/laravel/public/static /www/laravel/public/static/upload
+# 部分文件需确保nginx可以访问
 chmod 440 /www/laravel/public/{favicon.ico,robots.txt}
 # 缓存和上传目录需要写入权限
 chmod 750 /www/laravel/public/static/upload
@@ -277,10 +282,10 @@ usermod -G emad php-fpm
 chown emad:emad -R /www/laravel
 find /www/laravel -type f -exec chmod 640 {} \;
 find /www/laravel -type d -exec chmod 750 {} \;
-# 确保php-fpm和www可以访问public目录
+# 确保php-fpm和nginx可以访问public目录
 chmod 755 /www/laravel /www/laravel/public /www/laravel/public/static/
 chmod 644 /www/laravel/public/{favicon.ico,robots.txt}
-# php读写 www读
+# php读写 nginx读
 chmod 775 /www/laravel/public/static/upload
 # php读写
 find /www/laravel/storage/ -type d -exec chmod 770 {} \;
