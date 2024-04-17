@@ -459,8 +459,8 @@ PHP-FPM 工作池进程配置文件有多个，并且支持随意命名，但为
 ```ini
 # 子进程名，通常与子进程配置文件命名相同
 [default]
-user                    = phpfpm    # 子进程用户，默认为 nobody
-group                   = phpfpm    # 子进程用户组，默认为 nobody
+user                    = php-fpm    # 子进程用户，默认为 nobody
+group                   = php-fpm    # 子进程用户组，默认为 nobody
 
 # 工作池进程对应的监听地址，可选 监听端口 或 socket文件
 listen                  = /server/run/php/php81-fpm-default.sock
@@ -497,7 +497,7 @@ PHP-FPM 自带了一套比较完善的进程管理指令，编译完成后还会
 ::: code-group
 
 ```bash [创建单元文件]
-mv /path/phpfpm*.service /usr/lib/systemd/system/
+mv /path/php*-fpm.service /usr/lib/systemd/system/
 ```
 
 ```bash [加入开机启动]
@@ -518,7 +518,7 @@ systemctl daemon-reload
 3. 多个配置文件，不允许指向同一个 unix-socket，会出现冲突
 4. 每个配置文件：
    - 必须设置单独的 `socket` 文件路径，如：tp6.sock、default.sock
-   - 可以设置自己的用户，如：www、nginx、phpfpm、nobody
+   - 可以设置自己的用户，如：www、nginx、php-fpm、nobody
 
 :::
 

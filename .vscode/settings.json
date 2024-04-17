@@ -94,7 +94,6 @@
     "PEERCRED",
     "pgport",
     "pgsql",
-    "phpfpm",
     "phpstorm",
     "pidfile",
     "pigz",

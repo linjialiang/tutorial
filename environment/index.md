@@ -125,7 +125,7 @@ PHP 环境目录
 | redis      | redis 主进程用户    |
 | postgres   | postgres 主进程用户 |
 | nginx      | nginx 子进程用户    |
-| phpfpm     | php-fpm 子进程用户  |
+| php-fpm    | php-fpm 子进程用户  |
 | `emad/www` | 操作文件用户        |
 
 ::: tip 操作文件用户
@@ -135,7 +135,7 @@ PHP 环境目录
 ### 用户职责
 
 - nginx 是 nginx work 进程的 Unix 用户
-- phpfpm 是 FPM 子进程的 Unix 用户
+- php-fpm 是 FPM 子进程的 Unix 用户
 - www 是开发者操作项目资源、文件的用户
 
 ### 用户权限
@@ -156,11 +156,11 @@ redis 只针对 redis
 2. 使用 IP 转发，FPM 无需监听用户，nginx 用户需要
 ```
 
-```md [phpfpm]
+```md [php-fpm]
 1. FPM 进程运行的 Unix 用户，对 php 脚本、php 所需的配置文件需要 `读` 的权限；
 2. 当 php 需要操作文件或目录时，需要提供 `读+写` 权限：
    - 如：框架中记录运行时日志、缓存的 runtime 目录，就需要 `读+写` 全新
-3. 除此以外，phpfpm 用户通常不需要其他权限
+3. 除此以外，php-fpm 用户通常不需要其他权限
 ```
 
 ```md [www]
@@ -198,20 +198,20 @@ chmod 755 /www
 ::: code-group
 
 ```bash [权限分析]
-- 对于php文件，phpfpm 需要读取权限
+- 对于php文件，php-fpm 需要读取权限
 - 对于页面文件，nginx 需要读取权限
-- 对于上传文件，phpfpm需要读写权限，nginx需要读取权限
-- 对于缓存目录，phpfpm需要读写权限
-- 对于入口文件，phpfpm需要读取权限, nginx不需要任何权限（直接走代理转发）
+- 对于上传文件，php-fpm 需要读写权限，nginx需要读取权限
+- 对于缓存目录，php-fpm 需要读写权限
+- 对于入口文件，php-fpm 需要读取权限, nginx不需要任何权限（直接走代理转发）
 - 如果是开发环境，开发用户对所有文件都应该拥有读写权限
 ```
 
 ```bash [部署]
-chown phpfpm:phpfpm -R /www/tp
+chown php-fpm:php-fpm -R /www/tp
 find /www/tp -type f -exec chmod 440 {} \;
 find /www/tp -type d -exec chmod 550 {} \;
 # 部分目录需确保nginx可以访问和进入
-chmod phpfpm:nginx -R /www/tp /www/tp/public /www/tp/public/static /www/tp/public/static/upload
+chmod php-fpm:nginx -R /www/tp /www/tp/public /www/tp/public/static /www/tp/public/static/upload
 # 部分文件需确保nginx可以访问
 chmod 440 /www/tp/public/{favicon.ico,robots.txt}
 # 缓存和上传目录需要写入权限
@@ -219,12 +219,12 @@ chmod 750 /www/tp/public/static/upload /www/tp/runtime
 ```
 
 ```bash [开发]
-usermod -G emad phpfpm
+usermod -G emad php-fpm
 
 chown emad:emad -R /www/tp
 find /www/tp -type f -exec chmod 640 {} \;
 find /www/tp -type d -exec chmod 750 {} \;
-# 确保phpfpm和nginx可以访问public目录
+# 确保php-fpm和nginx可以访问public目录
 chmod 755 /www/tp /www/tp/public /www/tp/public/static/
 chmod 744 /www/tp/public/{favicon.ico,robots.txt}
 # php读写 nginx读
@@ -240,20 +240,20 @@ chmod 770 /www/tp/runtime
 ::: code-group
 
 ```bash [权限分析]
-- 对于php文件，phpfpm 需要读取权限
+- 对于php文件，php-fpm 需要读取权限
 - 对于页面文件，nginx 需要读取权限
-- 对于上传文件，phpfpm需要读写权限，nginx需要读取权限
-- 对于缓存目录，phpfpm需要读写权限
-- 对于入口文件，phpfpm需要读取权限, nginx不需要任何权限（直接走代理转发）
+- 对于上传文件，php-fpm需要读写权限，nginx需要读取权限
+- 对于缓存目录，php-fpm需要读写权限
+- 对于入口文件，php-fpm需要读取权限, nginx不需要任何权限（直接走代理转发）
 - 如果是开发环境，开发用户对所有文件都应该拥有读写权限
 ```
 
 ```bash [部署]
-chown phpfpm:phpfpm -R /www/laravel
+chown php-fpm:php-fpm -R /www/laravel
 find /www/laravel -type f -exec chmod 440 {} \;
 find /www/laravel -type d -exec chmod 550 {} \;
 # 部分目录需确保nginx可以访问和进入
-chmod phpfpm:nginx -R /www/laravel /www/laravel/public /www/laravel/public/static /www/laravel/public/static/upload
+chmod php-fpm:nginx -R /www/laravel /www/laravel/public /www/laravel/public/static /www/laravel/public/static/upload
 # 部分文件需确保nginx可以访问
 chmod 440 /www/laravel/public/{favicon.ico,robots.txt}
 # 缓存和上传目录需要写入权限
@@ -262,12 +262,12 @@ find /www/laravel/storage/ -type d -exec chmod 750 {} \;
 ```
 
 ```bash [开发]
-usermod -G emad phpfpm
+usermod -G emad php-fpm
 
 chown emad:emad -R /www/laravel
 find /www/laravel -type f -exec chmod 640 {} \;
 find /www/laravel -type d -exec chmod 750 {} \;
-# 确保phpfpm和nginx可以访问public目录
+# 确保php-fpm和nginx可以访问public目录
 chmod 755 /www/laravel /www/laravel/public /www/laravel/public/static/
 chmod 644 /www/laravel/public/{favicon.ico,robots.txt}
 # php读写 nginx读

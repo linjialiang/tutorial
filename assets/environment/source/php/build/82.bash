@@ -1,7 +1,7 @@
 ../configure --prefix=/server/php/82/ \
 --enable-fpm \
---with-fpm-user=phpfpm \
---with-fpm-group=phpfpm \
+--with-fpm-user=php-fpm \
+--with-fpm-group=php-fpm \
 --with-fpm-systemd \
 --with-openssl \
 --with-zlib \

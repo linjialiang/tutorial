@@ -3,7 +3,7 @@ func_chown_nginx(){
     chown nginx:nginx $1
 }
 
-func_chown_phpfpm(){
+func_chown_phpFpm(){
     chown php-fpm:php-fpm $1
 }
 
@@ -28,7 +28,7 @@ chown_nginx_array=(
     "/server/logs/nginx"
 );
 
-chown_phpfpm_array=(
+chown_phpFpm_array=(
     "/server/run/php"
     "/server/logs/php"
 );
@@ -68,13 +68,13 @@ do
 done
 echo "-----nginx用户权限目录设置结束-----"
 
-echo "-----开始设置 phpfpm 用户权限目录-----"
-for((i=0;i<${#chown_phpfpm_array[*]};i++));
+echo "-----开始设置 php-fpm 用户权限目录-----"
+for((i=0;i<${#chown_phpFpm_array[*]};i++));
 do
-   echo ${chown_phpfpm_array[i]}
-   func_chown_phpfpm ${chown_phpfpm_array[i]}
+   echo ${chown_phpFpm_array[i]}
+   func_chown_phpFpm ${chown_phpFpm_array[i]}
 done
-echo "-----phpfpm 用户权限目录设置结束-----"
+echo "-----php-fpm 用户权限目录设置结束-----"
 
 echo "-----开始设置 redis 用户权限目录-----"
 for((i=0;i<${#chown_redis_array[*]};i++));
