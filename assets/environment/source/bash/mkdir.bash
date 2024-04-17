@@ -35,18 +35,13 @@ server_array=(
 
     "/server/sites"
     "/server/sites/ssl"
-    
+
     "/server/mysql"
     "/server/data"
     "/server/run/mysql"
     "/server/logs/mysql"
     "/server/etc/mysql"
     "/server/tmp/mysql"
-)
-
-package_array=(
-    "/package"
-    "/package/php_ext"
 )
 
 echo "-----开始创建server目录-----"
@@ -56,11 +51,3 @@ do
    func_create ${server_array[i]}
 done
 echo "-----server目录创建结束 -----"
-
-echo "-----开始创建package目录-----"
-for((i=0;i<${#package_array[*]};i++));
-do
-   echo ${package_array[i]}
-   func_create ${package_array[i]}
-done
-echo "-----package目录创建结束-----"

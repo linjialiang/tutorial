@@ -24,11 +24,13 @@ func_chown_www(){
 }
 
 chown_nginx_array=(
+    "/server/nginx"
     "/server/run/nginx"
     "/server/logs/nginx"
 );
 
 chown_phpFpm_array=(
+    "/server/php"
     "/server/run/php"
     "/server/logs/php"
 );
