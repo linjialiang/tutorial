@@ -26,11 +26,11 @@ do
     tar -xJf $i -C ${PACKAGE_DIR}
 done
 
-if [ -d "${TAR_DIR}/php_ext" ]; then
+if [ -d "${TAR_DIR}php_ext" ]; then
     # 进入php_ext目录
-    cd "${TAR_DIR}/php_ext"
+    cd "${TAR_DIR}php_ext"
 
-    EXT_DIR="${PACKAGE_DIR}/php_ext"
+    EXT_DIR="${PACKAGE_DIR}php_ext"
     for i in `ls *.tgz`;
     do
         echo "tgz解压" $i
