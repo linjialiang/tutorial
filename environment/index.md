@@ -109,55 +109,61 @@ PHP 环境目录
 
 :::
 
+## 生命周期
+
+### Nginx 生命周期
+
+### PHP-FPM 生命周期
+
 ## 用户说明
 
 ::: details 在用户脚本中我们创建了多个用户：
 
-| 用户名   | 说明          |
-| -------- | ------------- |
-| emad     | 开发者用户    |
-| nginx    | nginx 用户    |
-| postgres | postgres 用户 |
-| redis    | redis 用户    |
-| php-fpm  | php-fpm 用户  |
-| mysql    | MySQL 用户    |
+| 用户名   | 说明            |
+| -------- | --------------- |
+| emad     | 开发者用户      |
+| nginx    | Nginx 用户      |
+| postgres | PostgreSQL 用户 |
+| redis    | Redis 用户      |
+| php-fpm  | PHP-FPM 用户    |
+| mysql    | MySQL 用户      |
 
 :::
 
-::: details `nginx` 和 `php-fpm` 进程和用户关系比较复杂：
+::: details `Nginx` 和 `PHP-FPM` 进程和用户关系比较复杂：
 
 ::: code-group
 
-```md [nginx 进程]
+```md [Nginx 进程]
 | process      | user  |
 | ------------ | ----- |
-| nginx master | nginx |
-| nginx worker | nginx |
+| Nginx master | nginx |
+| Nginx worker | nginx |
 
-> nginx 主进程：
+> Nginx 主进程：
 
 - master 进程用户需要有 worker 进程用户的全部权限，master 进程用户类型：
   1.  特权用户(root)：worker 进程可以指定为其它非特权用户；
   2.  非特权用户：worker 进程跟 master 进程是同一个用户。
 
-> nginx 工作进程：
+> Nginx 工作进程：
 
 - worker 进程负责处理实际的用户请求
 - 代理转发和接收代理响应都是由 worker 进程处理
 
-> nginx 配置文件 `user` 指令限制说明：
+> Nginx 配置文件 `user` 指令限制说明：
 
 - 主进程是特权用户(root)：`user` 指令是有意义，用于指定工作进程用户和用户组
-- 主进程是非特权用户：`user` 指令没有意义，会被 nginx 程序忽略掉
+- 主进程是非特权用户：`user` 指令没有意义，会被 Nginx 程序忽略掉
 ```
 
-```md [php-fpm 进程]
+```md [PHP-FPM 进程]
 | process           | user    |
 | ----------------- | ------- |
-| php-fpm master    | php-fpm |
-| php-fpm pool 进程 | php-fpm |
+| PHP-FPM master    | php-fpm |
+| PHP-FPM pool 进程 | php-fpm |
 
-> php-fpm 主进程：
+> PHP-FPM 主进程：
 
 - master 进程负责管理 pool 进程
 - master 进程创建和管理 pool 进程的 sock 文件
@@ -165,16 +171,10 @@ PHP 环境目录
   1.  特权用户（root）：pool 进程可以指定为其它非特权用户
   2.  非特权用户：pool 进程用户跟 master 进程用户相同
 
-> php-fpm 工作池进程：
+> PHP-FPM 工作池进程：
 
 - pool 进程独立地处理请求，执行 PHP 脚本代码
 - pool 进程处理完 PHP 代码后，会直接将结果返回给客户端
-```
-
-```md [web请求]
-> web 请求整个生命周期：
-
-1.
 ```
 
 ```md [代理转发]
@@ -182,36 +182,36 @@ PHP 环境目录
 
 1. 浏览器，向
 
-1. 当 `Nginx worker` 进程收到一个 PHP 请求时，它会通过指定的 `php-fpm pool` 进程的 sock 文件将请求发送给 php-fpm
-1. `php-fpm master` 进程接收到请求后，会将其分配给一个空闲的` php-fpm pool` 进程
-1. `php-fpm pool` 进程处理完 PHP 脚本后，会将结果返回给 Nginx
+1. 当 `Nginx worker` 进程收到一个 PHP 请求时，它会通过指定的 `PHP-FPM pool` 进程的 sock 文件将请求发送给 PHP-FPM
+1. `PHP-FPM master` 进程接收到请求后，会将其分配给一个空闲的` PHP-FPM pool` 进程
+1. `PHP-FPM pool` 进程处理完 PHP 脚本后，会将结果返回给 Nginx
 1. 然后 `Nginx worker` 进程将结果发送给客户端。
 
 > nginx 站点代理转发 php 请求时：
 
-- Nginx 主进程用户不需要对 php-fpm 的 socket 文件拥有任何权限，处理请求的是工作进程
-- Nginx 工作进程用户需要对 php-fpm 的 socket 文件具有 `读+写` 权限
+- Nginx 主进程用户不需要对 PHP-FPM 的 socket 文件拥有任何权限，处理请求的是工作进程
+- Nginx 工作进程用户需要对 PHP-FPM 的 socket 文件具有 `读+写` 权限
   1.  读取权限：Nginx 工作进程需要读取 socket 文件以发送请求到 PHP-FPM
   2.  写入权限：Nginx 工作进程也需要写入权限，以便接收来自 PHP-FPM 的响应
-- php-fpm 主进程用户需要对 sock 文件具有全部权限
+- PHP-FPM 主进程用户需要对 sock 文件具有全部权限
   1. 创建/删除 pool 进程的 sock 文件
   2. 监听指定的端口或 Unix 套接字文件，以便接收来自 Web 服务器（如 Nginx）的请求。
   3. 由
 
-> php-fpm 的套接字文件：
+> PHP-FPM 的套接字文件：
 
 - pool 进程的 sock 文件监听用户: `php-fpm`
 - pool 进程的 sock 文件监听用户组: `nginx`
 - pool 进程的 sock 文件监听权限: `0660`
-- php-fpm 用户的附属用户组增加 `nginx`
+- 用户 php-fpm 的附属用户组增加 `nginx`
 ```
 
 :::
 
 ### 用户职责
 
-- `用户 nginx` 是 nginx worker 进程的 Unix 用户
-- `用户 php-fpm` 是 FPM 子进程的 Unix 用户
+- `用户 nginx` 是 Nginx worker 进程的 Unix 用户
+- `用户 php-fpm` 是 PHP-FPM 子进程的 Unix 用户
 - `用户 emad` 是开发者操作项目资源、文件的用户
 
 ### 用户权限
