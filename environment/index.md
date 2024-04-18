@@ -171,13 +171,21 @@ PHP 环境目录
 - pool 进程处理完 PHP 代码后，会直接将结果返回给客户端
 ```
 
+```md [web请求]
+> web 请求整个生命周期：
+
+1.
+```
+
 ```md [代理转发]
-> 整个流程说明：
+> 流程说明：
+
+1. 浏览器，向
 
 1. 当 `Nginx worker` 进程收到一个 PHP 请求时，它会通过指定的 `php-fpm pool` 进程的 sock 文件将请求发送给 php-fpm
-2. `php-fpm master` 进程接收到请求后，会将其分配给一个空闲的` php-fpm pool` 进程
-3. `php-fpm pool` 进程处理完 PHP 脚本后，会将结果返回给 Nginx
-4. 然后 `Nginx worker` 进程将结果发送给客户端。
+1. `php-fpm master` 进程接收到请求后，会将其分配给一个空闲的` php-fpm pool` 进程
+1. `php-fpm pool` 进程处理完 PHP 脚本后，会将结果返回给 Nginx
+1. 然后 `Nginx worker` 进程将结果发送给客户端。
 
 > nginx 站点代理转发 php 请求时：
 
