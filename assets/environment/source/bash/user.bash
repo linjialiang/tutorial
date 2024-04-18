@@ -35,3 +35,6 @@ groupadd -g 2006 mysql
 useradd -c 'mysql service main process user' -g mysql -u 2006 -s /sbin/nologin -m mysql
 cp -r /root/{.oh-my-zsh,.zshrc} /home/mysql
 chown mysql:mysql -R /home/mysql/{.oh-my-zsh,.zshrc}
+
+# php-fpm 附属组增加 nginx
+usermod -G nginx php-fpm
