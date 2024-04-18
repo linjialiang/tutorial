@@ -240,14 +240,13 @@ php-fpm 处理一次请求的生命周期包括请求接收、请求处理和请
 ```
 
 ```md [代理转发]
-> 流程说明：
+> 具体流程如下：
 
-1. 浏览器，向
-
-1. 当 `Nginx worker` 进程收到一个 PHP 请求时，它会通过指定的 `PHP-FPM pool` 进程的 sock 文件将请求发送给 PHP-FPM
-1. `PHP-FPM master` 进程接收到请求后，会将其分配给一个空闲的` PHP-FPM pool` 进程
-1. `PHP-FPM pool` 进程处理完 PHP 脚本后，会将结果返回给 Nginx
-1. 然后 `Nginx worker` 进程将结果发送给客户端。
+1. Nginx master 进程：当有新的请求到来时，master 进程会将其分配给一个 worker 进程来处理。
+2. Nginx worker 进程：如果请求是静态资源，则直接返回给客户端；如果请求是 PHP 文件，则通过 `PHP-FPM pool` 进程的 sock 文件将请求转发给 PHP-FPM 进行处理。
+3. PHP-FPM master 进程：当收到 `PHP-FPM pool` 进程的 sock 文件传递的请求时，master 进程会将其分配给一个 pool 进程来处理。
+4. PHP-FPM pool 进程：pool 进程执行和处理 PHP 代码，并将结果返回通过 Nginx 对应的 worker 进程。
+5. 返回结果：Nginx 的 worker 进程再将处理后的动态内容返回给客户端。
 
 > nginx 站点代理转发 php 请求时：
 
