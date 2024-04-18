@@ -134,17 +134,21 @@ PHP 环境目录
 | nginx master | nginx |
 | nginx worker | nginx |
 
-> nginx 主进程用户需要有工作进程用户的全部权限：
+> nginx 主进程：
 
-- 主进程是特权用户(root)：工作进程可以指定为其它非特权用户；
-- 主进程是非特权用户：子进程跟主进程是同一个用户。
+- master 进程用户需要有 worker 进程用户的全部权限，master 进程用户类型：
+  1.  特权用户(root)：worker 进程可以指定为其它非特权用户；
+  2.  非特权用户：worker 进程跟 master 进程是同一个用户。
+
+> nginx 工作进程：
+
+- worker 进程负责处理实际的用户请求
+- 代理转发和接收代理响应都是由 worker 进程处理
 
 > nginx 配置文件 `user` 指令限制说明：
 
 - 主进程是特权用户(root)：`user` 指令是有意义，用于指定工作进程用户和用户组
 - 主进程是非特权用户：`user` 指令没有意义，会被 nginx 程序忽略掉
-
-> nginx 工作进程用户需要对站点静态文件和目录有访问权限
 ```
 
 ```md [php-fpm 进程]
@@ -157,9 +161,11 @@ PHP 环境目录
 
 - master 进程负责管理 pool 进程
 - master 进程创建和管理 pool 进程的 sock 文件
-- master 进程需要有 pool 进程用户的全部权限，master 进程用户只有两个选项：
-  1.  特权用户（root）
-  2.  非特权用户：只能跟 pool 进程用户相同
+- master 进程需要有 pool 进程用户的全部权限，master 进程用户类型：
+  1.  特权用户（root）：pool 进程可以指定为其它非特权用户
+  2.  非特权用户：pool 进程用户跟 master 进程用户相同
+
+> php-fpm 工作池进程：
 ```
 
 ```md [代理转发]
