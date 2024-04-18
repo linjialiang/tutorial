@@ -109,40 +109,52 @@ PHP 环境目录
 
 :::
 
-::: tip 说明
+## 用户说明
 
-- nginx、php-fpm 的主进程用户是 root
-- redis、postgres 的主进程可以是指定的非特权用户
+::: details 在用户脚本中我们创建了多个用户：
+
+| 用户名   | 说明          |
+| -------- | ------------- |
+| emad     | 开发者用户    |
+| nginx    | nginx 用户    |
+| postgres | postgres 用户 |
+| redis    | redis 用户    |
+| php-fpm  | php-fpm 用户  |
+| mysql    | MySQL 用户    |
 
 :::
 
-## 用户说明
+::: details `nginx` 和 `php-fpm` 进程和用户关系比较复杂：
 
-在用户脚本中我们可以看到，我们创建了 4 个用户
+::: code-group
 
-| 用户名   | 说明                        |
-| -------- | --------------------------- |
-| redis    | redis 主进程用户            |
-| postgres | postgres 主进程用户         |
-| nginx    | nginx 子进程用户,浏览器用户 |
-| php-fpm  | php-fpm 子进程用户          |
-| emad     | 操作文件用户                |
+```md [nginx 进程]
+| process      | user  |
+| ------------ | ----- |
+| nginx master | nginx |
+| nginx worker | nginx |
 
-::: tip 操作文件用户
-如果是在本机搭建环境，直接用你的登陆用户作为操作文件的用户即可
+> nginx 主进程用户需要拥有工作进程用户的全部权限：
 
-其中 nginx 用户不仅是子进程(worker)用户，也是 nginx 主进程(master)的用户，这是因为：
+- 主进程是特权用户(root)：工作进程可以指定为其它非特权用户；
+- 主进程是非特权用户：子进程跟主进程是同一个用户。
 
-```md
-> 主进程用户需要拥有子进程用户的全部权限：
+> nginx 配置文件 `user` 指令限制说明：
 
-- 主进程是特权用户(root)时，子进程才能设为其它非特权用户；
-- 主进程是非特权用户，子进程只能跟主进程是同一个用户。
+- 主进程是特权用户(root)：`user` 指令是有意义，用于指定工作进程用户和用户组
+- 主进程是非特权用户：`user` 指令没有意义，会被 nginx 程序忽略掉
+```
 
-> nginx 配置文件 `user` 指令解释：
+```md [php-fpm 进程]
+| process        | user    |
+| -------------- | ------- |
+| php-fpm master | php-fpm |
+| php-fpm pool   | php-fpm |
 
-- `user` 指令是用于指定子进程(worker)用户和用户组
-- `user` 指令只有当主进程(master)用户是超级用户(root)是才有意义，否则会被忽略掉
+- php-fpm pool 监听用户: `php-fpm`
+- php-fpm pool 监听用户组: `nginx`
+- php-fpm pool 监听权限: `0660`
+- php-fpm 用户的附属用户组增加 `nginx`
 ```
 
 :::
