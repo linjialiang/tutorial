@@ -416,13 +416,26 @@ chmod 750 /www/laravel/storage/
 
 :::
 
-::: danger 开发用户 umask 权限修改：
+## umask 权限
 
-```bash
+::: code-group
+
+```bash [php-fpm 用户]
 # ~/.profile
+
+# 第9行 umask 022处新建一行
+# 即使是目录上传上来，也没得执行
+umask 222 # 创建的文件权限是 444 目录权限是 555
+```
+
+```bash [开发用户]
+# ~/.profile
+
 # 第9行 umask 022处新建一行
 umask 027 # 创建的文件权限是 640 目录权限是 750
 ```
+
+:::
 
 注意: `bash/zsh 配置文件` 开头需要增加一行：
 
@@ -430,8 +443,6 @@ umask 027 # 创建的文件权限是 640 目录权限是 750
 # ~/.(bashrc|zshrc)
 source ~/.profile
 ```
-
-:::
 
 ## 编译器选择
 
