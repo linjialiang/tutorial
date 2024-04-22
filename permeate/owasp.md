@@ -18,7 +18,7 @@ apt install git maven -y
 
 ## 安装 Java 8
 
-去[[Java 官网]](https://www.oracle.com/java/technologies/downloads/)可以下载到最新的Java8—— [[dk-8u391-linux-x64.tar.gz]](https://download.oracle.com/otn/java/jdk/8u391-b13/b291ca3e0c8548b5a51d5a5f50063037/jdk-8u391-linux-x64.tar.gz)
+去[[Java 官网]](https://www.oracle.com/java/technologies/downloads/)可以下载到最新的Java8
 
 ::: code-group
 
@@ -53,6 +53,7 @@ ldd /usr/lib/jdk8/bin/java
 ```bash [安装]
 git clone https://github.com/OWASP-Benchmark/BenchmarkJava.git
 cd BenchmarkJava
+git checkout 1.1final
 # 构建前 mvn 建议设为阿里云镜像
 # 构建
 mvn compile
@@ -77,7 +78,7 @@ ps -ef|grep BenchmarkJava
 
 ## 配置国内镜像
 
-文件 `/etc/maven/setting.xml` 内 `mirrors` 标签下 增加一个 `mirror` 子标签
+文件 `/etc/maven/settings.xml` 内 `mirrors` 标签下 增加一个 `mirror` 子标签
 
 ```xml
 <mirrors>
