@@ -53,7 +53,6 @@ ldd /usr/lib/jdk8/bin/java
 ```bash [安装]
 git clone https://github.com/OWASP-Benchmark/BenchmarkJava.git
 cd BenchmarkJava
-git checkout 1.1final
 # 构建前 mvn 建议设为阿里云镜像
 # 构建
 mvn compile
