@@ -94,7 +94,7 @@ titleTemplate: PSR 教程
 
 <<<@/assets/php/psr/psr-3/03.php
 
-## 5. 日志登录常量
+## 5. 日志等级常量
 
 接口命名空间 `Psr\Log\LogLevel`
 
