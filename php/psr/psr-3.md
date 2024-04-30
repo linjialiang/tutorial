@@ -81,3 +81,21 @@ titleTemplate: PSR 教程
 ## 2. Package
 
 接口和类的描述、相关的异常类以及用于验证你所写代码的测试套件都将作为 [psr/log](https://packagist.org/packages/psr/log) 包的一部分提供。
+
+## 3. 日志接口
+
+接口命名空间 `Psr\Log\LoggerInterface`
+
+<<<@/assets/php/psr/psr-3/02.php
+
+## 4. 日志依赖注入接口
+
+接口命名空间 `Psr\Log\LoggerAwareInterface`
+
+<<<@/assets/php/psr/psr-3/03.php
+
+## 5. 日志登录常量
+
+接口命名空间 `Psr\Log\LogLevel`
+
+<<<@/assets/php/psr/psr-3/03.php
