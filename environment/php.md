@@ -833,7 +833,7 @@ xdebug 是 php 的断点调试工具
 ::: code-group
 
 ```bash [编译]
-cd /home/php-fpm/php_ext/xdebug-3.3.1
+cd /home/php-fpm/php_ext/xdebug-3.3.2
 phpize
 ./configure --enable-xdebug --with-php-config=/server/php/83/bin/php-config
 # ./configure --enable-xdebug --with-php-config=/server/php/74/bin/php-config

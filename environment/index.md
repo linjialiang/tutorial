@@ -104,7 +104,7 @@ PHP 环境目录
 3. yaml-2.2.3.tgz
 4. mongodb-1.18.1.tgz
 5. rdkafka-6.0.3.tgz
-6. xdebug-3.3.1.tgz
+6. xdebug-3.3.2.tgz
 ```
 
 :::
