@@ -84,20 +84,17 @@ PHP 环境目录
 
 ```md [软件包]
 1. nginx-1.26.0.tar.gz
-2. openssl-3.0.13.tar.gz
-3. pcre2-10.43.tar.bz2
-4. zlib-1.3.1.tar.xz
-5. postgresql-16.3.tar.bz2
-6. php-8.3.7.tar.xz
-```
-
-```md [php扩展包]
-1. apcu-5.1.23.tgz
-2. redis-6.0.2.tgz
-3. yaml-2.2.3.tgz
-4. mongodb-1.19.0.tgz
-5. xdebug-3.3.2.tgz
-6. ~~rdkafka-6.0.3.tgz~~
+   1. openssl-3.0.13.tar.gz
+   2. pcre2-10.43.tar.bz2
+   3. zlib-1.3.1.tar.xz
+2. postgresql-16.3.tar.bz2
+3. php-8.3.7.tar.xz
+   1. apcu-5.1.23.tgz `静态扩展`
+   2. yaml-2.2.3.tgz `静态扩展`
+   3. redis-6.0.2.tgz `动态扩展`
+   4. mongodb-1.19.0.tgz `动态扩展`
+   5. rdkafka-6.0.3.tgz `动态扩展`
+   6. xdebug-3.3.2.tgz `动态扩展`
 ```
 
 :::
@@ -174,14 +171,14 @@ php-fpm 处理一次请求的生命周期包括请求接收、请求处理和请
 
 ::: details 在用户脚本中我们创建了多个用户：
 
-| 用户名   | 说明            |
-| -------- | --------------- |
-| emad     | 开发者用户      |
-| nginx    | Nginx 用户      |
-| postgres | PostgreSQL 用户 |
-| redis    | Redis 用户      |
-| php-fpm  | PHP-FPM 用户    |
-| mysql    | MySQL 用户      |
+| 用户名    | 说明            |
+| --------- | --------------- |
+| emad      | 开发者用户      |
+| nginx     | Nginx 用户      |
+| postgres  | PostgreSQL 用户 |
+| php-fpm   | PHP-FPM 用户    |
+| ~~redis~~ | Redis 用户      |
+| ~~mysql~~ | MySQL 用户      |
 
 :::
 
