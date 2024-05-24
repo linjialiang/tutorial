@@ -84,17 +84,17 @@ PHP 环境目录
 
 ```md [软件包]
 1. nginx-1.26.0.tar.gz
-   1. openssl-3.0.13.tar.gz
-   2. pcre2-10.43.tar.bz2
-   3. zlib-1.3.1.tar.xz
+   - openssl-3.0.13.tar.gz
+   - pcre2-10.43.tar.bz2
+   - zlib-1.3.1.tar.xz
 2. postgresql-16.3.tar.bz2
 3. php-8.3.7.tar.xz
-   1. apcu-5.1.23.tgz `静态扩展`
-   2. yaml-2.2.3.tgz `静态扩展`
-   3. redis-6.0.2.tgz `动态扩展`
-   4. mongodb-1.19.0.tgz `动态扩展`
-   5. rdkafka-6.0.3.tgz `动态扩展`
-   6. xdebug-3.3.2.tgz `动态扩展`
+   - apcu-5.1.23.tgz `静态扩展`
+   - yaml-2.2.3.tgz `静态扩展`
+   - redis-6.0.2.tgz `动态扩展`
+   - mongodb-1.19.0.tgz `动态扩展`
+   - rdkafka-6.0.3.tgz `动态扩展`
+   - xdebug-3.3.2.tgz `动态扩展`
 ```
 
 :::
