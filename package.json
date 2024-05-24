@@ -2,8 +2,8 @@
   "type": "module",
   "devDependencies": {
     "markdown-it-mathjax3": "^4.3.2",
-    "vitepress": "^1.1.0",
-    "vue": "^3.4.21"
+    "vitepress": "^1.2.2",
+    "vue": "^3.4.27"
   },
   "scripts": {
     "dev": "vitepress dev",
