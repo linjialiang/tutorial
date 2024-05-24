@@ -14,7 +14,9 @@ titleTemplate: 环境搭建教程
 ::: tip 必要说明
 PostgreSql 官方推荐使用 GCC 最新版编译器来构建，但为了支持 JIT 这里用的是 `llvm+clang` 编译器套件；
 
-GCC 编辑器不支持 JIT 即时编译功能，即时编译需要增加 `--with-llvm` 选项，需要使用 `llvm+clang` 编译器组合。
+GCC 编译器不支持 JIT 即时编译功能；
+
+也就是说如果要增加 `--with-llvm` 编译选项，就需要使用 `llvm+clang` 编译器组合。
 
 C 语言编译器主要有四种： `MSVC`/`GCC`/`MinGW`/`Clang+LLVM`
 :::
