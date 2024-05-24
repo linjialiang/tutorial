@@ -18,11 +18,6 @@ server_array=(
     "/server/run/nginx"
     "/server/logs/nginx"
 
-    "/server/redis"
-    "/server/redis/rdbData"
-    "/server/run/redis"
-    "/server/logs/redis"
-
     "/server/php"
     "/server/php/83"
     "/server/run/php"
@@ -36,12 +31,18 @@ server_array=(
     "/server/sites"
     "/server/sites/ssl"
 
-    "/server/mysql"
-    "/server/data"
-    "/server/run/mysql"
-    "/server/logs/mysql"
-    "/server/etc/mysql"
-    "/server/tmp/mysql"
+
+    # "/server/redis"
+    # "/server/redis/rdbData"
+    # "/server/run/redis"
+    # "/server/logs/redis"
+    #
+    # "/server/mysql"
+    # "/server/data"
+    # "/server/run/mysql"
+    # "/server/logs/mysql"
+    # "/server/etc/mysql"
+    # "/server/tmp/mysql"
 )
 
 echo "-----开始创建server目录-----"

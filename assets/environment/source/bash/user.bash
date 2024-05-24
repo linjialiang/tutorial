@@ -12,12 +12,6 @@ useradd -c 'postgres service main process user' -g postgres -u 2001 -s /sbin/nol
 cp -r /root/{.oh-my-zsh,.zshrc} /home/postgres
 chown postgres:postgres -R /home/postgres/{.oh-my-zsh,.zshrc}
 
-# 创建 redis 用户
-groupadd -g 2002 redis
-useradd -c 'redis service main process user' -g redis -u 2002 -s /sbin/nologin -m redis
-cp -r /root/{.oh-my-zsh,.zshrc} /home/redis
-chown redis:redis -R /home/redis/{.oh-my-zsh,.zshrc}
-
 # 创建 nginx 用户
 groupadd -g 2003 nginx
 useradd -c 'nginx service main process user' -g nginx -u 2003 -s /sbin/nologin -m nginx
@@ -30,11 +24,17 @@ useradd -c 'php-fpm service main process user' -g php-fpm -u 2005 -s /sbin/nolog
 cp -r /root/{.oh-my-zsh,.zshrc} /home/php-fpm
 chown php-fpm:php-fpm -R /home/php-fpm/{.oh-my-zsh,.zshrc}
 
-# 创建 MySQL 用户
-groupadd -g 2006 mysql
-useradd -c 'mysql service main process user' -g mysql -u 2006 -s /sbin/nologin -m mysql
-cp -r /root/{.oh-my-zsh,.zshrc} /home/mysql
-chown mysql:mysql -R /home/mysql/{.oh-my-zsh,.zshrc}
-
 # php-fpm 附属组增加 nginx
 usermod -G nginx php-fpm
+
+# # 创建 redis 用户
+# groupadd -g 2002 redis
+# useradd -c 'redis service main process user' -g redis -u 2002 -s /sbin/nologin -m redis
+# cp -r /root/{.oh-my-zsh,.zshrc} /home/redis
+# chown redis:redis -R /home/redis/{.oh-my-zsh,.zshrc}
+#
+# # 创建 MySQL 用户
+# groupadd -g 2006 mysql
+# useradd -c 'mysql service main process user' -g mysql -u 2006 -s /sbin/nologin -m mysql
+# cp -r /root/{.oh-my-zsh,.zshrc} /home/mysql
+# chown mysql:mysql -R /home/mysql/{.oh-my-zsh,.zshrc}
