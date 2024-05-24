@@ -91,7 +91,7 @@ PHP 环境目录
 3. php-8.3.7.tar.xz
    - apcu-5.1.23.tgz `静态扩展`
    - yaml-2.2.3.tgz `静态扩展`
-   - redis-6.0.2.tgz `动态扩展`
+   - redis-6.0.2.tgz `静态扩展`
    - mongodb-1.19.0.tgz `动态扩展`
    - rdkafka-6.0.3.tgz `动态扩展`
    - xdebug-3.3.2.tgz `动态扩展`
