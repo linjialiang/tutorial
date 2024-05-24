@@ -30,22 +30,13 @@ PHP 环境目录
 |   |
 |   ├─ pgData               postgres的数据目录
 |   |
-|   ├─ mysql                mysql的基目录
-|   |  └─ ...
-|   |
-|   ├─ data                 mysql的数据目录
-|   |
 |   ├─ php                  PHP 版本目录
 |   |  ├─ 83                PHP8.3
-|   |  └─ ...
-|   |
-|   ├─ redis               redis
 |   |  └─ ...
 |   |
 |   ├─ run                 run
 |   |  ├─ nginx            nginx的run目录
 |   |  ├─ postgres         postgres的run目录
-|   |  ├─ redis            redis的run目录
 |   |  ├─ php              php的run目录
 |   |  └─ ...
 |   |
@@ -57,7 +48,6 @@ PHP 环境目录
 |   ├─ logs                服务器相关日志文件目录
 |   |  ├─ nginx            nginx日志目录
 |   |  ├─ postgres         postgres日志目录
-|   |  ├─ redis            redis日志目录
 |   |  ├─ php              php日志目录
 |   |
 |   ├─ tmp                 临时文件存放基目录
@@ -69,7 +59,12 @@ PHP 环境目录
 └─
 ```
 
-::: warning 因精力原因： SQLite 和 MongoDB 数据库不再维护， MySQL/PostgreSQL/Redis 继续维护
+::: warning 部分包数据存储相关软件遗弃说明
+
+1. 首先精力有限，维护过多的软件，会造成不够深入；
+2. 其次，也是为了响应业内的 `一切皆用 Postgres` 趋势；
+3. 最终：MySQL、Redis、SQLite 和 MongoDB 不再维护！
+
 :::
 
 ## 脚本文件
@@ -88,23 +83,21 @@ PHP 环境目录
 ::: code-group
 
 ```md [软件包]
-1. nginx-1.24.0.tar.gz
+1. nginx-1.26.0.tar.gz
 2. openssl-3.0.13.tar.gz
 3. pcre2-10.43.tar.bz2
 4. zlib-1.3.1.tar.xz
-5. redis-7.2.4.tar.gz
-6. postgresql-16.2.tar.bz2
-7. mysql-boost-8.0.36.tar
-8. php-8.3.6.tar.xz
+5. postgresql-16.3.tar.bz2
+6. php-8.3.7.tar.xz
 ```
 
 ```md [php扩展包]
 1. apcu-5.1.23.tgz
 2. redis-6.0.2.tgz
 3. yaml-2.2.3.tgz
-4. mongodb-1.18.1.tgz
-5. rdkafka-6.0.3.tgz
-6. xdebug-3.3.2.tgz
+4. mongodb-1.19.0.tgz
+5. xdebug-3.3.2.tgz
+6. ~~rdkafka-6.0.3.tgz~~
 ```
 
 :::
