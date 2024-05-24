@@ -5,7 +5,8 @@ titleTemplate: 环境搭建教程
 
 # 安装 Sqlite3
 
-::: danger 不维护
+::: danger 警告
+Sqlite3 不再维护
 :::
 
 [sqlite3](https://www.sqlite.org) 是一款轻型数据库

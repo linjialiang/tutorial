@@ -5,6 +5,10 @@ titleTemplate: 环境搭建教程
 
 # 安装 MySQL
 
+::: danger 警告
+MySQL 不再维护
+:::
+
 PHP 项目首选关系型数据库是 MySQL，这里以 MySQL8.0 为例
 
 ::: danger 警告
