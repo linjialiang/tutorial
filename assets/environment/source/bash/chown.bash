@@ -7,20 +7,20 @@ func_chown_phpFpm(){
     chown php-fpm:php-fpm $1
 }
 
-func_chown_redis(){
-    chown redis:redis $1
-}
-
 func_chown_postgres(){
     chown postgres:postgres $1
 }
 
-func_chown_mysql(){
-    chown mysql:mysql $1
-}
-
 func_chown_www(){
     chown emad:emad $1
+}
+
+func_chown_redis(){
+    chown redis:redis $1
+}
+
+func_chown_mysql(){
+    chown mysql:mysql $1
 }
 
 chown_nginx_array=(
@@ -35,18 +35,22 @@ chown_phpFpm_array=(
     "/server/logs/php"
 );
 
-chown_redis_array=(
-    "/server/redis"
-    "/server/redis/rdbData"
-    "/server/run/redis"
-    "/server/logs/redis"
-);
-
 chown_postgres_array=(
     "/server/postgres"
     "/server/pgData"
     "/server/run/postgres"
     "/server/logs/postgres"
+);
+
+chown_www_array=(
+    "/www"
+);
+
+chown_redis_array=(
+    "/server/redis"
+    "/server/redis/rdbData"
+    "/server/run/redis"
+    "/server/logs/redis"
 );
 
 chown_mysql_array=(
@@ -56,10 +60,6 @@ chown_mysql_array=(
     "/server/logs/mysql"
     "/server/etc"
     "/server/tmp"
-);
-
-chown_www_array=(
-    "/www"
 );
 
 echo "-----开始设置nginx用户权限目录-----"
