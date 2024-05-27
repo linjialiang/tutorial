@@ -1,7 +1,7 @@
 # /usr/lib/systemd/system/nginx.service
 
 [Unit]
-Description=nginx-1.24.x
+Description=nginx-1.26.x
 After=network.target
 
 [Service]
