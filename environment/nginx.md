@@ -62,6 +62,10 @@ setcap -r /server/nginx/sbin/nginx
 
 :::
 
+::: tip
+重启电脑，使其生效
+:::
+
 ## 开始构建
 
 ### 1. 构建指令
