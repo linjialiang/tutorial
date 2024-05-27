@@ -1,5 +1,5 @@
 ./configure --prefix=/server/nginx \
---builddir=/home/nginx/nginx-1.24.0/build_nginx \
+--builddir=/home/nginx/nginx-1.26.0/build_nginx \
 
 # 核心功能模块
 --with-threads \

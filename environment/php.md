@@ -89,9 +89,9 @@ cd /home/php-fpm/php_ext
 ```
 
 ```bash [拷贝到8.3]
-cp -p -r apcu-5.1.23 /home/php-fpm/php-8.3.6/ext/apcu
-cp -p -r redis-6.0.2 /home/php-fpm/php-8.3.6/ext/redis
-cp -p -r yaml-2.2.3 /home/php-fpm/php-8.3.6/ext/yaml
+cp -p -r apcu-5.1.23 /home/php-fpm/php-8.3.7/ext/apcu
+cp -p -r redis-6.0.2 /home/php-fpm/php-8.3.7/ext/redis
+cp -p -r yaml-2.2.3 /home/php-fpm/php-8.3.7/ext/yaml
 ```
 
 ```bash [拷贝到7.4]
@@ -119,7 +119,7 @@ apt install autoconf -y
 ::: code-group
 
 ```bash [8.3重新生成]
-cd /home/php-fpm/php-8.3.6/
+cd /home/php-fpm/php-8.3.7/
 mv configure{,.original}
 ./buildconf --force
 ```
@@ -202,7 +202,7 @@ apt install librdkafka-dev -y
 
 ```bash
 mkdir /home/php-fpm/php-7.4.33/build_php
-mkdir /home/php-fpm/php-8.3.6/build_php
+mkdir /home/php-fpm/php-8.3.7/build_php
 ```
 
 ### 3. 环境变量
@@ -248,7 +248,7 @@ sqlite3          SQLite - SQL database engine
 # php7.4 构建目录
 cd /home/php-fpm/php-7.4.33/build_php/
 # php8.3 构建目录
-cd /home/php-fpm/php-8.3.6/build_php/
+cd /home/php-fpm/php-8.3.7/build_php/
 ```
 
 ### 6. 安装指令
@@ -323,7 +323,7 @@ cp /home/php-fpm/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
 # php8.2
 cp /home/php-fpm/php-8.2.12/php.ini-production /server/php/82/lib/php.ini
 # php8.3
-cp /home/php-fpm/php-8.3.6/php.ini-production /server/php/83/lib/php.ini
+cp /home/php-fpm/php-8.3.7/php.ini-production /server/php/83/lib/php.ini
 ```
 
 ```bash [开发环境]
@@ -332,7 +332,7 @@ cp /home/php-fpm/php-7.4.33/php.ini-development /server/php/74/lib/php.ini
 # php8.2
 cp /home/php-fpm/php-8.2.12/php.ini-development /server/php/82/lib/php.ini
 # php8.3
-cp /home/php-fpm/php-8.3.6/php.ini-development /server/php/83/lib/php.ini
+cp /home/php-fpm/php-8.3.7/php.ini-development /server/php/83/lib/php.ini
 ```
 
 :::
