@@ -8,6 +8,7 @@
     "batcat",
     "bootloader",
     "burpsuite",
+    "cassert",
     "cdimage",
     "commom",
     "createdb",

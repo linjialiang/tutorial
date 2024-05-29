@@ -56,6 +56,7 @@ apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev 
 | --prefix=PREFIX       | 指定安装路径                                       |
 | --datadir=DIR         | 指定数据目录路径                                   |
 | --enable-debug        | 启用调试模式                                       |
+| --enable-cassert      | 启用断言检查                                       |
 | --with-CC=CMD         | 指定 C 编译器( gcc/clang 注意是区分大小写的)       |
 | --with-llvm           | 启用基于 LLVM 的 JIT 支持，优化适合 `OLTP/OLAP`    |
 | --with-pgport=PortNum | 指定 pgsql 服务器监听的端口号                      |
@@ -112,6 +113,7 @@ su - postgres -s /bin/zsh
 cd ~/postgresql-16.3/build_postgres
 ../configure --prefix=/server/postgres \
 --enable-debug \
+--enable-cassert \
 --with-CC=clang \
 --with-llvm \
 --with-pam \
