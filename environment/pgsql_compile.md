@@ -342,7 +342,7 @@ hostssl    all      emad            192.168.0.0/16          scram-sha-256   clie
 
 :::
 
-::: warning TLS 说明
+::: warning TLS 备注说明
 
 1. 在 PostgreSQL 中 `SSL` 指的就是 `TLS`
 
