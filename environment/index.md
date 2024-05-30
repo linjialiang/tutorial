@@ -51,9 +51,9 @@ PHP 环境目录
 |   |  ├─ postgres         postgres日志目录
 |   |  ├─ php              php日志目录
 |   |
-├─ /www                    站点基目录
+├─ ...
 |
-└─
+└─ /www                    站点基目录
 ```
 
 ::: warning 部分包数据存储相关软件遗弃说明
@@ -174,8 +174,8 @@ php-fpm 处理一次请求的生命周期包括请求接收、请求处理和请
 | nginx     | Nginx 用户      |
 | postgres  | PostgreSQL 用户 |
 | php-fpm   | PHP-FPM 用户    |
-| ~~redis~~ | Redis 用户      |
-| ~~mysql~~ | MySQL 用户      |
+| ~~redis~~ | ~~Redis 用户~~  |
+| ~~mysql~~ | ~~MySQL 用户~~  |
 
 :::
 
@@ -301,7 +301,7 @@ redis 只针对 redis
 
 下面这是开发环境的案例
 
-### 1. 设置站点根目录权限
+### 1. 设置站点基目录权限
 
 ::: code-group
 
@@ -312,7 +312,9 @@ chmod 755 /www
 
 ```bash [开发]
 chown emad:emad /www
-chmod 755 /www
+chmod 750 -R /www
+# 由于nginx需要去读文件，所以nginx用户需要加入emad用户组
+usermod -G emad nginx
 ```
 
 :::
@@ -343,17 +345,15 @@ chmod 750 /www/tp/public/static/upload /www/tp/runtime
 ```
 
 ```bash [开发]
-usermod -G emad php-fpm
-
+# php-fpm 需要读取php脚本文件，以及nginx代理转发给php-fpm
+usermod -G emad,nginx php-fpm
+# nginx 需要读取html文件
+usermod -G emad nginx
+usermod -G emad,php-fpm nginx
 chown emad:emad -R /www/tp
 find /www/tp -type f -exec chmod 640 {} \;
 find /www/tp -type d -exec chmod 750 {} \;
-# 确保php-fpm和nginx可以访问public目录
-chmod 755 /www/tp /www/tp/public /www/tp/public/static/
-chmod 744 /www/tp/public/{favicon.ico,robots.txt}
-# php读写 nginx读
-chmod 775 /www/tp/public/static/upload
-# php读写
+chmod 770 /www/tp/public/static/upload
 chmod 770 /www/tp/runtime
 ```
 
@@ -386,19 +386,18 @@ find /www/laravel/storage/ -type d -exec chmod 750 {} \;
 ```
 
 ```bash [开发]
-usermod -G emad php-fpm
+# php-fpm 需要读取php脚本文件，以及nginx代理转发给php-fpm
+usermod -G emad,nginx php-fpm
+# nginx 需要读取html文件
+usermod -G emad nginx
 
 chown emad:emad -R /www/laravel
 find /www/laravel -type f -exec chmod 640 {} \;
 find /www/laravel -type d -exec chmod 750 {} \;
-# 确保php-fpm和nginx可以访问public目录
-chmod 755 /www/laravel /www/laravel/public /www/laravel/public/static/
-chmod 644 /www/laravel/public/{favicon.ico,robots.txt}
 # php读写 nginx读
-chmod 775 /www/laravel/public/static/upload
+chmod 770 /www/laravel/public/static/upload
 # php读写
-find /www/laravel/storage/ -type d -exec chmod 770 {} \;
-chmod 750 /www/laravel/storage/
+find /www/laravel/storage/* -type d -exec chmod 770 {} \;
 ```
 
 :::
