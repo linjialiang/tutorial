@@ -563,10 +563,10 @@ ln -s /server/php/83/bin/composer.phar /usr/local/bin/composer
 ```bash
 # 切换到开发者用户
 su emad
-# 使用阿里云 Composer 全量镜像
+# 使用国内 Composer 全量镜像
 /server/php/83/bin/php /usr/local/bin/composer config -g repo.packagist composer https://mirrors.cloud.tencent.com/composer/
 
-# 取消使用阿里云 Composer 全量镜像
+# 取消使用国内 Composer 全量镜像
 /server/php/83/bin/php /usr/local/bin/composer config -g --unset repos.packagist
 ```
 
@@ -575,29 +575,10 @@ su emad
 升级 composer 也非常简单，建议使用国内全量镜像后再升级
 
 ```bash
-# 切换到开发者用户
-su emad
-/server/php/83/bin/php /usr/local/bin/composer -V
+# 切换到php-fpm用户，只能从root进入
+su - php-fpm -s /bin/zsh
 /server/php/83/bin/php /usr/local/bin/composer self-update
 ```
-
-### 4. 加入环境变量中
-
-开发环境可以将 php 主版本的可执行文件加入到用户环境变量中，这样在操作上会便捷很多
-
-下面将 php8.3 版本加入到环境变量中为例
-
-::: details 加入到 bash/zsh 环境变量中
-
-```ini
-# 切换到开发者用户
-su emad
-# ~/.bashrc 和 ~/.zshrc  文件底部增加
-PATH=${PATH}:/server/php/83/bin:/server/php/83/sbin
-export PATH
-```
-
-:::
 
 ## 网页版数据库管理工具
 
@@ -678,19 +659,17 @@ composer install
 
 ## 升级 PHP
 
-升级 PHP 跟正常编译类似，下面我们假设已经下载并解压完毕欲升级的 php 源码包
+升级 PHP 跟正常编译几乎一样
 
 ::: danger 警告
 服务器升级 PHP 乃至任何软件升级前，都应该先存快照，备份一份
 :::
 
-### 1. 静态编译 PECL 扩展
-
-具体见上述[[静态编译 PECL 扩展]](#pecl-static-bulid)
-
 ### 2. 安装依赖
 
-PHP 没有跨大版本更新，并且没有新增扩展，通常不需要安装更多的依赖项
+1. PHP 跨主版本更新，必须重新编译安装动态扩展；
+2. PHP 跨次版本更新，建议重新编译安装动态扩展；
+3. PHP 小版本更新，如果 PHP 并未修改动态扩展，就不用重新编译安装动态扩展。
 
 ### 3. 创建构建目录
 
@@ -764,10 +743,6 @@ make install
 ### 12. Systemd 管理
 
 小版本升级不需要修改 Systemd 单元配置
-
-::: tip 提示
-PHP 升级成功后，如果可以的话应该尽可能重启下服务器
-:::
 
 ## 动态安装 PECL 扩展
 
