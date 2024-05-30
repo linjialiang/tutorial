@@ -21,23 +21,23 @@ titleTemplate: 环境搭建教程
 PHP 环境目录
 ====================================================
 ├─ /server                  服务目录
-|   ├─ nginx                nginx
-|   |  ├─ conf              nginx配置文件
+|   ├─ nginx                nginx基目录
+|   |  ├─ conf              nginx配置目录
 |   |  └─ ...
 |   |
-|   ├─ postgres             postgres的基目录
+|   ├─ postgres             postgres基目录
 |   |  └─ ...
 |   |
-|   ├─ pgData               postgres的数据目录
+|   ├─ pgData               postgres数据目录
 |   |
-|   ├─ php                  PHP 版本目录
-|   |  ├─ 83                PHP8.3
+|   ├─ php                  PHP 目录
+|   |  ├─ 83                PHP8.3基目录
 |   |  └─ ...
 |   |
-|   ├─ run                 run
-|   |  ├─ nginx            nginx的run目录
-|   |  ├─ postgres         postgres的run目录
-|   |  ├─ php              php的run目录
+|   ├─ run                 pid、socket 等文件目录
+|   |  ├─ nginx            存放nginx的pid、socket 等文件目录
+|   |  ├─ postgres         存放postgres的pid、socket 等文件目录
+|   |  ├─ php              存放php的pid、socket 等文件目录
 |   |  └─ ...
 |   |
 |   ├─ default             缺省站点路径
