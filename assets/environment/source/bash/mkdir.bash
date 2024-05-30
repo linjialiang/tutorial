@@ -11,8 +11,6 @@ server_array=(
     "/server/default"
     "/server/run"
     "/server/logs"
-    "/server/etc"
-    "/server/tmp"
 
     "/server/nginx"
     "/server/run/nginx"
@@ -27,10 +25,10 @@ server_array=(
     "/server/pgData"
     "/server/run/postgres"
     "/server/logs/postgres"
+    "/server/logs/postgres/wal_archive"
 
     "/server/sites"
     "/server/sites/ssl"
-
 
     # "/server/redis"
     # "/server/redis/rdbData"
