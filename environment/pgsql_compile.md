@@ -366,6 +366,16 @@ archive_mode = on
 archive_command = 'test ! -f /server/logs/postgres/wal_archive/%f && cp %p /server/logs/postgres/wal_archive/%f'
 ```
 
+::: tip 注意
+目录 `/server/logs/postgres/wal_archive/` 需要预先创建并授予 postgres 用户权限
+
+```bash
+mkdir /server/logs/postgres/wal_archive
+chown postgres /server/logs/postgres/wal_archive/
+```
+
+:::
+
 ### 4. 复制
 
 复制(REPLICATION)，这里只介绍基于 WAL 通信的流复制
