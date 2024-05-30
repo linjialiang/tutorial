@@ -27,6 +27,7 @@ chown_nginx_array=(
     "/server/nginx"
     "/server/run/nginx"
     "/server/logs/nginx"
+    "/server/sites"
 );
 
 chown_phpFpm_array=(
