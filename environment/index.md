@@ -50,10 +50,6 @@ PHP 环境目录
 |   |  ├─ postgres         postgres日志目录
 |   |  ├─ php              php日志目录
 |   |
-|   ├─ tmp                 临时文件存放基目录
-|   |  ├─ postgres         postgres的临时目录
-|   |  ├─ ...
-|   |
 ├─ /www                    站点根目录
 |
 └─
