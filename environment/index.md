@@ -41,7 +41,8 @@ PHP 环境目录
 |   |  └─ ...
 |   |
 |   ├─ default             缺省站点路径
-|   |   ├─ index.php       缺省站点提示页面
+|   |   ├─ index.php       缺省站点php首页
+|   |   ├─ index.html      缺省站点html页面
 |   |
 |   ├─ sites               虚拟主机配置文件目录
 |   |
