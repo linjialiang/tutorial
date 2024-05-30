@@ -942,15 +942,9 @@ chmod 755 /server/run/php
 ```
 
 ```bash [开发]
-chown php-fpm:emad -R /server/php /server/logs/php /server/run/php
-find /server/php /server/logs/php -type f -exec chmod 640 {} \;
-find /server/php /server/logs/php -type d -exec chmod 750 {} \;
-# 可执行文件需要执行权限
-chmod 750 -R /server/php/83/bin /server/php/83/sbin
-# 如果不设置成 755 php-fpm的监听用户nginx将无法读取和执行 unix socket 文件
-# socket 用户nginx/权限660
-# pid 用户php-fpm/权限644
-chmod 755 /server/run/php
+# 权限同部署环境
+# 开发用户 emad 加入 PHP-fpm 组
+usermod -G php-fpm,nginx,postgres emad
 ```
 
 :::
