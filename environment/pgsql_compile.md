@@ -538,6 +538,20 @@ psql "dbname=postgres user=user_a host=192.168.66.254"
 
 :::
 
+## 升级
+
+升级和安装是一样的，在执行 `make install` 前，请在空闲时段关闭 postgres 单元服务，这样尽可能保证数据不会出错：
+
+```bash
+systemctl stop postgres.service
+make install
+systemctl start postgres.service
+```
+
+::: danger 升级警告
+如果当前版本没有发现漏洞，线上环境不要对数据库进行升级，如果确实需要升级，就一定要做好快照备份
+:::
+
 ## 权限
 
 ::: code-group
