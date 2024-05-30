@@ -565,9 +565,9 @@ server
 ::: code-group
 
 ```bash [部署]
-chown nginx:nginx -R /server/nginx
-find /server/nginx -type f -exec chmod 640 {} \;
-find /server/nginx -type d -exec chmod 750 {} \;
+chown nginx:nginx -R /server/{nginx,sites}
+find /server/{nginx,sites} -type f -exec chmod 640 {} \;
+find /server/{nginx,sites} -type d -exec chmod 750 {} \;
 # conf和sbin目录下的内容权限 nginx 640
 # 其他的*_temp不是很重要
 # 可执行文件需要执行权限
@@ -583,9 +583,9 @@ chmod 750 /server/run/nginx
 ```
 
 ```bash [开发]
-chown nginx:emad -R /server/nginx
-find /server/nginx -type f -exec chmod 640 {} \;
-find /server/nginx -type d -exec chmod 750 {} \;
+chown nginx:emad -R /server/{nginx,emad}
+find /server/{nginx,sites} -type f -exec chmod 640 {} \;
+find /server/{nginx,sites} -type d -exec chmod 750 {} \;
 # conf和sbin目录下的内容权限 nginx 640
 # 其他的*_temp不是很重要
 # 可执行文件需要执行权限
