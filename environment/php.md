@@ -659,90 +659,30 @@ composer install
 
 ## 升级 PHP
 
-升级 PHP 跟正常编译几乎一样
+升级 PHP 跟正常编译几乎一样，下面是注意事项：
+
+1. 安装依赖
+
+   - PHP 跨主版本更新，必须重新编译安装动态扩展；
+   - PHP 跨次版本更新，建议重新编译安装动态扩展；
+   - PHP 小版本更新，如果 PHP 并未修改动态扩展，就不用重新编译安装动态扩展。
+
+2. 重命名执行程序
+   执行 `make install` 之前，先将 `sbin/php-fpm` 文件重命名，实现平滑升级
+
+   ```bash
+   # php8.2
+   mv /server/php/82/sbin/php-fpm{,-v8.2.4}
+   ```
+
+3. 配置文件 `php.ini`
+
+   - 小版本升级，需要修改配置文件，除非遇到 PHP 非常特殊的情况，
+   - 其他版本升级，就直接替换掉配置文件，然后将需要的动态扩展重新加上去即可
 
 ::: danger 警告
 服务器升级 PHP 乃至任何软件升级前，都应该先存快照，备份一份
 :::
-
-### 2. 安装依赖
-
-1. PHP 跨主版本更新，必须重新编译安装动态扩展；
-2. PHP 跨次版本更新，建议重新编译安装动态扩展；
-3. PHP 小版本更新，如果 PHP 并未修改动态扩展，就不用重新编译安装动态扩展。
-
-### 3. 创建构建目录
-
-```bash
-mkdir /home/php-fpm/php-8.2.12/build_php
-```
-
-### 4. 环境变量
-
-将 `sqlite3` 的 `pkgconfig` 目录加入到临时环境变量里
-
-```bash
-export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
-```
-
-### 5. 进入构建目录
-
-```bash
-# php8.1 构建目录
-cd /home/php-fpm/php-8.2.12/build_php/
-```
-
-### 6. 构建指令
-
-::: details 8.2 构建指令参考
-<<<@/assets/environment/source/php/build/82.bash
-:::
-
-### 7. 执行编译
-
-```bash
-make -j2
-make test
-```
-
-::: warning 注意
-升级时我们先构建和编译，但不要马上执行安装
-:::
-
-### 8. 重命名执行程序
-
-升级之前需要先将 `sbin/php-fpm` 执行文件重命名，这样可以实现升级 PHP 而不影响项目正常运作
-
-```bash
-# php8.2
-mv /server/php/82/sbin/php-fpm{,-v8.2.4}
-```
-
-### 9. 执行安装
-
-```bash
-make install
-```
-
-### 10. 配置文件
-
-具体见[[拷贝配置文件]](#copy-config-file)
-
-::: info 说明
-小版本升级一般不需要修改配置文件、动态扩展也不需要重新构建
-:::
-
-::: danger 升级到大版本
-大版本升级需要使用新的配置文件，并且动态扩展需要重新构建
-:::
-
-### 11. 开启 OPcache
-
-开启 OPcache 扩展，具体操作请参考上述 [OPcache 说明](#_5-开启-opcache)
-
-### 12. Systemd 管理
-
-小版本升级不需要修改 Systemd 单元配置
 
 ## 动态安装 PECL 扩展
 
