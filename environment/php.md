@@ -537,14 +537,12 @@ Composer 是一个 PHP 依赖管理工具，开发环境必备
 推荐直接使用腾讯云镜像 [下载 composer](https://mirrors.tencent.com/composer/composer.phar)
 
 ```bash
-# 进入 php8.3 的 bin 目录
+su - php-fpm -s /bin/zsh
 cd /server/php/83/bin
-# 下载 composer.phar
 curl -O https://mirrors.tencent.com/composer/composer.phar
-# 添加执行权限
-chown root:emad composer.phar
-chmod 750 composer.phar
-# 软链接到当前目录
+chmod 770 composer.phar
+
+# 软链接到 /usr/local/bin
 ln -s /server/php/83/bin/composer.phar /usr/local/bin/composer
 ```
 
