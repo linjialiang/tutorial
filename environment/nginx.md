@@ -583,21 +583,9 @@ chmod 750 /server/run/nginx
 ```
 
 ```bash [开发]
-chown nginx:emad -R /server/{nginx,emad}
-find /server/{nginx,sites} -type f -exec chmod 640 {} \;
-find /server/{nginx,sites} -type d -exec chmod 750 {} \;
-# conf和sbin目录下的内容权限 nginx 640
-# 其他的*_temp不是很重要
-# 可执行文件需要执行权限
-chmod 750 -R /server/nginx/sbin
-
-chown nginx:emad -R /server/logs/nginx
-chmod 750 /server/logs/nginx
-# -- 因为日志文件权限是 nginx 644
-
-chown nginx:emad -R /server/run/nginx
-chmod 750 /server/run/nginx
-# -- 因为pid文件权限是 root/644
+# 权限同部署环境
+# 开发用户 emad 加入 PHP-fpm 组
+usermod -G php-fpm,nginx,postgres emad
 ```
 
 :::
