@@ -151,7 +151,7 @@ make -j2
 - 首先，备份旧版主文件，防止意外出现
 
   ```bash
-  mv /server/nginx/sbin/nginx{,.bak-v1.22.1}
+  mv /server/nginx/sbin/nginx{,.bak}
   ```
 
 - 其次，拷贝新的主文件,到指定目录
