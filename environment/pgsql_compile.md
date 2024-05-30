@@ -342,7 +342,7 @@ hostssl    all      emad            192.168.0.0/16          scram-sha-256   clie
 
 :::
 
-::: warning 注意
+::: warning TLS 说明
 
 1. 在 PostgreSQL 中 `SSL` 指的就是 `TLS`
 
@@ -366,8 +366,7 @@ archive_mode = on
 archive_command = 'test ! -f /server/logs/postgres/wal_archive/%f && cp %p /server/logs/postgres/wal_archive/%f'
 ```
 
-::: tip 注意
-目录 `/server/logs/postgres/wal_archive/` 需要预先创建并授予 postgres 用户权限
+::: tip 注意：wal_archive 目录需要预先创建并授予 postgres 用户权限
 
 ```bash
 mkdir /server/logs/postgres/wal_archive
