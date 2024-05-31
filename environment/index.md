@@ -266,10 +266,6 @@ php-fpm 处理一次请求的生命周期包括请求接收、请求处理和请
 
 ::: code-group
 
-```md [redis]
-redis 只针对 redis
-```
-
 ```md [nginx]
 - 对静态文件需提供 `读` 的权限
 - 对 php-fpm 的 `unix socket` 文件提供了读写的权限
