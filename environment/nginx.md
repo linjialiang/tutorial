@@ -584,6 +584,9 @@ chmod 750 /server/logs/nginx
 chown nginx:nginx -R /server/run/nginx
 chmod 750 /server/run/nginx
 # -- 因为pid文件权限是 nginx/644
+
+# 每次对 sbin 修改权限后，都需要重新启用CAP_NET_BIND_SERVICE能力
+setcap cap_net_bind_service=+eip /server/nginx/sbin/nginx
 ```
 
 ```bash [开发]
