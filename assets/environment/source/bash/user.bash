@@ -24,7 +24,7 @@ useradd -c 'php-fpm service main process user' -g php-fpm -u 2005 -s /sbin/nolog
 cp -r /root/{.oh-my-zsh,.zshrc} /home/php-fpm
 chown php-fpm:php-fpm -R /home/php-fpm/{.oh-my-zsh,.zshrc}
 
-# php-fpm 附属组增加 nginx
+# 附属组关系
 usermod -G php-fpm nginx
 usermod -G nginx php-fpm
 # 开发环境
