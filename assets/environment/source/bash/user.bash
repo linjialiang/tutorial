@@ -25,7 +25,11 @@ cp -r /root/{.oh-my-zsh,.zshrc} /home/php-fpm
 chown php-fpm:php-fpm -R /home/php-fpm/{.oh-my-zsh,.zshrc}
 
 # php-fpm 附属组增加 nginx
+usermod -G php-fpm nginx
 usermod -G nginx php-fpm
+# 开发环境
+usermod -G php-fpm,emad nginx
+usermod -G nginx,emad php-fpm
 
 # # 创建 redis 用户
 # groupadd -g 2002 redis

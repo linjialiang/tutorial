@@ -313,8 +313,6 @@ chmod 755 /www
 ```bash [开发]
 chown emad:emad /www
 chmod 750 -R /www
-# 由于nginx需要去读文件，所以nginx用户需要加入emad用户组
-usermod -G emad nginx
 ```
 
 :::
@@ -345,11 +343,6 @@ chmod 750 /www/tp/public/static/upload /www/tp/runtime
 ```
 
 ```bash [开发]
-# php-fpm 需要读取php脚本文件，以及nginx代理转发给php-fpm
-usermod -G emad,nginx php-fpm
-# nginx 需要读取html文件
-usermod -G emad nginx
-usermod -G emad,php-fpm nginx
 chown emad:emad -R /www/tp
 find /www/tp -type f -exec chmod 640 {} \;
 find /www/tp -type d -exec chmod 750 {} \;
@@ -386,11 +379,6 @@ find /www/laravel/storage/ -type d -exec chmod 750 {} \;
 ```
 
 ```bash [开发]
-# php-fpm 需要读取php脚本文件，以及nginx代理转发给php-fpm
-usermod -G emad,nginx php-fpm
-# nginx 需要读取html文件
-usermod -G emad nginx
-
 chown emad:emad -R /www/laravel
 find /www/laravel -type f -exec chmod 640 {} \;
 find /www/laravel -type d -exec chmod 750 {} \;
