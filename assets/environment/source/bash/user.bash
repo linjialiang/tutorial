@@ -26,7 +26,7 @@ usermod -G nginx php-fpm
 # usermod -G php-fpm nginx
 
 # 部署环境注释，开发环境取消注释，开发用户追加附属组，其中emad指开发用户
-# - 部署环境不需要开发用户，可直接使用 nginx 用户作为 ftp 等上传工具的用户
+# - 部署环境不需要开发用户，可直接使用 nginx 用户作为 ftp、ssh 等上传工具的用户
 # usermod -a -G emad nginx
 # usermod -a -G emad php-fpm
 # usermod -G nginx,php-fpm,postgres emad
