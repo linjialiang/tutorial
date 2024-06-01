@@ -434,9 +434,8 @@ PHP-FPM 工作池进程配置文件有多个，并且支持随意命名，但为
 <<<@/assets/environment/source/php/74/php-fpm.d/default.conf{ini} [7.4]
 :::
 
-::: details 其他工作池案例
-::: code-group
-<<<@/assets/environment/source/php/83/php-fpm.d/tp.conf{ini} [tp 工作池]
+::: details ThinkPHP 项目专用工作池案例
+<<<@/assets/environment/source/php/83/php-fpm.d/tp.conf{ini}
 :::
 
 ::: tip
