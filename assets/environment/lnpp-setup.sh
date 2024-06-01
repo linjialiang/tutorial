@@ -62,11 +62,11 @@ devUserPower(){
   devUserName=$1
   echo_yellow "=================================================================="
   echo_green "开发用户追加权限"
-  echo_green "部署环境请注释此函数，开发环境需要开启"
-  echo_green "开发用户追加附属组，开发用户名默认为emad，可自行修改"
-  echo_green "nginx 如果是通过 sock 文件代理转发给 php-fpm，php-fpm 主进程创建\n sock 文件时需要确保 nginx 主进程用户有读写 sock 文件的权限"
+  echo_red "部署环境请注释此函数，开发环境需要开启"
+  echo_yellow "开发用户追加附属组，开发用户名默认为emad，可自行修改"
+  echo_yellow "nginx 如果是通过 sock 文件代理转发给 php-fpm，php-fpm 主进程创建\n sock 文件时需要确保 nginx 主进程用户有读写 sock 文件的权限"
   echo_yellow " "
-  echo_red "提示：部署环境不需要开发用户，\n可直接使用 nginx 用户作为 ftp、ssh 等上传工具的用户"
+  echo_red "部署环境不需要开发用户，可直接使用 nginx 用户作为 ftp、ssh 等上传工具的用户"
   echo_yellow "=================================================================="
   usermod -a -G $devUserName nginx
   usermod -a -G $devUserName php-fpm
@@ -160,16 +160,27 @@ modFilePower(){
 
 #创建用户
 createUser
+echo "\n\n"
+
 #开发用户追加权限，部署环境请注释掉，emad是开发用户名
 devUserPower 'emad'
+echo "\n\n"
+
 #安装依赖包
 installPackage
+echo "\n\n"
+
 #解压lnpp预构建包到指定目录
 InstallBuild
+echo "\n\n"
+
 #安装systemctl单元
 InstallSystemctlUnit
+echo "\n\n"
+
 #修改文件权限
 modFilePower
+echo "\n\n"
 
 echo_yellow "=================================================================="
 echo_green "针对 Postgres用户 修改操作系统打开最大文件句柄数"
