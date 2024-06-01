@@ -31,10 +31,10 @@ usermod -G nginx php-fpm
 # 方式2：采用 sock 文件权限 php-fpm:php-fpm 660 (nginx 权限较多，php-fpm 权限较少)
 # usermod -G php-fpm nginx
 
-# 开发环境,开发用户追加附属组,部署环境请注释掉，如下内容：
-usermod -a -G emad nginx
-usermod -a -G emad php-fpm
-usermod -G nginx,php-fpm,postgres emad
+# 部署环境注释，开发环境取消注释，用于开发用户追加附属组：
+# usermod -a -G emad nginx
+# usermod -a -G emad php-fpm
+# usermod -G nginx,php-fpm,postgres emad
 
 # # 创建 redis 用户
 # groupadd -g 2002 redis
