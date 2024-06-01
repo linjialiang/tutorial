@@ -120,7 +120,8 @@ modFilePower(){
   echo_green "通常来讲压缩包里含的权限是正确的，这里重新执行一遍，更加稳妥"
   echo_yellow "=================================================================="
 
-  echo_yellow "\n\n=================================================================="
+  echo " \n \n "
+  echo_yellow "=================================================================="
   echo_green "nginx文件权限"
   echo_yellow "=================================================================="
   chown nginx:nginx -R /server/{nginx,sites}
@@ -138,7 +139,8 @@ modFilePower(){
   echo_yellow "=================================================================="
   setcap cap_net_bind_service=+eip /server/nginx/sbin/nginx
 
-  echo_yellow "\n\n=================================================================="
+  echo " \n \n "
+  echo_yellow "=================================================================="
   echo_green "php文件权限"
   echo_yellow "=================================================================="
   chown php-fpm:php-fpm -R /server/php /server/logs/php /server/run/php
@@ -147,7 +149,8 @@ modFilePower(){
   chmod 750 -R /server/php/83/bin /server/php/83/sbin
   chmod 755 /server/run/php
 
-  echo_yellow "\n\n=================================================================="
+  echo " \n \n "
+  echo_yellow "=================================================================="
   echo_green "postgres文件权限"
   echo_yellow "=================================================================="
   chown postgres:postgres -R /server/postgres /server/pgData /server/logs/postgres /server/run/postgres
