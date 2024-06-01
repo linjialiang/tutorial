@@ -119,11 +119,7 @@ modFilePower(){
   echo_green "文件权限"
   echo_green "通常来讲压缩包里含的权限是正确的，这里重新执行一遍，更加稳妥"
   echo_yellow "=================================================================="
-  echo ' '
-  echo ' '
-  echo_yellow "=================================================================="
   echo_green "nginx文件权限"
-  echo_yellow "=================================================================="
   chown nginx:nginx -R /server/{nginx,sites}
   find /server/{nginx,sites} -type f -exec chmod 640 {} \;
   find /server/{nginx,sites} -type d -exec chmod 750 {} \;
@@ -133,26 +129,17 @@ modFilePower(){
   chown nginx:nginx -R /server/run/nginx
   chmod 750 /server/run/nginx
 
-  echo_yellow "=================================================================="
   echo_green "为nginx启用CAP_NET_BIND_SERVICE能力"
   echo_red "注：每次修改nginx执行文件权限，都需要重新启用该能力"
-  echo_yellow "=================================================================="
   setcap cap_net_bind_service=+eip /server/nginx/sbin/nginx
-  echo ' '
-  echo ' '
-  echo_yellow "=================================================================="
+
   echo_green "php文件权限"
-  echo_yellow "=================================================================="
   chown php-fpm:php-fpm -R /server/php /server/logs/php /server/run/php
   find /server/php /server/logs/php -type f -exec chmod 640 {} \;
   find /server/php /server/logs/php -type d -exec chmod 750 {} \;
   chmod 750 -R /server/php/83/bin /server/php/83/sbin
   chmod 755 /server/run/php
-  echo ' '
-  echo ' '
-  echo_yellow "=================================================================="
   echo_green "postgres文件权限"
-  echo_yellow "=================================================================="
   chown postgres:postgres -R /server/postgres /server/pgData /server/logs/postgres /server/run/postgres
   find /server/postgres /server/logs/postgres /server/run/postgres -type f -exec chmod 640 {} \;
   find /server/postgres /server/logs/postgres /server/run/postgres -type d -exec chmod 750 {} \;
