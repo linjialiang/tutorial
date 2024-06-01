@@ -135,6 +135,12 @@ modFilePower(){
   chown nginx:nginx -R /server/run/nginx
   chmod 750 /server/run/nginx
 
+  echo_yellow "=================================================================="
+  echo_green "为nginx启用CAP_NET_BIND_SERVICE能力"
+  echo_red "注：每次修改nginx执行文件权限，都需要重新启用该能力"
+  echo_yellow "=================================================================="
+  setcap cap_net_bind_service=+eip /server/nginx/sbin/nginx
+
   echo_yellow "\n\n=================================================================="
   echo_green "php文件权限"
   echo_yellow "=================================================================="
@@ -167,12 +173,6 @@ InstallBuild
 InstallSystemctlUnit
 #修改文件权限
 modFilePower
-
-echo_yellow "=================================================================="
-echo_green "为nginx启用CAP_NET_BIND_SERVICE能力"
-echo_red "注：每次修改nginx执行文件权限，都需要重新启用该能力"
-echo_yellow "=================================================================="
-setcap cap_net_bind_service=+eip /server/nginx/sbin/nginx
 
 echo_yellow "=================================================================="
 echo_green "针对 Postgres用户 修改操作系统打开最大文件句柄数"

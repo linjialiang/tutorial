@@ -429,7 +429,8 @@ source ~/.profile
 ::: warning PostgreSQL 推荐使用 `CLANG+LLVM` 编译套件，`--with-llvm` 启用 JIT 支持，能提升查询性能；其余软件优先使用 `GCC` 编译套件。
 :::
 
-::: details 附录一：lnpp 预构建包一键安装脚本
+## 附录一：lnpp 预构建包一键安装脚本
+
 ::: code-group
 
 ```md [说明]
