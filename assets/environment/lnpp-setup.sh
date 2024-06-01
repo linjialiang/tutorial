@@ -29,8 +29,8 @@ createSingleUser(){
   echo_yellow "=================================================================="
   groupadd -g $gid $userName
   useradd -c "$userName service main process user" -g $groupName -u $uid -s /sbin/nologin -m $userName
-  cp -r /root/{.oh-my-zsh,.zshrc} "/home/$userName"
-  chown $userName:$groupName -R "/home/$userName/{.oh-my-zsh,.zshrc}"
+  cp -r /root/{.oh-my-zsh,.zshrc} /home/$userName
+  chown $userName:$groupName -R /home/$userName/{.oh-my-zsh,.zshrc}
 }
 
 #创建用户
