@@ -2,24 +2,24 @@
 
 printf "\033c"
 
-echo_cyan() {
+echo_cyan(){
   printf '\033[1;36m%b\033[0m\n' "$@"
 }
 
-echo_green() {
+echo_green(){
   printf '\033[1;32m%b\033[0m\n' "$@"
 }
 
-echo_red() {
+echo_red(){
   printf '\033[1;31m%b\033[0m\n' "$@"
 }
 
-echo_yellow() {
+echo_yellow(){
   printf '\033[1;33m%b\033[0m\n' "$@"
 }
 
 #创建单个用户
-createSingleUser() {
+createSingleUser(){
   uid=$1
   userName=$2
   gid=$3
@@ -34,7 +34,7 @@ createSingleUser() {
 }
 
 #创建用户
-createUser() {
+createUser(){
   echo_yellow "=================================================================="
   echo_green "创建用户"
   echo_green "创建nginx、php-fpm、Postgres的进程用户"
@@ -61,7 +61,7 @@ createUser() {
 }
 
 # 开发用户追加权限
-devUserPower() {
+devUserPower(){
   devUserName=$1
   echo_yellow "=================================================================="
   echo_green "开发用户追加权限"
@@ -77,7 +77,7 @@ devUserPower() {
 }
 
 # 安装依赖包
-installPackage() {
+installPackage(){
   echo_yellow "=================================================================="
   echo_green "安装依赖"
   echo_green "进行这一步操作的目的是安装启用nginx + php + Postgres时必备依赖项"
@@ -90,7 +90,7 @@ installPackage() {
 }
 
 # 安装预构建包
-InstallBuild() {
+InstallBuild(){
   echo_yellow "=================================================================="
   echo_green "解压lnpp预构建包\n含两个目录"
   echo_yellow " "
@@ -103,21 +103,21 @@ InstallBuild() {
 }
 
 # 安装systemctl单元
-InstallSystemctlUnit() {
+InstallSystemctlUnit(){
   echo_yellow "=================================================================="
   echo_green "加入systemctl守护进程\n含systemctl unit文件"
   echo_yellow " "
-  echo_cyan "/lib/systemctl/system/{postgres,nginx,php83-fpm}.service"
+  echo_cyan "/lib/systemd/system/{postgres,nginx,php83-fpm}.service"
   echo_yellow " "
   echo_green "支持开启自动启动服务，非常规终止进程会自动启动服务"
   echo_yellow "=================================================================="
-  cp ./service/* /lib/systemctl/system/
+  cp ./service/* /lib/systemd/system/
   systemctl daemon-reload
   systemctl enable --now {postgres,nginx,php83-fpm}.service
 }
 
 # 修改文件权限
-modFilePower() {
+modFilePower(){
   echo_yellow "=================================================================="
   echo_green "文件权限"
   echo_green "通常来讲压缩包里含的权限是正确的，这里重新执行一遍，更加稳妥"
