@@ -21,36 +21,28 @@ echo_yellow() {
   printf '\033[1;33m%b\033[0m\n' "$@"
 }
 
+createSingleUser() {
+  userName=$1
+  uid=$2
+  echo_yellow "=================================================================="
+  echo_green "创建 $userName 用户"
+  echo_yellow "=================================================================="
+  groupadd -g $uid $userName
+  useradd -c "$userName service main process user" -g postgres -u $uid -s /sbin/nologin -m $userName
+  cp -r /root/{.oh-my-zsh,.zshrc} "/home/$userName"
+  chown $userName:$userName -R "/home/$userName/{.oh-my-zsh,.zshrc}"
+}
+
 #创建用户
 createUser() {
   echo_yellow "=================================================================="
   echo_green "创建用户"
   echo_green "创建nginx、php-fpm、Postgres的进程用户"
   echo_yellow "=================================================================="
-  
-  echo_yellow "=================================================================="
-  echo_green "创建 postgres 用户"
-  echo_yellow "=================================================================="
-  groupadd -g 2001 postgres
-  useradd -c 'postgres service main process user' -g postgres -u 2001 -s /sbin/nologin -m postgres
-  cp -r /root/{.oh-my-zsh,.zshrc} /home/postgres
-  chown postgres:postgres -R /home/postgres/{.oh-my-zsh,.zshrc}
 
-  echo_yellow "=================================================================="
-  echo_green "创建 nginx 用户"
-  echo_yellow "=================================================================="
-  groupadd -g 2003 nginx
-  useradd -c 'nginx service main process user' -g nginx -u 2003 -s /sbin/nologin -m nginx
-  cp -r /root/{.oh-my-zsh,.zshrc} /home/nginx
-  chown nginx:nginx -R /home/nginx/{.oh-my-zsh,.zshrc}
-  
-  echo_yellow "=================================================================="
-  echo_green "创建 php-fpm 用户"
-  echo_yellow "=================================================================="
-  groupadd -g 2005 php-fpm
-  useradd -c 'php-fpm service main process user' -g php-fpm -u 2005 -s /sbin/nologin -m php-fpm
-  cp -r /root/{.oh-my-zsh,.zshrc} /home/php-fpm
-  chown php-fpm:php-fpm -R /home/php-fpm/{.oh-my-zsh,.zshrc}
+  createSingleUser nginx 2001
+  createSingleUser postgres 2002
+  createSingleUser php-fpm 2003
 
   echo_yellow "=================================================================="
   echo_green "处理php-fpm的socket文件授权问题"
@@ -69,7 +61,8 @@ createUser() {
 }
 
 # 开发用户追加权限
-devUserPower(devUserName) {
+devUserPower() {
+  devUserName=$1
   echo_yellow "=================================================================="
   echo_green "开发用户追加权限"
   echo_green "部署环境请注释此函数，开发环境需要开启"
@@ -150,7 +143,7 @@ modFilePower() {
   find /server/php /server/logs/php -type d -exec chmod 750 {} \;
   chmod 750 -R /server/php/83/bin /server/php/83/sbin
   chmod 755 /server/run/php
-  
+
   echo_yellow "\n\n=================================================================="
   echo_green "postgres文件权限"
   echo_yellow "=================================================================="
@@ -165,7 +158,7 @@ modFilePower() {
 #创建用户
 createUser
 #开发用户追加权限，部署环境请注释掉
-devUserPower($devUser)
+devUserPower $devUser
 #安装依赖包
 installPackage
 #解压lnpp预构建包到指定目录
