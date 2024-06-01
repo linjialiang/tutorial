@@ -8,10 +8,10 @@ const sidebar = [
   { text: "PostgreSQL", link: `${path.main}pgsql_compile` },
   { text: "PHP", link: `${path.main}php` },
   {
-    text: "不维护",
+    text: "存档(不再积极维护)",
     collapsed: true,
     items: [
-      { text: "PostgreSQL(apt)", link: `${path.main}pgsql` },
+      { text: "PostgreSQL(apt)", link: `${path.main}archive/pgsql` },
       { text: "MySQL", link: `${path.main}archive/mysql_compile` },
       { text: "MySQL(apt)", link: `${path.main}archive/mysql` },
       { text: "Redis", link: `${path.main}archive/redis` },
