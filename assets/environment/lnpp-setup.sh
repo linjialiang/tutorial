@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# 设置开发用户名
-devUser='emad'
-
 printf "\033c"
 
 echo_cyan() {
@@ -23,15 +20,17 @@ echo_yellow() {
 
 #创建单个用户
 createSingleUser() {
-  userName=$1
-  uid=$2
+  uid=$1
+  userName=$2
+  gid=$3
+  groupName=$4
   echo_yellow "=================================================================="
   echo_green "创建 $userName 用户"
   echo_yellow "=================================================================="
-  groupadd -g $uid $userName
-  useradd -c "$userName service main process user" -g postgres -u $uid -s /sbin/nologin -m $userName
+  groupadd -g $gid $userName
+  useradd -c "$userName service main process user" -g $groupName -u $uid -s /sbin/nologin -m $userName
   cp -r /root/{.oh-my-zsh,.zshrc} "/home/$userName"
-  chown $userName:$userName -R "/home/$userName/{.oh-my-zsh,.zshrc}"
+  chown $userName:$groupName -R "/home/$userName/{.oh-my-zsh,.zshrc}"
 }
 
 #创建用户
@@ -41,9 +40,9 @@ createUser() {
   echo_green "创建nginx、php-fpm、Postgres的进程用户"
   echo_yellow "=================================================================="
 
-  createSingleUser nginx 2001
-  createSingleUser postgres 2002
-  createSingleUser php-fpm 2003
+  createSingleUser 2001 'nginx' 2001 'nginx'
+  createSingleUser 2002 'postgres' 2002 'postgres'
+  createSingleUser 2003 'php-fpm' 2003 'php-fpm'
 
   echo_yellow "=================================================================="
   echo_green "处理php-fpm的socket文件授权问题"
@@ -158,8 +157,8 @@ modFilePower() {
 
 #创建用户
 createUser
-#开发用户追加权限，部署环境请注释掉
-devUserPower $devUser
+#开发用户追加权限，部署环境请注释掉，emad是开发用户名
+devUserPower 'emad'
 #安装依赖包
 installPackage
 #解压lnpp预构建包到指定目录
