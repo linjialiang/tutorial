@@ -183,6 +183,14 @@ PostgreSQL 主要有以下几个配置文件：
 3. `pg_hba.conf`：这个文件用于配置数据库的身份验证方式。它定义了不同类型连接（如本地连接、TCP/IP 连接）的认证方法。你可以根据需要设置不同的认证方式，例如信任所有用户、使用密码加密等。
 4. `pg_ident.conf`：这个文件用于配置数据库的用户映射。它允许将外部系统（如操作系统用户）映射到数据库用户。通过配置该文件，可以实现对外部系统的用户进行身份验证和授权。
 
+::: details 配置案例
+
+::: code-group
+<<<@/assets/environment/source/postgres/postgresql.conf{ini} [服务端配置文件]
+<<<@/assets/environment/source/postgres/pg_hba.conf{ini} [客户访问限制配置文件]
+
+:::
+
 ### 1. 基本配置
 
 ```bash [基本]
