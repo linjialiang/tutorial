@@ -21,6 +21,7 @@ echo_yellow() {
   printf '\033[1;33m%b\033[0m\n' "$@"
 }
 
+#创建单个用户
 createSingleUser() {
   userName=$1
   uid=$2
