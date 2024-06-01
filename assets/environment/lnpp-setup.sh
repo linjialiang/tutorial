@@ -24,9 +24,7 @@ createSingleUser(){
   userName=$2
   gid=$3
   groupName=$4
-  echo_yellow "=================================================================="
   echo_green "创建 $userName 用户"
-  echo_yellow "=================================================================="
   groupadd -g $gid $userName
   useradd -c "$userName service main process user" -g $groupName -u $uid -s /sbin/nologin -m $userName
   cp -r /root/{.oh-my-zsh,.zshrc} /home/$userName
@@ -36,7 +34,6 @@ createSingleUser(){
 #创建用户
 createUser(){
   echo_yellow "=================================================================="
-  echo_green "创建用户"
   echo_green "创建nginx、php-fpm、Postgres的进程用户"
   echo_yellow "=================================================================="
 
@@ -46,8 +43,8 @@ createUser(){
 
   echo_yellow "=================================================================="
   echo_green "处理php-fpm的socket文件授权问题"
-  echo_green "当 nginx 和 php-fpm 主进程非特权用户时，需要考虑socket文件权限问题："
-  echo_green "nginx 如果是通过 sock 文件代理转发给 php-fpm，php-fpm 主进程创建\n sock 文件时需要确保 nginx 主进程用户有读写 sock 文件的权限"
+  echo_yellow "当 php-fpm 主进程非特权用户时，需要考虑socket文件权限问题："
+  echo_yellow "nginx 如果是通过 sock 文件代理转发给 php-fpm，php-fpm 主进程创建\n sock 文件时需要确保 nginx 子进程用户有读写 sock 文件的权限"
   echo_yellow " "
   echo_yellow "方式1：采用 sock 文件权限 php-fpm:nginx 660 \n(nginx 权限较少，php-fpm 权限较多)"
   echo_cyan "usermod -G nginx php-fpm"

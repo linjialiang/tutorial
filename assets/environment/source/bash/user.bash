@@ -18,8 +18,8 @@ useradd -c 'php-fpm service main process user' -g php-fpm -u 2005 -s /sbin/nolog
 cp -r /root/{.oh-my-zsh,.zshrc} /home/php-fpm
 chown php-fpm:php-fpm -R /home/php-fpm/{.oh-my-zsh,.zshrc}
 
-# nginx 和 php-fpm 主进程非特权用户时，需要考虑如下问题：
-# nginx 如果是通过 sock 文件代理转发给 php-fpm，php-fpm 主进程创建 sock 文件时需要确保 nginx 主进程用户有读写 sock 文件的权限
+# php-fpm 主进程非特权用户时，需要考虑如下问题：
+# nginx 如果是通过 sock 文件代理转发给 php-fpm，php-fpm 主进程创建 sock 文件时需要确保 nginx 子进程用户有读写 sock 文件的权限
 # 方式1：采用 sock 文件权限 php-fpm:nginx 660 (nginx 权限较少，php-fpm 权限较多)
 usermod -G nginx php-fpm
 # 方式2：采用 sock 文件权限 php-fpm:php-fpm 660 (nginx 权限较多，php-fpm 权限较少)
