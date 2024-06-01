@@ -565,10 +565,6 @@ server
 ::: code-group
 
 ```bash [部署]
-# php网站需要通过nginx代理转发到php-fpm 来获取后端处理后的数据
-#  - php-fpm 用户需要增加附属组 nginx，拥有读取站点的权限
-usermod -G nginx php-fpm
-
 chown nginx:nginx -R /server/{nginx,sites}
 find /server/{nginx,sites} -type f -exec chmod 640 {} \;
 find /server/{nginx,sites} -type d -exec chmod 750 {} \;
