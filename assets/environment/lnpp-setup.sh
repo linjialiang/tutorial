@@ -36,11 +36,11 @@ createUser(){
   echo_yellow "=================================================================="
   echo_green "创建nginx、php-fpm、Postgres的进程用户"
   echo_yellow "=================================================================="
-
   createSingleUser 2001 'nginx' 2001 'nginx'
   createSingleUser 2002 'postgres' 2002 'postgres'
   createSingleUser 2003 'php-fpm' 2003 'php-fpm'
-
+  echo ' '
+  echo ' '
   echo_yellow "=================================================================="
   echo_green "处理php-fpm的socket文件授权问题"
   echo_yellow "当 php-fpm 主进程非特权用户时，需要考虑socket文件权限问题："
@@ -119,8 +119,8 @@ modFilePower(){
   echo_green "文件权限"
   echo_green "通常来讲压缩包里含的权限是正确的，这里重新执行一遍，更加稳妥"
   echo_yellow "=================================================================="
-
-  echo " \n \n "
+  echo ' '
+  echo ' '
   echo_yellow "=================================================================="
   echo_green "nginx文件权限"
   echo_yellow "=================================================================="
@@ -138,8 +138,8 @@ modFilePower(){
   echo_red "注：每次修改nginx执行文件权限，都需要重新启用该能力"
   echo_yellow "=================================================================="
   setcap cap_net_bind_service=+eip /server/nginx/sbin/nginx
-
-  echo " \n \n "
+  echo ' '
+  echo ' '
   echo_yellow "=================================================================="
   echo_green "php文件权限"
   echo_yellow "=================================================================="
@@ -148,8 +148,8 @@ modFilePower(){
   find /server/php /server/logs/php -type d -exec chmod 750 {} \;
   chmod 750 -R /server/php/83/bin /server/php/83/sbin
   chmod 755 /server/run/php
-
-  echo " \n \n "
+  echo ' '
+  echo ' '
   echo_yellow "=================================================================="
   echo_green "postgres文件权限"
   echo_yellow "=================================================================="
@@ -163,27 +163,33 @@ modFilePower(){
 
 #创建用户
 createUser
-echo " \n \n "
+echo ' '
+echo ' '
 
 #开发用户追加权限，部署环境请注释掉，emad是开发用户名
 devUserPower 'emad'
-echo " \n \n "
+echo ' '
+echo ' '
 
 #安装依赖包
 installPackage
-echo " \n \n "
+echo ' '
+echo ' '
 
 #解压lnpp预构建包到指定目录
 InstallBuild
-echo " \n \n "
+echo ' '
+echo ' '
 
 #安装systemctl单元
 InstallSystemctlUnit
-echo " \n \n "
+echo ' '
+echo ' '
 
 #修改文件权限
 modFilePower
-echo " \n \n "
+echo ' '
+echo ' '
 
 echo_yellow "=================================================================="
 echo_green "针对 Postgres用户 修改操作系统打开最大文件句柄数"
