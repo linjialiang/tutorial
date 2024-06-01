@@ -171,13 +171,14 @@ modFilePower
 
 echo_yellow "=================================================================="
 echo_green "为nginx启用CAP_NET_BIND_SERVICE能力"
-echo_red "注：每次修改nginx执行文件权限，都需要重新启用该能力!!!"
+echo_red "注：每次修改nginx执行文件权限，都需要重新启用该能力"
 echo_yellow "=================================================================="
 setcap cap_net_bind_service=+eip /server/nginx/sbin/nginx
 
 echo_yellow "=================================================================="
-echo_green "针对 Postgres用户 修改操作系统打开最大文件句柄数!!!"
+echo_green "针对 Postgres用户 修改操作系统打开最大文件句柄数"
 echo_yellow "为防止重复插入，请在 /etc/security/limits.conf 文件的结尾手动添加\n如下两行代码："
+echo_red "注：这里是手动操作哦！！！"
 echo_yellow " "
 echo_cyan "postgres  soft  nofile  65535"
 echo_cyan "postgres  hard  nofile  65535"
