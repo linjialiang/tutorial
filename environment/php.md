@@ -296,8 +296,6 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 ```bash [使用 php 程序]
 # php7.4
 /server/php/74/bin/php --ini
-# php8.2
-/server/php/82/bin/php --ini
 # php8.3
 /server/php/83/bin/php --ini
 ```
@@ -305,8 +303,6 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 ```bash [使用 php-config 程序]
 # php7.4
 /server/php/74/bin/php-config --ini-path
-# php8.2
-/server/php/82/bin/php-config --ini-path
 # php8.3
 /server/php/83/bin/php-config --ini-path
 ```
@@ -320,8 +316,6 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 ```bash [部署环境]
 # php7.4
 cp /home/php-fpm/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
-# php8.2
-cp /home/php-fpm/php-8.2.12/php.ini-production /server/php/82/lib/php.ini
 # php8.3
 cp /home/php-fpm/php-8.3.7/php.ini-production /server/php/83/lib/php.ini
 ```
@@ -329,8 +323,6 @@ cp /home/php-fpm/php-8.3.7/php.ini-production /server/php/83/lib/php.ini
 ```bash [开发环境]
 # php7.4
 cp /home/php-fpm/php-7.4.33/php.ini-development /server/php/74/lib/php.ini
-# php8.2
-cp /home/php-fpm/php-8.2.12/php.ini-development /server/php/82/lib/php.ini
 # php8.3
 cp /home/php-fpm/php-8.3.7/php.ini-development /server/php/83/lib/php.ini
 ```
@@ -344,8 +336,6 @@ cp /home/php-fpm/php-8.3.7/php.ini-development /server/php/83/lib/php.ini
 ```bash
 # php7.4
 /server/php/74/bin/php --ini
-# php8.2
-/server/php/82/bin/php --ini
 # php8.3
 /server/php/83/bin/php --ini
 ```
@@ -427,7 +417,6 @@ PHP-FPM 的主配置文件选项基本上都是使用默认，所以案例选项
 ::: code-group
 <<<@/assets/environment/source/php/83/php-fpm.conf{ini} [8.3]
 <<<@/assets/environment/source/php/74/php-fpm.conf{ini} [7.4]
-<<<@/assets/environment/source/php/82/php-fpm.conf{ini} [8.2]
 :::
 
 ### 3. 工作池配置文件
@@ -443,38 +432,16 @@ PHP-FPM 工作池进程配置文件有多个，并且支持随意命名，但为
 ::: code-group
 <<<@/assets/environment/source/php/83/php-fpm.d/default.conf{ini} [8.3]
 <<<@/assets/environment/source/php/74/php-fpm.d/default.conf{ini} [7.4]
-<<<@/assets/environment/source/php/82/php-fpm.d/default.conf{ini} [8.2]
 :::
 
 ::: details 其他工作池案例
 ::: code-group
 <<<@/assets/environment/source/php/83/php-fpm.d/tp.conf{ini} [tp 工作池]
-<<<@/assets/environment/source/php/83/php-fpm.d/qy.conf{ini} [勤易工作池]
 :::
 
-### 4. 工作进程配置参数
-
+::: tip
 更多参数说明，请阅读 [PHP 手册](https://www.php.net/manual/zh/install.fpm.configuration.php)
-
-```ini
-# 子进程名，通常与子进程配置文件命名相同
-[default]
-user                    = php-fpm    # 子进程用户，默认为 nobody
-group                   = php-fpm    # 子进程用户组，默认为 nobody
-
-# 工作池进程对应的监听地址，可选 监听端口 或 socket文件
-listen                  = /server/run/php/php81-fpm-default.sock
-
-listen.backlog          = -1        # 设置 listen 的最大值，-1表示无限制，默认值：-1
-listen.owner            = nginx       # 子进程监听用户，默认为 nobody，仅支持监听对象是 unix 套接字
-listen.group            = nginx       # 子进程监听用户组，默认为 nobody，仅支持监听对象是 unix 套接字
-listen.mode             = 0660      # 监听权限，仅支持监听对象是 unix 套接字
-listen.allowed_clients  = 127.0.0.1 # 设置允许连接到 FastCGI 的服务器IP，默认仅允许本地访问
-
-pm                      = static    # 设置进程管理器管理的子进程数量是固定的
-pm.max_children         = 50        # pm 设置为 static 时表示创建的子进程的数量，pm 设置为 dynamic 时表示最大可创建的子进程的数量
-pm.max_requests         = 1000      # 设置每个子进程重生之前服务的请求数，对于可能存在内存泄漏的第三方模块来说是非常有用的
-```
+:::
 
 ## Systemd 管理
 
@@ -671,8 +638,8 @@ composer install
    执行 `make install` 之前，先将 `sbin/php-fpm` 文件重命名，实现平滑升级
 
    ```bash
-   # php8.2
-   mv /server/php/82/sbin/php-fpm{,-v8.2.4}
+   # php8.3
+   mv /server/php/83/sbin/php-fpm{,.bak}
    ```
 
 3. 配置文件 `php.ini`
@@ -726,7 +693,6 @@ phpize
 # 构建指令
 ./configure \
 --with-php-config=/server/php/83/bin/php-config \
-# --with-php-config=/server/php/82/bin/php-config \
 # --with-php-config=/server/php/74/bin/php-config \
 --with-imagick=/server/ImageMagick/
 # 编译并安装
@@ -764,7 +730,6 @@ xdebug.client_host=127.0.0.1
 ; xdebug.client_host=192.168.6.254
 xdebug.client_port=9083
 ; xdebug.client_port=9074
-; xdebug.client_port=9082
 ```
 
 :::
