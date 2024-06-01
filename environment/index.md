@@ -430,5 +430,11 @@ source ~/.profile
 :::
 
 ::: details 附录一：lnpp 预构建包一键安装脚本
-<<<@/assets/environment/lnpp-setup.sh
+::: code-group
+
+```md [说明]
+- PostgreSQL 默认有个超级管理员用户 `admin` 密码 `1`
+```
+
+<<<@/assets/environment/lnpp-setup.sh [源码]
 :::
