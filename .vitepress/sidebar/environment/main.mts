@@ -11,10 +11,12 @@ const sidebar = [
     text: "不维护",
     collapsed: true,
     items: [
-      { text: "MySQL", link: `${path.main}mysql_compile` },
-      { text: "Redis", link: `${path.main}redis` },
-      { text: "MongoDB", link: `${path.main}mongodb` },
-      { text: "Sqlite3", link: `${path.main}sqlite3` },
+      { text: "PostgreSQL(apt)", link: `${path.main}pgsql` },
+      { text: "MySQL", link: `${path.main}archive/mysql_compile` },
+      { text: "MySQL(apt)", link: `${path.main}archive/mysql` },
+      { text: "Redis", link: `${path.main}archive/redis` },
+      { text: "MongoDB", link: `${path.main}archive/mongodb` },
+      { text: "Sqlite3", link: `${path.main}archive/sqlite3` },
     ],
   },
 ];
