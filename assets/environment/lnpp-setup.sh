@@ -160,27 +160,27 @@ modFilePower(){
 
 #创建用户
 createUser
-echo "\n\n"
+echo " \n \n "
 
 #开发用户追加权限，部署环境请注释掉，emad是开发用户名
 devUserPower 'emad'
-echo "\n\n"
+echo " \n \n "
 
 #安装依赖包
 installPackage
-echo "\n\n"
+echo " \n \n "
 
 #解压lnpp预构建包到指定目录
 InstallBuild
-echo "\n\n"
+echo " \n \n "
 
 #安装systemctl单元
 InstallSystemctlUnit
-echo "\n\n"
+echo " \n \n "
 
 #修改文件权限
 modFilePower
-echo "\n\n"
+echo " \n \n "
 
 echo_yellow "=================================================================="
 echo_green "针对 Postgres用户 修改操作系统打开最大文件句柄数"
