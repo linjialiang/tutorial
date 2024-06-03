@@ -67,14 +67,14 @@ createUser(){
   echo_yellow "nginx 如果是通过 sock 文件代理转发给 php-fpm，php-fpm 主进程创建\n sock 文件时需要确保 nginx 子进程用户有读写 sock 文件的权限"
   echo_yellow " "
   echo_yellow "方式1：采用 sock 文件权限 php-fpm:nginx 660 \n(nginx 权限较少，php-fpm 权限较多)"
-  echo_cyan "usermod -G nginx php-fpm"
+  echo_cyan "usermod -a -G nginx php-fpm"
   echo_yellow " "
   echo_yellow "方式2：采用 sock 文件权限 php-fpm:php-fpm 660 \n(nginx 权限较多，php-fpm 权限较少)"
-  echo_cyan "usermod -G php-fpm nginx"
+  echo_cyan "usermod -a -G php-fpm nginx"
   echo_yellow " "
   echo_green "这里采用方式1，如想采用方式2，注意同步修改php-fpm配置文件"
   echo_yellow "=================================================================="
-  usermod -G nginx php-fpm
+  usermod -a -G nginx php-fpm
 }
 
 #开发用户追加权限
