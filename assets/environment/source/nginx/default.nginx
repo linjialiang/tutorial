@@ -36,7 +36,7 @@ server
     # php-fpm 转发
     location ~* \.php$
     {
-        fastcgi_pass        unix:/server/run/php/83.sock;
+        fastcgi_pass        unix:/run/php83-fpm/default.sock;
         include             fastcgi.conf;
     }
 }
