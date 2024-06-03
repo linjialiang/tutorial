@@ -8,6 +8,8 @@ User=php-fpm
 Group=php-fpm
 RuntimeDirectory=php-fpm
 RuntimeDirectoryMode=0750
+# 因为多个php多个版本都在这个目录，所以必须设为yes，否则停止其中一个，目录就会自动删除
+RuntimeDirectoryPreserve=yes
 PIDFile=/run/php-fpm/74.pid
 ExecStart=/server/php/74/sbin/php-fpm --nodaemonize --fpm-config /server/php/74/etc/php-fpm.conf
 ExecReload=/bin/kill -USR2 $MAINPID
