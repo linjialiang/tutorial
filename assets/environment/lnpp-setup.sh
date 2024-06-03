@@ -108,6 +108,8 @@ InstallSystemctlUnit(){
   echo_yellow " "
   echo_green "支持开启自动启动服务，非常规终止进程会自动启动服务"
   echo_yellow "=================================================================="
+  systemctl disable --now {postgres,nginx,php83-fpm}.service
+  rm /lib/systemd/system/{postgres,nginx,php83-fpm}.service
   cp ./service/* /lib/systemd/system/
   systemctl daemon-reload
   systemctl enable --now {postgres,nginx,php83-fpm}.service
