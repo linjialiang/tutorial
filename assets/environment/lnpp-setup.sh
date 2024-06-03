@@ -18,6 +18,26 @@ echo_yellow(){
   printf '\033[1;33m%b\033[0m\n' "$@"
 }
 
+#清空原先数据
+cleanOldData(){
+  echo_yellow "=================================================================="
+  echo_green "清理旧数据"
+  echo_yellow "=================================================================="
+  echo_cyan "清理systemctl单元"
+  systemctl disable --now {postgres,nginx,php83-fpm}.service
+  rm /lib/systemd/system/{postgres,nginx,php83-fpm}.service
+  systemctl daemon-reload
+  echo_cyan "清理旧目录 /server,/www 如果有重要数据请先备份"
+  rm -rf /server /www
+  echo_cyan "删除旧用户 nginx,postgres,php-fpm 如果有重要数据请先备份"
+  userdel -r nginx
+  userdel -r postgres
+  userdel -r php-fpm
+  groupdel nginx
+  groupdel postgres
+  groupdel php-fpm
+}
+
 #创建单个用户
 createSingleUser(){
   uid=$1
@@ -57,7 +77,7 @@ createUser(){
   usermod -G nginx php-fpm
 }
 
-# 开发用户追加权限
+#开发用户追加权限
 devUserPower(){
   devUserName=$1
   echo_yellow "=================================================================="
@@ -73,7 +93,7 @@ devUserPower(){
   usermod -G nginx,php-fpm,postgres $devUserName
 }
 
-# 安装依赖包
+#安装依赖包
 installPackage(){
   echo_yellow "=================================================================="
   echo_green "安装依赖"
@@ -86,7 +106,7 @@ installPackage(){
   libyaml-dev libzip-dev libcapstone-dev libpq-dev librdkafka-dev
 }
 
-# 安装预构建包
+#安装预构建包
 InstallBuild(){
   echo_yellow "=================================================================="
   echo_green "解压lnpp预构建包\n含两个目录"
@@ -99,7 +119,7 @@ InstallBuild(){
   tar -xJf ./lnpp.tar.xz -C /
 }
 
-# 安装systemctl单元
+#安装systemctl单元
 InstallSystemctlUnit(){
   echo_yellow "=================================================================="
   echo_green "加入systemctl守护进程\n含systemctl unit文件"
@@ -108,14 +128,12 @@ InstallSystemctlUnit(){
   echo_yellow " "
   echo_green "支持开启自动启动服务，非常规终止进程会自动启动服务"
   echo_yellow "=================================================================="
-  systemctl disable --now {postgres,nginx,php83-fpm}.service
-  rm /lib/systemd/system/{postgres,nginx,php83-fpm}.service
   cp ./service/* /lib/systemd/system/
   systemctl daemon-reload
   systemctl enable --now {postgres,nginx,php83-fpm}.service
 }
 
-# 修改文件权限
+#修改文件权限
 modFilePower(){
   echo_yellow "=================================================================="
   echo_green "文件权限"
@@ -149,6 +167,11 @@ modFilePower(){
   find /server/pgData -type d -exec chmod 700 {} \;
   chmod 750 -R /server/postgres/bin
 }
+
+#清理旧数据
+cleanOldData
+echo ' '
+echo ' '
 
 #创建用户
 createUser
