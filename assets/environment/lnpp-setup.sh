@@ -61,7 +61,7 @@ createUser(){
   createSingleUser 2003 'php-fpm' 2003 'php-fpm'
   echo ' '
   echo ' '
-  echo_yellow "==============================postgres  soft  nofile  65535===================================="
+  echo_yellow "=================================================================="
   echo_green "处理php-fpm的socket文件授权问题"
   echo_yellow "当 php-fpm 主进程非特权用户时，需要考虑socket文件权限问题："
   echo_yellow "nginx 如果是通过 sock 文件代理转发给 php-fpm，php-fpm 主进程创建\n sock 文件时需要确保 nginx 子进程用户有读写 sock 文件的权限"
@@ -72,9 +72,8 @@ createUser(){
   echo_yellow "方式2：采用 sock 文件权限 php-fpm:php-fpm 660 \n(nginx 权限较多，php-fpm 权限较少)"
   echo_cyan "usermod -a -G php-fpm nginx"
   echo_yellow " "
-  echo_green "这里采用方式1，如想采用方式2，注意同步修改php-fpm配置文件"
+  echo_green "本地使用的是tcp转发，并不需要考虑socket文件转发相关的权限问题"
   echo_yellow "=================================================================="
-  usermod -a -G nginx php-fpm
 }
 
 #开发用户追加权限
