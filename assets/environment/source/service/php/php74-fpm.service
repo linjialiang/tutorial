@@ -4,11 +4,11 @@ After=network.target
 
 [Service]
 Type=simple
-User=php74
-Group=php74
-RuntimeDirectory=php74
+User=php-fpm
+Group=php-fpm
+RuntimeDirectory=php-fpm
 RuntimeDirectoryMode=0750
-PIDFile=/run/php74/fpm.pid
+PIDFile=/run/php-fpm/74.pid
 ExecStart=/server/php/74/sbin/php-fpm --nodaemonize --fpm-config /server/php/74/etc/php-fpm.conf
 ExecReload=/bin/kill -USR2 $MAINPID
 PrivateTmp=true
