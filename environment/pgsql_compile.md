@@ -198,8 +198,8 @@ PostgreSQL 主要有以下几个配置文件：
 
 listen_addresses = '127.0.0.1,192.168.66.254'
 #port = 5432
-#external_pid_file = '/server/run/postgres/postgres.pid'
-#unix_socket_directories = '/server/run/postgres'
+external_pid_file = '/run/postgres/process.pid'
+unix_socket_directories = '/run/postgres'
 ```
 
 ### 2. 启用 TLS
@@ -565,9 +565,9 @@ systemctl start postgres.service
 ::: code-group
 
 ```bash [部署]
-chown postgres:postgres -R /server/postgres /server/pgData /server/logs/postgres /server/run/postgres
-find /server/postgres /server/logs/postgres /server/run/postgres -type f -exec chmod 640 {} \;
-find /server/postgres /server/logs/postgres /server/run/postgres -type d -exec chmod 750 {} \;
+chown postgres:postgres -R /server/postgres /server/pgData /server/logs/postgres
+find /server/postgres /server/logs/postgres -type f -exec chmod 640 {} \;
+find /server/postgres /server/logs/postgres -type d -exec chmod 750 {} \;
 find /server/pgData /server/postgres/tls -type f -exec chmod 600 {} \;
 find /server/pgData -type d -exec chmod 700 {} \;
 chmod 750 -R /server/postgres/bin

@@ -9,21 +9,17 @@ server_array=(
     "/www"
     "/server"
     "/server/default"
-    "/server/run"
     "/server/logs"
 
     "/server/nginx"
-    "/server/run/nginx"
     "/server/logs/nginx"
 
     "/server/php"
     "/server/php/83"
-    "/server/run/php"
     "/server/logs/php"
 
     "/server/postgres"
     "/server/pgData"
-    "/server/run/postgres"
     "/server/logs/postgres"
     "/server/logs/postgres/wal_archive"
 
@@ -32,12 +28,10 @@ server_array=(
 
     # "/server/redis"
     # "/server/redis/rdbData"
-    # "/server/run/redis"
     # "/server/logs/redis"
     #
     # "/server/mysql"
     # "/server/data"
-    # "/server/run/mysql"
     # "/server/logs/mysql"
     # "/server/etc/mysql"
     # "/server/tmp/mysql"

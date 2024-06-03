@@ -174,7 +174,7 @@ make -j2
    通过 cat 查看 pid 文件，并记录进程 id 号
 
    ```bash
-   cat /server/run/nginx/nginx.pid
+   cat /run/nginx/nginx.pid
    ```
 
 2. 启动新版主文件
@@ -182,7 +182,7 @@ make -j2
    通过 `kill -USR2 <pid>` 启动新版 nginx 可执行文件
 
    ```bash
-   kill -USR2 `cat /server/run/nginx/nginx.pid`
+   kill -USR2 `cat /run/nginx/nginx.pid`
    ```
 
 3. 关闭旧版进程
@@ -576,10 +576,6 @@ chmod 750 -R /server/nginx/sbin
 chown nginx:nginx -R /server/logs/nginx
 chmod 750 /server/logs/nginx
 # -- 因为日志文件权限是 nginx 644
-
-chown nginx:nginx -R /server/run/nginx
-chmod 750 /server/run/nginx
-# -- 因为pid文件权限是 nginx/644
 
 # 每次对 sbin 修改权限后，都需要重新启用CAP_NET_BIND_SERVICE能力
 setcap cap_net_bind_service=+eip /server/nginx/sbin/nginx

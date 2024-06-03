@@ -25,21 +25,18 @@ func_chown_mysql(){
 
 chown_nginx_array=(
     "/server/nginx"
-    "/server/run/nginx"
     "/server/logs/nginx"
     "/server/sites"
 );
 
 chown_phpFpm_array=(
     "/server/php"
-    "/server/run/php"
     "/server/logs/php"
 );
 
 chown_postgres_array=(
     "/server/postgres"
     "/server/pgData"
-    "/server/run/postgres"
     "/server/logs/postgres"
 );
 
@@ -50,14 +47,12 @@ chown_www_array=(
 chown_redis_array=(
     "/server/redis"
     "/server/redis/rdbData"
-    "/server/run/redis"
     "/server/logs/redis"
 );
 
 chown_mysql_array=(
     "/server/mysql"
     "/server/data"
-    "/server/run/mysql"
     "/server/logs/mysql"
     "/server/etc"
     "/server/tmp"
