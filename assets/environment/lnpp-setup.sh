@@ -60,7 +60,6 @@ createUser(){
   createSingleUser 2002 'postgres' 2002 'postgres'
   createSingleUser 2003 'php-fpm' 2003 'php-fpm'
   echo ' '
-  echo ' '
   echo_yellow "=================================================================="
   echo_green "处理php-fpm的socket文件授权问题"
   echo_yellow "当 php-fpm 主进程非特权用户时，需要考虑socket文件权限问题："
@@ -117,20 +116,6 @@ InstallBuild(){
   tar -xJf ./lnpp.tar.xz -C /
 }
 
-#安装systemctl单元
-InstallSystemctlUnit(){
-  echo_yellow "=================================================================="
-  echo_green "加入systemctl守护进程\n含systemctl unit文件"
-  echo_yellow " "
-  echo_cyan "/lib/systemd/system/{postgres,nginx,php83-fpm}.service"
-  echo_yellow " "
-  echo_green "支持开启自动启动服务，非常规终止进程会自动启动服务"
-  echo_yellow "=================================================================="
-  cp ./service/* /lib/systemd/system/
-  systemctl daemon-reload
-  systemctl enable --now {postgres,nginx,php83-fpm}.service
-}
-
 #修改文件权限
 modFilePower(){
   echo_yellow "=================================================================="
@@ -163,41 +148,41 @@ modFilePower(){
   chmod 750 -R /server/postgres/bin
 }
 
+#安装systemctl单元
+InstallSystemctlUnit(){
+  echo_yellow "=================================================================="
+  echo_green "加入systemctl守护进程\n含systemctl unit文件"
+  echo_yellow " "
+  echo_cyan "/lib/systemd/system/{postgres,nginx,php83-fpm}.service"
+  echo_yellow " "
+  echo_green "支持开启自动启动服务，非常规终止进程会自动启动服务"
+  echo_yellow "=================================================================="
+  cp ./service/* /lib/systemd/system/
+  systemctl daemon-reload
+  systemctl enable --now {postgres,nginx,php83-fpm}.service
+}
+
 #清理旧数据
 cleanOldData
 echo ' '
-echo ' '
-
 #创建用户
 createUser
 echo ' '
-echo ' '
-
 #开发用户追加权限，部署环境请注释掉，emad是开发用户名
 devUserPower 'emad'
 echo ' '
-echo ' '
-
 #安装依赖包
 installPackage
 echo ' '
-echo ' '
-
 #解压lnpp预构建包到指定目录
 InstallBuild
 echo ' '
-echo ' '
-
-#安装systemctl单元
-InstallSystemctlUnit
-echo ' '
-echo ' '
-
 #修改文件权限
 modFilePower
 echo ' '
+#安装systemctl单元
+InstallSystemctlUnit
 echo ' '
-
 echo_yellow "=================================================================="
 echo_green "针对 Postgres用户 修改操作系统打开最大文件句柄数"
 echo_yellow "为防止重复插入，请在 /etc/security/limits.conf 文件的结尾手动添加\n如下两行代码："

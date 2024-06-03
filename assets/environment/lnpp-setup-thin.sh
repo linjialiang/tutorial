@@ -56,7 +56,6 @@ createUser(){
   createSingleUser 'postgres' 'postgres'
   createSingleUser 'php-fpm' 'php-fpm'
   echo ' '
-  echo ' '
   echo_yellow "=================================================================="
   echo_green "处理php-fpm的socket文件授权问题"
   echo_yellow "当 php-fpm 主进程非特权用户时，需要考虑socket文件权限问题："
@@ -147,33 +146,21 @@ modFilePower(){
 #清理旧数据
 cleanOldData
 echo ' '
-echo ' '
-
 #创建用户
 createUser
 echo ' '
-echo ' '
-
 #安装依赖包
 installPackage
 echo ' '
-echo ' '
-
 #解压lnpp预构建包到指定目录
 InstallBuild
 echo ' '
-echo ' '
-
-#安装systemctl单元
-InstallSystemctlUnit
-echo ' '
-echo ' '
-
 #修改文件权限
 modFilePower
 echo ' '
+#安装systemctl单元
+InstallSystemctlUnit
 echo ' '
-
 echo_yellow "=================================================================="
 echo_green "针对 Postgres用户 修改操作系统打开最大文件句柄数\n防止linux操作系统内打开文件句柄数量的限制，避免不必要的故障"
 echo_yellow "为防止重复插入，请在 /etc/security/limits.conf 文件的结尾手动添加\n如下两行代码："
@@ -184,8 +171,6 @@ echo_cyan "postgres  hard  nofile  65535"
 echo_yellow " "
 echo_yellow "=================================================================="
 echo ' '
-echo ' '
-
 echo_yellow "=================================================================="
 echo_green "精简版不含开发者用户的权限授予，如有需要请自行授权："
 echo_yellow " "
