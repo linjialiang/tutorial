@@ -7,10 +7,8 @@ After=network.target
 Type=notify
 User=php-fpm
 Group=php-fpm
-RuntimeDirectory=php-fpm
+RuntimeDirectory=php83-fpm
 RuntimeDirectoryMode=0750
-# 因为多个php多个版本都在这个目录，所以必须设为yes，否则停止其中一个，目录就会自动删除
-RuntimeDirectoryPreserve=yes
 ExecStart=/server/php/83/sbin/php-fpm --nodaemonize --fpm-config /server/php/83/etc/php-fpm.conf
 ExecReload=/bin/kill -USR2 $MAINPID
 PrivateTmp=true
