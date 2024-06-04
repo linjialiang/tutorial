@@ -106,7 +106,82 @@ InstallSystemctlUnit(){
   echo_yellow " "
   echo_green "支持开启自动启动服务，非常规终止进程会自动启动服务"
   echo_yellow "=================================================================="
-  cp ./service/* /lib/systemd/system/
+  echo_cyan "[+] Create nginx service..."
+
+  echo "[Unit]
+Description=nginx-1.26.x
+After=network.target
+
+[Service]
+Type=forking
+User=nginx
+Group=nginx
+RuntimeDirectory=nginx
+RuntimeDirectoryMode=0750
+ExecStartPre=/server/nginx/sbin/nginx -t
+ExecStart=/server/nginx/sbin/nginx -c /server/nginx/conf/nginx.conf
+ExecReload=/server/nginx/sbin/nginx -s reload
+ExecStop=/server/nginx/sbin/nginx -s quit
+Restart=on-failure
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+" >/lib/systemd/system/nginx.service
+
+  echo_cyan "[+] Create php83-fpm service..."
+
+  echo "[Unit]
+Description=The PHP 8.3 FastCGI Process Manager
+After=network.target
+
+[Service]
+Type=notify
+User=php-fpm
+Group=php-fpm
+RuntimeDirectory=php83-fpm
+RuntimeDirectoryMode=0750
+ExecStart=/server/php/83/sbin/php-fpm --nodaemonize --fpm-config /server/php/83/etc/php-fpm.conf
+ExecReload=/bin/kill -USR2 $MAINPID
+PrivateTmp=true
+ProtectSystem=full
+PrivateDevices=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictRealtime=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_NETLINK AF_UNIX
+RestrictNamespaces=true
+
+[Install]
+WantedBy=multi-user.target
+" >/lib/systemd/system/php83-fpm.service
+
+  echo_cyan "[+] Create postgres service..."
+
+  echo "[Unit]
+Description=PostgreSQL database server
+Documentation=man:postgres(1)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+User=postgres
+Group=postgres
+RuntimeDirectory=postgres
+RuntimeDirectoryMode=0750
+ExecStart=/server/postgres/bin/postgres -D /server/pgData
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=mixed
+KillSignal=SIGINT
+TimeoutSec=infinity
+
+[Install]
+WantedBy=multi-user.target
+" >/lib/systemd/system/postgres.service
+
+  echo_green "Registered Service..."
   systemctl daemon-reload
   systemctl enable --now {postgres,nginx,php83-fpm}.service
 }
