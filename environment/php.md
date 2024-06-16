@@ -776,7 +776,7 @@ extension=rdkafka
 ::: code-group
 
 ```bash [安装]
-cd /home/php-fpm/php_ext/mongodb-1.19.0
+cd /home/php-fpm/php_ext/mongodb-1.19.2
 phpize
 ./configure --enable-mongodb --with-php-config=/server/php/83/bin/php-config
 make -j2
