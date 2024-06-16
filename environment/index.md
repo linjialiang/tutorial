@@ -444,3 +444,7 @@ source ~/.profile
 <<<@/assets/environment/lnpp-setup.sh [开发版(含 zsh )]
 <<<@/assets/environment/lnpp-setup-thin.sh [精简版]
 :::
+
+::: tip 提示
+有没有可能，编译阶段安装的很多开发包，在运行阶段都是没用的呢？如果可以卸载掉这些包，就可以减少资源浪费
+:::
