@@ -460,22 +460,15 @@ PHP-FPM 自带了一套比较完善的进程管理指令，编译完成后还会
 <<<@/assets/environment/source/service/php/php74-fpm.service{ini} [php7.4]
 :::
 
-::: code-group
-
-```bash [创建单元文件]
+```bash
+# 创建单元文件
 mv /path/php*-fpm.service /usr/lib/systemd/system/
-```
-
-```bash [加入开机启动]
-systemctl enable php74-fpm
-systemctl enable php83-fpm
-```
-
-```bash [重载Systemd]
+# 重载Systemd
 systemctl daemon-reload
+# 加入systemctl服务，并立即开启
+systemctl enable --now php83-fpm
+systemctl enable --now php74-fpm
 ```
-
-:::
 
 ::: tip 注意事项：
 
