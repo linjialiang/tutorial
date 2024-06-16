@@ -157,6 +157,33 @@ su - postgres -s /bin/zsh
 
 :::
 
+## psql
+
+::: code-group
+
+```bash [postgres用户登录]
+# 最简单登录指令
+psql
+# 修改 sock 文件路径后，需要指定 sock 文件所在目录才能正常登录
+psql -h /run/postgres
+```
+
+````md [admin用户登录]
+```bash
+psql -h /run/postgres -U admin -d postgres -W
+```
+
+> 这是一个用于连接到 PostgreSQL 数据库的命令。其中：
+
+- psql 是 PostgreSQL 的命令行工具。
+- -h /run/postgres 指定了要连接的数据库服务器的主机名或 IP 地址，这里是/run/postgres。
+- -U admin 指定了要使用的用户名，这里是 admin。
+- -d postgres 指定了要连接的数据库名称，这里是 postgres。
+- -W 表示在连接时需要输入密码。
+````
+
+:::
+
 ## systemd 单元
 
 ::: code-group
@@ -188,7 +215,6 @@ PostgreSQL 主要有以下几个配置文件：
 ::: code-group
 <<<@/assets/environment/source/postgres/postgresql.conf{ini} [服务端配置文件]
 <<<@/assets/environment/source/postgres/pg_hba.conf{ini} [客户访问限制配置文件]
-
 :::
 
 ### 1. 基本配置
