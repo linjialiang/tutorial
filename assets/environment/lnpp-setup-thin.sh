@@ -67,7 +67,7 @@ createUser(){
   echo_yellow "方式2：采用 sock 文件权限 php-fpm:php-fpm 660 \n(nginx 权限较多，php-fpm 权限较少)"
   echo_cyan "usermod -a -G php-fpm nginx"
   echo_yellow " "
-  echo_green "本地使用的是tcp转发，并不需要考虑socket文件转发相关的权限问题"
+  echo_green "此版本使用的是tcp转发，并不需要考虑socket文件转发相关的权限问题"
   echo_yellow "=================================================================="
 }
 
