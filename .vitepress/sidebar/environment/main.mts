@@ -7,6 +7,7 @@ const sidebar = [
   { text: "Nginx", link: `${path.main}nginx` },
   { text: "PostgreSQL", link: `${path.main}pgsql_compile` },
   { text: "PHP", link: `${path.main}php` },
+  { text: "PHP(pgsql版)", link: `${path.main}php_pgsql` },
   {
     text: "存档(不再积极维护)",
     collapsed: true,
