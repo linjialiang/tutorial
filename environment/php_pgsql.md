@@ -54,9 +54,12 @@ mkdir /home/php-fpm/php-8.3.8/build_php
 
 ### 3. 环境变量
 
-构建 PHP 需要额外将 `sqlite3` 的 `pkgconfig` 目录加入到临时环境变量里
+如果想使用 sqlite3 最新版就需要自己编译安装
 
-```bash
+::: code-group
+
+```bash [编译安装sqlite3]
+# 构建 PHP 需将 sqlite3 的 pkgconfig 目录加入到临时环境变量里
 export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
 
 # 使用下面指令检查，sqlite3 是否正确加入
@@ -66,7 +69,12 @@ pkg-config --list-all | grep sqlite3
 sqlite3          SQLite - SQL database engine
 ```
 
-::: tip 如果服务器上未安装 sqlite3，则需要安装 `libsqlite3-dev` 依赖库，这样也不用将 `pkgconfig` 加入到 PKG_CONFIG_PATH 环境变量中
+```bash [使用依赖库]
+# 未安装 sqlite3，则需安装 libsqlite3-dev 依赖库
+# 这中方式不用将 pkgconfig 加入到 PKG_CONFIG_PATH 环境变量中
+apt install libsqlite3-dev -y
+```
+
 :::
 
 ### 4. 查看构建选项
