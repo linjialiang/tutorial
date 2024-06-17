@@ -26,7 +26,7 @@ cd /home/nginx/nginx-1.26.1
 ::: code-group
 
 ```bash [编译环境]
-apt install gcc make pkg-config -y
+apt install gcc make -y
 ```
 
 ```bash [模块依赖包]
@@ -34,6 +34,7 @@ apt install libxslt1-dev libxml2-dev libgd-dev libgeoip-dev -y
 ```
 
 ```bash [检查依赖库]
+apt install pkg-config -y
 # 检查依赖库是否存在 pkg-config 列表中
 pkg-config --list-all
 # 需包含
