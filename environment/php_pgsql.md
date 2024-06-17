@@ -103,15 +103,15 @@ apt install libsqlite3-dev -y
 # php7.4 构建目录
 cd /home/php-fpm/php-7.4.33/build_php/
 # php8.3 构建目录
-cd /home/php-fpm/php-8.3.8/build_php/
+cd /home/php-fpm/php-8.3.8/build_php_p/
 ```
 
 ### 6. 安装指令
 
 ::: details 构建指令参考
 ::: code-group
-<<<@/assets/environment/source/php/build/83.bash [8.3]
-<<<@/assets/environment/source/php/build/74.bash [7.4]
+<<<@/assets/environment/source/php/build/83_pgsql.bash [8.3]
+<<<@/assets/environment/source/php/build/74_pgsql.bash [7.4]
 :::
 
 ::: tip 构建指令区别：
