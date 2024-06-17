@@ -81,7 +81,7 @@ cp -p -r ~/redis-7.2.5/redis.conf /server/redis/redis.conf
 # 以守护进程的方式运行
 daemonize yes
 # 修改pid文件存放路径
-pidfile /server/run/redis/redis.pid
+pidfile /run/redis/process.pid
 # 启用密码登陆
 requirepass 1
 # 日志路径
