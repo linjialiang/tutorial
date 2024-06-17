@@ -5,10 +5,6 @@ titleTemplate: 环境搭建教程
 
 # 安装 Redis
 
-::: danger 警告
-Redis 不再维护
-:::
-
 [redis](https://redis.io/download) 是当下最热门的键值对(Key-Value)存储数据库
 
 在 Debian 12 下构建 Redis 的详细流程如下
