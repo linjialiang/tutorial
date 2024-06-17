@@ -84,8 +84,9 @@ PHP 环境目录
    - openssl-3.0.14.tar.gz
    - pcre2-10.44.tar.bz2
    - zlib-1.3.1.tar.xz
-2. postgresql-16.3.tar.bz2
-3. php-8.3.8.tar.xz
+2. redis-7.2.5.tar.gz
+3. postgresql-16.3.tar.bz2
+4. php-8.3.8.tar.xz
    - apcu-5.1.23.tgz `静态扩展(pgsql版无)`
    - yaml-2.2.3.tgz `静态扩展(pgsql版无)`
    - redis-6.0.2.tgz `静态扩展(pgsql版无)`
