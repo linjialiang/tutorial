@@ -1,135 +1,23 @@
 ---
-title: 安装 PHP（pgsql版）
+title: 安装 PHP(pgsql版)
 titleTemplate: 环境搭建教程
 ---
 
-# 安装 PHP
+# 安装 PHP —— pgsql 版
 
 PHP（`PHP: Hypertext Preprocessor`，超文本预处理器的字母缩写）是一种被广泛应用的开放源代码的多用途脚本语言，它可嵌入到 HTML 中，尤其适合 web 开发。
-
-构建 PHP 时可以直接指定 MySQL 的 socket 路径，所以建议在 MySQL 之后安装
-
-::: tip 提示
-也可以在 php.ini 配置文件里指定 MySQL 的 socket 路径
-:::
-
-## 扩展库
-
-PHP 扩展库按加载时间可分为：`动态库(共享扩展)` 和 `静态库`
-
-::: details 1. 动态库
-
-动态库是在程序运行时链接的，动态库在编译时不会放到连接的目标程序中，即：可执行文件无法单独运行，动态库扩展名一般为：
-
-| win     | unix   |
-| ------- | ------ |
-| `*.dll` | `*.so` |
-
-:::
-
-::: details 2. 静态库
-
-静态库是在程序编译时链接的，静态库在编译时会直接整合到目标程序中，编译成功的可执行文件可独立运行，静态库扩展名一般为：
-
-| win     | unix  |
-| ------- | ----- |
-| `*.lib` | `*.a` |
-
-:::
-
-::: details 3. 动态库和静态库区别
-
-静态编译：静态库将需要的依赖在构建时，已经从系统 `拷贝` 到程序中，执行时就不需要调用系统的库，系统包移除时也不至于会让扩展失效，但是它会额外占用磁盘资源
-
-动态编译：动态库构建了 1 个连接文件(`*.so`) ，用于连接程序和系统对应库的文件，执行时需要调用系统的库以及该库对应的依赖项
-
-- 性能：静态库优于动态库，服务器硬件配置较差的，应该倾向于静态库
-- 体积：静态库体积大于动态库
-- 升级：静态库升级需要重新构建 PHP，动态库升级只需要重新生成连接文件(`*.so`)即可
-- 稳定：静态库更加稳定，对于动态库来讲，如果系统对应库升级，与动态库对应的构建版本不一致，可能会遇到兼容性问题
-
-:::
-
-::: details 4. 扩展库构建类型选择
-
-- 使用频繁的扩展库，推荐使用静态编译
-- 更新频繁的扩展库，建议使用动态编译
-- 非官方认可扩展库，建议使用动态编译
-
-[官方认可扩展库列表](https://www.php.net/manual/zh/extensions.membership.php) 里的扩展，如有必要均可用静态库的方式构建，安全性和稳定性都由官方验证过
-
-:::
 
 ## 准备工作
 
 开始之前我们需要先使用预先准备好的 bash 脚本，解压文件和授权目录，具体参考 [脚本文件](./index#脚本文件)
 
-本次计划构建 2 个 php 版本：
+本次编译安装 PHP 的方式，允许同时构建多个 php 版本：
 
 1. `php 7.4.x`
 2. `php 8.3.x`
 
-## 静态编译 PECL 扩展 {#pecl-static-bulid}
-
-本次静态编译下面这些 PECL 扩展：
-
-1. apcu
-2. redis
-3. yaml
-4. rdkafka
-
-### 1. 拷贝扩展源码
-
-将 PECL 扩展源码拷贝到 php 的 ext 目录下
-
-::: code-group
-
-```bash [进扩展目录]
-cd /home/php-fpm/php_ext
-```
-
-```bash [拷贝到8.3]
-cp -p -r apcu-5.1.23 /home/php-fpm/php-8.3.8/ext/apcu
-cp -p -r redis-6.0.2 /home/php-fpm/php-8.3.8/ext/redis
-cp -p -r yaml-2.2.3 /home/php-fpm/php-8.3.8/ext/yaml
-```
-
-```bash [拷贝到7.4]
-cp -p -r apcu-5.1.23 /home/php-fpm/php-7.4.33/ext/apcu
-cp -p -r redis-6.0.2 /home/php-fpm/php-7.4.33/ext/redis
-cp -p -r yaml-2.2.3 /home/php-fpm/php-7.4.33/ext/yaml
-```
-
-:::
-
-### 2. 重新生成 php 配置
-
-PHP 增加新扩展后，需要使用 `autoconf` 工具重新生成 `配置脚本-configure`
-
-::: details 安装 autoconf 工具
-
-```bash
-apt install autoconf -y
-```
-
-:::
-
-::: details 重新生成 configure 配置脚本
-
-::: code-group
-
-```bash [8.3重新生成]
-cd /home/php-fpm/php-8.3.8/
-mv configure{,.original}
-./buildconf --force
-```
-
-```bash [7.4重新生成]
-cd /home/php-fpm/php-7.4.33/
-mv configure{,.original}
-./buildconf --force
-```
-
+::: tip 提示
+新的发行版后，实际只测试过了 `php8.3.x` 的编译安装
 :::
 
 ## pkg-config

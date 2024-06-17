@@ -86,11 +86,11 @@ PHP 环境目录
    - zlib-1.3.1.tar.xz
 2. postgresql-16.3.tar.bz2
 3. php-8.3.8.tar.xz
-   - apcu-5.1.23.tgz `静态扩展`
-   - yaml-2.2.3.tgz `静态扩展`
-   - redis-6.0.2.tgz `静态扩展`
-   - mongodb-1.19.2.tgz `动态扩展`
-   - rdkafka-6.0.3.tgz `动态扩展`
+   - apcu-5.1.23.tgz `静态扩展(pgsql版无)`
+   - yaml-2.2.3.tgz `静态扩展(pgsql版无)`
+   - redis-6.0.2.tgz `静态扩展(pgsql版无)`
+   - mongodb-1.19.2.tgz `动态扩展(pgsql版无)`
+   - rdkafka-6.0.3.tgz `动态扩展(pgsql版无)`
    - xdebug-3.3.2.tgz `动态扩展`
 ```
 
