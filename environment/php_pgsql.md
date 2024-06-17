@@ -17,46 +17,8 @@ PHP（`PHP: Hypertext Preprocessor`，超文本预处理器的字母缩写）是
 2. `php 8.3.x`
 
 ::: tip 提示
-新的发行版后，实际只测试过了 `php8.3.x` 的编译安装
+新的 Linux 发行版后，实际只对 `php8.3.x` 进行过测试，其它 PHP 版本请自行测试
 :::
-
-## pkg-config
-
-构建 php 时，自己编译的依赖包需要手动加入到 pkg-config 中
-
-使用 export 是临时加入环境变量中，但会永久记录在编译后的可执行文件信息里
-
-### 1. 查看临时环境变量
-
-查看当前终端临时的环境变量，避免多次引入路径，造成混淆
-
-```bash
-echo $PKG_CONFIG_PATH
-```
-
-### 2. 加入临时环境变量
-
-将所需路径加入到当前终端临时的环境变量中
-
-::: code-group
-
-```bash [加入单个路径]
-export PKG_CONFIG_PATH=/path/to/pkgConfig_1:$PKG_CONFIG_PATH
-```
-
-```bash [加入多个路径]
-export PKG_CONFIG_PATH=/path/to/pkgConfig_1:/path/to/pkgConfig_2:$PKG_CONFIG_PATH
-```
-
-:::
-
-### 3. 查看环境变量列表
-
-使用下面指令，可以查看当前终端的全部环境变量列表
-
-```bash
-pkg-config --list-all
-```
 
 ## 构建 PHP
 
@@ -65,25 +27,22 @@ pkg-config --list-all
 本次 PHP 编译，系统还需要如下依赖项：
 
 ```bash
-apt install g++ libsystemd-dev libsqlite3-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libyaml-dev libzip-dev -y
+apt install g++ libsystemd-dev libsqlite3-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev -y
 
 # php 8.3.0 开始如果要启用 capstone
 apt install libcapstone-dev -y
 
 # libpq-dev 包含 libpq库(是 PostgreSQL 官方的客户端库)，用于与 PostgreSQL 服务器进行通信
 apt install libpq-dev -y
-
-# rdkafka
-apt install librdkafka-dev -y
 ```
 
-::: tip
+::: tip 提示
 
 - 不同版本所需依赖项可能不同
 - 使用更多外部扩展，所需依赖项也会更多
-- php 较低版本如果要在新版的 linux 系统上安装，很多依赖都需要自己去重新构建
+- php 较低版本如果要在新版的 linux 系统上安装，很多依赖可能都需要自己重新
 
-所以很多时候你要学会去阅读 `configure` 的报错提，以及掌握 linux 软件包的编译安装
+通常你需要自己去阅读 `configure` 的错误提示，以及掌握 linux 软件包的编译安装
 :::
 
 ### 2. 创建构建目录
