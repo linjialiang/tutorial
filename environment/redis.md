@@ -28,13 +28,13 @@ Redis 构建相对简单
 ::: code-group
 
 ```bash [源码包迁移]
-mv /package/redis-7.2.4 /home/redis
-chown redis:redis -R /home/redis/redis-7.2.4
+mv /package/redis-7.2.5 /home/redis
+chown redis:redis -R /home/redis/redis-7.2.5
 ```
 
 ```bash [构建指令]
 su - redis -s /bin/zsh
-cd ~/redis-7.2.4/
+cd ~/redis-7.2.5/
 make BUILD_TLS=yes -j2
 ```
 
@@ -74,7 +74,7 @@ redis 源码包中自带了 1 个配置文件，我们这里可以直接拷贝�
 ### 1. 拷贝配置文件
 
 ```bash
-cp -p -r ~/redis-7.2.4/redis.conf /server/redis/redis.conf
+cp -p -r ~/redis-7.2.5/redis.conf /server/redis/redis.conf
 ```
 
 ::: code-group
@@ -385,10 +385,10 @@ redis 源码包上的 `./utils/gen-test-certs.sh` 脚本，用于一键生成 TL
 
 ```bash [执行脚本]
 su - redis -s /bin/zsh
-cd ~/redis-7.2.4/utils
+cd ~/redis-7.2.5/utils
 chmod +x ./gen-test-certs.sh
 ./gen-test-certs.sh
-cp -r ~/redis-7.2.4/utils/tests/tls /server/redis
+cp -r ~/redis-7.2.5/utils/tests/tls /server/redis
 ```
 
 ```bash [生成文件]
