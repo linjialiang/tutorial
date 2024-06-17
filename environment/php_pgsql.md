@@ -103,7 +103,7 @@ apt install libsqlite3-dev -y
 # php7.4 构建目录
 cd /home/php-fpm/php-7.4.33/build_php/
 # php8.3 构建目录
-cd /home/php-fpm/php-8.3.8/build_php_p/
+cd /home/php-fpm/php-8.3.8/build_php/
 ```
 
 ### 6. 安装指令
@@ -201,22 +201,20 @@ PHP 官方明确说明 OPcache 只允许编译为共享扩展，并且默认会�
 
 使用 `--disable-opcache` 选项可以禁止构建
 
-- 开启方式
+::: code-group
 
-  在 `php.ini` 第 953 行，将 `;` 去掉
+```ini [开启方式]
+# 在 `php.ini` 第 953 行，将 `;` 去掉
+zend_extension=opcache
+```
 
-  ```ini
-  zend_extension=opcache
-  ```
+```ini [性能配置]
+# 在 `php.ini` 第 1796 行，加入以下内容，可获得较好性能
+# 检查脚本时间戳是否有更新的周期，以秒为单位
+opcache.revalidate_freq=60
+```
 
-- 性能配置
-
-  在 `php.ini` 第 1796 行，加入以下内容，可获得较好性能
-
-  ```ini
-  # 检查脚本时间戳是否有更新的周期，以秒为单位
-  opcache.revalidate_freq=60
-  ```
+:::
 
 ::: danger 警告
 开启 `opcache` 扩展，会导致数据被缓存，可能无法获取到最新数据，所以线上环境必须经过严格测试
@@ -394,83 +392,6 @@ su - php-fpm -s /bin/zsh
 /server/php/83/bin/php /usr/local/bin/composer self-update
 ```
 
-## 网页版数据库管理工具
-
-将 adminer、phpMyAdmin、phpRedisAdmin 加入到默认站点
-
-```bash
-mv adminer-xxx.php /server/default/adminer.php
-mv phpMyAdmin-xxx/ /server/default/pma
-mv phpRedisAdmin-xxx/ /server/default/pra
-```
-
-### 1. adminer
-
-adminer 使用 pdo 链接数据库，支持管理多种数据库，不需要额外配置
-
-::: tip
-adminer 无需配置
-:::
-
-::: details 将服务器上 sql 文件导入到数据库
-
-```
-- sql文件路径：文件必须和 adminer.php 在同级目录下
-- sql文件名称：`adminer.sql` 或者 `adminer.sql.gz`
-```
-
-:::
-
-### 2. phpMyAdmin
-
-phpMyAdmin 使用 mysqli 链接，支持管理 MariaDB、MySQL
-
-::: tip
-phpMyAdmin 需要配置
-:::
-
-1. details 新建配置文件
-
-   在 pma 根目录下新建 config.inc.php 文件
-
-   ```bash
-   cd /server/default/pma/
-   vim config.inc.php
-   ```
-
-   ::: details 配置文件内容
-   <<<@/assets/environment/source/php/config.inc.php
-   :::
-
-   ::: tip
-   pma 的密文 `$cfg['blowfish_secret']` 参数需要重新设置
-   :::
-
-2. pma 密文参数
-
-   `$cfg['blowfish_secret']` 参数用于设置 pma 密文，支持如下字符类型组合：
-
-   - 数值: `0-9`
-   - 大写字母: `A-Z`
-   - 小写字母: `a-z`
-   - ascii 特殊字符: `\~!@#$%^&*()_+-=[]{}\|;:'"/?.>,<`
-
-### 3. phpRedisAdmin
-
-phpRedisAdmin 需要使用 composer 安装依赖后，才能正常使用
-
-```bash
-su emad
-cd /server/default/pra/
-composer install
-```
-
-::: danger 警告
-通常不使用 `composer update` 指令，它有可能导致程序依赖被破坏
-
-对于任何线上项目，都应该尽可能减少使用 `composer update` 的次数
-:::
-
 ## 升级 PHP
 
 升级 PHP 跟正常编译几乎一样，下面是注意事项：
@@ -500,61 +421,9 @@ composer install
 
 ## 动态安装 PECL 扩展
 
-在为项目增加功能的时候，可能需要额外的扩展支持，这时候我们不可避免要去安装动态扩展
+项目运行过程中，可能需要额外的扩展支持，这时我们不可避免要去安装动态扩展
 
-而 PHP 官方显然也是考虑到这一点，所以动态安装这块也非常轻松
-
-本次计划提供下面几个 PECL 扩展的动态安装案例：
-
-1. [imagick](https://pecl.php.net/package/imagick)
-2. [xdebug](https://xdebug.org/download)
-3. [swoole](https://www.swoole.com/download)
-4. [rdkafka](https://pecl.php.net/package/rdkafka)
-
-### 1. imagick
-
-imagick 需要先安装依赖库 [ImageMagick](https://download.imagemagick.org/ImageMagick/download/)
-
-::: details 安装 ImageMagick
-
-```bash
-apt install libtool -y
-# 如果 make check 没有报错，下面这些依赖可以不用安装
-apt install libheif-dev liblcms2-dev libopenjp2-7-dev liblqr-1-0-dev libopenexr-dev libwmf-dev libpango1.0-dev libraw-dev libraqm-dev libdjvulibre-dev libzstd-dev -y
-mkdir /server/ImageMagick
-cd /home/php-fpm/ImageMagick-7.1.0-51/
-./configure --prefix=/server/ImageMagick/
-make
-make check
-make install
-```
-
-:::
-
-::: details 安装 Imagick 扩展
-
-```bash
-export PKG_CONFIG_PATH=/server/ImageMagick/lib/pkgconfig
-cd /home/php-fpm/php_ext/imagick-3.7.0
-phpize
-# 构建指令
-./configure \
---with-php-config=/server/php/83/bin/php-config \
-# --with-php-config=/server/php/74/bin/php-config \
---with-imagick=/server/ImageMagick/
-# 编译并安装
-make
-make test
-make install
-```
-
-> `./configure` 指令检查有报错
-
-:::
-
-### 2. xdebug
-
-xdebug 是 php 的断点调试工具
+下面以 [xdebug](https://xdebug.org/download) 安装案例：
 
 ::: code-group
 
@@ -581,7 +450,9 @@ xdebug.client_port=9083
 
 :::
 
-::: tip 同时使用 Xdebug 和 OPCache 时，`zend_extension=xdebug` 须在 `zend_extension=opcache` 下面：
+::: tip 提示
+
+同时使用 Xdebug 和 OPCache 时，`zend_extension=xdebug` 须在 `zend_extension=opcache` 之后：
 
 ```ini
 zend_extension=opcache
@@ -590,75 +461,9 @@ zend_extension=xdebug
 
 :::
 
-### 3. swoole
-
-Swoole 是一个使用 C++ 语言编写的基于异步事件驱动和协程的并行网络通信引擎，为 PHP 提供协程、高性能网络编程支持
-
-### 4. rdkafka
-
-::: code-group
-
-```bash [安装]
-# 安装依赖库 librdkafka
-apt install librdkafka-dev -y
-
-# 安装 php-rdkafka 扩展
-cd /home/php-fpm/php_ext/rdkafka-6.0.3
-phpize
-./configure --with-php-config=/server/php/83/bin/php-config
-make -j2
-make install
-```
-
-```ini [配置]
-# /server/php/83/lib/php.ini
-extension=rdkafka
-```
-
+::: danger 警告
+凡是数据库相关扩展，这里都建议以静态编译为佳
 :::
-
-### 5. MongoDB
-
-在实际工作中 PostgreSQL 通常可以取代 MySQL 和 MongoDB
-
-::: code-group
-
-```bash [安装]
-cd /home/php-fpm/php_ext/mongodb-1.19.2
-phpize
-./configure --enable-mongodb --with-php-config=/server/php/83/bin/php-config
-make -j2
-make test
-make install
-```
-
-```ini [配置]
-# /server/php/83/lib/php.ini
-extension=mongodb
-```
-
-:::
-
-::: tip 开启动态扩展
-
-```ini
-extension=imagick
-extension=swoole
-extension=mongodb
-extension=rdkafka
-```
-
-:::
-
-### 即将移除的扩展
-
-1. yaml 更新不积极，可使用 `symfony/yaml` 包替代
-2. rdkafka 更新不积极，有需求再安装动态扩展
-3. apcu 更新不积极，有需求再安装动态扩展
-4. redis 可使用 `predis/predis` 包替代，另外在考虑使用 Postgres 替代
-5. mongodb 移除， Postgres 通常都能胜任相关工作，有需求再安装动态扩展
-6. mysql 移除，完全转到 Postgres
-7. SQLite3 作为 php 默认启用的数据库扩展，纠结是否移除，大概率不移除
 
 ## 权限
 
