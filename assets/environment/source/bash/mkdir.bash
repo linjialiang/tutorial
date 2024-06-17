@@ -26,10 +26,10 @@ server_array=(
     "/server/sites"
     "/server/sites/ssl"
 
-    # "/server/redis"
-    # "/server/redis/rdbData"
-    # "/server/logs/redis"
-    #
+    "/server/redis"
+    "/server/redis/rdbData"
+    "/server/logs/redis"
+
     # "/server/mysql"
     # "/server/data"
     # "/server/logs/mysql"
