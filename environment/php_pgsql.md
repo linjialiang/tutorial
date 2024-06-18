@@ -378,7 +378,7 @@ cd /server/php/83/bin
 chmod 750 composer.phar
 
 # 软链接到 /usr/local/bin
-ln -s /server/php/83/bin/composer.phar /usr/local/bin/composer
+ln -s /server/php/83/bin/composer.phar /server/php/83/bin/composer
 ```
 
 ### 2. 全量镜像
