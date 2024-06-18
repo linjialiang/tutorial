@@ -17,11 +17,11 @@ alias cls='clear'
 setopt no_nomatch
 alias l="exa -galFihH --sort=Name"
 alias la="exa -aF"
-# 这里使用 echo $PATH 查询，将未加入环境变量的路径写入
-PATH=${PATH}:/usr/local/sbin:/usr/sbin:/sbin
-# 下面的，安装对象包后开启
+PATH=${PATH}:/usr/sbin:/usr/local/sbin:sbin
+PATH=${PATH}:/server/nginx/sbin
+PATH=${PATH}:/server/postgres/bin
+PATH=${PATH}:/server/php/83/bin:/server/php/83/sbin
 # PATH=${PATH}:/server/node/bin
 # PATH=${PATH}:/server/mysql/bin
-# PATH=${PATH}:/server/php/83/bin:/server/php/83/sbin
-# PATH=${PATH}:/server/nginx/sbin:/server/sqlite3/bin:/server/redis/bin
+# PATH=${PATH}:/server/sqlite3/bin:/server/redis/bin
 export PATH
