@@ -259,6 +259,13 @@ WantedBy=multi-user.target
   systemctl enable --now {postgres,nginx,php83-fpm}.service
 }
 
+echo_cyan "解压脚本同级目录下需存在源码压缩包 lnpp.tar.xz"
+echo_cyan "是否退出(1退出/默认继续)："
+read isExit
+if [ $isExit -eq 1 ]; then
+  exit 0
+fi
+
 #系统更新到最新
 upgradeOS
 
