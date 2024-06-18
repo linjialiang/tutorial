@@ -442,8 +442,7 @@ source ~/.profile
 - PostgreSQL 默认有个超级管理员用户 `admin` 密码 `1`
 ```
 
-<<<@/assets/environment/lnpp-setup.sh [开发版(含 zsh )]
-<<<@/assets/environment/lnpp-setup-thin.sh [精简版]
+<<<@/assets/environment/lnpp-setup.sh [完整版]
 :::
 
 ::: tip 提示
