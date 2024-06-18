@@ -88,7 +88,7 @@ apt install libsqlite3-dev -y
 ::: details 构建选项预览
 ::: code-group
 <<<@/assets/environment/source/php/configure/74.ini [7.4]
-<<<@/assets/environment/source/php/configure/83.ini [8.3]
+<<<@/assets/environment/source/php/configure/83_pgsql.ini [8.3]
 :::
 
 ### 5. 进入构建目录
