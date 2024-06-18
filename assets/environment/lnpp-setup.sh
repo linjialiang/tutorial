@@ -59,7 +59,7 @@ createSingleUser(){
   if [ $isSupportZsh -eq 1 ]; then
     cp -r /root/{.oh-my-zsh,.zshrc} /home/$userName
     chown $userName:$userName -R /home/$userName/{.oh-my-zsh,.zshrc}
-  if
+  fi
 }
 
 #创建用户
@@ -267,8 +267,13 @@ else
   #创建用户
   createUser
   echo ' '
-  #开发用户追加权限，部署环境请注释掉，emad是开发用户名
-  devUserPower 'emad'
+  #开发用户追加权限，部署环境请注释掉
+  echo_rad "部署环境通常不需要授权"
+  echo_cyan "输入开发用户名，为其授权(为空不授权)："
+  read userName
+  if [ ! -z '$userName']; then
+    devUserPower $userName
+  fi
   echo ' '
   #安装依赖包
   installPackage
