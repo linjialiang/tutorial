@@ -6,23 +6,23 @@ useradd -c 'nginx service main process user' -g nginx -u 2001 -s /sbin/nologin -
 cp -r /root/{.oh-my-zsh,.zshrc} /home/nginx
 chown nginx:nginx -R /home/nginx/{.oh-my-zsh,.zshrc}
 
-# 创建 redis 用户
-groupadd -g 2002 redis
-useradd -c 'redis service main process user' -g redis -u 2002 -s /sbin/nologin -m redis
-cp -r /root/{.oh-my-zsh,.zshrc} /home/redis
-chown redis:redis -R /home/redis/{.oh-my-zsh,.zshrc}
-
 # 创建 postgres 用户
-groupadd -g 2003 postgres
-useradd -c 'postgres service main process user' -g postgres -u 2003 -s /sbin/nologin -m postgres
+groupadd -g 2002 postgres
+useradd -c 'postgres service main process user' -g postgres -u 2002 -s /sbin/nologin -m postgres
 cp -r /root/{.oh-my-zsh,.zshrc} /home/postgres
 chown postgres:postgres -R /home/postgres/{.oh-my-zsh,.zshrc}
 
 # 创建 php-fpm 用户
-groupadd -g 2005 php-fpm
-useradd -c 'php-fpm service main process user' -g php-fpm -u 2005 -s /sbin/nologin -m php-fpm
+groupadd -g 2003 php-fpm
+useradd -c 'php-fpm service main process user' -g php-fpm -u 2003 -s /sbin/nologin -m php-fpm
 cp -r /root/{.oh-my-zsh,.zshrc} /home/php-fpm
 chown php-fpm:php-fpm -R /home/php-fpm/{.oh-my-zsh,.zshrc}
+
+# 创建 redis 用户
+# groupadd -g 2002 redis
+# useradd -c 'redis service main process user' -g redis -u 2002 -s /sbin/nologin -m redis
+# cp -r /root/{.oh-my-zsh,.zshrc} /home/redis
+# chown redis:redis -R /home/redis/{.oh-my-zsh,.zshrc}
 
 # 新版本开始使用tcp转发，并不需要考虑socket文件转发相关的权限问题
 # php-fpm 主进程非特权用户时，需要考虑如下问题：
