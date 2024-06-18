@@ -18,11 +18,8 @@ useradd -c 'php-fpm service main process user' -g php-fpm -u 2003 -s /sbin/nolog
 cp -r /root/{.oh-my-zsh,.zshrc} /home/php-fpm
 chown php-fpm:php-fpm -R /home/php-fpm/{.oh-my-zsh,.zshrc}
 
-# 创建 redis 用户
-# groupadd -g 2002 redis
-# useradd -c 'redis service main process user' -g redis -u 2002 -s /sbin/nologin -m redis
-# cp -r /root/{.oh-my-zsh,.zshrc} /home/redis
-# chown redis:redis -R /home/redis/{.oh-my-zsh,.zshrc}
+# php编译pgsql扩展，使用指定Postgres安装目录时，需要提供读取libpq相关权限
+usermod -a -G postgres php-fpm
 
 # 新版本开始使用tcp转发，并不需要考虑socket文件转发相关的权限问题
 # php-fpm 主进程非特权用户时，需要考虑如下问题：
@@ -31,6 +28,12 @@ chown php-fpm:php-fpm -R /home/php-fpm/{.oh-my-zsh,.zshrc}
 # usermod -G nginx php-fpm
 # 方式2：采用 sock 文件权限 php-fpm:php-fpm 660 (nginx 权限较多，php-fpm 权限较少)
 # usermod -G php-fpm nginx
+
+# 创建 redis 用户
+# groupadd -g 2002 redis
+# useradd -c 'redis service main process user' -g redis -u 2002 -s /sbin/nologin -m redis
+# cp -r /root/{.oh-my-zsh,.zshrc} /home/redis
+# chown redis:redis -R /home/redis/{.oh-my-zsh,.zshrc}
 
 # 部署环境注释，开发环境取消注释，开发用户追加附属组，其中emad指开发用户
 # - 部署环境不需要开发用户，可直接使用 nginx 用户作为 ftp、ssh 等上传工具的用户
