@@ -367,41 +367,45 @@ Composer 是一个 PHP 依赖管理工具，开发环境必备
 
 ### 1. 安装
 
-推荐直接使用腾讯云镜像 [下载 composer](https://mirrors.tencent.com/composer/composer.phar)
+推荐直接使用腾讯云镜像 [下载 composer](https://mirrors.aliyun.com/composer/composer.phar)
 
 ```bash
 su - php-fpm -s /bin/zsh
 cd /server/php/83/bin
-curl -O https://mirrors.tencent.com/composer/composer.phar
-chmod 770 composer.phar
+./php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+./php composer-setup.php
+./php -r "unlink('composer-setup.php');"
+chmod 750 composer.phar
 
 # 软链接到 /usr/local/bin
 ln -s /server/php/83/bin/composer.phar /usr/local/bin/composer
 ```
-
-::: tip 更多国内镜像
-
-> 当前腾讯云是最正常的
-
-- 腾讯云：`composer config -g repos.packagist composer https://mirrors.cloud.tencent.com/composer/`
-- 阿里云：`composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/`
-- 华为云：`composer config -g repo.packagist composer https://repo.huaweicloud.com/repository/php/`
-
-:::
 
 ### 2. 全量镜像
 
 推荐全局配置阿里云的 Composer 全量镜像
 
 ```bash
-# 切换到开发者用户
-su emad
+# 切换到开发用户或php-fpm用户
+su - php-fpm -s /bin/zsh
 # 使用国内 Composer 全量镜像
-/server/php/83/bin/php /usr/local/bin/composer config -g repo.packagist composer https://mirrors.cloud.tencent.com/composer/
-
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 # 取消使用国内 Composer 全量镜像
-/server/php/83/bin/php /usr/local/bin/composer config -g --unset repos.packagist
+composer config -g --unset repos.packagist
 ```
+
+::: tip 国内镜像推荐
+
+```bash
+# 阿里云
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+# 腾讯云
+composer config -g repos.packagist composer https://mirrors.cloud.tencent.com/composer/
+# 华为云
+composer config -g repo.packagist composer https://repo.huaweicloud.com/repository/php/
+```
+
+:::
 
 ### 3. 升级
 
