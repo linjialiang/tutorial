@@ -54,7 +54,7 @@ createSingleUser(){
   userName=$1
   isSupportZsh=$2
   echo_green "创建 $userName 用户"
-  groupadd -g $userName
+  groupadd $userName
   useradd -c "$userName service main process user" -g $userName -s /sbin/nologin -m $userName
   if [ $isSupportZsh -eq 1 ]; then
     cp -r /root/{.oh-my-zsh,.zshrc} /home/$userName
