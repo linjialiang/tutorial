@@ -119,11 +119,10 @@ installPackage(){
   echo_green "安装依赖"
   echo_green "进行这一步操作的目的是安装启用nginx + php + Postgres时必备依赖项"
   echo_yellow "=================================================================="
-  apt install -y gcc g++ make pkg-config clang llvm-dev autoconf \
+  apt install -y gcc g++ make pkg-config clang llvm-dev \
   libsystemd-dev libcurl4-openssl-dev libxslt1-dev libxml2-dev libssl-dev libpam0g-dev \
   libgd-dev libgeoip-dev liblz4-dev libzstd-dev libreadline-dev libossp-uuid-dev \
-  zlib1g-dev libsqlite3-dev libffi-dev libgmp-dev libonig-dev libsodium-dev \
-  libyaml-dev libzip-dev libcapstone-dev libpq-dev librdkafka-dev
+  zlib1g-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev
 }
 
 #安装预构建包
