@@ -95,7 +95,8 @@ apt install libpq-dev -y
 ```
 
 ::: tip 提示
-本次已编译 Postgres，无需额外使用依赖库
+本次已编译 Postgres，无需额外使用依赖库，
+php-fpm 用户对 Postgres 安装目录要有读取和执行权限
 :::
 
 ### 4. 查看构建选项
