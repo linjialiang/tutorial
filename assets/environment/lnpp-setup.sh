@@ -283,7 +283,7 @@ else
   createUser
   echo ' '
   #开发用户追加权限，部署环境请注释掉
-  echo_rad "部署环境通常不需要授权"
+  echo_red "部署环境通常不需要授权"
   echo_cyan "输入开发用户名，为其授权(为空不授权)："
   read userName
   if [ ! -z '$userName']; then
