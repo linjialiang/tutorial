@@ -20,68 +20,6 @@ PHP（`PHP: Hypertext Preprocessor`，超文本预处理器的字母缩写）是
 新的 Linux 发行版后，实际只对 `php8.3.x` 进行过测试，其它 PHP 版本请自行测试
 :::
 
-## 静态编译 PECL 扩展 {#pecl-static-bulid}
-
-本次静态编译如下几款 pecl 扩展：
-
-1. apcu
-2. redis
-3. yaml
-
-### 1. 拷贝扩展源码
-
-将 PECL 扩展源码拷贝到 php 的 ext 目录下
-
-::: code-group
-
-```bash [进扩展目录]
-cd /home/php-fpm/php_ext
-```
-
-```bash [拷贝到8.3]
-cp -p -r apcu-5.1.23 /home/php-fpm/php-8.3.8/ext/apcu
-cp -p -r redis-6.0.2 /home/php-fpm/php-8.3.8/ext/redis
-cp -p -r yaml-2.2.3 /home/php-fpm/php-8.3.8/ext/yaml
-```
-
-```bash [拷贝到7.4]
-cp -p -r apcu-5.1.23 /home/php-fpm/php-7.4.33/ext/apcu
-cp -p -r redis-6.0.2 /home/php-fpm/php-7.4.33/ext/redis
-cp -p -r yaml-2.2.3 /home/php-fpm/php-7.4.33/ext/yaml
-```
-
-:::
-
-### 2. 重新生成 php 配置
-
-PHP 增加新扩展后，需要使用 `autoconf` 工具重新生成 `配置脚本-configure`
-
-::: details 安装 autoconf 工具
-
-```bash
-apt install autoconf -y
-```
-
-:::
-
-::: details 重新生成 configure 配置脚本
-
-::: code-group
-
-```bash [8.3重新生成]
-cd /home/php-fpm/php-8.3.8/
-mv configure{,.original}
-./buildconf --force
-```
-
-```bash [7.4重新生成]
-cd /home/php-fpm/php-7.4.33/
-mv configure{,.original}
-./buildconf --force
-```
-
-:::
-
 ## 构建 PHP
 
 ### 1. 安装依赖
@@ -89,13 +27,7 @@ mv configure{,.original}
 本次 PHP 编译，系统还需要如下依赖项：
 
 ```bash
-apt install g++ libsystemd-dev libsqlite3-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev -y
-
-# php 8.3.0 开始如果要启用 capstone
-apt install libcapstone-dev -y
-
-# libpq-dev 包含 libpq库(是 PostgreSQL 官方的客户端库)，用于与 PostgreSQL 服务器进行通信
-apt install libpq-dev -y
+apt install g++ libsystemd-dev libsqlite3-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev libpq-dev -y
 ```
 
 ::: tip 提示
