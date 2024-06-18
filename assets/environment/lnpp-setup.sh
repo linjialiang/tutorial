@@ -52,11 +52,11 @@ cleanOldData(){
 #创建单个用户
 createSingleUser(){
   userName=$1
-  isZsh=$2
+  isSupportZsh=$2
   echo_green "创建 $userName 用户"
   groupadd -g $userName
   useradd -c "$userName service main process user" -g $userName -s /sbin/nologin -m $userName
-  if [ $num -eq 1 ]; then
+  if [ $isSupportZsh -eq 1 ]; then
     cp -r /root/{.oh-my-zsh,.zshrc} /home/$userName
     chown $userName:$userName -R /home/$userName/{.oh-my-zsh,.zshrc}
   if
@@ -67,7 +67,7 @@ createUser(){
   echo_yellow "=================================================================="
   echo_green "创建nginx、php-fpm、Postgres的进程用户"
   echo_yellow "=================================================================="
-  echo_cyan "是否支持启用zsh(1支持，默认不支持)："
+  echo_red "必须root用户安装并配置成功zsh，才允许支持zsh"
   echo_cyan "是否支持启用zsh(1支持，默认不支持)："
   read zshState
   createSingleUser 'nginx' $zshState
