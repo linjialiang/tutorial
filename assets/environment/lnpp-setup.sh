@@ -18,10 +18,20 @@ echo_yellow(){
   printf '\033[1;33m%b\033[0m\n' "$@"
 }
 
+#系统更新到最新
+upgradeOS(){
+  echo_yellow "=================================================================="
+  echo_green "操作前请将系统更新至最新，指令如下："
+  echo_yellow "=================================================================="
+  apt update
+  apt full-upgrade -y
+  echo_red "条件允许，建议重启系统"
+}
+
 #清空原先数据
 cleanOldData(){
   echo_yellow "=================================================================="
-  echo_green "清理旧数据"
+  echo_green "清理旧数据，非纯净版请做好相关备份"
   echo_yellow "=================================================================="
   echo_cyan "清理systemctl单元"
   systemctl disable --now {postgres,nginx,php83-fpm}.service
@@ -40,15 +50,15 @@ cleanOldData(){
 
 #创建单个用户
 createSingleUser(){
-  uid=$1
-  userName=$2
-  gid=$3
-  groupName=$4
+  userName=$1
+  isZsh=$2
   echo_green "创建 $userName 用户"
-  groupadd -g $gid $userName
-  useradd -c "$userName service main process user" -g $groupName -u $uid -s /sbin/nologin -m $userName
-  cp -r /root/{.oh-my-zsh,.zshrc} /home/$userName
-  chown $userName:$groupName -R /home/$userName/{.oh-my-zsh,.zshrc}
+  groupadd -g $userName
+  useradd -c "$userName service main process user" -g $userName -s /sbin/nologin -m $userName
+  if [ $num -eq 1 ]; then
+    cp -r /root/{.oh-my-zsh,.zshrc} /home/$userName
+    chown $userName:$userName -R /home/$userName/{.oh-my-zsh,.zshrc}
+  if
 }
 
 #创建用户
@@ -56,9 +66,12 @@ createUser(){
   echo_yellow "=================================================================="
   echo_green "创建nginx、php-fpm、Postgres的进程用户"
   echo_yellow "=================================================================="
-  createSingleUser 2001 'nginx' 2001 'nginx'
-  createSingleUser 2002 'postgres' 2002 'postgres'
-  createSingleUser 2003 'php-fpm' 2003 'php-fpm'
+  echo_cyan "是否支持启用zsh(1支持，默认不支持)："
+  echo_cyan "是否支持启用zsh(1支持，默认不支持)："
+  read zshState
+  createSingleUser 'nginx' $zshState
+  createSingleUser 'postgres' $zshState
+  createSingleUser 'php-fpm' $zshState
   echo ' '
   echo_yellow "=================================================================="
   echo_green "处理php-fpm的socket文件授权问题"
@@ -129,7 +142,6 @@ modFilePower(){
   chmod 750 -R /server/nginx/sbin
   chown nginx:nginx -R /server/logs/nginx
   chmod 750 /server/logs/nginx
-
   echo_green "为nginx启用CAP_NET_BIND_SERVICE能力"
   echo_red "注：每次修改nginx执行文件权限，都需要重新启用该能力"
   setcap cap_net_bind_service=+eip /server/nginx/sbin/nginx
@@ -139,6 +151,7 @@ modFilePower(){
   find /server/php /server/logs/php -type f -exec chmod 640 {} \;
   find /server/php /server/logs/php -type d -exec chmod 750 {} \;
   chmod 750 -R /server/php/83/bin /server/php/83/sbin
+
   echo_green "postgres文件权限"
   chown postgres:postgres -R /server/postgres /server/pgData /server/logs/postgres
   find /server/postgres /server/logs/postgres -type f -exec chmod 640 {} \;
@@ -237,34 +250,45 @@ WantedBy=multi-user.target
   systemctl enable --now {postgres,nginx,php83-fpm}.service
 }
 
-#清理旧数据
-cleanOldData
-echo ' '
-#创建用户
-createUser
-echo ' '
-#开发用户追加权限，部署环境请注释掉，emad是开发用户名
-devUserPower 'emad'
-echo ' '
-#安装依赖包
-installPackage
-echo ' '
-#解压lnpp预构建包到指定目录
-InstallBuild
-echo ' '
-#修改文件权限
-modFilePower
-echo ' '
-#安装systemctl单元
-InstallSystemctlUnit
-echo ' '
-echo_yellow "=================================================================="
-echo_green "针对 Postgres用户 修改操作系统打开最大文件句柄数"
-echo_yellow "为防止重复插入，请在 /etc/security/limits.conf 文件的结尾手动添加\n如下两行代码："
-echo_red "注：这里是手动操作哦！！！"
-echo_yellow " "
-echo_cyan "postgres  soft  nofile  65535"
-echo_cyan "postgres  hard  nofile  65535"
-echo_yellow " "
-echo_green "进行这一步操作的目的是防止linux操作系统内打开文件句柄数量的限制，\n避免不必要的故障"
-echo_yellow "=================================================================="
+#系统更新到最新
+upgradeOS
+
+echo_cyan "是否重启操作系统(1重启/默认不重启)："
+read num
+
+if [ $num -eq 1 ]; then
+  echo_cyan "停止向下执行，并重启系统"
+  sync;sync;sync;reboot
+else
+  #清理旧数据
+  cleanOldData
+  echo ' '
+  #创建用户
+  createUser
+  echo ' '
+  #开发用户追加权限，部署环境请注释掉，emad是开发用户名
+  devUserPower 'emad'
+  echo ' '
+  #安装依赖包
+  installPackage
+  echo ' '
+  #解压lnpp预构建包到指定目录
+  InstallBuild
+  echo ' '
+  #修改文件权限
+  modFilePower
+  echo ' '
+  #安装systemctl单元
+  InstallSystemctlUnit
+  echo ' '
+  echo_yellow "=================================================================="
+  echo_green "针对 Postgres用户 修改操作系统打开最大文件句柄数"
+  echo_yellow "为防止重复插入，请在 /etc/security/limits.conf 文件的结尾手动添加\n如下两行代码："
+  echo_red "注：这里是手动操作哦！！！"
+  echo_yellow " "
+  echo_cyan "postgres  soft  nofile  65535"
+  echo_cyan "postgres  hard  nofile  65535"
+  echo_yellow " "
+  echo_green "进行这一步操作的目的是防止linux操作系统内打开文件句柄数量的限制，\n避免不必要的故障"
+  echo_yellow "=================================================================="
+fi
