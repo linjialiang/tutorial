@@ -87,6 +87,15 @@ createUser(){
   echo_yellow " "
   echo_green "此版本使用的是tcp转发，并不需要考虑socket文件转发相关的权限问题"
   echo_yellow "=================================================================="
+  echo ' '
+  echo_yellow "=================================================================="
+  echo_green "php编译pgsql扩展，使用指定Postgres安装目录时，需要提供读取libpq相关权限："
+  echo_cyan "usermod -a -G postgres php-fpm"
+  echo_green "如果使用 apt install libpq-dev -y 依赖包则不需要"
+  echo_yellow " "
+  echo_green "此版本使用指定Postgres安装目录"
+  echo_yellow "=================================================================="
+  usermod -a -G postgres php-fpm
 }
 
 #开发用户追加权限

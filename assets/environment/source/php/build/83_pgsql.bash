@@ -24,8 +24,8 @@
 --with-freetype \
 --enable-mbstring \
 --with-capstone \
---with-pgsql \
---with-pdo-pgsql \
+--with-pgsql=/server/postgres \
+--with-pdo-pgsql=/server/postgres \
 --enable-sockets \
 --enable-sysvmsg \
 --enable-sysvsem \
