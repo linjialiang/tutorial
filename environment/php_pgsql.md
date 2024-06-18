@@ -27,7 +27,10 @@ PHP（`PHP: Hypertext Preprocessor`，超文本预处理器的字母缩写）是
 本次 PHP 编译，系统还需要如下依赖项：
 
 ```bash
-apt install g++ libsystemd-dev libsqlite3-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev -y
+apt install g++ libsystemd-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev -y
+
+# 安装sqlite3扩展所需的依赖库
+apt install libsqlite3-dev -y
 ```
 
 ::: tip 提示
