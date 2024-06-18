@@ -108,8 +108,8 @@ php-fpm 用户对 Postgres 安装目录要有读取和执行权限
 ./configure -h
 
 # 扩展构建选项
-./configure -h | grep redis
-./configure -h | grep yaml
+./configure -h | grep pgsql
+./configure -h | grep sqlite
 
 # 导出构建选项
 ./configure -h > configure.txt
@@ -117,8 +117,8 @@ php-fpm 用户对 Postgres 安装目录要有读取和执行权限
 
 ::: details 构建选项预览
 ::: code-group
-<<<@/assets/environment/source/php/configure/74.ini [7.4]
 <<<@/assets/environment/source/php/configure/83_pgsql.ini [8.3]
+<<<@/assets/environment/source/php/configure/74.ini [7.4]
 :::
 
 ### 5. 进入构建目录
