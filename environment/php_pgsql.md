@@ -27,7 +27,7 @@ PHP（`PHP: Hypertext Preprocessor`，超文本预处理器的字母缩写）是
 本次 PHP 编译，系统还需要如下依赖项：
 
 ```bash
-apt install g++ libsystemd-dev libsqlite3-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev libpq-dev -y
+apt install g++ libsystemd-dev libsqlite3-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev -y
 ```
 
 ::: tip 提示
@@ -48,7 +48,7 @@ mkdir /home/php-fpm/php-8.3.8/build_php
 
 ### 3. 环境变量
 
-如果想使用 sqlite3 最新版就需要自己编译安装
+::: details 如果想使用 sqlite3 最新版就需要自己编译安装
 
 ::: code-group
 
@@ -69,6 +69,30 @@ sqlite3          SQLite - SQL database engine
 apt install libsqlite3-dev -y
 ```
 
+::: tip 提示
+本次未编译 SQLite3，需使用依赖库
+:::
+
+::: details 如果想使用 Postgres 最新版就需要自己编译安装
+
+::: code-group
+
+```bash [编译安装Postgres]
+# PHP 的构建选项需指定Postgres安装目录
+../configure --prefix=/server/php/83/ \
+--with-pgsql=/server/postgres \
+--with-pdo-pgsql=/server/postgres \
+...
+```
+
+```bash [使用依赖库]
+# 未安装 PostgreSQL 则需安装 libpq-dev 依赖库
+# 该方式不需要指定postgres安装目录
+apt install libpq-dev -y
+```
+
+::: tip 提示
+本次已编译 Postgres，无需额外使用依赖库
 :::
 
 ### 4. 查看构建选项
