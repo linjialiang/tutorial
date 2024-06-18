@@ -170,13 +170,14 @@ psql -h /run/postgres
 
 ````md [admin用户登录]
 ```bash
-psql -h /run/postgres -U admin -d postgres -W
+psql -h localhost -U admin -d postgres -W
+psql -h 192.168.66.254 -U admin -d postgres -W
 ```
 
 > 这是一个用于连接到 PostgreSQL 数据库的命令。其中：
 
 - psql 是 PostgreSQL 的命令行工具。
-- -h /run/postgres 指定了要连接的数据库服务器的主机名或 IP 地址，这里是/run/postgres。
+- -h /run/postgres 指定了要连接的数据库服务器的主机名、 IP 地址或 socket 文件，这里是/run/postgres。
 - -U admin 指定了要使用的用户名，这里是 admin。
 - -d postgres 指定了要连接的数据库名称，这里是 postgres。
 - -W 表示在连接时需要输入密码。
