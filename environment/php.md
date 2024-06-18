@@ -797,13 +797,14 @@ extension=rdkafka
 
 ### 即将移除的扩展
 
-1. yaml 更新不积极，可使用 `symfony/yaml` 包替代
-2. rdkafka 更新不积极，有需求再安装动态扩展
-3. apcu 更新不积极，有需求再安装动态扩展
-4. redis 可使用 `predis/predis` 包替代，另外在考虑使用 Postgres 替代
-5. mongodb 移除， Postgres 通常都能胜任相关工作，有需求再安装动态扩展
+lnpp 里即将移除的扩展
+
+1. yaml 可使用 `symfony/yaml` 包替代
+2. rdkafka 有需求再安装动态扩展
+3. apcu 有需求再安装动态扩展
+4. redis 移除，考虑使用 Postgres 替代
+5. mongodb 移除，完全转到 Postgres
 6. mysql 移除，完全转到 Postgres
-7. SQLite3 作为 php 默认启用的数据库扩展，纠结是否移除，大概率不移除
 
 ## 权限
 
