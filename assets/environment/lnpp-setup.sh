@@ -21,7 +21,8 @@ echo_yellow(){
 #系统更新到最新
 upgradeOS(){
   echo_yellow "=================================================================="
-  echo_green "操作前请将系统更新至最新，指令如下："
+  echo_red    "请使用纯净版操作系统，否则可能会造成系统破坏和数据丢失!!!"
+  echo_green  "操作前请将系统更新至最新，指令如下："
   echo_yellow "=================================================================="
   apt update
   apt full-upgrade -y
@@ -31,7 +32,7 @@ upgradeOS(){
 #清空原先数据
 cleanOldData(){
   echo_yellow "=================================================================="
-  echo_green "清理旧数据，非纯净版请做好相关备份"
+  echo_green "清理旧数据"
   echo_yellow "=================================================================="
   echo_cyan "清理systemctl单元"
   systemctl disable --now {postgres,nginx,php83-fpm}.service
