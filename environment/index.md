@@ -34,12 +34,6 @@ PHP 环境目录
 |   |  ├─ 83                PHP8.3基目录
 |   |  └─ ...
 |   |
-|   ├─ run                 pid、socket 等文件目录
-|   |  ├─ nginx            存放nginx的pid、socket 等文件目录
-|   |  ├─ postgres         存放postgres的pid、socket 等文件目录
-|   |  ├─ php              存放php的pid、socket 等文件目录
-|   |  └─ ...
-|   |
 |   ├─ default             缺省站点路径
 |   |   ├─ index.php       缺省站点php首页
 |   |   ├─ index.html      缺省站点html页面
