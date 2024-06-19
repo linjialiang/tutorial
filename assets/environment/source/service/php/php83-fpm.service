@@ -1,5 +1,4 @@
-# /usr/lib/systemd/system/php83-fpm.service
-[Unit]
+echo "[Unit]
 Description=The PHP 8.3 FastCGI Process Manager
 After=network.target
 
@@ -23,3 +22,4 @@ RestrictNamespaces=true
 
 [Install]
 WantedBy=multi-user.target
+" > /lib/systemd/system/php83-fpm.service

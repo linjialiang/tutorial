@@ -1,6 +1,4 @@
-# /lib/systemd/system/postgres.service
-# is to https://www.postgresql.org/docs/16/server-start.html
-[Unit]
+echo "[Unit]
 Description=PostgreSQL database server
 Documentation=man:postgres(1)
 After=network-online.target
@@ -20,3 +18,4 @@ TimeoutSec=infinity
 
 [Install]
 WantedBy=multi-user.target
+" > /lib/systemd/system/postgres.service

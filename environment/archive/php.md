@@ -456,7 +456,7 @@ PHP-FPM 自带了一套比较完善的进程管理指令，编译完成后还会
 ::: details 案例参考
 
 ::: code-group
-<<<@/assets/environment/source/service/php/php83-fpm.service{ini} [php8.3]
+<<<@/assets/environment/source/service/php/php83-fpm.service{bash} [php8.3]
 <<<@/assets/environment/source/service/php/php74-fpm.service{ini} [php7.4]
 :::
 

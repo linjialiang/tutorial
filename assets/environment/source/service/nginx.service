@@ -1,5 +1,4 @@
-# /usr/lib/systemd/system/nginx.service
-[Unit]
+echo "[Unit]
 Description=nginx-1.26.x
 After=network.target
 
@@ -18,3 +17,4 @@ PrivateTmp=true
 
 [Install]
 WantedBy=multi-user.target
+" > /lib/systemd/system/nginx.service
