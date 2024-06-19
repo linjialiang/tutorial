@@ -280,7 +280,7 @@ dpkg-reconfigure tzdata
 ## 常用软件包
 
 ```bash
-apt install pigz pixz exa joe wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git proxychains4 -y
+apt install pigz pixz exa joe wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git proxychains4 telnet -y
 ```
 
 ::: details 详情
@@ -308,6 +308,7 @@ apt install pigz pixz exa joe wget curl vim bat htop tar gzip bzip2 xz-utils zip
 21. firewalld -- 防火墙工具
 22. fzf -- 命令行模糊查询工具
 23. open-vm-tools -- VMware Tools 的开源实现
+24. telnet -- 是 Internet 远程登录服务的标准协议
 
 ::: tip 案例
 
