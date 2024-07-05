@@ -493,6 +493,18 @@ zend_extension=xdebug
 凡是数据库相关扩展，这里都建议以静态编译为佳
 :::
 
+::: details redis 扩展
+
+```bash
+cd ~/redis-6.0.2
+phpize
+./configure --enable-redis --with-php-config=/server/php/83/bin/php-config
+make -j4
+make install
+```
+
+:::
+
 ## 权限
 
 ::: code-group
