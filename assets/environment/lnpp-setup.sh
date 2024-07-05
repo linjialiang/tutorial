@@ -342,5 +342,14 @@ else
   echo_cyan "postgres  hard  nofile  65535"
   echo_yellow " "
   echo_green "进行这一步操作的目的是防止linux操作系统内打开文件句柄数量的限制，\n避免不必要的故障"
+  echo ' '
+  echo_green "针对 redis 控制进程是否允许使用虚拟内存"
+  echo_yellow "- 0：进程只能使用物理内存"
+  echo_yellow "- 1：进程可以使用比物理内存更多的虚拟内存"
+  echo_red "注：这里是手动操作哦！！！"
+  echo_yellow " "
+  echo_cyan "vm.overcommit_memory = 1"
+  echo_yellow " "
+  echo_green "进行这一步操作的目的是防止redis在内存不足时，造成数据丢失"
   echo_yellow "=================================================================="
 fi
