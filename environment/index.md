@@ -53,12 +53,12 @@ PHP 环境目录
 |   |  ├─ nginx            nginx日志目录
 |   |  |  ├─ error.log     nginx错误日志
 |   |  |  ├─ access.log    nginx缺省访问日志
-|   |  |  └─ ..
+|   |  |  └─ ...
 |   |  ├─ postgres         pgsql日志目录
 |   |  |  └─ wal_archive   pgsql预写式存放日志目录
 |   |  ├─ php              php日志目录
 |   |  |  ├─ error-83.log  php8.3错误日志
-|   |  |  └─ ..
+|   |  |  └─ ...
 |   |
 ├─ ...
 |
