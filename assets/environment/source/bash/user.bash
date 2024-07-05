@@ -22,8 +22,8 @@ chown php-fpm:php-fpm -R /home/php-fpm/{.oh-my-zsh,.zshrc}
 usermod -a -G postgres php-fpm
 
 # 创建 redis 用户
-groupadd -g 2002 redis
-useradd -c 'redis service main process user' -g redis -u 2002 -s /sbin/nologin -m redis
+groupadd -g 2005 redis
+useradd -c 'redis service main process user' -g redis -u 2005 -s /sbin/nologin -m redis
 cp -r /root/{.oh-my-zsh,.zshrc} /home/redis
 chown redis:redis -R /home/redis/{.oh-my-zsh,.zshrc}
 
