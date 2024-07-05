@@ -411,7 +411,7 @@ gen-test-certs.sh 脚本生成的文件，只需要 400 即可；
 # /server/redis/redis.conf
 # 这里需要注意 非tls和tls端口不能重复
 port 6379
-tls-port 6380
+tls-port 16379
 tls-cert-file /server/redis/tls/redis.crt
 tls-key-file /server/redis/tls/redis.key
 tls-ca-cert-file /server/redis/tls/ca.crt
