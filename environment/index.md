@@ -25,10 +25,19 @@ PHP 环境目录
 |   |  ├─ conf              nginx配置目录
 |   |  └─ ...
 |   |
-|   ├─ postgres             postgres基目录
+|   ├─ redis                redis基目录
+|   |  ├─ redis.conf        redis配置文件
+|   |  ├─ tls               redis的tls相关文件存放目录（注意安全性）
 |   |  └─ ...
 |   |
-|   ├─ pgData               postgres数据目录
+|   ├─ postgres             pgsql基目录
+|   |  ├─ tls               pgsql的tls相关文件存放目录（注意安全性）
+|   |  └─ ...
+|   |
+|   ├─ pgData               pgsql数据目录
+|   |  ├─ postgresql.conf   pgsql服务器配置文件
+|   |  ├─ pg_hba.conf       pgsql客户访问限制配置文件
+|   |  └─ ...
 |   |
 |   ├─ php                  PHP 目录
 |   |  ├─ 83                PHP8.3基目录
@@ -42,8 +51,14 @@ PHP 环境目录
 |   |
 |   ├─ logs                服务器相关日志文件目录
 |   |  ├─ nginx            nginx日志目录
-|   |  ├─ postgres         postgres日志目录
+|   |  |  ├─ error.log     nginx错误日志
+|   |  |  ├─ access.log    nginx缺省访问日志
+|   |  |  └─ ..
+|   |  ├─ postgres         pgsql日志目录
+|   |  |  └─ wal_archive   pgsql预写式存放日志目录
 |   |  ├─ php              php日志目录
+|   |  |  ├─ error-83.log  php8.3错误日志
+|   |  |  └─ ..
 |   |
 ├─ ...
 |
@@ -54,7 +69,7 @@ PHP 环境目录
 
 1. 首先精力有限，维护过多的软件，会造成不够深入；
 2. 其次，也是为了响应业内的 `一切皆用 Postgres` 趋势；
-3. 最终：MySQL、Redis、SQLite 和 MongoDB 不再维护！
+3. 最终：MySQL、SQLite 和 MongoDB 不再积极维护！
 
 :::
 
