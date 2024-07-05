@@ -44,9 +44,11 @@ cleanOldData(){
   userdel -r nginx
   userdel -r postgres
   userdel -r php-fpm
+  userdel -r redis
   groupdel nginx
   groupdel postgres
   groupdel php-fpm
+  groupdel redis
 }
 
 #创建单个用户
@@ -73,6 +75,7 @@ createUser(){
   createSingleUser 'nginx' $zshState
   createSingleUser 'postgres' $zshState
   createSingleUser 'php-fpm' $zshState
+  createSingleUser 'redis' $zshState
   echo ' '
   echo_yellow "=================================================================="
   echo_green "处理php-fpm的socket文件授权问题"
@@ -110,7 +113,7 @@ devUserPower(){
   echo_yellow "=================================================================="
   usermod -a -G $devUserName nginx
   usermod -a -G $devUserName php-fpm
-  usermod -G nginx,php-fpm,postgres $devUserName
+  usermod -G nginx,php-fpm,postgres,redis $devUserName
 }
 
 #安装依赖包
@@ -122,7 +125,7 @@ installPackage(){
   apt install -y gcc g++ make pkg-config clang llvm-dev \
   libsystemd-dev libcurl4-openssl-dev libxslt1-dev libxml2-dev libssl-dev libpam0g-dev \
   libgd-dev libgeoip-dev liblz4-dev libzstd-dev libreadline-dev libossp-uuid-dev \
-  zlib1g-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev
+  zlib1g-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev tcl
 }
 
 #安装预构建包
@@ -168,6 +171,12 @@ modFilePower(){
   find /server/pgData /server/postgres/tls -type f -exec chmod 600 {} \;
   find /server/pgData -type d -exec chmod 700 {} \;
   chmod 750 -R /server/postgres/bin
+
+  echo_green "redis文件权限"
+  chown redis:redis -R /server/redis /server/logs/redis
+  find /server/redis /server/logs/redis -type f -exec chmod 640 {} \;
+  find /server/redis /server/logs/redis -type d -exec chmod 750 {} \;
+  chmod 750 -R /server/redis/bin
 }
 
 #安装systemctl单元
@@ -175,7 +184,7 @@ InstallSystemctlUnit(){
   echo_yellow "=================================================================="
   echo_green "加入systemctl守护进程\n含systemctl unit文件"
   echo_yellow " "
-  echo_cyan "/lib/systemd/system/{postgres,nginx,php83-fpm}.service"
+  echo_cyan "/lib/systemd/system/{postgres,nginx,php83-fpm,redis}.service"
   echo_yellow " "
   echo_green "支持开启自动启动服务，非常规终止进程会自动启动服务"
   echo_yellow "=================================================================="
@@ -254,9 +263,31 @@ TimeoutSec=infinity
 WantedBy=multi-user.target
 " >/lib/systemd/system/postgres.service
 
+  echo_cyan "[+] Create redis service..."
+
+  echo "[Unit]
+Description=redis-7.2.x
+After=network.target
+
+[Service]
+Type=forking
+User=redis
+Group=redis
+RuntimeDirectory=redis
+RuntimeDirectoryMode=0750
+ExecStart=/server/redis/bin/redis-server /server/redis/redis.conf
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+Restart=on-failure
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+" >/lib/systemd/system/postgres.service
+
   echo_green "Registered Service..."
   systemctl daemon-reload
-  systemctl enable --now {postgres,nginx,php83-fpm}.service
+  systemctl enable --now {postgres,nginx,php83-fpm,redis}.service
 }
 
 echo_cyan "解压脚本同级目录下需存在源码压缩包 lnpp.tar.xz"
