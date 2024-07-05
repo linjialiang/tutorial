@@ -603,7 +603,7 @@ chmod 750 -R /server/postgres/bin
 ```bash [开发]
 # 权限同部署环境
 # 开发用户 emad 加入 lnpp包用户组
-usermod -G php-fpm,nginx,postgres emad
+usermod -G php-fpm,nginx,postgres,redis emad
 ```
 
 :::

@@ -469,10 +469,9 @@ chmod 750 -R /server/redis/bin
 ````
 
 ```bash [开发]
-chown redis:emad -R /server/redis /server/logs/redis
-find /server/redis /server/logs/redis -type f -exec chmod 640 {} \;
-find /server/redis /server/logs/redis -type d -exec chmod 750 {} \;
-chmod 750 -R /server/redis/bin
+# 权限同部署环境
+# 开发用户 emad 加入 lnpp包用户组
+usermod -G php-fpm,nginx,postgres,redis emad
 ```
 
 :::
