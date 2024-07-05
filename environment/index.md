@@ -45,7 +45,7 @@ PHP 环境目录
 |   |
 |   ├─ default             缺省站点路径
 |   |   ├─ index.php       缺省站点php首页
-|   |   ├─ index.html      缺省站点html页面
+|   |   └─ index.html      缺省站点html页面
 |   |
 |   ├─ sites               虚拟主机配置文件目录
 |   |
@@ -55,7 +55,8 @@ PHP 环境目录
 |   |  |  ├─ access.log    nginx缺省访问日志
 |   |  |  └─ ...
 |   |  ├─ postgres         pgsql日志目录
-|   |  |  └─ wal_archive   pgsql预写式存放日志目录
+|   |  |  ├─ wal_archive   pgsql预写式存放日志目录
+|   |  |  └─ ...
 |   |  ├─ php              php日志目录
 |   |  |  ├─ error-83.log  php8.3错误日志
 |   |  |  └─ ...
