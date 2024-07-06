@@ -333,20 +333,22 @@ else
   #安装systemctl单元
   InstallSystemctlUnit
   echo ' '
+  echo_red "注：下面这些是手动操作哦！！！"
   echo_yellow "=================================================================="
   echo_green "针对 Postgres用户 修改操作系统打开最大文件句柄数"
-  echo_yellow "为防止重复插入，请在 /etc/security/limits.conf 文件的结尾手动添加\n如下两行代码："
-  echo_red "注：这里是手动操作哦！！！"
+  echo_yellow "为防止重复插入，请在 /etc/security/limits.conf 文件的结尾手动添加\n如下2行代码："
   echo_yellow " "
   echo_cyan "postgres  soft  nofile  65535"
   echo_cyan "postgres  hard  nofile  65535"
   echo_yellow " "
   echo_green "进行这一步操作的目的是防止linux操作系统内打开文件句柄数量的限制，\n避免不必要的故障"
+  echo_yellow "=================================================================="
   echo ' '
+  echo_yellow "=================================================================="
   echo_green "针对 redis 控制进程是否允许使用虚拟内存"
-  echo_yellow "- 0：进程只能使用物理内存"
-  echo_yellow "- 1：进程可以使用比物理内存更多的虚拟内存"
-  echo_red "注：这里是手动操作哦！！！"
+  echo_yellow "为防止重复插入，请在 /etc/sysctl.conf 文件的结尾手动添加如下1行代码："
+  echo_yellow "   - 0：进程只能使用物理内存"
+  echo_yellow "   - 1：进程可以使用比物理内存更多的虚拟内存"
   echo_yellow " "
   echo_cyan "vm.overcommit_memory = 1"
   echo_yellow " "
