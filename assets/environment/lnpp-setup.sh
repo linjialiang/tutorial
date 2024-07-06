@@ -125,7 +125,7 @@ installPackage(){
   apt install -y gcc g++ make pkg-config clang llvm-dev \
   libsystemd-dev libcurl4-openssl-dev libxslt1-dev libxml2-dev libssl-dev libpam0g-dev \
   libgd-dev libgeoip-dev liblz4-dev libzstd-dev libreadline-dev libossp-uuid-dev \
-  zlib1g-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev tcl
+  zlib1g-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev
 }
 
 #安装预构建包
