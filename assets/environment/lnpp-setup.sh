@@ -283,7 +283,7 @@ PrivateTmp=true
 
 [Install]
 WantedBy=multi-user.target
-" >/lib/systemd/system/postgres.service
+" >/lib/systemd/system/redis.service
 
   echo_green "Registered Service..."
   systemctl daemon-reload
