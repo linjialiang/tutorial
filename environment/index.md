@@ -99,13 +99,13 @@ PHP 环境目录
    - zlib-1.3.1.tar.xz
 2. redis-7.2.5.tar.gz
 3. postgresql-16.3.tar.bz2
-4. php-8.3.8.tar.xz
+4. php-8.3.9.tar.xz
    - xdebug-3.3.2.tgz `动态扩展`
-   - redis-6.0.2.tgz `静态扩展(pgsql版无)`
-   - apcu-5.1.23.tgz `静态扩展(pgsql版无)`
-   - yaml-2.2.3.tgz `静态扩展(pgsql版无)`
-   - mongodb-1.19.2.tgz `动态扩展(pgsql版无)`
-   - rdkafka-6.0.3.tgz `动态扩展(pgsql版无)`
+   - redis-6.0.2.tgz `动态扩展`
+   - apcu-5.1.23.tgz `动态扩展(默认未安装)`
+   - yaml-2.2.3.tgz `动态扩展(默认未安装)`
+   - mongodb-1.19.2.tgz `动态扩展(默认未安装)`
+   - rdkafka-6.0.3.tgz `动态扩展(默认未安装)`
 ```
 
 :::
