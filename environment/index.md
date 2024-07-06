@@ -55,6 +55,7 @@ PHP 环境目录
 |   |  |  ├─ access.log    nginx缺省访问日志
 |   |  |  └─ ...
 |   |  ├─ redis            redis日志目录
+|   |  |  ├─ redis.log     redis日志文件
 |   |  |  └─ ...
 |   |  ├─ postgres         pgsql日志目录
 |   |  |  ├─ wal_archive   pgsql预写式存放日志目录
