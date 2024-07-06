@@ -67,7 +67,7 @@ createSingleUser(){
 #创建用户
 createUser(){
   echo_yellow "=================================================================="
-  echo_green "创建nginx、php-fpm、Postgres的进程用户"
+  echo_green "创建nginx、php-fpm、Postgres、Redis的进程用户"
   echo_yellow "=================================================================="
   echo_red "必须root用户安装并配置成功zsh，才允许支持zsh"
   echo_cyan "是否支持启用zsh(1支持，默认不支持)："
