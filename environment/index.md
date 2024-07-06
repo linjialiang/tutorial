@@ -453,6 +453,7 @@ source ~/.profile
 
 ```md [说明]
 - PostgreSQL 默认有个超级管理员用户 `admin` 密码 `1`
+- Redis 默认设置了全局密码 `1`
 ```
 
 <<<@/assets/environment/lnpp-setup.sh [完整版]
