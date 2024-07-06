@@ -415,7 +415,7 @@ tls-port 16379
 tls-cert-file /server/redis/tls/redis.crt
 tls-key-file /server/redis/tls/redis.key
 tls-ca-cert-file /server/redis/tls/ca.crt
-tls-auth-clients no # 客户端不会验证
+tls-auth-clients no # 客户端不会验证(默认客户端必须验证)
 ```
 
 ```bash [禁用双向认证]
@@ -425,7 +425,7 @@ tls-port 6379
 tls-cert-file /server/redis/tls/redis.crt
 tls-key-file /server/redis/tls/redis.key
 tls-ca-cert-file /server/redis/tls/ca.crt
-tls-auth-clients no # 客户端不会验证
+tls-auth-clients no # 客户端不会验证(默认客户端必须验证)
 ```
 
 ```bash [启用双向认证]
@@ -437,7 +437,7 @@ tls-key-file /server/redis/tls/server.key
 tls-ca-cert-file /server/redis/tls/ca.crt
 tls-client-cert-file /server/redis/tls/client.crt
 tls-client-key-file /server/redis/tls/client.key
-tls-auth-clients optional # 开启双向认证支持，允许客户端验证
+tls-auth-clients optional # 允许客户端验证，也可以不验证(默认客户端必须验证)
 ```
 
 ````bash [redis-cli登录]
