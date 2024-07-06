@@ -441,14 +441,14 @@ tls-auth-clients optional # 允许客户端验证，也可以不验证(默认客
 ```
 
 ````bash [redis-cli登录]
-# 双向认证
-redis-cli --tls \
+# 双向认证 - 远程需要指定ip
+redis-cli -h 192.168.66.254 -p 16379 --tls \
 --cacert /server/redis/tls/ca.crt \
 --cert /server/redis/tls/client.crt \
 --key /server/redis/tls/client.key
 
-# 客户端不做验证
-redis-cli --tls --cacert /server/redis/tls/ca.crt
+# 客户端不做验证 - 本机可以省略ip
+redis-cli -p 16379 --tls --cacert /server/redis/tls/ca.crt
 :::
 
 ### 3. 分发证书
