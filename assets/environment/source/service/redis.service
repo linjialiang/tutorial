@@ -1,5 +1,4 @@
-# /usr/lib/systemd/system/redis.service
-
+echo "[Unit]
 [Unit]
 Description=redis-7.2.x
 After=network.target
@@ -18,3 +17,4 @@ PrivateTmp=true
 
 [Install]
 WantedBy=multi-user.target
+" > /usr/lib/systemd/system/redis.service
