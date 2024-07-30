@@ -362,7 +362,7 @@ else
   echo ' '
   echo_yellow "=================================================================="
   echo_green "lnpp安装完成！！！"
-  echo_yellow "   - Postgres 默认有个超级管理员用户 `admin` 密码 `1`"
-  echo_yellow "   - Redis 默认设置了全局密码 `1`"
+  echo_yellow "   - Postgres 默认有个超级管理员用户 admin 密码 1"
+  echo_yellow "   - Redis 默认设置了全局密码 1"
   echo_yellow "=================================================================="
 fi
