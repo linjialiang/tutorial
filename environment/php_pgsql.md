@@ -451,7 +451,18 @@ su - php-fpm -s /bin/zsh
 
 项目运行过程中，可能需要额外的扩展支持，这时我们不可避免要去安装动态扩展
 
-下面以 [xdebug](https://xdebug.org/download) 安装案例：
+::: tip 依赖支持
+使用 phpize 初始化 configure 配置文件时，需要 `autoconf` 扩展支持
+
+```bash
+apt install autoconf -y
+```
+
+:::
+
+### xdebug 扩展
+
+[xdebug](https://xdebug.org/download) 扩展安装案例：
 
 ::: code-group
 
@@ -489,9 +500,7 @@ zend_extension=xdebug
 
 :::
 
-::: danger 警告
-凡是数据库相关扩展，这里都建议以静态编译为佳
-:::
+### redis 扩展
 
 ::: details redis 扩展
 
@@ -503,6 +512,10 @@ make -j4
 make install
 ```
 
+:::
+
+::: tip 提示
+主数据库相关扩展，建议以静态编译为佳。如：MySQL/PostgreSQL/MariaDB 等关系型数据库
 :::
 
 ## 权限
