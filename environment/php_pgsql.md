@@ -528,6 +528,8 @@ find /server/php /server/logs/php -type f -exec chmod 640 {} \;
 find /server/php /server/logs/php -type d -exec chmod 750 {} \;
 # 可执行文件需要执行权限
 chmod 750 -R /server/php/83/bin /server/php/83/sbin
+# 动态扩展库也可以增加执行权限
+chmod 750 /server/php/83/lib/php/extensions/no-debug-non-zts-*/*
 ```
 
 ```bash [开发]
