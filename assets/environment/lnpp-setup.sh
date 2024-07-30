@@ -162,12 +162,6 @@ modFilePower(){
   echo_red "注：每次修改nginx执行文件权限，都需要重新启用该能力"
   setcap cap_net_bind_service=+eip /server/nginx/sbin/nginx
 
-  echo_green "php文件权限"
-  chown php-fpm:php-fpm -R /server/php /server/logs/php
-  find /server/php /server/logs/php -type f -exec chmod 640 {} \;
-  find /server/php /server/logs/php -type d -exec chmod 750 {} \;
-  chmod 750 -R /server/php/83/bin /server/php/83/sbin
-
   echo_green "postgres文件权限"
   chown postgres:postgres -R /server/postgres /server/pgData /server/logs/postgres
   find /server/postgres /server/logs/postgres -type f -exec chmod 640 {} \;
@@ -181,6 +175,13 @@ modFilePower(){
   find /server/redis /server/logs/redis -type f -exec chmod 640 {} \;
   find /server/redis /server/logs/redis -type d -exec chmod 750 {} \;
   chmod 750 -R /server/redis/bin
+
+  echo_green "php文件权限"
+  chown php-fpm:php-fpm -R /server/php /server/logs/php
+  find /server/php /server/logs/php -type f -exec chmod 640 {} \;
+  find /server/php /server/logs/php -type d -exec chmod 750 {} \;
+  chmod 750 -R /server/php/83/bin /server/php/83/sbin
+  chmod 750 /server/php/83/lib/php/extensions/no-debug-non-zts-*/*
 }
 
 #安装systemctl单元

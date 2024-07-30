@@ -12,6 +12,15 @@ echo_red(){
 echo_yellow(){
   printf '\033[1;33m%b\033[0m\n' "$@"
 }
+
+echo_yellow "清理 .zsh_history 文件"
+echo '' > /home/emad/.zsh_history
+echo '' > /home/nginx/.zsh_history
+echo '' > /home/redis/.zsh_history
+echo '' > /home/postgres/.zsh_history
+echo '' > /home/php-fpm/.zsh_history
+echo '' > /root/.zsh_history
+
 echo_red "警告⚠️：请谨慎执行此脚本！！！"
 echo_yellow "清理日志需停止服务，Postgres日志也会被删除，"
 echo_cyan "请确认是否清理日志(1清理/默认不清理)："
