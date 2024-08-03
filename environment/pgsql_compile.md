@@ -22,30 +22,31 @@ C 语言编译器主要有四种： `MSVC`/`GCC`/`MinGW`/`Clang+LLVM`
 :::
 
 ```bash
-apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libossp-uuid-dev libpam0g-dev libsystemd-dev libxslt1-dev
+apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libpam0g-dev libsystemd-dev libxslt1-dev
+apt install -y  libossp-uuid-dev
 ```
 
 ::: details 依赖包说明
 
-| package          | note                                                               |
-| ---------------- | ------------------------------------------------------------------ |
-| make             | 常用的构建工具，用于自动化编译和链接程序                           |
-| pkg-config       | 管理库文件的工具，它提供了一种在编译和链接时自动添加库文件的方法   |
-| zlib1g-dev       | 用于 zlib 压缩和解压缩数据的开发库                                 |
-| liblz4-dev       | 用于 LZ4 压缩算法的开发库                                          |
-| libzstd-dev      | 用于 Zstandard 压缩算法的开发库                                    |
-| libreadline-dev  | 提供命令行编辑功能的开发库                                         |
-| libssl-dev       | 用于 OpenSSL 支持的开发库                                          |
-| libossp-uuid-dev | 基于 OSSP uuid 库的开发库                                          |
-| libsystemd-dev   | 用于开发与 systemd 相关的应用程序的包，它提供了一组头文件和库文件  |
-| libpam0g-dev     | 用于 PAM 支持的开发库                                              |
-| clang            | c/c++ 编译器，`llvm+clang` 是套组合                                |
-| llvm             | 用于 LLVM 支持的基本软件包(安装 clang 时自动安装)                  |
-| llvm-dev         | 包含了 LLVM 项目的所有源代码文件，以及一些用于构建和测试的工具和库 |
-| gcc              | c/c++ 编译器套件(这里使用 llvm+clang，这个没啥用了)                |
-| libicu-dev       | 包含了一些用于开发和调试 ICU 应用程序的工具(安装 clang 时自动安装) |
-| libxml2-dev      | 包含用于开发 XML 应用程序的库和头文件 (安装 clang 时自动安装)      |
-| libxslt1-dev     | 包含用于开发 XSLT 应用程序的库和头文件                             |
+| package              | note                                                               |
+| -------------------- | ------------------------------------------------------------------ |
+| make                 | 常用的构建工具，用于自动化编译和链接程序                           |
+| pkg-config           | 管理库文件的工具，它提供了一种在编译和链接时自动添加库文件的方法   |
+| zlib1g-dev           | 用于 zlib 压缩和解压缩数据的开发库                                 |
+| liblz4-dev           | 用于 LZ4 压缩算法的开发库                                          |
+| libzstd-dev          | 用于 Zstandard 压缩算法的开发库                                    |
+| libreadline-dev      | 提供命令行编辑功能的开发库                                         |
+| libssl-dev           | 用于 OpenSSL 支持的开发库                                          |
+| libsystemd-dev       | 用于开发与 systemd 相关的应用程序的包，它提供了一组头文件和库文件  |
+| libpam0g-dev         | 用于 PAM 支持的开发库                                              |
+| clang                | c/c++ 编译器，`llvm+clang` 是套组合                                |
+| llvm                 | 用于 LLVM 支持的基本软件包(安装 clang 时自动安装)                  |
+| llvm-dev             | 包含了 LLVM 项目的所有源代码文件，以及一些用于构建和测试的工具和库 |
+| gcc                  | c/c++ 编译器套件(这里使用 llvm+clang，这个没啥用了)                |
+| libicu-dev           | 包含了一些用于开发和调试 ICU 应用程序的工具(安装 clang 时自动安装) |
+| libxml2-dev          | 包含用于开发 XML 应用程序的库和头文件 (安装 clang 时自动安装)      |
+| libxslt1-dev         | 包含用于开发 XSLT 应用程序的库和头文件                             |
+| ~~libossp-uuid-dev~~ | 基于 OSSP uuid 库的开发库（不再积极维护）                          |
 
 :::
 
@@ -62,7 +63,7 @@ apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev 
 | --with-pgport=PortNum | 指定 pgsql 服务器监听的端口号                      |
 | --with-pam            | 允许 pgsql 使用系统的 PAM 认证机制进行用户身份验证 |
 | --with-systemd        | 确保 PostgreSQL 与 systemd 服务和日志系统集成      |
-| --with-ossp-uuid      | 启用 OSSP UUID 库的支持，用于生成唯一标识符        |
+| --with-ossp=bsd       | 启用 OSSP UUID 库的支持，用于生成唯一标识符        |
 | --with-libxml         | 支持 XML 数据类型                                  |
 | --with-libxslt        | 支持 XSLT 转换，扩展 XML 处理能力                  |
 | --with-lz4            | 启用 LZ4 压缩算法的支持                            |
