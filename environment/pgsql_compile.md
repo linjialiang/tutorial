@@ -63,7 +63,7 @@ apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev 
 | --with-pgport=PortNum | 指定 pgsql 服务器监听的端口号                      |
 | --with-pam            | 允许 pgsql 使用系统的 PAM 认证机制进行用户身份验证 |
 | --with-systemd        | 确保 PostgreSQL 与 systemd 服务和日志系统集成      |
-| --with-ossp=bsd       | 启用 OSSP UUID 库的支持，用于生成唯一标识符        |
+| --with-ossp=e2fs      | 启用 OSSP UUID 库的支持，用于生成唯一标识符        |
 | --with-libxml         | 支持 XML 数据类型                                  |
 | --with-libxslt        | 支持 XSLT 转换，扩展 XML 处理能力                  |
 | --with-lz4            | 启用 LZ4 压缩算法的支持                            |
