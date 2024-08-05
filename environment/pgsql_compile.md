@@ -52,28 +52,28 @@ apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev 
 
 ::: details 编译选项说明
 
-| commom                | note                                               |
-| --------------------- | -------------------------------------------------- |
-| --prefix=PREFIX       | 指定安装路径                                       |
-| --datadir=DIR         | 指定数据目录路径                                   |
-| --enable-debug        | 启用调试模式                                       |
-| --enable-cassert      | 启用断言检查                                       |
-| --with-CC=CMD         | 指定 C 编译器( gcc/clang 注意是区分大小写的)       |
-| --with-llvm           | 启用基于 LLVM 的 JIT 支持，优化适合 `OLTP/OLAP`    |
-| --with-pgport=PortNum | 指定 pgsql 服务器监听的端口号                      |
-| --with-pam            | 允许 pgsql 使用系统的 PAM 认证机制进行用户身份验证 |
-| --with-systemd        | 确保 PostgreSQL 与 systemd 服务和日志系统集成      |
-| --with-ossp=e2fs      | 启用 OSSP UUID 库的支持，用于生成唯一标识符        |
-| --with-libxml         | 支持 XML 数据类型                                  |
-| --with-libxslt        | 支持 XSLT 转换，扩展 XML 处理能力                  |
-| --with-lz4            | 启用 LZ4 压缩算法的支持                            |
-| --with-zstd           | 启用 Zstandard 压缩算法的支持                      |
-| --with-openssl        | 启用 OpenSSL 支持，用于加密通信                    |
+| commom                | note                                                 |
+| --------------------- | ---------------------------------------------------- |
+| --prefix=PREFIX       | 指定安装路径                                         |
+| --datadir=DIR         | 指定数据目录路径                                     |
+| --enable-debug        | 启用调试模式                                         |
+| --enable-cassert      | 启用断言检查                                         |
+| --with-CC=CMD         | 指定 C 编译器( gcc/clang 注意是区分大小写的)         |
+| --with-llvm           | 启用基于 LLVM 的 JIT 支持，优化适合 `OLTP/OLAP`      |
+| --with-pgport=PortNum | 指定 pgsql 服务器监听的端口号                        |
+| --with-pam            | 允许 pgsql 使用系统的 PAM 认证机制进行用户身份验证   |
+| --with-systemd        | 确保 PostgreSQL 与 systemd 服务和日志系统集成        |
+| --with-uuid=e2fs      | 构建 uuid-ossp 使用 e2fsprogs 库，用于生成唯一标识符 |
+| --with-libxml         | 支持 XML 数据类型                                    |
+| --with-libxslt        | 支持 XSLT 转换，扩展 XML 处理能力                    |
+| --with-lz4            | 启用 LZ4 压缩算法的支持                              |
+| --with-zstd           | 启用 Zstandard 压缩算法的支持                        |
+| --with-openssl        | 启用 OpenSSL 支持，用于加密通信                      |
 
 - `--enable-debug`：启用后，可以在调试器中运行程序来分析问题，这会大大增加已安装的可执行文件的大小，并且在非 GCC 编译器上它通常也会禁用编译器优化，生产环境中只建议在选择 GCC 编译器时添加此选项。
 - 编译器：`llvm+clang` 跟 `gcc` 是两个编译器，是互斥的，如果要启用 `--with-llvm` 就要使用 `clang`
 - 安装部分依赖包时，可能会自动安装 `gcc` 编译器包
-- `--with-ossp`: uuid 支持 3 种方式 `ossp-uuid(维护不积极)` `bsd(跨平台支持)` `e2fs(linux专用，效率高)`
+- `--with-ossp`: uuid 支持 3 种方式 `ossp-uuid(维护不积极)` `bsd(跨平台支持)` `e2fs(兼容linux，性能高)`
 
 :::
 
@@ -120,7 +120,7 @@ cd ~/postgresql-16.3/build_postgres
 --with-llvm \
 --with-pam \
 --with-systemd \
---with-ossp-uuid \
+--with-uuid=e2fs \
 --with-lz4 \
 --with-zstd \
 --with-openssl \
