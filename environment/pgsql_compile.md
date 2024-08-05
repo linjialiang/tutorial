@@ -23,7 +23,7 @@ C 语言编译器主要有四种： `MSVC`/`GCC`/`MinGW`/`Clang+LLVM`
 
 ```bash
 apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libpam0g-dev libsystemd-dev libxslt1-dev
-apt install -y  libossp-uuid-dev
+# apt install -y  libossp-uuid-dev -- OSSP uuid 库更新不积极，推荐使用 bsd 或 e2fs
 ```
 
 ::: details 依赖包说明
