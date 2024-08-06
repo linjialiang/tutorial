@@ -172,7 +172,8 @@ psql -h /run/postgres
 
 ````md [admin用户登录]
 ```bash
-psql -h localhost -U admin -d postgres -W
+# 注意：如果没有跟用户同名的数据库就必须使用 -d 指定数据库名
+psql -h 127.0.0.1 -U admin -d postgres -W
 psql -h 192.168.66.254 -U admin -d postgres -W
 ```
 
