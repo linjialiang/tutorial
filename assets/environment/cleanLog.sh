@@ -18,12 +18,18 @@ echo_cyan "是否清理zsh_history文件(1清理/默认不清理)："
 read num
 if [[ "$num" = "1" ]]; then
   echo_yellow "开始清理终端历史文件文件"
-  echo '' > /home/emad/.{zsh,bash}_history
-  echo '' > /home/nginx/.{zsh,bash}_history
-  echo '' > /home/redis/.{zsh,bash}_history
-  echo '' > /home/postgres/.{zsh,bash}_history
-  echo '' > /home/php-fpm/.{zsh,bash}_history
-  echo '' > /root/.{zsh,bash}_history
+  echo '' > /home/emad/.zsh_history
+  echo '' > /home/nginx/.zsh_history
+  echo '' > /home/redis/.zsh_history
+  echo '' > /home/postgres/.zsh_history
+  echo '' > /home/php-fpm/.zsh_history
+  echo '' > /root/.zsh_history
+  echo '' > /home/emad/.bash_history
+  echo '' > /home/nginx/.bash_history
+  echo '' > /home/redis/.bash_history
+  echo '' > /home/postgres/.bash_history
+  echo '' > /home/php-fpm/.bash_history
+  echo '' > /root/.bash_history
   echo_yellow "清理终端历史文件结束"
 else
   echo_yellow "不清理 .zsh_history 文件"
@@ -32,7 +38,7 @@ fi
 echo_red "警告⚠️：请谨慎执行此脚本！！！"
 echo_yellow "清理日志需停止服务，Postgres日志也会被删除，"
 echo_cyan "是否清理lnpp日志(1清理/默认不清理)："
-read num
+read num1
 if [ "$num1" = "1" ]; then
   echo_green "先停止服务"
   systemctl stop {postgres,nginx,php83-fpm,redis}.service
