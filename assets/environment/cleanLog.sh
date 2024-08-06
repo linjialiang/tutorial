@@ -23,6 +23,7 @@ echo '' > /root/.zsh_history
 
 echo_red "警告⚠️：请谨慎执行此脚本！！！"
 echo_yellow "清理日志需停止服务，Postgres日志也会被删除，"
+num=0
 echo_cyan "请确认是否清理日志(1清理/默认不清理)："
 read num
 if [ $num -eq 1 ]; then
@@ -32,6 +33,7 @@ if [ $num -eq 1 ]; then
   rm /server/logs/redis/*
   rm /server/logs/postgres/*.{json,log}
   rm /server/logs/postgres/wal_archive/*
+  num2=0
   echo_cyan "是否启动服务(1启动/默认不启动)："
   read num2
   if [ $num2 -eq 1 ]; then
