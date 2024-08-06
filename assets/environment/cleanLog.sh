@@ -18,18 +18,8 @@ echo_cyan "是否清理zsh_history文件(1清理/默认不清理)："
 read num
 if [[ "$num" = "1" ]]; then
   echo_yellow "开始清理终端历史文件文件"
-  echo '' > /home/emad/.zsh_history
-  echo '' > /home/nginx/.zsh_history
-  echo '' > /home/redis/.zsh_history
-  echo '' > /home/postgres/.zsh_history
-  echo '' > /home/php-fpm/.zsh_history
-  echo '' > /root/.zsh_history
-  echo '' > /home/emad/.bash_history
-  echo '' > /home/nginx/.bash_history
-  echo '' > /home/redis/.bash_history
-  echo '' > /home/postgres/.bash_history
-  echo '' > /home/php-fpm/.bash_history
-  echo '' > /root/.bash_history
+  rm /home/{emad,nginx,redis,postgres,php-fpm}/.{zsh,bash}_history
+  rm /root/.{zsh,bash}_history
   echo_yellow "清理终端历史文件结束"
 else
   echo_yellow "不清理 .zsh_history 文件"
@@ -43,9 +33,7 @@ if [ "$num1" = "1" ]; then
   echo_green "先停止服务"
   systemctl stop {postgres,nginx,php83-fpm,redis}.service
   echo_green "开始清理lnpp日志"
-  rm /server/logs/nginx/*
-  rm /server/logs/php/*
-  rm /server/logs/redis/*
+  rm /server/logs/{nginx,php,redis}/*
   rm /server/logs/postgres/*.{json,log}
   rm /server/logs/postgres/wal_archive/*
   echo_green "清理lnpp日志完成"
