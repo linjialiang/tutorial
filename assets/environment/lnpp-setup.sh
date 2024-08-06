@@ -1,19 +1,15 @@
 #!/usr/bin/env bash
 
 printf "\033c"
-
 echo_cyan(){
   printf '\033[1;36m%b\033[0m\n' "$@"
 }
-
 echo_green(){
   printf '\033[1;32m%b\033[0m\n' "$@"
 }
-
 echo_red(){
   printf '\033[1;31m%b\033[0m\n' "$@"
 }
-
 echo_yellow(){
   printf '\033[1;33m%b\033[0m\n' "$@"
 }
@@ -58,7 +54,7 @@ createSingleUser(){
   echo_green "创建 $userName 用户"
   groupadd $userName
   useradd -c "$userName service main process user" -g $userName -s /sbin/nologin -m $userName
-  if [ $isSupportZsh -eq 1 ]; then
+  if [ "$isSupportZsh" = "1" ]; then
     cp -r /root/{.oh-my-zsh,.zshrc} /home/$userName
     chown $userName:$userName -R /home/$userName/{.oh-my-zsh,.zshrc}
   fi
@@ -230,7 +226,7 @@ Group=php-fpm
 RuntimeDirectory=php83-fpm
 RuntimeDirectoryMode=0750
 ExecStart=/server/php/83/sbin/php-fpm --nodaemonize --fpm-config /server/php/83/etc/php-fpm.conf
-ExecReload=/bin/kill -USR2 $MAINPID
+ExecReload=/bin/kill -USR2 \$MAINPID
 PrivateTmp=true
 ProtectSystem=full
 PrivateDevices=true
@@ -260,7 +256,7 @@ Group=postgres
 RuntimeDirectory=postgres
 RuntimeDirectoryMode=0750
 ExecStart=/server/postgres/bin/postgres -D /server/pgData
-ExecReload=/bin/kill -HUP $MAINPID
+ExecReload=/bin/kill -HUP \$MAINPID
 KillMode=mixed
 KillSignal=SIGINT
 TimeoutSec=infinity
@@ -282,8 +278,8 @@ Group=redis
 RuntimeDirectory=redis
 RuntimeDirectoryMode=0750
 ExecStart=/server/redis/bin/redis-server /server/redis/redis.conf
-ExecReload=/bin/kill -s HUP $MAINPID
-ExecStop=/bin/kill -s QUIT $MAINPID
+ExecReload=/bin/kill -s HUP \$MAINPID
+ExecStop=/bin/kill -s QUIT \$MAINPID
 Restart=on-failure
 PrivateTmp=true
 
@@ -297,21 +293,19 @@ WantedBy=multi-user.target
 }
 
 echo_cyan "解压脚本同级目录下需存在源码压缩包 lnpp.tar.xz"
-isExit=0
 echo_cyan "是否退出(1退出/默认继续)："
 read isExit
-if [ $isExit -eq 1 ]; then
+if [ "$isExit" = "1" ]; then
   exit 0
 fi
 
 #系统更新到最新
 upgradeOS
 
-num=0
 echo_cyan "是否重启操作系统(1重启/默认不重启)："
 read num
 
-if [ $num -eq 1 ]; then
+if [ "$num" = "1" ]; then
   echo_cyan "停止向下执行，并重启系统"
   sync;sync;sync;reboot
 else
