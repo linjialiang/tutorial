@@ -143,54 +143,40 @@ Nginx 可实现平滑升级，具体操作如下：
 
 ### 2. 替换主文件
 
-- 首先，备份旧版主文件，防止意外出现
-
-  ```bash
-  mv /server/nginx/sbin/nginx{,.bak}
-  ```
-
-- 其次，拷贝新的主文件,到指定目录
-
-  ```bash
-  cp -p -r /home/nginx/nginx-1.26.1/build_nginx/nginx /server/nginx/sbin/
-  ```
+```bash
+# 先备份旧版主文件，防止意外出现
+mv /server/nginx/sbin/nginx{,.bak}
+# 拷贝新的主文件,到指定目录
+cp -p -r /home/nginx/nginx-1.26.1/build_nginx/nginx /server/nginx/sbin/
+```
 
 ### 3. 升级操作
 
-1. 查看 pid
+::: code-group
 
-   通过 ps 指令，检查旧版 nginx 的 pid
+```bash [1.查看 pid]
+# 通过 ps 指令，检查旧版 nginx 的 pid
+ps -ef|grep -E "nginx|PID" |grep -v grep
+ps aux|grep -E "nginx|PID" |grep -v grep
+# 通过 cat 查看 pid 文件，并记录进程 id 号
+cat /run/nginx/nginx.pid
+```
 
-   ```bash
-   ps -ef|grep -E "nginx|PID" |grep -v grep
-   ps aux|grep -E "nginx|PID" |grep -v grep
-   ```
+```bash [2.启动新版主文件]
+# 通过 `kill -USR2 <pid>` 启动新版 nginx 可执行文件
+kill -USR2 `cat /run/nginx/nginx.pid`
+```
 
-   通过 cat 查看 pid 文件，并记录进程 id 号
+```bash [3.关闭旧版进程]
+# 使用 `kill -WINCH <pid>` 来关闭旧版 nginx 进程
+kill -WINCH <old_nginx_pid>
+```
 
-   ```bash
-   cat /run/nginx/nginx.pid
-   ```
+:::
 
-2. 启动新版主文件
-
-   通过 `kill -USR2 <pid>` 启动新版 nginx 可执行文件
-
-   ```bash
-   kill -USR2 `cat /run/nginx/nginx.pid`
-   ```
-
-3. 关闭旧版进程
-
-   使用 `kill -WINCH <pid>` 来关闭旧版 nginx 进程
-
-   ```bash
-   kill -WINCH <old_nginx_pid>
-   ```
-
-   ::: tip 提示
-   `kill -WINCH <pid>` 指令可实现：当进程没有访问者时，系统自动关闭当前进程
-   :::
+::: tip 提示
+`kill -WINCH <pid>` 指令可实现：当进程没有访问者时，系统自动关闭当前进程
+:::
 
 ## 配置
 
@@ -370,51 +356,51 @@ nginx 的用户身份认证，仅区分登录用户和非登录用户的访问�
 
 `ngx_http_auth_basic_module` 模块，只有 2 条配置指令：
 
-1. auth_basic 指令
+::: details 1. auth_basic 指令
 
-   该指令，用于控制 nginx 是否开启 `HTTP 基本身份验证` 功能
+该指令，用于控制 nginx 是否开启 `HTTP 基本身份验证` 功能
 
-   - 语法 : auth_basic string | off;
-   - 默认 : auth_basic off；
-   - 区块 : http 、 server 、 location 、 limit_except
+- 语法 : auth_basic string | off;
+- 默认 : auth_basic off；
+- 区块 : http 、 server 、 location 、 limit_except
 
-   > 语法分析：
+> 语法分析：
 
-   - off : 表示关闭 `HTTP 基本身份验证` 功能，这是默认值
-   - string : 任意字符串，表示开启 `HTTP 基本身份验证` 功能，并且字符串会作为登录提示信息出现
+- off : 表示关闭 `HTTP 基本身份验证` 功能，这是默认值
+- string : 任意字符串，表示开启 `HTTP 基本身份验证` 功能，并且字符串会作为登录提示信息出现
 
-   > 区块说明：
+> 区块说明：
 
-   - 通常不会在 http 区块上开启 `HTTP 基本身份验证` 功能，除非服务器上所有网站都仅供内部访问
-   - server 和 location 区块是最常使用的
-   - 当然 `HTTP 基本身份验证` 功能，只有非常简单的站点需要使用它，比如：纯静态资源站或者其它没有认证系统的网站
+- 通常不会在 http 区块上开启 `HTTP 基本身份验证` 功能，除非服务器上所有网站都仅供内部访问
+- server 和 location 区块是最常使用的
+- 当然 `HTTP 基本身份验证` 功能，只有非常简单的站点需要使用它，比如：纯静态资源站或者其它没有认证系统的网站
 
-   ::: tip
-   在同一区块，仅一个 `auth_basic` 生效，后面覆盖前面
-   :::
+::: warning 注意
+在同一区块，仅一个 `auth_basic` 生效，后面覆盖前面
+:::
 
-2. auth_basic_user_file 指令
+::: details 2. auth_basic_user_file 指令
 
-   该指令，用于指定保存用户名和密码的文件
+该指令，用于指定保存用户名和密码的文件
 
-   - 语法 : auth_basic_user_file file;
-   - 默认 : —
-   - 区块 : http 、 server 、 location 、 limit_except
+- 语法 : auth_basic_user_file file;
+- 默认 : —
+- 区块 : http 、 server 、 location 、 limit_except
 
-   > 指定保存用户名和密码的文件，格式如下：
+> 指定保存用户名和密码的文件，格式如下：
 
-   ```
-   ＃ 备注说明
-   用户名1:加密密码1
-   用户名2:加密密码2:用户2说明
-   用户名3:加密密码3
-   ```
+```
+＃ 备注说明
+用户名1:加密密码1
+用户名2:加密密码2:用户2说明
+用户名3:加密密码3
+```
 
-   > 区块说明：基本跟 auth_basic 指令一致
+> 区块说明：基本跟 auth_basic 指令一致
 
-   ::: tip
-   在同一区块，`auth_basic_user_file` 仅一个生效，后面覆盖前面
-   :::
+::: warning 注意
+在同一区块，`auth_basic_user_file` 仅一个生效，后面覆盖前面
+:::
 
 ### 2. 生成加密密码
 
@@ -431,9 +417,9 @@ nginx 的用户身份认证，仅区分登录用户和非登录用户的访问�
 
 本次我们就直接使用 openssl passwd 来演示生成加密密码，具体如下：
 
-::: details 创建必要文件：
+::: code-group
 
-```bash
+```bash [创建必要文件]
 # 创建目录
 mkdir /server/default/nginx_auth
 # 创建两个站点的认证文件，文件名与站点名相似
@@ -443,21 +429,13 @@ chown root:nginx /server/default/nginx_auth/{public,qydoc,wangdoc}
 chmod 640 /server/default/nginx_auth/{public,qydoc,wangdoc}
 ```
 
-:::
-
-::: details 默认站点创建用户：
-
-```bash
+```bash [默认站点身份认证]
 # 用户1 emad 密码 123
 echo -n 'emad:' >>  /server/default/nginx_auth/public
 openssl passwd -apr1 123 >> /server/default/nginx_auth/public
 ```
 
-:::
-
-::: details qydoc 站点创建用户：
-
-```bash
+```bash [qydoc 站点身份认证]
 # 用户1 emad 密码 123
 echo -n 'emad:' >>  /server/default/nginx_auth/qydoc
 openssl passwd -apr1 123 >> /server/default/nginx_auth/qydoc
@@ -467,11 +445,7 @@ echo -n 'qydoc:' >>  /server/default/nginx_auth/qydoc
 openssl passwd -apr1 qy123 >> /server/default/nginx_auth/qydoc
 ```
 
-:::
-
-::: details wangdoc 站点创建用户：
-
-```bash
+```bash [wangdoc 站点身份认证]
 # 用户1 emad 密码 123
 echo -n 'emad:' >>  /server/default/nginx_auth/wangdoc
 openssl passwd -apr1 123 >> /server/default/nginx_auth/wangdoc
@@ -487,9 +461,9 @@ openssl passwd -apr1 wd123 >> /server/default/nginx_auth/wangdoc
 
 nginx 虚拟主机配置 `HTTP 基本身份验证` 案例
 
-::: details 默认站点
+::: code-group
 
-```nginx
+```nginx [默认站点]
 server
 {
     ...
@@ -499,11 +473,7 @@ server
 }
 ```
 
-:::
-
-::: details qydocs 站点
-
-```nginx
+```nginx [qydocs 站点]
 server
 {
     ...
@@ -525,11 +495,7 @@ server
 }
 ```
 
-:::
-
-::: details wangdocs 站点
-
-```nginx
+```nginx [wangdocs 站点]
 server
 {
     ...
@@ -547,7 +513,7 @@ server
 
 :::
 
-### 4. 相关指令
+### 4. 相关指令说明
 
 | common    | info           |
 | --------- | -------------- |
