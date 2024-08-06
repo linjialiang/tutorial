@@ -113,3 +113,23 @@ openssl x509 -req -in client.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out c
 ```
 
 :::
+
+## 命令行工具设置代理
+
+::: code-group
+
+```bash [terminal]
+export ALL_PROXY=socks5://127.0.0.1:1080
+```
+
+```cmd [cmd]
+set ALL_PROXY=socks5://127.0.0.1:1080
+
+set HTTP_PROXY=socks5://127.0.0.1:1080
+```
+
+```ps1 [powershell]
+$env:HTTP_PROXY="http://127.0.0.1:1080"
+```
+
+:::
