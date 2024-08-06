@@ -70,6 +70,7 @@ createUser(){
   echo_green "创建nginx、php-fpm、Postgres、Redis的进程用户"
   echo_yellow "=================================================================="
   echo_red "必须root用户安装并配置成功zsh，才允许支持zsh"
+  zshState=0
   echo_cyan "是否支持启用zsh(1支持，默认不支持)："
   read zshState
   createSingleUser 'nginx' $zshState
@@ -128,7 +129,7 @@ installPackage(){
   apt install -y gcc g++ make pkg-config clang llvm-dev libsystemd-dev \
   libcurl4-openssl-dev libxslt1-dev libxml2-dev libssl-dev libpam0g-dev \
   zlib1g-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev \
-  libgd-dev libgeoip-dev liblz4-dev libzstd-dev libreadline-dev libossp-uuid-dev \
+  libgd-dev libgeoip-dev liblz4-dev libzstd-dev libreadline-dev \
   libcapstone-dev libsqlite3-dev
 }
 
@@ -296,6 +297,7 @@ WantedBy=multi-user.target
 }
 
 echo_cyan "解压脚本同级目录下需存在源码压缩包 lnpp.tar.xz"
+isExit=0
 echo_cyan "是否退出(1退出/默认继续)："
 read isExit
 if [ $isExit -eq 1 ]; then
@@ -305,6 +307,7 @@ fi
 #系统更新到最新
 upgradeOS
 
+num=0
 echo_cyan "是否重启操作系统(1重启/默认不重启)："
 read num
 
@@ -320,6 +323,7 @@ else
   echo ' '
   #开发用户追加权限，部署环境请注释掉
   echo_red "部署环境通常不需要授权"
+  userName=''
   echo_cyan "输入开发用户名，为其授权(为空不授权)："
   read userName
   if [ ! -z '$userName']; then
