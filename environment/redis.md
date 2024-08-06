@@ -119,6 +119,8 @@ mkdir /server/redis/rdbData
 vm.overcommit_memory = 1
 ```
 
+<<<@/assets/environment/source/redis/redis.conf [完整版配置参考]
+
 :::
 
 ### 2. 配置文件参数
