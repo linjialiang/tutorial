@@ -120,16 +120,33 @@ openssl x509 -req -in client.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out c
 
 ```bash [terminal]
 export ALL_PROXY=socks5://127.0.0.1:1080
+
+export HTTP_PROXY=socks5://127.0.0.1:1080
+export HTTPS_PROXY=socks5://127.0.0.1:1080
 ```
 
 ```cmd [cmd]
 set ALL_PROXY=socks5://127.0.0.1:1080
 
 set HTTP_PROXY=socks5://127.0.0.1:1080
+set HTTPS_PROXY=socks5://127.0.0.1:1080
 ```
 
 ```ps1 [powershell]
-$env:HTTP_PROXY="http://127.0.0.1:1080"
+$env:ALL_PROXY="socks5://127.0.0.1:1080"
+
+$env:HTTP_PROXY="socks5://127.0.0.1:1080"
+$env:HTTPS_PROXY="socks5://127.0.0.1:1080"
 ```
+
+:::
+
+::: tip 提示
+
+其中地址为代理地址，可以是：
+
+- socks5://IP:PORT
+- socks4://IP:PORT
+- http://IP:PORT
 
 :::
