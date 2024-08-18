@@ -14,7 +14,7 @@ Nginx 是现如今性能最强劲的 Web 服务器及反向代理服务器
 ::: code-group
 
 ```bash [common]
-cd /home/nginx/nginx-1.26.1
+cd /home/nginx/nginx-1.26.2
 ./configure --help > help.ini
 ```
 
@@ -75,8 +75,8 @@ setcap -r /server/nginx/sbin/nginx
 
 ```bash [构建目录]
 su - nginx -s /bin/zsh
-mkdir ~/nginx-1.26.1/build_nginx
-cd ~/nginx-1.26.1
+mkdir ~/nginx-1.26.2/build_nginx
+cd ~/nginx-1.26.2
 ```
 
 <<<@/assets/environment/source/nginx/build_now.bash [本次构建指令]
@@ -147,7 +147,7 @@ Nginx 可实现平滑升级，具体操作如下：
 # 先备份旧版主文件，防止意外出现
 mv /server/nginx/sbin/nginx{,.bak}
 # 拷贝新的主文件,到指定目录
-cp -p -r /home/nginx/nginx-1.26.1/build_nginx/nginx /server/nginx/sbin/
+cp -p -r /home/nginx/nginx-1.26.2/build_nginx/nginx /server/nginx/sbin/
 ```
 
 ### 3. 升级操作

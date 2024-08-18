@@ -93,7 +93,7 @@ PHP 环境目录
 ::: code-group
 
 ```md [软件包]
-1. nginx-1.26.1.tar.gz
+1. nginx-1.26.2.tar.gz
    - openssl-3.0.14.tar.gz
    - pcre2-10.44.tar.bz2
    - zlib-1.3.1.tar.xz
