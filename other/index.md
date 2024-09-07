@@ -142,11 +142,7 @@ $env:HTTPS_PROXY="socks5://127.0.0.1:1080"
 :::
 
 ::: tip 提示
+近期发现上述设置无效，请使用下面这段 powershell 脚本
 
-其中地址为代理地址，可以是：
-
-- socks5://IP:PORT
-- socks4://IP:PORT
-- http://IP:PORT
-
+<<<@/assets/other/powershell/powershell-proxy-set-clear.ps1
 :::
