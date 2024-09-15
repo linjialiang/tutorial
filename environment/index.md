@@ -94,12 +94,12 @@ PHP 环境目录
 
 ```md [软件包]
 1. nginx-1.26.2.tar.gz
-   - openssl-3.0.14.tar.gz
+   - openssl-3.0.15.tar.gz
    - pcre2-10.44.tar.bz2
    - zlib-1.3.1.tar.xz
 2. redis-7.4.0.tar.gz
 3. postgresql-16.4.tar.bz2
-4. php-8.3.10.tar.xz
+4. php-8.3.11.tar.xz
    - xdebug-3.3.2.tgz `动态扩展`
    - redis-6.0.2.tgz `动态扩展`
 ```
