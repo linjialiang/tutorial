@@ -53,8 +53,8 @@ ldd /usr/lib/jdk8/bin/java
 ```bash [安装]
 git clone https://github.com/OWASP-Benchmark/BenchmarkJava.git
 cd BenchmarkJava
-# ⚠️ main分支会出现mvn异常，可能是升级了java库
-git checkout 1.1final
+# 注意：测试过 1.2beta 标签
+git checkout tags/1.2beta
 # 构建前 mvn 建议设为阿里云镜像
 # 构建
 mvn compile
