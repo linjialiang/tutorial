@@ -10,28 +10,34 @@ titleTemplate: 渗透测试
 1. Unix 操作系统
 2. git
 3. Maven >= 3.2.3
-4. Java 8
+4. OpenJDK
 
 ```bash
 apt install git maven -y
 ```
 
-## 安装 Java 8
+## 安装 OpenJDK
 
-去[[Java 官网]](https://www.oracle.com/java/technologies/downloads/)可以下载到最新的Java8
+从 [清华源](https://mirrors.tuna.tsinghua.edu.cn/Adoptium/) 可以下载到各个版本的 JDK
 
 ::: code-group
 
 ```bash [安装]
-tar -xzf ./jdk-8u381-linux-x64.tar.gz
-mv jdk-8u381-linux-x64 /usr/lib/jdk8
+# JDK8
+wget https://mirrors.tuna.tsinghua.edu.cn/Adoptium/8/jdk/x64/linux/OpenJDK8U-jdk_x64_linux_hotspot_8u422b05.tar.gz
+# 官方未进行相关说明的补充
+# 从 BenchmarkJava 1.2 测试版开始，引入了模块功能，请使用 JDK11 版本，因为 JDK8 不支持模块
+wget https://mirrors.tuna.tsinghua.edu.cn/Adoptium/11/jdk/x64/linux/OpenJDK11U-jdk_x64_linux_hotspot_11.0.24_8.tar.gz
+
+tar -xzf ./OpenJDK*.tar.gz
+mv jdk-* /usr/lib/jdk-owasp
 ```
 
 ```bash [加入环境变量]
 # ~/.bashrc
 
-# jdk8 setting custom
-export JAVA_HOME=/usr/lib/jdk8
+# jdk-owasp setting custom
+export JAVA_HOME=/usr/lib/jdk-owasp
 export JRE_HOME=${JAVA_HOME}/jre
 export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
@@ -41,7 +47,7 @@ source ~/.bashrc
 
 ```bash [测试]
 java -version
-ldd /usr/lib/jdk8/bin/java
+ldd /usr/lib/jdk-owasp/bin/java
 ```
 
 :::
