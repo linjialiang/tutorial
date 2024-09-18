@@ -52,16 +52,16 @@ ldd /usr/lib/jdk8/bin/java
 
 ```bash [安装]
 git clone https://github.com/OWASP-Benchmark/BenchmarkJava.git
+# 推荐使用国内镜像
+git clone https://e.coding.net/madnesslin/permeate/BenchmarkJava.git
+# 进入目录
 cd BenchmarkJava
-# 注意：测试过 1.2beta 标签
-git checkout tags/1.2beta
-# 构建前 mvn 建议设为阿里云镜像
-# 构建
-mvn compile
-# 本地访问 localhost:8443/benchmark/
+# 清除之前构建结果并重新编译项目
+mvn clear compile
+# 本地访问 https://localhost:8443/benchmark/
 chmod +x ./runBenchmark.sh
 ./runBenchmark.sh
-# 远程访问 ip:8443/benchmark/
+# 远程访问 https://ip:8443/benchmark/
 chmod +x ./runRemoteAccessibleBenchmark.sh
 ./runRemoteAccessibleBenchmark.sh
 ```
@@ -77,7 +77,7 @@ ps -ef|grep BenchmarkJava
 
 :::
 
-## 配置国内镜像
+## mvn 配置国内镜像
 
 文件 `/etc/maven/settings.xml` 内 `mirrors` 标签下 增加一个 `mirror` 子标签
 
@@ -92,5 +92,9 @@ ps -ef|grep BenchmarkJava
   </mirror>
 </mirrors>
 ```
+
+::: tip 提示
+2024/09/18 做过测试：官方镜像的速度非常快，仅当官方镜像速度慢或无法访问时，我们再去选择使用国内镜像
+:::
 
 ## 开启自动运行靶场
