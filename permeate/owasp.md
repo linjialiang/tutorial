@@ -18,7 +18,7 @@ apt install git maven -y
 
 ## 安装 OpenJDK
 
-从 [清华源](https://mirrors.tuna.tsinghua.edu.cn/Adoptium/) 可以下载到各个版本的 JDK
+从 [[清华源]](https://mirrors.tuna.tsinghua.edu.cn/Adoptium/) 可以下载到各个版本的 JDK
 
 ::: code-group
 
@@ -103,4 +103,4 @@ ps -ef|grep BenchmarkJava
 2024/09/18 做过测试：官方镜像的速度非常快，仅当官方镜像速度慢或无法访问时，我们再去选择使用国内镜像
 :::
 
-## 开启自动运行靶场
+## 开机自动运行靶场
