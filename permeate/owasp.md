@@ -25,7 +25,7 @@ apt install git maven -y
 ```bash [安装]
 # JDK8
 wget https://mirrors.tuna.tsinghua.edu.cn/Adoptium/8/jdk/x64/linux/OpenJDK8U-jdk_x64_linux_hotspot_8u422b05.tar.gz
-# 官方未进行相关说明的补充
+# JDK11
 # 从 BenchmarkJava 1.2 测试版开始，引入了模块功能，请使用 JDK11 版本，因为 JDK8 不支持模块
 wget https://mirrors.tuna.tsinghua.edu.cn/Adoptium/11/jdk/x64/linux/OpenJDK11U-jdk_x64_linux_hotspot_11.0.24_8.tar.gz
 
@@ -99,8 +99,10 @@ ps -ef|grep BenchmarkJava
 </mirrors>
 ```
 
-::: tip 提示
-2024/09/18 做过测试：官方镜像的速度非常快，仅当官方镜像速度慢或无法访问时，我们再去选择使用国内镜像
+::: tip 2024/09/18 测试结果
+官方镜像的速度非常快，推荐使用官方镜像
+
+仅当官方镜像速度慢或无法访问时，我们再去选择使用国内镜像
 :::
 
 ## 开机自动运行靶场
