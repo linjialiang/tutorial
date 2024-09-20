@@ -19,6 +19,9 @@ hero:
     - theme: alt
       text: 配置参考
       link: /vitepress/conf/site
+    - theme: alt
+      text: 官方中文文档
+      link: https://vitepress.dev/zh/
 
 features:
   - icon: 📝
