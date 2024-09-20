@@ -45,14 +45,14 @@ titleTemplate: vscode 教程
 
 :::
 
-::: tip 前端插件 Vue3 插件
+::: tip Vue3 插件
 
 1. [Vue Language Features (Volar)](#volar)
 2. [TypeScript Vue Plugin](#typescript-vue-plugin)
 
 :::
 
-::: tip 前端插件 php 插件
+::: tip php 插件
 
 1. [PHP Intelephense](#php-intelephense)
 2. [PHP DocBlocker](#php-docblocker)
@@ -60,7 +60,7 @@ titleTemplate: vscode 教程
 
 :::
 
-::: tip 前端插件远程控制插件
+::: tip 远程控制插件
 
 1. [Remote - SSH](#remote-ssh)
 2. Remote - SSH: Editing Configuration Files
