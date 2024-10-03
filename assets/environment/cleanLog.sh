@@ -36,6 +36,7 @@ if [ "$num1" = "1" ]; then
   rm /server/logs/{nginx,php,redis}/*
   rm /server/logs/postgres/*.{json,log}
   rm /server/logs/postgres/wal_archive/*
+  rm /server/nginx/logs/*
   echo_green "清理lnpp日志完成"
 else
   echo_yellow "不清理lnpp日志"
