@@ -58,7 +58,7 @@ apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev 
 | --datadir=DIR         | 指定数据目录路径                                     |
 | --enable-debug        | 启用调试模式                                         |
 | --enable-cassert      | 启用断言检查                                         |
-| --with-CC=CMD         | 指定 C 编译器( gcc/clang 注意是区分大小写的)         |
+| CC=CMD                | 指定 C 编译器( gcc/clang 注意是区分大小写的)         |
 | --with-llvm           | 启用基于 LLVM 的 JIT 支持，优化适合 `OLTP/OLAP`      |
 | --with-pgport=PortNum | 指定 pgsql 服务器监听的端口号                        |
 | --with-pam            | 允许 pgsql 使用系统的 PAM 认证机制进行用户身份验证   |
@@ -116,7 +116,7 @@ cd ~/postgresql-17.0/build_postgres
 ../configure --prefix=/server/postgres \
 --enable-debug \
 --enable-cassert \
---with-CC=clang \
+CC=clang \
 --with-llvm \
 --with-pam \
 --with-systemd \
