@@ -46,7 +46,7 @@ apt install libsqlite3-dev -y
 
 ```bash
 mkdir /home/php-fpm/php-7.4.33/build_php
-mkdir /home/php-fpm/php-8.3.11/build_php
+mkdir /home/php-fpm/php-8.3.12/build_php
 ```
 
 ### 3. 环境变量
@@ -127,7 +127,7 @@ php-fpm 用户对 Postgres 安装目录要有读取和执行权限
 # php7.4 构建目录
 cd /home/php-fpm/php-7.4.33/build_php/
 # php8.3 构建目录
-cd /home/php-fpm/php-8.3.11/build_php/
+cd /home/php-fpm/php-8.3.12/build_php/
 ```
 
 ### 6. 安装指令
@@ -196,14 +196,14 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 # php7.4
 cp /home/php-fpm/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
 # php8.3
-cp /home/php-fpm/php-8.3.11/php.ini-production /server/php/83/lib/php.ini
+cp /home/php-fpm/php-8.3.12/php.ini-production /server/php/83/lib/php.ini
 ```
 
 ```bash [开发环境]
 # php7.4
 cp /home/php-fpm/php-7.4.33/php.ini-development /server/php/74/lib/php.ini
 # php8.3
-cp /home/php-fpm/php-8.3.11/php.ini-development /server/php/83/lib/php.ini
+cp /home/php-fpm/php-8.3.12/php.ini-development /server/php/83/lib/php.ini
 ```
 
 :::
