@@ -41,6 +41,17 @@ else
   echo_yellow "不清理lnpp日志"
 fi
 
+echo_cyan "是否清理Redis本地存储(1清理/默认不清理)："
+read num3
+if [[ "$num3" = "1" ]]; then
+  echo_yellow "开始清理Redis本地存储"
+  rm /server/redis/rdbData/dump.rdb
+  rm /server/redis/rdbData/appendonlydir/*
+  echo_yellow "清理Redis本地存储结束"
+else
+  echo_yellow "不清理Redis本地存储"
+fi
+
 echo_cyan "是否启动服务(1启动/默认不启动)："
 read num2
 if [ "$num2" = "1" ]; then
