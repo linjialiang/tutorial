@@ -86,13 +86,10 @@ cmake .. \
 -DCMAKE_INSTALL_PREFIX=/server/mysql \
 -DMYSQL_DATADIR=/server/data \
 -DSYSCONFDIR=/server/etc/mysql \
--DTMPDIR=/server/tmp/mysql \
--DMYSQL_UNIX_ADDR=/server/run/mysql/mysqld-80.sock \
+-DTMPDIR=/tmp/mysql \
+-DMYSQL_UNIX_ADDR=/run/mysql/mysqld-80.sock \
 -DDEFAULT_CHARSET=utf8mb4 \
 -DDEFAULT_COLLATION=utf8mb4_general_ci \
--DWITH_BOOST=/home/mysql/mysql-8.0.36/boost/boost_1_77_0 \
--DDOWNLOAD_BOOST=1 \
--DDOWNLOAD_BOOST_TIMEOUT=60 \
 -DWITH_SYSTEMD=1 \
 -DSYSTEMD_SERVICE_NAME=mysqld-80 \
 -DENABLED_LOCAL_INFILE=1 \
