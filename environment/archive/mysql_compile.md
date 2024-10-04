@@ -178,10 +178,10 @@ mysqld --defaults-file=/server/mysql/etc/my.cnf --initialize-insecure --user=mys
 ### systemd 单元
 
 ::: code-group
-<<<@/assets/environment/source/service/mysqld-80.service{bash} [mysqld-80.service]
+<<<@/assets/environment/source/service/mysqld-84.service{bash} [mysqld-84.service]
 
 ```bash [启用单元]
-systemctl enable mysqld-80.service
+systemctl enable mysqld-84.service
 systemctl daemon-reload
 ```
 
