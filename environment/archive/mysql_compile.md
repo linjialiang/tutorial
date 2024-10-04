@@ -39,7 +39,7 @@ Boost 是一个 C++标准库，因为 mysql 主要是用 C++写的，它依赖�
 apt update
 apt install -y gcc g++ cmake
 apt install -y libncurses-dev dpkg-dev libldap-dev libsasl2-dev libbison-dev
-apt install -y libtirpc-dev  libudev-dev libssl-dev # 未使用
+apt install -y libtirpc-dev libudev-dev libssl-dev # 未使用
 ```
 
 ## 权限
@@ -88,9 +88,9 @@ cmake .. \
 -DMYSQL_DATADIR=/server/data \
 -DSYSCONFDIR=/server/mysql/etc \
 -DTMPDIR=/tmp/mysql \
--DMYSQL_UNIX_ADDR=/run/mysql/mysqld-80.sock \
+-DMYSQL_UNIX_ADDR=/run/mysql/mysqld-84.sock \
 -DWITH_SYSTEMD=1 \
--DSYSTEMD_SERVICE_NAME=mysqld-80 \
+-DSYSTEMD_SERVICE_NAME=mysqld-84 \
 -DENABLED_LOCAL_INFILE=1 \
 -DFORCE_COLORED_OUTPUT=1 \
 -DWITH_MYSQLX=0 \
