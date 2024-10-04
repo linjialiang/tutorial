@@ -31,10 +31,9 @@ server_array=(
     "/server/logs/redis"
 
     # "/server/mysql"
+    # "/server/mysql/etc"
     # "/server/data"
     # "/server/logs/mysql"
-    # "/server/etc/mysql"
-    # "/server/tmp/mysql"
 )
 
 echo "-----开始创建server目录-----"
