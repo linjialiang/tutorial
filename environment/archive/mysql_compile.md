@@ -87,7 +87,6 @@ cmake .. \
 -DCMAKE_INSTALL_PREFIX=/server/mysql \
 -DMYSQL_DATADIR=/server/data \
 -DSYSCONFDIR=/server/mysql/etc \
--DTMPDIR=/tmp/mysql \
 -DMYSQL_UNIX_ADDR=/run/mysql/mysqld-84.sock \
 -DWITH_SYSTEMD=1 \
 -DSYSTEMD_SERVICE_NAME=mysqld-84 \
@@ -127,7 +126,6 @@ make install
 | -DCMAKE_INSTALL_PREFIX         | MySQL 安装基目录                                                      |
 | -DMYSQL_DATADIR                | MySQL 数据目录                                                        |
 | -DSYSCONFDIR                   | 选项文件目录                                                          |
-| -DTMPDIR                       | 临时文件的位置                                                        |
 | -DMYSQL_UNIX_ADDR              | Unix 套接字文件                                                       |
 | -DWITH_SYSTEMD                 | 启用 systemd 支持文件的安装                                           |
 | -DSYSTEMD_SERVICE_NAME         | systemd 下的 MySQL 服务名称                                           |
@@ -136,6 +134,7 @@ make install
 | -DWITH_MYSQLX                  | 是否启用 X 协议，默认开启                                             |
 | -DWITH_UNIT_TESTS              | 是否使用单元测试编译 MySQL                                            |
 | -DINSTALL_MYSQLTESTDIR         | 是否安装单元测试目录(mysql-test)，不需要就设为空值                    |
+| ~~-DTMPDIR~~                   | 临时文件的位置，指定目录必须存在                                      |
 | ~~-DDEFAULT_CHARSET~~          | 默认字符集，默认使用 `utf8mb4` 字符集                                 |
 | ~~-DDEFAULT_COLLATION~~        | 默认排序规则，默认使用 `utf8mb4_0900_ai_ci`                           |
 | ~~-DMYSQL_TCP_PORT~~           | TCP/IP 端口号，默认值为 `3306`                                        |
