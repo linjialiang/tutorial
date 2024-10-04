@@ -134,8 +134,10 @@ cd /home/php-fpm/php-8.3.12/build_php/
 
 ::: details 构建指令参考
 ::: code-group
-<<<@/assets/environment/source/php/build/83_pgsql.bash [8.3]
-<<<@/assets/environment/source/php/build/74_pgsql.bash [7.4]
+<<<@/assets/environment/source/php/build/83_pgsql.bash [8.3-pgsql]
+<<<@/assets/environment/source/php/build/74_pgsql.bash [7.4-pgsql]
+<<<@/assets/environment/source/php/build/83.bash [8.3-MySQL]
+<<<@/assets/environment/source/php/build/74.bash [7.4-MySQL]
 :::
 
 ::: tip 构建指令区别：
