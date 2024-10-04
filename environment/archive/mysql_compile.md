@@ -13,7 +13,7 @@ MySQL 没有为 Debian12 做适配，所以最好的选择就是自己编译安�
 
 ## 下载源码包
 
-![Mysql 源码包](/assets/environment/images/01.png)
+![Mysql 源码包](/assets/environment/images/mysql_compile-01.png)
 
 ::: tip 提示
 
