@@ -16,7 +16,8 @@ MySQL 没有为 Debian12 做适配，所以最好的选择就是自己编译安�
 ![Mysql 源码包](/assets/environment/images/01.png)
 
 ::: tip 提示
-如果没有特殊要求，建议下载 `mysql-boost-version.tar.gz` ，这是包含 `Boost(Includes Boost Headers)` 的源码包；
+
+对于 8.3.0 之前版本，如果没有特殊要求，建议下载 `mysql-boost-version.tar.gz` ，这是包含 `Boost(Includes Boost Headers)` 的源码包；
 
 Boost 是一个 C++标准库，因为 mysql 主要是用 C++写的，它依赖于 C++标准库(即 Boost)；
 
@@ -29,7 +30,7 @@ Boost 是一个 C++标准库，因为 mysql 主要是用 C++写的，它依赖�
 2. gcc
 3. g++
 4. openssl
-5. Boost(一个 C++标准库，MySQL 包自带 Boost)；
+5. Boost(一个 C++标准库，`8.3.0` 以后已捆绑)；
 6. ncurses 库
 7. 充足的内存（最好有 2GB 以上的空闲内存，不够的话就添加虚拟内存）；
 8. perl(不做 test 就不需要)。
@@ -45,19 +46,19 @@ apt install -y libncursesada11-dev libtirpc-dev dpkg-dev libldap-dev libsasl2-de
 ::: code-group
 
 ```bash [部署]
-chown mysql:mysql -R /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql
-find /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql -type f -exec chmod 640 {} \;
-find /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql -type d -exec chmod 750 {} \;
+mkdir /server/mysql/etc
+chown mysql:mysql -R /server/mysql /server/data /server/logs/mysql
+find /server/mysql /server/logs/mysql -type f -exec chmod 640 {} \;
+find /server/mysql /server/logs/mysql -type d -exec chmod 750 {} \;
+find /server/data -type f -exec chmod 600 {} \;
+find /server/data -type d -exec chmod 700 {} \;
 chmod 750 -R /server/mysql/bin
 ```
 
 ```bash [开发]
-chown mysql:emad -R /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql
-find /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql -type f -exec chmod 640 {} \;
-find /server/mysql /server/data /server/etc/mysql /server/logs/mysql /server/run/mysql /server/tmp/mysql -type d -exec chmod 750 {} \;
-chmod 750 -R /server/mysql/bin
-# php 可能需要读取 mysql 的 unix socket 文件
-chmod 755 /server/run/mysql
+# 权限同部署环境
+# 开发用户 emad 加入lnpp包用户组
+usermod -G php-fpm,nginx,mysql,redis emad
 ```
 
 :::
@@ -65,7 +66,7 @@ chmod 755 /server/run/mysql
 ## 查询有关 CMake 支持的选项的信息
 
 ```bash
-cd /home/mysql/mysql-8.0.36/build
+cd /home/mysql/mysql-8.4.2/build
 cmake .. -LH
 # 选项写入文件
 cmake .. -LH > options.list
@@ -77,19 +78,18 @@ cmake .. -LH > options.list
 
 ```bash
 su - mysql -s /bin/zsh
-tar -xzf mysql-boost-8.0.36.tar.gz
-cd /home/mysql/mysql-8.0.36
-mkdir /home/mysql/mysql-8.0.36/build
-cd /home/mysql/mysql-8.0.36/build
+cd ~/mysql-8.4.2
+mkdir ~/mysql-8.4.2/build
+cd ~/mysql-8.4.2/build
 cmake .. \
 -DWITH_DEBUG=1 \
 -DCMAKE_INSTALL_PREFIX=/server/mysql \
 -DMYSQL_DATADIR=/server/data \
--DSYSCONFDIR=/server/etc/mysql \
+-DSYSCONFDIR=/server/mysql/etc \
 -DTMPDIR=/tmp/mysql \
 -DMYSQL_UNIX_ADDR=/run/mysql/mysqld-80.sock \
 -DDEFAULT_CHARSET=utf8mb4 \
--DDEFAULT_COLLATION=utf8mb4_general_ci \
+-DDEFAULT_COLLATION=utf8mb4_unicode_ci \
 -DWITH_SYSTEMD=1 \
 -DSYSTEMD_SERVICE_NAME=mysqld-80 \
 -DENABLED_LOCAL_INFILE=1 \
@@ -122,29 +122,29 @@ make install
 
 ### cmake 选项说明
 
-| commom                     | note                                                                      |
-| -------------------------- | ------------------------------------------------------------------------- |
-| -DWITH_DEBUG               | 是否开启调式模式，开启的同时会禁用优化                                    |
-| -DCMAKE_INSTALL_PREFIX     | MySQL 安装基目录                                                          |
-| -DMYSQL_DATADIR            | MySQL 数据目录                                                            |
-| -DSYSCONFDIR               | 选项文件目录                                                              |
-| -DTMPDIR                   | 临时文件的位置                                                            |
-| -DMYSQL_UNIX_ADDR          | Unix 套接字文件                                                           |
-| -DDEFAULT_COLLATION        | 默认排序规则                                                              |
-| -DWITH_BOOST               | 构建 MySQL 需要 Boost 库                                                  |
-| -DDOWNLOAD_BOOST           | boost 查不到，是否下载 Boost 库                                           |
-| `-DDOWNLOAD_BOOST_TIMEOUT` | 下载 Boost 库的超时秒数                                                   |
-| -DWITH_SYSTEMD             | 启用 systemd 支持文件的安装                                               |
-| -DSYSTEMD_SERVICE_NAME     | systemd 下的 MySQL 服务名称                                               |
-| -DENABLED_LOCAL_INFILE     | 是否支持将本地文件转换为数据库数据                                        |
-| -DFORCE_COLORED_OUTPUT     | 编译时是否为 gcc 和 clang 启用彩色编译器输出                              |
-| -DWITH_MYSQLX              | 是否启用 X 协议，默认开启                                                 |
-| -DWITH_UNIT_TESTS          | 是否使用单元测试编译 MySQL                                                |
-| -DINSTALL_MYSQLTESTDIR     | 是否安装单元测试目录(mysql-test)，不需要就设为空值                        |
-| ~~-DDEFAULT_CHARSET~~      | ~~默认字符集，默认使用 utf8mb4 字符集~~                                   |
-| ~~-DMYSQL_TCP_PORT~~       | ~~TCP/IP 端口号，默认值为 3306~~                                          |
-| ~~-DWITH_SSL~~             | ~~SSL 支持类型，默认 system ，使用系统自带 openssl~~                      |
-| ~~-DSYSTEMD_PID_DIR~~      | ~~systemd 下的 PID 文件的目录，指定无效，会被 INSTALL_LAYOUT 值隐式更改~~ |
+| commom                         | note                                                                      |
+| ------------------------------ | ------------------------------------------------------------------------- |
+| -DWITH_DEBUG                   | 是否开启调式模式，开启的同时会禁用优化                                    |
+| -DCMAKE_INSTALL_PREFIX         | MySQL 安装基目录                                                          |
+| -DMYSQL_DATADIR                | MySQL 数据目录                                                            |
+| -DSYSCONFDIR                   | 选项文件目录                                                              |
+| -DTMPDIR                       | 临时文件的位置                                                            |
+| -DMYSQL_UNIX_ADDR              | Unix 套接字文件                                                           |
+| -DDEFAULT_COLLATION            | 默认排序规则                                                              |
+| -DWITH_SYSTEMD                 | 启用 systemd 支持文件的安装                                               |
+| -DSYSTEMD_SERVICE_NAME         | systemd 下的 MySQL 服务名称                                               |
+| -DENABLED_LOCAL_INFILE         | 是否支持将本地文件转换为数据库数据                                        |
+| -DFORCE_COLORED_OUTPUT         | 编译时是否为 gcc 和 clang 启用彩色编译器输出                              |
+| -DWITH_MYSQLX                  | 是否启用 X 协议，默认开启                                                 |
+| -DWITH_UNIT_TESTS              | 是否使用单元测试编译 MySQL                                                |
+| -DINSTALL_MYSQLTESTDIR         | 是否安装单元测试目录(mysql-test)，不需要就设为空值                        |
+| ~~-DDEFAULT_CHARSET~~          | ~~默认字符集，默认使用 utf8mb4 字符集~~                                   |
+| ~~-DMYSQL_TCP_PORT~~           | ~~TCP/IP 端口号，默认值为 3306~~                                          |
+| ~~-DWITH_SSL~~                 | ~~SSL 支持类型，默认 system ，使用系统自带 openssl~~                      |
+| ~~-DSYSTEMD_PID_DIR~~          | ~~systemd 下的 PID 文件的目录，指定无效，会被 INSTALL_LAYOUT 值隐式更改~~ |
+| ~~-DWITH_BOOST~~               | 构建 MySQL 需要 Boost 库                                                  |
+| ~~-DDOWNLOAD_BOOST~~           | boost 查不到，是否下载 Boost 库                                           |
+| ~~`-DDOWNLOAD_BOOST_TIMEOUT`~~ | 下载 Boost 库的超时秒数                                                   |
 
 ### 启用 systemd 支持文件
 
@@ -171,9 +171,9 @@ MySQL X Plugin 是 MySQL 的一种插件，它可以在 MySQL 服务器中运行
 
 ```bash
 # root 有密码，并且标记为过期，非系统 root 用户登录，必须创建一个新密码
-mysqld --defaults-file=/server/etc/mysql/my.cnf --initialize --user=mysql
+mysqld --defaults-file=/server/mysql/etc/my.cnf --initialize --user=mysql
 # root 没有密码，如果要开启可插拔认证，选择没有密码
-mysqld --defaults-file=/server/etc/mysql/my.cnf --initialize-insecure --user=mysql
+mysqld --defaults-file=/server/mysql/etc/my.cnf --initialize-insecure --user=mysql
 ```
 
 ### systemd 单元
@@ -309,5 +309,5 @@ select user, host, plugin, authentication_string from mysql.user;
 :::
 
 ::: tip 关于授权
-https://dev.mysql.com/doc/refman/8.0/en/grant.html
+https://dev.mysql.com/doc/refman/8.4/en/grant.html
 :::
