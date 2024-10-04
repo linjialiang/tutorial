@@ -90,10 +90,10 @@ cmake .. \
 -DENABLED_LOCAL_INFILE=1 \
 -DFORCE_COLORED_OUTPUT=1 \
 -DWITH_MYSQLX=0 \
--DWITH_UNIT_TESTS=0 \
--DINSTALL_MYSQLTESTDIR=
+-DWITH_UNIT_TESTS=1
 
 make -j4
+make test
 make install
 ```
 
@@ -117,29 +117,29 @@ make install
 
 ### cmake 选项说明
 
-| commom                         | note                                                                  |
-| ------------------------------ | --------------------------------------------------------------------- |
-| -DWITH_DEBUG                   | 是否开启调式模式，开启的同时会禁用优化                                |
-| -DCMAKE_INSTALL_PREFIX         | MySQL 安装基目录                                                      |
-| -DMYSQL_DATADIR                | MySQL 数据目录                                                        |
-| -DSYSCONFDIR                   | 选项文件目录                                                          |
-| -DMYSQL_UNIX_ADDR              | Unix 套接字文件                                                       |
-| -DWITH_SYSTEMD                 | 启用 systemd 支持文件的安装                                           |
-| -DSYSTEMD_SERVICE_NAME         | systemd 下的 MySQL 服务名称                                           |
-| -DENABLED_LOCAL_INFILE         | 是否支持将本地文件转换为数据库数据                                    |
-| -DFORCE_COLORED_OUTPUT         | 编译时是否为 gcc 和 clang 启用彩色编译器输出                          |
-| -DWITH_MYSQLX                  | 是否启用 X 协议，默认开启                                             |
-| -DWITH_UNIT_TESTS              | 是否使用单元测试编译 MySQL                                            |
-| -DINSTALL_MYSQLTESTDIR         | 是否安装单元测试目录(mysql-test)，不需要就设为空值                    |
-| -DTMPDIR                       | 临时文件的位置(指定目录必须存在)                                      |
-| ~~-DDEFAULT_CHARSET~~          | 默认字符集，默认使用 `utf8mb4` 字符集                                 |
-| ~~-DDEFAULT_COLLATION~~        | 默认排序规则，默认使用 `utf8mb4_0900_ai_ci`                           |
-| ~~-DMYSQL_TCP_PORT~~           | TCP/IP 端口号，默认值为 `3306`                                        |
-| ~~-DWITH_SSL~~                 | SSL 支持类型，默认 system ，使用系统自带 openssl                      |
-| ~~-DSYSTEMD_PID_DIR~~          | systemd 下的 PID 文件的目录，指定无效，会被 INSTALL_LAYOUT 值隐式更改 |
-| ~~-DWITH_BOOST~~               | 构建 MySQL 需要 Boost 库（8.3.0 后不存在此选项）                      |
-| ~~-DDOWNLOAD_BOOST~~           | boost 查不到，是否下载 Boost 库（8.3.0 后不存在此选项）               |
-| ~~`-DDOWNLOAD_BOOST_TIMEOUT`~~ | 下载 Boost 库的超时秒数（8.3.0 后不存在此选项）                       |
+| commom                         | note                                                                        |
+| ------------------------------ | --------------------------------------------------------------------------- |
+| -DWITH_DEBUG                   | 是否开启调式模式，开启的同时会禁用优化                                      |
+| -DCMAKE_INSTALL_PREFIX         | MySQL 安装基目录                                                            |
+| -DMYSQL_DATADIR                | MySQL 数据目录                                                              |
+| -DSYSCONFDIR                   | 选项文件目录                                                                |
+| -DMYSQL_UNIX_ADDR              | Unix 套接字文件                                                             |
+| -DWITH_SYSTEMD                 | 启用 systemd 支持文件的安装                                                 |
+| -DSYSTEMD_SERVICE_NAME         | systemd 下的 MySQL 服务名称                                                 |
+| -DENABLED_LOCAL_INFILE         | 是否支持将本地文件转换为数据库数据                                          |
+| -DFORCE_COLORED_OUTPUT         | 编译时是否为 gcc 和 clang 启用彩色编译器输出                                |
+| -DWITH_MYSQLX                  | 是否启用 X 协议，默认开启                                                   |
+| -DWITH_UNIT_TESTS              | 是否使用单元测试编译 MySQL                                                  |
+| -DINSTALL_MYSQLTESTDIR         | 是否安装单元测试目录(mysql-test)，不需要就设为空值(-DINSTALL_MYSQLTESTDIR=) |
+| -DTMPDIR                       | 临时文件的位置(指定目录必须存在)                                            |
+| ~~-DDEFAULT_CHARSET~~          | 默认字符集，默认使用 `utf8mb4` 字符集                                       |
+| ~~-DDEFAULT_COLLATION~~        | 默认排序规则，默认使用 `utf8mb4_0900_ai_ci`                                 |
+| ~~-DMYSQL_TCP_PORT~~           | TCP/IP 端口号，默认值为 `3306`                                              |
+| ~~-DWITH_SSL~~                 | SSL 支持类型，默认 system ，使用系统自带 openssl                            |
+| ~~-DSYSTEMD_PID_DIR~~          | systemd 下的 PID 文件的目录，指定无效，会被 INSTALL_LAYOUT 值隐式更改       |
+| ~~-DWITH_BOOST~~               | 构建 MySQL 需要 Boost 库（8.3.0 后不存在此选项）                            |
+| ~~-DDOWNLOAD_BOOST~~           | boost 查不到，是否下载 Boost 库（8.3.0 后不存在此选项）                     |
+| ~~`-DDOWNLOAD_BOOST_TIMEOUT`~~ | 下载 Boost 库的超时秒数（8.3.0 后不存在此选项）                             |
 
 ### 启用 systemd 支持文件
 
