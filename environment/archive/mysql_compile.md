@@ -34,12 +34,13 @@ Boost 是一个 C++标准库，因为 mysql 主要是用 C++写的，它依赖�
 6. ncurses 库
 7. 充足的内存（最好有 2GB 以上的空闲内存，不够的话就添加虚拟内存）；
 8. perl(不做 test 就不需要)。
+9. bison 2.1 或更高版本
 
 ```bash
 apt update
 apt install -y gcc g++ cmake
-apt install -y libncurses-dev dpkg-dev libldap-dev libsasl2-dev libbison-dev
-apt install -y libtirpc-dev libudev-dev libssl-dev # 未使用
+apt install -y libncurses-dev libldap-dev libsasl2-dev
+apt install -y libtirpc-dev libudev-dev libssl-dev libbison-dev dpkg-dev # 未使用
 ```
 
 ## 权限
@@ -82,14 +83,14 @@ cd ~/mysql-8.4.2
 mkdir ~/mysql-8.4.2/build
 cd ~/mysql-8.4.2/build
 cmake .. \
--DWITH_DEBUG=1 \
+-DWITH_DEBUG=ON \
 -DCMAKE_INSTALL_PREFIX=/server/mysql \
--DWITH_SYSTEMD=1 \
--DSYSTEMD_SERVICE_NAME=mysqld-84 \
--DENABLED_LOCAL_INFILE=1 \
--DFORCE_COLORED_OUTPUT=1 \
--DWITH_MYSQLX=0 \
--DWITH_UNIT_TESTS=1
+-DWITH_SSL=system \
+-DWITH_SYSTEMD=ON \
+-DFORCE_COLORED_OUTPUT=ON \
+-DWITH_MYSQLX=OFF \
+-DWITH_UNIT_TESTS=OFF \
+-DINSTALL_MYSQLTESTDIR=
 
 make -j4
 make test
