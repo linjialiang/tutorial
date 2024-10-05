@@ -194,6 +194,7 @@ systemctl start mysqld-84.service
 
 # 使用sock文件登录
 # 编译时如果未指定socket路径或socket与编译时指定的不一致，就需要手动指定socket路径
+# 默认使用的登录插件是 caching_sha2_password ，所有系统用户均可登录
 mysql --socket=/run/mysql/mysqld-84.sock -u root
 ```
 
@@ -245,14 +246,14 @@ mysql> SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS WHERE P
 ```sql [使用用户]
 -- 创建用户，采用 CREATE USER
 CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
--- 创建用户，'root'@'localhost' 用户除了系统root登录外还支持emad用户登录
-CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'emad';
+-- 创建用户，'root'@'localhost' 用户除了系统root登录外还支持mysql用户登录
+CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'mysql';
 
 -- 更新用户，采用 ALTER USER
 ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
--- 更新用户，'root'@'localhost' 用户除了系统root登录外还支持emad用户登录
+-- 更新用户，'root'@'localhost' 用户除了系统root登录外还支持mysql用户登录
 -- mysql系统账户作为 mysql 的主账号，无需授权也可以支持登录 root 用户的
-ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'emad';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'mysql';
 
 -- 删除 'root'@'localhost' 用户
 DROP USER 'root'@'localhost';
