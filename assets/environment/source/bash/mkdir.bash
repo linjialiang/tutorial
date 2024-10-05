@@ -32,7 +32,6 @@ server_array=(
     "/server/logs/redis"
 
     # "/server/mysql"
-    # "/server/mysql/etc"
     # "/server/data"
     # "/server/logs/mysql"
     # "/server/etc/mysql"
