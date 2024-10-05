@@ -168,9 +168,9 @@ MySQL X Plugin 是 MySQL 的一种插件，它可以在 MySQL 服务器中运行
 cd /server/mysql
 
 # root 有密码，并且标记为过期，非系统 root 用户登录，必须创建一个新密码
-bin/mysqld --defaults-file=/server/etc/mysql/my.cnf --initialize --user=mysql
+bin/mysqld --initialize --user=mysql --basedir=/server/mysql --datadir=/server/data
 # root 没有密码，如果要开启可插拔认证，选择没有密码
-bin/mysqld --defaults-file=/server/etc/mysql/my.cnf --initialize-insecure --user=mysql
+bin/mysqld --initialize-insecure --user=mysql --basedir=/server/mysql --datadir=/server/data
 ```
 
 ### systemd 单元
@@ -184,6 +184,18 @@ systemctl daemon-reload
 ```
 
 :::
+
+## 登录
+
+服务器上使用 socket 登录
+
+```bash
+systemctl start mysqld-84.service
+
+# 使用sock文件登录
+# 编译时如果未指定socket路径或socket与编译时指定的不一致，就需要手动指定socket路径
+mysql --socket=/run/mysql/mysqld-84.sock -u root
+```
 
 ## 身份验证插件
 
