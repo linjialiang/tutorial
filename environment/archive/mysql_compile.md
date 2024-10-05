@@ -143,7 +143,7 @@ make install
 
 ### 启用 systemd 支持文件
 
-选项 `-DWITH_SYSTEMD=1` 用于启用 systemd 支持文件；
+选项 `-DWITH_SYSTEMD=ON` 用于启用 systemd 支持文件；
 
 启用后将安装 systemd 支持文件，并且不再安装 `mysqld_safe` 和 `System V 初始化` 等脚本；
 
