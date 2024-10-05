@@ -47,9 +47,9 @@ apt install -y libtirpc-dev libudev-dev libssl-dev # 未使用
 ::: code-group
 
 ```bash [部署]
-chown mysql:mysql -R /server/mysql /server/data /server/logs/mysql
-find /server/mysql /server/logs/mysql -type f -exec chmod 640 {} \;
-find /server/mysql /server/logs/mysql -type d -exec chmod 750 {} \;
+chown mysql:mysql -R /server/mysql /server/data /server/logs/mysql /server/etc/mysql
+find /server/mysql /server/logs/mysql /server/etc/mysql -type f -exec chmod 640 {} \;
+find /server/mysql /server/logs/mysql /server/etc/mysql -type d -exec chmod 750 {} \;
 find /server/data -type f -exec chmod 600 {} \;
 find /server/data -type d -exec chmod 700 {} \;
 chmod 750 -R /server/mysql/bin
