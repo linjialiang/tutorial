@@ -10,6 +10,7 @@ server_array=(
     "/server"
     "/server/default"
     "/server/logs"
+    "/server/etc"
 
     "/server/nginx"
     "/server/logs/nginx"
@@ -34,6 +35,7 @@ server_array=(
     # "/server/mysql/etc"
     # "/server/data"
     # "/server/logs/mysql"
+    # "/server/etc/mysql"
 )
 
 echo "-----开始创建server目录-----"
