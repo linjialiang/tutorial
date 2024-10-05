@@ -165,9 +165,9 @@ MySQL X Plugin 是 MySQL 的一种插件，它可以在 MySQL 服务器中运行
 
 ```bash
 # root 有密码，并且标记为过期，非系统 root 用户登录，必须创建一个新密码
-mysqld --defaults-file=/server/mysql/etc/my.cnf --initialize --user=mysql
+mysqld --defaults-file=/server/etc/mysql/my.cnf --initialize --user=mysql
 # root 没有密码，如果要开启可插拔认证，选择没有密码
-mysqld --defaults-file=/server/mysql/etc/my.cnf --initialize-insecure --user=mysql
+mysqld --defaults-file=/server/etc/mysql/my.cnf --initialize-insecure --user=mysql
 ```
 
 ### systemd 单元
