@@ -12,7 +12,7 @@ titleTemplate: 环境搭建教程
 测试环境 `虚拟机` 的系统参数如下：
 
 - 系统 :` Debian GNU/Linux 12 (Bookworm) x86_64`
-- 内核 : `6.1.7-10-amd64`
+- 内核 : `linux-image-6.1.0-26-amd64`
 
 ::: details PHP 环境目录结构
 
@@ -30,7 +30,7 @@ titleTemplate: 环境搭建教程
 
 ## 脚本文件
 
-我们准备了几个 bash 脚本文件：
+::: details 我们准备了几个 bash 脚本文件：
 
 ::: code-group
 <<<@/assets/environment/source/bash/user.bash [用户]
