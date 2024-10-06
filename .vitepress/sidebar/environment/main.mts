@@ -7,7 +7,7 @@ const sidebar = [
   { text: "Nginx", link: `${path.main}nginx` },
   { text: "Redis", link: `${path.main}redis` },
   { text: "PostgreSQL", link: `${path.main}pgsql_compile` },
-  { text: "PHP(pgsql版)", link: `${path.main}php_pgsql` },
+  { text: "PHP", link: `${path.main}php` },
   {
     text: "存档(不再积极维护)",
     collapsed: true,
@@ -17,7 +17,7 @@ const sidebar = [
       { text: "MySQL(apt)", link: `${path.main}archive/mysql` },
       { text: "MongoDB", link: `${path.main}archive/mongodb` },
       { text: "Sqlite3", link: `${path.main}archive/sqlite3` },
-      { text: "PHP", link: `${path.main}archive/php` },
+      { text: "PHP旧版", link: `${path.main}archive/php` },
     ],
   },
 ];
