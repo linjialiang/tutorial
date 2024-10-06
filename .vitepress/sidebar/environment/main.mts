@@ -17,7 +17,7 @@ const sidebar = [
       { text: "MySQL(apt)", link: `${path.main}archive/mysql` },
       { text: "MongoDB", link: `${path.main}archive/mongodb` },
       { text: "Sqlite3", link: `${path.main}archive/sqlite3` },
-      { text: "PHP旧版", link: `${path.main}archive/php` },
+      { text: "PHP旧版", link: `${path.main}archive/php_old` },
     ],
   },
 ];
