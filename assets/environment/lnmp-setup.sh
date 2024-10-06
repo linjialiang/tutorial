@@ -36,7 +36,7 @@ cleanOldData(){
   systemctl daemon-reload
   echo_cyan "清理旧目录 /server,/www 如果有重要数据请先备份"
   rm -rf /server /www
-  echo_cyan "删除旧用户 nginx,mysql,php-fpm 如果有重要数据请先备份"
+  echo_cyan "删除旧用户 nginx,mysql,php-fpm,redis 如果有重要数据请先备份"
   userdel -r nginx
   userdel -r mysql
   userdel -r php-fpm
