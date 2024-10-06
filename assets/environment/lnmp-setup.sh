@@ -113,11 +113,10 @@ installPackage(){
   echo_red "注意1：该lnmp包不兼容其他发行版，因为极有可能因为依赖问题，导致整个环境无法使用"
   echo_red "注意2：部分依赖包在部署阶段可能没用，但由于没对单个功能测试，只能选择安装全部依赖"
   echo_yellow "=================================================================="
-  apt install -y gcc g++ make pkg-config clang llvm-dev libsystemd-dev \
-  libcurl4-openssl-dev libxslt1-dev libxml2-dev libssl-dev libpam0g-dev \
-  zlib1g-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev \
-  libgd-dev libgeoip-dev liblz4-dev libzstd-dev libreadline-dev \
-  libcapstone-dev libsqlite3-dev flex bison
+  apt install -y gcc g++ make cmake autoconf pkg-config tcl libxslt1-dev \
+  libxml2-dev libgd-dev libgeoip-dev libssl-dev libsqlite3-dev libsystemd-dev \
+  libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev \
+  libcapstone-dev libncurses-dev libldap-dev libsasl2-dev libbison-dev
 }
 
 #安装预构建包
@@ -150,13 +149,13 @@ modFilePower(){
   echo_red "注：每次修改nginx执行文件权限，都需要重新启用该能力"
   setcap cap_net_bind_service=+eip /server/nginx/sbin/nginx
 
-  echo_green "postgres文件权限"
-  chown postgres:postgres -R /server/postgres /server/pgData /server/logs/postgres
-  find /server/postgres /server/logs/postgres -type f -exec chmod 640 {} \;
-  find /server/postgres /server/logs/postgres -type d -exec chmod 750 {} \;
-  find /server/pgData /server/postgres/tls -type f -exec chmod 600 {} \;
-  find /server/pgData -type d -exec chmod 700 {} \;
-  chmod 750 -R /server/postgres/bin
+  echo_green "MySQL文件权限"
+  chown mysql:mysql -R /server/mysql /server/data /server/logs/mysql /server/etc/mysql
+  find /server/mysql /server/logs/mysql /server/etc/mysql -type f -exec chmod 640 {} \;
+  find /server/mysql /server/logs/mysql /server/etc/mysql -type d -exec chmod 750 {} \;
+  find /server/data -type f -exec chmod 600 {} \;
+  find /server/data -type d -exec chmod 700 {} \;
+  chmod 750 -R /server/mysql/bin
 
   echo_green "redis文件权限"
   chown redis:redis -R /server/redis /server/logs/redis
@@ -177,7 +176,7 @@ InstallSystemctlUnit(){
   echo_yellow "=================================================================="
   echo_green "加入systemctl守护进程\n含systemctl unit文件"
   echo_yellow " "
-  echo_cyan "/lib/systemd/system/{postgres,nginx,php83-fpm,redis}.service"
+  echo_cyan "/lib/systemd/system/{mysqld-84,nginx,php83-fpm,redis}.service"
   echo_yellow " "
   echo_green "支持开启自动启动服务，非常规终止进程会自动启动服务"
   echo_yellow "=================================================================="
@@ -232,29 +231,27 @@ RestrictNamespaces=true
 WantedBy=multi-user.target
 " >/lib/systemd/system/php83-fpm.service
 
-  echo_cyan "[+] Create postgres service..."
+  echo_cyan "[+] Create MySQL service..."
 
   echo "[Unit]
-Description=PostgreSQL database server
-Documentation=man:postgres(1)
+Description=MySQL Server 8.4.x
+Documentation=man:mysqld(8)
 After=network-online.target
 Wants=network-online.target
+After=syslog.target
 
 [Service]
 Type=notify
-User=postgres
-Group=postgres
-RuntimeDirectory=postgres
+User=mysql
+Group=mysql
+RuntimeDirectory=mysql
 RuntimeDirectoryMode=0750
-ExecStart=/server/postgres/bin/postgres -D /server/pgData
-ExecReload=/bin/kill -HUP \$MAINPID
-KillMode=mixed
-KillSignal=SIGINT
-TimeoutSec=infinity
+ExecStart=/server/mysql/bin/mysqld --defaults-file=/server/etc/mysql/my.cnf
+Restart=on-failure
+PrivateTmp=false
 
 [Install]
-WantedBy=multi-user.target
-" >/lib/systemd/system/postgres.service
+WantedBy=multi-user.target" > /lib/systemd/system/mysqld-84.service
 
   echo_cyan "[+] Create redis service..."
 

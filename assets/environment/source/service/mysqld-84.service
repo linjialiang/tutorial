@@ -13,7 +13,7 @@ RuntimeDirectory=mysql
 RuntimeDirectoryMode=0750
 ExecStart=/server/mysql/bin/mysqld --defaults-file=/server/etc/mysql/my.cnf
 Restart=on-failure
-PrivateTmp=false
+PrivateTmp=true
 
 [Install]
 WantedBy=multi-user.target" > /lib/systemd/system/mysqld-84.service
