@@ -255,7 +255,7 @@ WantedBy=multi-user.target" > /lib/systemd/system/mysqld-84.service
   echo_cyan "[+] Create redis service..."
 
   echo "[Unit]
-Description=redis-7.2.x
+Description=redis-7.4.x
 After=network.target
 
 [Service]
