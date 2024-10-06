@@ -153,8 +153,7 @@ modFilePower(){
   chown mysql:mysql -R /server/mysql /server/data /server/logs/mysql /server/etc/mysql
   find /server/mysql /server/logs/mysql /server/etc/mysql -type f -exec chmod 640 {} \;
   find /server/mysql /server/logs/mysql /server/etc/mysql -type d -exec chmod 750 {} \;
-  find /server/data -type f -exec chmod 600 {} \;
-  find /server/data -type d -exec chmod 700 {} \;
+  chmod 700 /server/data
   chmod 750 -R /server/mysql/bin
 
   echo_green "redis文件权限"

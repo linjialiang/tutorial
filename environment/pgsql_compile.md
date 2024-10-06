@@ -598,8 +598,8 @@ systemctl start postgres.service
 chown postgres:postgres -R /server/postgres /server/pgData /server/logs/postgres
 find /server/postgres /server/logs/postgres -type f -exec chmod 640 {} \;
 find /server/postgres /server/logs/postgres -type d -exec chmod 750 {} \;
-find /server/pgData /server/postgres/tls -type f -exec chmod 600 {} \;
-find /server/pgData -type d -exec chmod 700 {} \;
+find /server/postgres/tls -type f -exec chmod 600 {} \;
+chmod 700 /server/pgData
 chmod 750 -R /server/postgres/bin
 ```
 
