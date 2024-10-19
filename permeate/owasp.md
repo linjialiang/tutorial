@@ -10,28 +10,34 @@ titleTemplate: 渗透测试
 1. Unix 操作系统
 2. git
 3. Maven >= 3.2.3
-4. Java 8
+4. OpenJDK
 
 ```bash
 apt install git maven -y
 ```
 
-## 安装 Java 8
+## 安装 OpenJDK
 
-去[[Java 官网]](https://www.oracle.com/java/technologies/downloads/)可以下载到最新的Java8
+从 [[清华源]](https://mirrors.tuna.tsinghua.edu.cn/Adoptium/) 可以下载到各个版本的 JDK
 
 ::: code-group
 
 ```bash [安装]
-tar -xzf ./jdk-8u381-linux-x64.tar.gz
-mv jdk-8u381-linux-x64 /usr/lib/jdk8
+# JDK8
+wget https://mirrors.tuna.tsinghua.edu.cn/Adoptium/8/jdk/x64/linux/OpenJDK8U-jdk_x64_linux_hotspot_8u422b05.tar.gz
+# JDK11
+# 从 BenchmarkJava 1.2 测试版开始，引入了模块功能，请使用 JDK11 版本，因为 JDK8 不支持模块
+wget https://mirrors.tuna.tsinghua.edu.cn/Adoptium/11/jdk/x64/linux/OpenJDK11U-jdk_x64_linux_hotspot_11.0.24_8.tar.gz
+
+tar -xzf ./OpenJDK*.tar.gz
+mv jdk-* /usr/lib/jdk-owasp
 ```
 
 ```bash [加入环境变量]
 # ~/.bashrc
 
-# jdk8 setting custom
-export JAVA_HOME=/usr/lib/jdk8
+# jdk-owasp setting custom
+export JAVA_HOME=/usr/lib/jdk-owasp
 export JRE_HOME=${JAVA_HOME}/jre
 export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
 export PATH=${JAVA_HOME}/bin:$PATH
@@ -41,7 +47,7 @@ source ~/.bashrc
 
 ```bash [测试]
 java -version
-ldd /usr/lib/jdk8/bin/java
+ldd /usr/lib/jdk-owasp/bin/java
 ```
 
 :::
@@ -52,16 +58,16 @@ ldd /usr/lib/jdk8/bin/java
 
 ```bash [安装]
 git clone https://github.com/OWASP-Benchmark/BenchmarkJava.git
+# 推荐使用国内镜像
+git clone https://e.coding.net/madnesslin/permeate/BenchmarkJava.git
+# 进入目录
 cd BenchmarkJava
-# 注意：测试过 1.2beta 标签
-git checkout tags/1.2beta
-# 构建前 mvn 建议设为阿里云镜像
-# 构建
-mvn compile
-# 本地访问 localhost:8443/benchmark/
+# 清除之前构建结果并重新编译项目
+mvn clear compile
+# 本地访问 https://localhost:8443/benchmark/
 chmod +x ./runBenchmark.sh
 ./runBenchmark.sh
-# 远程访问 ip:8443/benchmark/
+# 远程访问 https://ip:8443/benchmark/
 chmod +x ./runRemoteAccessibleBenchmark.sh
 ./runRemoteAccessibleBenchmark.sh
 ```
@@ -77,7 +83,7 @@ ps -ef|grep BenchmarkJava
 
 :::
 
-## 配置国内镜像
+## mvn 配置国内镜像
 
 文件 `/etc/maven/settings.xml` 内 `mirrors` 标签下 增加一个 `mirror` 子标签
 
@@ -93,4 +99,10 @@ ps -ef|grep BenchmarkJava
 </mirrors>
 ```
 
-## 开启自动运行靶场
+::: tip 2024/09/18 测试结果
+官方镜像的速度非常快，推荐使用官方镜像
+
+仅当官方镜像速度慢或无法访问时，我们再去选择使用国内镜像
+:::
+
+## 开机自动运行靶场

@@ -31,18 +31,18 @@ cleanOldData(){
   echo_green "清理旧数据"
   echo_yellow "=================================================================="
   echo_cyan "清理systemctl单元"
-  systemctl disable --now {redis,postgres,nginx,php83-fpm}.service
-  rm /lib/systemd/system/{redis,postgres,nginx,php83-fpm}.service
+  systemctl disable --now {redis,mysqld-84,nginx,php83-fpm}.service
+  rm /lib/systemd/system/{redis,mysqld-84,nginx,php83-fpm}.service
   systemctl daemon-reload
   echo_cyan "清理旧目录 /server,/www 如果有重要数据请先备份"
   rm -rf /server /www
-  echo_cyan "删除旧用户 nginx,postgres,php-fpm 如果有重要数据请先备份"
+  echo_cyan "删除旧用户 nginx,mysql,php-fpm,redis 如果有重要数据请先备份"
   userdel -r nginx
-  userdel -r postgres
+  userdel -r mysql
   userdel -r php-fpm
   userdel -r redis
   groupdel nginx
-  groupdel postgres
+  groupdel mysql
   groupdel php-fpm
   groupdel redis
 }
@@ -63,14 +63,14 @@ createSingleUser(){
 #创建用户
 createUser(){
   echo_yellow "=================================================================="
-  echo_green "创建nginx、php-fpm、Postgres、Redis的进程用户"
+  echo_green "创建nginx、php-fpm、MySQL、Redis的进程用户"
   echo_yellow "=================================================================="
   echo_red "必须root用户安装并配置成功zsh，才允许支持zsh"
   zshState=0
   echo_cyan "是否支持启用zsh(1支持，默认不支持)："
   read zshState
   createSingleUser 'nginx' $zshState
-  createSingleUser 'postgres' $zshState
+  createSingleUser 'mysql' $zshState
   createSingleUser 'php-fpm' $zshState
   createSingleUser 'redis' $zshState
   echo ' '
@@ -87,15 +87,6 @@ createUser(){
   echo_yellow " "
   echo_green "此版本使用的是tcp转发，并不需要考虑socket文件转发相关的权限问题"
   echo_yellow "=================================================================="
-  echo ' '
-  echo_yellow "=================================================================="
-  echo_green "php编译pgsql扩展，使用指定Postgres安装目录时，需要提供读取libpq相关权限："
-  echo_cyan "usermod -a -G postgres php-fpm"
-  echo_green "如果使用 apt install libpq-dev -y 依赖包则不需要"
-  echo_yellow " "
-  echo_green "此版本使用指定Postgres安装目录"
-  echo_yellow "=================================================================="
-  usermod -a -G postgres php-fpm
 }
 
 #开发用户追加权限
@@ -110,36 +101,35 @@ devUserPower(){
   echo_yellow "=================================================================="
   usermod -a -G $devUserName nginx
   usermod -a -G $devUserName php-fpm
-  usermod -G nginx,php-fpm,postgres,redis $devUserName
+  usermod -G nginx,php-fpm,mysql,redis $devUserName
 }
 
 #安装依赖包
 installPackage(){
   echo_yellow "=================================================================="
   echo_green "安装依赖"
-  echo_green "确保 nginx + php + Postgres + Redis 必备依赖项"
+  echo_green "确保 nginx + php + MySQL + Redis 必备依赖项"
   echo_green "debian12 发行版，如因依赖导致部分功能异常，自行安装相应依赖包即可"
-  echo_red "注意1：该lnpp包不兼容其他发行版，因为极有可能因为依赖问题，导致整个环境无法使用"
+  echo_red "注意1：该lnmp包不兼容其他发行版，因为极有可能因为依赖问题，导致整个环境无法使用"
   echo_red "注意2：部分依赖包在部署阶段可能没用，但由于没对单个功能测试，只能选择安装全部依赖"
   echo_yellow "=================================================================="
-  apt install -y gcc g++ make pkg-config clang llvm-dev libsystemd-dev \
-  libcurl4-openssl-dev libxslt1-dev libxml2-dev libssl-dev libpam0g-dev \
-  zlib1g-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev \
-  libgd-dev libgeoip-dev liblz4-dev libzstd-dev libreadline-dev \
-  libcapstone-dev libsqlite3-dev flex bison
+  apt install -y gcc g++ make cmake autoconf pkg-config tcl libxslt1-dev \
+  libxml2-dev libgd-dev libgeoip-dev libssl-dev libsqlite3-dev libsystemd-dev \
+  libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev \
+  libcapstone-dev libncurses-dev libldap-dev libsasl2-dev libbison-dev
 }
 
 #安装预构建包
 InstallBuild(){
   echo_yellow "=================================================================="
-  echo_green "解压lnpp预构建包\n含两个目录"
+  echo_green "解压lnmp预构建包\n含两个目录"
   echo_yellow " "
   echo_cyan "/server"
   echo_cyan "/www"
   echo_yellow " "
-  echo_green "预先编译成功的lnpp解压到服务器目录下"
+  echo_green "预先编译成功的lnmp解压到服务器目录下"
   echo_yellow "=================================================================="
-  tar -xJf ./lnpp.tar.xz -C /
+  tar -xJf ./lnmp.tar.xz -C /
 }
 
 #修改文件权限
@@ -159,13 +149,12 @@ modFilePower(){
   echo_red "注：每次修改nginx执行文件权限，都需要重新启用该能力"
   setcap cap_net_bind_service=+eip /server/nginx/sbin/nginx
 
-  echo_green "postgres文件权限"
-  chown postgres:postgres -R /server/postgres /server/pgData /server/logs/postgres
-  find /server/postgres /server/logs/postgres -type f -exec chmod 640 {} \;
-  find /server/postgres /server/logs/postgres -type d -exec chmod 750 {} \;
-  find /server/postgres/tls -type f -exec chmod 600 {} \;
-  chmod 700 /server/pgData
-  chmod 750 -R /server/postgres/bin
+  echo_green "MySQL文件权限"
+  chown mysql:mysql -R /server/mysql /server/data /server/logs/mysql /server/etc/mysql
+  find /server/mysql /server/logs/mysql /server/etc/mysql -type f -exec chmod 640 {} \;
+  find /server/mysql /server/logs/mysql /server/etc/mysql -type d -exec chmod 750 {} \;
+  chmod 700 /server/data
+  chmod 750 -R /server/mysql/bin
 
   echo_green "redis文件权限"
   chown redis:redis -R /server/redis /server/logs/redis
@@ -186,7 +175,7 @@ InstallSystemctlUnit(){
   echo_yellow "=================================================================="
   echo_green "加入systemctl守护进程\n含systemctl unit文件"
   echo_yellow " "
-  echo_cyan "/lib/systemd/system/{postgres,nginx,php83-fpm,redis}.service"
+  echo_cyan "/lib/systemd/system/{mysqld-84,nginx,php83-fpm,redis}.service"
   echo_yellow " "
   echo_green "支持开启自动启动服务，非常规终止进程会自动启动服务"
   echo_yellow "=================================================================="
@@ -241,29 +230,27 @@ RestrictNamespaces=true
 WantedBy=multi-user.target
 " >/lib/systemd/system/php83-fpm.service
 
-  echo_cyan "[+] Create postgres service..."
+  echo_cyan "[+] Create MySQL service..."
 
   echo "[Unit]
-Description=PostgreSQL database server
-Documentation=man:postgres(1)
+Description=MySQL Server 8.4.x
+Documentation=man:mysqld(8)
 After=network-online.target
 Wants=network-online.target
+After=syslog.target
 
 [Service]
 Type=notify
-User=postgres
-Group=postgres
-RuntimeDirectory=postgres
+User=mysql
+Group=mysql
+RuntimeDirectory=mysql
 RuntimeDirectoryMode=0750
-ExecStart=/server/postgres/bin/postgres -D /server/pgData
-ExecReload=/bin/kill -HUP \$MAINPID
-KillMode=mixed
-KillSignal=SIGINT
-TimeoutSec=infinity
+ExecStart=/server/mysql/bin/mysqld --defaults-file=/server/etc/mysql/my.cnf
+Restart=on-failure
+PrivateTmp=false
 
 [Install]
-WantedBy=multi-user.target
-" >/lib/systemd/system/postgres.service
+WantedBy=multi-user.target" > /lib/systemd/system/mysqld-84.service
 
   echo_cyan "[+] Create redis service..."
 
@@ -289,10 +276,10 @@ WantedBy=multi-user.target
 
   echo_green "Registered Service..."
   systemctl daemon-reload
-  systemctl enable --now {postgres,nginx,php83-fpm,redis}.service
+  systemctl enable --now {mysqld-84,nginx,php83-fpm,redis}.service
 }
 
-echo_cyan "解压脚本同级目录下需存在源码压缩包 lnpp.tar.xz"
+echo_cyan "解压脚本同级目录下需存在源码压缩包 lnmp.tar.xz"
 echo_cyan "是否退出(1退出/默认继续)："
 read isExit
 if [ "$isExit" = "1" ]; then
@@ -327,7 +314,7 @@ else
   #安装依赖包
   installPackage
   echo ' '
-  #解压lnpp预构建包到指定目录
+  #解压lnmp预构建包到指定目录
   InstallBuild
   echo ' '
   #修改文件权限
@@ -335,17 +322,6 @@ else
   echo ' '
   #安装systemctl单元
   InstallSystemctlUnit
-  echo ' '
-  echo_red "注：下面这些是手动操作哦！！！"
-  echo_yellow "=================================================================="
-  echo_green "针对 Postgres用户 修改操作系统打开最大文件句柄数"
-  echo_yellow "为防止重复插入，请在 /etc/security/limits.conf 文件的结尾手动添加\n如下2行代码："
-  echo_yellow " "
-  echo_cyan "postgres  soft  nofile  65535"
-  echo_cyan "postgres  hard  nofile  65535"
-  echo_yellow " "
-  echo_green "进行这一步操作的目的是防止linux操作系统内打开文件句柄数量的限制，\n避免不必要的故障"
-  echo_yellow "=================================================================="
   echo ' '
   echo_yellow "=================================================================="
   echo_green "针对 redis 控制进程是否允许使用虚拟内存"
@@ -359,8 +335,8 @@ else
   echo_yellow "=================================================================="
   echo ' '
   echo_yellow "=================================================================="
-  echo_green "lnpp安装完成！！！"
-  echo_yellow "   - Postgres 默认有个超级管理员用户 admin 密码 1"
+  echo_green "lnmp安装完成！！！"
+  echo_yellow "   - MySQL 默认有个超级管理员用户 admin 密码 1"
   echo_yellow "   - Redis 默认设置了全局密码 1"
   echo_yellow "=================================================================="
 fi

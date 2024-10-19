@@ -22,7 +22,7 @@ C 语言编译器主要有四种： `MSVC`/`GCC`/`MinGW`/`Clang+LLVM`
 :::
 
 ```bash
-apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libpam0g-dev libsystemd-dev libxslt1-dev
+apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libpam0g-dev libsystemd-dev libxslt1-dev flex bison
 # apt install -y  libossp-uuid-dev -- OSSP uuid 库更新不积极，推荐使用 bsd 或 e2fs
 ```
 
@@ -58,7 +58,7 @@ apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev 
 | --datadir=DIR         | 指定数据目录路径                                     |
 | --enable-debug        | 启用调试模式                                         |
 | --enable-cassert      | 启用断言检查                                         |
-| --with-CC=CMD         | 指定 C 编译器( gcc/clang 注意是区分大小写的)         |
+| CC=CMD                | 指定 C 编译器( gcc/clang 注意是区分大小写的)         |
 | --with-llvm           | 启用基于 LLVM 的 JIT 支持，优化适合 `OLTP/OLAP`      |
 | --with-pgport=PortNum | 指定 pgsql 服务器监听的端口号                        |
 | --with-pam            | 允许 pgsql 使用系统的 PAM 认证机制进行用户身份验证   |
@@ -101,10 +101,10 @@ chmod 750 /server/{postgres,pgData}
 chown postgres:postgres /server/{postgres,pgData}
 
 su - postgres -s /bin/zsh
-wget https://ftp.postgresql.org/pub/source/v16.1/postgresql-16.4.tar.bz2
-tar -xjf postgresql-16.4.tar.bz2 -C ~/
-chown postgres:postgres -R ~/postgresql-16.4
-mkdir ~/postgresql-16.4/build_postgres
+wget https://ftp.postgresql.org/pub/source/v17.0/postgresql-17.0.tar.bz2
+tar -xjf postgresql-17.0.tar.bz2 -C ~/
+chown postgres:postgres -R ~/postgresql-17.0
+mkdir ~/postgresql-17.0/build_postgres
 ```
 
 ```bash [编译指令]
@@ -112,11 +112,11 @@ mkdir ~/postgresql-16.4/build_postgres
 # 关于生产环境要不要添加 --enable-debug 选项问题：使用gcc编译器时可以启用debug
 # 使用 llvm+clang 编译器套件时不应该启用debug，因为llvm可以优化pgsql性能，而使用 --enable-debug 选项，通常会禁用编译器的性能优化
 su - postgres -s /bin/zsh
-cd ~/postgresql-16.4/build_postgres
+cd ~/postgresql-17.0/build_postgres
 ../configure --prefix=/server/postgres \
 --enable-debug \
 --enable-cassert \
---with-CC=clang \
+CC=clang \
 --with-llvm \
 --with-pam \
 --with-systemd \
@@ -134,7 +134,7 @@ make -j2
 make check
 make install
 # 编译安装完后记得移除源码包，节省空间
-rm -rf ~/postgresql-16.4 ~/postgresql-16.4.tar.bz2
+rm -rf ~/postgresql-17.0 ~/postgresql-17.0.tar.bz2
 ```
 
 ```bash [数据初始化]
@@ -598,8 +598,8 @@ systemctl start postgres.service
 chown postgres:postgres -R /server/postgres /server/pgData /server/logs/postgres
 find /server/postgres /server/logs/postgres -type f -exec chmod 640 {} \;
 find /server/postgres /server/logs/postgres -type d -exec chmod 750 {} \;
-find /server/pgData /server/postgres/tls -type f -exec chmod 600 {} \;
-find /server/pgData -type d -exec chmod 700 {} \;
+find /server/postgres/tls -type f -exec chmod 600 {} \;
+chmod 700 /server/pgData
 chmod 750 -R /server/postgres/bin
 ```
 

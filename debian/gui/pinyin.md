@@ -163,3 +163,16 @@ apt install fcitx5-material-color -y
 通过快捷键 `F4` 或 `Ctrl - ~` 调出 Rime 方案选单，按需求选择
 
 ![Rime方案选单](/assets/debian/gui/015.png)
+
+::: details 默认使用英文
+
+`rime_ice.schema.yaml` 文件，修改 ascii_mode 内容
+
+```yaml
+switches:
+  - name: ascii_mode
+    reset: 1 // [!code ++]
+    states: [中, Ａ]
+```
+
+:::

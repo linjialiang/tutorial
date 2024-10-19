@@ -33,6 +33,16 @@ features:
     details: Visual Studio Code
     link: /other/vscode/index
   - icon:
+      src: /svg/PhpStorm.svg
+    title: PhpStorm
+    details: PHP 最强 IDE
+    link: /other/phpstorm/index
+  - icon:
+      src: /svg/Vim.svg
+    title: Vim
+    details: 神的编辑器
+    link: /other/vim/index
+  - icon:
       src: /svg/vitepress.svg
     title: VitePress
     details: VitePress文档

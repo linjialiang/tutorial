@@ -12,62 +12,13 @@ titleTemplate: 环境搭建教程
 测试环境 `虚拟机` 的系统参数如下：
 
 - 系统 :` Debian GNU/Linux 12 (Bookworm) x86_64`
-- 内核 : `6.1.7-10-amd64`
+- 内核 : `linux-image-6.1.0-26-amd64`
 
 ::: details PHP 环境目录结构
 
-```
-====================================================
-PHP 环境目录
-====================================================
-├─ /server                  服务目录
-|   ├─ nginx                nginx基目录
-|   |  ├─ conf              nginx配置目录
-|   |  └─ ...
-|   |
-|   ├─ redis                redis基目录
-|   |  ├─ redis.conf        redis配置文件
-|   |  ├─ tls               redis的tls相关文件存放目录（注意安全性）
-|   |  └─ ...
-|   |
-|   ├─ postgres             pgsql基目录
-|   |  ├─ tls               pgsql的tls相关文件存放目录（注意安全性）
-|   |  └─ ...
-|   |
-|   ├─ pgData               pgsql数据目录
-|   |  ├─ postgresql.conf   pgsql服务器配置文件
-|   |  ├─ pg_hba.conf       pgsql客户访问限制配置文件
-|   |  └─ ...
-|   |
-|   ├─ php                  PHP 目录
-|   |  ├─ 83                PHP8.3基目录
-|   |  └─ ...
-|   |
-|   ├─ default             缺省站点路径
-|   |   ├─ index.php       缺省站点php首页
-|   |   └─ index.html      缺省站点html页面
-|   |
-|   ├─ sites               虚拟主机配置文件目录
-|   |
-|   ├─ logs                服务器相关日志文件目录
-|   |  ├─ nginx            nginx日志目录
-|   |  |  ├─ error.log     nginx错误日志
-|   |  |  ├─ access.log    nginx缺省访问日志
-|   |  |  └─ ...
-|   |  ├─ redis            redis日志目录
-|   |  |  ├─ redis.log     redis日志文件
-|   |  |  └─ ...
-|   |  ├─ postgres         pgsql日志目录
-|   |  |  ├─ wal_archive   pgsql预写式存放日志目录
-|   |  |  └─ ...
-|   |  ├─ php              php日志目录
-|   |  |  ├─ error-83.log  php8.3错误日志
-|   |  |  └─ ...
-|   |
-├─ ...
-|
-└─ /www                    站点基目录
-```
+::: code-group
+<<<@/assets/environment/lnpp-toc.txt [lnpp]
+<<<@/assets/environment/lnmp-toc.txt [lnmp]
 
 ::: warning 部分包数据存储相关软件遗弃说明
 
@@ -79,7 +30,7 @@ PHP 环境目录
 
 ## 脚本文件
 
-我们准备了几个 bash 脚本文件：
+::: details 我们准备了几个 bash 脚本文件：
 
 ::: code-group
 <<<@/assets/environment/source/bash/user.bash [用户]
@@ -92,14 +43,26 @@ PHP 环境目录
 
 ::: code-group
 
-```md [软件包]
+```md [lnpp]
 1. nginx-1.26.2.tar.gz
    - openssl-3.0.15.tar.gz
    - pcre2-10.44.tar.bz2
    - zlib-1.3.1.tar.xz
-2. redis-7.4.0.tar.gz
-3. postgresql-16.4.tar.bz2
-4. php-8.3.11.tar.xz
+2. redis-7.4.1.tar.gz
+3. postgresql-17.0.tar.bz2
+4. php-8.3.12.tar.xz
+   - xdebug-3.3.2.tgz `动态扩展`
+   - redis-6.0.2.tgz `动态扩展`
+```
+
+```md [lnmp]
+1. nginx-1.26.2.tar.gz
+   - openssl-3.0.15.tar.gz
+   - pcre2-10.44.tar.bz2
+   - zlib-1.3.1.tar.xz
+2. redis-7.4.1.tar.gz
+3. mysql-8.4.2.tar.gz
+4. php-8.3.12.tar.xz
    - xdebug-3.3.2.tgz `动态扩展`
    - redis-6.0.2.tgz `动态扩展`
 ```

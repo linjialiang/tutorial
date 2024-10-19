@@ -54,8 +54,7 @@ chown_mysql_array=(
     "/server/mysql"
     "/server/data"
     "/server/logs/mysql"
-    "/server/etc"
-    "/server/tmp"
+    "/server/etc/mysql"
 );
 
 echo "-----开始设置nginx用户权限目录-----"
