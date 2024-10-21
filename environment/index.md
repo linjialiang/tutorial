@@ -44,7 +44,7 @@ titleTemplate: 环境搭建教程
 
 ::: code-group
 
-```md [lnmp]
+```md [lnmpp]
 1. nginx-1.26.2.tar.gz
    - openssl-3.0.15.tar.gz
    - pcre2-10.44.tar.bz2
