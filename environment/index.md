@@ -19,6 +19,7 @@ titleTemplate: 环境搭建教程
 ::: code-group
 <<<@/assets/environment/lnpp-toc.txt [lnpp]
 <<<@/assets/environment/lnmp-toc.txt [lnmp]
+<<<@/assets/environment/lnmpp-toc.txt [lnmpp]
 
 ::: warning 部分包数据存储相关软件遗弃说明
 
