@@ -37,12 +37,12 @@ chown redis:redis -R /home/redis/{.oh-my-zsh,.zshrc}
 
 # 部署环境注释，开发环境取消注释，开发用户追加附属组，其中emad指开发用户
 # - 部署环境不需要开发用户，可直接使用 nginx 用户作为 ftp、ssh 等上传工具的用户
-# usermod -a -G emad nginx
-# usermod -a -G emad php-fpm
-# usermod -G nginx,php-fpm,postgres emad
+usermod -a -G emad nginx
+usermod -a -G emad php-fpm
+usermod -G nginx,php-fpm,postgres emad
 
 # 创建 MySQL 用户
-# groupadd -g 2006 mysql
-# useradd -c 'mysql service main process user' -g mysql -u 2006 -s /sbin/nologin -m mysql
-# cp -r /root/{.oh-my-zsh,.zshrc} /home/mysql
-# chown mysql:mysql -R /home/mysql/{.oh-my-zsh,.zshrc}
+groupadd -g 2006 mysql
+useradd -c 'mysql service main process user' -g mysql -u 2006 -s /sbin/nologin -m mysql
+cp -r /root/{.oh-my-zsh,.zshrc} /home/mysql
+chown mysql:mysql -R /home/mysql/{.oh-my-zsh,.zshrc}
