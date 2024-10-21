@@ -5,10 +5,6 @@ titleTemplate: 环境搭建教程
 
 # 编译安装 MySQL
 
-::: danger 警告
-MySQL 不再维护
-:::
-
 MySQL 没有为 Debian12 做适配，所以最好的选择就是自己编译安装
 
 ## 下载源码包
