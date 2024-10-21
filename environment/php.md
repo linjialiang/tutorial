@@ -24,36 +24,34 @@ PHP（`PHP: Hypertext Preprocessor`，超文本预处理器的字母缩写）是
 
 ### 1. 安装依赖
 
-本次 PHP 编译，系统还需要如下依赖项：
+本次 PHP 编译过程中，在系统原有扩展存在下，还需安装如下依赖项：
 
-```bash
+::: code-group
+
+```bash [83]
 apt install g++ libsystemd-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev -y
 
 # 安装sqlite3扩展所需的依赖库
 apt install libsqlite3-dev -y
 ```
 
-::: tip 提示
-
-- 不同版本所需依赖项可能不同
-- 使用更多外部扩展，所需依赖项也会更多
-- php 较低版本如果要在新版的 linux 系统上安装，很多依赖可能都需要自己重新
-
-通常你需要自己去阅读 `configure` 的错误提示，以及掌握 linux 软件包的编译安装
-:::
-
-### 2. 创建构建目录
-
-```bash
-mkdir /home/php-fpm/php-7.4.33/build_php
-mkdir /home/php-fpm/php-8.3.12/build_php
+```bash [74]
+# 未测试
 ```
 
-### 3. 环境变量
+:::
 
-::: details 如果想使用 sqlite3 最新版就需要自己编译安装
+::: details sqlite3 依赖
+
+想使用最新或指定版 sqlite3 ，需自己编译好 sqlite3 后，在 `PKG_CONFIG_PATH` 环境变量中追加 sqlite3 的 `pkgconfig` 配置文件路径
 
 ::: code-group
+
+```bash [使用依赖库]
+# 未安装 sqlite3，则需安装 libsqlite3-dev 依赖库
+# 这中方式不用将 pkgconfig 加入到 PKG_CONFIG_PATH 环境变量中
+apt install libsqlite3-dev -y
+```
 
 ```bash [编译安装sqlite3]
 # 构建 PHP 需将 sqlite3 的 pkgconfig 目录加入到临时环境变量里
@@ -66,17 +64,11 @@ pkg-config --list-all | grep sqlite3
 sqlite3          SQLite - SQL database engine
 ```
 
-```bash [使用依赖库]
-# 未安装 sqlite3，则需安装 libsqlite3-dev 依赖库
-# 这中方式不用将 pkgconfig 加入到 PKG_CONFIG_PATH 环境变量中
-apt install libsqlite3-dev -y
-```
-
-::: tip 提示
-本次未编译 SQLite3，需使用依赖库
 :::
 
-::: details 如果想使用 Postgres 最新版就需要自己编译安装
+::: details pgsql 依赖
+
+想使用最新或指定版 pgsql，需自己编译好 libpq 库后，在 php 构建选项里指定目录路径
 
 ::: code-group
 
@@ -96,14 +88,41 @@ usermod -a -G postgres php-fpm
 apt install libpq-dev -y
 ```
 
-::: tip 提示
-本次已编译 Postgres，无需额外使用依赖库，
-php-fpm 用户对 Postgres 安装目录要有读取和执行权限
 :::
 
-### 4. 查看构建选项
+::: tip 提示
 
-```bash
+1. 本次未编译 SQLite3，需使用依赖库
+2. 本次已编译 Postgres，无需额外使用依赖库
+   - 确保 php 用户对 Postgres 安装目录要有 `读取` 和 `执行` 权限
+3. 不同版本所需依赖项可能不同
+4. 使用更多外部扩展，所需依赖项也会更多
+5. php 较低版本如果要在新版的 linux 系统上安装，很多依赖可能都需要自己重新
+
+通常你需要自己去阅读 `configure` 的错误提示，以及掌握 linux 软件包的编译安装
+:::
+
+### 2. 创建并进入构建目录
+
+::: code-group
+
+```bash [83]
+mkdir /home/php-fpm/php-8.3.12/build_php
+cd /home/php-fpm/php-8.3.12/build_php/
+```
+
+```bash [74]
+mkdir /home/php-fpm/php-7.4.33/build_php
+cd /home/php-fpm/php-7.4.33/build_php/
+```
+
+:::
+
+### 3. 查看构建选项
+
+::: code-group
+
+```bash [common]
 # 全部构建选项
 ./configure -h
 
@@ -115,29 +134,19 @@ php-fpm 用户对 Postgres 安装目录要有读取和执行权限
 ./configure -h > configure.txt
 ```
 
-::: details 构建选项预览
-::: code-group
-<<<@/assets/environment/source/php/configure/83_pgsql.ini [8.3]
-<<<@/assets/environment/source/php/configure/74.ini [7.4]
+<<<@/assets/environment/source/php/configure/83_pgsql.ini [8.3 选项]
+<<<@/assets/environment/source/php/configure/74.ini [7.4 选项]
 :::
 
-### 5. 进入构建目录
-
-```bash
-# php7.4 构建目录
-cd /home/php-fpm/php-7.4.33/build_php/
-# php8.3 构建目录
-cd /home/php-fpm/php-8.3.12/build_php/
-```
-
-### 6. 安装指令
+### 4. 构建指令参考
 
 ::: details 构建指令参考
 ::: code-group
-<<<@/assets/environment/source/php/build/83_pgsql.bash [8.3-pgsql]
-<<<@/assets/environment/source/php/build/74_pgsql.bash [7.4-pgsql]
-<<<@/assets/environment/source/php/build/83.bash [8.3-MySQL]
-<<<@/assets/environment/source/php/build/74.bash [7.4-MySQL]
+<<<@/assets/environment/source/php/build/83.bash [83]
+<<<@/assets/environment/source/php/build/83_pgsql.bash [83-pgsql]
+<<<@/assets/environment/source/php/build/74_pgsql.bash [74-pgsql]
+<<<@/assets/environment/source/php/build/83_mysql.bash [83-mysql]
+<<<@/assets/environment/source/php/build/74_mysql.bash [74-mysql]
 :::
 
 ::: tip 构建指令区别：
