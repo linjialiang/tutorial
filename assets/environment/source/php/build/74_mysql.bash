@@ -23,6 +23,8 @@
 --with-xpm \
 --with-freetype \
 --enable-mbstring \
+--with-pgsql \
+--with-pdo-pgsql \
 --enable-mysqlnd \
 --with-mysqli=mysqlnd \
 --with-pdo-mysql=mysqlnd \
