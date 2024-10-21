@@ -406,7 +406,7 @@ composer config -g --unset repos.packagist
 composer config -g repo.packagist composer https://mirrors.huaweicloud.com/repository/php/
 # 腾讯云
 composer config -g repos.packagist composer https://mirrors.cloud.tencent.com/composer/
-# 阿里云
+# 阿里云 [不能实时同步，部分扩展缺失]
 composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 ```
 
