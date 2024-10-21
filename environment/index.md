@@ -17,9 +17,9 @@ titleTemplate: 环境搭建教程
 ::: details PHP 环境目录结构
 
 ::: code-group
+<<<@/assets/environment/lnmpp-toc.txt [lnmpp]
 <<<@/assets/environment/lnpp-toc.txt [lnpp]
 <<<@/assets/environment/lnmp-toc.txt [lnmp]
-<<<@/assets/environment/lnmpp-toc.txt [lnmpp]
 
 ::: warning 部分包数据存储相关软件遗弃说明
 
@@ -43,6 +43,22 @@ titleTemplate: 环境搭建教程
 ## 安装包列表
 
 ::: code-group
+
+```md [lnmp]
+1. nginx-1.26.2.tar.gz
+   - openssl-3.0.15.tar.gz
+   - pcre2-10.44.tar.bz2
+   - zlib-1.3.1.tar.xz
+2. redis-7.4.1.tar.gz
+3. mysql-8.4.3.tar.gz
+4. postgresql-17.0.tar.bz2
+5. php-8.3.12.tar.xz
+   - xdebug-3.3.2.tgz `动态扩展`
+   - apcu-5.1.24.tgz `动态扩展`
+   - mongodb-1.20.0.tgz `动态扩展`
+   - redis-6.1.0.tgz `动态扩展`
+   - yaml-2.2.4.tgz `动态扩展`
+```
 
 ```md [lnpp]
 1. nginx-1.26.2.tar.gz
