@@ -21,8 +21,8 @@ do
     tar -xJf $i
 done
 
-if [ -d "${SCRIPT_PATH}php_ext" ]; then
-    EXT_DIR="${SCRIPT_PATH}php_ext"
+if [ -d "${SCRIPT_PATH}/php_ext" ]; then
+    EXT_DIR="${SCRIPT_PATH}/php_ext"
     cd ${EXT_DIR}
     for i in `ls *.tgz`;
     do
