@@ -1,16 +1,7 @@
 #!/usr/bin/env bash
 
-# 设定压缩文件根目录
-TAR_DIR="/home/emad/environment/"
-# 设置解压路径根目录
-PACKAGE_DIR="/home/emad/package/"
-
-if [ ! -d ${PACKAGE_DIR} ]; then
-    mkdir -p "${PACKAGE_DIR}php_ext"
-fi
-
-# 进入压缩文件根目录
-cd ${TAR_DIR}
+# 获取当前脚本的路径
+SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 for i in `ls *.tar.gz`;
 do
@@ -30,15 +21,13 @@ do
     tar -xJf $i -C ${PACKAGE_DIR}
 done
 
-if [ -d "${TAR_DIR}php_ext" ]; then
-    # 进入php_ext目录
-    cd "${TAR_DIR}php_ext"
-
-    EXT_DIR="${PACKAGE_DIR}php_ext"
+if [ -d "${SCRIPT_PATH}php_ext" ]; then
+    EXT_DIR="${SCRIPT_PATH}php_ext"
+    cd ${EXT_DIR}
     for i in `ls *.tgz`;
     do
         echo "tgz解压" $i
-        tar -xzf $i -C ${EXT_DIR}
+        tar -xzf $i
     done
 
     cd ${EXT_DIR}
