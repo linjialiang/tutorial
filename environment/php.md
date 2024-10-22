@@ -161,8 +161,8 @@ php8.3 增加 `--with-capstone` 选项
 ### 7. 编译并安装
 
 ```bash
-# nohup make -j2 &
-make -j2
+# nohup make -j4 &
+make -j4
 make test
 make install
 ```
