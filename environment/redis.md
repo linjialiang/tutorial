@@ -110,7 +110,7 @@ vm.overcommit_memory = 1
 
 ::: code-group
 
-```bash [常规配置说明]
+```bash [改动的配置说明]
 # 以守护进程的方式运行
 daemonize yes
 # 修改pid文件存放路径
