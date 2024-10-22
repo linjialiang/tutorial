@@ -144,8 +144,9 @@ cd /home/php-fpm/php-7.4.33/build_php/
 ::: code-group
 <<<@/assets/environment/source/php/build/83.bash [83]
 <<<@/assets/environment/source/php/build/83_pgsql.bash [83-pgsql]
-<<<@/assets/environment/source/php/build/74_pgsql.bash [74-pgsql]
 <<<@/assets/environment/source/php/build/83_mysql.bash [83-mysql]
+<<<@/assets/environment/source/php/build/74.bash [74]
+<<<@/assets/environment/source/php/build/74_pgsql.bash [74-pgsql]
 <<<@/assets/environment/source/php/build/74_mysql.bash [74-mysql]
 :::
 

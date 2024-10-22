@@ -23,6 +23,9 @@
 --with-xpm \
 --with-freetype \
 --enable-mbstring \
+--enable-mysqlnd \
+--with-mysqli=mysqlnd \
+--with-pdo-mysql=mysqlnd \
 --with-pgsql=/server/postgres \
 --with-pdo-pgsql=/server/postgres \
 --enable-sockets \
