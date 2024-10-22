@@ -47,6 +47,24 @@ make install PREFIX=/server/redis
 
 刚刚安装好的 Redis 很简洁，只有 1 个 `目录 bin` 和 `bin 下面的 6 个文件`：
 
+```
+====================================================
+Redis 初始目录结构
+====================================================
+├─ /server/redis            服务目录
+|   ├─ bin
+|   |  ├─ conf              nginx配置目录
+|   |  ├─ conf              nginx配置目录
+|   |  ├─ conf              nginx配置目录
+|   |  ├─ conf              nginx配置目录
+|   |  ├─ conf              nginx配置目录
+|   |  ├─ conf              nginx配置目录
+|   |  └─ ...
+|   |
+└─  └─  rdbData              redis基目录
+
+```
+
 | file            | info                    |
 | --------------- | ----------------------- |
 | redis-benchmark | 用于 Redis 压力测试工具 |
