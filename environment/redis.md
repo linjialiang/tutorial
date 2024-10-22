@@ -65,7 +65,7 @@ Redis 初始目录结构
 
 redis 源码包中自带了参考配置文件，可以备份该参考配置，按需增减配置，最后清除不必要的注释行
 
-### 1. 配置文件参考
+### 1. 配置参考
 
 ::: code-group
 
@@ -73,18 +73,32 @@ redis 源码包中自带了参考配置文件，可以备份该参考配置，�
 cp -p -r ~/redis-7.4.1/redis.conf /server/redis/redis.conf.source
 ```
 
-<<<@/assets/environment/source/redis/redis.conf{ini} [参考配置]
-<<<@/assets/environment/source/redis/redis.conf.source{ini} [默认配置]
+```bash [RDB存储目录]
+# 可忽略，mkdir.bash 脚本已处理
+mkdir /server/redis/rdbData
+chown redis:redis /server/redis/rdbData
+chmod 750 /server/redis/rdbData
+```
+
+```bash [sysctl.conf]
+# /etc/sysctl.conf
+
+# 控制进程是否允许使用虚拟内存
+#   - 0：进程只能使用物理内存
+#   - 1：进程可以使用比物理内存更多的虚拟内存
+vm.overcommit_memory = 1
+```
+
+<<<@/assets/environment/source/redis/redis.conf{ini} [完整配置案例]
+<<<@/assets/environment/source/redis/redis.conf.source{ini} [源码自带配置]
 
 :::
 
-### 创建配置文件
+### 2. 配置说明
 
 ::: code-group
 
-```bash [redis.conf]
-# /server/redis/redis.conf
-
+```bash [常规配置说明]
 # 以守护进程的方式运行
 daemonize yes
 # 修改pid文件存放路径
@@ -97,48 +111,9 @@ logfile "/server/logs/redis/redis.log"
 # 提示：监听的网卡ip地址必须全部正常，否则网卡都无法正常连接
 #   - 设为 0.0.0.0 则监听服务器的全部网卡
 bind 127.0.0.1 192.168.66.254
-
-# ====== 启用混合持久化
-# 启用 RDB 持久化
-save 3600 1 300 100 60 10000
-# 指定本地数据库存放目录 默认的 ./ 遇到过权限问题
-# 注意：RDB和AOF文件都将在此目录下创建
-dir /server/redis/rdbData
-
-# 启用 AOF 持久化
-appendonly yes
-
-# 其它相关参数默认即可
-# 启用混合持久化 ======
 ```
 
-```bash [创建目录]
-# redis 用户需要有写入权限
-mkdir /server/redis/rdbData
-```
-
-```bash [sysctl.conf]
-# /etc/sysctl.conf
-
-# 控制进程是否允许使用虚拟内存
-#   - 0：进程只能使用物理内存
-#   - 1：进程可以使用比物理内存更多的虚拟内存
-vm.overcommit_memory = 1
-```
-
-<<<@/assets/environment/source/redis/redis.conf{ini} [完整版配置参考]
-
-:::
-
-### 2. 混合持久化
-
-Redis 的持久化是它的一大特性，可以将内存中的数据写入到硬盘中；
-
-Redis 分为 RDB 和 AOF 两种持久化，其中 `AOF` 可以结合 `RDB` 实现混合持久化。
-
-::: code-group
-
-```bash [RDB配置]
+```bash [RDB配置说明]
 # RDB是快照(Snapshotting)全量备份，只能恢复最近1次的快照
 
 # 启用 RDB 持久化，后面的3组数字表示自动快照策略
@@ -164,7 +139,7 @@ rdb-del-sync-files no
 dir /server/redis/rdbData
 ```
 
-```bash [AOF配置]
+```bash [AOF配置说明]
 # AOF 全称 “APPEND ONLY MODE” 是实时记录操作，默认配置可以恢复1秒前的数据
 # -- AOF还可以通过混合持久化的方式，结合RDB的快照来提高启动效率和数据恢复的速度。
 
@@ -202,9 +177,13 @@ aof-timestamp-enabled no
 
 :::
 
-### 2. 配置文件参数
+::: tip 混合持久化
+Redis 的持久化是它的一大特性，可以将内存中的数据写入到硬盘中；
 
-::: details 下面是 Redis 配置文件常见的参数：
+Redis 分为 RDB 和 AOF 两种持久化，其中 `AOF` 可以结合 `RDB` 实现混合持久化。
+:::
+
+::: details Redis 常见配置参数：
 
 1.  `daemonize no`
 
