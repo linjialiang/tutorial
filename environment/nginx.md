@@ -176,8 +176,8 @@ nginx 配置仅有一个入口文件，统一称做 `主配置文件`
 ::: details 1. 主配置文件 {#main-conf}
 ::: code-group
 <<<@/assets/environment/source/nginx/nginx.conf{nginx} [主配置]
-<<<@/assets/environment/source/nginx/default.nginx [默认站点]
-<<<@/assets/environment/source/nginx/php_forward{nginx} [php 文件转发]
+<<<@/assets/environment/source/nginx/custom/default.nginx [默认站点]
+<<<@/assets/environment/source/nginx/custom/php_forward{nginx} [php 文件转发]
 :::
 
 ::: details 2. fastcgi 参数模版
@@ -191,22 +191,22 @@ nginx+php-fpm 不论如何配置，PATH_INFO 始终为空，暂无法解决，�
 ::: details 3. 缓存模板
 站点不经常变动的静态文件，可以让客户端缓存，以减轻服务器压力
 ::: code-group
-<<<@/assets/environment/source/nginx/cache{nginx} [统一缓存模板案例]
-<<<@/assets/environment/source/nginx/no_cache{nginx} [禁用缓存模板案例]
+<<<@/assets/environment/source/nginx/custom/cache{nginx} [统一缓存模板案例]
+<<<@/assets/environment/source/nginx/custom/no_cache{nginx} [禁用缓存模板案例]
 :::
 
 ::: details 4. 开启压缩
 nginx 支持对文件开启 gzip 压缩，以加快网络传输速度，下面是 html 缓存模板案例：
 
-<<<@/assets/environment/source/nginx/gzip{nginx}
+<<<@/assets/environment/source/nginx/custom/gzip{nginx}
 :::
 
 ::: details 5. 限制请求数量
 nginx 通过 `http 区块` 和 `server 区块` 结合可以限制请求数量
 
 ::: code-group
-<<<@/assets/environment/source/nginx/limit_req_http{nginx} [http 区块]
-<<<@/assets/environment/source/nginx/limit_req_server{nginx} [server 区块]
+<<<@/assets/environment/source/nginx/custom/limit_req_http{nginx} [http 区块]
+<<<@/assets/environment/source/nginx/custom/limit_req_server{nginx} [server 区块]
 
 ::: tip 提示
 server 区块里的 `zone=with_ip` 对应 http 区块里的 `$binary_remote_addr` ，可以直接限制同 ip 地址的访问频率
@@ -217,13 +217,13 @@ server 区块里的 `zone=with_ip` 对应 http 区块里的 `$binary_remote_addr
 ::: details 6. 文件禁止访问
 `nginx server` 可以对特定文件和目录进行访问限制
 
-<<<@/assets/environment/source/nginx/no_access{nginx}
+<<<@/assets/environment/source/nginx/custom/no_access{nginx}
 :::
 
 ::: details 7. 跨域请求
 `nginx server` 可以配置跨域请求，跨域请求没有单独文件，按需写入对应站点的 `location 区块`
 
-<<<@/assets/environment/source/nginx/cross_domain{nginx}
+<<<@/assets/environment/source/nginx/custom/cross_domain{nginx}
 :::
 
 ::: details 8. 站点配置案例
@@ -302,27 +302,18 @@ linux 服务器推荐使用 `Systemd 单元(Unit)` 来管理守护进程，下�
 
 ### 1. 添加 Systemd 流程
 
-1. 将 `nginx.service` 拷贝 `/usr/lib/systemd/system` 目录
+::: code-group
 
-   ```bash
-   mv nginx.service /usr/lib/systemd/system/
-   ```
+<<<@/assets/environment/source/service/nginx.service{ini} [nginx.service 案例]
 
-   ::: details nginx.service 参考案例
-   <<<@/assets/environment/source/service/nginx.service{ini}
-   :::
+```bash [重载配置]
+# 重新载入 Systemd 配置
+systemctl daemon-reload
+# nginx.service 加入开机启动
+systemctl enable nginx.service
+```
 
-2. 将 nginx.service 加入开机启动
-
-   ```bash
-   systemctl enable nginx
-   ```
-
-3. 重新载入 Systemd 配置
-
-   ```bash
-   systemctl daemon-reload
-   ```
+:::
 
 ### 2. 管理 Systemd
 
