@@ -41,38 +41,23 @@ Expected 46 <= 40 (context: type eval line 37 cmd {assert {$max_latency <= 40}} 
 make install PREFIX=/server/redis
 ```
 
-:::
-
-::: details 文件说明
-
-刚刚安装好的 Redis 很简洁，只有 1 个 `目录 bin` 和 `bin 下面的 6 个文件`：
-
-```
+```text [目录结构]
 ====================================================
 Redis 初始目录结构
 ====================================================
-├─ /server/redis            服务目录
+├─ /server/redis                        redis基目录
 |   ├─ bin
-|   |  ├─ conf              nginx配置目录
-|   |  ├─ conf              nginx配置目录
-|   |  ├─ conf              nginx配置目录
-|   |  ├─ conf              nginx配置目录
-|   |  ├─ conf              nginx配置目录
-|   |  ├─ conf              nginx配置目录
+|   |  ├─ redis-benchmark               Redis 压力测试工具
+|   |  ├─ redis-cli                     Redis 客户端
+|   |  ├─ redis-server                  Redis 服务器
+|   |  ├─ redis-check-aof               redis-server软链接
+|   |  ├─ redis-check-rdb               redis-server软链接
+|   |  ├─ redis-sentinel                redis-server软链接
 |   |  └─ ...
 |   |
-└─  └─  rdbData              redis基目录
+└─  └─  rdbData                         手动创建，快照和本地持久化文件存放路径指向此目录
 
 ```
-
-| file            | info                    |
-| --------------- | ----------------------- |
-| redis-benchmark | 用于 Redis 压力测试工具 |
-| redis-server    | 启动 Redis 数据库       |
-| redis-cli       | Redis 命令工具          |
-| redis-check-rdb |                         |
-| redis-sentinel  |                         |
-| redis-check-aof |                         |
 
 :::
 
