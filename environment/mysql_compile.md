@@ -74,9 +74,9 @@ cmake .. -LH > options.list
 
 ```bash
 su - mysql -s /bin/zsh
-cd ~/mysql-8.4.2
 mkdir ~/mysql-8.4.2/build
 cd ~/mysql-8.4.2/build
+
 cmake .. \
 -DWITH_DEBUG=ON \
 -DCMAKE_INSTALL_PREFIX=/server/mysql \
