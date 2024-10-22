@@ -89,6 +89,18 @@ chmod 750 /server/redis/rdbData
 vm.overcommit_memory = 1
 ```
 
+````md [内核调优]
+1. somaxconn： 通过修改 `/proc/sys/net/core/somaxconn` 的值来调整
+2. tcp_max_syn_backlog：
+
+   ```bash
+   # 查看
+   sysctl net.ipv4.tcp_max_syn_backlog
+   # 设置
+   sysctl -w net.ipv4.tcp_max_syn_backlog=新的值(如：1024)
+   ```
+````
+
 <<<@/assets/environment/source/redis/redis.conf{ini} [完整配置案例]
 <<<@/assets/environment/source/redis/redis.conf.source{ini} [源码自带配置]
 
