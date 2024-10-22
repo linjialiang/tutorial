@@ -62,7 +62,7 @@ usermod -G php-fpm,nginx,mysql,redis emad
 ## 查询有关 CMake 支持的选项的信息
 
 ```bash
-cd /home/mysql/mysql-8.4.2/build
+cd /home/mysql/mysql-8.4.3/build
 cmake .. -LH
 # 选项写入文件
 cmake .. -LH > options.list
@@ -74,8 +74,8 @@ cmake .. -LH > options.list
 
 ```bash
 su - mysql -s /bin/zsh
-mkdir ~/mysql-8.4.2/build
-cd ~/mysql-8.4.2/build
+mkdir ~/mysql-8.4.3/build
+cd ~/mysql-8.4.3/build
 
 cmake .. \
 -DWITH_DEBUG=ON \
