@@ -39,26 +39,6 @@ apt install -y libtirpc-dev # 自动安装
 apt install -y libudev-dev dpkg-dev # 未使用
 ```
 
-## 权限
-
-::: code-group
-
-```bash [部署]
-chown mysql:mysql -R /server/mysql /server/data /server/logs/mysql /server/etc/mysql
-find /server/mysql /server/logs/mysql /server/etc/mysql -type f -exec chmod 640 {} \;
-find /server/mysql /server/logs/mysql /server/etc/mysql -type d -exec chmod 750 {} \;
-chmod 700 /server/data
-chmod 750 -R /server/mysql/bin
-```
-
-```bash [开发]
-# 权限同部署环境
-# 开发用户 emad 加入lnpp包用户组
-usermod -G php-fpm,nginx,mysql,redis emad
-```
-
-:::
-
 ## 查询有关 CMake 支持的选项的信息
 
 ```bash
@@ -315,4 +295,24 @@ select user, host, plugin, authentication_string from mysql.user;
 
 ::: tip 关于授权
 https://dev.mysql.com/doc/refman/8.4/en/grant.html
+:::
+
+## 权限
+
+::: code-group
+
+```bash [部署]
+chown mysql:mysql -R /server/mysql /server/data /server/logs/mysql /server/etc/mysql
+find /server/mysql /server/logs/mysql /server/etc/mysql -type f -exec chmod 640 {} \;
+find /server/mysql /server/logs/mysql /server/etc/mysql -type d -exec chmod 750 {} \;
+chmod 700 /server/data
+chmod 750 -R /server/mysql/bin
+```
+
+```bash [开发]
+# 权限同部署环境
+# 开发用户 emad 加入lnpp包用户组
+usermod -G php-fpm,nginx,postgres,mysql,redis emad
+```
+
 :::
