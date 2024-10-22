@@ -23,15 +23,10 @@ Redis 构建相对简单
 
 ::: code-group
 
-```bash [源码包迁移]
-mv /package/redis-7.4.1 /home/redis
-chown redis:redis -R /home/redis/redis-7.4.1
-```
-
 ```bash [构建指令]
 su - redis -s /bin/zsh
 cd ~/redis-7.4.1/
-make BUILD_TLS=yes -j2
+make BUILD_TLS=yes -j4
 ```
 
 ```bash [检测编译结果]
