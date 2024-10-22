@@ -123,6 +123,21 @@ logfile "/server/logs/redis/redis.log"
 # 提示：监听的网卡ip地址必须全部正常，否则网卡都无法正常连接
 #   - 设为 0.0.0.0 则监听服务器的全部网卡
 bind 127.0.0.1 192.168.66.254
+# 启用 RDB 持久化，后面的3组数字表示自动快照策略
+# - 3600秒（60分钟）内有至少1个key发生变化；
+# - 300秒（5分钟）内有至少100个key发生变化；
+# - 60秒（1分钟）内有至少1万个key发生变化；
+save 3600 1 300 100 60 10000 # 如果设为 save "" 代表关闭
+# 指定RDB文件的存储目录
+# - 注意：AOF文件，也将在此目录中创建
+dir /server/redis/rdbData
+
+# 启用TLS，证书需自签名或购买
+tls-port 16379
+tls-cert-file /server/redis/tls/redis.crt
+tls-key-file /server/redis/tls/redis.key
+tls-ca-cert-file /server/redis/tls/ca.crt
+tls-auth-clients optional
 ```
 
 ```bash [RDB配置说明]
