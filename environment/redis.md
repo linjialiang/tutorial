@@ -335,32 +335,31 @@ aof-timestamp-enabled no
 
 推荐统一使用 systemd 管理各种服务
 
-::: details 系统单元配置
-<<<@/assets/environment/source/service/redis.service{ini}
-:::
+::: code-group
 
-### 1. 具体操作：
+<<<@/assets/environment/source/service/redis.service{ini} [系统单元配置]
 
-```bash
-mv redis.service /usr/lib/systemd/system/
-systemctl enable redis
+```bash [重载配置]
+# 重新载入 Systemd 配置
 systemctl daemon-reload
+# redis.service 加入开机启动
+systemctl enable redis
 ```
 
-### 2. 管理单元
-
+```md [管理单元]
 | common                          | info         |
 | ------------------------------- | ------------ |
 | systemctl start redis.service   | 立即激活单元 |
 | systemctl stop redis.service    | 立即停止单元 |
 | systemctl restart redis.service | 重新启动     |
+```
 
-### 3. 查看启动状态
-
-```bash
+```bash [查看启动状态]
 ps -ef|grep -E "redis|PID" |grep -v grep
 ps aux|grep -E "redis|PID" |grep -v grep
 ```
+
+:::
 
 ## 启用 TLS 功能
 
