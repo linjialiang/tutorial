@@ -63,13 +63,22 @@ Redis 初始目录结构
 
 ## 配置文件
 
-redis 源码包中自带了 1 个配置文件，我们这里可以直接拷贝该配置文件，按自己需要修改相应配置
+redis 源码包中自带了参考配置文件，可以备份该参考配置，按需增减配置，最后清除不必要的注释行
 
-### 1. 拷贝配置文件
+### 1. 配置文件参考
 
-```bash
-cp -p -r ~/redis-7.4.1/redis.conf /server/redis/redis.conf
+::: code-group
+
+```bash [备份默认配置]
+cp -p -r ~/redis-7.4.1/redis.conf /server/redis/redis.conf.source
 ```
+
+<<<@/assets/environment/source/redis/redis.conf{ini} [参考配置]
+<<<@/assets/environment/source/redis/redis.conf.source{ini} [默认配置]
+
+:::
+
+### 创建配置文件
 
 ::: code-group
 
@@ -118,6 +127,78 @@ vm.overcommit_memory = 1
 ```
 
 <<<@/assets/environment/source/redis/redis.conf{ini} [完整版配置参考]
+
+:::
+
+### 2. 混合持久化
+
+Redis 的持久化是它的一大特性，可以将内存中的数据写入到硬盘中；
+
+Redis 分为 RDB 和 AOF 两种持久化，其中 `AOF` 可以结合 `RDB` 实现混合持久化。
+
+::: code-group
+
+```bash [RDB配置]
+# RDB是快照(Snapshotting)全量备份，只能恢复最近1次的快照
+
+# 启用 RDB 持久化，后面的3组数字表示自动快照策略
+# - 3600秒（60分钟）内有至少1个key发生变化；
+# - 300秒（5分钟）内有至少100个key发生变化；
+# - 60秒（1分钟）内有至少1万个key发生变化；
+save 3600 1 300 100 60 10000 # 如果设为 save "" 代表关闭
+# 当后台保存出错时，是否停止写入操作。
+# - 默认为yes，表示如果后台保存失败，那么Redis将停止接收写请求。
+stop-writes-on-bgsave-error yes
+# 是否开启RDB文件压缩。
+# - 默认为yes，表示Redis会在保存RDB文件时进行压缩，以节省磁盘空间。
+rdbcompression yes
+# 是否开启RDB文件校验和。
+# - 默认为yes，表示Redis会在保存RDB文件时计算校验和，用于检查RDB文件是否损坏。
+rdbchecksum yes
+# 指定RDB文件的名称。默认为 dump.rdb
+dbfilename dump.rdb
+# 是否删除旧的RDB文件。默认为no，表示Redis不会删除旧的RDB文件。
+rdb-del-sync-files no
+# 指定RDB文件的存储目录
+# - 注意：AOF文件，也将在此目录中创建
+dir /server/redis/rdbData
+```
+
+```bash [AOF配置]
+# AOF 全称 “APPEND ONLY MODE” 是实时记录操作，默认配置可以恢复1秒前的数据
+# -- AOF还可以通过混合持久化的方式，结合RDB的快照来提高启动效率和数据恢复的速度。
+
+# 是否开启AOF持久化。
+# - 默认为no，表示关闭AOF持久化。
+# - 如果设置为yes，则开启AOF持久化。
+appendonly yes
+# 指定AOF文件的名称。默认为 appendonly.aof
+appendfilename "appendonly.aof"
+# 指定AOF文件的存储目录。默认为当前工作目录
+appenddirname "appendonlydir"
+# 设置AOF文件同步的频率。
+# - 默认为 everysec，表示每秒同步一次。
+# - 可选值有 everysec/always/no
+appendfsync everysec
+# 在AOF重写期间是否进行同步。
+# - 默认为no，表示在AOF重写期间不进行同步。
+# - 如果设置为yes，则在AOF重写期间进行同步。
+no-appendfsync-on-rewrite no
+# 设置自动触发AOF重写的条件，即当AOF文件大小超过上一次重写后大小的百分之多少时触发。
+# - 默认为100，表示每次重写都会触发。
+auto-aof-rewrite-percentage 100
+# 设置自动触发AOF重写的最小文件大小。默认为 64Mb
+auto-aof-rewrite-min-size 64mb
+# 当AOF文件被截断时，是否加载截断后的AOF文件。
+# - 默认为yes，表示加载截断后的AOF文件。
+aof-load-truncated yes
+# 是否在AOF文件中添加RDB格式的前导部分。
+# - 默认为yes，表示添加前导部分。
+aof-use-rdb-preamble yes # yes即开启混合持久化 整体格式为：[RDB file][AOF tail]
+# 是否在AOF文件中添加时间戳。
+# - 默认为no，表示不添加时间戳。
+aof-timestamp-enabled no
+```
 
 :::
 
@@ -259,78 +340,6 @@ vm.overcommit_memory = 1
 30. `include /path/to/local.conf`
 
     指定包含其它的配置文件，可以在同一主机上多个 Redis 实例之间使用同一份配置文件，而同时各个实例又拥有自己的特定配置文件
-
-:::
-
-### 3. 混合持久化
-
-Redis 的持久化是它的一大特性，可以将内存中的数据写入到硬盘中；
-
-Redis 分为 RDB 和 AOF 两种持久化，其中 `AOF` 可以结合 `RDB` 实现混合持久化。
-
-::: code-group
-
-```bash [RDB配置]
-# RDB是快照(Snapshotting)全量备份，只能恢复最近1次的快照
-
-# 启用 RDB 持久化，后面的3组数字表示自动快照策略
-# - 3600秒（60分钟）内有至少1个key发生变化；
-# - 300秒（5分钟）内有至少100个key发生变化；
-# - 60秒（1分钟）内有至少1万个key发生变化；
-save 3600 1 300 100 60 10000 # 如果设为 save "" 代表关闭
-# 当后台保存出错时，是否停止写入操作。
-# - 默认为yes，表示如果后台保存失败，那么Redis将停止接收写请求。
-stop-writes-on-bgsave-error yes
-# 是否开启RDB文件压缩。
-# - 默认为yes，表示Redis会在保存RDB文件时进行压缩，以节省磁盘空间。
-rdbcompression yes
-# 是否开启RDB文件校验和。
-# - 默认为yes，表示Redis会在保存RDB文件时计算校验和，用于检查RDB文件是否损坏。
-rdbchecksum yes
-# 指定RDB文件的名称。默认为 dump.rdb
-dbfilename dump.rdb
-# 是否删除旧的RDB文件。默认为no，表示Redis不会删除旧的RDB文件。
-rdb-del-sync-files no
-# 指定RDB文件的存储目录
-# - 注意：AOF文件，也将在此目录中创建
-dir /server/redis/rdbData
-```
-
-```bash [AOF配置]
-# AOF 全称 “APPEND ONLY MODE” 是实时记录操作，默认配置可以恢复1秒前的数据
-# -- AOF还可以通过混合持久化的方式，结合RDB的快照来提高启动效率和数据恢复的速度。
-
-# 是否开启AOF持久化。
-# - 默认为no，表示关闭AOF持久化。
-# - 如果设置为yes，则开启AOF持久化。
-appendonly yes
-# 指定AOF文件的名称。默认为 appendonly.aof
-appendfilename "appendonly.aof"
-# 指定AOF文件的存储目录。默认为当前工作目录
-appenddirname "appendonlydir"
-# 设置AOF文件同步的频率。
-# - 默认为 everysec，表示每秒同步一次。
-# - 可选值有 everysec/always/no
-appendfsync everysec
-# 在AOF重写期间是否进行同步。
-# - 默认为no，表示在AOF重写期间不进行同步。
-# - 如果设置为yes，则在AOF重写期间进行同步。
-no-appendfsync-on-rewrite no
-# 设置自动触发AOF重写的条件，即当AOF文件大小超过上一次重写后大小的百分之多少时触发。
-# - 默认为100，表示每次重写都会触发。
-auto-aof-rewrite-percentage 100
-# 设置自动触发AOF重写的最小文件大小。默认为 64Mb
-auto-aof-rewrite-min-size 64mb
-# 当AOF文件被截断时，是否加载截断后的AOF文件。
-# - 默认为yes，表示加载截断后的AOF文件。
-aof-load-truncated yes
-# 是否在AOF文件中添加RDB格式的前导部分。
-# - 默认为yes，表示添加前导部分。
-aof-use-rdb-preamble yes # yes即开启混合持久化 整体格式为：[RDB file][AOF tail]
-# 是否在AOF文件中添加时间戳。
-# - 默认为no，表示不添加时间戳。
-aof-timestamp-enabled no
-```
 
 :::
 
