@@ -9,41 +9,20 @@ Nginx 是现如今性能最强劲的 Web 服务器及反向代理服务器
 
 ## 构建前准备
 
-### 1. 查看构建参数
+### 1. 依赖项
 
-::: code-group
-
-```bash [common]
-cd /home/nginx/nginx-1.26.2
-./configure --help > help.ini
-```
-
-<<<@/assets/environment/source/nginx/help.ini [全部参数]
-:::
-
-### 2. 模块依赖环境
-
-::: code-group
-
-```bash [编译环境]
+```bash
+# 编译环境
 apt install gcc make -y
-```
-
-```bash [模块依赖包]
+# 模块依赖包
 apt install libxslt1-dev libxml2-dev libgd-dev libgeoip-dev -y
-```
-
-```bash [检查依赖库]
+# 检查依赖库
 apt install pkg-config -y
-# 检查依赖库是否存在 pkg-config 列表中
+# 检查依赖库是否存在 pkg-config 列表中（需含libxslt/libxml-2.0/gdlib/geoip）
 pkg-config --list-all
-# 需包含
-# libxslt/libxml-2.0/gdlib/geoip
 ```
 
-:::
-
-### 3. CAP_NET_BIND_SERVICE
+### 2. CAP_NET_BIND_SERVICE
 
 `CAP_NET_BIND_SERVICE` 是 Linux 内核中的一个能力（capability），它允许进程绑定低于 `1024` 的端口。这个能力通常用于网络服务程序，如 Web 服务器、邮件服务器等，以便它们能够监听系统保留的低端口。
 
@@ -63,8 +42,16 @@ setcap -r /server/nginx/sbin/nginx
 
 :::
 
-::: tip
-重启电脑，使其生效
+### 3. 查看构建参数
+
+::: code-group
+
+```bash [common]
+cd /home/nginx/nginx-1.26.2
+./configure --help > help.ini
+```
+
+<<<@/assets/environment/source/nginx/help.ini [全部参数]
 :::
 
 ## 开始构建
