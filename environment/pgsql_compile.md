@@ -89,30 +89,18 @@ postgres  soft  nofile  65535
 postgres  hard  nofile  65535
 ```
 
-```bash [用户及权限]
-groupadd postgres
-useradd -g postgres -s /sbin/nologin -m postgres
-passwd postgres
-cp -r /root/{.oh-my-zsh,.zshrc} /home/postgres
-chown postgres:postgres /home/postgres/{.oh-my-zsh,.zshrc}
-
-mkdir -p /server/{postgres,pgData}
-chmod 750 /server/{postgres,pgData}
-chown postgres:postgres /server/{postgres,pgData}
-
+```bash [进入编译目录]
 su - postgres -s /bin/zsh
 wget https://ftp.postgresql.org/pub/source/v17.0/postgresql-17.0.tar.bz2
-tar -xjf postgresql-17.0.tar.bz2 -C ~/
-chown postgres:postgres -R ~/postgresql-17.0
+tar -xjf postgresql-17.0.tar.bz2
 mkdir ~/postgresql-17.0/build_postgres
+cd ~/postgresql-17.0/build_postgres
 ```
 
 ```bash [编译指令]
 # 使用postgres账户编译
 # 关于生产环境要不要添加 --enable-debug 选项问题：使用gcc编译器时可以启用debug
 # 使用 llvm+clang 编译器套件时不应该启用debug，因为llvm可以优化pgsql性能，而使用 --enable-debug 选项，通常会禁用编译器的性能优化
-su - postgres -s /bin/zsh
-cd ~/postgresql-17.0/build_postgres
 ../configure --prefix=/server/postgres \
 --enable-debug \
 --enable-cassert \
@@ -130,7 +118,7 @@ CC=clang \
 
 ```bash [安装指令]
 # 使用postgres账户安装
-make -j2
+make -j4
 make check
 make install
 # 编译安装完后记得移除源码包，节省空间
