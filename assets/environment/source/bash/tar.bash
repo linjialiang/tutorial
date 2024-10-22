@@ -6,19 +6,19 @@ SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 for i in `ls *.tar.gz`;
 do
     echo "gz解压" $i
-    tar -xzf $i -C ${PACKAGE_DIR}
+    tar -xzf $i
 done
 
 for i in `ls *.tar.bz2`;
 do
     echo "bz2解压" $i
-    tar -xjf $i -C ${PACKAGE_DIR}
+    tar -xjf $i
 done
 
 for i in `ls *.tar.xz`;
 do
     echo "xz解压" $i
-    tar -xJf $i -C ${PACKAGE_DIR}
+    tar -xJf $i
 done
 
 if [ -d "${SCRIPT_PATH}php_ext" ]; then
