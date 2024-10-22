@@ -435,6 +435,7 @@ source ~/.profile
 
 <<<@/assets/environment/lnpp-setup.sh [lnpp]
 <<<@/assets/environment/lnmp-setup.sh [lnmp]
+<<<@/assets/environment/lnmpp-setup.sh [lnmpp]
 :::
 
 ::: tip 提示
