@@ -137,6 +137,9 @@ tls-port 16379
 tls-cert-file /server/redis/tls/redis.crt
 tls-key-file /server/redis/tls/redis.key
 tls-ca-cert-file /server/redis/tls/ca.crt
+# 默认，客户端必须验证
+# optional 允许客户端验证，也可以不验证
+# no 客户端不会验证
 tls-auth-clients optional
 ```
 
