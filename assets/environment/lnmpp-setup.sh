@@ -152,7 +152,12 @@ modFilePower(){
   echo_green "文件权限"
   echo_green "通常来讲压缩包里含的权限是正确的，这里重新执行一遍，更加稳妥"
   echo_yellow "=================================================================="
-  echo_green "站点根目录权限"
+  echo_green "/server 目录权限"
+  chown root:root -R /server
+  find /server -type f -exec chmod 644 {} \;
+  find /server -type d -exec chmod 755 {} \;
+
+  echo_green "/www 目录权限"
   echo_red "开发环境使用emad用户（nginx/php-fpm 需加入 emad用户组）"
   echo_red "部署环境通常是www用户（nginx/php-fpm 需加入 www用户组）"
   chmod 750 /www
