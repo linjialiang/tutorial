@@ -122,7 +122,7 @@ installPackage(){
   echo_green "安装依赖"
   echo_green "确保 nginx + php + Postgres + MySQL + Redis 必备依赖项"
   echo_green "debian12 发行版，如因依赖导致部分功能异常，自行安装相应依赖包即可"
-  echo_red "注意1：该lnpp包不兼容其他发行版，因为极有可能因为依赖问题，导致整个环境无法使用"
+  echo_red "注意1：该lnmpp包不兼容其他发行版，因为极有可能因为依赖问题，导致整个环境无法使用"
   echo_red "注意2：部分依赖包在部署阶段可能没用，但由于没对单个功能测试，只能选择安装全部依赖"
   echo_yellow "=================================================================="
   apt install -y gcc g++ make pkg-config clang llvm-dev libsystemd-dev \
@@ -136,14 +136,14 @@ installPackage(){
 #安装预构建包
 InstallBuild(){
   echo_yellow "=================================================================="
-  echo_green "解压lnpp预构建包\n含两个目录"
+  echo_green "解压lnmpp预构建包\n含两个目录"
   echo_yellow " "
   echo_cyan "/server"
   echo_cyan "/www"
   echo_yellow " "
-  echo_green "预先编译成功的lnpp解压到服务器目录下"
+  echo_green "预先编译成功的lnmpp解压到服务器目录下"
   echo_yellow "=================================================================="
-  tar -xJf ./lnpp.tar.xz -C /
+  tar -xJf ./lnmpp.tar.xz -C /
 }
 
 #修改文件权限
@@ -335,7 +335,7 @@ WantedBy=multi-user.target
   systemctl enable --now {postgres,nginx,php83-fpm,redis,mysqld-84}.service
 }
 
-echo_cyan "解压脚本同级目录下需存在源码压缩包 lnpp.tar.xz"
+echo_cyan "解压脚本同级目录下需存在源码压缩包 lnmpp.tar.xz"
 echo_cyan "是否退出(1退出/默认继续)："
 read isExit
 if [ "$isExit" = "1" ]; then
@@ -370,7 +370,7 @@ else
   #安装依赖包
   installPackage
   echo ' '
-  #解压lnpp预构建包到指定目录
+  #解压lnmpp预构建包到指定目录
   InstallBuild
   echo ' '
   #修改文件权限
@@ -402,7 +402,7 @@ else
   echo_yellow "=================================================================="
   echo ' '
   echo_yellow "=================================================================="
-  echo_green "lnpp安装完成！！！"
+  echo_green "lnmpp安装完成！！！"
   echo_yellow "   - Postgres 默认有个超级管理员用户 admin 密码 1"
   echo_yellow "   - MySQL 默认有个超级管理员用户 admin@192.168.%.% 密码 1"
   echo_yellow "   - Redis 默认设置了全局密码 1"
