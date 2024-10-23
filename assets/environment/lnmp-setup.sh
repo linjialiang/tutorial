@@ -140,7 +140,6 @@ modFilePower(){
   echo_yellow "=================================================================="
   echo_green "/server 目录权限"
   chown root:root -R /server
-  chmod 755 /server
   find /server -type f -exec chmod 644 {} \;
   find /server -type d -exec chmod 755 {} \;
 
