@@ -1,10 +1,24 @@
 项目运行过程中，可能需要额外的扩展支持，这时我们不可避免要去安装动态扩展
 
-::: tip 依赖支持
-使用 phpize 初始化 configure 配置文件时，需要 `autoconf` 扩展支持
+::: code-group
 
-```bash
+```bash [依赖库]
+# 使用 phpize 初始化 configure 配置文件时，需要 autoconf 依赖库
 apt install autoconf -y
+```
+
+```ini [配置文件添加动态扩展]
+# /server/php/83/lib/php.ini
+extension=redis
+extension=mongodb
+extension=yaml
+extension=yaml
+
+[xdebug]
+zend_extension=xdebug
+xdebug.mode=develop,trace,debug
+xdebug.client_host=192.168.66.254
+xdebug.client_port=9083
 ```
 
 :::
