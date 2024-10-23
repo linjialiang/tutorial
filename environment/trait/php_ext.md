@@ -12,7 +12,7 @@ apt install autoconf -y
 extension=redis
 extension=mongodb
 extension=yaml
-extension=yaml
+extension=apcu
 
 [xdebug]
 zend_extension=xdebug
