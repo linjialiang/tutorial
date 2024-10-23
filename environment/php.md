@@ -204,18 +204,18 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 
 ::: code-group
 
-```bash [部署环境]
-# php7.4
-cp /home/php-fpm/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
-# php8.3
-cp /home/php-fpm/php-8.3.12/php.ini-production /server/php/83/lib/php.ini
-```
-
 ```bash [开发环境]
 # php7.4
 cp /home/php-fpm/php-7.4.33/php.ini-development /server/php/74/lib/php.ini
 # php8.3
 cp /home/php-fpm/php-8.3.12/php.ini-development /server/php/83/lib/php.ini
+```
+
+```bash [部署环境]
+# php7.4
+cp /home/php-fpm/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
+# php8.3
+cp /home/php-fpm/php-8.3.12/php.ini-production /server/php/83/lib/php.ini
 ```
 
 :::
@@ -382,7 +382,7 @@ Composer 是一个 PHP 依赖管理工具，开发环境必备
 
 ### 1. 安装
 
-推荐直接使用腾讯云镜像 [下载 composer](https://mirrors.aliyun.com/composer/composer.phar)
+推荐直接使用阿里云镜像下载 [composer](https://mirrors.aliyun.com/composer/composer.phar)
 
 ```bash
 su - php-fpm -s /bin/zsh
