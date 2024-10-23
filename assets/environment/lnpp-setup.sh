@@ -330,7 +330,7 @@ else
   userName=''
   echo_cyan "输入开发用户名，为其授权(为空不授权)："
   read userName
-  if [ ! -z '$userName']; then
+  if [ ! -z '$userName' ]; then
     devUserPower $userName
   fi
   echo ' '

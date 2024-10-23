@@ -113,7 +113,7 @@ devUserPower(){
   echo_yellow "=================================================================="
   usermod -a -G $devUserName nginx
   usermod -a -G $devUserName php-fpm
-  usermod -G nginx,php-fpm,postgres,redis,mysql $devUserName
+  usermod -a -G nginx,php-fpm,postgres,redis,mysql $devUserName
 }
 
 #安装依赖包
@@ -363,7 +363,7 @@ else
   userName=''
   echo_cyan "输入开发用户名，为其授权(为空不授权)："
   read userName
-  if [ ! -z '$userName']; then
+  if [ ! -z '$userName' ]; then
     devUserPower $userName
   fi
   echo ' '
