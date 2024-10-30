@@ -107,8 +107,8 @@ apt install libpq-dev -y
 ::: code-group
 
 ```bash [83]
-mkdir /home/php-fpm/php-8.3.12/build_php
-cd /home/php-fpm/php-8.3.12/build_php/
+mkdir /home/php-fpm/php-8.3.13/build_php
+cd /home/php-fpm/php-8.3.13/build_php/
 ```
 
 ```bash [74]
@@ -208,14 +208,14 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 # php7.4
 cp /home/php-fpm/php-7.4.33/php.ini-development /server/php/74/lib/php.ini
 # php8.3
-cp /home/php-fpm/php-8.3.12/php.ini-development /server/php/83/lib/php.ini
+cp /home/php-fpm/php-8.3.13/php.ini-development /server/php/83/lib/php.ini
 ```
 
 ```bash [部署环境]
 # php7.4
 cp /home/php-fpm/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
 # php8.3
-cp /home/php-fpm/php-8.3.12/php.ini-production /server/php/83/lib/php.ini
+cp /home/php-fpm/php-8.3.13/php.ini-production /server/php/83/lib/php.ini
 ```
 
 :::
