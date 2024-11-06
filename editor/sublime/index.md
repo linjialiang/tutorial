@@ -70,3 +70,9 @@ Sublime Text 可以通过修改 `sublime_text.exe` 文件的 hex 值实现破解
    - 该插件不支持格式化
 
 ## 配置
+
+::: code-group
+
+<<<@/assets/editor/sublime/Preferences.sublime-settings{json} [基本配置]
+<<<@/assets/editor/sublime/Default (Windows).sublime-keymap{json} [快捷键配置]
+:::
