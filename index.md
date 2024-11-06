@@ -22,11 +22,10 @@ hero:
 
 features:
   - icon:
-      light: /svg/linux.svg
-      dark: /svg/debian.svg
-    title: Debian 教程
-    details: Linux发行版
-    link: /debian/index
+      src: /svg/sublime.svg
+    title: sublime text
+    details: 文本编辑，正确完成
+    link: /editor/sublime/index
   - icon:
       src: /svg/vscode.svg
     title: VSCode
@@ -43,10 +42,11 @@ features:
     details: 神的编辑器
     link: /editor/vim/index
   - icon:
-      src: /svg/sublime.svg
-    title: sublime text
-    details: 文本编辑，正确完成
-    link: /editor/sublime/index
+      light: /svg/linux.svg
+      dark: /svg/debian.svg
+    title: Debian 教程
+    details: Linux发行版
+    link: /debian/index
   - icon:
       src: /svg/vitepress.svg
     title: VitePress
