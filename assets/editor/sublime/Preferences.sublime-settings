@@ -1,21 +1,15 @@
 // Settings in here override those in "Default/Preferences.sublime-settings",
 // and are overridden in turn by syntax-specific settings.
 {
-	"sublime_merge_path": "./merge/sublime_merge.exe",
-	"font_face": "'JetBrains Mono', 'HarmonyOS Sans SC'",
-	"font_size": 14,
-	"tab_size": 2,
-	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": "all",
-	"index_files": true,
-	"show_encoding": true,
-	"show_line_endings": true,
-	"update_check": false,
-	"ignored_packages": [
-		"Vintage",
-	],
-	"relative_line_numbers": true,
-	"vintage_start_in_command_mode": true,
-	"vintage_use_clipboard": true,
-	"vintage_ctrl_keys": true,
+  "sublime_merge_path": "./merge/sublime_merge.exe",
+  "font_face": "'JetBrains Mono', 'HarmonyOS Sans SC'",
+  "font_size": 14,
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": "all",
+  "index_files": true,
+  "show_encoding": true,
+  "show_line_endings": true,
+  "update_check": false,
+  "relative_line_numbers": true
 }
