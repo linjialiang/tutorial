@@ -9,9 +9,9 @@ const path = {
 
 const sidebar = [
   { text: "概述", link: `${path.main}` },
+  { text: "sublime", collapsed: true, items: [...sublime] },
   { text: "vscode", collapsed: true, items: [...vscode] },
   { text: "phpstorm", collapsed: true, items: [...phpstorm] },
-  { text: "sublime", collapsed: true, items: [...sublime] },
   { text: "vim", collapsed: true, items: [...vim] },
 ];
 

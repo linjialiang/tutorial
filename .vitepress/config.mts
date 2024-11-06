@@ -8,6 +8,7 @@ import webNav from "./nav/web.mts";
 import {
   debian,
   docker,
+  editor,
   environment,
   eslint,
   mongodb,
@@ -121,6 +122,7 @@ export default defineConfig({
       "/vitepress/": vitepress,
       "/other/": other,
       "/permeate/": permeate,
+      editor: editor,
     },
     footer: {
       message: "程序员系列教程",
