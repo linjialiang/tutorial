@@ -43,6 +43,7 @@ Sublime Text 可以通过修改 `sublime_text.exe` 文件的 hex 值实现破解
 | A File Icon        | 图标插件      |
 | BracketHighlighter | 括号高亮插件  |
 | LocalizedMenu      | 本地化菜单    |
+| NeoVintageous      | Vim 引擎      |
 | LSP                | 类 ide 插件   |
 | LSP-html           | 支持 html     |
 | LSP-css            | 支持 css      |
