@@ -3,8 +3,8 @@
   "diffEditor.codeLens": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
   },
   // 启用使用鼠标和键进行列选择，启用后不需要按键全部都是按列选择
   "editor.columnSelection": false,
@@ -15,7 +15,7 @@
   "editor.find.autoFindInSelection": "multiline",
   // 控制编辑器是否自动折叠导入范围。
   "editor.foldingImportsByDefault": false,
-  "editor.fontFamily": "'JetBrains Mono', 'HarmonyOS Sans SC'",
+  "editor.fontFamily": "'JetBrains Mono', 'Microsoft YaHei UI'",
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
   "editor.formatOnPaste": true,
@@ -52,7 +52,7 @@
   "search.collapseResults": "auto",
   "search.showLineNumbers": true,
   "search.smartCase": true,
-  "update.mode": "default",
+  "update.mode": "manual",
   "extensions.autoCheckUpdates": false,
   "extensions.ignoreRecommendations": true,
   "problems.showCurrentInStatus": true,
@@ -92,14 +92,23 @@
     "editor.tabSize": 4,
     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
   },
+  "[markdown]": {
+    // 指定 markdown 文件的 tab 为 4 空格
+    "editor.tabSize": 4
+  },
   "npm-intellisense.importLinebreak": ";\n",
-  "workbench.colorTheme": "Monokai",
-  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
   "remote.SSH.remotePlatform": {
     "lnmp_www": "linux",
-    "kc_xg": "linux",
-    "debian12_www": "linux",
-    "bt_www": "linux"
+    "bt_www": "linux",
+    "debain12_www": "linux",
+    "lnmp_emad": "linux"
   },
-  "workbench.iconTheme": "material-icon-theme"
+  "workbench.iconTheme": "material-icon-theme",
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "workbench.colorTheme": "Dracula Theme",
+  "vscode-neovim.neovimExecutablePaths.win32": "C:\\sf\\nvim-win64\\bin\\nvim.exe",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  }
 }

@@ -1,21 +1,44 @@
 // 将键绑定放在此文件中以覆盖默认值
 [
   {
+    "key": "ctrl+j",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inProjectManagerList"
+  },
+  {
     "key": "ctrl+shift+alt+p",
     "command": "projectManager.listProjectsNewWindow"
+  },
+  {
+    "key": "ctrl+k ctrl+shift+oem_4",
+    "command": "extension.partialDiff.markSection1",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+k ctrl+shift+oem_6",
+    "command": "extension.partialDiff.markSection2AndTakeDiff",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+k ctrl+shift+oem_minus",
+    "command": "extension.partialDiff.diffSelectionWithClipboard",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+k ctrl+shift+oem_plus",
+    "command": "extension.partialDiff.diffVisibleEditors",
+    "when": "editorTextFocus"
   },
   {
     "key": "ctrl+k ctrl+oem_plus",
     "command": "wwm.aligncode"
   },
   {
-    "key": "ctrl+k ctrl+shift+u", // windows
-    // "key": "ctrl+k ctrl+alt+u", // linux
+    "key": "ctrl+k ctrl+shift+u",
     "command": "editor.action.transformToUppercase"
   },
   {
-    "key": "ctrl+k ctrl+shift+l", // windows
-    // "key": "ctrl+k ctrl+alt+l", // linux
+    "key": "ctrl+k ctrl+shift+l",
     "command": "editor.action.transformToLowercase"
   },
   {
@@ -23,38 +46,11 @@
     "command": "workbench.action.reloadWindow"
   },
   {
-    "key": "ctrl+shift+/",
+    "key": "ctrl+shift+oem_2",
     "command": "editor.action.joinLines"
   },
-  // linux 下需添加的快捷键
   {
-    "key": "shift+alt+up",
-    "command": "editor.action.copyLinesUpAction",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "shift+alt+down",
-    "command": "editor.action.copyLinesDownAction",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "shift+alt+f",
-    "command": "editor.action.formatDocument",
-    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
-  },
-  {
-    "key": "ctrl+shift+i",
-    "command": "-editor.action.formatDocument",
-    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
-  },
-  {
-    "key": "shift+alt+f",
-    "command": "editor.action.formatDocument.none",
-    "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
-  },
-  {
-    "key": "ctrl+shift+i",
-    "command": "-editor.action.formatDocument.none",
-    "when": "editorTextFocus && !editorHasDocumentFormattingProvider && !editorReadonly"
+    "key": "ctrl+alt+t",
+    "command": "openInTerminal"
   }
 ]
