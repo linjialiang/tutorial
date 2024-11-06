@@ -1,5 +1,5 @@
 const path = {
-  main: "/other/phpstorm/",
+  main: "/editor/phpstorm/",
 };
 
 const sidebar = [{ text: "概述", link: `${path.main}` }];

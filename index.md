@@ -31,17 +31,22 @@ features:
       src: /svg/vscode.svg
     title: VSCode
     details: Visual Studio Code
-    link: /other/vscode/index
+    link: /editor/vscode/index
   - icon:
       src: /svg/PhpStorm.svg
     title: PhpStorm
     details: PHP 最强 IDE
-    link: /other/phpstorm/index
+    link: /editor/phpstorm/index
   - icon:
       src: /svg/Vim.svg
     title: Vim
     details: 神的编辑器
-    link: /other/vim/index
+    link: /editor/vim/index
+  - icon:
+      src: /svg/sublime.svg
+    title: sublime text
+    details: 文本编辑，正确完成
+    link: /editor/sublime/index
   - icon:
       src: /svg/vitepress.svg
     title: VitePress

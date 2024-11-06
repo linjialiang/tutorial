@@ -1,5 +1,5 @@
 const path = {
-  main: "/other/vim/",
+  main: "/editor/sublime/",
 };
 
 const sidebar = [{ text: "概述", link: `${path.main}` }];
