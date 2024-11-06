@@ -1,5 +1,5 @@
-import bash from "./bash.mjs";
-import debian from "./debian.mjs";
+import bash from "./bash.mts";
+import debian from "./debian.mts";
 
 const sidebar = [
   { text: "Debian", collapsed: true, items: [...debian] },

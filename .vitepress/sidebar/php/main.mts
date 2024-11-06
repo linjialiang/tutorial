@@ -1,6 +1,6 @@
-import designPatterns from "./design-patterns.mjs";
-import laravel from "./laravel.mjs";
-import psr from "./psr.mjs";
+import designPatterns from "./design-patterns.mts";
+import laravel from "./laravel.mts";
+import psr from "./psr.mts";
 
 const path = {
   main: "/php/",

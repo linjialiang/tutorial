@@ -1,6 +1,6 @@
-import clash from "./clash.mjs";
-import js from "./js.mjs";
-import wechat from "./wechat.mjs";
+import clash from "./clash.mts";
+import js from "./js.mts";
+import wechat from "./wechat.mts";
 
 const path = {
   main: "/other/",

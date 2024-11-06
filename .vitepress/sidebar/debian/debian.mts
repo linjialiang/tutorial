@@ -1,4 +1,4 @@
-import gui from "./gui.mjs";
+import gui from "./gui.mts";
 
 const path = {
   main: "/debian/",

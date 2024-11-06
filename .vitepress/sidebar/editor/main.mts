@@ -15,4 +15,4 @@ const sidebar = [
   { text: "vim", collapsed: true, items: vim },
 ];
 
-export { sidebar as eslint };
+export { sidebar as editor };

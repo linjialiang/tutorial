@@ -1,7 +1,7 @@
-import common from "./common/main.mjs";
-import mysql from "./mysql/main.mjs";
-import pgsql from "./pgsql/main.mjs";
-import sqlite3 from "./sqlite3/main.mjs";
+import common from "./common/main.mts";
+import mysql from "./mysql/main.mts";
+import pgsql from "./pgsql/main.mts";
+import sqlite3 from "./sqlite3/main.mts";
 
 const sidebar = [
   { text: "SQL", collapsed: true, items: [...common] },

@@ -1,10 +1,10 @@
 // import flexSearchIndexOptions from "flexsearch";
 import { defineConfig } from "vitepress";
 // import { SearchPlugin } from "vitepress-plugin-search";
-import environmentNav from "./nav/environment.mjs";
-import otherNav from "./nav/other.mjs";
-import tutorialNav from "./nav/tutorial.mjs";
-import webNav from "./nav/web.mjs";
+import environmentNav from "./nav/environment.mts";
+import otherNav from "./nav/other.mts";
+import tutorialNav from "./nav/tutorial.mts";
+import webNav from "./nav/web.mts";
 import {
   debian,
   docker,
@@ -19,7 +19,7 @@ import {
   redis,
   sql,
   vitepress,
-} from "./sidebar/main.mjs";
+} from "./sidebar/main.mts";
 
 // const options = {
 //   ...flexSearchIndexOptions,
