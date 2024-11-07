@@ -121,3 +121,27 @@ overrides:
 
 这会强制 Prettier 使用您为所有类型的文件指定的解析器--即使它没有意义，比如试图将 CSS 文件解析为 JavaScript。
 :::
+
+## 案例参考
+
+```json
+{
+    "vueIndentScriptAndStyle": true,
+    "printWidth": 120,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "bracketSameLine": true,
+    "overrides": [
+        {
+            "files": ".prettierrc",
+            "options": { "parser": "json" }
+        },
+        {
+            "files": "*.md",
+            "options": {
+                "tabWidth": 4
+            }
+        }
+    ]
+}
+```
