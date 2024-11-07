@@ -14,11 +14,11 @@ interface VitePressData<T = any> {
   /**
    * Page frontmatter
    */
-  frontmatter: Ref<PageData["frontmatter"]>;
+  frontmatter: Ref<PageData['frontmatter']>;
   /**
    * Dynamic route params
    */
-  params: Ref<PageData["params"]>;
+  params: Ref<PageData['params']>;
   title: Ref<string>;
   description: Ref<string>;
   lang: Ref<string>;

@@ -1,44 +1,35 @@
 [
   // Format File
   {
-    "keys": [
-      "ctrl+k",
-      "ctrl+f"
-    ],
+    "keys": ["ctrl+k", "ctrl+f"],
     "command": "lsp_format_document",
     "context": [
       {
         "key": "lsp.session_with_capability",
-        "operand": "documentFormattingProvider | documentRangeFormattingProvider"
-      }
-    ]
+        "operand": "documentFormattingProvider | documentRangeFormattingProvider",
+      },
+    ],
   },
   // Format Selection
   {
-    "keys": [
-      "ctrl+k",
-      "ctrl+shift+f"
-    ],
+    "keys": ["ctrl+k", "ctrl+shift+f"],
     "command": "lsp_format_document_range",
     "context": [
       {
         "key": "lsp.session_with_capability",
-        "operand": "documentRangeFormattingProvider"
-      }
-    ]
+        "operand": "documentRangeFormattingProvider",
+      },
+    ],
   },
   // Rename
   {
-    "keys": [
-      "ctrl+k",
-      "ctrl+r"
-    ],
+    "keys": ["ctrl+k", "ctrl+r"],
     "command": "lsp_symbol_rename",
     "context": [
       {
         "key": "lsp.session_with_capability",
-        "operand": "renameProvider"
-      }
-    ]
+        "operand": "renameProvider",
+      },
+    ],
   },
 ]

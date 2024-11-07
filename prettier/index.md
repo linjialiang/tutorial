@@ -31,6 +31,8 @@ node --eval "fs.writeFileSync('.prettierignore','# Ignore artifacts:\nbuild\ncov
 pnpm exec prettier . --write
 # 使用Prettier格式化 .vitepress/nav 和 .vitepress/sidebar 目录下的文件
 pnpm exec prettier .vitepress/nav .vitepress/sidebar --write
+# 格式化所有md和mts扩展的文件
+pnpm exec prettier . "**/*.{md,mts}" --write
 ```
 
 ## 配置文件优先级
