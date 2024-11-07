@@ -137,7 +137,7 @@ PathIntellisense 使用 `ts.config.compilerOptions.baseUrl` 作为映射，所�
 
 ::: code-group
 
-```[目录结构]
+```text [目录结构]
 src/module-a/foo.ts
 src/module-b/foo.ts
 ```
