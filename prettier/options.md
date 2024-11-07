@@ -101,10 +101,10 @@ new
 
     ```text
     <button
-      className="prettier-class"
-      id="prettier-id"
-      onClick="{this.handleClick}">
-      Click Here
+        className="prettier-class"
+        id="prettier-id"
+        onClick="{this.handleClick}">
+        Click Here
     </button>
     ```
 

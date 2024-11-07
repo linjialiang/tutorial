@@ -2,19 +2,19 @@
 
 Prettier 是一个有主见的代码格式化程序，原生支持：
 
-- JavaScript
-- JSX
-- Angular
-- Vue
-- Flow
-- TypeScript
-- CSS, Less, SCSS
-- HTML
-- Ember/Handlebars
-- JSON
-- GraphQL
-- Markdown
-- YAML
+-   JavaScript
+-   JSX
+-   Angular
+-   Vue
+-   Flow
+-   TypeScript
+-   CSS, Less, SCSS
+-   HTML
+-   Ember/Handlebars
+-   JSON
+-   GraphQL
+-   Markdown
+-   YAML
 
 以及第三方维护的其他语言扩展
 
@@ -51,35 +51,35 @@ Prettier 参考了 ESLint 的覆盖格式
 
 ```json [JSON]
 {
-  "semi": false,
-  "overrides": [
-    {
-      "files": "*.test.js",
-      "options": {
-        "semi": true
-      }
-    },
-    {
-      "files": ["*.html", "legacy/**/*.js"],
-      "options": {
-        "tabWidth": 4
-      }
-    }
-  ]
+    "semi": false,
+    "overrides": [
+        {
+            "files": "*.test.js",
+            "options": {
+                "semi": true
+            }
+        },
+        {
+            "files": ["*.html", "legacy/**/*.js"],
+            "options": {
+                "tabWidth": 4
+            }
+        }
+    ]
 }
 ```
 
 ```yaml [YAML]
 semi: false
 overrides:
-  - files: "*.test.js"
-    options:
-      semi: true
-  - files:
-      - "*.html"
-      - "legacy/**/*.js"
-    options:
-      tabWidth: 4
+    - files: '*.test.js'
+      options:
+          semi: true
+    - files:
+          - '*.html'
+          - 'legacy/**/*.js'
+      options:
+          tabWidth: 4
 ```
 
 :::
@@ -88,33 +88,33 @@ overrides:
 
 默认情况下，Prettier 会根据输入文件的扩展名自动推断使用哪个解析器。结合 `overrides`，你可以教 Prettier 如何解析它无法识别的文件。
 
-- 例如，要让 Prettier 格式化自己的 `.prettierrc` 文件，您可以执行以下操作：
+-   例如，要让 Prettier 格式化自己的 `.prettierrc` 文件，您可以执行以下操作：
 
-  ```json
-  {
-    "overrides": [
-      {
-        "files": ".prettierrc",
-        "options": { "parser": "json" }
-      }
-    ]
-  }
-  ```
+    ```json
+    {
+        "overrides": [
+            {
+                "files": ".prettierrc",
+                "options": { "parser": "json" }
+            }
+        ]
+    }
+    ```
 
-- 您也可以切换到 `flow` 解析器，而不是默认的.js 文件的 `babel`：
+-   您也可以切换到 `flow` 解析器，而不是默认的.js 文件的 `babel`：
 
-  ```json
-  {
-    "overrides": [
-      {
-        "files": "*.js",
-        "options": {
-          "parser": "flow"
-        }
-      }
-    ]
-  }
-  ```
+    ```json
+    {
+        "overrides": [
+            {
+                "files": "*.js",
+                "options": {
+                    "parser": "flow"
+                }
+            }
+        ]
+    }
+    ```
 
 ::: warning
 注意：不要将 `parser` 选项放在配置的顶层。只能在 `overrides` 里面使用。否则，将禁用 Prettier 的自动文件扩展名为基础来推理解析器的功能。
