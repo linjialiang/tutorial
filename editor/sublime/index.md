@@ -12,7 +12,7 @@ titleTemplate: Sublimt Text 教程
 1. [Sublime Text](http://www.sublimetext.com/download) 这是编辑器
 2. [Sublime Merge](https://www.sublimemerge.com/download) 这是配套版本控制
 
-```目录结构
+```text 目录结构
 ├─ c:/sf/sublime    Sublime Text 根目录
 | ├─ merge          Sublime Merge 根目录
 |
