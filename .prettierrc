@@ -18,8 +18,7 @@
     {
       "files": "*.(html|htm)",
       "options": {
-        "htmlWhitespaceSensitivity": "ignore",
-        "tabWidth": 4
+        "htmlWhitespaceSensitivity": "ignore"
       }
     }
   ]
