@@ -61,6 +61,14 @@ pnpm exec prettier . "**/*.{md,mts}" --write
 
 :::
 
+::: tip prettier 安装到全局的好处
+
+1. 不再不依赖项目本身，单文件也可以执行格式化
+2. sublime/vscode/PhpStorm 等编辑器 ide 可以通过环境变量，很容易获取到 prettier
+3. 如果单文件格式化也想要自定义配置，可以修改对应编辑器的 prettier 配置
+
+:::
+
 ## 配置文件优先级
 
 1. 项目根目录下 `package.<json|yaml>` 文件里的 `"prettier"` 键
