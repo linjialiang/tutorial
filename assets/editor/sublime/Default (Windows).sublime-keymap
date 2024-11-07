@@ -41,5 +41,5 @@
       }
     ]
   },*/
-  { "keys": ["ctrl+k", "ctrl+f"], "command": "js_prettier" }
+  { "keys": ["ctrl+k", "ctrl+f"], "command": "js_prettier" },
 ]

@@ -27,9 +27,9 @@ CLI 使用 Docker API 通过脚本或直接 CLI 命令来控制 Docker 守护程
 
 要安装 Docker 引擎，您需要这些 Debian 版本之一的 64 位版本：
 
-- Debian Bookworm 12 (testing)
-- Debian Bullseye 11 (stable)
-- Debian Buster 10 (oldstable)
+-   Debian Bookworm 12 (testing)
+-   Debian Bullseye 11 (stable)
+-   Debian Buster 10 (oldstable)
 
 Docker Engine for Debian 兼容 x86_64（或 amd64）、armhf 和 arm64 架构。
 
@@ -41,10 +41,10 @@ Docker Engine for Debian 兼容 x86_64（或 amd64）、armhf 和 arm64 架构�
 
 要卸载的非官方软件包是：
 
-- docker.io
-- docker-compose
-- docker-doc
-- podman-docker
+-   docker.io
+-   docker-compose
+-   docker-doc
+-   podman-docker
 
 ```bash
 apt autoremove docker.io docker-doc docker-compose podman-docker containerd runc --purge
@@ -74,52 +74,52 @@ rm -rf /var/lib/containerd
 
 1. 更新 apt 包索引并安装包以允许 apt 通过 HTTPS 使用存储库：
 
-   ```bash
-   apt update -y
-   apt install ca-certificates curl gnupg -y
-   ```
+    ```bash
+    apt update -y
+    apt install ca-certificates curl gnupg -y
+    ```
 
 2. 添加 Docker 的官方 GPG 密钥：
 
-   ::: code-group
+    ::: code-group
 
-   ```bash [中科大]
-   install -m 0755 -d /etc/apt/keyrings
-   curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/debian/gpg \
-   | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-   chmod a+r /etc/apt/keyrings/docker.gpg
-   ```
+    ```bash [中科大]
+    install -m 0755 -d /etc/apt/keyrings
+    curl -fsSL https://mirrors.ustc.edu.cn/docker-ce/linux/debian/gpg \
+    | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    chmod a+r /etc/apt/keyrings/docker.gpg
+    ```
 
-   ```bash [官网]
-   install -m 0755 -d /etc/apt/keyrings
-   curl -fsSL https://download.docker.com/linux/debian/gpg \
-   | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-   chmod a+r /etc/apt/keyrings/docker.gpg
-   ```
+    ```bash [官网]
+    install -m 0755 -d /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/debian/gpg \
+    | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    chmod a+r /etc/apt/keyrings/docker.gpg
+    ```
 
-   :::
+    :::
 
 3. 使用以下命令设置存储库：
 
-   路径： `/etc/apt/sources.list.d/docker.list`
+    路径： `/etc/apt/sources.list.d/docker.list`
 
-   ::: code-group
+    ::: code-group
 
-   ```bash [中科大]
-   echo \
-   "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] \
-   http://mirrors.ustc.edu.cn/docker-ce/linux/debian bookworm stable" \
-   | tee /etc/apt/sources.list.d/docker.list > /dev/null
-   ```
+    ```bash [中科大]
+    echo \
+    "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] \
+    http://mirrors.ustc.edu.cn/docker-ce/linux/debian bookworm stable" \
+    | tee /etc/apt/sources.list.d/docker.list > /dev/null
+    ```
 
-   ```bash [官网]
-   echo \
-   "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] \
-   https://download.docker.com/linux/debian bookworm stable" \
-   | tee /etc/apt/sources.list.d/docker.list > /dev/null
-   ```
+    ```bash [官网]
+    echo \
+    "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] \
+    https://download.docker.com/linux/debian bookworm stable" \
+    | tee /etc/apt/sources.list.d/docker.list > /dev/null
+    ```
 
-   :::
+    :::
 
 ## 安装 Docker CE 引擎
 

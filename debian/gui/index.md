@@ -163,8 +163,8 @@ dpkg -i ./wps-office_11.1.0.11664_amd64.deb
 
 wps 需要额外安装两组字体，安装方式见 [[手工安装字体]](#install_fonts)
 
-- WEBDINGS.ttf
-- wps_symbol_fonts.zip
+-   WEBDINGS.ttf
+-   wps_symbol_fonts.zip
 
 :::
 

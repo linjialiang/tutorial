@@ -92,8 +92,8 @@ apt install mysql-server
 
 MySQL 安装成功后，自动配置好 Unit 单元服务器
 
-- 原始地址：`/lib/systemd/system/mysql.service`
-- 创建链接：`/etc/systemd/system/multi-user.target.wants/mysql.service`
+-   原始地址：`/lib/systemd/system/mysql.service`
+-   创建链接：`/etc/systemd/system/multi-user.target.wants/mysql.service`
 
 ::: details MySQL 系统单元配置文件：
 <<<@/assets/environment/source/service/mysqld-84.service{ini}
@@ -158,8 +158,8 @@ MySQL 默认配置的内容较少，我们可以参考 MariaDB 以及 MySQL 官�
 
 这主要取决于您是否希望服务器为 'root'@'localhost' 帐户：`生成随机的初始密码` 或 `创建没有密码的帐户`：
 
-- `--initialize` 安装时，会为 root 账户生成随机密码，并且该密码被标记为已过期，如果非系统 root 用户登录，您必须创建一个新密码
-- `--initialize-insecure` 默认不生成 root 密码，这是不安全；
+-   `--initialize` 安装时，会为 root 账户生成随机密码，并且该密码被标记为已过期，如果非系统 root 用户登录，您必须创建一个新密码
+-   `--initialize-insecure` 默认不生成 root 密码，这是不安全；
 
 ### 2. 数据初始化指令
 
@@ -188,8 +188,8 @@ MySQL 服务器端的 `auth_socket 验证插件` 支持 Socket Peer-Credential �
 
 安装 MySQL 时，通常会自动安装 `auth_socket` 插件，但 `auth_socket` 不是内置插件，需要手动加载
 
-- 路径: `/usr/lib/mysql/plugin/auth_socket.so`
-- MySQL 默认插件路径： `/usr/lib/mysql/plugin`，使用 `plugin_dir` 选项可以指定插件目录
+-   路径: `/usr/lib/mysql/plugin/auth_socket.so`
+-   MySQL 默认插件路径： `/usr/lib/mysql/plugin`，使用 `plugin_dir` 选项可以指定插件目录
 
 ### 2. 加载插件
 
@@ -268,51 +268,51 @@ mysql> UNINSTALL PLUGIN auth_socket;
 
 1. 检查系统用户名
 
-   操作系统用户名跟 MySQL 的套接字用户名匹配后，由 MySQL 服务器端程序向指定的客户端操作系统用户建立连接
+    操作系统用户名跟 MySQL 的套接字用户名匹配后，由 MySQL 服务器端程序向指定的客户端操作系统用户建立连接
 
-   ::: tip
-   亲测：`auth_socket` 验证方式只支持本机客户端操作系统用户连接数据库
-   :::
+    ::: tip
+    亲测：`auth_socket` 验证方式只支持本机客户端操作系统用户连接数据库
+    :::
 
 2. 检查 `mysql.user` 表
 
-   如果检查系统用户名失败，`auth_socket 验证插件` 会继续检查套接字用户名是否跟 `mysql.user` 表的 `authentication_string 字段` 中的行匹配；
+    如果检查系统用户名失败，`auth_socket 验证插件` 会继续检查套接字用户名是否跟 `mysql.user` 表的 `authentication_string 字段` 中的行匹配；
 
-   如果匹配则由客户端程序给指定的服务器建立连接，其中 `authentication_string` 的值可以使用下面的方式实现：
+    如果匹配则由客户端程序给指定的服务器建立连接，其中 `authentication_string` 的值可以使用下面的方式实现：
 
-   ::: details 为本机客户端操作系统用户，通过套接字文件建立数据库连接
+    ::: details 为本机客户端操作系统用户，通过套接字文件建立数据库连接
 
-   ```bash
-   # 首次添加用户用户，采用 CREATE USER
-   CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
-   # 更新用户，采用 ALTER USER
-   ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
-   # 首次添加用户，'root'@'localhost' 用户除了系统root登录外还支持系统mysql用户登录
-   CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'mysql';
-   # 更新用户，'root'@'localhost' 用户除了系统root登录外还支持系统mysql用户登录
-   ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'mysql';
+    ```bash
+    # 首次添加用户用户，采用 CREATE USER
+    CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
+    # 更新用户，采用 ALTER USER
+    ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
+    # 首次添加用户，'root'@'localhost' 用户除了系统root登录外还支持系统mysql用户登录
+    CREATE USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'mysql';
+    # 更新用户，'root'@'localhost' 用户除了系统root登录外还支持系统mysql用户登录
+    ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket AS 'mysql';
 
-   # 删除 'root'@'localhost' 用户
-   DROP USER 'root'@'localhost';
-   ```
+    # 删除 'root'@'localhost' 用户
+    DROP USER 'root'@'localhost';
+    ```
 
-   :::
+    :::
 
 ### 5. 登录
 
 统一登录方式：`mysql -u <mysql用户名> -h <主机地址>`，MySQL 客户端支持简写，具体如下：
 
-- 系统 root 用户登录 `root@localhost`
+-   系统 root 用户登录 `root@localhost`
 
-  ```bash
-  mysql
-  ```
+    ```bash
+    mysql
+    ```
 
-- 系统 www 用户登录 `root@localhost`
+-   系统 www 用户登录 `root@localhost`
 
-  ```bash
-  mysql -u root
-  ```
+    ```bash
+    mysql -u root
+    ```
 
 ## 启用安全更新模式
 
@@ -355,9 +355,9 @@ MySQL 8.0.13 之前，bind_address 值，只能接受单个地址：
 
 1. 可以指定单个非通配符 IP 地址或主机名，如：`127.0.0.1`
 2. 允许在多个网络接口上监听的通配符地址格式之一：
-   - `*` - 支持全部 ipv4 和 ipv6
-   - `0.0.0.0` - 支持全部 ipv4
-   - `::` - 支持全部 ipv6
+    - `*` - 支持全部 ipv4 和 ipv6
+    - `0.0.0.0` - 支持全部 ipv4
+    - `::` - 支持全部 ipv6
 
 :::
 
@@ -366,13 +366,13 @@ MySQL 8.0.13 之前，bind_address 值，只能接受单个地址：
 MySQL 8.0.13 之后，bind_address 值，可以接受单个地址或地址列表：
 
 1. 可以指定单个或多个非通配符 IP 地址或主机名，如：
-   - `127.0.0.1`
-   - `127.0.0.1,192.168.10.201`
-   - 注意：不允许出现通配符 ip
+    - `127.0.0.1`
+    - `127.0.0.1,192.168.10.201`
+    - 注意：不允许出现通配符 ip
 2. 允许在多个网络接口上监听的通配符地址格式之一：
-   - `*` - 支持全部 ipv4 和 ipv6
-   - `0.0.0.0` - 支持全部 ipv4
-   - `::` - 支持全部 ipv6
+    - `*` - 支持全部 ipv4 和 ipv6
+    - `0.0.0.0` - 支持全部 ipv4
+    - `::` - 支持全部 ipv6
 
 :::
 
@@ -380,8 +380,8 @@ MySQL 8.0.13 之后，bind_address 值，可以接受单个地址或地址列表
 
 `skip_external_locking` 选项用于锁定外部访问，只影响 MyISAM 表的访问
 
-- 未配置（`off`），mysqld 使用外部锁定（系统锁定），外部无法访问 MyISAM 表
-- 已配置（`on`），mysqld 外部锁定被禁用，外部可以访问 MyISAM 表
+-   未配置（`off`），mysqld 使用外部锁定（系统锁定），外部无法访问 MyISAM 表
+-   已配置（`on`），mysqld 外部锁定被禁用，外部可以访问 MyISAM 表
 
 ### 3. skip_name_resolve
 

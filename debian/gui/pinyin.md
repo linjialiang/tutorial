@@ -7,10 +7,10 @@ titleTemplate: Debian 教程
 
 Linux 上的输入法框架主要是 `Fcitx`、`Fcitx5` 和 `IBus` 三种，通过使用经验来讲：
 
-- IBus 对 GKT 包比较友好
-- Fcitx 对 QT 包比较友好
-- Fcitx5 作为 Fcitx 的更新版本，对 `GKT包` 和 `QT包` 都有较好的支持
-- 针对 Wayland 桌面协议：暂时只有 Fcitx5 提供了基本支持
+-   IBus 对 GKT 包比较友好
+-   Fcitx 对 QT 包比较友好
+-   Fcitx5 作为 Fcitx 的更新版本，对 `GKT包` 和 `QT包` 都有较好的支持
+-   针对 Wayland 桌面协议：暂时只有 Fcitx5 提供了基本支持
 
 ## IBus 输入法
 
@@ -51,7 +51,7 @@ git clone git@github.com:iDvel/rime-ice.git
 
 ```yaml
 style:
-  horizontal: true
+    horizontal: true
 ```
 
 3. 重新部署 ibus-rime
@@ -170,9 +170,9 @@ apt install fcitx5-material-color -y
 
 ```yaml
 switches:
-  - name: ascii_mode
-    reset: 1 // [!code ++]
-    states: [中, Ａ]
+    - name: ascii_mode
+      reset: 1 // [!code ++]
+      states: [中, Ａ]
 ```
 
 :::

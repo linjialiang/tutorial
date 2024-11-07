@@ -11,8 +11,8 @@ titleTemplate: 环境搭建教程
 
 测试环境 `虚拟机` 的系统参数如下：
 
-- 系统 :` Debian GNU/Linux 12 (Bookworm) x86_64`
-- 内核 : `linux-image-6.1.0-26-amd64`
+-   系统 :` Debian GNU/Linux 12 (Bookworm) x86_64`
+-   内核 : `linux-image-6.1.0-26-amd64`
 
 ::: details PHP 环境目录结构
 
@@ -46,42 +46,42 @@ titleTemplate: 环境搭建教程
 
 ```md [lnmpp]
 1. nginx-1.26.2.tar.gz
-   - openssl-3.0.15.tar.gz
-   - pcre2-10.44.tar.bz2
-   - zlib-1.3.1.tar.xz
+    - openssl-3.0.15.tar.gz
+    - pcre2-10.44.tar.bz2
+    - zlib-1.3.1.tar.xz
 2. redis-7.4.1.tar.gz
 3. mysql-8.4.3.tar.gz
 4. postgresql-17.0.tar.bz2
 5. php-8.3.13.tar.xz
-   - xdebug-3.3.2.tgz `动态扩展`
-   - apcu-5.1.24.tgz `动态扩展`
-   - mongodb-1.20.0.tgz `动态扩展`
-   - redis-6.1.0.tgz `动态扩展`
-   - yaml-2.2.4.tgz `动态扩展`
+    - xdebug-3.3.2.tgz `动态扩展`
+    - apcu-5.1.24.tgz `动态扩展`
+    - mongodb-1.20.0.tgz `动态扩展`
+    - redis-6.1.0.tgz `动态扩展`
+    - yaml-2.2.4.tgz `动态扩展`
 ```
 
 ```md [lnpp]
 1. nginx-1.26.2.tar.gz
-   - openssl-3.0.15.tar.gz
-   - pcre2-10.44.tar.bz2
-   - zlib-1.3.1.tar.xz
+    - openssl-3.0.15.tar.gz
+    - pcre2-10.44.tar.bz2
+    - zlib-1.3.1.tar.xz
 2. redis-7.4.1.tar.gz
 3. postgresql-17.0.tar.bz2
 4. php-8.3.12.tar.xz
-   - xdebug-3.3.2.tgz `动态扩展`
-   - redis-6.0.2.tgz `动态扩展`
+    - xdebug-3.3.2.tgz `动态扩展`
+    - redis-6.0.2.tgz `动态扩展`
 ```
 
 ```md [lnmp]
 1. nginx-1.26.2.tar.gz
-   - openssl-3.0.15.tar.gz
-   - pcre2-10.44.tar.bz2
-   - zlib-1.3.1.tar.xz
+    - openssl-3.0.15.tar.gz
+    - pcre2-10.44.tar.bz2
+    - zlib-1.3.1.tar.xz
 2. redis-7.4.1.tar.gz
 3. mysql-8.4.3.tar.gz
 4. php-8.3.12.tar.xz
-   - xdebug-3.3.2.tgz `动态扩展`
-   - redis-6.0.2.tgz `动态扩展`
+    - xdebug-3.3.2.tgz `动态扩展`
+    - redis-6.0.2.tgz `动态扩展`
 ```
 
 :::
@@ -94,33 +94,33 @@ titleTemplate: 环境搭建教程
 
 1. 初始化阶段：
 
-   - master 进程：负责读取和验证 Nginx 配置文件，初始化工作环境。
-   - worker 进程：由 master 进程根据配置文件中定义的 worker_processes 参数创建，数量通常与服务器的 CPU 核数一致，以充分利用多核特性。
+    - master 进程：负责读取和验证 Nginx 配置文件，初始化工作环境。
+    - worker 进程：由 master 进程根据配置文件中定义的 worker_processes 参数创建，数量通常与服务器的 CPU 核数一致，以充分利用多核特性。
 
 2. 监听和接受连接阶段：
 
-   - master 进程：在初始化完成后，master 进程会监听配置中指定的端口。
-   - worker 进程：负责接受来自客户端的连接请求。由于 worker 进程与 CPU 核心绑定，可以高效地处理并发连接。
+    - master 进程：在初始化完成后，master 进程会监听配置中指定的端口。
+    - worker 进程：负责接受来自客户端的连接请求。由于 worker 进程与 CPU 核心绑定，可以高效地处理并发连接。
 
 3. 处理请求阶段：
 
-   - master 进程：不直接参与请求的处理，主要负责监控和管理 worker 进程。
-   - worker 进程：每个 worker 进程只有一个线程，它们独立处理请求，执行如解析请求头、查找配置、重写 URI、访问权限检查等任务，并将结果返回给客户端。
+    - master 进程：不直接参与请求的处理，主要负责监控和管理 worker 进程。
+    - worker 进程：每个 worker 进程只有一个线程，它们独立处理请求，执行如解析请求头、查找配置、重写 URI、访问权限检查等任务，并将结果返回给客户端。
 
 4. 发送响应阶段：
 
-   - master 进程：继续监控 worker 进程的状态，确保系统稳定运行。
-   - worker 进程：负责将响应数据发送回客户端，并记录访问日志。
+    - master 进程：继续监控 worker 进程的状态，确保系统稳定运行。
+    - worker 进程：负责将响应数据发送回客户端，并记录访问日志。
 
 5. 关闭连接阶段：
 
-   - master 进程：不直接参与连接的关闭。
-   - worker 进程：在完成响应后，负责关闭与客户端的连接。
+    - master 进程：不直接参与连接的关闭。
+    - worker 进程：在完成响应后，负责关闭与客户端的连接。
 
 6. 重新加载和退出阶段：
 
-   - master 进程：处理信号如 SIGTERM 来平滑退出或重新加载配置文件，创建新的 worker 进程来替换旧的 worker 进程，从而不影响正在处理的请求。
-   - worker 进程：在收到退出信号后，完成当前请求的处理，然后退出。
+    - master 进程：处理信号如 SIGTERM 来平滑退出或重新加载配置文件，创建新的 worker 进程来替换旧的 worker 进程，从而不影响正在处理的请求。
+    - worker 进程：在收到退出信号后，完成当前请求的处理，然后退出。
 
 ::: tip 总结：
 
@@ -138,19 +138,19 @@ php-fpm 处理一次请求的生命周期包括请求接收、请求处理和请
 
 1. 请求接收阶段：
 
-   当 php-fpm 的 master 进程接收到一个来自 Web 服务器（如 Nginx）的请求时，它会加锁以避免多个 worker 进程同时处理同一个请求，这在 Linux 中称为"惊群问题"。
+    当 php-fpm 的 master 进程接收到一个来自 Web 服务器（如 Nginx）的请求时，它会加锁以避免多个 worker 进程同时处理同一个请求，这在 Linux 中称为"惊群问题"。
 
-   Master 进程随后会指派一个可用的 worker 进程来处理这个请求。如果没有可用的 worker 进程，将返回错误，这也是在使用 Nginx 配合 php-fpm 时可能遇到 502 错误的一个原因。
+    Master 进程随后会指派一个可用的 worker 进程来处理这个请求。如果没有可用的 worker 进程，将返回错误，这也是在使用 Nginx 配合 php-fpm 时可能遇到 502 错误的一个原因。
 
 2. 请求处理阶段：
 
-   被指派的 worker 进程开始处理请求。这个过程中，worker 进程会执行 PHP 脚本并生成响应结果。如果处理过程超时，可能会返回 504 错误。
+    被指派的 worker 进程开始处理请求。这个过程中，worker 进程会执行 PHP 脚本并生成响应结果。如果处理过程超时，可能会返回 504 错误。
 
-   Worker 进程内部嵌入了 PHP 解释器，是 PHP 代码实际执行的地方。
+    Worker 进程内部嵌入了 PHP 解释器，是 PHP 代码实际执行的地方。
 
 3. 请求结束阶段：
 
-   一旦 worker 进程完成了请求处理，它会将结果返回给 Web 服务器，从而完成整个请求的处理周期。
+    一旦 worker 进程完成了请求处理，它会将结果返回给 Web 服务器，从而完成整个请求的处理周期。
 
 :::
 
@@ -181,19 +181,19 @@ php-fpm 处理一次请求的生命周期包括请求接收、请求处理和请
 
 > Nginx 主进程：
 
-- master 进程用户需要有 worker 进程用户的全部权限，master 进程用户类型：
-  1.  特权用户(root)：worker 进程可以指定为其它非特权用户；
-  2.  非特权用户：worker 进程跟 master 进程是同一个用户。
+-   master 进程用户需要有 worker 进程用户的全部权限，master 进程用户类型：
+    1.  特权用户(root)：worker 进程可以指定为其它非特权用户；
+    2.  非特权用户：worker 进程跟 master 进程是同一个用户。
 
 > Nginx 工作进程：
 
-- worker 进程负责处理实际的用户请求
-- 代理转发和接收代理响应都是由 worker 进程处理
+-   worker 进程负责处理实际的用户请求
+-   代理转发和接收代理响应都是由 worker 进程处理
 
 > Nginx 配置文件 `user` 指令限制说明：
 
-- 主进程是特权用户(root)：`user` 指令是有意义，用于指定工作进程用户和用户组
-- 主进程是非特权用户：`user` 指令没有意义，会被 Nginx 程序忽略掉
+-   主进程是特权用户(root)：`user` 指令是有意义，用于指定工作进程用户和用户组
+-   主进程是非特权用户：`user` 指令没有意义，会被 Nginx 程序忽略掉
 ```
 
 ```md [PHP-FPM 进程]
@@ -204,16 +204,16 @@ php-fpm 处理一次请求的生命周期包括请求接收、请求处理和请
 
 > PHP-FPM 主进程：
 
-- master 进程负责管理 pool 进程
-- master 进程创建和管理 pool 进程的 sock 文件
-- master 进程需要有 pool 进程用户的全部权限，master 进程用户类型：
-  1.  特权用户（root）：pool 进程可以指定为其它非特权用户
-  2.  非特权用户：pool 进程用户跟 master 进程用户相同
+-   master 进程负责管理 pool 进程
+-   master 进程创建和管理 pool 进程的 sock 文件
+-   master 进程需要有 pool 进程用户的全部权限，master 进程用户类型：
+    1.  特权用户（root）：pool 进程可以指定为其它非特权用户
+    2.  非特权用户：pool 进程用户跟 master 进程用户相同
 
 > PHP-FPM 工作池进程：
 
-- pool 进程独立地处理请求，执行 PHP 脚本代码
-- pool 进程处理完 PHP 代码后，会直接将结果返回给客户端
+-   pool 进程独立地处理请求，执行 PHP 脚本代码
+-   pool 进程处理完 PHP 代码后，会直接将结果返回给客户端
 ```
 
 ```md [代理转发]
@@ -227,38 +227,38 @@ php-fpm 处理一次请求的生命周期包括请求接收、请求处理和请
 
 > nginx 站点代理转发 php 请求时：
 
-- Nginx 主进程用户不需要对 PHP-FPM 的 socket 文件拥有任何权限，处理请求的是工作进程
-- Nginx 工作进程用户需要对 PHP-FPM 的 socket 文件具有 `读+写` 权限
-  1.  读取权限：Nginx 工作进程需要读取 socket 文件以发送请求到 PHP-FPM
-  2.  写入权限：Nginx 工作进程也需要写入权限，以便接收来自 PHP-FPM 的响应
-- PHP-FPM 主进程用户需要对 sock 文件具有全部权限
-  1. 创建/删除 pool 进程的 sock 文件
-  2. 监听指定的端口或 Unix 套接字文件，以便接收来自 Web 服务器（如 Nginx）的请求。
-  3. 由
+-   Nginx 主进程用户不需要对 PHP-FPM 的 socket 文件拥有任何权限，处理请求的是工作进程
+-   Nginx 工作进程用户需要对 PHP-FPM 的 socket 文件具有 `读+写` 权限
+    1.  读取权限：Nginx 工作进程需要读取 socket 文件以发送请求到 PHP-FPM
+    2.  写入权限：Nginx 工作进程也需要写入权限，以便接收来自 PHP-FPM 的响应
+-   PHP-FPM 主进程用户需要对 sock 文件具有全部权限
+    1. 创建/删除 pool 进程的 sock 文件
+    2. 监听指定的端口或 Unix 套接字文件，以便接收来自 Web 服务器（如 Nginx）的请求。
+    3. 由
 
 > PHP-FPM 的套接字文件：
 
-- pool 进程的 sock 文件监听用户: `php-fpm`
-- pool 进程的 sock 文件监听用户组: `nginx`
-- pool 进程的 sock 文件监听权限: `0660`
-- 用户 php-fpm 的附属用户组增加 `nginx`
+-   pool 进程的 sock 文件监听用户: `php-fpm`
+-   pool 进程的 sock 文件监听用户组: `nginx`
+-   pool 进程的 sock 文件监听权限: `0660`
+-   用户 php-fpm 的附属用户组增加 `nginx`
 ```
 
 :::
 
 ### 用户职责
 
-- `用户 nginx` 是 Nginx worker 进程的 Unix 用户
-- `用户 php-fpm` 是 PHP-FPM 子进程的 Unix 用户
-- `用户 emad` 是开发者操作项目资源、文件的用户
+-   `用户 nginx` 是 Nginx worker 进程的 Unix 用户
+-   `用户 php-fpm` 是 PHP-FPM 子进程的 Unix 用户
+-   `用户 emad` 是开发者操作项目资源、文件的用户
 
 ### 用户权限
 
 ::: code-group
 
 ```md [nginx]
-- 对静态文件需提供 `读` 的权限
-- 对 php-fpm 的 `unix socket` 文件提供了读写的权限
+-   对静态文件需提供 `读` 的权限
+-   对 php-fpm 的 `unix socket` 文件提供了读写的权限
 
 浏览器等客户端使用 nginx 用户浏览网站：1)加载静态文件; 2) php-fpm 的 `unix socket` 文件传输
 
@@ -269,14 +269,14 @@ php-fpm 处理一次请求的生命周期包括请求接收、请求处理和请
 ```md [php-fpm]
 1. FPM 进程运行的 Unix 用户，对 php 脚本、php 所需的配置文件需要 `读` 的权限；
 2. 当 php 需要操作文件或目录时，需要提供 `读+写` 权限：
-   - 如：框架中记录运行时日志、缓存的 runtime 目录，就需要 `读+写` 全新
+    - 如：框架中记录运行时日志、缓存的 runtime 目录，就需要 `读+写` 全新
 3. 除此以外，php-fpm 用户通常不需要其他权限
 ```
 
 ```md [emad]
-- 开发环境：需要对 php 文件、静态文件有 `读+写` 的权限;
-- 部署环境：平时可以不提供任何权限，因为该用户与服务没有关联;
-- 部署环境：对需要变动的文件，需要具有`读+写`的权限;
+-   开发环境：需要对 php 文件、静态文件有 `读+写` 的权限;
+-   部署环境：平时可以不提供任何权限，因为该用户与服务没有关联;
+-   部署环境：对需要变动的文件，需要具有`读+写`的权限;
 
 > 说明：emad 泛指开发者账户，你可以取其它名字
 ```
@@ -428,9 +428,9 @@ source ~/.profile
 ::: code-group
 
 ```md [说明]
-- MySQL 默认有个超级管理员用户 `admin` 密码 `1`
-- PostgreSQL 默认有个超级管理员用户 `admin` 密码 `1`
-- Redis 默认设置了全局密码 `1`
+-   MySQL 默认有个超级管理员用户 `admin` 密码 `1`
+-   PostgreSQL 默认有个超级管理员用户 `admin` 密码 `1`
+-   Redis 默认设置了全局密码 `1`
 ```
 
 <<<@/assets/environment/lnpp-setup.sh [lnpp]

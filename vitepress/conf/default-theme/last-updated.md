@@ -17,7 +17,7 @@ lastUpdated 依赖于项目的版本控制工具，您需要提交 md 文件，�
 
 ```ts
 export default {
-  lastUpdated: true,
+    lastUpdated: true,
 };
 ```
 

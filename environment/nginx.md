@@ -338,20 +338,20 @@ nginx 的用户身份认证，仅区分登录用户和非登录用户的访问�
 
 该指令，用于控制 nginx 是否开启 `HTTP 基本身份验证` 功能
 
-- 语法 : auth_basic string | off;
-- 默认 : auth_basic off；
-- 区块 : http 、 server 、 location 、 limit_except
+-   语法 : auth_basic string | off;
+-   默认 : auth_basic off；
+-   区块 : http 、 server 、 location 、 limit_except
 
 > 语法分析：
 
-- off : 表示关闭 `HTTP 基本身份验证` 功能，这是默认值
-- string : 任意字符串，表示开启 `HTTP 基本身份验证` 功能，并且字符串会作为登录提示信息出现
+-   off : 表示关闭 `HTTP 基本身份验证` 功能，这是默认值
+-   string : 任意字符串，表示开启 `HTTP 基本身份验证` 功能，并且字符串会作为登录提示信息出现
 
 > 区块说明：
 
-- 通常不会在 http 区块上开启 `HTTP 基本身份验证` 功能，除非服务器上所有网站都仅供内部访问
-- server 和 location 区块是最常使用的
-- 当然 `HTTP 基本身份验证` 功能，只有非常简单的站点需要使用它，比如：纯静态资源站或者其它没有认证系统的网站
+-   通常不会在 http 区块上开启 `HTTP 基本身份验证` 功能，除非服务器上所有网站都仅供内部访问
+-   server 和 location 区块是最常使用的
+-   当然 `HTTP 基本身份验证` 功能，只有非常简单的站点需要使用它，比如：纯静态资源站或者其它没有认证系统的网站
 
 ::: warning 注意
 在同一区块，仅一个 `auth_basic` 生效，后面覆盖前面
@@ -361,9 +361,9 @@ nginx 的用户身份认证，仅区分登录用户和非登录用户的访问�
 
 该指令，用于指定保存用户名和密码的文件
 
-- 语法 : auth_basic_user_file file;
-- 默认 : —
-- 区块 : http 、 server 、 location 、 limit_except
+-   语法 : auth_basic_user_file file;
+-   默认 : —
+-   区块 : http 、 server 、 location 、 limit_except
 
 > 指定保存用户名和密码的文件，格式如下：
 

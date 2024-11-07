@@ -7,13 +7,13 @@ titleTemplate: Docker 教程
 
 卷(volumes)是持久保存由 Docker 容器生成和使用的数据类型的首选机制。虽然绑定挂载(Bind mounts)取决于主机的目录结构和操作系统，但卷完全由 Docker 管理。与绑定挂载相比，卷有几个优点：
 
-- 卷比绑定挂载更易于备份或迁移。
-- 您可以使用 Docker CLI 命令或 Docker API 管理卷。
-- 卷适用于 Linux 和 Windows 容器。
-- 卷可以在多个容器之间更安全地共享。
-- 卷驱动程序允许您在远程主机或云提供商上存储卷，以加密卷的内容或添加其他功能。
-- 新卷的内容可以由容器预填充。
-- Docker Desktop 上的卷比来自 Mac 和 Windows 主机的绑定挂载具有更高的性能。
+-   卷比绑定挂载更易于备份或迁移。
+-   您可以使用 Docker CLI 命令或 Docker API 管理卷。
+-   卷适用于 Linux 和 Windows 容器。
+-   卷可以在多个容器之间更安全地共享。
+-   卷驱动程序允许您在远程主机或云提供商上存储卷，以加密卷的内容或添加其他功能。
+-   新卷的内容可以由容器预填充。
+-   Docker Desktop 上的卷比来自 Mac 和 Windows 主机的绑定挂载具有更高的性能。
 
 此外，卷通常是比将数据持久保存在容器的可写层中更好的选择，因为卷不会增加使用它的容器的大小，并且卷的内容存在于给定容器的生命周期之外。
 
@@ -30,20 +30,20 @@ titleTemplate: Docker 教程
 ::: details -v 或 --volume
 `-v` 或 `--volume` 由三个字段组成，用冒号（`:`）字符分隔。字段必须按正确的顺序排列，并且每个字段的含义并不明显。
 
-- 对于命名卷，第一个字段是卷的名称，在给定主机上是唯一的。对于匿名卷，省略第一个字段。
-- 第二个字段是文件或目录在容器中装载的路径。
-- 第三个字段是可选的，并且是以逗号分隔的选项列表，例如 `ro` 。下面将讨论这些选项。
+-   对于命名卷，第一个字段是卷的名称，在给定主机上是唯一的。对于匿名卷，省略第一个字段。
+-   第二个字段是文件或目录在容器中装载的路径。
+-   第三个字段是可选的，并且是以逗号分隔的选项列表，例如 `ro` 。下面将讨论这些选项。
 
 :::
 
 ::: details --mount
 `--mount` ：由多个键值对组成，用逗号分隔，每个键值对由一个 `<key>=<value>` 元组组成。 `--mount` 语法比 `-v 或 --volume` 更详细，但键的顺序并不重要，并且标志的值更容易理解。
 
-- 装载的 `type` ，可以是 `bind` 、 `volume` 或 `tmpfs` 。本主题讨论卷，因此类型始终为 `volume` 。
-- 装载的 `source` 。对于命名卷，这是卷的名称。对于匿名卷，将省略此字段。可以指定为 `source` 或 `src` 。
-- `destination` 将文件或目录在容器中装载的路径作为其值。可以指定为 `destination` 、 `dst` 或 `target` 。
-- `readonly` 选项（如果存在）会导致绑定装载以只读方式装载到容器中。可以指定为 `readonly` 或 `ro` 。
-- `volume-opt` 选项可以多次指定，它采用由选项名称及其值组成的键值对。
+-   装载的 `type` ，可以是 `bind` 、 `volume` 或 `tmpfs` 。本主题讨论卷，因此类型始终为 `volume` 。
+-   装载的 `source` 。对于命名卷，这是卷的名称。对于匿名卷，将省略此字段。可以指定为 `source` 或 `src` 。
+-   `destination` 将文件或目录在容器中装载的路径作为其值。可以指定为 `destination` 、 `dst` 或 `target` 。
+-   `readonly` 选项（如果存在）会导致绑定装载以只读方式装载到容器中。可以指定为 `readonly` 或 `ro` 。
+-   `volume-opt` 选项可以多次指定，它采用由选项名称及其值组成的键值对。
 
 ::: tip 来自外部 CSV 解析器的转义值
 
@@ -188,12 +188,12 @@ docker volume rm myvol2
 
 ```yaml
 services:
-  frontend:
-    image: node:lts
-    volumes:
-      - myapp:/home/node/app
+    frontend:
+        image: node:lts
+        volumes:
+            - myapp:/home/node/app
 volumes:
-  myapp:
+    myapp:
 ```
 
 首次运行 `docker compose up` 会创建一个卷。Docker 在随后运行命令时重复使用相同的卷。
@@ -202,13 +202,13 @@ volumes:
 
 ```yaml
 services:
-  frontend:
-    image: node:lts
-    volumes:
-      - myapp:/home/node/app
+    frontend:
+        image: node:lts
+        volumes:
+            - myapp:/home/node/app
 volumes:
-  myapp:
-    external: true
+    myapp:
+        external: true
 ```
 
 :::
@@ -460,42 +460,42 @@ docker run \
 
 1. 创建一个文件并为其分配一些空间：
 
-   ```bash
-   fallocate -f 1G disk.raw
-   ```
+    ```bash
+    fallocate -f 1G disk.raw
+    ```
 
 2. 在 disk.raw 文件上构建文件系统：
 
-   ```bash
-   mkfs.ext4 disk.raw
-   ```
+    ```bash
+    mkfs.ext4 disk.raw
+    ```
 
 3. 创建循环设备：
 
-   ```bash
-   losetup -f --show disk.raw
-   /dev/loop5
-   ```
+    ```bash
+    losetup -f --show disk.raw
+    /dev/loop5
+    ```
 
-   ::: tip
-   `losetup` 创建一个临时循环设备，该设备在系统重新启动后删除，或使用 `losetup -d` 手动删除。
-   :::
+    ::: tip
+    `losetup` 创建一个临时循环设备，该设备在系统重新启动后删除，或使用 `losetup -d` 手动删除。
+    :::
 
 4. 运行将循环设备挂载为卷的容器：
 
-   ```bash
-   docker run -it --rm \
-   --mount='type=volume,dst=/external-drive,volume-driver=local,volume-opt=device=/dev/loop5,volume-opt=type=ext4' \
-   ubuntu bash
-   ```
+    ```bash
+    docker run -it --rm \
+    --mount='type=volume,dst=/external-drive,volume-driver=local,volume-opt=device=/dev/loop5,volume-opt=type=ext4' \
+    ubuntu bash
+    ```
 
-   当容器启动时，路径 /external-drive 将主机文件系统中的 disk.raw 文件挂载为块设备。
+    当容器启动时，路径 /external-drive 将主机文件系统中的 disk.raw 文件挂载为块设备。
 
 5. 完成后，从容器中卸载设备后，分离环路设备以从主机系统中删除设备：
 
-   ```bash
-   losetup -d /dev/loop5
-   ```
+    ```bash
+    losetup -d /dev/loop5
+    ```
 
 ## 备份、还原或迁移数据卷
 
@@ -511,9 +511,9 @@ docker run -v /dbdata --name dbstore ubuntu /bin/bash
 
 ::: info 在下一个命令中：
 
-- 启动新容器并从 `dbstore` 容器装载卷
-- 将本地主机目录挂载为 `/backup`
-- 将 `dbdata` 卷的内容传递到 `/backup` 目录中的 `backup.tar` 文件的命令。
+-   启动新容器并从 `dbstore` 容器装载卷
+-   将本地主机目录挂载为 `/backup`
+-   将 `dbdata` 卷的内容传递到 `/backup` 目录中的 `backup.tar` 文件的命令。
 
 ```bash
 docker run --rm --volumes-from dbstore -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /dbdata
@@ -545,8 +545,8 @@ docker run --rm --volumes-from dbstore2 -v $(pwd):/backup ubuntu bash -c "cd /db
 
 删除容器后，Docker 数据卷仍然存在。需要考虑两种类型的卷：
 
-- 命名卷具有来自容器外部的特定源，例如 `awesome:/bar` 。
-- 匿名卷没有特定的来源。因此，删除容器时，可以指示 Docker 引擎守护程序将其删除。
+-   命名卷具有来自容器外部的特定源，例如 `awesome:/bar` 。
+-   匿名卷没有特定的来源。因此，删除容器时，可以指示 Docker 引擎守护程序将其删除。
 
 ### 删除匿名卷
 

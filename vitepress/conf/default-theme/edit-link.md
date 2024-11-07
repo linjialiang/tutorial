@@ -9,11 +9,11 @@ titleTemplate: VitePress 教程
 
 ```ts
 export default {
-  themeConfig: {
-    editLink: {
-      pattern: "https://github.com/linjialiang/php-environment/edit/main/:path",
+    themeConfig: {
+        editLink: {
+            pattern: 'https://github.com/linjialiang/php-environment/edit/main/:path',
+        },
     },
-  },
 };
 ```
 
@@ -23,17 +23,17 @@ export default {
 
 ```ts
 export default {
-  themeConfig: {
-    editLink: {
-      pattern: ({ filePath }) => {
-        if (filePath.startsWith("packages/")) {
-          return `https://github.com/acme/monorepo/edit/main/${filePath}`;
-        } else {
-          return `https://github.com/acme/monorepo/edit/main/docs/${filePath}`;
-        }
-      },
+    themeConfig: {
+        editLink: {
+            pattern: ({ filePath }) => {
+                if (filePath.startsWith('packages/')) {
+                    return `https://github.com/acme/monorepo/edit/main/${filePath}`;
+                } else {
+                    return `https://github.com/acme/monorepo/edit/main/docs/${filePath}`;
+                }
+            },
+        },
     },
-  },
 };
 ```
 
@@ -43,12 +43,12 @@ export default {
 
 ```ts
 export default {
-  themeConfig: {
-    editLink: {
-      pattern: "https://github.com/vuejs/vitepress/edit/main/docs/:path",
-      text: "Edit this page on GitHub",
+    themeConfig: {
+        editLink: {
+            pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
+            text: 'Edit this page on GitHub',
+        },
     },
-  },
 };
 ```
 

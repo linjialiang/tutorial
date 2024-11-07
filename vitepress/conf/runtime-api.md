@@ -20,13 +20,13 @@ helper 方法可以从 `vitepress` 全局导入，通常用于自定义主题 Vu
 
 ```vue
 <script setup>
-import { useData } from "vitepress";
+    import { useData } from 'vitepress';
 
-const { theme } = useData();
+    const { theme } = useData();
 </script>
 
 <template>
-  <h1>{{ theme.footer.copyright }}</h1>
+    <h1>{{ theme.footer.copyright }}</h1>
 </template>
 ```
 
@@ -38,9 +38,9 @@ const { theme } = useData();
 
 ```ts
 interface Route {
-  path: string;
-  data: PageData;
-  component: Component | null;
+    path: string;
+    data: PageData;
+    component: Component | null;
 }
 ```
 
@@ -50,33 +50,33 @@ interface Route {
 
 ```ts
 interface Router {
-  /**
-   * Current route.
-   */
-  route: Route;
-  /**
-   * Navigate to a new URL.
-   */
-  go: (to?: string) => Promise<void>;
-  /**
-   * Called before the route changes. Return `false` to cancel the navigation.
-   */
-  onBeforeRouteChange?: (to: string) => Awaitable<void | boolean>;
-  /**
-   * Called before the page component is loaded (after the history state is
-   * updated). Return `false` to cancel the navigation.
-   */
-  onBeforePageLoad?: (to: string) => Awaitable<void | boolean>;
-  /**
-   * Called after the route changes.
-   */
-  onAfterRouteChanged?: (to: string) => Awaitable<void>;
+    /**
+     * Current route.
+     */
+    route: Route;
+    /**
+     * Navigate to a new URL.
+     */
+    go: (to?: string) => Promise<void>;
+    /**
+     * Called before the route changes. Return `false` to cancel the navigation.
+     */
+    onBeforeRouteChange?: (to: string) => Awaitable<void | boolean>;
+    /**
+     * Called before the page component is loaded (after the history state is
+     * updated). Return `false` to cancel the navigation.
+     */
+    onBeforePageLoad?: (to: string) => Awaitable<void | boolean>;
+    /**
+     * Called after the route changes.
+     */
+    onAfterRouteChanged?: (to: string) => Awaitable<void>;
 }
 ```
 
 ## withBase <Badge type="info" text="helper" />
 
-- Type: `(path: string) => string`
+-   Type: `(path: string) => string`
 
 将配置的 [`base`](./site#base) 追加到给定的 URL 路径。另见 [Base URL](./../guide/writing/resources#base-url)。
 
@@ -86,8 +86,8 @@ interface Router {
 
 ```vue
 <template>
-  <h1>Custom Layout!</h1>
-  <Content />
+    <h1>Custom Layout!</h1>
+    <Content />
 </template>
 ```
 
@@ -122,6 +122,6 @@ title: Hello
 在 Vue 表达式中直接访问当前页面的动态路由参数。
 
 ```md
-- package name: {{ $params.pkg }}
-- version: {{ $params.version }}
+-   package name: {{ $params.pkg }}
+-   version: {{ $params.version }}
 ```

@@ -55,12 +55,12 @@ titleTemplate: VitePress 教程
 
 ```vue
 <script setup>
-import { withBase, useData } from "vitepress";
+    import { withBase, useData } from 'vitepress';
 
-const { theme } = useData();
+    const { theme } = useData();
 </script>
 
 <template>
-  <img :src="withBase(theme.logoPath)" />
+    <img :src="withBase(theme.logoPath)" />
 </template>
 ```

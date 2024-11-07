@@ -59,7 +59,7 @@ VitePress 是一个仅支持 `ESM` 的软件包。
 
 ```json
 {
-  "type": "module"
+    "type": "module"
 }
 ```
 
@@ -194,13 +194,13 @@ pnpm add -D vue
 ```ts
 // .vitepress/config.mts
 export default {
-  // site-level options
-  title: "VitePress",
-  description: "Just playing around.",
+    // site-level options
+    title: 'VitePress',
+    description: 'Just playing around.',
 
-  themeConfig: {
-    // theme-level options
-  },
+    themeConfig: {
+        // theme-level options
+    },
 };
 ```
 

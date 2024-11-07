@@ -11,22 +11,22 @@ titleTemplate: VitePress 教程
 
 ```ts [案例]
 export default {
-  themeConfig: {
-    footer: {
-      message: "程序员系列教程",
-      copyright: "Copyright © 2023-present linjialiang",
+    themeConfig: {
+        footer: {
+            message: '程序员系列教程',
+            copyright: 'Copyright © 2023-present linjialiang',
+        },
     },
-  },
 };
 ```
 
 ```ts [结构]
 export interface Footer {
-  // 在 版权说明 之前的文本消息
-  message?: string;
+    // 在 版权说明 之前的文本消息
+    message?: string;
 
-  // 实际版权文本说明
-  copyright?: string;
+    // 实际版权文本说明
+    copyright?: string;
 }
 ```
 
@@ -36,14 +36,13 @@ export interface Footer {
 
 ```ts
 export default {
-  themeConfig: {
-    footer: {
-      message:
-        'Released under the <a href="https://github.com/vuejs/vitepress/blob/main/LICENSE">MIT License</a>.',
-      copyright:
-        'Copyright © 2019-present <a href="https://github.com/yyx990803">Evan You</a>',
+    themeConfig: {
+        footer: {
+            message:
+                'Released under the <a href="https://github.com/vuejs/vitepress/blob/main/LICENSE">MIT License</a>.',
+            copyright: 'Copyright © 2019-present <a href="https://github.com/yyx990803">Evan You</a>',
+        },
     },
-  },
 };
 ```
 

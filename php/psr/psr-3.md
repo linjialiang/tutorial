@@ -66,17 +66,17 @@ titleTemplate: PSR 教程
 
 ### 1.4 助手类和接口
 
-- 日志抽象类 `Psr\Log\AbstractLogger` 使得只需继承它和实现其中的 `log` 方法，就能够很轻易地实现日志接口 `LoggerInterface` ，而另外八个方法就能够把记录信息和上下文数组信息传给它。
+-   日志抽象类 `Psr\Log\AbstractLogger` 使得只需继承它和实现其中的 `log` 方法，就能够很轻易地实现日志接口 `LoggerInterface` ，而另外八个方法就能够把记录信息和上下文数组信息传给它。
 
-- 同样地，使用日志特征 `Psr\Log\LoggerTrait` 也只需实现其中的 `log` 方法。不过需要注意的是，PHP 的可复用代码块(特征)不能实现接口，还需要 `implement LoggerInterface` 指令来实现接口。
+-   同样地，使用日志特征 `Psr\Log\LoggerTrait` 也只需实现其中的 `log` 方法。不过需要注意的是，PHP 的可复用代码块(特征)不能实现接口，还需要 `implement LoggerInterface` 指令来实现接口。
 
-- 在没有可用的日志记录器时，`Psr\Log\NullLogger` 接口 `可以` 为使用者提供一个备用的日志「黑洞」。不过，当上下文数组的构建非常消耗资源时，带条件检查的日志记录或许是更好的办法。
+-   在没有可用的日志记录器时，`Psr\Log\NullLogger` 接口 `可以` 为使用者提供一个备用的日志「黑洞」。不过，当上下文数组的构建非常消耗资源时，带条件检查的日志记录或许是更好的办法。
 
-- `Psr\Log\LoggerAwareInterface` 接口仅包括一个 `setLogger(LoggerInterface $logger)` 方法，框架可以使用它实现自动连接任意的日志记录实例。
+-   `Psr\Log\LoggerAwareInterface` 接口仅包括一个 `setLogger(LoggerInterface $logger)` 方法，框架可以使用它实现自动连接任意的日志记录实例。
 
-- `Psr\Log\LoggerAwareTrait` 可复用代码块(特征)可以在任何的类里面使用，只需通过它提供的 `$this->logger` ，就可以轻松地实现等同的接口。
+-   `Psr\Log\LoggerAwareTrait` 可复用代码块(特征)可以在任何的类里面使用，只需通过它提供的 `$this->logger` ，就可以轻松地实现等同的接口。
 
-- `Psr\Log\LogLevel` 类装载了八个记录等级常量。
+-   `Psr\Log\LogLevel` 类装载了八个记录等级常量。
 
 ## 2. Package
 

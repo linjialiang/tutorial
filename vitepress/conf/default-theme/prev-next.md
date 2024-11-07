@@ -2,8 +2,8 @@
 title: 上一页和下一页
 titleTemplate: VitePress 教程
 prev:
-  text: "进入徽章"
-  link: "./badge"
+    text: '进入徽章'
+    link: './badge'
 ---
 
 # 上一页和下一页
@@ -12,8 +12,8 @@ prev:
 
 ## `prev`
 
-- Name: `prev`
-- Type: `string | false | { text?: string; link?: string }`
+-   Name: `prev`
+-   Type: `string | false | { text?: string; link?: string }`
 
 在 frontmatter 中可以指定上一页的链接以及显示的文本信息，如果没有在 frontmatter 中设置，文本和链接将从侧边栏配置中推断出来。示例如下：
 
@@ -21,15 +21,15 @@ prev:
 
 ```yaml [仅自定义文本]
 ---
-prev: "进入徽章"
+prev: '进入徽章'
 ---
 ```
 
 ```yaml [自定义文本/链接]
 ---
 prev:
-  text: "进入徽章"
-  link: "./badge"
+    text: '进入徽章'
+    link: './badge'
 ---
 ```
 

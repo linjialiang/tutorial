@@ -29,11 +29,11 @@ Vue.js 官方博客是一个简单的博客，它根据本地内容生成索引�
 
 VitePress 的目标是在处理 Markdown 内容时提供出色的开发者体验（DX）。
 
-- Vite-Powered：即时服务器启动，编辑总是即时反映（100 ms），无需重新加载页面。
+-   Vite-Powered：即时服务器启动，编辑总是即时反映（100 ms），无需重新加载页面。
 
-- 内置 Markdown 扩展：Frontmatter，表格，语法高亮显示...随便你说。具体来说，VitePress 提供了许多用于处理代码块的高级功能，使其成为高度技术性文档的理想选择。
+-   内置 Markdown 扩展：Frontmatter，表格，语法高亮显示...随便你说。具体来说，VitePress 提供了许多用于处理代码块的高级功能，使其成为高度技术性文档的理想选择。
 
-- Vue-Enhanced Markdown：由于 Vue 模板与 HTML 的 100%语法兼容性，每个 Markdown 页面也是一个 Vue 单文件组件。您可以使用 Vue 模板特性或导入的 Vue 组件在静态内容中嵌入交互性。
+-   Vue-Enhanced Markdown：由于 Vue 模板与 HTML 的 100%语法兼容性，每个 Markdown 页面也是一个 Vue 单文件组件。您可以使用 Vue 模板特性或导入的 Vue 组件在静态内容中嵌入交互性。
 
 ## 性能
 

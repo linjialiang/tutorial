@@ -13,19 +13,19 @@ Navicat 是 `.appimage` 格式，双击即可使用
 
 2. 配置 `/etc/hosts` 文件；
 
-   ```bash
-   127.0.0.1	localhost
-   192.168.10.101	lenovo
+    ```bash
+    127.0.0.1	localhost
+    192.168.10.101	lenovo
 
-   # The following lines are desirable for IPv6 capable hosts
-   ::1     localhost ip6-localhost ip6-loopback
-   ff02::1 ip6-allnodes
-   ff02::2 ip6-allrouters
+    # The following lines are desirable for IPv6 capable hosts
+    ::1     localhost ip6-localhost ip6-loopback
+    ff02::1 ip6-allnodes
+    ff02::2 ip6-allrouters
 
-   127.0.0.1	tp.io core.qyadmin.io
-   127.0.0.1	php-environment.io
-   0.0.0.0		activate.navicat.com // [!code ++]
-   ```
+    127.0.0.1	tp.io core.qyadmin.io
+    127.0.0.1	php-environment.io
+    0.0.0.0		activate.navicat.com // [!code ++]
+    ```
 
 3. 将 `navicat-config.tar` 包解压到 `~/.config/` 目录下。
 

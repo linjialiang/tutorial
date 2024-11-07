@@ -11,8 +11,8 @@ VitePress 内置了 Markdown 扩展，下面是详细介绍。
 
 VitePress 可以使用 `markdown.anchor` 选项配置定位点的呈现，支持 `标头` 和 `普通行`
 
-- 标头：允许您链接到标题为 `#root-dir` 而不是默认的 `#项目根目录`
-- 普通行：无需标头，也可以快捷设置锚链接
+-   标头：允许您链接到标题为 `#root-dir` 而不是默认的 `#项目根目录`
+-   普通行：无需标头，也可以快捷设置锚链接
 
 ::: code-group
 
@@ -225,7 +225,7 @@ lang: en-US
 ::: details 单击查看代码
 
 ```js
-console.log("Hello, VitePress!");
+console.log('Hello, VitePress!');
 ```
 
 :::
@@ -240,7 +240,7 @@ console.log("Hello, VitePress!");
 ::: details 单击查看代码
 
 ```js
-console.log("Hello, VitePress!");
+console.log('Hello, VitePress!');
 ```
 
 :::
@@ -272,14 +272,14 @@ export default {
 
 ```js [输出 js]
 export default {
-  name: "MyComponent",
-  // ...
+    name: 'MyComponent',
+    // ...
 };
 ```
 
 ```html [输出 html]
 <ul>
-  <li v-for="todo in todos" :key="todo.id">{{ todo.text }}</li>
+    <li v-for="todo in todos" :key="todo.id">{{ todo.text }}</li>
 </ul>
 ```
 
@@ -289,10 +289,10 @@ export default {
 
 代码块中的行高亮，支持多种指定方式：
 
-- 单行，例如： `{3}`
-- 行范围，例如：`{5-8}`
-- 多条单行，例如：`{4,7,9}`
-- 行范围和单行组合，例如：`{4,7-13,16,23-27,40}`
+-   单行，例如： `{3}`
+-   行范围，例如：`{5-8}`
+-   多条单行，例如：`{4,7,9}`
+-   行范围和单行组合，例如：`{4,7-13,16,23-27,40}`
 
 ::: code-group
 
@@ -373,11 +373,11 @@ export default {
 
 ```js [输出]
 export default {
-  data() {
-    return {
-      msg: "Highlighted!", // [!code hl]
-    };
-  },
+    data() {
+        return {
+            msg: 'Highlighted!', // [!code hl]
+        };
+    },
 };
 ```
 
@@ -405,11 +405,11 @@ export default {
 
 ```js [单行聚焦输出]
 export default {
-  data() {
-    return {
-      msg: "Focused!", // [!code focus]
-    };
-  },
+    data() {
+        return {
+            msg: 'Focused!', // [!code focus]
+        };
+    },
 };
 ```
 
@@ -428,12 +428,12 @@ export default {
 
 ```js [多行聚焦输出]
 export default {
-  data() {
-    // [!code focus:4]
-    return {
-      msg: "Focused!",
-    };
-  },
+    data() {
+        // [!code focus:4]
+        return {
+            msg: 'Focused!',
+        };
+    },
 };
 ```
 
@@ -492,12 +492,12 @@ export default {
 
 ```js [输出]
 export default {
-  data() {
-    return {
-      msg: "Error", // [!code error]
-      msg: "Warning", // [!code warning]
-    };
-  },
+    data() {
+        return {
+            msg: 'Error', // [!code error]
+            msg: 'Warning', // [!code warning]
+        };
+    },
 };
 ```
 
@@ -509,9 +509,9 @@ export default {
 
 ```ts
 export default {
-  markdown: {
-    lineNumbers: true,
-  },
+    markdown: {
+        lineNumbers: true,
+    },
 };
 ```
 
@@ -537,8 +537,8 @@ const line3 = 'This is line 3'
 
 ```ts {1} [禁用行号输出]
 // 配置里禁用了行号
-const line2 = "This is line 2";
-const line3 = "This is line 3";
+const line2 = 'This is line 2';
+const line3 = 'This is line 3';
 ```
 
 ```ts:line-numbers {1} [启用行号输出]
@@ -650,17 +650,17 @@ export default config;
  * @type {import('vitepress').UserConfig}
  */
 const config = {
-  // ...
+    // ...
 };
 
 export default config;
 ```
 
 ```ts [config.ts]
-import type { UserConfig } from "vitepress";
+import type { UserConfig } from 'vitepress';
 
 const config: UserConfig = {
-  // ...
+    // ...
 };
 
 export default config;
@@ -709,9 +709,9 @@ pnpm add -D markdown-it-mathjax3
 ```ts [配置]
 // .vitepress/config.(js|ts|mts)
 export default {
-  markdown: {
-    math: true,
-  },
+    markdown: {
+        math: true,
+    },
 };
 ```
 
@@ -758,26 +758,26 @@ VitePress 使用 [[markdown-it]](https://github.com/markdown-it/markdown-it) 作
 您可以使用 `markdown-it` 中的 `markdown` 选项进一步自定义 `.vitepress/config.js` 实例：
 
 ```ts
-import markdownItAnchor from "markdown-it-anchor";
-import markdownItFoo from "markdown-it-foo";
+import markdownItAnchor from 'markdown-it-anchor';
+import markdownItFoo from 'markdown-it-foo';
 
 module.exports = {
-  markdown: {
-    // options for markdown-it-anchor
-    // https://github.com/valeriangalliat/markdown-it-anchor#usage
-    anchor: {
-      permalink: markdownItAnchor.permalink.headerLink(),
-    },
+    markdown: {
+        // options for markdown-it-anchor
+        // https://github.com/valeriangalliat/markdown-it-anchor#usage
+        anchor: {
+            permalink: markdownItAnchor.permalink.headerLink(),
+        },
 
-    // options for @mdit-vue/plugin-toc
-    // https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-toc#options
-    toc: { level: [1, 2] },
+        // options for @mdit-vue/plugin-toc
+        // https://github.com/mdit-vue/mdit-vue/tree/main/packages/plugin-toc#options
+        toc: { level: [1, 2] },
 
-    config: (md) => {
-      // use more markdown-it plugins!
-      md.use(markdownItFoo);
+        config: (md) => {
+            // use more markdown-it plugins!
+            md.use(markdownItFoo);
+        },
     },
-  },
 };
 ```
 

@@ -59,9 +59,9 @@ titleTemplate: PHP 设计模式教程
 
 ::: tip PHP 特征
 
-- 静态: `{static}` 下划线
-- 抽象: `{abstract}` 斜体字
-- 防止覆盖: `{final}` PlantUML 不支持 final，只能通过备注来表达
+-   静态: `{static}` 下划线
+-   抽象: `{abstract}` 斜体字
+-   防止覆盖: `{final}` PlantUML 不支持 final，只能通过备注来表达
 
 ![final 特征](/assets/php/design-patterns/uml/05.svg)
 

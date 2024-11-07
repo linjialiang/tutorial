@@ -16,23 +16,22 @@ titleTemplate: VitePress 教程
 
 ```vue
 <script setup>
-import { VPTeamMembers } from "vitepress/theme";
+    import { VPTeamMembers } from 'vitepress/theme';
 
-const members = [
-  {
-    avatar:
-      "https://foruda.gitee.com/avatar/1676904596461741689/146486_linjialiang_1578919498.png!avatar100",
-    name: "地上马",
-    title: "文章作者",
-    links: [{ icon: "github", link: "https://github.com/linjialiang" }],
-  },
-  {
-    avatar: "https://www.github.com/yyx990803.png",
-    name: "Evan You",
-    title: "VitePress 创始人",
-    links: [{ icon: "github", link: "https://github.com/linjialiang" }],
-  },
-];
+    const members = [
+        {
+            avatar: 'https://foruda.gitee.com/avatar/1676904596461741689/146486_linjialiang_1578919498.png!avatar100',
+            name: '地上马',
+            title: '文章作者',
+            links: [{ icon: 'github', link: 'https://github.com/linjialiang' }],
+        },
+        {
+            avatar: 'https://www.github.com/yyx990803.png',
+            name: 'Evan You',
+            title: 'VitePress 创始人',
+            links: [{ icon: 'github', link: 'https://github.com/linjialiang' }],
+        },
+    ];
 </script>
 
 <VPTeamMembers size="small" :members="members" />
@@ -84,29 +83,28 @@ layout: page
 ---
 
 <script setup>
-  import { VPTeamPage, VPTeamPageTitle, VPTeamMembers } from "vitepress/theme";
+    import { VPTeamPage, VPTeamPageTitle, VPTeamMembers } from 'vitepress/theme';
 
-  const members = [
-    {
-      avatar:
-        "https://foruda.gitee.com/avatar/1676904596461741689/146486_linjialiang_1578919498.png!avatar100",
-      name: "地上马",
-      title: "文章作者",
-      links: [{ icon: "github", link: "https://github.com/linjialiang" }],
-    },
-    // ...
-  ];
+    const members = [
+        {
+            avatar: 'https://foruda.gitee.com/avatar/1676904596461741689/146486_linjialiang_1578919498.png!avatar100',
+            name: '地上马',
+            title: '文章作者',
+            links: [{ icon: 'github', link: 'https://github.com/linjialiang' }],
+        },
+        // ...
+    ];
 </script>
 
 <VPTeamPage>
-  <VPTeamPageTitle>
-    <template #title> Our Team </template>
-    <template #lead>
-      The development of VitePress is guided by an international team, some of
-      whom have chosen to be featured below.
-    </template>
-  </VPTeamPageTitle>
-  <VPTeamMembers :members="members" />
+    <VPTeamPageTitle>
+        <template #title> Our Team </template>
+        <template #lead>
+            The development of VitePress is guided by an international team, some of whom have chosen to be featured
+            below.
+        </template>
+    </VPTeamPageTitle>
+    <VPTeamMembers :members="members" />
 </VPTeamPage>
 ```
 
@@ -128,34 +126,29 @@ layout: page
 ---
 
 <script setup>
-  import {
-    VPTeamPage,
-    VPTeamPageTitle,
-    VPTeamMembers,
-    VPTeamPageSection,
-  } from "vitepress/theme";
+    import { VPTeamPage, VPTeamPageTitle, VPTeamMembers, VPTeamPageSection } from 'vitepress/theme';
 
-  const coreMembers = [
-    // ...
-  ];
-  const partners = [
-    // ...
-  ];
+    const coreMembers = [
+        // ...
+    ];
+    const partners = [
+        // ...
+    ];
 </script>
 
 <VPTeamPage>
-  <VPTeamPageTitle>
-    <template #title>Our Team</template>
-    <template #lead>...</template>
-  </VPTeamPageTitle>
-  <VPTeamMembers size="medium" :members="coreMembers" />
-  <VPTeamPageSection>
-    <template #title>Partners</template>
-    <template #lead>...</template>
-    <template #members>
-      <VPTeamMembers size="small" :members="partners" />
-    </template>
-  </VPTeamPageSection>
+    <VPTeamPageTitle>
+        <template #title>Our Team</template>
+        <template #lead>...</template>
+    </VPTeamPageTitle>
+    <VPTeamMembers size="medium" :members="coreMembers" />
+    <VPTeamPageSection>
+        <template #title>Partners</template>
+        <template #lead>...</template>
+        <template #members>
+            <VPTeamMembers size="small" :members="partners" />
+        </template>
+    </VPTeamPageSection>
 </VPTeamPage>
 ```
 
@@ -171,51 +164,50 @@ layout: page
 
 ```html [案例]
 <VPTeamMembers
-  size="medium"
-  :members="[
+    size="medium"
+    :members="[
     { avatar: '...', name: '...' },
     { avatar: '...', name: '...' },
     ...
-  ]"
-/>
+  ]" />
 ```
 
 ```ts [结构]
 interface Props {
-  // Size of each members. Defaults to `medium`.
-  size?: "small" | "medium";
+    // Size of each members. Defaults to `medium`.
+    size?: 'small' | 'medium';
 
-  // List of members to display.
-  members: TeamMember[];
+    // List of members to display.
+    members: TeamMember[];
 }
 
 interface TeamMember {
-  // Avatar image for the member.
-  avatar: string;
+    // Avatar image for the member.
+    avatar: string;
 
-  // Name of the member.
-  name: string;
+    // Name of the member.
+    name: string;
 
-  // Title to be shown below member's name.
-  // e.g. Developer, Software Engineer, etc.
-  title?: string;
+    // Title to be shown below member's name.
+    // e.g. Developer, Software Engineer, etc.
+    title?: string;
 
-  // Organization that the member belongs.
-  org?: string;
+    // Organization that the member belongs.
+    org?: string;
 
-  // URL for the organization.
-  orgLink?: string;
+    // URL for the organization.
+    orgLink?: string;
 
-  // Description for the member.
-  desc?: string;
+    // Description for the member.
+    desc?: string;
 
-  // Social links. e.g. GitHub, Twitter, etc. You may pass in
-  // the Social Links object here.
-  // See: https://vitepress.dev/reference/default-theme-config.html#sociallinks
-  links?: SocialLink[];
+    // Social links. e.g. GitHub, Twitter, etc. You may pass in
+    // the Social Links object here.
+    // See: https://vitepress.dev/reference/default-theme-config.html#sociallinks
+    links?: SocialLink[];
 
-  // URL for the sponsor page for the member.
-  sponsor?: string;
+    // URL for the sponsor page for the member.
+    sponsor?: string;
 }
 ```
 
@@ -231,13 +223,13 @@ interface TeamMember {
 
 ```html
 <VPTeamPage>
-  <VPTeamPageTitle>
-    <template #title> Our Team </template>
-    <template #lead>
-      The development of VitePress is guided by an international team, some of
-      whom have chosen to be featured below.
-    </template>
-  </VPTeamPageTitle>
+    <VPTeamPageTitle>
+        <template #title> Our Team </template>
+        <template #lead>
+            The development of VitePress is guided by an international team, some of whom have chosen to be featured
+            below.
+        </template>
+    </VPTeamPageTitle>
 </VPTeamPage>
 ```
 
@@ -247,13 +239,13 @@ interface TeamMember {
 
 ```html
 <VPTeamPage>
-  <!-- ... -->
-  <VPTeamPageSection>
-    <template #title>Partners</template>
-    <template #lead>Lorem ipsum...</template>
-    <template #members>
-      <VPTeamMembers :members="data" />
-    </template>
-  </VPTeamPageSection>
+    <!-- ... -->
+    <VPTeamPageSection>
+        <template #title>Partners</template>
+        <template #lead>Lorem ipsum...</template>
+        <template #members>
+            <VPTeamMembers :members="data" />
+        </template>
+    </VPTeamPageSection>
 </VPTeamPage>
 ```

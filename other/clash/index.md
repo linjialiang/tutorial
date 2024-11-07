@@ -11,5 +11,5 @@ titleTemplate: Clash 教程
 
 运行成功后访问下方连接即可进入 web 控制台选择节点:
 
-- http://yacd.haishan.me/
-- http://clash.razord.top/#/proxies
+-   http://yacd.haishan.me/
+-   http://clash.razord.top/#/proxies

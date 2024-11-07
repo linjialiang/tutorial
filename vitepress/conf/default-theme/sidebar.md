@@ -9,18 +9,18 @@ titleTemplate: VitePress 教程
 
 ```ts
 export default {
-  themeConfig: {
-    sidebar: [
-      {
-        text: "Guide",
-        items: [
-          { text: "Introduction", link: "/introduction" },
-          { text: "Getting Started", link: "/getting-started" },
-          // ...
+    themeConfig: {
+        sidebar: [
+            {
+                text: 'Guide',
+                items: [
+                    { text: 'Introduction', link: '/introduction' },
+                    { text: 'Getting Started', link: '/getting-started' },
+                    // ...
+                ],
+            },
         ],
-      },
-    ],
-  },
+    },
 };
 ```
 
@@ -30,26 +30,26 @@ export default {
 
 ```ts
 export default {
-  themeConfig: {
-    sidebar: [
-      {
-        text: "Section Title A",
-        items: [
-          { text: "Item A", link: "/item-a" },
-          { text: "Item B", link: "/item-b" },
-          // ...
+    themeConfig: {
+        sidebar: [
+            {
+                text: 'Section Title A',
+                items: [
+                    { text: 'Item A', link: '/item-a' },
+                    { text: 'Item B', link: '/item-b' },
+                    // ...
+                ],
+            },
+            {
+                text: 'Section Title B',
+                items: [
+                    { text: 'Item C', link: '/item-c' },
+                    { text: 'Item D', link: '/item-d' },
+                    // ...
+                ],
+            },
         ],
-      },
-      {
-        text: "Section Title B",
-        items: [
-          { text: "Item C", link: "/item-c" },
-          { text: "Item D", link: "/item-d" },
-          // ...
-        ],
-      },
-    ],
-  },
+    },
 };
 ```
 
@@ -57,17 +57,17 @@ export default {
 
 ```ts
 export default {
-  themeConfig: {
-    sidebar: [
-      {
-        text: "Guide",
-        items: [
-          // This shows `/guide/index.md` page.
-          { text: "Introduction", link: "/guide/" },
+    themeConfig: {
+        sidebar: [
+            {
+                text: 'Guide',
+                items: [
+                    // This shows `/guide/index.md` page.
+                    { text: 'Introduction', link: '/guide/' },
+                ],
+            },
         ],
-      },
-    ],
-  },
+    },
 };
 ```
 
@@ -75,26 +75,26 @@ export default {
 
 ```ts
 export default {
-  themeConfig: {
-    sidebar: [
-      {
-        text: "Level 1",
-        items: [
-          {
-            text: "Level 2",
-            items: [
-              {
-                text: "Level 3",
+    themeConfig: {
+        sidebar: [
+            {
+                text: 'Level 1',
                 items: [
-                  // ...
+                    {
+                        text: 'Level 2',
+                        items: [
+                            {
+                                text: 'Level 3',
+                                items: [
+                                    // ...
+                                ],
+                            },
+                        ],
+                    },
                 ],
-              },
-            ],
-          },
+            },
         ],
-      },
-    ],
-  },
+    },
 };
 ```
 
@@ -122,33 +122,33 @@ export default {
 ```ts
 // 然后，更新您的配置，为每个部分定义侧边栏。这一次，您应该传递一个对象而不是数组。
 export default {
-  themeConfig: {
-    sidebar: {
-      // 在 `/debian/` 目录下的文件，展示这个侧边栏
-      "/debian/": [
-        {
-          text: "Debian",
-          items: [
-            { text: "Index", link: "/debian/" },
-            { text: "One", link: "/debian/one" },
-            { text: "Two", link: "/debian/two" },
-          ],
-        },
-      ],
+    themeConfig: {
+        sidebar: {
+            // 在 `/debian/` 目录下的文件，展示这个侧边栏
+            '/debian/': [
+                {
+                    text: 'Debian',
+                    items: [
+                        { text: 'Index', link: '/debian/' },
+                        { text: 'One', link: '/debian/one' },
+                        { text: 'Two', link: '/debian/two' },
+                    ],
+                },
+            ],
 
-      // 在 `/vitepress/` 目录下的文件，展示这个侧边栏
-      "/vitepress/": [
-        {
-          text: "VitePress",
-          items: [
-            { text: "Index", link: "/vitepress/" },
-            { text: "Three", link: "/vitepress/three" },
-            { text: "Four", link: "/vitepress/four" },
-          ],
+            // 在 `/vitepress/` 目录下的文件，展示这个侧边栏
+            '/vitepress/': [
+                {
+                    text: 'VitePress',
+                    items: [
+                        { text: 'Index', link: '/vitepress/' },
+                        { text: 'Three', link: '/vitepress/three' },
+                        { text: 'Four', link: '/vitepress/four' },
+                    ],
+                },
+            ],
         },
-      ],
     },
-  },
 };
 ```
 
@@ -160,17 +160,17 @@ export default {
 
 ```ts
 export default {
-  themeConfig: {
-    sidebar: [
-      {
-        text: "Section Title A",
-        collapsed: true,
-        items: [
-          // ...
+    themeConfig: {
+        sidebar: [
+            {
+                text: 'Section Title A',
+                collapsed: true,
+                items: [
+                    // ...
+                ],
+            },
         ],
-      },
-    ],
-  },
+    },
 };
 ```
 
@@ -182,28 +182,28 @@ export default {
 
 ```ts [结构]
 export interface DocSidebar {
-  isOpen: Ref<boolean>;
-  sidebar: ComputedRef<DefaultTheme.SidebarItem[]>;
-  sidebarGroups: ComputedRef<DefaultTheme.SidebarItem[]>;
-  hasSidebar: ComputedRef<boolean>;
-  hasAside: ComputedRef<boolean>;
-  leftAside: ComputedRef<boolean>;
-  isSidebarEnabled: ComputedRef<boolean>;
-  open: () => void;
-  close: () => void;
-  toggle: () => void;
+    isOpen: Ref<boolean>;
+    sidebar: ComputedRef<DefaultTheme.SidebarItem[]>;
+    sidebarGroups: ComputedRef<DefaultTheme.SidebarItem[]>;
+    hasSidebar: ComputedRef<boolean>;
+    hasAside: ComputedRef<boolean>;
+    leftAside: ComputedRef<boolean>;
+    isSidebarEnabled: ComputedRef<boolean>;
+    open: () => void;
+    close: () => void;
+    toggle: () => void;
 }
 ```
 
 ```vue [案例]
 <script setup>
-import { useSidebar } from "vitepress/theme";
+    import { useSidebar } from 'vitepress/theme';
 
-const { hasSidebar } = useSidebar();
+    const { hasSidebar } = useSidebar();
 </script>
 
 <template>
-  <div v-if="hasSidebar">Only show when sidebar exists</div>
+    <div v-if="hasSidebar">Only show when sidebar exists</div>
 </template>
 ```
 

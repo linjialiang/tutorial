@@ -94,7 +94,7 @@ apt install libpq-dev -y
 
 1. 本次未编译 SQLite3，需使用依赖库
 2. 本次已编译 Postgres，无需额外使用依赖库
-   - 确保 php 用户对 Postgres 安装目录要有 `读取` 和 `执行` 权限
+    - 确保 php 用户对 Postgres 安装目录要有 `读取` 和 `执行` 权限
 3. 不同版本所需依赖项可能不同
 4. 使用更多外部扩展，所需依赖项也会更多
 5. php 较低版本如果要在新版的 linux 系统上安装，很多依赖可能都需要自己重新
@@ -175,8 +175,8 @@ make install
 
 php 编译完成后，在源码包根目录下会自动生成两个推荐的配置文件模版
 
-- 开发环境推荐： `php.ini-development`
-- 部署环境推荐： `php.ini-production`
+-   开发环境推荐： `php.ini-development`
+-   部署环境推荐： `php.ini-production`
 
 ### 2. 配置文件路径
 
@@ -278,11 +278,11 @@ PHP-FPM 配置文件可分成两种
 
 主进程(master)配置文件，是针对整个 PHP-FPM 的通用配置
 
-- 路径： `/server/php/etc/php-fpm.conf`
-- 数量： 有且仅有，1 个
-- 需求： 主进程配置文件必须存在
-- 默认： 默认未创建
-- 模板： `/server/php/etc/php-fpm.conf.default`
+-   路径： `/server/php/etc/php-fpm.conf`
+-   数量： 有且仅有，1 个
+-   需求： 主进程配置文件必须存在
+-   默认： 默认未创建
+-   模板： `/server/php/etc/php-fpm.conf.default`
 
 :::
 
@@ -290,11 +290,11 @@ PHP-FPM 配置文件可分成两种
 
 工作池进程(pool)配置文件，是针对单个工作进程的配置文件
 
-- 路径： `/server/php/etc/php-fpm.d/*.conf`
-- 数量： 允许多个
-- 需求： 至少需要 1 个工作吃进程配置文件
-- 默认： 默认未创建
-- 模板： `/server/php/etc/php-fpm.d/www.conf.default`
+-   路径： `/server/php/etc/php-fpm.d/*.conf`
+-   数量： 允许多个
+-   需求： 至少需要 1 个工作吃进程配置文件
+-   默认： 默认未创建
+-   模板： `/server/php/etc/php-fpm.d/www.conf.default`
 
 :::
 
@@ -314,8 +314,8 @@ PHP-FPM 工作池进程配置文件有多个，并且支持随意命名，但为
 
 1. 针对单独站点 : 跟 nginx 站点配置文件命名一致
 2. 根据工作池性质 :
-   - 接收 tp6 站点，命名 `tp.conf`；
-   - 接收其它站点，命名 `default.conf`
+    - 接收 tp6 站点，命名 `tp.conf`；
+    - 接收其它站点，命名 `default.conf`
 
 ::: details 通用工作池案例
 ::: code-group
@@ -365,8 +365,8 @@ systemctl enable --now php74-fpm
 2. 1 个 php-fpm 工作进程配置文件对应 1 个 unix-socket
 3. 多个配置文件，不允许指向同一个 unix-socket，会出现冲突
 4. 每个配置文件：
-   - 必须设置单独的 `socket` 文件路径，如：tp6.sock、default.sock
-   - 可以设置自己的用户，如：www、nginx、php-fpm、nobody
+    - 必须设置单独的 `socket` 文件路径，如：tp6.sock、default.sock
+    - 可以设置自己的用户，如：www、nginx、php-fpm、nobody
 
 :::
 
@@ -438,22 +438,22 @@ su - php-fpm -s /bin/zsh
 
 1. 安装依赖
 
-   - PHP 跨主版本更新，必须重新编译安装动态扩展；
-   - PHP 跨次版本更新，建议重新编译安装动态扩展；
-   - PHP 小版本更新，如果 PHP 并未修改动态扩展，就不用重新编译安装动态扩展。
+    - PHP 跨主版本更新，必须重新编译安装动态扩展；
+    - PHP 跨次版本更新，建议重新编译安装动态扩展；
+    - PHP 小版本更新，如果 PHP 并未修改动态扩展，就不用重新编译安装动态扩展。
 
 2. 重命名执行程序
    执行 `make install` 之前，先将 `sbin/php-fpm` 文件重命名，实现平滑升级
 
-   ```bash
-   # php8.3
-   mv /server/php/83/sbin/php-fpm{,.bak}
-   ```
+    ```bash
+    # php8.3
+    mv /server/php/83/sbin/php-fpm{,.bak}
+    ```
 
 3. 配置文件 `php.ini`
 
-   - 小版本升级，需要修改配置文件，除非遇到 PHP 非常特殊的情况，
-   - 其他版本升级，就直接替换掉配置文件，然后将需要的动态扩展重新加上去即可
+    - 小版本升级，需要修改配置文件，除非遇到 PHP 非常特殊的情况，
+    - 其他版本升级，就直接替换掉配置文件，然后将需要的动态扩展重新加上去即可
 
 ::: danger 警告
 服务器升级 PHP 乃至任何软件升级前，都应该先存快照，备份一份

@@ -85,13 +85,13 @@ layout: foo
 这将查找在上下文中注册的名为 `foo` 的组件。例如，您可以在 `.vitepress/theme/index.ts` 中全局注册组件：
 
 ```ts
-import DefaultTheme from "vitepress/theme";
-import Foo from "./Foo.vue";
+import DefaultTheme from 'vitepress/theme';
+import Foo from './Foo.vue';
 
 export default {
-  extends: DefaultTheme,
-  enhanceApp({ app }) {
-    app.component("foo", Foo);
-  },
+    extends: DefaultTheme,
+    enhanceApp({ app }) {
+        app.component('foo', Foo);
+    },
 };
 ```

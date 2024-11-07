@@ -70,10 +70,10 @@ apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev 
 | --with-zstd           | 启用 Zstandard 压缩算法的支持                        |
 | --with-openssl        | 启用 OpenSSL 支持，用于加密通信                      |
 
-- `--enable-debug`：启用后，可以在调试器中运行程序来分析问题，这会大大增加已安装的可执行文件的大小，并且在非 GCC 编译器上它通常也会禁用编译器优化，生产环境中只建议在选择 GCC 编译器时添加此选项。
-- 编译器：`llvm+clang` 跟 `gcc` 是两个编译器，是互斥的，如果要启用 `--with-llvm` 就要使用 `clang`
-- 安装部分依赖包时，可能会自动安装 `gcc` 编译器包
-- `--with-ossp`: uuid 支持 3 种方式 `ossp-uuid(维护不积极)` `bsd(跨平台支持)` `e2fs(兼容linux，性能高)`
+-   `--enable-debug`：启用后，可以在调试器中运行程序来分析问题，这会大大增加已安装的可执行文件的大小，并且在非 GCC 编译器上它通常也会禁用编译器优化，生产环境中只建议在选择 GCC 编译器时添加此选项。
+-   编译器：`llvm+clang` 跟 `gcc` 是两个编译器，是互斥的，如果要启用 `--with-llvm` 就要使用 `clang`
+-   安装部分依赖包时，可能会自动安装 `gcc` 编译器包
+-   `--with-ossp`: uuid 支持 3 种方式 `ossp-uuid(维护不积极)` `bsd(跨平台支持)` `e2fs(兼容linux，性能高)`
 
 :::
 
@@ -167,11 +167,11 @@ psql -h 192.168.66.254 -U admin -d postgres -W
 
 > 这是一个用于连接到 PostgreSQL 数据库的命令。其中：
 
-- psql 是 PostgreSQL 的命令行工具。
-- -h /run/postgres 指定了要连接的数据库服务器的主机名、 IP 地址或 socket 文件，这里是/run/postgres。
-- -U admin 指定了要使用的用户名，这里是 admin。
-- -d postgres 指定了要连接的数据库名称，这里是 postgres。
-- -W 表示在连接时需要输入密码。
+-   psql 是 PostgreSQL 的命令行工具。
+-   -h /run/postgres 指定了要连接的数据库服务器的主机名、 IP 地址或 socket 文件，这里是/run/postgres。
+-   -U admin 指定了要使用的用户名，这里是 admin。
+-   -d postgres 指定了要连接的数据库名称，这里是 postgres。
+-   -W 表示在连接时需要输入密码。
 ````
 
 :::

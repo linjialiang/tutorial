@@ -15,9 +15,9 @@ titleTemplate: VitePress 教程
 
 ```ts
 export default {
-  themeConfig: {
-    siteTitle: "My Custom Title",
-  },
+    themeConfig: {
+        siteTitle: 'My Custom Title',
+    },
 };
 ```
 
@@ -25,9 +25,9 @@ export default {
 
 ```ts
 export default {
-  themeConfig: {
-    logo: "/my-logo.svg",
-  },
+    themeConfig: {
+        logo: '/my-logo.svg',
+    },
 };
 ```
 
@@ -37,10 +37,10 @@ export default {
 
 ```ts
 export default {
-  themeConfig: {
-    logo: "/my-logo.svg",
-    siteTitle: false,
-  },
+    themeConfig: {
+        logo: '/my-logo.svg',
+        siteTitle: false,
+    },
 };
 ```
 
@@ -52,13 +52,13 @@ export default {
 
 ```ts
 export default {
-  themeConfig: {
-    nav: [
-      { text: "Guide", link: "/guide" },
-      { text: "Config", link: "/config" },
-      { text: "Changelog", link: "https://github.com/..." },
-    ],
-  },
+    themeConfig: {
+        nav: [
+            { text: 'Guide', link: '/guide' },
+            { text: 'Config', link: '/config' },
+            { text: 'Changelog', link: 'https://github.com/...' },
+        ],
+    },
 };
 ```
 
@@ -68,19 +68,19 @@ export default {
 
 ```ts
 export default {
-  themeConfig: {
-    nav: [
-      { text: "Guide", link: "/guide" },
-      {
-        text: "Dropdown Menu",
-        items: [
-          { text: "Item A", link: "/item-1" },
-          { text: "Item B", link: "/item-2" },
-          { text: "Item C", link: "/item-3" },
+    themeConfig: {
+        nav: [
+            { text: 'Guide', link: '/guide' },
+            {
+                text: 'Dropdown Menu',
+                items: [
+                    { text: 'Item A', link: '/item-1' },
+                    { text: 'Item B', link: '/item-2' },
+                    { text: 'Item C', link: '/item-3' },
+                ],
+            },
         ],
-      },
-    ],
-  },
+    },
 };
 ```
 
@@ -90,36 +90,36 @@ export default {
 
 ```ts
 export default {
-  themeConfig: {
-    nav: [
-      { text: "Guide", link: "/guide" },
-      {
-        text: "Dropdown Menu",
-        items: [
-          {
-            // Title for the section.
-            text: "Section A Title",
-            items: [
-              { text: "Section A Item A", link: "..." },
-              { text: "Section B Item B", link: "..." },
-            ],
-          },
+    themeConfig: {
+        nav: [
+            { text: 'Guide', link: '/guide' },
+            {
+                text: 'Dropdown Menu',
+                items: [
+                    {
+                        // Title for the section.
+                        text: 'Section A Title',
+                        items: [
+                            { text: 'Section A Item A', link: '...' },
+                            { text: 'Section B Item B', link: '...' },
+                        ],
+                    },
+                ],
+            },
+            {
+                text: 'Dropdown Menu',
+                items: [
+                    {
+                        // You may also omit the title.
+                        items: [
+                            { text: 'Section A Item A', link: '...' },
+                            { text: 'Section B Item B', link: '...' },
+                        ],
+                    },
+                ],
+            },
         ],
-      },
-      {
-        text: "Dropdown Menu",
-        items: [
-          {
-            // You may also omit the title.
-            items: [
-              { text: "Section A Item A", link: "..." },
-              { text: "Section B Item B", link: "..." },
-            ],
-          },
-        ],
-      },
-    ],
-  },
+    },
 };
 ```
 
@@ -131,17 +131,17 @@ export default {
 
 ```ts
 export default {
-  themeConfig: {
-    nav: [
-      // This link gets active state when the user is
-      // on `/config/` path.
-      {
-        text: "Guide",
-        link: "/guide",
-        activeMatch: "/config/",
-      },
-    ],
-  },
+    themeConfig: {
+        nav: [
+            // This link gets active state when the user is
+            // on `/config/` path.
+            {
+                text: 'Guide',
+                link: '/guide',
+                activeMatch: '/config/',
+            },
+        ],
+    },
 };
 ```
 
@@ -157,16 +157,16 @@ export default {
 
 ```ts
 export default {
-  themeConfig: {
-    nav: [
-      {
-        text: "Merchandise",
-        link: "https://www.thegithubshop.com/",
-        target: "_self",
-        rel: "sponsored",
-      },
-    ],
-  },
+    themeConfig: {
+        nav: [
+            {
+                text: 'Merchandise',
+                link: 'https://www.thegithubshop.com/',
+                target: '_self',
+                rel: 'sponsored',
+            },
+        ],
+    },
 };
 ```
 

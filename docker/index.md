@@ -99,7 +99,7 @@ Docker 引擎是用于运行和编排容器的基础设施工具。是运行容�
 
 其他 Docker 产品都是围绕 `Docker 引擎` 进行开发和集成的。如下图所示：Docker 引擎位于中心，其他产品基于 Docker 引擎的核心功能进行集成。
 
-![docker产品结构示意图](/assets/docker/001.png "docker产品结构示意图")
+![docker产品结构示意图](/assets/docker/001.png 'docker产品结构示意图')
 
 ## Docker 开源项目（Moby）
 
@@ -110,7 +110,7 @@ Docker 引擎是用于运行和编排容器的基础设施工具。是运行容�
 Moby 项目的目标是基于开源的方式，发展成为 Docker 上游，并将 Docker 拆分为更多的模块化组件。Moby 项目托管于 GitHub 的 [Moby 代码库](https://github.com/moby)，包括子项目和工具列表。核心的 Docker 引擎项目位于 GitHub 的 [moby/moby](https://github.com/moby/moby)，但是引擎中的代码正持续被拆分和模块化。
 
 ::: tip 展示 Moby 项目 的 Logo
-![Moby的Logo](/assets/docker/002.png "Moby的Logo")
+![Moby的Logo](/assets/docker/002.png 'Moby的Logo')
 :::
 
 ## 容器生态
@@ -125,7 +125,7 @@ Moby 项目的目标是基于开源的方式，发展成为 Docker 上游，并�
 
 如果不谈及开放容器计划（The Open Container Initiative, OCI）的话，对 Docker 和容器生态的探讨总是不完整的。下图所示为 OCI 的 Logo：
 
-![OCI 的 Logo](/assets/docker/003.png "OCI 的 Logo")
+![OCI 的 Logo](/assets/docker/003.png 'OCI 的 Logo')
 
 开放容器计划(OCI)是一个旨在对容器基础架构中的基础组件（如镜像格式与容器运行时，如果对这些概念不熟悉的话，不要担心，本书后续会介绍到它们）进行标准化的管理委员会。
 

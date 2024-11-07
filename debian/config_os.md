@@ -434,9 +434,9 @@ vim ~/.zshrc
 
 SSH 默认采用密码登录，这种登录方式很多缺点：
 
-- 简单的密码不安全
-- 复杂的密码不容易记忆
-- 每次手动输入也很麻烦
+-   简单的密码不安全
+-   复杂的密码不容易记忆
+-   每次手动输入也很麻烦
 
 SSH 密钥登录是更好的解决方案，这里介绍如何创建和使用秘钥，更多内容请阅读阮一峰的[SSH 教程](https://wangdoc.com/ssh/index.html)
 
@@ -499,7 +499,7 @@ chmod 600 ras ras.pub
 
 1. `秘钥` 需要客户端妥善保管，如果 `秘钥` 被黑客获取，黑客就能登录服务器
 2. `公钥` 路径需要确保让服务器的 ssh 验证工具识别
-   - openssh 默认公钥路径： `~/.ssh/authorized_keys`
+    - openssh 默认公钥路径： `~/.ssh/authorized_keys`
 3. 其它用户对公钥需要有读取权限，即：644
 
 :::
@@ -516,7 +516,7 @@ chmod 644 ~/.ssh/authorized_keys
 私钥是直接给客户端保管的，比如：Windows 用户需要导入到 `xshell` 等 SSH 客户端里
 
 ::: details xshell 导入秘钥对
-![xshell导入秘钥对](/assets/debian/key.png "xshell导入秘钥对")
+![xshell导入秘钥对](/assets/debian/key.png 'xshell导入秘钥对')
 :::
 
 ::: tip
@@ -568,22 +568,22 @@ Host 254_www
 | PreferredAuthentications | 指定客户端身份验证方法的顺序 |
 | ForwardAgent             | 据说设为 yes 更加安全        |
 
-- IdentityFile
+-   IdentityFile
 
-  指定密钥文件路径，并将权限设为 600
+    指定密钥文件路径，并将权限设为 600
 
-- IdentitiesOnly
+-   IdentitiesOnly
 
-  | 可选值 | 说明                    |
-  | ------ | ----------------------- |
-  | false  | 默认，不做限制          |
-  | true   | 限制只接受 SSH key 登录 |
+    | 可选值 | 说明                    |
+    | ------ | ----------------------- |
+    | false  | 默认，不做限制          |
+    | true   | 限制只接受 SSH key 登录 |
 
-- PreferredAuthentications
+-   PreferredAuthentications
 
-  默认顺序: `gssapi-with-mic, hostbased, publickey, keyboard-interactive, password`
+    默认顺序: `gssapi-with-mic, hostbased, publickey, keyboard-interactive, password`
 
-  仅用公钥验证: `PreferredAuthentications publickey`
+    仅用公钥验证: `PreferredAuthentications publickey`
 
 :::
 

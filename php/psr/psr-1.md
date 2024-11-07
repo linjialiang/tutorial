@@ -9,13 +9,13 @@ PHP 代码应该严格使用这部分标准
 
 ## 概述
 
-- 文件必须只使用 `<?php` 和 `<?=` 开始标签
-- 文件必须只使用 `不带 BOM 的 UTF-8` 编码
-- 文件应该声明符号（类、函数、常量等） 或引起副作用（例如，生成输出、更改 `.ini` 设置等） 但不应该两者都做
-- 命名空间和类必须遵循 `PSR-4` 自动加载
-- 类名必须使用大写开头的驼峰命名规范（`StudlyCaps`）
-- 类常量必须用大写字母声明，并使用下划线分隔符
-- 方法名必须使用小写开头驼峰命名规范（`camelCase`）
+-   文件必须只使用 `<?php` 和 `<?=` 开始标签
+-   文件必须只使用 `不带 BOM 的 UTF-8` 编码
+-   文件应该声明符号（类、函数、常量等） 或引起副作用（例如，生成输出、更改 `.ini` 设置等） 但不应该两者都做
+-   命名空间和类必须遵循 `PSR-4` 自动加载
+-   类名必须使用大写开头的驼峰命名规范（`StudlyCaps`）
+-   类常量必须用大写字母声明，并使用下划线分隔符
+-   方法名必须使用小写开头驼峰命名规范（`camelCase`）
 
 ## 文件
 
@@ -34,14 +34,14 @@ PHP 代码 必须 且只可使用 `不带 BOM 的 UTF-8` 编码
 ::: tip 副作用
 `副作用` 包括但不限于：
 
-- 生成输出
-- 显式的使用 `require` 或 `include`
-- 连接到外部服务
-- 修改 `ini` 设置
-- 发出错误或异常
-- 修改全局或静态变量
-- 读取或写入文件
-- 其它逻辑操作
+-   生成输出
+-   显式的使用 `require` 或 `include`
+-   连接到外部服务
+-   修改 `ini` 设置
+-   发出错误或异常
+-   修改全局或静态变量
+-   读取或写入文件
+-   其它逻辑操作
 
 ::: code-group
 <<<@/assets/php/psr/psr-1/01.php [反例]
@@ -58,9 +58,9 @@ PHP 代码 必须 且只可使用 `不带 BOM 的 UTF-8` 编码
 
 ::: info 名称空间层级
 
-- 一层：如：`core` `think` `app`
-- 两层：如：`core\route` `think\model` `app\controller`
-- 三层：如：`app\test\controller` `app\admin\controller`
+-   一层：如：`core` `think` `app`
+-   两层：如：`core\route` `think\model` `app\controller`
+-   三层：如：`app\test\controller` `app\admin\controller`
 
 <<<@/assets/php/psr/psr-1/03.php
 

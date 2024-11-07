@@ -87,8 +87,8 @@ titleTemplate: Debian 教程
 
 中科大镜像源里有对应版本的固件包
 
-- 地址：http://mirrors.ustc.edu.cn/debian-cdimage/firmware/
-- 说明：本地安装 `bookworm` 时，还是测试版本，固件包有点问题 U 盘安装时无法识别，最终我是用了 `bookworm` 版本的固件包
+-   地址：http://mirrors.ustc.edu.cn/debian-cdimage/firmware/
+-   说明：本地安装 `bookworm` 时，还是测试版本，固件包有点问题 U 盘安装时无法识别，最终我是用了 `bookworm` 版本的固件包
 
 ::: tip 提示
 从 debian12 开始 官方 iso 已包含了非自由固件驱动包，
@@ -100,7 +100,7 @@ titleTemplate: Debian 教程
 
 测试版 CD 只能在官网下载
 
-- 地址：https://www.debian.org/devel/debian-installer/
+-   地址：https://www.debian.org/devel/debian-installer/
 
 ## 软件源
 
