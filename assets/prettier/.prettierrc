@@ -10,9 +10,15 @@
       "options": { "parser": "json" }
     },
     {
-      "files": "*.md",
+      "files": "*.(css|md)",
       "options": {
         "tabWidth": 4
+      }
+    },
+    {
+      "files": "*.(html|htm)",
+      "options": {
+        "htmlWhitespaceSensitivity": "ignore"
       }
     }
   ]
