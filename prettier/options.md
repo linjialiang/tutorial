@@ -173,7 +173,7 @@ cat foo | prettier --stdin-filepath foo.css
 
 Prettier 可以将自己限制为，只有在文件顶部包含特殊注释（称为 pragma）的文件，才支持格式化。这在逐渐将大型的、未格式化的代码库转换为 Prettier 时非常有用。
 
-当提供 `--require-pragma` 选项时，仅针对首个注释使用下如下注释内容的文件格式化：
+当提供 `--require-pragma` 选项时，仅针对首个注释使用如下注释内容的文件进行格式化：
 
 ```js
 /**
