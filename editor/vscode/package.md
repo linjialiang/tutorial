@@ -7,9 +7,9 @@ titleTemplate: vscode 教程
 
 在不深入了解 VSCode 的情况下，插件的内容会是最多的。
 
-- 每个插件都有属于自己语法；
-- 每个插件都有属于自己快捷键；
-- 每个插件都有属于自己的作用。
+-   每个插件都有属于自己语法；
+-   每个插件都有属于自己快捷键；
+-   每个插件都有属于自己的作用。
 
 ## 插件列表
 
@@ -107,10 +107,10 @@ vscode 内置对 js、ts、markdown 启用路径感知，如果使用了 `Path I
 ```json
 // settings.json
 {
-  "typescript.suggest.paths": false,
-  "javascript.suggest.paths": false,
-  // 官方只提示禁用 ts和js，亲测markdown禁用也一切正常
-  "markdown.suggest.paths.enabled": false
+    "typescript.suggest.paths": false,
+    "javascript.suggest.paths": false,
+    // 官方只提示禁用 ts和js，亲测markdown禁用也一切正常
+    "markdown.suggest.paths.enabled": false
 }
 ```
 
@@ -122,10 +122,10 @@ vscode 内置对 js、ts、markdown 启用路径感知，如果使用了 `Path I
 
 ```json
 {
-  "path-intellisense.mappings": {
-    // ThinkPHP 项目中，输入 `/static/` 时列出 `/public/static/` 的路径
-    "/static/": "${workspaceFolder}/public/static/"
-  }
+    "path-intellisense.mappings": {
+        // ThinkPHP 项目中，输入 `/static/` 时列出 `/public/static/` 的路径
+        "/static/": "${workspaceFolder}/public/static/"
+    }
 }
 ```
 
@@ -145,20 +145,20 @@ src/module-b/foo.ts
 ```json [tsconfig 配置]
 // tsconfig
 {
-  "baseUrl": "src"
+    "baseUrl": "src"
 }
 ```
 
 ```ts [用法]
 {
-  import {} from "module-a/foo.ts";
+    import {} from 'module-a/foo.ts';
 }
 ```
 
 ```json [禁用 TsConfig 支持]
 {
-  // 将其设置为 true 来禁用对TsConfig 的支持
-  "path-intellisense.ignoreTsConfigBaseUrl": true
+    // 将其设置为 true 来禁用对TsConfig 的支持
+    "path-intellisense.ignoreTsConfigBaseUrl": true
 }
 ```
 
@@ -177,11 +177,11 @@ vscode 下强大的项目管理插件
 ```json
 // keybindings.json
 [
-  // 项目从新窗口打开
-  {
-    "key": "ctrl+shift+alt+p",
-    "command": "projectManager.listProjectsNewWindow"
-  }
+    // 项目从新窗口打开
+    {
+        "key": "ctrl+shift+alt+p",
+        "command": "projectManager.listProjectsNewWindow"
+    }
 ]
 ```
 
@@ -201,33 +201,33 @@ Todo Tree 是非常优秀 TODO 插件
 ```json
 // settings.json
 {
-  "todo-tree.highlights.defaultHighlight": {
-    "icon": "alert",
-    "foreground": "#ecf5ff",
-    "background": "#409eff",
-    "rulerColour": "#409eff",
-    "iconColour": "#409eff",
-    "rulerLane": "full",
-    "gutterIcon": true,
-    "type": "tag"
-  },
-  "todo-tree.highlights.customHighlight": {
-    "BUG": {
-      "foreground": "#000000",
-      "background": "#f56c6c",
-      "rulerColour": "#f56c6c",
-      "iconColour": "#f56c6c"
+    "todo-tree.highlights.defaultHighlight": {
+        "icon": "alert",
+        "foreground": "#ecf5ff",
+        "background": "#409eff",
+        "rulerColour": "#409eff",
+        "iconColour": "#409eff",
+        "rulerLane": "full",
+        "gutterIcon": true,
+        "type": "tag"
     },
-    "TODO": {
-      "icon": "check"
-    },
-    "FIXME": {
-      "foreground": "#000000",
-      "background": "#FFFF00",
-      "rulerColour": "#FFFF00",
-      "iconColour": "#FFFF00"
+    "todo-tree.highlights.customHighlight": {
+        "BUG": {
+            "foreground": "#000000",
+            "background": "#f56c6c",
+            "rulerColour": "#f56c6c",
+            "iconColour": "#f56c6c"
+        },
+        "TODO": {
+            "icon": "check"
+        },
+        "FIXME": {
+            "foreground": "#000000",
+            "background": "#FFFF00",
+            "rulerColour": "#FFFF00",
+            "iconColour": "#FFFF00"
+        }
     }
-  }
 }
 ```
 
@@ -260,8 +260,8 @@ Code Spell Checker 是一款拼写检查插件，目标是帮助捕获常见的�
 ```json
 // keybindings.json
 {
-  "key": "ctrl+k ctrl+oem_plus",
-  "command": "wwm.aligncode"
+    "key": "ctrl+k ctrl+oem_plus",
+    "command": "wwm.aligncode"
 }
 ```
 
@@ -294,16 +294,16 @@ vim 引擎，具体要求：
 1. Neovim >= 0.10.0
 2. 配置里指向 Neovim 执行文件全路径
 
-   ```json
-   {
-     // windows
-     "vscode-neovim.neovimExecutablePaths.win32": "c:\\sf\\nvim-win64\\bin\\nvim.exe",
-     // mac
-     "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
-     // linux
-     "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim"
-   }
-   ```
+    ```json
+    {
+        // windows
+        "vscode-neovim.neovimExecutablePaths.win32": "c:\\sf\\nvim-win64\\bin\\nvim.exe",
+        // mac
+        "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+        // linux
+        "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim"
+    }
+    ```
 
 ## 二、前端插件
 
@@ -319,21 +319,21 @@ vscode 支持 ESLint，关于 ESLint 请到 [基础工具（暂无）] 里查阅
 
 1. 导入的命令，在代码段之后使用的换行符
 
-   默认是 `;\r\n` ,根据需要我换成了 `;\n`
+    默认是 `;\r\n` ,根据需要我换成了 `;\n`
 
-   ```json
-   // settings.json
-   "npm-intellisense.importLinebreak": ";\n",
-   ```
+    ```json
+    // settings.json
+    "npm-intellisense.importLinebreak": ";\n",
+    ```
 
 2. 导入的命令，使用 `import` 语句而不是 `require()`
 
-   默认是启用 `import`，假如你的环境不支持 es6，可以选择禁用
+    默认是启用 `import`，假如你的环境不支持 es6，可以选择禁用
 
-   ```json
-   // settings.json
-   "npm-intellisense.importES6": false,
-   ```
+    ```json
+    // settings.json
+    "npm-intellisense.importES6": false,
+    ```
 
 ::: tip
 前端框架没有这个问题，因为都会通过 babel 转换，所以保持默认开启状态
@@ -356,9 +356,9 @@ stylelint 提供的 css 类语法验证，比 vscode 自带的更好用，如果
 ```json
 // settings.json
 {
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": false
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false
 }
 ```
 
@@ -388,15 +388,15 @@ PHP Intelephense 为 vscode 提供 PHP 开发者的 IDE 工具
 
 > 处理内置插件：
 
-- `ctrl+shift+x` 转到侧栏的扩展视图
-- 搜索 `@builtin php` （vscode 内置 php 插件）
-- 禁用 `PHP Language Features` （内置 php 语言高级功能）
-- 启用 `PHP Language Basics`（内置 PHP 语言基本功能）
+-   `ctrl+shift+x` 转到侧栏的扩展视图
+-   搜索 `@builtin php` （vscode 内置 php 插件）
+-   禁用 `PHP Language Features` （内置 php 语言高级功能）
+-   启用 `PHP Language Basics`（内置 PHP 语言基本功能）
 
 > 项目中指定配置：
 
 ::: details 针对当前项目的配置
-<<< @/assets/vscode/php-settings.txt{json}
+<<< @/assets/vscode/php-settings.json
 
 ::: tip 提示
 PHP Intelephense 插件不依赖于本地 php 环境
