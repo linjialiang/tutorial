@@ -29,6 +29,8 @@ node --eval "fs.writeFileSync('.prettierrc','{}\n')"
 node --eval "fs.writeFileSync('.prettierignore','# Ignore artifacts:\nbuild\ncoverage\n')"
 # 使用Prettier格式化所有文件
 pnpm exec prettier . --write
+# 使用Prettier格式化 .vitepress/nav 和 .vitepress/sidebar 目录下的文件
+pnpm exec prettier .vitepress/nav .vitepress/sidebar --write
 ```
 
 ## 配置文件优先级

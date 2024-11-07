@@ -1,9 +1,9 @@
-import bash from "./bash.mts";
-import debian from "./debian.mts";
+import bash from './bash.mts';
+import debian from './debian.mts';
 
 const sidebar = [
-  { text: "Debian", collapsed: true, items: [...debian] },
-  { text: "Bash", collapsed: true, items: [...bash] },
+  { text: 'Debian', collapsed: true, items: [...debian] },
+  { text: 'Bash', collapsed: true, items: [...bash] },
 ];
 
 export { sidebar as debian };
