@@ -40,7 +40,6 @@
   "prettier.jsxSingleQuote": true,
   "prettier.bracketSameLine": true,
   "[php]": {
-    // 指定 php 文件的 tab 为 4空格
     "editor.tabSize": 4,
     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
   },
