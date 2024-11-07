@@ -13,54 +13,44 @@ titleTemplate: vscode 教程
 
 ## 插件列表
 
-::: tip 通用插件
+### 1. 通用插件
 
 1. [Chinese (Simplified) ...](#chinese)
-2. [One Dark Pro](#one-dark-pro)
-3. Dracula Official
-4. Nord
-5. [Material Icon Theme](#material-icon)
-6. [GitLens — Git supercharged](#gitlens)
-7. [Prettier - Code formatter](#prettier)
-8. [Path Intellisense](#path-intellisense)
-9. [Project Manager](#project-manager)
-10. [Todo Tree](#todo-tree)
-11. [IntelliCode](#intellicode)
-12. [IntelliCode API Usage Examples](#intellicode-api-usage-examples)
-13. [Code Spell Checker](#code-spell-checker)
-14. [Better Align](#better-align)
-15. [indent-rainbow](#indent-rainbow)
-16. [Polacode-2022](#polacode-2020)
-17. [Hex Editor](#hex-editor)
-18. [Arm Assembly](#arm-assembly)
+2. Dracula Official
+3. [Material Icon Theme](#material-icon)
+4. [GitLens — Git supercharged](#gitlens)
+5. [Prettier - Code formatter](#prettier)
+6. [Path Intellisense](#path-intellisense)
+7. [Project Manager](#project-manager)
+8. [Todo Tree](#todo-tree)
+9. [IntelliCode](#intellicode)
+10. [IntelliCode API Usage Examples](#intellicode-api-usage-examples)
+11. [Code Spell Checker](#code-spell-checker)
+12. [Better Align](#better-align)
+13. [indent-rainbow](#indent-rainbow)
+14. [Polacode-2022](#polacode-2020)
+15. [Hex Editor](#hex-editor)
+16. [Arm Assembly](#arm-assembly)
 
-:::
-
-::: tip 前端插件
+### 2. 前端插件
 
 1. [ESLint](#eslint)
 2. [npm Intellisense](#npm-intellisense)
 3. [WindiCSS IntelliSense](#windicss-intellisense)
 4. [stylelint](#stylelint)
 
-:::
-
-::: tip Vue3 插件
+### 3. Vue3 插件
 
 1. [Vue Language Features (Volar)](#volar)
 2. [TypeScript Vue Plugin](#typescript-vue-plugin)
 
-:::
-
-::: tip php 插件
+### 4. php 插件
 
 1. [PHP Intelephense](#php-intelephense)
 2. [PHP DocBlocker](#php-docblocker)
 3. [PHP Namespace Resolver](#php-namespace-resolver)
 
-:::
-
-::: tip 远程控制插件
+### 5. 远程控制插件
 
 1. [Remote - SSH](#remote-ssh)
 2. Remote - SSH: Editing Configuration Files
@@ -81,7 +71,7 @@ vscode 上优秀的插件有很多，这里不可能一一罗列，在日常工�
 
 ### 2. 主题
 
-One Dark Pro 是 vscode 里下载量最大的主题
+Dracula Official 是 vscode 里最稳的主题，喜欢其他主题也可以自行添加
 
 ### 3. 图标库
 
