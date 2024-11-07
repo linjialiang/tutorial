@@ -31,6 +31,7 @@ titleTemplate: vscode 教程
 14. [Polacode-2022](#polacode-2020)
 15. [Hex Editor](#hex-editor)
 16. [Arm Assembly](#arm-assembly)
+17. [VSCode Neovim](#Neovim)
 
 ### 2. 前端插件
 
@@ -285,6 +286,24 @@ Hex Editor 用于支持十六进制格式显示文件，并支持修改，需要
 ### 16. Arm Assembly
 
 这是对汇编语言的语法支持，需要的时候开启，不需要的时候禁用
+
+### 17. VSCode Neovim
+
+vim 引擎，具体要求：
+
+1. Neovim >= 0.10.0
+2. 配置里指向 Neovim 执行文件全路径
+
+   ```json
+   {
+     // windows
+     "vscode-neovim.neovimExecutablePaths.win32": "c:\\sf\\nvim-win64\\bin\\nvim.exe",
+     // mac
+     "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+     // linux
+     "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim"
+   }
+   ```
 
 ## 二、前端插件
 
