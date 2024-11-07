@@ -124,24 +124,4 @@ overrides:
 
 ## 案例参考
 
-```json
-{
-    "vueIndentScriptAndStyle": true,
-    "printWidth": 120,
-    "singleQuote": true,
-    "jsxSingleQuote": true,
-    "bracketSameLine": true,
-    "overrides": [
-        {
-            "files": ".prettierrc",
-            "options": { "parser": "json" }
-        },
-        {
-            "files": "*.md",
-            "options": {
-                "tabWidth": 4
-            }
-        }
-    ]
-}
-```
+<<<@/assets/prettier/.prettierrc{json}
