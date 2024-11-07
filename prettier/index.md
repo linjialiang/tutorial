@@ -20,13 +20,37 @@ Prettier 是一个有主见的代码格式化程序，原生支持：
 
 ## 安装
 
-```bash
-# 在本地安装Prettier
+安装前确保满足以下条件：
+
+-   nodejs，推荐使用最新版
+-   npm 镜像切换到国内，如，阿里云：
+
+::: code-group
+
+```bash [安装前]
+# 查看当前源地址
+npm config get registry
+# 将源设为淘宝镜像
+npm config set registry https://registry.npmmirror.com/
+# 恢复默认
+npm config set registry https://registry.npmjs.org
+```
+
+```bash [安装]
+# Prettier 安装到全局 [推荐]
+npm i prettier -g
+# Prettier 安装到项目中
 pnpm add --save-dev --save-exact prettier
+```
+
+```bash [创建配置文件]
 # 创建一个空的配置文件，让编辑器和其他工具知道你正在使用Prettier
 node --eval "fs.writeFileSync('.prettierrc','{}\n')"
 # 创建一个.prettierignore文件，让Prettier CLI和编辑器知道哪些文件不需要格式化
 node --eval "fs.writeFileSync('.prettierignore','# Ignore artifacts:\nbuild\ncoverage\n')"
+```
+
+```bash [常用指令]
 # 使用Prettier格式化所有文件
 pnpm exec prettier . --write
 # 使用Prettier格式化 .vitepress/nav 和 .vitepress/sidebar 目录下的文件
@@ -34,6 +58,8 @@ pnpm exec prettier .vitepress/nav .vitepress/sidebar --write
 # 格式化所有md和mts扩展的文件
 pnpm exec prettier . "**/*.{md,mts}" --write
 ```
+
+:::
 
 ## 配置文件优先级
 
