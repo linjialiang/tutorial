@@ -1,7 +1,7 @@
 const path = {
-  main: "/sql/mysql/",
+  main: '/sql/mysql/',
 };
 
-const sidebar = [{ text: "概述", link: `${path.main}` }];
+const sidebar = [{ text: '概述', link: `${path.main}` }];
 
 export default sidebar;
