@@ -19,7 +19,7 @@
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
   "editor.formatOnPaste": true,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
   "editor.lineHeight": 1.6,
   "editor.lineNumbers": "relative",
@@ -34,6 +34,23 @@
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 120,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.vueIndentScriptAndStyle": true,
+  "prettier.printWidth": 120,
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.bracketSameLine": true,
+  "[php]": {
+    // 指定 php 文件的 tab 为 4空格
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+  },
+  "[markdown][css]": {
+    "editor.tabSize": 4,
+    "prettier.tabWidth": 4
+  },
+  "[html]": {
+    "prettier.htmlWhitespaceSensitivity": "ignore"
+  },
   "workbench.enableExperiments": false,
   "workbench.list.smoothScrolling": true,
   "workbench.settings.editor": "json",
@@ -87,28 +104,19 @@
   "typescript.suggest.paths": false,
   "javascript.suggest.paths": false,
   "markdown.suggest.paths.enabled": false,
-  "[php]": {
-    // 指定 php 文件的 tab 为 4空格
-    "editor.tabSize": 4,
-    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
-  },
-  "[markdown]": {
-    // 指定 markdown 文件的 tab 为 4 空格
-    "editor.tabSize": 4
-  },
   "npm-intellisense.importLinebreak": ";\n",
   "terminal.integrated.defaultProfile.windows": "PowerShell",
-  "remote.SSH.remotePlatform": {
-    "lnmp_www": "linux",
-    "bt_www": "linux",
-    "debain12_www": "linux",
-    "lnmp_emad": "linux"
-  },
   "workbench.iconTheme": "material-icon-theme",
   "diffEditor.hideUnchangedRegions.enabled": true,
   "workbench.colorTheme": "Dracula Theme",
   "vscode-neovim.neovimExecutablePaths.win32": "C:\\sf\\nvim-win64\\bin\\nvim.exe",
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
+  },
+  "remote.SSH.remotePlatform": {
+    "lnmp_www": "linux",
+    "bt_www": "linux",
+    "debain12_www": "linux",
+    "lnmp_emad": "linux"
   }
 }
