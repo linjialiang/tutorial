@@ -164,7 +164,8 @@ overrides:
 
 ::: code-group
 
-<<<@/assets/prettier/.prettierrc{json} [配置]
-<<<@/assets/prettier/.prettierignore{ini} [忽略]
-
+<<<@/assets/prettier/.prettierrc{json} [项目配置]
+<<<@/assets/prettier/.prettierignore{ini} [项目忽略]
+<<<@/assets/prettier/sublime{ini} [sublime 配置]
+<<<@/assets/prettier/.prettierignore{ini} [vscode 配置]
 :::
