@@ -23,3 +23,99 @@ Prettier 还将遵循 `.gitignore` 文件中指定的规则，如果它存在于
 ## 在文件中忽略部分代码块
 
 在文件中通过使用 `prettier-ignore` 注释，可以对注释行，下一个代码块忽略格式化，具体案例如下：
+
+### 1. JavaScript
+
+::: code-group
+
+```text [source]
+matrix(
+1, 0, 0,
+0, 1, 0,
+0, 0, 1
+)
+
+// prettier-ignore
+matrix(
+1, 0, 0,
+0, 1, 0,
+0, 0, 1
+)
+```
+
+```js [结果]
+matrix(1, 0, 0, 0, 1, 0, 0, 0, 1);
+
+// prettier-ignore
+matrix(
+1, 0, 0,
+0, 1, 0,
+0, 0, 1
+)
+```
+
+:::
+
+::: code-group
+
+```jsx [JSX]
+<div>
+    {/* prettier-ignore */}
+    <span     ugly  format=''   />
+</div>
+```
+
+```html [HTML]
+<!-- prettier-ignore -->
+<div         class="x"       >hello world</div            >
+
+<!-- prettier-ignore -->
+<div
+  (mousedown)="       onStart    (    )         "
+  (mouseup)="         onEnd      (    )         "
+></div>
+
+<!-- prettier-ignore -->
+<div
+  (mousedown)="onStart()"
+  (mouseup)="         onEnd      (    )         "
+></div>
+```
+
+```css [CSS]
+/* prettier-ignore */
+.my    ugly rule
+{
+
+}
+```
+
+```md [Markdown]
+<!-- prettier-ignore -->
+Do   not    format   this
+```
+
+:::
+
+### JSX
+
+### HTML
+
+::: code-group
+
+```text [source]
+
+```
+
+```html [结果]
+<!-- prettier-ignore -->
+<div         class="x"       >hello world</div            >
+
+<!-- prettier-ignore-attribute -->
+<div (mousedown)="       onStart    (    )         " (mouseup)="         onEnd      (    )         "></div>
+
+<!-- prettier-ignore-attribute (mouseup) -->
+<div (mousedown)="onStart()" (mouseup)="         onEnd      (    )         "></div>
+```
+
+:::
