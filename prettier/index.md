@@ -149,9 +149,14 @@ overrides:
 ::: warning
 注意：不要将 `parser` 选项放在配置的顶层。只能在 `overrides` 里面使用。否则，将禁用 Prettier 的自动文件扩展名为基础来推理解析器的功能。
 
-这会强制 Prettier 使用您为所有类型的文件指定的解析器--即使它没有意义，比如试图将 CSS 文件解析为 JavaScript。
+`parser` 选项放在配置的顶层， 会强制 Prettier 使用您为所有类型的文件指定的解析器--即使它没有意义，比如试图将 CSS 文件解析为 JavaScript。
 :::
 
 ## 案例参考
 
-<<<@/assets/prettier/.prettierrc{json}
+::: code-group
+
+<<<@/assets/prettier/.prettierrc{json} [配置]
+<<<@/assets/prettier/.prettierignore{ini} [忽略]
+
+:::
