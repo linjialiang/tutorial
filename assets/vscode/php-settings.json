@@ -8,6 +8,5 @@
     "/static/": "${workspaceRoot}/public/static/"
   },
   // php-intelephense 插件默认开启php内置扩展，如果有新增的扩展需要在这里指定
-  "intelephense.stubs": [
-  ]
+  "intelephense.stubs": []
 }
