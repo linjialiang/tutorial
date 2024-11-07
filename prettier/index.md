@@ -288,26 +288,31 @@ Prettier 可以在文件的顶部插入一个特殊的 `@format` 标记，指定
 | ------- | ------------------------------------ | ----------------------------------- |
 | `"lf"`  | `--end-of-line <lf\|crlf\|cr\|auto>` | `endOfLine: "<lf\|crlf\|cr\|auto>"` |
 
-### new
+### 嵌入式语言格式
 
-new
+控制 Prettier 是否格式化文件中嵌入的引用代码
 
-| Default | CLI 参数 | API 参数 |
-| ------- | -------- | -------- |
-| `new`   | `new`    | `new`    |
+当 Prettier 识别出它看起来像是你在另一个文件中放置了一些代码时，它知道如何在字符串中格式化，比如：
 
-### new
+- 在 JavaScript 中带有标签名为 html 的标记模板中，
+- 在 Markdown 中的代码块中，它会默认尝试格式化该代码。
 
-new
+有效选项：
 
-| Default | CLI 参数 | API 参数 |
-| ------- | -------- | -------- |
-| `new`   | `new`    | `new`    |
+- `"auto"` 如果 Prettier 可以自动识别，则格式化嵌入代码
+- `"off"` 永远不要自动格式化嵌入式代码
 
-### new
+| Default  | CLI 参数                                     | API 参数                                    |
+| -------- | -------------------------------------------- | ------------------------------------------- |
+| `"auto"` | `--embedded-language-formatting=<off\|auto>` | `embeddedLanguageFormatting: "<off\|auto>"` |
 
-new
+### 每行单个属性
 
-| Default | CLI 参数 | API 参数 |
-| ------- | -------- | -------- |
-| `new`   | `new`    | `new`    |
+在 HTML、Vue 和 JSX 中强制每行使用一个属性，有效选项：
+
+- `false` 不要强制每行使用单个属性
+- `true` 每行强制执行单个属性
+
+| Default | CLI 参数                      | API 参数                         |
+| ------- | ----------------------------- | -------------------------------- |
+| `false` | `--single-attribute-per-line` | `singleAttributePerLine: <bool>` |
