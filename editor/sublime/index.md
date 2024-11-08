@@ -70,6 +70,39 @@ Sublime Text 可以通过修改 `sublime_text.exe` 文件的 hex 值实现破解
     - 该插件以来 prettier，推荐全局安装 prettier
     - Prettier 原生不支持 PHP 代码格式化，这里使用 lsp-intelephense 自带的格式化工具
 
+## 快速启动
+
+在 windows 下，指定 sublime 根目录加入环境变量中，再该目录下创建 batch 脚本：
+
+```batch
+REM 文件名 st.bat
+@echo off
+setlocal
+
+REM 获取当前脚本的完整路径
+set "scriptPath=%~f0"
+
+REM 获取当前脚本所在的目录
+for %%i in ("%scriptPath%") do set "scriptDir=%%~dpi"
+
+REM 去掉末尾的反斜杠
+if "%scriptDir:~-1%"=="\" set "scriptDir=%scriptDir:~0,-1%"
+
+REM 构建 sublime_text.exe 的完整路径
+set "sublimePath=%scriptDir%\sublime_text.exe"
+
+REM 检查 sublime_text.exe 是否存在
+if exist "%sublimePath%" (
+    REM 打开 sublime_text.exe
+    start "" "%sublimePath%"
+) else (
+    echo sublime_text.exe not found in the script directory.
+)
+
+endlocal
+exit
+```
+
 ## 配置
 
 ::: code-group
