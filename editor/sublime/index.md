@@ -75,14 +75,14 @@ Sublime Text 可以通过修改 `sublime_text.exe` 文件的 hex 值实现破解
 ::: code-group
 
 ```batch [方式一]
-REM 在 windows 下，将 c:\run 目录加入环境变量中，再该目录下创建 st.bat 脚本：
+REM 在 windows 下，将 c:\run 目录加入环境变量中，在该目录下创建 st.bat 脚本：
 @echo off
 start "" "C:\sf\sublime\sublime_text.exe"
 exit
 ```
 
 ```batch [方式二]
-REM 在 windows 下，指定 sublime 根目录加入环境变量中，再该目录下创建 st.bat 脚本：
+REM 在 windows 下，指定 sublime 根目录加入环境变量中，在该目录下创建 st.bat 脚本：
 @echo off
 setlocal
 
