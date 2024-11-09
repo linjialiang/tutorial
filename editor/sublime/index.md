@@ -48,6 +48,11 @@ Sublime Text 可以通过修改 `sublime_text.exe` 文件的 hex 值实现破解
 | LSP                | 类 ide 插件   |
 | LSP-typescript     | 支持 js 和 ts |
 | LSP-intelephense   | 支持 php      |
+| LSP-json           | 支持 json     |
+| LSP-html           | 支持 html     |
+| LSP-css            | 支持 css      |
+| LSP-yaml           | 支持 yaml     |
+| LSP-bash           | 支持 bash     |
 
 ### 插件详细说明
 
