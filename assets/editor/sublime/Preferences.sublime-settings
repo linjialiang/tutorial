@@ -13,5 +13,7 @@
   "update_check": false,
   "relative_line_numbers": true,
   "save_on_focus_lost": true,
-  "default_line_ending": "unix"
+  "default_line_ending": "unix",
+  // 将vim自带剪切板与系统剪贴板交互使用
+  "vintageous_use_sys_clipboard": true
 }
