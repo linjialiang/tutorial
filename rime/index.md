@@ -94,7 +94,13 @@ apt install fcitx5-material-color -y
 请使用默认安装路径，为后续配置输入法做准备
 :::
 
-## rime-ice 词库
+## 安装 rime-ice 词库
+
+安装 rime-ice 词库非常简单，针对常见前端实现的安装方式如下：
+
+::: details 操作前请先退出算法服务
+![退出算法服务](/assets/rime/quit.png)
+:::
 
 ::: code-group
 
@@ -114,7 +120,7 @@ git clone git@github.com:iDvel/rime-ice.git rime
 # git clone https://madnesslin.coding.net/public/default/rime-ice/git rime
 ```
 
-```batch
+```batch [小狼毫]
 C:
 cd %USERPROFILE%\AppData\Roaming
 ren Rime Rime.bak
@@ -126,7 +132,19 @@ REM git clone https://madnesslin.coding.net/public/default/rime-ice/git Rime
 
 :::
 
-> 点击部署 > 然后重启系统
+::: details 操作完成，需重启算法服务
+![退出算法服务](/assets/rime/restart.png)
+:::
+
+## RIME 重载配置
+
+1. 切换到 Rime 输入法
+2. 右键选择 `重新部署` 或 `部署`
+3. 如不生效，可以重启系统尝试
+
+::: details 重新部署
+![重新部署](/assets/rime/reload.png)
+:::
 
 ### 配置横排显示
 
