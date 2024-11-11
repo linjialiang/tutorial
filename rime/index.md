@@ -21,9 +21,6 @@ RIME／中州韵输入法引擎，是一个跨平台的输入法算法框架。
 | 安卓    | 同文           | ❎       |
 | 安卓    | fcitx5-android | ❎       |
 
-1. 安装 Rime
-2. Rime
-
 Linux 上的输入法框架主要是 `Fcitx`、`Fcitx5` 和 `IBus` 三种，通过使用经验来讲：
 
 -   IBus 对 GKT 包比较友好
@@ -31,7 +28,7 @@ Linux 上的输入法框架主要是 `Fcitx`、`Fcitx5` 和 `IBus` 三种，通�
 -   Fcitx5 作为 Fcitx 的更新版本，对 `GKT包` 和 `QT包` 都有较好的支持
 -   针对 Wayland 桌面协议：暂时只有 Fcitx5 提供了基本支持
 
-## IBus 输入法
+## ibus-rime
 
 安装前 IBus 输入法框架前，建议卸载 `Fcitx` 和 `Fcitx5` 相关输入法
 
