@@ -42,6 +42,12 @@ features:
       details: 神的编辑器
       link: /editor/vim/index
     - icon:
+          dark: /svg/rime-light.svg
+          light: /svg/rime.svg
+      title: Rime 教程
+      details: 程序员必备输入法
+      link: /rime/index
+    - icon:
           light: /svg/linux.svg
           dark: /svg/debian.svg
       title: Debian 教程
