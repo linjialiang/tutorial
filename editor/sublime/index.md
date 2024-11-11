@@ -38,21 +38,21 @@ Sublime Text 可以通过修改 `sublime_text.exe` 文件的 hex 值实现破解
 
 ## 插件
 
-| 插件               | 描述          |
-| ------------------ | ------------- |
-| A File Icon        | 图标插件      |
-| BracketHighlighter | 括号高亮插件  |
-| LocalizedMenu      | 本地化菜单    |
-| NeoVintageous      | Vim 引擎      |
-| JsPrettier         | 格式化工具    |
-| LSP                | 类 ide 插件   |
-| LSP-typescript     | 支持 js 和 ts |
-| LSP-intelephense   | 支持 php      |
-| LSP-json           | 支持 json     |
-| LSP-html           | 支持 html     |
-| LSP-css            | 支持 css      |
-| LSP-yaml           | 支持 yaml     |
-| LSP-bash           | 支持 bash     |
+| 插件                                              | 描述          |
+| ------------------------------------------------- | ------------- |
+| A File Icon                                       | 图标插件      |
+| BracketHighlighter                                | 括号高亮插件  |
+| LocalizedMenu                                     | 本地化菜单    |
+| [NeoVintageous](https://neovintageous.github.io/) | Vim 引擎      |
+| JsPrettier                                        | 格式化工具    |
+| LSP                                               | 类 ide 插件   |
+| LSP-typescript                                    | 支持 js 和 ts |
+| LSP-intelephense                                  | 支持 php      |
+| LSP-json                                          | 支持 json     |
+| LSP-html                                          | 支持 html     |
+| LSP-css                                           | 支持 css      |
+| LSP-yaml                                          | 支持 yaml     |
+| LSP-bash                                          | 支持 bash     |
 
 ### 插件详细说明
 
