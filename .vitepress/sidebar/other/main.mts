@@ -8,6 +8,7 @@ const path = {
 
 const sidebar = [
   { text: '概述', link: `${path.main}` },
+  { text: 'PowerShell', link: `${path.main}powershell` },
   { text: 'clash', collapsed: true, items: clash },
   { text: 'wechat', collapsed: true, items: wechat },
   { text: 'javascript', collapsed: true, items: js },
