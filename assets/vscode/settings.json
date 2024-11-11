@@ -108,6 +108,7 @@
   "workbench.iconTheme": "material-icon-theme",
   "diffEditor.hideUnchangedRegions.enabled": true,
   "workbench.colorTheme": "Dracula Theme",
+  // vim的复制粘贴跟系统剪切板同步
   "vim.useSystemClipboard": true,
   "remote.SSH.remotePlatform": {
     "lnmp_www": "linux",

@@ -32,6 +32,7 @@ titleTemplate: vscode 教程
 15. [Hex Editor](#hex-editor)
 16. [Arm Assembly](#arm-assembly)
 17. [VSCode Neovim](#Neovim)
+18. [Vim](#Vim)
 
 ### 2. 前端插件
 
@@ -304,6 +305,19 @@ vim 引擎，具体要求：
         "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim"
     }
     ```
+
+### 18. Vim
+
+vim 引擎，没有特殊要求，默认采用 vim 按键绑定，也可以跟 `VSCode Neovim` 一样配置为 Neovim API 实现
+
+涉及的配置项：
+
+```json
+{
+    // vim的复制粘贴跟系统剪切板同步
+    "vim.useSystemClipboard": true
+}
+```
 
 ## 二、前端插件
 
