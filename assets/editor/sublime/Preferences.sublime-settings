@@ -12,5 +12,6 @@
   "show_line_endings": true,
   "update_check": false,
   "relative_line_numbers": true,
-  "save_on_focus_lost": true
+  "save_on_focus_lost": true,
+  "default_line_ending": "unix"
 }
