@@ -47,8 +47,8 @@ apt install ibus-rime
 :::
 
 ::: details 配置 ibus
-![](/assets/debian/gui/004.png)
-![](/assets/debian/gui/005.png)
+![](/assets/rime/004.png)
+![](/assets/rime/005.png)
 :::
 
 ### fcitx5-rime
@@ -68,8 +68,8 @@ apt install fcitx5 fcitx5-chinese-addons fcitx5-rime
 :::
 
 ::: details 配置 fcitx5
-![](/assets/debian/gui/016.png)
-![](/assets/debian/gui/018.png)
+![](/assets/rime/016.png)
+![](/assets/rime/018.png)
 :::
 
 #### 界面主题
@@ -81,7 +81,7 @@ apt install fcitx5-material-color -y
 ```
 
 ::: details 配置主题
-![](/assets/debian/gui/017.png)
+![](/assets/rime/017.png)
 :::
 
 ### 小狼毫
@@ -156,78 +156,3 @@ REM git clone https://madnesslin.coding.net/public/default/rime-ice/git Rime
 style:
     horizontal: true
 ```
-
-3. 重新部署 ibus-rime
-
-### 使用 rime-ice 词库
-
-```bash
-cd ~/.local/share/fcitx5/
-mv rime{,.bak}
-# git clone git@github.com:iDvel/rime-ice.git rime
-# 为了加速，这个是同步仓库，建议删除 .git 目录
-git clone git@e.coding.net:madnesslin/default/rime-ice.git rime
-```
-
-> 点击部署 > 然后重启系统
-
-### 配置
-
-[雾凇拼音](https://github.com/iDvel/rime-ice) 是 Rime 的一个配置仓库，配置雾凇拼音如下：
-
-::: details 1. Rime 退出算法服务
-![配置解压到用户文件夹](/assets/debian/gui/007.png)
-:::
-
-::: details 2. 操作用户文件夹
-进入 Rime 的 `用户文件夹` 并备份原始内容，路径如：`C:\Users\Administrator\AppData\Roaming\Rime`
-:::
-
-::: details 3. 下载雾凇拼音
-去 git 仓库下载[最新源码包](https://github.com/iDvel/rime-ice/archive/refs/heads/main.zip)
-:::
-
-::: details 4. 将雾凇拼音的配置源码解压到 `用户文件夹`；
-
-路径：C:\Users\Administrator\AppData\Roaming\Rime
-
-![配置解压到用户文件夹](/assets/debian/gui/008.png)
-
-> 用户文件夹最终效果
-
-![用户文件夹最终效果](/assets/debian/gui/009.png)
-
-:::
-
-::: details 5. 重新部署
-小狼毫退出算法服务后是无法使用重新部署的，最好的解决办法就是重启电脑
-![基本不更新](/assets/debian/gui/011.png)
-:::
-
-::: details 6. 设置输入法；
-![输入法设定](/assets/debian/gui/010.png)
-![选中输入法](/assets/debian/gui/012.png)
-![现代蓝界面](/assets/debian/gui/013.png)
-:::
-
-::: tip 到此完成！
-:::
-
-### 使用
-
-通过快捷键 `F4` 或 `Ctrl - ~` 调出 Rime 方案选单，按需求选择
-
-![Rime方案选单](/assets/debian/gui/015.png)
-
-::: details 默认使用英文
-
-`rime_ice.schema.yaml` 文件，修改 ascii_mode 内容
-
-```yaml
-switches:
-    - name: ascii_mode
-      reset: 1 // [!code ++]
-      states: [中, Ａ]
-```
-
-:::
