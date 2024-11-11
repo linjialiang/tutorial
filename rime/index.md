@@ -86,7 +86,7 @@ apt install fcitx5-material-color -y
 
 ### 小狼毫
 
-小狼毫是 `中州韵输入法引擎(Rime)` 官方为 Windows 系统制作的输入法
+小狼毫(weasel)是 `中州韵输入法引擎(RIME)` 官方为 Windows 系统制作的输入法前端实现
 
 去[中州韵输入法引擎官网](https://rime.im/) 下载最新的小狼毫输入法，双击 `weasel-*-installer.exe` 安装
 
@@ -94,11 +94,11 @@ apt install fcitx5-material-color -y
 请使用默认安装路径，为后续配置输入法做准备
 :::
 
-## 安装 rime-ice 词库
+## 词库
 
-安装 rime-ice 词库非常简单，针对常见前端实现的安装方式如下：
+这里推荐 rime-ice 词库，该词库完整并且安装很方便，针对常见前端实现的安装方式如下：
 
-::: details 操作前请先退出算法服务
+::: details 操作前，请先退出算法服务
 ![退出算法服务](/assets/rime/quit.png)
 :::
 
@@ -136,7 +136,7 @@ REM git clone https://madnesslin.coding.net/public/default/rime-ice/git Rime
 ![退出算法服务](/assets/rime/restart.png)
 :::
 
-## RIME 重载配置
+## 重载配置
 
 1. 切换到 Rime 输入法
 2. 右键选择 `重新部署` 或 `部署`
@@ -146,13 +146,4 @@ REM git clone https://madnesslin.coding.net/public/default/rime-ice/git Rime
 ![重新部署](/assets/rime/reload.png)
 :::
 
-### 配置横排显示
-
-1. 创建或修改 `~/.config/ibus/rime/build/ibus_rime.yaml` 文件
-
-2. 添加或修改 `horizontal: true`
-
-```yaml
-style:
-    horizontal: true
-```
+## 自定义配置
