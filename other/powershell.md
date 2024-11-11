@@ -41,13 +41,14 @@ Find-Module
 Get-InstalledModule | Select-Object Name, Version, Summary
 ```
 
-```md [常用参数说明]
+:::
+
+::: tip 常用参数说明
+
 1. `-Name`: 指定要操作的模块名称。
 2. `-Scope`: 指定模块的安装范围。常用的选项有 CurrentUser（当前用户），AllUsers（所有用户）。
 3. `-AllVersions`: 用于卸载时，指定是否删除该模块的所有版本。
-```
-
-:::
+   :::
 
 ## 插件
 
