@@ -147,3 +147,8 @@ REM git clone https://madnesslin.coding.net/public/default/rime-ice/git Rime
 :::
 
 ## 自定义配置
+
+::: code-group
+<<<@/assets/rime/default.custom.yaml [default.custom.yaml]
+<<<@/assets/rime/weasel.custom.yaml [weasel.custom.yaml]
+:::
