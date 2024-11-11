@@ -108,10 +108,7 @@
   "workbench.iconTheme": "material-icon-theme",
   "diffEditor.hideUnchangedRegions.enabled": true,
   "workbench.colorTheme": "Dracula Theme",
-  "vscode-neovim.neovimExecutablePaths.win32": "C:\\sf\\nvim-win64\\bin\\nvim.exe",
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
+  "vim.useSystemClipboard": true,
   "remote.SSH.remotePlatform": {
     "lnmp_www": "linux",
     "bt_www": "linux",
