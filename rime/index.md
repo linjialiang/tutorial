@@ -28,9 +28,11 @@ Linux 上的输入法框架主要是 `Fcitx`、`Fcitx5` 和 `IBus` 三种，通�
 -   Fcitx5 作为 Fcitx 的更新版本，对 `GKT包` 和 `QT包` 都有较好的支持
 -   针对 Wayland 桌面协议：暂时只有 Fcitx5 提供了基本支持
 
-## ibus-rime
+## 安装
 
-安装前 IBus 输入法框架前，建议卸载 `Fcitx` 和 `Fcitx5` 相关输入法
+### ibus-rime
+
+Linux 下可以使用 IBus 输入法框架，安装前建议卸载 `Fcitx` 和 `Fcitx5` 相关包
 
 ::: code-group
 
@@ -44,18 +46,85 @@ apt install ibus-rime
 
 :::
 
-::: details 配置
+::: details 配置 ibus
 ![](/assets/debian/gui/004.png)
 ![](/assets/debian/gui/005.png)
 :::
 
-### 使用 rime-ice 词库
+### fcitx5-rime
+
+如果使用 `IBus` 输入法框架不满意，可以尝试 `Fcitx5` 输入法框架，安装前建议卸载 `Fcitx` 和 `IBus` 相关包
+
+::: code-group
+
+```bash [卸载]
+apt --purge autoremove fcitx ibus* fcitx-*
+```
+
+```bash [安装]
+apt install fcitx5 fcitx5-chinese-addons fcitx5-rime
+```
+
+:::
+
+::: details 配置 fcitx5
+![](/assets/debian/gui/016.png)
+![](/assets/debian/gui/018.png)
+:::
+
+#### 界面主题
+
+Debian12 为 fcitc5 输入法框架提供了一些不错的界面主题，这里使用了 fcitx5-material-color 包
 
 ```bash
+apt install fcitx5-material-color -y
+```
+
+::: details 配置主题
+![](/assets/debian/gui/017.png)
+:::
+
+### 小狼毫
+
+小狼毫是 `中州韵输入法引擎(Rime)` 官方为 Windows 系统制作的输入法
+
+去[中州韵输入法引擎官网](https://rime.im/) 下载最新的小狼毫输入法，双击 `weasel-*-installer.exe` 安装
+
+::: tip 安装注意事项
+请使用默认安装路径，为后续配置输入法做准备
+:::
+
+## rime-ice 词库
+
+::: code-group
+
+```bash [ibus]
 cd ~/.config/ibus
 mv rime{,.bak}
-git clone git@github.com:iDvel/rime-ice.git
+git clone git@github.com:iDvel/rime-ice.git rime
+# 国内镜像
+# git clone https://madnesslin.coding.net/public/default/rime-ice/git rime
 ```
+
+```bash [fcitx5]
+cd ~/.config/fcitx5
+mv rime{,.bak}
+git clone git@github.com:iDvel/rime-ice.git rime
+# 国内镜像
+# git clone https://madnesslin.coding.net/public/default/rime-ice/git rime
+```
+
+```batch
+C:
+cd %USERPROFILE%\AppData\Roaming
+ren Rime Rime.bak
+mv rime{,.bak}
+git clone git@github.com:iDvel/rime-ice.git Rime
+REM 国内镜像
+REM git clone https://madnesslin.coding.net/public/default/rime-ice/git Rime
+```
+
+:::
 
 > 点击部署 > 然后重启系统
 
@@ -72,32 +141,6 @@ style:
 
 3. 重新部署 ibus-rime
 
-## fcitx5 输入法
-
-如果使用 `IBus` 输入法框架不满意，可以尝试`Fcitx5` 输入法框架
-
-安装前 Fcitx5 输入法框架前，建议卸载 `Fcitx` 和 `IBus` 相关输入法
-
-::: code-group
-
-```bash [卸载]
-apt --purge autoremove fcitx ibus* fcitx-*
-```
-
-```bash [安装]
-apt install fcitx5 fcitx5-chinese-addons fcitx5-rime
-
-# 下面这些在实测中，发现没有必要安装
-apt install fcitx5-pinyin
-```
-
-:::
-
-::: details 配置
-![](/assets/debian/gui/016.png)
-![](/assets/debian/gui/018.png)
-:::
-
 ### 使用 rime-ice 词库
 
 ```bash
@@ -109,28 +152,6 @@ git clone git@e.coding.net:madnesslin/default/rime-ice.git rime
 ```
 
 > 点击部署 > 然后重启系统
-
-### 安装主题
-
-```bash
-apt install fcitx5-material-color -y
-```
-
-::: details 配置
-![](/assets/debian/gui/017.png)
-:::
-
-## 小狼毫输入法
-
-小狼毫是 `中州韵输入法引擎(Rime)` 官方为 Windows 系统制作的输入法
-
-### 安装
-
-去[中州韵输入法引擎官网](https://rime.im/) 下载最新的小狼毫输入法，双击 `weasel-0.15.0.0-installer.exe` 安装
-
-::: tip 安装注意事项
-请使用默认安装路径，为后续配置输入法做准备
-:::
 
 ### 配置
 
