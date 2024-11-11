@@ -38,7 +38,7 @@ New-Item -Path $PROFILE -Type File -Force
 ```ps1
 # git 语法支持
 Install-Module posh-git
-# 自动补全
+# 命令行编辑体验增强
 Install-Module PSReadLine -Force
 ```
 
