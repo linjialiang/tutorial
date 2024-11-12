@@ -1,9 +1,14 @@
 patch:
-  # 针对app的单独配置选项
-  app_options/+:
-    # 需要启用vim模式的应用
-    - { app_name: gvim.exe, settings: { ascii_mode: true, vim_mode: true } }
-    - { app_name: sublime_text.exe, settings: { ascii_mode: true, vim_mode: true } }
-    - { app_name: code.exe, settings: { ascii_mode: true, vim_mode: true } }
-    - { app_name: phpstorm64.exe, settings: { ascii_mode: true, vim_mode: true } }
-    - { app_name: pwsh.exe, settings: { ascii_mode: true, vim_mode: true } }
+  # 针对个别应用单独配置选项
+  app_options/gvim.exe:
+    ascii_mode: true
+    vim_mode: true
+  app_options/sublime_text.exe:
+    ascii_mode: true
+    vim_mode: true
+  app_options/code.exe:
+    ascii_mode: true
+    vim_mode: true
+  app_options/phpstorm64.exe:
+    ascii_mode: true
+    vim_mode: true
