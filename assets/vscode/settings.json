@@ -116,6 +116,6 @@
   "diffEditor.hideUnchangedRegions.enabled": true,
   "workbench.colorTheme": "Dracula Theme",
   // vim的复制粘贴跟系统剪切板同步
-  "vim.useSystemClipboard": true,
+  // "vim.useSystemClipboard": true,
   "update.showReleaseNotes": false
 }
