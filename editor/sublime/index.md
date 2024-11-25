@@ -38,6 +38,8 @@ Sublime Text 可以通过修改 `sublime_text.exe` 文件的 hex 值实现破解
 
 ## 插件
 
+::: details 全部推荐插件
+
 | 插件                                              | 描述           |
 | ------------------------------------------------- | -------------- |
 | A File Icon                                       | 图标插件       |
@@ -54,6 +56,18 @@ Sublime Text 可以通过修改 `sublime_text.exe` 文件的 hex 值实现破解
 | LSP-css                                           | 支持 css       |
 | LSP-yaml                                          | 支持 yaml      |
 | LSP-bash                                          | 支持 bash      |
+
+:::
+
+::: details 精简版插件
+
+| 精简版插件         | 描述         |
+| ------------------ | ------------ |
+| BracketHighlighter | 括号高亮插件 |
+| LocalizedMenu      | 本地化菜单   |
+| JsPrettier         | 格式化工具   |
+
+:::
 
 ### 插件详细说明
 
