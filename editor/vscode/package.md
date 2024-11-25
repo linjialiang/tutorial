@@ -51,6 +51,7 @@ titleTemplate: vscode 教程
 1. [PHP Intelephense](#php-intelephense)
 2. [PHP DocBlocker](#php-docblocker)
 3. [PHP Namespace Resolver](#php-namespace-resolver)
+4. [php cs fixer](https://github.com/junstyle/vscode-php-cs-fixer)
 
 ### 5. 远程控制插件
 
