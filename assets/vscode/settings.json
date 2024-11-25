@@ -1,20 +1,14 @@
 {
   "diffEditor.wordWrap": "off",
   "diffEditor.codeLens": true,
-  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit",
     "source.organizeImports": "explicit"
   },
-  // 启用使用鼠标和键进行列选择，启用后不需要按键全部都是按列选择
-  "editor.columnSelection": false,
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.cursorStyle": "line",
-  // 控制"转到定义"鼠标手势是否始终打开预览小部件，不知道是啥
-  "editor.definitionLinkOpensInPeek": false,
   "editor.find.autoFindInSelection": "multiline",
   // 控制编辑器是否自动折叠导入范围。
-  "editor.foldingImportsByDefault": false,
+  "editor.foldingImportsByDefault": true,
   "editor.fontFamily": "'JetBrains Mono', 'HarmonyOS Sans SC'",
   "editor.fontLigatures": true,
   "editor.fontSize": 13,
@@ -41,7 +35,7 @@
   "prettier.bracketSameLine": true,
   "[php]": {
     "editor.tabSize": 4,
-    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    "editor.defaultFormatter": "junstyle.php-cs-fixer"
   },
   "[markdown][css]": {
     "editor.tabSize": 4,
@@ -113,9 +107,9 @@
   "terminal.external.windowsExec": "C:\\sf\\pwsh\\pwsh.exe",
   "terminal.integrated.defaultProfile.windows": "pwsh",
   "workbench.iconTheme": "material-icon-theme",
-  "diffEditor.hideUnchangedRegions.enabled": true,
   "workbench.colorTheme": "Dracula Theme",
-  // vim的复制粘贴跟系统剪切板同步
-  // "vim.useSystemClipboard": true,
-  "update.showReleaseNotes": false
+  "update.showReleaseNotes": false,
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "php-cs-fixer.executablePath": "C:\\php\\tools\\php-cs-fixer-v3.phar",
+  "php-cs-fixer.rules": "@PhpCsFixer"
 }
