@@ -30,7 +30,7 @@ xdebug.client_port=9083
 ::: code-group
 
 ```bash [编译]
-cd /home/php-fpm/php_ext/xdebug-3.3.2
+cd /home/php-fpm/php_ext/xdebug-3.4.0
 phpize
 ./configure --with-php-config=/server/php/83/bin/php-config
 # ./configure --with-php-config=/server/php/74/bin/php-config
@@ -64,7 +64,7 @@ make install
 ### 3. MongoDB 扩展
 
 ```bash [安装]
-cd /home/php-fpm/php_ext/mongodb-1.20.0
+cd /home/php-fpm/php_ext/mongodb-1.20.1
 phpize
 ./configure --with-php-config=/server/php/83/bin/php-config
 make -j4
