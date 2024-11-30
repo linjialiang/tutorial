@@ -91,7 +91,7 @@ postgres  hard  nofile  65535
 
 ```bash [进入编译目录]
 su - postgres -s /bin/zsh
-wget https://ftp.postgresql.org/pub/source/v17.0/postgresql-17.2.tar.bz2
+wget https://ftp.postgresql.org/pub/source/v17.2/postgresql-17.2.tar.bz2
 tar -xjf postgresql-17.2.tar.bz2
 mkdir ~/postgresql-17.2/build_postgres
 cd ~/postgresql-17.2/build_postgres
