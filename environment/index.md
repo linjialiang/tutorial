@@ -51,11 +51,11 @@ titleTemplate: 环境搭建教程
     - zlib-1.3.1.tar.xz
 2. redis-7.4.1.tar.gz
 3. mysql-8.4.3.tar.gz
-4. postgresql-17.0.tar.bz2
-5. php-8.3.13.tar.xz
-    - xdebug-3.3.2.tgz `动态扩展`
+4. postgresql-17.2.tar.bz2
+5. php-8.3.14.tar.xz
+    - xdebug-3.4.0.tgz `动态扩展`
     - apcu-5.1.24.tgz `动态扩展`
-    - mongodb-1.20.0.tgz `动态扩展`
+    - mongodb-1.20.1.tgz `动态扩展`
     - redis-6.1.0.tgz `动态扩展`
     - yaml-2.2.4.tgz `动态扩展`
 ```
