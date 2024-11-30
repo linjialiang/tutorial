@@ -39,7 +39,7 @@ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O 
 ```bash [代理安装方式]
 proxychains wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 chmod +x install.sh
-./install.sh
+proxychains ./install.sh
 ```
 
 :::
