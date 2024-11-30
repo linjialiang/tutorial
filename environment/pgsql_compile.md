@@ -91,10 +91,10 @@ postgres  hard  nofile  65535
 
 ```bash [进入编译目录]
 su - postgres -s /bin/zsh
-wget https://ftp.postgresql.org/pub/source/v17.0/postgresql-17.0.tar.bz2
-tar -xjf postgresql-17.0.tar.bz2
-mkdir ~/postgresql-17.0/build_postgres
-cd ~/postgresql-17.0/build_postgres
+wget https://ftp.postgresql.org/pub/source/v17.0/postgresql-17.2.tar.bz2
+tar -xjf postgresql-17.2.tar.bz2
+mkdir ~/postgresql-17.2/build_postgres
+cd ~/postgresql-17.2/build_postgres
 ```
 
 ```bash [编译指令]
@@ -122,7 +122,7 @@ make -j4
 make check
 make install
 # 编译安装完后记得移除源码包，节省空间
-rm -rf ~/postgresql-17.0 ~/postgresql-17.0.tar.bz2
+rm -rf ~/postgresql-17.2 ~/postgresql-17.2.tar.bz2
 ```
 
 ```bash [数据初始化]
