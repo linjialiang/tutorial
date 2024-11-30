@@ -28,7 +28,7 @@ titleTemplate: Debian 教程
 
 ::: info bookworm 软件源
 
-> 这是 Debian 11 的软件源说明：
+> 这是 Debian 12 的软件源说明：
 
 | bookworm 版本             | 说明                            |
 | ------------------------- | ------------------------------- |
