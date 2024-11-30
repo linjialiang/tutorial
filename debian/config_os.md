@@ -17,27 +17,32 @@ titleTemplate: Debian 教程
 
 中科大对 debian 的镜像副本比较全面，主要收录了一下 6 类
 
-| 代号            | 说明                         |
-| --------------- | ---------------------------- |
-| debian          | Debian 软件源                |
-| debian-security | Debian 软件安全更新源        |
-| debian-cd       | Debian 镜像源                |
-| debiancn        | Debian 中文社区软件源的镜像  |
-| deb-multimedia  | Debian 第三方多媒体软件源    |
-| debian-cdimage  | debian-cd 外的准官方安装镜像 |
+| 档案库          | 说明                        |
+| --------------- | --------------------------- |
+| debian          | Debian 软件源               |
+| debian-security | Debian 软件安全更新源       |
+| debian-cd       | Debian 镜像源               |
+| debiancn        | Debian 中文社区软件源的镜像 |
 
-::: info bookworm 软件源
+| 归档区域          | 说明                                                                 |
+| ----------------- | -------------------------------------------------------------------- |
+| main              | 遵从 Debian 自由软件指导方针，不依赖 non-free                        |
+| non-free-firmware | 不符合 Debian 自由软件指导方针，正常的系统安装过程中必需要用到的固件 |
+| contrib           | 遵从 Debian 自由软件指导方针，但依赖于 non-free                      |
+| non-free          | 不遵从 Debian 自由软件指导方针，并且不在 non-free-firmware           |
+
+::: details bookworm 软件源
 
 > 这是 Debian 12 的软件源说明：
 
-| bookworm 版本             | 说明                            |
-| ------------------------- | ------------------------------- |
-| bookworm                  | bookworm 软件源                 |
-| bookworm-updates          | bookworm 发布的兼容更新         |
-| bookworm-security         | bookworm 发布的安全更新（重要） |
-| bookworm-proposed-updates | 下一个小版本发布的更新（可选）  |
-| bookworm-backports-sloppy | 向后移植的较新的软件包（草率）  |
-| bookworm-backports        | 向后移植的较新的软件包（可选）  |
+| bookworm 代码名           | 说明                                                     |
+| ------------------------- | -------------------------------------------------------- |
+| bookworm                  | 在扩展检查后，类似静态的 stable 发布                     |
+| bookworm-security         | bookworm 发布的安全更新（重要）                          |
+| bookworm-proposed-updates | 下一个小版本发布的更新（可选）                           |
+| bookworm-updates          | stable-proposed-updates 套件的子集，需要紧急更新（可选） |
+| bookworm-backports        | 大部分从 testing 版中随机收集和重新编译的软件包（可选）  |
+| bookworm-backports-sloppy | 针对 backports 仓库自身限制的补充（草率）                |
 
 :::
 
