@@ -18,7 +18,7 @@ extension=apcu
 zend_extension=xdebug
 xdebug.mode=develop,trace,debug
 xdebug.client_host=192.168.66.254
-xdebug.client_port=9083
+xdebug.client_port=9084
 ```
 
 :::
@@ -46,7 +46,7 @@ zend_extension=opcache
 zend_extension=xdebug
 xdebug.mode=develop,trace,debug
 xdebug.client_host=192.168.66.254
-xdebug.client_port=9083
+xdebug.client_port=9084
 ```
 
 :::
