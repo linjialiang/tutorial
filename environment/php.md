@@ -479,6 +479,8 @@ find /server/php /server/logs/php -type d -exec chmod 750 {} \;
 chmod 750 -R /server/php/84/bin /server/php/84/sbin
 # 动态扩展库也可以增加执行权限
 chmod 750 /server/php/84/lib/php/extensions/no-debug-non-zts-*/*
+# composer 需要执行权限
+chmod 750 /server/php/tools/composer.phar
 ```
 
 ```bash [开发]
