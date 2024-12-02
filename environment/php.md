@@ -390,14 +390,14 @@ Composer 是一个 PHP 依赖管理工具，开发环境必备
 
 ```bash
 su - php-fpm -s /bin/zsh
-cd /server/php/84/bin
+cd /server/php/tools
 ./php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 ./php composer-setup.php
 ./php -r "unlink('composer-setup.php');"
 chmod 750 composer.phar
 
 # 软链接到 /usr/local/bin
-ln -s /server/php/84/bin/composer.phar /server/php/84/bin/composer
+ln -s /server/php/tools/composer.phar /server/php/84/bin/composer
 ```
 
 ### 2. 全量镜像
