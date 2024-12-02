@@ -32,7 +32,7 @@ apt install g++ libsystemd-dev libcurl4-openssl-dev libffi-dev libgmp-dev liboni
 apt install libsqlite3-dev -y
 ```
 
-```bash [83]
+```bash [84]
 apt install g++ libsystemd-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev -y
 
 # 安装sqlite3扩展所需的依赖库
@@ -80,7 +80,7 @@ sqlite3          SQLite - SQL database engine
 usermod -a -G postgres php-fpm
 
 # PHP 的构建选项需指定Postgres安装目录
-../configure --prefix=/server/php/83/ \
+../configure --prefix=/server/php/84/ \
 --with-pgsql=/server/postgres \
 --with-pdo-pgsql=/server/postgres \
 ...
@@ -110,7 +110,7 @@ apt install libpq-dev -y
 
 ::: code-group
 
-```bash [83]
+```bash [84]
 mkdir /home/php-fpm/php-8.4.1/build_php
 cd /home/php-fpm/php-8.4.1/build_php/
 ```
@@ -138,7 +138,7 @@ cd /home/php-fpm/php-7.4.33/build_php/
 ./configure -h > configure.txt
 ```
 
-<<<@/assets/environment/source/php/configure/83_pgsql.ini [8.3 选项]
+<<<@/assets/environment/source/php/configure/84_pgsql.ini [8.3 选项]
 <<<@/assets/environment/source/php/configure/74.ini [7.4 选项]
 :::
 
@@ -146,9 +146,9 @@ cd /home/php-fpm/php-7.4.33/build_php/
 
 ::: details 构建指令参考
 ::: code-group
-<<<@/assets/environment/source/php/build/83.bash [83]
-<<<@/assets/environment/source/php/build/83_pgsql.bash [83-pgsql]
-<<<@/assets/environment/source/php/build/83_mysql.bash [83-mysql]
+<<<@/assets/environment/source/php/build/84.bash [84]
+<<<@/assets/environment/source/php/build/84_pgsql.bash [84-pgsql]
+<<<@/assets/environment/source/php/build/84_mysql.bash [84-mysql]
 <<<@/assets/environment/source/php/build/74.bash [74]
 <<<@/assets/environment/source/php/build/74_pgsql.bash [74-pgsql]
 <<<@/assets/environment/source/php/build/74_mysql.bash [74-mysql]
@@ -192,14 +192,14 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 # php7.4
 /server/php/74/bin/php --ini
 # php8.3
-/server/php/83/bin/php --ini
+/server/php/84/bin/php --ini
 ```
 
 ```bash [使用 php-config 程序]
 # php7.4
 /server/php/74/bin/php-config --ini-path
 # php8.3
-/server/php/83/bin/php-config --ini-path
+/server/php/84/bin/php-config --ini-path
 ```
 
 :::
@@ -212,14 +212,14 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 # php7.4
 cp /home/php-fpm/php-7.4.33/php.ini-development /server/php/74/lib/php.ini
 # php8.3
-cp /home/php-fpm/php-8.4.1/php.ini-development /server/php/83/lib/php.ini
+cp /home/php-fpm/php-8.4.1/php.ini-development /server/php/84/lib/php.ini
 ```
 
 ```bash [部署环境]
 # php7.4
 cp /home/php-fpm/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
 # php8.3
-cp /home/php-fpm/php-8.4.1/php.ini-production /server/php/83/lib/php.ini
+cp /home/php-fpm/php-8.4.1/php.ini-production /server/php/84/lib/php.ini
 ```
 
 :::
@@ -232,7 +232,7 @@ cp /home/php-fpm/php-8.4.1/php.ini-production /server/php/83/lib/php.ini
 # php7.4
 /server/php/74/bin/php --ini
 # php8.3
-/server/php/83/bin/php --ini
+/server/php/84/bin/php --ini
 ```
 
 ### 5. 开启 OPcache
@@ -308,7 +308,7 @@ PHP-FPM 的主配置文件选项基本上都是使用默认，所以案例选项
 
 ::: details php 主配置文件案例
 ::: code-group
-<<<@/assets/environment/source/php/83/php-fpm.conf{ini} [8.3]
+<<<@/assets/environment/source/php/84/php-fpm.conf{ini} [8.3]
 <<<@/assets/environment/source/php/74/php-fpm.conf{ini} [7.4]
 :::
 
@@ -323,12 +323,12 @@ PHP-FPM 工作池进程配置文件有多个，并且支持随意命名，但为
 
 ::: details 通用工作池案例
 ::: code-group
-<<<@/assets/environment/source/php/83/php-fpm.d/default.conf{ini} [8.3]
+<<<@/assets/environment/source/php/84/php-fpm.d/default.conf{ini} [8.3]
 <<<@/assets/environment/source/php/74/php-fpm.d/default.conf{ini} [7.4]
 :::
 
 ::: details ThinkPHP 项目专用工作池案例
-<<<@/assets/environment/source/php/83/php-fpm.d/tp.conf{ini}
+<<<@/assets/environment/source/php/84/php-fpm.d/tp.conf{ini}
 :::
 
 ::: tip
@@ -342,14 +342,14 @@ PHP-FPM 自带了一套比较完善的进程管理指令，编译完成后还会
 ::: details 默认模板
 
 ::: code-group
-<<<@/assets/environment/source/service/php/83/php-fpm.service{ini} [php8.3]
+<<<@/assets/environment/source/service/php/84/php-fpm.service{ini} [php8.3]
 <<<@/assets/environment/source/service/php/74/php-fpm.service{ini} [php7.4]
 :::
 
 ::: details 案例参考
 
 ::: code-group
-<<<@/assets/environment/source/service/php/php83-fpm.service{bash} [php8.3]
+<<<@/assets/environment/source/service/php/php84-fpm.service{bash} [php8.3]
 <<<@/assets/environment/source/service/php/php74-fpm.service{ini} [php7.4]
 :::
 
@@ -359,7 +359,7 @@ mv /path/php*-fpm.service /usr/lib/systemd/system/
 # 重载Systemd
 systemctl daemon-reload
 # 加入systemctl服务，并立即开启
-systemctl enable --now php83-fpm
+systemctl enable --now php84-fpm
 systemctl enable --now php74-fpm
 ```
 
@@ -390,14 +390,14 @@ Composer 是一个 PHP 依赖管理工具，开发环境必备
 
 ```bash
 su - php-fpm -s /bin/zsh
-cd /server/php/83/bin
+cd /server/php/84/bin
 ./php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 ./php composer-setup.php
 ./php -r "unlink('composer-setup.php');"
 chmod 750 composer.phar
 
 # 软链接到 /usr/local/bin
-ln -s /server/php/83/bin/composer.phar /server/php/83/bin/composer
+ln -s /server/php/84/bin/composer.phar /server/php/84/bin/composer
 ```
 
 ### 2. 全量镜像
@@ -433,7 +433,7 @@ composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
 ```bash
 # 切换到php-fpm用户，只能从root进入
 su - php-fpm -s /bin/zsh
-/server/php/83/bin/php /usr/local/bin/composer self-update
+/server/php/84/bin/php /usr/local/bin/composer self-update
 ```
 
 ## 升级 PHP
@@ -451,7 +451,7 @@ su - php-fpm -s /bin/zsh
 
     ```bash
     # php8.3
-    mv /server/php/83/sbin/php-fpm{,.bak}
+    mv /server/php/84/sbin/php-fpm{,.bak}
     ```
 
 3. 配置文件 `php.ini`
@@ -476,9 +476,9 @@ chown php-fpm:php-fpm -R /server/php /server/logs/php
 find /server/php /server/logs/php -type f -exec chmod 640 {} \;
 find /server/php /server/logs/php -type d -exec chmod 750 {} \;
 # 可执行文件需要执行权限
-chmod 750 -R /server/php/83/bin /server/php/83/sbin
+chmod 750 -R /server/php/84/bin /server/php/84/sbin
 # 动态扩展库也可以增加执行权限
-chmod 750 /server/php/83/lib/php/extensions/no-debug-non-zts-*/*
+chmod 750 /server/php/84/lib/php/extensions/no-debug-non-zts-*/*
 ```
 
 ```bash [开发]
