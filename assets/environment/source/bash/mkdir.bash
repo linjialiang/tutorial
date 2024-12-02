@@ -16,7 +16,7 @@ server_array=(
     "/server/logs/nginx"
 
     "/server/php"
-    "/server/php/83"
+    "/server/php/84"
     "/server/logs/php"
 
     "/server/postgres"
