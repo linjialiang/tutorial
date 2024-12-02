@@ -138,7 +138,7 @@ cd /home/php-fpm/php-7.4.33/build_php/
 ./configure -h > configure.txt
 ```
 
-<<<@/assets/environment/source/php/configure/84_pgsql.ini [8.3 选项]
+<<<@/assets/environment/source/php/configure/84.ini [8.4 选项]
 <<<@/assets/environment/source/php/configure/74.ini [7.4 选项]
 :::
 
@@ -159,7 +159,7 @@ php8.1 默认已经对 openssl 启用 `pcre-jit` 实现正则即时编译
 
 php8.1 的 gd 扩展增加的 `--with-avif` 选项
 
-php8.3 增加 `--with-capstone` 选项
+php8.4 增加 `--with-capstone` 选项
 :::
 
 ### 7. 编译并安装
@@ -191,14 +191,14 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 ```bash [使用 php 程序]
 # php7.4
 /server/php/74/bin/php --ini
-# php8.3
+# php8.4
 /server/php/84/bin/php --ini
 ```
 
 ```bash [使用 php-config 程序]
 # php7.4
 /server/php/74/bin/php-config --ini-path
-# php8.3
+# php8.4
 /server/php/84/bin/php-config --ini-path
 ```
 
@@ -211,14 +211,14 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 ```bash [开发环境]
 # php7.4
 cp /home/php-fpm/php-7.4.33/php.ini-development /server/php/74/lib/php.ini
-# php8.3
+# php8.4
 cp /home/php-fpm/php-8.4.1/php.ini-development /server/php/84/lib/php.ini
 ```
 
 ```bash [部署环境]
 # php7.4
 cp /home/php-fpm/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
-# php8.3
+# php8.4
 cp /home/php-fpm/php-8.4.1/php.ini-production /server/php/84/lib/php.ini
 ```
 
@@ -231,7 +231,7 @@ cp /home/php-fpm/php-8.4.1/php.ini-production /server/php/84/lib/php.ini
 ```bash
 # php7.4
 /server/php/74/bin/php --ini
-# php8.3
+# php8.4
 /server/php/84/bin/php --ini
 ```
 
@@ -308,7 +308,7 @@ PHP-FPM 的主配置文件选项基本上都是使用默认，所以案例选项
 
 ::: details php 主配置文件案例
 ::: code-group
-<<<@/assets/environment/source/php/84/php-fpm.conf{ini} [8.3]
+<<<@/assets/environment/source/php/84/php-fpm.conf{ini} [8.4]
 <<<@/assets/environment/source/php/74/php-fpm.conf{ini} [7.4]
 :::
 
@@ -323,7 +323,7 @@ PHP-FPM 工作池进程配置文件有多个，并且支持随意命名，但为
 
 ::: details 通用工作池案例
 ::: code-group
-<<<@/assets/environment/source/php/84/php-fpm.d/default.conf{ini} [8.3]
+<<<@/assets/environment/source/php/84/php-fpm.d/default.conf{ini} [8.4]
 <<<@/assets/environment/source/php/74/php-fpm.d/default.conf{ini} [7.4]
 :::
 
@@ -342,14 +342,14 @@ PHP-FPM 自带了一套比较完善的进程管理指令，编译完成后还会
 ::: details 默认模板
 
 ::: code-group
-<<<@/assets/environment/source/service/php/84/php-fpm.service{ini} [php8.3]
+<<<@/assets/environment/source/service/php/84/php-fpm.service{ini} [php8.4]
 <<<@/assets/environment/source/service/php/74/php-fpm.service{ini} [php7.4]
 :::
 
 ::: details 案例参考
 
 ::: code-group
-<<<@/assets/environment/source/service/php/php84-fpm.service{bash} [php8.3]
+<<<@/assets/environment/source/service/php/php84-fpm.service{bash} [php8.4]
 <<<@/assets/environment/source/service/php/php74-fpm.service{ini} [php7.4]
 :::
 
@@ -450,7 +450,7 @@ su - php-fpm -s /bin/zsh
    执行 `make install` 之前，先将 `sbin/php-fpm` 文件重命名，实现平滑升级
 
     ```bash
-    # php8.3
+    # php8.4
     mv /server/php/84/sbin/php-fpm{,.bak}
     ```
 
