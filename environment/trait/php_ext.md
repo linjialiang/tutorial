@@ -8,7 +8,7 @@ apt install autoconf -y
 ```
 
 ```ini [配置文件添加动态扩展]
-# /server/php/83/lib/php.ini
+# /server/php/84/lib/php.ini
 extension=redis
 extension=mongodb
 extension=yaml
@@ -32,7 +32,7 @@ xdebug.client_port=9084
 ```bash [编译]
 cd /home/php-fpm/php_ext/xdebug-3.4.0
 phpize
-./configure --with-php-config=/server/php/83/bin/php-config
+./configure --with-php-config=/server/php/84/bin/php-config
 # ./configure --with-php-config=/server/php/74/bin/php-config
 make -j4
 make install
@@ -56,7 +56,7 @@ xdebug.client_port=9084
 ```bash
 cd /home/php-fpm/php_ext/redis-6.1.0
 phpize
-./configure --with-php-config=/server/php/83/bin/php-config
+./configure --with-php-config=/server/php/84/bin/php-config
 make -j4
 make install
 ```
@@ -66,7 +66,7 @@ make install
 ```bash [安装]
 cd /home/php-fpm/php_ext/mongodb-1.20.1
 phpize
-./configure --with-php-config=/server/php/83/bin/php-config
+./configure --with-php-config=/server/php/84/bin/php-config
 make -j4
 make test
 make install
@@ -80,7 +80,7 @@ apt install libyaml-dev -y
 
 cd /home/php-fpm/php_ext/yaml-2.2.4
 phpize
-./configure --with-php-config=/server/php/83/bin/php-config
+./configure --with-php-config=/server/php/84/bin/php-config
 make -j4
 make test
 make install
@@ -91,7 +91,7 @@ make install
 ```bash [安装]
 cd /home/php-fpm/php_ext/apcu-5.1.24
 phpize
-./configure --with-php-config=/server/php/83/bin/php-config
+./configure --with-php-config=/server/php/84/bin/php-config
 make -j4
 make test
 make install
