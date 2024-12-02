@@ -57,7 +57,7 @@ fi
 echo_cyan "是否启动服务(1启动/默认不启动)："
 read num2
 if [ "$num2" = "1" ]; then
-  systemctl start {postgres,nginx,php83-fpm,redis,mysqld-84}.service
+  systemctl start {postgres,nginx,php84-fpm,redis,mysqld-84}.service
   echo_green "服务已重新启动"
 else
   echo_yellow "未重启服务，请手动启动"
