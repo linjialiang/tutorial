@@ -17,6 +17,7 @@ server_array=(
 
     "/server/php"
     "/server/php/84"
+    "/server/php/tools"
     "/server/logs/php"
 
     "/server/postgres"
