@@ -18,7 +18,7 @@ server
 server
 {
     listen 80;
-    server_name 83.php.io;
+    server_name 84.php.io;
     root /server/default;
     index index.php;
 
