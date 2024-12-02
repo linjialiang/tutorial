@@ -200,6 +200,7 @@ modFilePower(){
   find /server/php /server/logs/php -type d -exec chmod 750 {} \;
   chmod 750 -R /server/php/84/bin /server/php/84/sbin
   chmod 750 /server/php/84/lib/php/extensions/no-debug-non-zts-*/*
+  chmod 750 /server/php/tools/composer.phar
 }
 
 #安装systemctl单元
