@@ -15,10 +15,7 @@ PHP（`PHP: Hypertext Preprocessor`，超文本预处理器的字母缩写）是
 
 1. `php 7.4.x`
 2. `php 8.3.x`
-
-::: tip 提示
-新的 Linux 发行版后，实际只对 `php8.3.x` 进行过测试，其它 PHP 版本请自行测试
-:::
+3. `php 8.4.x`
 
 ## 构建 PHP
 
@@ -27,6 +24,13 @@ PHP（`PHP: Hypertext Preprocessor`，超文本预处理器的字母缩写）是
 本次 PHP 编译过程中，在系统原有扩展存在下，还需安装如下依赖项：
 
 ::: code-group
+
+```bash [84]
+apt install g++ libsystemd-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev -y
+
+# 安装sqlite3扩展所需的依赖库
+apt install libsqlite3-dev -y
+```
 
 ```bash [83]
 apt install g++ libsystemd-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev -y
