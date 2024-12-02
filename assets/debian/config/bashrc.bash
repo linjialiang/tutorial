@@ -19,7 +19,7 @@ PATH=${PATH}:/usr/sbin:/usr/local/sbin:sbin
 PATH=${PATH}:/server/nginx/sbin
 PATH=${PATH}:/server/postgres/bin
 PATH=${PATH}:/server/php/83/bin:/server/php/83/sbin
-# PATH=${PATH}:/server/node/bin
-# PATH=${PATH}:/server/mysql/bin
-# PATH=${PATH}:/server/sqlite3/bin:/server/redis/bin
+PATH=${PATH}:/server/node/bin
+PATH=${PATH}:/server/mysql/bin
+PATH=${PATH}:/server/redis/bin
 export PATH
