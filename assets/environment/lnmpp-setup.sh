@@ -130,7 +130,7 @@ installPackage(){
   zlib1g-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev \
   libgd-dev libgeoip-dev liblz4-dev libzstd-dev libreadline-dev \
   libcapstone-dev libsqlite3-dev flex bison \
-  cmake libncurses-dev libldap-dev libsasl2-dev libbison-dev
+  cmake libncurses-dev libldap-dev libsasl2-dev libbison-dev libyaml-dev
 }
 
 #安装预构建包
