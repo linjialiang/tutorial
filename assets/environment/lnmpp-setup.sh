@@ -31,8 +31,8 @@ cleanOldData(){
   echo_green "清理旧数据"
   echo_yellow "=================================================================="
   echo_cyan "清理systemctl单元"
-  systemctl disable --now {redis,postgres,nginx,php83-fpm}.service
-  rm /lib/systemd/system/{redis,postgres,nginx,php83-fpm}.service
+  systemctl disable --now {redis,postgres,nginx,php84-fpm}.service
+  rm /lib/systemd/system/{redis,postgres,nginx,php84-fpm}.service
   systemctl daemon-reload
   echo_cyan "清理旧目录 /server,/www 如果有重要数据请先备份"
   rm -rf /server /www
@@ -198,8 +198,8 @@ modFilePower(){
   chown php-fpm:php-fpm -R /server/php /server/logs/php
   find /server/php /server/logs/php -type f -exec chmod 640 {} \;
   find /server/php /server/logs/php -type d -exec chmod 750 {} \;
-  chmod 750 -R /server/php/83/bin /server/php/83/sbin
-  chmod 750 /server/php/83/lib/php/extensions/no-debug-non-zts-*/*
+  chmod 750 -R /server/php/84/bin /server/php/84/sbin
+  chmod 750 /server/php/84/lib/php/extensions/no-debug-non-zts-*/*
 }
 
 #安装systemctl单元
@@ -207,7 +207,7 @@ InstallSystemctlUnit(){
   echo_yellow "=================================================================="
   echo_green "加入systemctl守护进程\n含systemctl unit文件"
   echo_yellow " "
-  echo_cyan "/lib/systemd/system/{postgres,nginx,php83-fpm,redis}.service"
+  echo_cyan "/lib/systemd/system/{postgres,nginx,php84-fpm,redis}.service"
   echo_yellow " "
   echo_green "支持开启自动启动服务，非常规终止进程会自动启动服务"
   echo_yellow "=================================================================="
@@ -234,7 +234,7 @@ PrivateTmp=true
 WantedBy=multi-user.target
 " >/lib/systemd/system/nginx.service
 
-  echo_cyan "[+] Create php83-fpm service..."
+  echo_cyan "[+] Create php84-fpm service..."
 
   echo "[Unit]
 Description=The PHP 8.3 FastCGI Process Manager
@@ -244,9 +244,9 @@ After=network.target
 Type=notify
 User=php-fpm
 Group=php-fpm
-RuntimeDirectory=php83-fpm
+RuntimeDirectory=php84-fpm
 RuntimeDirectoryMode=0750
-ExecStart=/server/php/83/sbin/php-fpm --nodaemonize --fpm-config /server/php/83/etc/php-fpm.conf
+ExecStart=/server/php/84/sbin/php-fpm --nodaemonize --fpm-config /server/php/84/etc/php-fpm.conf
 ExecReload=/bin/kill -USR2 \$MAINPID
 PrivateTmp=true
 ProtectSystem=full
@@ -260,7 +260,7 @@ RestrictNamespaces=true
 
 [Install]
 WantedBy=multi-user.target
-" >/lib/systemd/system/php83-fpm.service
+" >/lib/systemd/system/php84-fpm.service
 
   echo_cyan "[+] Create postgres service..."
 
@@ -332,7 +332,7 @@ WantedBy=multi-user.target
 
   echo_green "Registered Service..."
   systemctl daemon-reload
-  systemctl enable --now {postgres,nginx,php83-fpm,redis,mysqld-84}.service
+  systemctl enable --now {postgres,nginx,php84-fpm,redis,mysqld-84}.service
 }
 
 echo_cyan "解压脚本同级目录下需存在源码压缩包 lnmpp.tar.xz"
