@@ -1,12 +1,12 @@
 echo "[Unit]
-Description=The PHP 8.3 FastCGI Process Manager
+Description=The PHP 8.4 FastCGI Process Manager
 After=network.target
 
 [Service]
 Type=notify
 User=php-fpm
 Group=php-fpm
-RuntimeDirectory=php83-fpm
+RuntimeDirectory=php84-fpm
 RuntimeDirectoryMode=0750
 ExecStart=/server/php/83/sbin/php-fpm --nodaemonize --fpm-config /server/php/83/etc/php-fpm.conf
 ExecReload=/bin/kill -USR2 \$MAINPID
@@ -22,4 +22,4 @@ RestrictNamespaces=true
 
 [Install]
 WantedBy=multi-user.target
-" > /lib/systemd/system/php83-fpm.service
+" > /lib/systemd/system/php84-fpm.service
