@@ -32,7 +32,7 @@ apt install g++ libsystemd-dev libcurl4-openssl-dev libffi-dev libgmp-dev liboni
 apt install libsqlite3-dev -y
 ```
 
-```bash [84]
+```bash [83]
 apt install g++ libsystemd-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev -y
 
 # 安装sqlite3扩展所需的依赖库
@@ -96,7 +96,8 @@ apt install libpq-dev -y
 
 ::: tip 提示
 
-1. 本次未编译 SQLite3，需使用依赖库
+1. 本次已编译 SQLite3，无需额外使用依赖库
+    - 确保 php 用户对 SQLite3 的 pkgconfig 目录有 `读取` 和 `执行` 权限
 2. 本次已编译 Postgres，无需额外使用依赖库
     - 确保 php 用户对 Postgres 安装目录要有 `读取` 和 `执行` 权限
 3. 不同版本所需依赖项可能不同
