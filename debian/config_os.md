@@ -431,7 +431,6 @@ runtimepath 是一个全局变量，值为路径列表，vim 通过搜索这些�
 set runtimepath += /usr/share/vimfiles
 cd /usr/share/
 unzip vimfiles.zip
-
 ```
 ````
 
