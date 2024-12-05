@@ -4,7 +4,7 @@ const path = {
 
 const sidebar = [
   { text: '概述', link: `${path.main}` },
-  { text: 'Sqlite3', link: `${path.main}sqlite3` },
+  { text: 'SQLite3', link: `${path.main}sqlite3` },
   { text: 'Redis', link: `${path.main}redis` },
   { text: 'PostgreSQL', link: `${path.main}pgsql_compile` },
   { text: 'MySQL', link: `${path.main}mysql_compile` },
