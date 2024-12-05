@@ -23,6 +23,10 @@ func_chown_mysql(){
     chown mysql:mysql $1
 }
 
+func_chown_sqlite(){
+    chown sqlite:sqlite $1
+}
+
 chown_nginx_array=(
     "/server/nginx"
     "/server/logs/nginx"
@@ -55,6 +59,10 @@ chown_mysql_array=(
     "/server/data"
     "/server/logs/mysql"
     "/server/etc/mysql"
+);
+
+chown_sqlite_array=(
+    "/server/sqlite"
 );
 
 echo "-----开始设置nginx用户权限目录-----"
@@ -104,3 +112,11 @@ do
    func_chown_mysql ${chown_mysql_array[i]}
 done
 echo "-----mysql 用户权限目录设置结束-----"
+
+echo "-----开始设置 sqlite 用户权限目录-----"
+for((i=0;i<${#chown_sqlite_array[*]};i++));
+do
+   echo ${chown_sqlite_array[i]}
+   func_chown_mysql ${chown_sqlite_array[i]}
+done
+echo "-----sqlite 用户权限目录设置结束-----"

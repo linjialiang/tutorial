@@ -36,6 +36,8 @@ server_array=(
     "/server/data"
     "/server/logs/mysql"
     "/server/etc/mysql"
+
+    "/server/sqlite"
 )
 
 echo "-----开始创建server目录-----"
