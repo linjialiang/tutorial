@@ -31,8 +31,8 @@ cleanOldData(){
   echo_green "清理旧数据"
   echo_yellow "=================================================================="
   echo_cyan "清理systemctl单元"
-  systemctl disable --now {redis,postgres,nginx,php84-fpm}.service
-  rm /lib/systemd/system/{redis,postgres,nginx,php84-fpm}.service
+  systemctl disable --now {redis,postgres,nginx,php84-fpm,mysqld-84}.service
+  rm /lib/systemd/system/{redis,postgres,nginx,php84-fpm,mysqld-84}.service
   systemctl daemon-reload
   echo_cyan "清理旧目录 /server,/www 如果有重要数据请先备份"
   rm -rf /server /www
