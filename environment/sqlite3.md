@@ -19,18 +19,15 @@ titleTemplate: 环境搭建教程
 
 ## 构建安装
 
-由于 sqlite3 并非主要数据库，所以我们这里只做最简单的构建
-
-::: info 构建指令
+由于 sqlite3 并非主要数据库，所以我们这里只做最简单的构建：
 
 ```bash
-cd /package/sqlite-autoconf-3470100/
+su - sqlite -s /bin/zsh
+cd ~/sqlite-autoconf-3470100/
 ./configure --prefix=/server/sqlite
-make
+make -j4
 make install
 ```
-
-:::
 
 ## 权限
 
