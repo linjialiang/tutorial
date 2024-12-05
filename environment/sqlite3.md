@@ -5,10 +5,6 @@ titleTemplate: 环境搭建教程
 
 # 安装 Sqlite3
 
-::: danger 警告
-Sqlite3 不再维护
-:::
-
 [sqlite3](https://www.sqlite.org) 是一款轻型数据库
 
 :::tip sqlite3 的一些特点
@@ -28,8 +24,8 @@ Sqlite3 不再维护
 ::: info 构建指令
 
 ```bash
-cd /package/sqlite-autoconf-3440200/
-./configure --prefix=/server/sqlite3
+cd /package/sqlite-autoconf-3470100/
+./configure --prefix=/server/sqlite
 make
 make install
 ```
@@ -41,17 +37,16 @@ make install
 ::: code-group
 
 ```bash [部署]
-chown root:root -R /server/sqlite3
-find /server/sqlite3 -type f -exec chmod 640 {} \;
-find /server/sqlite3 -type d -exec chmod 750 {} \;
-chmod 750 -R /server/sqlite3/bin
+chown redis:redis -R /server/redis /server/logs/redis
+find /server/redis /server/logs/redis -type f -exec chmod 640 {} \;
+find /server/redis /server/logs/redis -type d -exec chmod 750 {} \;
+chmod 750 -R /server/redis/bin
 ```
 
 ```bash [开发]
-chown root:emad -R /server/sqlite3
-find /server/sqlite3 -type f -exec chmod 640 {} \;
-find /server/sqlite3 -type d -exec chmod 750 {} \;
-chmod 750 -R /server/sqlite3/bin
+# 权限同部署环境
+# 开发用户 emad 加入 lnpp包用户组
+usermod -G nginx,redis,postgres,mysql,php-fpm,sqlite emad
 ```
 
 :::
