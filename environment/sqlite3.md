@@ -1,19 +1,19 @@
 ---
-title: 安装 Sqlite3
+title: 安装 SQLite3
 titleTemplate: 环境搭建教程
 ---
 
-# 安装 Sqlite3
+# 安装 SQLite3
 
-[sqlite3](https://www.sqlite.org) 是一款轻型数据库
+[SQLite3](https://www.sqlite.org) 是一个轻量级的嵌入式关系数据库管理系统
 
 :::tip sqlite3 的一些特点
 
-1. sqlite3 不需要配置，不需要安装，也不需要管理员，最牛的是它没有服务器，仅是一个文件；
+1. SQLite3 不需要配置，不需要安装，也不需要管理员，最牛的是它没有服务器，仅是一个文件；
 
 2. 数据库以文件形式保存在磁盘上，可以自由 COPY 使用；
 
-3. 因为 sqlite3 没有服务器监听端口，所以不能像 mysql 一样通过 ip 和端口远程连接数据库。如果想远程访问数据库，只能通过数据库文件共享方式。
+3. 因为 SQLite3 没有服务器监听端口，所以不能像 mysql 一样通过 ip 和端口远程连接数据库。如果想远程访问数据库，只能通过数据库文件共享方式。
 
 :::
 
@@ -48,4 +48,4 @@ usermod -G nginx,redis,postgres,mysql,php-fpm,sqlite emad
 
 :::
 
-到此，sqlite3 简单构建安装就完成了，不需要配置就可以使用
+到此，SQLite3 简单构建安装就完成了，不需要配置就可以使用
