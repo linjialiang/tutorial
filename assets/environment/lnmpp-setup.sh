@@ -191,6 +191,12 @@ modFilePower(){
   find /server/redis /server/logs/redis -type d -exec chmod 750 {} \;
   chmod 750 -R /server/redis/bin
 
+  echo_green "sqlite3文件权限"
+  chown sqlite:sqlite -R /server/sqlite
+  find /server/sqlite -type f -exec chmod 640 {} \;
+  find /server/sqlite -type d -exec chmod 750 {} \;
+  chmod 750 -R /server/sqlite/bin
+
   echo_green "MySQL文件权限"
   chown mysql:mysql -R /server/mysql /server/data /server/logs/mysql /server/etc/mysql
   find /server/mysql /server/logs/mysql /server/etc/mysql -type f -exec chmod 640 {} \;
