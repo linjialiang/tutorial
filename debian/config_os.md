@@ -409,16 +409,29 @@ cd vimcdoc-<version>
 
 ::: code-group
 
-```bash [全局]
-# 配置文件
-mv vimrc.local /etc/vim
+````md [runtimepath]
+runtimepath 是一个全局变量，值为路径列表，vim 通过搜索这些路径来获取运行时所需的文件
 
-# 将插件包放置在正确的 runtimepath
-cd /usr/share/vim/
+> 使用 `:set runtimepath?` 指令可以查看完整的运行时目录路径列表
+
+> 如果没有适合你的，也可以通过 vimrc 增加 1 个路径，如：
+
+```bash
+set runtimepath += /usr/share/vimfiles
+cd /usr/share/
 unzip vimfiles.zip
 
-# runtimepath通常是个路径列表，如果没有适合你的，也可以通过 vimrc 增加1个路径，如：
-# set runtimepath += /usr/share/vimfiles
+```
+````
+
+```bash [全局]
+# 配置
+mv vimrc.local /etc/vimrc.local
+
+# 插件包
+# 需放置在正确的 runtimepath 路径上
+cd /usr/share/vim/
+unzip vimfiles.zip
 ```
 
 :::
