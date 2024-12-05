@@ -417,6 +417,9 @@ mv vimrc.local /etc/vimrc.local
 # 需放置在正确的 runtimepath 路径上
 cd /usr/share/vim/
 unzip vimfiles.zip
+
+# vim-php-cs-fixer 插件的临时存放目录，需开放读写权限
+chmod 777 /usr/share/vim/vimfiles/pack/store/start/vim-php-cs-fixer/temp
 ```
 
 ````md [runtimepath]
