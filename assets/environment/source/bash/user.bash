@@ -41,8 +41,14 @@ useradd -c 'mysql service main process user' -g mysql -u 2006 -s /sbin/nologin -
 cp -r /root/{.oh-my-zsh,.zshrc} /home/mysql
 chown mysql:mysql -R /home/mysql/{.oh-my-zsh,.zshrc}
 
+# 创建 SQLite3 用户
+groupadd -g 2007 sqlite
+useradd -c 'sqlite main user' -g mysql -u 2007 -s /sbin/nologin -m sqlite
+cp -r /root/{.oh-my-zsh,.zshrc} /home/sqlite
+chown sqlite:sqlite -R /home/sqlite/{.oh-my-zsh,.zshrc}
+
 # 部署环境注释，开发环境取消注释，开发用户追加附属组，其中emad指开发用户
 # - 部署环境不需要开发用户，可直接使用 nginx 用户作为 ftp、ssh 等上传工具的用户
 usermod -a -G emad nginx
 usermod -a -G emad php-fpm
-usermod -G nginx,redis,postgres,mysql,php-fpm emad
+usermod -G nginx,redis,postgres,mysql,php-fpm,sqlite emad
