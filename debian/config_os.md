@@ -513,7 +513,7 @@ chmod 600 ras ras.pub
 
 ```bash
 cp ras.pub ~/.ssh/authorized_keys
-chmod 644 ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
 ```
 
 ### 5. 配置私钥
