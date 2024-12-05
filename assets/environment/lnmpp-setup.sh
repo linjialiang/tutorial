@@ -36,7 +36,7 @@ cleanOldData(){
   systemctl daemon-reload
   echo_cyan "清理旧目录 /server,/www 如果有重要数据请先备份"
   rm -rf /server /www
-  echo_cyan "删除旧用户 nginx,postgres,php-fpm 如果有重要数据请先备份"
+  echo_cyan "删除旧用户 nginx,postgres,php-fpm,mysql,sqlite,redis 如果有重要数据请先备份"
   userdel -r nginx
   userdel -r postgres
   userdel -r php-fpm
@@ -67,7 +67,7 @@ createSingleUser(){
 #创建用户
 createUser(){
   echo_yellow "=================================================================="
-  echo_green "创建nginx、php-fpm、Postgres、Redis的进程用户"
+  echo_green "创建nginx、php-fpm、Postgres、Redis、SQLite3、MySQL的进程用户"
   echo_yellow "=================================================================="
   echo_red "必须root用户安装并配置成功zsh，才允许支持zsh"
   zshState=0
