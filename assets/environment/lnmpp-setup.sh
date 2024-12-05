@@ -100,7 +100,7 @@ createUser(){
   echo_cyan "usermod -a -G postgres,sqlite php-fpm"
   echo_green "如果使用 apt install libpq-dev -y 依赖包则不需要"
   echo_yellow " "
-  echo_green "此版本使用指定Postgres安装目录"
+  echo_green "此版本使用指定Postgres安装目录以及自己编译的SQLite3"
   echo_yellow "=================================================================="
   usermod -a -G postgres,sqlite php-fpm
 }
