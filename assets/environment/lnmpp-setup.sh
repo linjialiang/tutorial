@@ -42,11 +42,13 @@ cleanOldData(){
   userdel -r php-fpm
   userdel -r redis
   userdel -r mysql
+  userdel -r sqlite
   groupdel nginx
   groupdel postgres
   groupdel php-fpm
   groupdel redis
   groupdel mysql
+  groupdel sqlite
 }
 
 #创建单个用户
@@ -76,6 +78,7 @@ createUser(){
   createSingleUser 'php-fpm' $zshState
   createSingleUser 'redis' $zshState
   createSingleUser 'mysql' $zshState
+  createSingleUser 'sqlite' $zshState
   echo ' '
   echo_yellow "=================================================================="
   echo_green "处理php-fpm的socket文件授权问题"
@@ -93,12 +96,13 @@ createUser(){
   echo ' '
   echo_yellow "=================================================================="
   echo_green "php编译pgsql扩展，使用指定Postgres安装目录时，需要提供读取libpq相关权限："
-  echo_cyan "usermod -a -G postgres php-fpm"
+  echo_green "php编译sqlite3扩展，使用指定sqlite3自带的pkgconfig时，需要提供读取对应目录的权限："
+  echo_cyan "usermod -a -G postgres,sqlite php-fpm"
   echo_green "如果使用 apt install libpq-dev -y 依赖包则不需要"
   echo_yellow " "
   echo_green "此版本使用指定Postgres安装目录"
   echo_yellow "=================================================================="
-  usermod -a -G postgres php-fpm
+  usermod -a -G postgres,sqlite php-fpm
 }
 
 #开发用户追加权限
@@ -113,7 +117,7 @@ devUserPower(){
   echo_yellow "=================================================================="
   usermod -a -G $devUserName nginx
   usermod -a -G $devUserName php-fpm
-  usermod -a -G nginx,php-fpm,postgres,redis,mysql $devUserName
+  usermod -a -G nginx,php-fpm,postgres,redis,mysql,sqlite $devUserName
 }
 
 #安装依赖包

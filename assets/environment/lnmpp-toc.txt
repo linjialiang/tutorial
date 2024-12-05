@@ -2,8 +2,7 @@
 LNMPP 环境目录
 ====================================================
 ├─ /server                  服务目录
-|   ├─ nginx                nginx基目录
-|   |  ├─ conf              nginx配置目录
+|   ├─ sqlite               SQLite3基目录
 |   |  └─ ...
 |   |
 |   ├─ redis                redis基目录
@@ -26,6 +25,10 @@ LNMPP 环境目录
 |   ├─ php                  PHP 目录
 |   |  ├─ tools             PHP通用工具存放目录
 |   |  ├─ 84                PHP8.4基目录
+|   |  └─ ...
+|   |
+|   ├─ nginx                nginx基目录
+|   |  ├─ conf              nginx配置目录
 |   |  └─ ...
 |   |
 |   ├─ default             缺省站点路径
