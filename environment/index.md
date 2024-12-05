@@ -45,10 +45,7 @@ titleTemplate: 环境搭建教程
 ::: code-group
 
 ```md [lnmpp]
-1. nginx-1.26.2.tar.gz
-    - openssl-3.0.15.tar.gz
-    - pcre2-10.44.tar.bz2
-    - zlib-1.3.1.tar.xz
+1. sqlite-autoconf-3470100.tar.gz
 2. redis-7.4.1.tar.gz
 3. mysql-8.4.3.tar.gz
 4. postgresql-17.2.tar.bz2
@@ -58,6 +55,10 @@ titleTemplate: 环境搭建教程
     - mongodb-1.20.1.tgz `动态扩展`
     - redis-6.1.0.tgz `动态扩展`
     - yaml-2.2.4.tgz `动态扩展`
+6. nginx-1.26.2.tar.gz
+    - openssl-3.0.15.tar.gz
+    - pcre2-10.44.tar.bz2
+    - zlib-1.3.1.tar.xz
 ```
 
 ```md [lnpp]
@@ -158,14 +159,15 @@ php-fpm 处理一次请求的生命周期包括请求接收、请求处理和请
 
 ::: details 在用户脚本中我们创建了多个用户：
 
-| 用户名    | 说明            |
-| --------- | --------------- |
-| emad      | 开发者用户      |
-| nginx     | Nginx 用户      |
-| postgres  | PostgreSQL 用户 |
-| php-fpm   | PHP-FPM 用户    |
-| ~~redis~~ | ~~Redis 用户~~  |
-| ~~mysql~~ | ~~MySQL 用户~~  |
+| 用户名   | 说明            |
+| -------- | --------------- |
+| emad     | 开发者用户      |
+| sqlite   | SQLite3 用户    |
+| redis    | Redis 用户      |
+| postgres | PostgreSQL 用户 |
+| mysql    | MySQL 用户      |
+| php-fpm  | PHP-FPM 用户    |
+| nginx    | Nginx 用户      |
 
 :::
 
