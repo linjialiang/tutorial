@@ -37,10 +37,10 @@ make install
 ::: code-group
 
 ```bash [部署]
-chown redis:redis -R /server/redis /server/logs/redis
-find /server/redis /server/logs/redis -type f -exec chmod 640 {} \;
-find /server/redis /server/logs/redis -type d -exec chmod 750 {} \;
-chmod 750 -R /server/redis/bin
+chown sqlite:sqlite -R /server/sqlite
+find /server/sqlite -type f -exec chmod 640 {} \;
+find /server/sqlite -type d -exec chmod 750 {} \;
+chmod 750 -R /server/sqlite/bin
 ```
 
 ```bash [开发]
