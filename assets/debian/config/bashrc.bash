@@ -22,4 +22,5 @@ PATH=${PATH}:/server/php/83/bin:/server/php/83/sbin
 PATH=${PATH}:/server/node/bin
 PATH=${PATH}:/server/mysql/bin
 PATH=${PATH}:/server/redis/bin
+PATH=${PATH}:/server/sqlite/bin
 export PATH
