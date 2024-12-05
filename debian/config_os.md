@@ -409,6 +409,16 @@ cd vimcdoc-<version>
 
 ::: code-group
 
+```bash [全局]
+# 配置
+mv vimrc.local /etc/vimrc.local
+
+# 插件包
+# 需放置在正确的 runtimepath 路径上
+cd /usr/share/vim/
+unzip vimfiles.zip
+```
+
 ````md [runtimepath]
 runtimepath 是一个全局变量，值为路径列表，vim 通过搜索这些路径来获取运行时所需的文件
 
@@ -423,16 +433,6 @@ unzip vimfiles.zip
 
 ```
 ````
-
-```bash [全局]
-# 配置
-mv vimrc.local /etc/vimrc.local
-
-# 插件包
-# 需放置在正确的 runtimepath 路径上
-cd /usr/share/vim/
-unzip vimfiles.zip
-```
 
 :::
 
