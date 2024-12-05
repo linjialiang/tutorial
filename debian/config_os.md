@@ -405,6 +405,24 @@ cd vimcdoc-<version>
 ./vimcdoc.sh -u
 ```
 
+### vim 插件包(含中文手册)
+
+::: code-group
+
+```bash [全局]
+# 配置文件
+mv vimrc.local /etc/vim
+
+# 将插件包放置在正确的 runtimepath
+cd /usr/share/vim/
+unzip vimfiles.zip
+
+# runtimepath通常是个路径列表，如果没有适合你的，也可以通过 vimrc 增加1个路径，如：
+# set runtimepath += /usr/share/vimfiles
+```
+
+:::
+
 ## 美化终端
 
 ::: code-group
