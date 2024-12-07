@@ -43,6 +43,7 @@ make install
 chown sqlite:sqlite -R /server/sqlite
 find /server/sqlite -type f -exec chmod 640 {} \;
 find /server/sqlite -type d -exec chmod 750 {} \;
+# 可执行文件需要执行权限
 chmod 750 -R /server/sqlite/bin
 ```
 
