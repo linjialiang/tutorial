@@ -17,6 +17,12 @@ titleTemplate: 环境搭建教程
 
 :::
 
+## 依赖
+
+```bash
+apt install -y gcc make
+```
+
 ## 构建安装
 
 由于 sqlite3 并非主要数据库，所以我们这里只做最简单的构建：

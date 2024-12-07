@@ -117,6 +117,6 @@ echo "-----开始设置 sqlite 用户权限目录-----"
 for((i=0;i<${#chown_sqlite_array[*]};i++));
 do
    echo ${chown_sqlite_array[i]}
-   func_chown_mysql ${chown_sqlite_array[i]}
+   func_chown_sqlite ${chown_sqlite_array[i]}
 done
 echo "-----sqlite 用户权限目录设置结束-----"
