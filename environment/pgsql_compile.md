@@ -44,7 +44,6 @@ make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev libreadline-dev
 | libpam0g-dev         | 用于 PAM 支持的开发库                                              |
 | clang                | c/c++ 编译器，`llvm+clang` 是套组合                                |
 | llvm                 | 用于 LLVM 支持的基本软件包(安装 clang 时自动安装)                  |
-| llvm-dev             | 包含了 LLVM 项目的所有源代码文件，以及一些用于构建和测试的工具和库 |
 | gcc                  | c/c++ 编译器套件(这里使用 llvm+clang，这个没啥用了)                |
 | libicu-dev           | 包含了一些用于开发和调试 ICU 应用程序的工具(安装 clang 时自动安装) |
 | libxml2-dev          | 包含用于开发 XML 应用程序的库和头文件 (安装 clang 时自动安装)      |
@@ -64,6 +63,7 @@ make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev libreadline-dev
 | CC=CMD                | 指定 C 编译器( gcc/clang 注意是区分大小写的)         |
 | CXX=CMD               | 指定 C++ 编译器( c++/clang++ 注意是区分大小写的)     |
 | --with-llvm           | 启用基于 LLVM 的 JIT 支持，优化适合 `OLTP/OLAP`      |
+| LLVM_CONFIG=PATH      | 用于定位 LLVM 安装的程序                             |
 | --with-pgport=PortNum | 指定 pgsql 服务器监听的端口号                        |
 | --with-pam            | 允许 pgsql 使用系统的 PAM 认证机制进行用户身份验证   |
 | --with-systemd        | 确保 PostgreSQL 与 systemd 服务和日志系统集成        |
@@ -111,6 +111,7 @@ cd ~/postgresql-17.2/build_postgres
 CC=clang \
 CXX=clang++ \
 --with-llvm \
+LLVM_CONFIG=/usr/lib/llvm-14/bin/llvm-config \
 --with-pam \
 --with-systemd \
 --with-uuid=e2fs \
