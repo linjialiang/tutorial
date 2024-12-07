@@ -25,8 +25,11 @@ Redis 构建相对简单
 
 ```bash [构建指令]
 su - redis -s /bin/zsh
-cd ~/redis-7.4.1/
-make BUILD_TLS=yes -j4
+# Redis 7.4.1 在测试中发下make时需要通过 ../deps/** 来获取自带的依赖依赖
+# - 所以必须在子目录中构建
+mkdir ~/redis-7.4.1/build_redis
+cd ~/redis-7.4.1/build_redis
+make -C ../ BUILD_TLS=yes -j4
 ```
 
 ```bash [检测编译结果]
