@@ -33,7 +33,7 @@ make -C ../ BUILD_TLS=yes -j4
 ```
 
 ```bash [检测编译结果]
-make test
+make -C ../ test
 # 当出现高亮信息 `\o/ All tests passed without errors!` 证明测试通过
 # -- 低配虚拟机通常会因为AOF持久化的最大延迟（max_latency）> 40 发出异常报错
 *** [err]: Active defrag - AOF loading in tests/unit/memefficiency.tcl
