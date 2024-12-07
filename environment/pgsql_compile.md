@@ -22,7 +22,10 @@ C 语言编译器主要有四种： `MSVC`/`GCC`/`MinGW`/`Clang+LLVM`
 :::
 
 ```bash
-apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libpam0g-dev libsystemd-dev libxslt1-dev flex bison
+apt install -y clang g++
+
+
+make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev libreadline-dev libssl-dev libpam0g-dev libsystemd-dev libxslt1-dev flex bison
 # apt install -y  libossp-uuid-dev -- OSSP uuid 库更新不积极，推荐使用 bsd 或 e2fs
 ```
 
@@ -59,6 +62,7 @@ apt install -y make pkg-config clang llvm-dev zlib1g-dev liblz4-dev libzstd-dev 
 | --enable-debug        | 启用调试模式                                         |
 | --enable-cassert      | 启用断言检查                                         |
 | CC=CMD                | 指定 C 编译器( gcc/clang 注意是区分大小写的)         |
+| CXX=CMD               | 指定 C++ 编译器( c++/clang++ 注意是区分大小写的)     |
 | --with-llvm           | 启用基于 LLVM 的 JIT 支持，优化适合 `OLTP/OLAP`      |
 | --with-pgport=PortNum | 指定 pgsql 服务器监听的端口号                        |
 | --with-pam            | 允许 pgsql 使用系统的 PAM 认证机制进行用户身份验证   |
@@ -105,6 +109,7 @@ cd ~/postgresql-17.2/build_postgres
 --enable-debug \
 --enable-cassert \
 CC=clang \
+CXX=clang++ \
 --with-llvm \
 --with-pam \
 --with-systemd \
