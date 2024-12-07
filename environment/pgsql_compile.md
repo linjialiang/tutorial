@@ -585,6 +585,7 @@ find /server/postgres /server/logs/postgres -type f -exec chmod 640 {} \;
 find /server/postgres /server/logs/postgres -type d -exec chmod 750 {} \;
 find /server/postgres/tls -type f -exec chmod 600 {} \;
 chmod 700 /server/pgData
+chmod o-rwx -R /server/pgData
 chmod 750 -R /server/postgres/bin
 ```
 
