@@ -147,11 +147,17 @@ cd /home/php-fpm/php-7.4.33/build_php/
 ::: details 构建指令参考
 ::: code-group
 <<<@/assets/environment/source/php/build/84.bash [84]
-<<<@/assets/environment/source/php/build/84_pgsql.bash [84-pgsql]
-<<<@/assets/environment/source/php/build/84_mysql.bash [84-mysql]
+
+```bash [编译&安装]
+# nohup make -j4 &
+make -j4
+make test
+make install
+```
+
 <<<@/assets/environment/source/php/build/74.bash [74]
-<<<@/assets/environment/source/php/build/74_pgsql.bash [74-pgsql]
-<<<@/assets/environment/source/php/build/74_mysql.bash [74-mysql]
+<<<@/assets/environment/source/php/build/84_pgsql.bash [84[pgsql]]
+<<<@/assets/environment/source/php/build/84_mysql.bash [84[mysql]]
 :::
 
 ::: tip 构建指令区别：
@@ -161,15 +167,6 @@ php8.1 的 gd 扩展增加的 `--with-avif` 选项
 
 php8.4 增加 `--with-capstone` 选项
 :::
-
-### 7. 编译并安装
-
-```bash
-# nohup make -j4 &
-make -j4
-make test
-make install
-```
 
 ## PHP 配置
 
