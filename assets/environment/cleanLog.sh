@@ -19,7 +19,11 @@ read num
 if [[ "$num" = "1" ]]; then
   echo_yellow "开始清理终端历史文件文件"
   rm /home/{emad,nginx,redis,postgres,php-fpm,mysql,sqlite}/.{zsh,bash}_history
+  rm /home/{emad,nginx,redis,postgres,php-fpm,mysql,sqlite}/.{z,viminfo}
+  rm /home/{emad,nginx,redis,postgres,php-fpm,mysql,sqlite}/.zcompdump-*
   rm /root/.{zsh,bash}_history
+  rm /root/.{z,viminfo}
+  rm /root/.zcompdump-*
   echo_yellow "清理终端历史文件结束"
 else
   echo_yellow "不清理 .zsh_history 文件"
