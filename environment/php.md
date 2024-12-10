@@ -27,16 +27,10 @@ PHP（`PHP: Hypertext Preprocessor`，超文本预处理器的字母缩写）是
 
 ```bash [84]
 apt install g++ libsystemd-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev -y
-
-# 安装sqlite3扩展所需的依赖库
-apt install libsqlite3-dev -y
 ```
 
 ```bash [83]
 apt install g++ libsystemd-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev -y
-
-# 安装sqlite3扩展所需的依赖库
-apt install libsqlite3-dev -y
 ```
 
 ```bash [74]
