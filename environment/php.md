@@ -26,12 +26,14 @@ PHP（`PHP: Hypertext Preprocessor`，超文本预处理器的字母缩写）是
 ::: code-group
 
 ```bash [84]
-apt install libcurl4-openssl-dev libpng-dev libavif-dev libwebp-dev libjpeg-dev libxpm-dev libfreetype-dev
-apt install g++ libsystemd-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev -y
+apt install libcurl4-openssl-dev libpng-dev libavif-dev libwebp-dev \
+libjpeg-dev libxpm-dev libfreetype-dev libgmp-dev libonig-dev libcapstone-dev \
+libsodium-dev libzip-dev -y
 ```
 
 ```bash [83]
-apt install g++ libsystemd-dev libcurl4-openssl-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev libcapstone-dev -y
+apt install g++ libsystemd-dev libcurl4-openssl-dev libffi-dev libgmp-dev \
+libonig-dev libsodium-dev libzip-dev libcapstone-dev -y
 ```
 
 ```bash [74]
