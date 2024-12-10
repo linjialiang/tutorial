@@ -41,24 +41,27 @@ apt install -y g++ cmake libldap-dev libsasl2-dev
 编译前系统已经存在的依赖库这里并未指出需要安装，如果系统版本不一样，需要自己根据提示安装其余部分依赖
 :::
 
-## 查询有关 CMake 支持的选项的信息
+## 编译
 
-```bash
+在不了解干什么的时候，尽量使用 MySQL 的默认值，并且 MySQL 很多参数都可以通过 my.ini 重新修改。
+
+::: code-group
+
+```bash [创建构建目录]
+su - mysql -s /bin/zsh
+mkdir ~/mysql-8.4.3/build
+cd ~/mysql-8.4.3/build
+```
+
+```bash [查看编译选项]
+# 查询有关 CMake 支持的选项的信息
 cd /home/mysql/mysql-8.4.3/build
 cmake .. -LH
 # 选项写入文件
 cmake .. -LH > options.list
 ```
 
-## 编译
-
-在不了解干什么的时候，尽量使用 MySQL 的默认值，并且 MySQL 很多参数都可以通过 my.ini 重新修改。
-
-```bash
-su - mysql -s /bin/zsh
-mkdir ~/mysql-8.4.3/build
-cd ~/mysql-8.4.3/build
-
+```bash [构建指令]
 cmake .. \
 -DWITH_DEBUG=ON \
 -DCMAKE_INSTALL_PREFIX=/server/mysql \
@@ -73,6 +76,8 @@ make -j4
 make test
 make install
 ```
+
+:::
 
 ::: tip 注意事项
 
