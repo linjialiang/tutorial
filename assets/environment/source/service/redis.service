@@ -1,5 +1,4 @@
 echo "[Unit]
-[Unit]
 Description=redis-7.4.x
 After=network.target
 
