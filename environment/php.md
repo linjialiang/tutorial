@@ -479,10 +479,12 @@ find /server/php /server/logs/php /server/php/tools/ -type f -exec chmod 640 {} 
 find /server/php /server/logs/php /server/php/tools/ -type d -exec chmod 750 {} \;
 # 可执行文件需要执行权限
 chmod 750 -R /server/php/84/bin /server/php/84/sbin
-# 动态扩展库文件: 运行时需要读取权限，升级时需要写入权限，并不需要执行权限
-# chmod 750 /server/php/84/lib/php/extensions/no-debug-non-zts-*/*
-# composer 也只需要读写权限
-# chmod 750 /server/php/tools/composer.phar
+# 动态扩展库文件: 运行时需要读取权限，升级时需要写入权限，单独调用时需要执行权限
+chmod 750 /server/php/84/lib/php/extensions/no-debug-non-zts-*/*
+# composer 单独调用是也需要执行权限
+# php composer -V php开头的形式调用就不需要执行权限
+# composer -V composer开的的形式，就必须添加执行权限
+chmod 750 /server/php/tools/composer.phar
 ```
 
 ```bash [开发]
