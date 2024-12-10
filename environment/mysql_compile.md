@@ -34,10 +34,7 @@ Boost 是一个 C++标准库，因为 mysql 主要是用 C++写的，它依赖�
 
 ```bash
 apt update
-apt install -y cmake libboost-dev libldap-dev libsasl2-dev
-apt install -y gcc g++ cmake libncurses-dev libsasl2-dev libbison-dev libssl-dev
-apt install -y libtirpc-dev # 自动安装
-apt install -y libudev-dev dpkg-dev # 未使用
+apt install -y g++ cmake libldap-dev libsasl2-dev
 ```
 
 ## 查询有关 CMake 支持的选项的信息
@@ -59,8 +56,6 @@ mkdir ~/mysql-8.4.3/build
 cd ~/mysql-8.4.3/build
 
 cmake .. \
--DCMAKE_C_FLAGS=gcc \
--DCMAKE_CXX_FLAGS=c++ \
 -DWITH_DEBUG=ON \
 -DCMAKE_INSTALL_PREFIX=/server/mysql \
 -DWITH_SSL=system \
