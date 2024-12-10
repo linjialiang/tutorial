@@ -14,10 +14,13 @@ extension=mongodb
 extension=yaml
 extension=apcu
 
-[xdebug]
+;zend_extension=opcache
 zend_extension=xdebug
+
+[xdebug]
 xdebug.mode=develop,trace,debug
-xdebug.client_host=192.168.66.254
+xdebug.client_host=127.0.0.1
+# xdebug.client_host=192.168.66.254
 xdebug.client_port=9084
 ```
 
@@ -39,13 +42,14 @@ make install
 ```
 
 ```ini [配置]
-# 假如同时使用 Xdebug 和 OPCache 时，xdebug 必须在 opcache 之后：
+# 如果 Xdebug 和 OPCache 同时使用，xdebug 必须在 opcache 之后：
 zend_extension=opcache
+zend_extension=xdebug
 
 [xdebug]
-zend_extension=xdebug
 xdebug.mode=develop,trace,debug
-xdebug.client_host=192.168.66.254
+xdebug.client_host=127.0.0.1
+# xdebug.client_host=192.168.66.254
 xdebug.client_port=9084
 ```
 
