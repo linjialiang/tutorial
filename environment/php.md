@@ -51,13 +51,9 @@ apt install libsqlite3-dev -y
 
 ::: code-group
 
-```bash [使用依赖库]
-# 未安装 sqlite3，则需安装 libsqlite3-dev 依赖库
-# 这中方式不用将 pkgconfig 加入到 PKG_CONFIG_PATH 环境变量中
-apt install libsqlite3-dev -y
-```
-
 ```bash [编译安装sqlite3]
+usermod -a -G postgres php-fpm
+
 # 构建 PHP 需将 sqlite3 的 pkgconfig 目录加入到临时环境变量里
 export PKG_CONFIG_PATH=/server/sqlite/lib/pkgconfig:$PKG_CONFIG_PATH
 
@@ -66,6 +62,12 @@ pkg-config --list-all | grep sqlite3
 
 # 加入成功显示：
 sqlite3          SQLite - SQL database engine
+```
+
+```bash [使用依赖库]
+# 未安装 sqlite3，则需安装 libsqlite3-dev 依赖库
+# 这中方式不用将 pkgconfig 加入到 PKG_CONFIG_PATH 环境变量中
+apt install libsqlite3-dev -y
 ```
 
 :::
