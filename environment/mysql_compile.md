@@ -260,12 +260,6 @@ CREATE USER 'admin'@'192.168.%.%' IDENTIFIED WITH caching_sha2_password BY '1';
 CREATE USER 'admin'@'127.0.0.1' IDENTIFIED WITH caching_sha2_password BY '1';
 ```
 
-```sql [更新用户]
--- 备注同创建
-ALTER USER 'admin'@'192.168.%.%' IDENTIFIED WITH caching_sha2_password BY '1';
-ALTER USER 'admin'@'127.0.0.1' IDENTIFIED WITH caching_sha2_password BY '1';
-```
-
 ```sql [用户授权]
 -- ALL 对应 ON 后面表的全部功能
 -- 使用 ON 时，该语句授予权限
@@ -274,6 +268,12 @@ ALTER USER 'admin'@'127.0.0.1' IDENTIFIED WITH caching_sha2_password BY '1';
 -- WITH GRANT OPTION 能够向其他用户授予或撤消您自己拥有的权限
 GRANT ALL ON *.* TO 'admin'@'192.168.%.%' WITH GRANT OPTION;
 GRANT ALL ON *.* TO 'admin'@'127.0.0.1' WITH GRANT OPTION;
+```
+
+```sql [更新用户]
+-- 备注同创建
+ALTER USER 'admin'@'192.168.%.%' IDENTIFIED WITH caching_sha2_password BY '1';
+ALTER USER 'admin'@'127.0.0.1' IDENTIFIED WITH caching_sha2_password BY '1';
 ```
 
 ```sql [删除用户]
