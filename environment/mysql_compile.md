@@ -59,6 +59,8 @@ mkdir ~/mysql-8.4.3/build
 cd ~/mysql-8.4.3/build
 
 cmake .. \
+-DCMAKE_C_FLAGS=gcc \
+-DCMAKE_CXX_FLAGS=c++ \
 -DWITH_DEBUG=ON \
 -DCMAKE_INSTALL_PREFIX=/server/mysql \
 -DWITH_SSL=system \
