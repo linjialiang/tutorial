@@ -239,7 +239,7 @@ cp /server/php/74/lib/php.ini{-development,}
 
 ### 5. 开启 OPcache
 
-PHP 官方明确说明 OPcache 只允许编译为共享扩展，并且默认会构建它
+PHP 官方明确说明 OPcache 只允许编译为共享扩展，并默认构建
 
 使用 `--disable-opcache` 选项可以禁止构建
 
