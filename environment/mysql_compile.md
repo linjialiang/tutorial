@@ -65,7 +65,6 @@ cmake .. -LH > options.list
 cmake .. \
 -DWITH_DEBUG=ON \
 -DCMAKE_INSTALL_PREFIX=/server/mysql \
--DWITH_SSL=system \
 -DWITH_SYSTEMD=ON \
 -DFORCE_COLORED_OUTPUT=ON \
 -DWITH_MYSQLX=OFF \
