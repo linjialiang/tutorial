@@ -449,8 +449,8 @@ PHP-FPM 自带了一套比较完善的进程管理指令，编译完成后还会
 ::: details 默认模板
 
 ::: code-group
-<<<@/assets/environment/source/service/php/83/php-fpm.service{ini} [php8.3]
-<<<@/assets/environment/source/service/php/74/php-fpm.service{ini} [php7.4]
+<<<@/assets/environment/source/service/php/source/83/php-fpm.service{ini} [php8.3]
+<<<@/assets/environment/source/service/php/source/74/php-fpm.service{ini} [php7.4]
 :::
 
 ::: details 案例参考
