@@ -12,14 +12,7 @@ Nginx 是现如今性能最强劲的 Web 服务器及反向代理服务器
 ### 1. 依赖项
 
 ```bash
-# 编译环境
-apt install gcc make -y
-# 模块依赖包
-apt install libxslt1-dev libxml2-dev libgd-dev libgeoip-dev -y
-# 检查依赖库
-apt install pkg-config -y
-# 检查依赖库是否存在 pkg-config 列表中（需含libxslt/libxml-2.0/gdlib/geoip）
-pkg-config --list-all
+apt install libgd-dev libgeoip-dev -y
 ```
 
 ### 2. CAP_NET_BIND_SERVICE
