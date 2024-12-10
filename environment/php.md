@@ -29,6 +29,9 @@ PHP（`PHP: Hypertext Preprocessor`，超文本预处理器的字母缩写）是
 apt install libcurl4-openssl-dev libpng-dev libavif-dev libwebp-dev \
 libjpeg-dev libxpm-dev libfreetype-dev libgmp-dev libonig-dev libcapstone-dev \
 libsodium-dev libzip-dev -y
+
+# php 扩展所需额外依赖
+apt install autoconf libyaml-dev -y
 ```
 
 ```bash [83]
@@ -472,14 +475,14 @@ su - php-fpm -s /bin/zsh
 
 ```bash [部署]
 chown php-fpm:php-fpm -R /server/php /server/logs/php
-find /server/php /server/logs/php -type f -exec chmod 640 {} \;
-find /server/php /server/logs/php -type d -exec chmod 750 {} \;
+find /server/php /server/logs/php /server/php/tools/ -type f -exec chmod 640 {} \;
+find /server/php /server/logs/php /server/php/tools/ -type d -exec chmod 750 {} \;
 # 可执行文件需要执行权限
 chmod 750 -R /server/php/84/bin /server/php/84/sbin
-# 动态扩展库也可以增加执行权限
-chmod 750 /server/php/84/lib/php/extensions/no-debug-non-zts-*/*
-# composer 需要执行权限
-chmod 750 /server/php/tools/composer.phar
+# 动态扩展库文件: 运行时需要读取权限，升级时需要写入权限，并不需要执行权限
+# chmod 750 /server/php/84/lib/php/extensions/no-debug-non-zts-*/*
+# composer 也只需要读写权限
+# chmod 750 /server/php/tools/composer.phar
 ```
 
 ```bash [开发]
