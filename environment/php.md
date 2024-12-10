@@ -395,8 +395,8 @@ cd /server/php/tools
 ./php -r "unlink('composer-setup.php');"
 chmod 750 composer.phar
 
-# 软链接到 /usr/local/bin
-ln -s /server/php/tools/composer.phar /server/php/84/bin/composer
+# 软链接到可用的环境变量路径，如: /usr/local/bin/ 路径下
+ln -s /server/php/tools/composer.phar /usr/local/bin/composer
 ```
 
 ### 2. 全量镜像
