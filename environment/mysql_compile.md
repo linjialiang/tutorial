@@ -257,11 +257,13 @@ caching_sha2_password 是 MySQL 捆绑插件，无需额外载入。
 -- BY '1' 设置密码为1，mysql会自动进行对应的加密处理
 -- WITH 和 BY 都可以省略，但是 WITH 必须在 BY 前面（未指定插件，如何加密）
 CREATE USER 'admin'@'192.168.%.%' IDENTIFIED WITH caching_sha2_password BY '1';
+CREATE USER 'admin'@'127.0.0.1' IDENTIFIED WITH caching_sha2_password BY '1';
 ```
 
 ```sql [更新用户]
 -- 备注同创建
 ALTER USER 'admin'@'192.168.%.%' IDENTIFIED WITH caching_sha2_password BY '1';
+ALTER USER 'admin'@'127.0.0.1' IDENTIFIED WITH caching_sha2_password BY '1';
 ```
 
 ```sql [用户授权]
@@ -271,10 +273,11 @@ ALTER USER 'admin'@'192.168.%.%' IDENTIFIED WITH caching_sha2_password BY '1';
 -- *.* 授权 所有数据库.所有表
 -- WITH GRANT OPTION 能够向其他用户授予或撤消您自己拥有的权限
 GRANT ALL ON *.* TO 'admin'@'192.168.%.%' WITH GRANT OPTION;
+GRANT ALL ON *.* TO 'admin'@'127.0.0.1' WITH GRANT OPTION;
 ```
 
 ```sql [删除用户]
-DROP USER 'admin'@'1192.168.%.%';
+DROP USER 'admin'@'192.168.%.%';
 ```
 
 :::
