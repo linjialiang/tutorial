@@ -112,5 +112,15 @@
   "diffEditor.hideUnchangedRegions.enabled": true,
   "php-cs-fixer.executablePath": "C:\\php\\tools\\php-cs-fixer-v3.phar",
   "php-cs-fixer.rules": "@PhpCsFixer",
-  "php.validate.executablePath": "C:\\php\\84\\php.exe"
+  "php.validate.executablePath": "C:\\php\\84\\php.exe",
+  "editor.rulers": [
+    {
+      "column": 80,
+      "color": "rgba(255, 255, 0, .1)"
+    },
+    {
+      "column": 120,
+      "color": "rgba(255, 0, 0, .1)"
+    }
+  ]
 }
