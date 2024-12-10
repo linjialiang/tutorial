@@ -205,18 +205,20 @@ php 编译完成后，在源码包根目录下会自动生成两个推荐的配�
 
 ::: code-group
 
-```bash [开发环境]
-# php7.4
-cp /home/php-fpm/php-7.4.33/php.ini-development /server/php/74/lib/php.ini
-# php8.4
-cp /home/php-fpm/php-8.4.1/php.ini-development /server/php/84/lib/php.ini
+```bash [84]
+cp /home/php-fpm/php-8.4.1/php.ini-* /server/php/84/lib/
+# 开发环境
+cp /server/php/84/lib/php.ini{-development,}
+# 部署环境
+# cp /server/php/84/lib/php.ini{-production,}
 ```
 
-```bash [部署环境]
-# php7.4
-cp /home/php-fpm/php-7.4.33/php.ini-production /server/php/74/lib/php.ini
-# php8.4
-cp /home/php-fpm/php-8.4.1/php.ini-production /server/php/84/lib/php.ini
+```bash [74]
+cp /home/php-fpm/php-7.4.33/php.ini-* /server/php/84/lib/
+# 开发环境
+cp /server/php/74/lib/php.ini{-development,}
+# 部署环境
+# cp /server/php/74/lib/php.ini{-production,}
 ```
 
 :::
