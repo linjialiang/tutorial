@@ -37,6 +37,10 @@ apt update
 apt install -y g++ cmake libldap-dev libsasl2-dev
 ```
 
+::: warning 注意
+编译前系统已经存在的依赖库这里并未指出需要安装，如果系统版本不一样，需要自己根据提示安装其余部分依赖
+:::
+
 ## 查询有关 CMake 支持的选项的信息
 
 ```bash
