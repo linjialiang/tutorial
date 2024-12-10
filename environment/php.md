@@ -59,7 +59,7 @@ apt install libsqlite3-dev -y
 
 ```bash [编译安装sqlite3]
 # 构建 PHP 需将 sqlite3 的 pkgconfig 目录加入到临时环境变量里
-export PKG_CONFIG_PATH=/server/sqlite3/lib/pkgconfig:$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH=/server/sqlite/lib/pkgconfig:$PKG_CONFIG_PATH
 
 # 使用下面指令检查，sqlite3 是否正确加入
 pkg-config --list-all | grep sqlite3
