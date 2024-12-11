@@ -463,7 +463,7 @@ vim ~/.zshrc
 最后使用 `source ~/.bashrc` 或 `source ~/.zshrc` 更新终端界面
 
 ::: tip 提示
-以上的 zsh 需要安装和配置 zsh-my-zsh 插件，具体请阅读[zsh 终端（暂无）]
+以上的 zsh 需要安装和配置 zsh-my-zsh 插件，具体请阅读[[zsh 终端]](./zsh)
 :::
 
 ## SSH 密钥登录{#ssh-login}
