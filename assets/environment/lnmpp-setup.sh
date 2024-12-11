@@ -129,12 +129,12 @@ installPackage(){
   echo_red "注意1：该lnmpp包不兼容其他发行版，因为极有可能因为依赖问题，导致整个环境无法使用"
   echo_red "注意2：部分依赖包在部署阶段可能没用，但由于没对单个功能测试，只能选择安装全部依赖"
   echo_yellow "=================================================================="
-  apt install -y gcc g++ make pkg-config clang llvm-dev libsystemd-dev \
-  libcurl4-openssl-dev libxslt1-dev libxml2-dev libssl-dev libpam0g-dev \
-  zlib1g-dev libffi-dev libgmp-dev libonig-dev libsodium-dev libzip-dev \
-  libgd-dev libgeoip-dev liblz4-dev libzstd-dev libreadline-dev \
-  libcapstone-dev libsqlite3-dev flex bison \
-  cmake libncurses-dev libldap-dev libsasl2-dev libbison-dev libyaml-dev
+  apt install -y gcc g++ clang make cmake pkg-config autoconf tcl libssl-dev \
+  liblz4-dev libzstd-dev bison flex libreadline-dev zlib1g-dev libpam0g-dev \
+  libxslt1-dev uuid-dev libsystemd-dev libldap-dev libsasl2-dev \
+  libcurl4-openssl-dev libpng-dev libavif-dev libwebp-dev libjpeg-dev \
+  libxpm-dev libfreetype-dev libgmp-dev libonig-dev libcapstone-dev \
+  libsodium-dev libzip-dev libyaml-dev libgd-dev libgeoip-dev
 }
 
 #安装预构建包
@@ -158,8 +158,9 @@ modFilePower(){
   echo_yellow "=================================================================="
   echo_green "/server 目录权限"
   chown root:root -R /server
-  find /server -type f -exec chmod 644 {} \;
-  find /server -type d -exec chmod 755 {} \;
+  chmod 755 /server
+  find /server/default -type f -exec chmod 644 {} \;
+  find /server/default -type d -exec chmod 755 {} \;
 
   echo_green "/www 目录权限"
   echo_red "开发环境使用emad用户（nginx/php-fpm 需加入 emad用户组）"
@@ -183,6 +184,8 @@ modFilePower(){
   find /server/postgres /server/logs/postgres -type d -exec chmod 750 {} \;
   find /server/postgres/tls -type f -exec chmod 600 {} \;
   chmod 700 /server/pgData
+  chmod o-rwx -R /server/pgData
+  chmod g-w -R /server/pgData
   chmod 750 -R /server/postgres/bin
 
   echo_green "redis文件权限"
@@ -206,8 +209,8 @@ modFilePower(){
 
   echo_green "php文件权限"
   chown php-fpm:php-fpm -R /server/php /server/logs/php
-  find /server/php /server/logs/php -type f -exec chmod 640 {} \;
-  find /server/php /server/logs/php -type d -exec chmod 750 {} \;
+  find /server/php /server/logs/php /server/php/tools/ -type f -exec chmod 640 {} \;
+  find /server/php /server/logs/php /server/php/tools/ -type d -exec chmod 750 {} \;
   chmod 750 -R /server/php/84/bin /server/php/84/sbin
   chmod 750 /server/php/84/lib/php/extensions/no-debug-non-zts-*/*
   chmod 750 /server/php/tools/composer.phar
