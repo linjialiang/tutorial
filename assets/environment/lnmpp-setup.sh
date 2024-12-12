@@ -152,7 +152,9 @@ InstallBuild(){
 
 #重置Redis数字证书
 resetRedisCertificate(){
-  rm -rf /server/redis/tls/
+  tlsPath=/server/redis/tls
+  tlsScriptPath=/server/redis/gen-test-certs.sh
+  rm -rf $tlsPath
   echo_yellow "=================================================================="
   echo_green "创建一键生成redis数字证书脚本"
   echo_yellow " "
@@ -163,7 +165,6 @@ resetRedisCertificate(){
   echo_green ""
   echo_yellow "=================================================================="
   echo_cyan "[+] Create Redis certs script..."
-  tlsScriptPath=/server/redis/gen-test-certs.sh
   echo "#\!/bin/bash
 generate_cert() {
     local name=\$1
@@ -189,16 +190,16 @@ generate_cert() {
             -out \$certfile
 }
 
-mkdir tls
-[ -f tls/ca.key ] || openssl genrsa -out tls/ca.key 4096
+mkdir $tlsPath
+[ -f $tlsPath/ca.key ] || openssl genrsa -out $tlsPath/ca.key 4096
 openssl req \\
     -x509 -new -nodes -sha256 \\
-    -key tls/ca.key \\
+    -key $tlsPath/ca.key \\
     -days 3650 \\
     -subj '/O=Redis Test/CN=Certificate Authority' \\
-    -out tls/ca.crt
+    -out $tlsPath/ca.crt
 
-cat > tls/openssl.cnf <<_END_
+cat > $tlsPath/openssl.cnf <<_END_
 [ server_cert ]
 keyUsage = digitalSignature, keyEncipherment
 nsCertType = server
@@ -208,11 +209,11 @@ keyUsage = digitalSignature, keyEncipherment
 nsCertType = client
 _END_
 
-generate_cert server \"Server-only\" \"-extfile tls/openssl.cnf -extensions server_cert\"
-generate_cert client \"Client-only\" \"-extfile tls/openssl.cnf -extensions client_cert\"
+generate_cert server \"Server-only\" \"-extfile $tlsPath/openssl.cnf -extensions server_cert\"
+generate_cert client \"Client-only\" \"-extfile $tlsPath/openssl.cnf -extensions client_cert\"
 generate_cert redis \"Generic-cert\"
 
-[ -f tls/redis.dh ] || openssl dhparam -out tls/redis.dh 2048
+[ -f $tlsPath/redis.dh ] || openssl dhparam -out $tlsPath/redis.dh 2048
 " > $tlsScriptPath
   chmod +x $tlsScriptPath
   $tlsScriptPath
@@ -225,7 +226,9 @@ generate_cert redis \"Generic-cert\"
 
 #重置PostgreSQL数字证书
 resetPgsqlCertificate(){
-  rm -rf /server/redis/tls/
+  tlsPath=/server/postgres/tls
+  tlsScriptPath=/server/postgres/gen-test-certs.sh
+  rm -rf $tlsPath
   echo_yellow "=================================================================="
   echo_green "创建一键生成PostgreSQL数字证书脚本"
   echo_yellow " "
@@ -236,7 +239,6 @@ resetPgsqlCertificate(){
   echo_green ""
   echo_yellow "=================================================================="
   echo_cyan "[+] Create PostgreSQL certs script..."
-  tlsScriptPath=/server/postgres/gen-test-certs.sh
   echo "#\!/bin/bash
 generate_cert() {
     local name=\$1
@@ -262,16 +264,16 @@ generate_cert() {
             -out \$certfile
 }
 
-mkdir tls
-[ -f tls/root.key ] || openssl genrsa -out tls/root.key 4096
+mkdir $tlsPath
+[ -f $tlsPath/root.key ] || openssl genrsa -out $tlsPath/root.key 4096
 openssl req \\
     -x509 -new -nodes -sha256 \\
-    -key tls/root.key \\
+    -key $tlsPath/root.key \\
     -days 3650 \\
     -subj '/O=PostgreSQL Test/CN=Certificate Authority' \\
-    -out tls/root.crt
+    -out $tlsPath/root.crt
 
-cat > tls/openssl.cnf <<_END_
+cat > $tlsPath/openssl.cnf <<_END_
 [ server_cert ]
 keyUsage = digitalSignature, keyEncipherment
 nsCertType = server
@@ -281,13 +283,13 @@ keyUsage = digitalSignature, keyEncipherment
 nsCertType = client
 _END_
 
-generate_cert server \"Server-only\" \"-extfile tls/openssl.cnf -extensions server_cert\"
-generate_cert client \"Client-only\" \"-extfile tls/openssl.cnf -extensions client_cert\"
-generate_cert client-admin \"admin\" \"-extfile tls/openssl.cnf -extensions client_cert\"
-generate_cert client-emad \"emad\" \"-extfile tls/openssl.cnf -extensions client_cert\"
+generate_cert server \"Server-only\" \"-extfile $tlsPath/openssl.cnf -extensions server_cert\"
+generate_cert client \"Client-only\" \"-extfile $tlsPath/openssl.cnf -extensions client_cert\"
+generate_cert client-admin \"admin\" \"-extfile $tlsPath/openssl.cnf -extensions client_cert\"
+generate_cert client-emad \"emad\" \"-extfile $tlsPath/openssl.cnf -extensions client_cert\"
 generate_cert pgsql \"Generic-cert\"
 
-[ -f tls/pgsql.dh ] || openssl dhparam -out tls/pgsql.dh 2048
+[ -f $tlsPath/pgsql.dh ] || openssl dhparam -out $tlsPath/pgsql.dh 2048
 " > $tlsScriptPath
   chmod +x $tlsScriptPath
   $tlsScriptPath
