@@ -162,7 +162,6 @@ resetRedisCertificate(){
   echo_cyan "开发环境: 目录 750/ 文件 640"
   echo_cyan "部署环境: 目录 700/ 文件 600"
   echo_yellow " "
-  echo_green ""
   echo_yellow "=================================================================="
   echo_cyan "[+] Create Redis certs script..."
   echo "#\!/bin/bash
@@ -215,6 +214,7 @@ generate_cert redis \"Generic-cert\"
 
 [ -f $redisTlsPath/redis.dh ] || openssl dhparam -out $redisTlsPath/redis.dh 2048
 " > $redisTlsScriptPath
+  echo_cyan "[+] run Redis certs script..."
   chmod +x $redisTlsScriptPath
   $redisTlsScriptPath
   echo_cyan "tls证书重置完成，是否删除一键生成Redis证书脚本(1删除/默认不删除)："
@@ -236,7 +236,6 @@ resetPgsqlCertificate(){
   echo_cyan "开发环境: 目录 750/ 文件 640"
   echo_cyan "部署环境: 目录 700/ 文件 600"
   echo_yellow " "
-  echo_green ""
   echo_yellow "=================================================================="
   echo_cyan "[+] Create PostgreSQL certs script..."
   echo "#\!/bin/bash
@@ -291,6 +290,7 @@ generate_cert pgsql \"Generic-cert\"
 
 [ -f $pgsqlTlsPath/pgsql.dh ] || openssl dhparam -out $pgsqlTlsPath/pgsql.dh 2048
 " > $pgsqlTlsScriptPath
+  echo_cyan "[+] run PostgreSQL certs script..."
   chmod +x $pgsqlTlsScriptPath
   $pgsqlTlsScriptPath
   echo_cyan "tls证书重置完成，是否删除一键生成PostgreSQL证书脚本(1删除/默认不删除)："
@@ -576,8 +576,8 @@ else
   echo_yellow "=================================================================="
   echo_green "lnmpp安装完成！！！"
   echo_yellow "   - Postgres 默认有个超级管理员用户 admin 密码 1"
-  echo_yellow "   - MySQL 默认有个本地用户 admin@'192.168.%.%' 密码 1"
-  echo_yellow "   - MySQL 默认有个局域网用户 admin@localhost 密码 1"
+  echo_yellow "   - MySQL 默认有个本地用户 admin@localhost 密码 1"
+  echo_yellow "   - MySQL 默认有个局域网用户 admin@'192.168.%.%' 密码 1"
   echo_yellow "   - Redis 默认设置了全局密码 1"
   echo_yellow "=================================================================="
 fi
