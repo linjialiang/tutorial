@@ -58,7 +58,7 @@ createSingleUser(){
   echo_green "创建 $userName 用户"
   groupadd $userName
   useradd -c "$userName service main process user" -g $userName -s /sbin/nologin -m $userName
-  if [ "$isSupportZsh" = "1" ]; then
+  if [ "$isSupportZsh" -eq "1" ]; then
     cp -r /root/{.oh-my-zsh,.zshrc} /home/$userName
     chown $userName:$userName -R /home/$userName/{.oh-my-zsh,.zshrc}
   fi
@@ -148,6 +148,106 @@ InstallBuild(){
   echo_green "预先编译成功的lnmpp解压到服务器目录下"
   echo_yellow "=================================================================="
   tar -xJf ./lnmpp.tar.xz -C /
+}
+
+#重置Redis数字证书
+resetRedisCertificate(){
+  rm -rf /server/redis/tls/
+  echo_yellow "=================================================================="
+  echo_green "创建一键生成redis数字证书脚本"
+  echo_yellow " "
+  echo_cyan "注意: 不能向其他用户开放权限"
+  echo_cyan "开发环境: 目录 750/ 文件 640"
+  echo_cyan "部署环境: 目录 700/ 文件 600"
+  echo_yellow " "
+  echo_green ""
+  echo_yellow "=================================================================="
+  echo_cyan "[+] Create Redis certs script..."
+  tlsScriptPath=/server/redis/gen-test-certs.sh
+  echo "#\!/bin/bash
+generate_cert() {
+    local name=\$1
+    local cn=\"\$2\"
+    local opts=\"\$3\"
+
+    local keyfile=tls/\${name}.key
+    local certfile=tls/\${name}.crt
+
+    [ -f \$keyfile ] || openssl genrsa -out \$keyfile 2048
+    openssl req \\
+        -new -sha256 \\
+        -subj \"/O=Redis Test/CN=\$cn\" \\
+        -key \$keyfile | \\
+        openssl x509 \\
+            -req -sha256 \\
+            -CA tls/ca.crt \\
+            -CAkey tls/ca.key \\
+            -CAserial tls/ca.txt \\
+            -CAcreateserial \\
+            -days 365 \\
+            \$opts \\
+            -out \$certfile
+}
+
+mkdir tls
+[ -f tls/ca.key ] || openssl genrsa -out tls/ca.key 4096
+openssl req \\
+    -x509 -new -nodes -sha256 \\
+    -key tls/ca.key \\
+    -days 3650 \\
+    -subj '/O=Redis Test/CN=Certificate Authority' \\
+    -out tls/ca.crt
+
+cat > tls/openssl.cnf <<_END_
+[ server_cert ]
+keyUsage = digitalSignature, keyEncipherment
+nsCertType = server
+
+[ client_cert ]
+keyUsage = digitalSignature, keyEncipherment
+nsCertType = client
+_END_
+
+generate_cert server \"Server-only\" \"-extfile tls/openssl.cnf -extensions server_cert\"
+generate_cert client \"Client-only\" \"-extfile tls/openssl.cnf -extensions client_cert\"
+generate_cert redis \"Generic-cert\"
+
+[ -f tls/redis.dh ] || openssl dhparam -out tls/redis.dh 2048
+" > $tlsScriptPath
+  chmod +x $tlsScriptPath
+  $tlsScriptPath
+  echo_cyan "是否删除一键生成Redis证书脚本(1删除/默认不删除)："
+  read isDeleteCertificateScript
+  if [ "$isDeleteCertificateScript" -eq "1" ]; then
+    rm $tlsScriptPath
+  fi
+}
+
+#重置PostgreSQL数字证书
+resetPgsqlCertificate(){
+  rm -rf /server/redis/tls/
+  echo_yellow "=================================================================="
+  echo_green "创建一键生成PostgreSQL数字证书脚本"
+  echo_yellow " "
+  echo_cyan "注意: 不能向其他用户开放权限"
+  echo_cyan "开发环境: 目录 750/ 文件 640"
+  echo_cyan "部署环境: 目录 700/ 文件 600"
+  echo_yellow " "
+  echo_green ""
+  echo_yellow "=================================================================="
+  echo_cyan "[+] Create PostgreSQL certs script..."
+  tlsScriptPath=/server/postgres/gen-test-certs.sh
+  echo "#\!/bin/bash
+
+" > $tlsScriptPath
+  chmod +x $tlsScriptPath
+  $tlsScriptPath
+  rm $tlsScriptPath
+  echo_cyan "是否删除一键生成PostgreSQL证书脚本(1删除/默认不删除)："
+  read isDeleteCertificateScript
+  if [ "$isDeleteCertificateScript" -eq "1" ]; then
+    rm $tlsScriptPath
+  fi
 }
 
 #修改文件权限
@@ -352,7 +452,7 @@ WantedBy=multi-user.target
 echo_cyan "解压脚本同级目录下需存在源码压缩包 lnmpp.tar.xz"
 echo_cyan "是否退出(1退出/默认继续)："
 read isExit
-if [ "$isExit" = "1" ]; then
+if [ "$isExit" -eq "1" ]; then
   exit 0
 fi
 
@@ -362,7 +462,7 @@ upgradeOS
 echo_cyan "是否重启操作系统(1重启/默认不重启)："
 read num
 
-if [ "$num" = "1" ]; then
+if [ "$num" -eq "1" ]; then
   echo_cyan "停止向下执行，并重启系统"
   sync;sync;sync;reboot
 else
@@ -386,6 +486,14 @@ else
   echo ' '
   #解压lnmpp预构建包到指定目录
   InstallBuild
+  echo ' '
+  #是否重新生成tls证书
+  echo_cyan "是否重置数字证书(1重置/默认不重置)："
+  read isResetCertificate
+  if [ "$isResetCertificate" -eq "1" ]; then
+    resetRedisCertificate
+    resetPgsqlCertificate
+  fi
   echo ' '
   #修改文件权限
   modFilePower
