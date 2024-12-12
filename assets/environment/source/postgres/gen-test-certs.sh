@@ -2,11 +2,13 @@
 
 # 这些文件是用于生成测试证书的，部署环境应从正规的数字证书的签发机构获取相关证书
 #
-#   tls/root.{crt,key}        CA证书用于签署其他证书，以建立信任链
-#   tls/pgsql.{crt,key}       这个证书可以用于SSL/TLS连接中的任何用途，因为它没有任何特定的使用限制
-#   tls/client.{crt,key}      只能用于SSL/TLS连接中的客户端身份验证
-#   tls/server.{crt,key}      只能用于SSL/TLS连接中的服务器身份验证
-#   tls/pgsql.dh              Diffie-Hellman 参数文件 (用于在SSL/TLS握手过程中协商临时密钥，以确保通信的安全性)
+#   tls/root.{crt,key}          CA证书用于签署其他证书，以建立信任链
+#   tls/pgsql.{crt,key}         这个证书可以用于SSL/TLS连接中的任何用途，因为它没有任何特定的使用限制
+#   tls/client.{crt,key}        只能用于SSL/TLS连接中的客户端身份验证
+#   tls/client-emad.{crt,key}   只能用于SSL/TLS连接中的客户端身份验证 [用户 emad 允许 verify-full 验证类型]
+#   tls/client-admin.{crt,key}  只能用于SSL/TLS连接中的客户端身份验证 [用户 admin 允许 verify-full 验证类型]
+#   tls/server.{crt,key}        只能用于SSL/TLS连接中的服务器身份验证
+#   tls/pgsql.dh                Diffie-Hellman 参数文件 (用于在SSL/TLS握手过程中协商临时密钥，以确保通信的安全性)
 
 generate_cert() {
     local name=$1
@@ -52,6 +54,7 @@ nsCertType = client
 _END_
 
 generate_cert server "Server-only" "-extfile tls/openssl.cnf -extensions server_cert"
+generate_cert client "Client-only" "-extfile tls/openssl.cnf -extensions client_cert"
 generate_cert client-admin "admin" "-extfile tls/openssl.cnf -extensions client_cert"
 generate_cert client-emad "emad" "-extfile tls/openssl.cnf -extensions client_cert"
 generate_cert pgsql "Generic-cert"
