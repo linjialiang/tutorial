@@ -58,7 +58,7 @@ createSingleUser(){
   echo_green "创建 $userName 用户"
   groupadd $userName
   useradd -c "$userName service main process user" -g $userName -s /sbin/nologin -m $userName
-  if [ $isSupportZsh = '1' ]; then
+  if [[ "$isSupportZsh" == '1' ]]; then
     cp -r /root/{.oh-my-zsh,.zshrc} /home/$userName
     chown $userName:$userName -R /home/$userName/{.oh-my-zsh,.zshrc}
   fi
@@ -219,7 +219,7 @@ generate_cert redis \"Generic-cert\"
   $redisTlsScriptPath
   echo_cyan "tls证书重置完成，是否删除一键生成Redis证书脚本(1删除/默认不删除)："
   read isDeleteRedisTlsScript
-  if [ $isDeleteRedisTlsScript = '1' ]; then
+  if [[ "$isDeleteRedisTlsScript" == '1' ]]; then
     rm $redisTlsScriptPath
   fi
 }
@@ -295,7 +295,7 @@ generate_cert pgsql \"Generic-cert\"
   $pgsqlTlsScriptPath
   echo_cyan "tls证书重置完成，是否删除一键生成PostgreSQL证书脚本(1删除/默认不删除)："
   read isDeletePgsqlTlsScript
-  if [ $isDeletePgsqlTlsScript = '1' ]; then
+  if [[ "$isDeletePgsqlTlsScript" == '1' ]]; then
     rm $pgsqlTlsScriptPath
   fi
 }
@@ -503,7 +503,7 @@ WantedBy=multi-user.target
 echo_cyan "解压脚本同级目录下需存在源码压缩包 lnmpp.tar.xz"
 echo_cyan "是否退出(1退出/默认继续)："
 read isExit
-if [ $isExit = '1' ]; then
+if [[ "$isExit" == '1' ]]; then
   exit 0
 fi
 
@@ -513,7 +513,7 @@ upgradeOS
 echo_cyan "是否重启操作系统(1重启/默认不重启)："
 read num
 
-if [ $num = '1' ]; then
+if [[ "$num" == '1' ]]; then
   echo_cyan "停止向下执行，并重启系统"
   sync;sync;sync;reboot
 else
@@ -525,10 +525,9 @@ else
   echo ' '
   #开发用户追加权限，部署环境请注释掉
   echo_red "部署环境通常不需要授权"
-  userName=''
   echo_cyan "输入开发用户名，为其授权(为空不授权)："
   read userName
-  if [ ! -z $userName ]; then
+  if [[ -n "$userName" ]]; then
     devUserPower $userName
   fi
   echo ' '
@@ -541,7 +540,7 @@ else
   #是否重新生成tls证书
   echo_cyan "是否重置数字证书(1重置/默认不重置)："
   read isResetCertificate
-  if [ $isResetCertificate = '1' ]; then
+  if [[ "$isResetCertificate" == '1' ]]; then
     resetRedisCertificate
     resetPgsqlCertificate
   fi
