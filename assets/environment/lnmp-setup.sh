@@ -260,7 +260,8 @@ Restart=on-failure
 PrivateTmp=false
 
 [Install]
-WantedBy=multi-user.target" > /lib/systemd/system/mysqld-84.service
+WantedBy=multi-user.target
+" > /lib/systemd/system/mysqld-84.service
 
   echo_cyan "[+] Create redis service..."
 

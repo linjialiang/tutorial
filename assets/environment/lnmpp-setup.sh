@@ -395,7 +395,7 @@ PrivateTmp=true
 
 [Install]
 WantedBy=multi-user.target
-" >/lib/systemd/system/nginx.service
+" > /lib/systemd/system/nginx.service
 
   echo_cyan "[+] Create php84-fpm service..."
 
@@ -423,7 +423,7 @@ RestrictNamespaces=true
 
 [Install]
 WantedBy=multi-user.target
-" >/lib/systemd/system/php84-fpm.service
+" > /lib/systemd/system/php84-fpm.service
 
   echo_cyan "[+] Create postgres service..."
 
@@ -447,7 +447,7 @@ TimeoutSec=infinity
 
 [Install]
 WantedBy=multi-user.target
-" >/lib/systemd/system/postgres.service
+" > /lib/systemd/system/postgres.service
 
   echo_cyan "[+] Create MySQL service..."
 
@@ -469,7 +469,8 @@ Restart=on-failure
 PrivateTmp=false
 
 [Install]
-WantedBy=multi-user.target" > /lib/systemd/system/mysqld-84.service
+WantedBy=multi-user.target
+" > /lib/systemd/system/mysqld-84.service
 
   echo_cyan "[+] Create redis service..."
 
@@ -491,7 +492,7 @@ PrivateTmp=true
 
 [Install]
 WantedBy=multi-user.target
-" >/lib/systemd/system/redis.service
+" > /lib/systemd/system/redis.service
 
   echo_green "Registered Service..."
   systemctl daemon-reload
