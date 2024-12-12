@@ -154,7 +154,6 @@ resetRedisCertificate(){
   echo_cyan "开发环境: 目录 750/ 文件 640"
   echo_cyan "部署环境: 目录 700/ 文件 600"
   echo_yellow " "
-  echo_green ""
   echo_yellow "=================================================================="
   echo_cyan "[+] Create Redis certs script..."
   echo "#\!/bin/bash
@@ -207,12 +206,89 @@ generate_cert redis \"Generic-cert\"
 
 [ -f $redisTlsPath/redis.dh ] || openssl dhparam -out $redisTlsPath/redis.dh 2048
 " > $redisTlsScriptPath
+  echo_cyan "[+] run Redis certs script..."
   chmod +x $redisTlsScriptPath
   $redisTlsScriptPath
   echo_cyan "tls证书重置完成，是否删除一键生成Redis证书脚本(1删除/默认不删除)："
   read isDeleteRedisTlsScript
-  if [ "$isDeleteRedisTlsScript" -eq "1" ]; then
+  if [[ "$isDeleteRedisTlsScript" == '1' ]]; then
     rm $redisTlsScriptPath
+  fi
+}
+
+#重置PostgreSQL数字证书
+resetPgsqlCertificate(){
+  pgsqlTlsPath=/server/postgres/tls
+  pgsqlTlsScriptPath=/server/postgres/gen-test-certs.sh
+  rm -rf $pgsqlTlsPath
+  echo_yellow "=================================================================="
+  echo_green "创建一键生成PostgreSQL数字证书脚本"
+  echo_yellow " "
+  echo_cyan "注意: 不能向其他用户开放权限"
+  echo_cyan "开发环境: 目录 750/ 文件 640"
+  echo_cyan "部署环境: 目录 700/ 文件 600"
+  echo_yellow " "
+  echo_yellow "=================================================================="
+  echo_cyan "[+] Create PostgreSQL certs script..."
+  echo "#\!/bin/bash
+generate_cert() {
+    local name=\$1
+    local cn=\"\$2\"
+    local opts=\"\$3\"
+
+    local keyfile=$pgsqlTlsPath/\${name}.key
+    local certfile=$pgsqlTlsPath/\${name}.crt
+
+    [ -f \$keyfile ] || openssl genrsa -out \$keyfile 2048
+    openssl req \\
+        -new -sha256 \\
+        -subj \"/O=PostgreSQL Test/CN=\$cn\" \\
+        -key \$keyfile | \\
+        openssl x509 \\
+            -req -sha256 \\
+            -CA $pgsqlTlsPath/root.crt \\
+            -CAkey $pgsqlTlsPath/root.key \\
+            -CAserial $pgsqlTlsPath/root.txt \\
+            -CAcreateserial \\
+            -days 365 \\
+            \$opts \\
+            -out \$certfile
+}
+
+mkdir $pgsqlTlsPath
+[ -f $pgsqlTlsPath/root.key ] || openssl genrsa -out $pgsqlTlsPath/root.key 4096
+openssl req \\
+    -x509 -new -nodes -sha256 \\
+    -key $pgsqlTlsPath/root.key \\
+    -days 3650 \\
+    -subj '/O=PostgreSQL Test/CN=Certificate Authority' \\
+    -out $pgsqlTlsPath/root.crt
+
+cat > $pgsqlTlsPath/openssl.cnf <<_END_
+[ server_cert ]
+keyUsage = digitalSignature, keyEncipherment
+nsCertType = server
+
+[ client_cert ]
+keyUsage = digitalSignature, keyEncipherment
+nsCertType = client
+_END_
+
+generate_cert server \"Server-only\" \"-extfile $pgsqlTlsPath/openssl.cnf -extensions server_cert\"
+generate_cert client \"Client-only\" \"-extfile $pgsqlTlsPath/openssl.cnf -extensions client_cert\"
+generate_cert client-admin \"admin\" \"-extfile $pgsqlTlsPath/openssl.cnf -extensions client_cert\"
+generate_cert client-emad \"emad\" \"-extfile $pgsqlTlsPath/openssl.cnf -extensions client_cert\"
+generate_cert pgsql \"Generic-cert\"
+
+[ -f $pgsqlTlsPath/pgsql.dh ] || openssl dhparam -out $pgsqlTlsPath/pgsql.dh 2048
+" > $pgsqlTlsScriptPath
+  echo_cyan "[+] run PostgreSQL certs script..."
+  chmod +x $pgsqlTlsScriptPath
+  $pgsqlTlsScriptPath
+  echo_cyan "tls证书重置完成，是否删除一键生成PostgreSQL证书脚本(1删除/默认不删除)："
+  read isDeletePgsqlTlsScript
+  if [[ "$isDeletePgsqlTlsScript" == '1' ]]; then
+    rm $pgsqlTlsScriptPath
   fi
 }
 
@@ -417,8 +493,9 @@ else
   #是否重新生成tls证书
   echo_cyan "是否重置数字证书(1重置/默认不重置)："
   read isResetCertificate
-  if [ "$isResetCertificate" -eq "1" ]; then
+  if [[ "$isResetCertificate" == "1" ]]; then
     resetRedisCertificate
+    resetPgsqlCertificate
   fi
   echo ' '
   #修改文件权限

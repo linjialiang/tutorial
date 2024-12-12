@@ -144,7 +144,6 @@ resetRedisCertificate(){
   echo_cyan "开发环境: 目录 750/ 文件 640"
   echo_cyan "部署环境: 目录 700/ 文件 600"
   echo_yellow " "
-  echo_green ""
   echo_yellow "=================================================================="
   echo_cyan "[+] Create Redis certs script..."
   echo "#\!/bin/bash
@@ -197,11 +196,12 @@ generate_cert redis \"Generic-cert\"
 
 [ -f $redisTlsPath/redis.dh ] || openssl dhparam -out $redisTlsPath/redis.dh 2048
 " > $redisTlsScriptPath
+  echo_cyan "[+] run Redis certs script..."
   chmod +x $redisTlsScriptPath
   $redisTlsScriptPath
   echo_cyan "tls证书重置完成，是否删除一键生成Redis证书脚本(1删除/默认不删除)："
   read isDeleteRedisTlsScript
-  if [ "$isDeleteRedisTlsScript" -eq "1" ]; then
+  if [[ "$isDeleteRedisTlsScript" == '1' ]]; then
     rm $redisTlsScriptPath
   fi
 }
@@ -405,7 +405,7 @@ else
   #是否重新生成tls证书
   echo_cyan "是否重置数字证书(1重置/默认不重置)："
   read isResetCertificate
-  if [ "$isResetCertificate" -eq "1" ]; then
+  if [[ "$isResetCertificate" == "1" ]]; then
     resetRedisCertificate
   fi
   echo ' '
