@@ -328,6 +328,13 @@ else
   #解压lnmp预构建包到指定目录
   InstallBuild
   echo ' '
+  #是否重新生成tls证书
+  echo_cyan "是否重置数字证书(1重置/默认不重置)："
+  read isResetCertificate
+  if [ "$isResetCertificate" -eq "1" ]; then
+    resetRedisCertificate
+  fi
+  echo ' '
   #修改文件权限
   modFilePower
   echo ' '
