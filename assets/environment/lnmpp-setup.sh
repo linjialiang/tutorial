@@ -216,7 +216,7 @@ generate_cert redis \"Generic-cert\"
 " > $tlsScriptPath
   chmod +x $tlsScriptPath
   $tlsScriptPath
-  echo_cyan "是否删除一键生成Redis证书脚本(1删除/默认不删除)："
+  echo_cyan "tls证书重置完成，是否删除一键生成Redis证书脚本(1删除/默认不删除)："
   read isDeleteCertificateScript
   if [ "$isDeleteCertificateScript" -eq "1" ]; then
     rm $tlsScriptPath
@@ -292,7 +292,7 @@ generate_cert pgsql \"Generic-cert\"
   chmod +x $tlsScriptPath
   $tlsScriptPath
   rm $tlsScriptPath
-  echo_cyan "是否删除一键生成PostgreSQL证书脚本(1删除/默认不删除)："
+  echo_cyan "tls证书重置完成，是否删除一键生成PostgreSQL证书脚本(1删除/默认不删除)："
   read isDeleteCertificateScript
   if [ "$isDeleteCertificateScript" -eq "1" ]; then
     rm $tlsScriptPath
