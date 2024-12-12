@@ -152,9 +152,9 @@ InstallBuild(){
 
 #重置Redis数字证书
 resetRedisCertificate(){
-  tlsPath=/server/redis/tls
-  tlsScriptPath=/server/redis/gen-test-certs.sh
-  rm -rf $tlsPath
+  redisTlsPath=/server/redis/tls
+  redisTlsScriptPath=/server/redis/gen-test-certs.sh
+  rm -rf $redisTlsPath
   echo_yellow "=================================================================="
   echo_green "创建一键生成redis数字证书脚本"
   echo_yellow " "
@@ -171,8 +171,8 @@ generate_cert() {
     local cn=\"\$2\"
     local opts=\"\$3\"
 
-    local keyfile=$tlsPath/\${name}.key
-    local certfile=$tlsPath/\${name}.crt
+    local keyfile=$redisTlsPath/\${name}.key
+    local certfile=$redisTlsPath/\${name}.crt
 
     [ -f \$keyfile ] || openssl genrsa -out \$keyfile 2048
     openssl req \\
@@ -181,25 +181,25 @@ generate_cert() {
         -key \$keyfile | \\
         openssl x509 \\
             -req -sha256 \\
-            -CA $tlsPath/ca.crt \\
-            -CAkey $tlsPath/ca.key \\
-            -CAserial $tlsPath/ca.txt \\
+            -CA $redisTlsPath/ca.crt \\
+            -CAkey $redisTlsPath/ca.key \\
+            -CAserial $redisTlsPath/ca.txt \\
             -CAcreateserial \\
             -days 365 \\
             \$opts \\
             -out \$certfile
 }
 
-mkdir $tlsPath
-[ -f $tlsPath/ca.key ] || openssl genrsa -out $tlsPath/ca.key 4096
+mkdir $redisTlsPath
+[ -f $redisTlsPath/ca.key ] || openssl genrsa -out $redisTlsPath/ca.key 4096
 openssl req \\
     -x509 -new -nodes -sha256 \\
-    -key $tlsPath/ca.key \\
+    -key $redisTlsPath/ca.key \\
     -days 3650 \\
     -subj '/O=Redis Test/CN=Certificate Authority' \\
-    -out $tlsPath/ca.crt
+    -out $redisTlsPath/ca.crt
 
-cat > $tlsPath/openssl.cnf <<_END_
+cat > $redisTlsPath/openssl.cnf <<_END_
 [ server_cert ]
 keyUsage = digitalSignature, keyEncipherment
 nsCertType = server
@@ -209,26 +209,26 @@ keyUsage = digitalSignature, keyEncipherment
 nsCertType = client
 _END_
 
-generate_cert server \"Server-only\" \"-extfile $tlsPath/openssl.cnf -extensions server_cert\"
-generate_cert client \"Client-only\" \"-extfile $tlsPath/openssl.cnf -extensions client_cert\"
+generate_cert server \"Server-only\" \"-extfile $redisTlsPath/openssl.cnf -extensions server_cert\"
+generate_cert client \"Client-only\" \"-extfile $redisTlsPath/openssl.cnf -extensions client_cert\"
 generate_cert redis \"Generic-cert\"
 
-[ -f $tlsPath/redis.dh ] || openssl dhparam -out $tlsPath/redis.dh 2048
-" > $tlsScriptPath
-  chmod +x $tlsScriptPath
-  $tlsScriptPath
+[ -f $redisTlsPath/redis.dh ] || openssl dhparam -out $redisTlsPath/redis.dh 2048
+" > $redisTlsScriptPath
+  chmod +x $redisTlsScriptPath
+  $redisTlsScriptPath
   echo_cyan "tls证书重置完成，是否删除一键生成Redis证书脚本(1删除/默认不删除)："
-  read isDeleteCertificateScript
-  if [ "$isDeleteCertificateScript" -eq "1" ]; then
-    rm $tlsScriptPath
+  read isDeleteRedisTlsScript
+  if [ "$isDeleteRedisTlsScript" -eq "1" ]; then
+    rm $redisTlsScriptPath
   fi
 }
 
 #重置PostgreSQL数字证书
 resetPgsqlCertificate(){
-  tlsPath=/server/postgres/tls
-  tlsScriptPath=/server/postgres/gen-test-certs.sh
-  rm -rf $tlsPath
+  pgsqlTlsPath=/server/postgres/tls
+  pgsqlTlsScriptPath=/server/postgres/gen-test-certs.sh
+  rm -rf $pgsqlTlsPath
   echo_yellow "=================================================================="
   echo_green "创建一键生成PostgreSQL数字证书脚本"
   echo_yellow " "
@@ -245,8 +245,8 @@ generate_cert() {
     local cn=\"\$2\"
     local opts=\"\$3\"
 
-    local keyfile=$tlsPath/\${name}.key
-    local certfile=$tlsPath/\${name}.crt
+    local keyfile=$pgsqlTlsPath/\${name}.key
+    local certfile=$pgsqlTlsPath/\${name}.crt
 
     [ -f \$keyfile ] || openssl genrsa -out \$keyfile 2048
     openssl req \\
@@ -255,25 +255,25 @@ generate_cert() {
         -key \$keyfile | \\
         openssl x509 \\
             -req -sha256 \\
-            -CA $tlsPath/root.crt \\
-            -CAkey $tlsPath/root.key \\
-            -CAserial $tlsPath/root.txt \\
+            -CA $pgsqlTlsPath/root.crt \\
+            -CAkey $pgsqlTlsPath/root.key \\
+            -CAserial $pgsqlTlsPath/root.txt \\
             -CAcreateserial \\
             -days 365 \\
             \$opts \\
             -out \$certfile
 }
 
-mkdir $tlsPath
-[ -f $tlsPath/root.key ] || openssl genrsa -out $tlsPath/root.key 4096
+mkdir $pgsqlTlsPath
+[ -f $pgsqlTlsPath/root.key ] || openssl genrsa -out $pgsqlTlsPath/root.key 4096
 openssl req \\
     -x509 -new -nodes -sha256 \\
-    -key $tlsPath/root.key \\
+    -key $pgsqlTlsPath/root.key \\
     -days 3650 \\
     -subj '/O=PostgreSQL Test/CN=Certificate Authority' \\
-    -out $tlsPath/root.crt
+    -out $pgsqlTlsPath/root.crt
 
-cat > $tlsPath/openssl.cnf <<_END_
+cat > $pgsqlTlsPath/openssl.cnf <<_END_
 [ server_cert ]
 keyUsage = digitalSignature, keyEncipherment
 nsCertType = server
@@ -283,21 +283,20 @@ keyUsage = digitalSignature, keyEncipherment
 nsCertType = client
 _END_
 
-generate_cert server \"Server-only\" \"-extfile $tlsPath/openssl.cnf -extensions server_cert\"
-generate_cert client \"Client-only\" \"-extfile $tlsPath/openssl.cnf -extensions client_cert\"
-generate_cert client-admin \"admin\" \"-extfile $tlsPath/openssl.cnf -extensions client_cert\"
-generate_cert client-emad \"emad\" \"-extfile $tlsPath/openssl.cnf -extensions client_cert\"
+generate_cert server \"Server-only\" \"-extfile $pgsqlTlsPath/openssl.cnf -extensions server_cert\"
+generate_cert client \"Client-only\" \"-extfile $pgsqlTlsPath/openssl.cnf -extensions client_cert\"
+generate_cert client-admin \"admin\" \"-extfile $pgsqlTlsPath/openssl.cnf -extensions client_cert\"
+generate_cert client-emad \"emad\" \"-extfile $pgsqlTlsPath/openssl.cnf -extensions client_cert\"
 generate_cert pgsql \"Generic-cert\"
 
-[ -f $tlsPath/pgsql.dh ] || openssl dhparam -out $tlsPath/pgsql.dh 2048
-" > $tlsScriptPath
-  chmod +x $tlsScriptPath
-  $tlsScriptPath
-  rm $tlsScriptPath
+[ -f $pgsqlTlsPath/pgsql.dh ] || openssl dhparam -out $pgsqlTlsPath/pgsql.dh 2048
+" > $pgsqlTlsScriptPath
+  chmod +x $pgsqlTlsScriptPath
+  $pgsqlTlsScriptPath
   echo_cyan "tls证书重置完成，是否删除一键生成PostgreSQL证书脚本(1删除/默认不删除)："
-  read isDeleteCertificateScript
-  if [ "$isDeleteCertificateScript" -eq "1" ]; then
-    rm $tlsScriptPath
+  read isDeletePgsqlTlsScript
+  if [ "$isDeletePgsqlTlsScript" -eq "1" ]; then
+    rm $pgsqlTlsScriptPath
   fi
 }
 
