@@ -52,7 +52,8 @@ nsCertType = client
 _END_
 
 generate_cert server "Server-only" "-extfile tls/openssl.cnf -extensions server_cert"
-generate_cert client-admin "Client-only" "-extfile tls/openssl.cnf -extensions client_cert"
+generate_cert client-admin "admin" "-extfile tls/openssl.cnf -extensions client_cert"
+generate_cert client-emad "emad" "-extfile tls/openssl.cnf -extensions client_cert"
 generate_cert pgsql "Generic-cert"
 
 [ -f tls/pgsql.dh ] || openssl dhparam -out tls/pgsql.dh 2048
