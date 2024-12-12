@@ -171,8 +171,8 @@ generate_cert() {
     local cn=\"\$2\"
     local opts=\"\$3\"
 
-    local keyfile=tls/\${name}.key
-    local certfile=tls/\${name}.crt
+    local keyfile=$tlsPath/\${name}.key
+    local certfile=$tlsPath/\${name}.crt
 
     [ -f \$keyfile ] || openssl genrsa -out \$keyfile 2048
     openssl req \\
@@ -181,9 +181,9 @@ generate_cert() {
         -key \$keyfile | \\
         openssl x509 \\
             -req -sha256 \\
-            -CA tls/ca.crt \\
-            -CAkey tls/ca.key \\
-            -CAserial tls/ca.txt \\
+            -CA $tlsPath/ca.crt \\
+            -CAkey $tlsPath/ca.key \\
+            -CAserial $tlsPath/ca.txt \\
             -CAcreateserial \\
             -days 365 \\
             \$opts \\
@@ -245,8 +245,8 @@ generate_cert() {
     local cn=\"\$2\"
     local opts=\"\$3\"
 
-    local keyfile=tls/\${name}.key
-    local certfile=tls/\${name}.crt
+    local keyfile=$tlsPath/\${name}.key
+    local certfile=$tlsPath/\${name}.crt
 
     [ -f \$keyfile ] || openssl genrsa -out \$keyfile 2048
     openssl req \\
@@ -255,9 +255,9 @@ generate_cert() {
         -key \$keyfile | \\
         openssl x509 \\
             -req -sha256 \\
-            -CA tls/root.crt \\
-            -CAkey tls/root.key \\
-            -CAserial tls/root.txt \\
+            -CA $tlsPath/root.crt \\
+            -CAkey $tlsPath/root.key \\
+            -CAserial $tlsPath/root.txt \\
             -CAcreateserial \\
             -days 365 \\
             \$opts \\
