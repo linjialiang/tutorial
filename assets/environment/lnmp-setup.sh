@@ -132,6 +132,80 @@ InstallBuild(){
   tar -xJf ./lnmp.tar.xz -C /
 }
 
+#重置Redis数字证书
+resetRedisCertificate(){
+  redisTlsPath=/server/redis/tls
+  redisTlsScriptPath=/server/redis/gen-test-certs.sh
+  rm -rf $redisTlsPath
+  echo_yellow "=================================================================="
+  echo_green "创建一键生成redis数字证书脚本"
+  echo_yellow " "
+  echo_cyan "注意: 不能向其他用户开放权限"
+  echo_cyan "开发环境: 目录 750/ 文件 640"
+  echo_cyan "部署环境: 目录 700/ 文件 600"
+  echo_yellow " "
+  echo_green ""
+  echo_yellow "=================================================================="
+  echo_cyan "[+] Create Redis certs script..."
+  echo "#\!/bin/bash
+generate_cert() {
+    local name=\$1
+    local cn=\"\$2\"
+    local opts=\"\$3\"
+
+    local keyfile=$redisTlsPath/\${name}.key
+    local certfile=$redisTlsPath/\${name}.crt
+
+    [ -f \$keyfile ] || openssl genrsa -out \$keyfile 2048
+    openssl req \\
+        -new -sha256 \\
+        -subj \"/O=Redis Test/CN=\$cn\" \\
+        -key \$keyfile | \\
+        openssl x509 \\
+            -req -sha256 \\
+            -CA $redisTlsPath/ca.crt \\
+            -CAkey $redisTlsPath/ca.key \\
+            -CAserial $redisTlsPath/ca.txt \\
+            -CAcreateserial \\
+            -days 365 \\
+            \$opts \\
+            -out \$certfile
+}
+
+mkdir $redisTlsPath
+[ -f $redisTlsPath/ca.key ] || openssl genrsa -out $redisTlsPath/ca.key 4096
+openssl req \\
+    -x509 -new -nodes -sha256 \\
+    -key $redisTlsPath/ca.key \\
+    -days 3650 \\
+    -subj '/O=Redis Test/CN=Certificate Authority' \\
+    -out $redisTlsPath/ca.crt
+
+cat > $redisTlsPath/openssl.cnf <<_END_
+[ server_cert ]
+keyUsage = digitalSignature, keyEncipherment
+nsCertType = server
+
+[ client_cert ]
+keyUsage = digitalSignature, keyEncipherment
+nsCertType = client
+_END_
+
+generate_cert server \"Server-only\" \"-extfile $redisTlsPath/openssl.cnf -extensions server_cert\"
+generate_cert client \"Client-only\" \"-extfile $redisTlsPath/openssl.cnf -extensions client_cert\"
+generate_cert redis \"Generic-cert\"
+
+[ -f $redisTlsPath/redis.dh ] || openssl dhparam -out $redisTlsPath/redis.dh 2048
+" > $redisTlsScriptPath
+  chmod +x $redisTlsScriptPath
+  $redisTlsScriptPath
+  echo_cyan "tls证书重置完成，是否删除一键生成Redis证书脚本(1删除/默认不删除)："
+  read isDeleteRedisTlsScript
+  if [ "$isDeleteRedisTlsScript" -eq "1" ]; then
+    rm $redisTlsScriptPath
+  fi
+}
+
 #修改文件权限
 modFilePower(){
   echo_yellow "=================================================================="
