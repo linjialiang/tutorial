@@ -105,7 +105,7 @@ apt install fcitx5-material-color -y
 ::: code-group
 
 ```bash [ibus]
-cd ~/.config/ibus
+cd ~/.local/share/ibus/
 mv rime{,.bak}
 git clone git@github.com:iDvel/rime-ice.git rime
 # 国内镜像
@@ -113,7 +113,7 @@ git clone git@github.com:iDvel/rime-ice.git rime
 ```
 
 ```bash [fcitx5]
-cd ~/.config/fcitx5
+cd ~/.local/share/fcitx5/
 mv rime{,.bak}
 git clone git@github.com:iDvel/rime-ice.git rime
 # 国内镜像
