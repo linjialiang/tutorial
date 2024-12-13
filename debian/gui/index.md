@@ -79,23 +79,25 @@ apt install fontconfig xfonts-utils
 
 ```bash [创建目录]
 # 2. /usr/share/fonts 下创建独立目录
-mkdir /usr/share/fonts/my-fonts
-chmod 755 /usr/share/fonts/my-fonts
+mkdir /tmp/myFonts
+cd /tmp/myFonts
 ```
 
 ```txt [解压]
-3. 将字体解压到 my-fonts 目录（支持子目录）
+3. 将字体解压到 /tmp/myFonts 目录（支持子目录）
 ```
 
 ```bash [建立索引]
 # 4. 建立字体索引信息更新字体缓存
-cd /usr/share/fonts/my-fonts
+cd /tmp/myFonts
 mkfontscale && mkfontdir && fc-cache -fv
 ```
 
 ```bash [验证字体]
 # 5. 最后验证字体是否安装成功
 fc-list|grep 'my-fonts'
+# 清楚字体原文件
+rm -rf /tmp/myFonts
 ```
 
 :::
