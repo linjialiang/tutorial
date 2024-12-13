@@ -152,3 +152,7 @@ REM git clone https://madnesslin.coding.net/public/default/rime-ice/git Rime
 <<<@/assets/rime/default.custom.yaml [default.custom.yaml]
 <<<@/assets/rime/weasel.custom.yaml [weasel.custom.yaml]
 :::
+
+::: tip 提示：
+Linux 下的 rime 还不支持 app_options
+:::
