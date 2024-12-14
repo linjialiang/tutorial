@@ -2,7 +2,7 @@ patch:
   menu/page_size: 7 # 候选词数量
   # 呼出方案选项菜单快捷键
   switcher/hotkeys:
-    - F4
+    - Control+F4
   # 启用的输入法列表
   schema_list:
     - schema: rime_ice # 雾凇拼音（全拼）
