@@ -1,7 +1,6 @@
 export * from './debian/main.mts';
 export * from './docker/main.mts';
 export * from './editor/main.mts';
-export * from './environment/main.mts';
 export * from './eslint/main.mts';
 export * from './mongodb/main.mts';
 export * from './nginx/main.mts';

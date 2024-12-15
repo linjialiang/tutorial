@@ -1,7 +1,6 @@
 // import flexSearchIndexOptions from "flexsearch";
 import { defineConfig } from 'vitepress';
 // import { SearchPlugin } from "vitepress-plugin-search";
-import environmentNav from './nav/environment.mts';
 import otherNav from './nav/other.mts';
 import tutorialNav from './nav/tutorial.mts';
 import webNav from './nav/web.mts';
@@ -9,7 +8,6 @@ import {
   debian,
   docker,
   editor,
-  environment,
   eslint,
   mongodb,
   nginx,
@@ -37,7 +35,7 @@ export default defineConfig({
   lang: 'zh-CN',
   title: 'Tutorial',
   description: '程序员系列教程',
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: '/static/favicon.ico' }]],
   lastUpdated: true,
   markdown: {
     lineNumbers: false,
@@ -45,7 +43,7 @@ export default defineConfig({
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: '/logo.png',
+    logo: '/static/logo.png',
     lastUpdatedText: '最近更新',
     externalLinkIcon: true,
     langMenuLabel: '切换语言',
@@ -103,13 +101,12 @@ export default defineConfig({
     },
     nav: [
       { text: '主页', link: '/' },
-      { text: '环境搭建', items: environmentNav },
+      { text: '环境搭建', link: 'http://php-environment.e8so.com/' },
       { text: '后端', items: tutorialNav },
       { text: '前端', items: webNav },
       { text: '其他', items: otherNav },
     ],
     sidebar: {
-      '/environment/': environment,
       '/debian/': debian,
       '/docker/': docker,
       '/nginx/': nginx,
@@ -122,7 +119,7 @@ export default defineConfig({
       '/vitepress/': vitepress,
       '/other/': other,
       '/permeate/': permeate,
-      editor: editor,
+      '/editor/': editor,
     },
     footer: {
       message: '程序员系列教程',
