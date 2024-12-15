@@ -31,7 +31,7 @@ import {
 export default defineConfig({
   // vite: { plugins: [SearchPlugin(options)] },
   base: '/',
-  ignoreDeadLinks: true, // 当设置为 true 时，VitePress 不会因为死链而导致构建失败。
+  ignoreDeadLinks: false, // 当设置为 true 时，VitePress 不会因为死链而导致构建失败。
   lang: 'zh-CN',
   title: 'Tutorial',
   description: '程序员系列教程',
