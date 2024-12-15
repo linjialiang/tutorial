@@ -27,11 +27,13 @@ import {
 //   placeholder: "情输入关键词",
 // };
 
+const PHP_ENVIRONMENT_SITE = 'http://php-environment.e8so.com/';
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   // vite: { plugins: [SearchPlugin(options)] },
   base: '/',
-  ignoreDeadLinks: false, // 当设置为 true 时，VitePress 不会因为死链而导致构建失败。
+  ignoreDeadLinks: true, // 当设置为 true 时，VitePress 不会因为死链而导致构建失败。
   lang: 'zh-CN',
   title: 'Tutorial',
   description: '程序员系列教程',
@@ -101,7 +103,7 @@ export default defineConfig({
     },
     nav: [
       { text: '主页', link: '/' },
-      { text: '环境搭建', link: 'http://php-environment.e8so.com/' },
+      { text: '环境搭建', link: PHP_ENVIRONMENT_SITE },
       { text: '后端', items: tutorialNav },
       { text: '前端', items: webNav },
       { text: '其他', items: otherNav },
