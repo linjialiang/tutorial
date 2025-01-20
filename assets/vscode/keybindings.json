@@ -12,8 +12,8 @@
     "key": "ctrl+shift+oem_2",
     "command": "editor.action.blockComment",
     "when": "editorTextFocus && !editorReadonly"
-  },
-  {
+  }
+  /*   {
     "key": "ctrl+k ctrl+c",
     "command": "-editor.action.addCommentLine",
     "when": "editorTextFocus && !editorReadonly"
@@ -37,5 +37,5 @@
     "key": "ctrl+j",
     "command": "-extension.vim_ctrl+j",
     "when": "editorTextFocus && vim.active && vim.use<C-j> && !inDebugRepl"
-  }
+  } */
 ]

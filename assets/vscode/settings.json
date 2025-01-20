@@ -54,7 +54,7 @@
   "files.autoGuessEncoding": true,
   "files.autoSave": "onFocusChange",
   "files.eol": "auto",
-  "files.insertFinalNewline": true,
+  "files.insertFinalNewline": false,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "explorer.incrementalNaming": "smart",
@@ -109,18 +109,23 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "One Dark Pro",
   "update.showReleaseNotes": false,
-  "diffEditor.hideUnchangedRegions.enabled": true,
-  "php-cs-fixer.executablePath": "C:\\php\\tools\\php-cs-fixer-v3.phar",
+  "php-cs-fixer.executablePath": "C:\\php\\tools\\php-cs-fixer.phar",
   "php-cs-fixer.rules": "@PhpCsFixer",
-  "php.validate.executablePath": "C:\\php\\84\\php.exe",
   "editor.rulers": [
     {
       "column": 80,
-      "color": "rgba(255, 255, 0, .1)"
+      "color": "rgba(255, 255, 0, .3)"
     },
     {
       "column": 120,
-      "color": "rgba(255, 0, 0, .1)"
+      "color": "rgba(255, 255, 255, .3)"
     }
-  ]
+  ],
+  "files.associations": {
+    "*.sgml": "xml"
+  },
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  }
 }
