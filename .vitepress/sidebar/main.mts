@@ -2,6 +2,7 @@ export * from './debian/main.mts';
 export * from './docker/main.mts';
 export * from './editor/main.mts';
 export * from './eslint/main.mts';
+export * from './gitea/main.mts';
 export * from './mongodb/main.mts';
 export * from './nginx/main.mts';
 export * from './other/main.mts';

@@ -18,6 +18,7 @@ import {
   redis,
   sql,
   vitepress,
+  gitea,
 } from './sidebar/main.mts';
 
 // const options = {
@@ -122,6 +123,7 @@ export default defineConfig({
       '/other/': other,
       '/permeate/': permeate,
       '/editor/': editor,
+      '/gitea/': gitea,
     },
     footer: {
       message: '程序员系列教程',

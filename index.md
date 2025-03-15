@@ -125,4 +125,9 @@ features:
       title: Other
       details: 其它文档
       link: /other/index
+    - icon:
+          src: /static/svg/gitea.svg
+      title: Gitea
+      details: 其它轻量级的 DevOps 平台软件文档
+      link: /gitea/index
 ---
