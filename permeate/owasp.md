@@ -30,6 +30,7 @@ wget https://mirrors.tuna.tsinghua.edu.cn/Adoptium/8/jdk/x64/linux/
 # 从 BenchmarkJava 1.2 测试版开始，引入了模块功能，请使用 JDK11 版本，因为 JDK8 不支持模块
 wget https://mirrors.tuna.tsinghua.edu.cn/Adoptium/11/jdk/x64/linux/
 
+# 解压并移动位置
 tar -xzf ./OpenJDK*.tar.gz
 mv jdk-* /usr/lib/jdk-owasp
 ```
@@ -80,6 +81,10 @@ nohup ./runRemoteAccessibleBenchmark.sh > /dev/null 2>&1 &
 ps -ef|grep BenchmarkJava
 ```
 
+:::
+
+::: warning ⚠️ 注意：
+需要先在 `前台执行` 一遍脚本后，才能在后台启动脚本，否则会启动失败
 :::
 
 ## mvn 配置国内镜像
