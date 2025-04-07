@@ -58,12 +58,10 @@ ldd /usr/lib/jdk-owasp/bin/java
 
 ```bash [安装]
 git clone https://github.com/OWASP-Benchmark/BenchmarkJava.git
-# 推荐使用国内镜像
-git clone https://e.coding.net/madnesslin/permeate/BenchmarkJava.git
 # 进入目录
 cd BenchmarkJava
 # 清除之前构建结果并重新编译项目
-mvn clear compile
+mvn clean compile
 # 本地访问 https://localhost:8443/benchmark/
 chmod +x ./runBenchmark.sh
 ./runBenchmark.sh
@@ -99,10 +97,22 @@ ps -ef|grep BenchmarkJava
 </mirrors>
 ```
 
-::: tip 2024/09/18 测试结果
-官方镜像的速度非常快，推荐使用官方镜像
+::: tip 测试结果
 
-仅当官方镜像速度慢或无法访问时，我们再去选择使用国内镜像
+-   2024.09.18
+
+    ```
+    官方镜像的速度非常快，推荐使用官方镜像
+
+    仅当官方镜像速度慢或无法访问时，我们再去选择使用国内镜像
+    ```
+
+-   2025.04.06
+
+    ```
+    官方镜像会导致构建失败，建议直接使用国内镜像，如：阿里云公共仓库
+    ```
+
 :::
 
 ## 开机自动运行靶场
