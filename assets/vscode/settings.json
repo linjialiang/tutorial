@@ -9,13 +9,15 @@
   "editor.find.autoFindInSelection": "multiline",
   // 控制编辑器是否自动折叠导入范围。
   "editor.foldingImportsByDefault": true,
-  "editor.fontFamily": "'JetBrains Mono', 'HarmonyOS Sans SC'",
+  "editor.fontFamily": "'JetBrains Mono', '鸿蒙黑体', 'MiSans L3'",
   "editor.fontLigatures": true,
-  "editor.fontSize": 13,
+  "editor.fontSize": 14,
+  "editor.fontWeight": "400",
+  "editor.letterSpacing": 0,
   "editor.formatOnPaste": true,
+  "editor.lineHeight": 1.5,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
-  "editor.lineHeight": 1.6,
   "editor.lineNumbers": "relative",
   "editor.linkedEditing": true,
   "editor.mouseWheelZoom": true,
@@ -107,10 +109,10 @@
   "terminal.external.windowsExec": "C:\\sf\\pwsh\\pwsh.exe",
   "terminal.integrated.defaultProfile.windows": "pwsh",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "One Dark Pro",
   "update.showReleaseNotes": false,
   "php-cs-fixer.executablePath": "C:\\php\\tools\\php-cs-fixer.phar",
   "php-cs-fixer.rules": "@PhpCsFixer",
+  "php.validate.executablePath": "C:\\php\\84\\php.exe",
   "editor.rulers": [
     {
       "column": 80,
@@ -124,8 +126,10 @@
   "files.associations": {
     "*.sgml": "xml"
   },
-  "diffEditor.hideUnchangedRegions.enabled": true,
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
-  }
+  },
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "editor.minimap.enabled": false,
+  "workbench.colorTheme": "One Dark Pro"
 }
