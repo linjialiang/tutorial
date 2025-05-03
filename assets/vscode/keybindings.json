@@ -12,6 +12,10 @@
     "key": "ctrl+shift+oem_2",
     "command": "editor.action.blockComment",
     "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+j",
+    "command": "editor.action.joinLines"
   }
   /*   {
     "key": "ctrl+k ctrl+c",
