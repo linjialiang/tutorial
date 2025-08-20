@@ -6,9 +6,23 @@ const path = {
 
 const sidebar = [
   { text: '概述', link: `${path.main}` },
-  { text: '安装操作系统', link: `${path.main}install_os` },
-  { text: '安装操作系统(debain13)', link: `${path.main}install_os_debian13` },
-  { text: '配置操作系统', link: `${path.main}config_os` },
+  {
+    text: '安装操作系统',
+    collapsed: true,
+    items: [
+      { text: 'debain13', link: `${path.main}debian13_install_os` },
+      { text: 'debian12', link: `${path.main}install_os` },
+    ],
+  },
+  {
+    text: '配置操作系统',
+    collapsed: true,
+    items: [
+      { text: 'debian13', link: `${path.main}debian13_config_os` },
+      { text: 'debian12', link: `${path.main}config_os` },
+    ],
+  },
+
   { text: 'zsh', link: `${path.main}zsh` },
   { text: 'samba', link: `${path.main}samba` },
   { text: 'gui', collapsed: true, items: [...gui] },
