@@ -7,9 +7,7 @@ titleTemplate: Debian 教程
 
 ::: details 安装全部过程（截图）
 
-在 vmware 安装发行版本 debian13，全部过程
-
-![](/assets/debian/install_os/01.png)
+在 vmware 安装发行版本 debian13，全部过程跟 debian12 基本一致，参考 debian12 即可
 
 :::
 
