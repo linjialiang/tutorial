@@ -32,7 +32,10 @@ titleTemplate: Debian 教程
 
 > 国内镜像
 
-<<<@/assets/debian/apt/debian13-zkd-all.bash
+::: code-group
+<<<@/assets/debian/apt/debian13-zkd-server.bash [server]
+<<<@/assets/debian/apt/debian13-zkd-all.bash [all]
+:::
 
 ## 重装引导
 
