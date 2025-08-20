@@ -32,11 +32,7 @@ titleTemplate: Debian 教程
 
 > 国内镜像
 
-<<<@/assets/debian/apt/zkd-debain13-all.bash
-
-::: tip 提示
-debian12 稳定版在 wmware 上已经完成安装测试
-:::
+<<<@/assets/debian/apt/debian13-zkd-all.bash
 
 ## 重装引导
 
@@ -79,5 +75,5 @@ sync;sync;sync;reboot
 :::
 
 ::: warning 警告
-Debian 12 的引导默认开启了操作系统检查，在安装界面引导时就算为 Windows 目标平台安装了 GRUB，在启动时也无法正常显示 Windows 引导菜单
+Debian 13 的引导默认开启了操作系统检查，在安装界面引导时就算为 Windows 目标平台安装了 GRUB，在启动时也无法正常显示 Windows 引导菜单
 :::
