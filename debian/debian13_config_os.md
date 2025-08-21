@@ -31,18 +31,18 @@ titleTemplate: Debian 教程
 | contrib           | 遵从 Debian 自由软件指导方针，但依赖于 non-free                      |
 | non-free          | 不遵从 Debian 自由软件指导方针，并且不在 non-free-firmware           |
 
-::: details bookworm 软件源
+::: details trixie 软件源
 
 > 这是 Debian 12 的软件源说明：
 
-| bookworm 代码名           | 说明                                                     |
-| ------------------------- | -------------------------------------------------------- |
-| bookworm                  | 在扩展检查后，类似静态的 stable 发布                     |
-| bookworm-security         | bookworm 发布的安全更新（重要）                          |
-| bookworm-proposed-updates | 下一个小版本发布的更新（可选）                           |
-| bookworm-updates          | stable-proposed-updates 套件的子集，需要紧急更新（可选） |
-| bookworm-backports        | 大部分从 testing 版中随机收集和重新编译的软件包（可选）  |
-| bookworm-backports-sloppy | 针对 backports 仓库自身限制的补充（草率）                |
+| trixie 代码名           | 说明                                                     |
+| ----------------------- | -------------------------------------------------------- |
+| trixie                  | 在扩展检查后，类似静态的 stable 发布                     |
+| trixie-security         | trixie 发布的安全更新（重要）                            |
+| trixie-proposed-updates | 下一个小版本发布的更新（可选）                           |
+| trixie-updates          | stable-proposed-updates 套件的子集，需要紧急更新（可选） |
+| trixie-backports        | 大部分从 testing 版中随机收集和重新编译的软件包（可选）  |
+| trixie-backports-sloppy | 针对 backports 仓库自身限制的补充（草率）                |
 
 :::
 
@@ -59,10 +59,8 @@ vi /etc/apt/sources.list
 
 ::: details 镜像列表
 ::: code-group
-<<<@/assets/debian/apt/zkd-server.bash [中科大-服务器]
-<<<@/assets/debian/apt/tx-server.bash [腾讯云内网-服务器]
-<<<@/assets/debian/apt/zkd-all.bash [中科大-完整]
-<<<@/assets/debian/apt/tx-all.bash [腾讯云内网-完整]
+<<<@/assets/debian/apt/debian13-zkd-server.bash [中科大-服务器]
+<<<@/assets/debian/apt/debian13-zkd-all.bash [中科大-完整]
 :::
 
 ::: tip 提示
@@ -285,12 +283,12 @@ dpkg-reconfigure tzdata
 ## 常用软件包
 
 ```bash
-apt install pigz pixz exa joe wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git proxychains4 telnet -y
+apt install pigz pixz joe wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git proxychains4 telnet -y
 ```
 
 ::: details 详情
 
-1. exa -- ls 替代工具
+1. ~~exa -- ls 替代工具~~ (**2025.08.21 暂无此包**)
 2. pigz -- tar.gz 多线程压缩/解压
 3. pixz -- tar.xz 多线程压缩/解压
 4. joe -- 大文件编辑器
