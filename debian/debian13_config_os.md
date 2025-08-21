@@ -283,12 +283,12 @@ dpkg-reconfigure tzdata
 ## 常用软件包
 
 ```bash
-apt install pigz pixz joe wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git proxychains4 telnet -y
+apt install eza pigz pixz joe wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git proxychains4 telnet -y
 ```
 
 ::: details 详情
 
-1. ~~exa -- ls 替代工具~~ (**2025.08.21 暂无此包**)
+1. eza -- ls 替代工具
 2. pigz -- tar.gz 多线程压缩/解压
 3. pixz -- tar.xz 多线程压缩/解压
 4. joe -- 大文件编辑器
