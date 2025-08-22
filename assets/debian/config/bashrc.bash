@@ -11,6 +11,8 @@ PS1='[${debian_chroot:+($debian_chroot)}\u \W]\$ '
 # alias lsa="ls ${LS_OPTIONS} -aF"
 # alias ll="ls ${LS_OPTIONS} -lF"
 # alias lla="ls ${LS_OPTIONS} -laF"
+# alias l="exa -galFihH --sort=Name" # <=debain12
+# alias la="exa -aF" # <=debain12
 alias l="eza -galFihH --sort=Name"
 alias la="eza -aF"
 alias bat='batcat'
