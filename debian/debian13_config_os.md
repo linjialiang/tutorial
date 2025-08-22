@@ -389,8 +389,8 @@ alias bat='batcat'
 ### vim 中文帮助手册
 
 ```bash
-# vimcdoc-2.4.0 针对 vim 9.0
-wget https://github.com/yianwillis/vimcdoc/releases/download/v2.4.0/vimcdoc-2.4.0.tar.gz
+# vimcdoc-2.5.0 针对 vim 9.1
+wget https://github.com/yianwillis/vimcdoc/releases/download/v2.5.0/vimcdoc-2.5.0.tar.gz
 tar -xzf vimcdoc-<version>.tar.gz
 cd vimcdoc-<version>
 
