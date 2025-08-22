@@ -11,8 +11,8 @@ PS1='[${debian_chroot:+($debian_chroot)}\u \W]\$ '
 # alias lsa="ls ${LS_OPTIONS} -aF"
 # alias ll="ls ${LS_OPTIONS} -lF"
 # alias lla="ls ${LS_OPTIONS} -laF"
-alias l="exa -galFihH --sort=Name"
-alias la="exa -aF"
+alias l="eza -galFihH --sort=Name"
+alias la="eza -aF"
 alias bat='batcat'
 alias cls='clear'
 PATH=${PATH}:/usr/sbin:/usr/local/sbin:sbin

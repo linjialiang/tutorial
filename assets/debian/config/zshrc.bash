@@ -15,8 +15,8 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 alias bat='batcat'
 alias cls='clear'
 setopt no_nomatch
-alias l="exa -galFihH --sort=Name"
-alias la="exa -aF"
+alias l="eza -galFihH --sort=Name"
+alias la="eza -aF"
 PATH=${PATH}:/usr/sbin:/usr/local/sbin:sbin
 PATH=${PATH}:/server/nginx/sbin
 PATH=${PATH}:/server/postgres/bin
