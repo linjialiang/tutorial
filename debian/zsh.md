@@ -16,7 +16,7 @@ bash
 ```
 
 ```bash [zsh设为默认终端]
-usermod -s /bin/zsh emad
+usermod -s /bin/zsh www
 usermod -s /bin/zsh root
 ```
 
