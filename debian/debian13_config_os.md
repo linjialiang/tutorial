@@ -714,7 +714,9 @@ nohup ss-local -c /etc/shadowsocks-libev/local.json >/dev/null 2>&1 &
 
 ## 清理
 
-```bash
+::: code-group
+
+```bash [常用指令]
 apt clean               # 删除/var/cache/apt/archives/下所有包文件
 apt autoclean           # 仅删除过期的缓存文件
 apt autoremove --purge  # 删除不再被依赖的软件包
@@ -725,3 +727,6 @@ rm -rf /var/log/*       # 立即清空日志
 apt install ncdu -y
 ncdu
 ```
+
+<<<@/assets/debian/config/clean.sh [一键清理脚本]
+:::
