@@ -220,7 +220,7 @@ vi /etc/resolv.conf
 ```bash
 domain lan
 search lan
-nameserver 192.168.10.1
+nameserver 192.168.66.2
 ```
 
 > 完成以上步骤，重启虚拟主机，网络配置到此完成！
@@ -237,16 +237,16 @@ nameserver 192.168.10.1
 
 ::: details 配置 ip 地址
 <<<@/assets/debian/nat/interfaces_static.bash
-::: tip 注意：网关是 `192.168.6.2` 而不是 `.1`
+::: tip 注意：网关是 `192.168.66.2` 而不是 `.1`
 :::
 
 ::: details 配置 DNS
 
 ```bash
-nameserver 192.168.6.2
+nameserver 192.168.66.2
 ```
 
-::: tip 注意：DNS 是 `192.168.6.2` 而不是 `.1`
+::: tip 注意：DNS 是 `192.168.66.2` 而不是 `.1`
 :::
 
 ## 设置中文环境
