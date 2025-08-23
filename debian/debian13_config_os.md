@@ -715,13 +715,12 @@ nohup ss-local -c /etc/shadowsocks-libev/local.json >/dev/null 2>&1 &
 ## 清理
 
 ```bash
-apt clean
-apt autoclean
-apt autoremove --purge
-
-# 清理无用的包
-apt install deborphan -y
-deborphan
+apt clean               # 删除/var/cache/apt/archives/下所有包文件
+apt autoclean           # 仅删除过期的缓存文件
+apt autoremove --purge  # 删除不再被依赖的软件包
+rm -rf /tmp/*           # 立即清空/tmp（需谨慎）
+rm -rf /var/log/*       # 立即清空日志
+apt purge $(dpkg -l | awk '/^rc/ {print $2}')  # 删除未配置的软件包残留
 
 # 磁盘可视化清理工具
 apt install ncdu -y
