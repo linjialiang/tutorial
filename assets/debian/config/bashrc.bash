@@ -15,9 +15,9 @@ alias l="eza"
 alias la="eza -aF"
 alias lt="eza -ahTF --level=2"
 alias lt3="eza -ahTF --level=3"
-alias ll="eza -alhF"
-alias llt="eza -alhTF --level=2"
-alias llt3="eza -alhTF --level=3"
+alias ll="eza -alghF"
+alias llt="eza -alghTF --level=2"
+alias llt3="eza -alghTF --level=3"
 alias bat='batcat'
 alias cls='clear'
 PATH=${PATH}:/usr/sbin:/usr/local/sbin:sbin
