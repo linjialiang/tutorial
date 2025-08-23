@@ -5,9 +5,11 @@ titleTemplate: Debian 教程
 
 # 安装操作系统
 
-::: details 安装全部过程（截图）
+## 安装全部过程
 
-在 vmware 安装发行版本 debian12，全部过程
+::: details 虚拟机安装截图
+
+这是在 vmware 上安装 debian12 发行版的全部过程（Debian13 基本保持一致）
 
 ![](/assets/debian/install_os/01.png)
 ![](/assets/debian/install_os/02.png)
@@ -173,6 +175,6 @@ sync;sync;sync;reboot
 
 :::
 
-::: warning 警告
-Debian 12 的引导默认开启了操作系统检查，在安装界面引导时就算为 Windows 目标平台安装了 GRUB，在启动时也无法正常显示 Windows 引导菜单
+::: warning 注意
+Debian 在较新版本上的引导默认开启了操作系统检查，在安装界面引导时就算为 Windows 目标平台安装了 GRUB，在启动时也无法正常显示 Windows 引导菜单
 :::

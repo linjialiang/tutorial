@@ -10,7 +10,7 @@ const sidebar = [
     text: '安装操作系统',
     collapsed: true,
     items: [
-      { text: 'debain13', link: `${path.main}debian13_install_os` },
+      { text: 'debain13', link: `${path.main}install_os` },
       { text: 'debian12', link: `${path.main}install_os` },
     ],
   },
