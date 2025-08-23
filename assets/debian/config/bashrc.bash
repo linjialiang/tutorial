@@ -11,19 +11,21 @@ PS1='[${debian_chroot:+($debian_chroot)}\u \W]\$ '
 # alias lsa="ls ${LS_OPTIONS} -aF"
 # alias ll="ls ${LS_OPTIONS} -lF"
 # alias lla="ls ${LS_OPTIONS} -laF"
-# alias l="exa -galFihH --sort=Name" # <=debain12
-# alias la="exa -aF" # <=debain12
-alias e="eza"
-alias et2="eza -alhTF --level=2"
-alias et3="eza -alhTF --level=3"
+alias l="eza"
+alias la="eza -aF"
+alias lt2="eza -ahTF --level=2"
+alias lt3="eza -ahTF --level=3"
+alias ll="eza -alhF"
+alias llt2="eza -alhTF --level=2"
+alias llt3="eza -alhTF --level=3"
 alias bat='batcat'
 alias cls='clear'
 PATH=${PATH}:/usr/sbin:/usr/local/sbin:sbin
-PATH=${PATH}:/server/nginx/sbin
-PATH=${PATH}:/server/postgres/bin
-PATH=${PATH}:/server/php/83/bin:/server/php/83/sbin
-PATH=${PATH}:/server/node/bin
-PATH=${PATH}:/server/mysql/bin
-PATH=${PATH}:/server/redis/bin
-PATH=${PATH}:/server/sqlite/bin
+# PATH=${PATH}:/server/nginx/sbin
+# PATH=${PATH}:/server/postgres/bin
+# PATH=${PATH}:/server/php/84/bin:/server/php/84/sbin
+# PATH=${PATH}:/server/node/bin
+# PATH=${PATH}:/server/mysql/bin
+# PATH=${PATH}:/server/redis/bin
+# PATH=${PATH}:/server/sqlite/bin
 export PATH
