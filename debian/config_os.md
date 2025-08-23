@@ -290,7 +290,7 @@ apt install eza pigz pixz joe wget curl vim bat htop tar gzip bzip2 xz-utils zip
 
 ::: details 详情
 
-1. exa -- ls 替代工具
+1. eza -- ls 替代工具 (`debian13后apt没有exa包`)
 2. pigz -- tar.gz 多线程压缩/解压
 3. pixz -- tar.xz 多线程压缩/解压
 4. joe -- 大文件编辑器
