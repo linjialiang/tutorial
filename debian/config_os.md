@@ -285,7 +285,7 @@ dpkg-reconfigure tzdata
 ## 常用软件包
 
 ```bash
-apt install pigz pixz exa joe wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git proxychains4 telnet -y
+apt install eza pigz pixz joe wget curl vim bat htop tar gzip bzip2 xz-utils zip unzip lrzsz git proxychains4 telnet -y
 ```
 
 ::: details 详情
