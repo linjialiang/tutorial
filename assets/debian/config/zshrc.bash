@@ -17,10 +17,10 @@ alias cls='clear'
 setopt no_nomatch
 alias l="eza"
 alias la="eza -aF"
-alias lt2="eza -ahTF --level=2"
+alias lt="eza -ahTF --level=2"
 alias lt3="eza -ahTF --level=3"
 alias ll="eza -alhF"
-alias llt2="eza -alhTF --level=2"
+alias llt="eza -alhTF --level=2"
 alias llt3="eza -alhTF --level=3"
 PATH=${PATH}:/usr/sbin:/usr/local/sbin:sbin
 # PATH=${PATH}:/server/nginx/sbin

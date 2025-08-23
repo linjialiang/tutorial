@@ -13,10 +13,10 @@ PS1='[${debian_chroot:+($debian_chroot)}\u \W]\$ '
 # alias lla="ls ${LS_OPTIONS} -laF"
 alias l="eza"
 alias la="eza -aF"
-alias lt2="eza -ahTF --level=2"
+alias lt="eza -ahTF --level=2"
 alias lt3="eza -ahTF --level=3"
 alias ll="eza -alhF"
-alias llt2="eza -alhTF --level=2"
+alias llt="eza -alhTF --level=2"
 alias llt3="eza -alhTF --level=3"
 alias bat='batcat'
 alias cls='clear'
