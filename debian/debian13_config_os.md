@@ -220,7 +220,7 @@ vi /etc/resolv.conf
 ```bash
 domain lan
 search lan
-nameserver 192.168.66.2
+nameserver 192.168.66.1
 ```
 
 > 完成以上步骤，重启虚拟主机，网络配置到此完成！
