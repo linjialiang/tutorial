@@ -164,7 +164,9 @@ usermod -s /sbin/nologin userA
 su userA -s /bin/zsh
 ```
 
-## 配置网络（桥接模式）
+## 配置网络
+
+### 桥接模式
 
 虚拟机：作为开发环境，需要设置成固定 IP
 
@@ -172,7 +174,7 @@ su userA -s /bin/zsh
 
 桌面：通常动态获取即可
 
-### 1. 查看网卡信息
+#### 1. 查看网卡信息
 
 虚拟机迁移到其它宿主机是，网卡会发生改变，使用下面指令查看：
 
@@ -180,14 +182,14 @@ su userA -s /bin/zsh
 ip addr
 ```
 
-### 2. 网络配置文件
+#### 2. 网络配置文件
 
 | file                    | info         |
 | ----------------------- | ------------ |
 | /etc/network/interfaces | 配置 ip 地址 |
 | /etc/resolv.conf        | 配置 dns     |
 
-### 3. 配置 ip 地址
+#### 3. 配置 ip 地址
 
 ```bash
 cp /etc/network/interfaces{,.bak}
@@ -202,11 +204,11 @@ vi /etc/network/interfaces
 <<<@/assets/debian/config/interfaces_dhcp.bash
 :::
 
-::: tip
+::: tip 提示
 如果路由器对虚拟机网卡绑定了 IP 地址，也可以动态获取 ip 地址
 :::
 
-### 4. 配置 DNS
+#### 4. 配置 DNS
 
 DNS 通常保持默认即可，如需配置具体操作参考如下：
 
@@ -225,7 +227,7 @@ nameserver 192.168.66.1
 
 > 完成以上步骤，重启虚拟主机，网络配置到此完成！
 
-## 网络配置（NAT 模式）
+### NAT 模式
 
 虚拟机 NAT 模式的配置略有不同，下面是基于 vmware 的详细讲解
 
@@ -237,7 +239,9 @@ nameserver 192.168.66.1
 
 ::: details 配置 ip 地址
 <<<@/assets/debian/nat/interfaces_static.bash
-::: tip 注意：网关是 `192.168.66.2` 而不是 `.1`
+
+::: tip 注意
+网关是 `192.168.66.2` 而不是 `.1`
 :::
 
 ::: details 配置 DNS
