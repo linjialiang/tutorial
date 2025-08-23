@@ -721,3 +721,18 @@ deborphan
 apt install ncdu -y
 ncdu
 ```
+
+## 快速修改用户名
+
+用户名快修从 `oldUser` -> `newUser`
+
+```bash
+# 修改用户名
+sudo usermod -l newUser oldUser
+# 修改组名
+sudo groupmod -n newGroup oldGroup
+# 更新主目录（可选）
+sudo usermod -d /home/newUser -m newUser
+# 更新文件权限
+sudo chown -R newUser:newGroup /home/newUser
+```
