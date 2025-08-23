@@ -104,6 +104,17 @@ titleTemplate: Debian 教程
 
 ## 软件源
 
+::: details 各种源说明
+
+| trixie 版本             | 说明                               |
+| ----------------------- | ---------------------------------- |
+| trixie                  | trixie 软件源                      |
+| trixie-updates          | trixie 发布的兼容更新              |
+| trixie-security         | trixie 发布的安全更新（重要）      |
+| trixie-proposed-updates | 下一个小版本发布的更新（可选）     |
+| trixie-backports        | 向后移植的较新的软件包（可选）     |
+| trixie-backports-sloppy | 向后移植的草率的软件包（较不稳定） |
+
 | bookworm 版本             | 说明                               |
 | ------------------------- | ---------------------------------- |
 | bookworm                  | bookworm 软件源                    |
@@ -113,12 +124,13 @@ titleTemplate: Debian 教程
 | bookworm-backports        | 向后移植的较新的软件包（可选）     |
 | bookworm-backports-sloppy | 向后移植的草率的软件包（较不稳定） |
 
-> 国内镜像
+:::
 
-<<<@/assets/debian/apt/zkd-all.bash
+::: details 国内镜像
 
-::: tip 提示
-debian12 稳定版在 wmware 上已经完成安装测试
+::: code-group
+<<<@/assets/debian/apt/debian13-zkd-server.bash [debian13]
+<<<@/assets/debian/apt/zkd-server.bash [debian12]
 :::
 
 ## 重装引导
