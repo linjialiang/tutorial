@@ -6,14 +6,7 @@ const path = {
 
 const sidebar = [
   { text: '概述', link: `${path.main}` },
-  {
-    text: '安装操作系统',
-    collapsed: true,
-    items: [
-      { text: 'debain13', link: `${path.main}install_os` },
-      { text: 'debian12', link: `${path.main}install_os` },
-    ],
-  },
+  { text: '安装操作系统', link: `${path.main}install_os` },
   {
     text: '配置操作系统',
     collapsed: true,
