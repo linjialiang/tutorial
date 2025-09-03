@@ -12,12 +12,10 @@ PS1='[${debian_chroot:+($debian_chroot)}\u \W]\$ '
 # alias ll="ls ${LS_OPTIONS} -lF"
 # alias lla="ls ${LS_OPTIONS} -laF"
 alias l="eza"
-alias la="eza -aF"
 alias lt="eza -ahTF --level=2"
 alias lt3="eza -ahTF --level=3"
-alias ll="eza -alghF"
-alias llt="eza -alghTF --level=2"
-alias llt3="eza -alghTF --level=3"
+alias lt4="eza -ahTF --level=4"
+alias lt5="eza -ahTF --level=5"
 alias bat='batcat'
 alias cls='clear'
 PATH=${PATH}:/usr/sbin:/usr/local/sbin:sbin
