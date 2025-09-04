@@ -51,6 +51,10 @@ apt install git maven default-jdk -y
 
 #### 安装特定版本的 OpenJDK
 
+::: warning :warning:使用说明
+2025-09-04 本次使用 debian12 测试，apt 自带的 jdk 即可编译成功
+:::
+
 从 [[清华源]](https://mirrors.tuna.tsinghua.edu.cn/Adoptium/) 可以下载到各个版本的 JDK
 
 ::: code-group
