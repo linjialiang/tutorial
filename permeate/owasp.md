@@ -155,7 +155,7 @@ server {
     # 代理配置
     location / {
         # 转发到 OWASP Benchmark 的 8443 端口，支持本地和远程地址
-        proxy_pass https://127.0.0.1:8443/;
+        proxy_pass https://localhost:8443/;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -175,7 +175,7 @@ server {
     # 代理配置
     location / {
         # 转发到 OWASP Benchmark 的 8443 端口，支持本地和远程地址
-        proxy_pass https://127.0.0.1:8443/;
+        proxy_pass https://localhost:8443/;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
