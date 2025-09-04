@@ -1,9 +1,11 @@
 ---
-title: 安装 OWASP
+title: OWASP Benchmark Project
 titleTemplate: 渗透测试
 ---
 
-# 安装 OWASP
+# OWASP Benchmark Project
+
+OWASP Benchmark Project 是一个 Java 测试套件，旨在验证漏洞检测工具的速度和准确性。它是一个完全可运行的开源 Web 应用程序，可以通过任何类型的应用程序安全测试（AST）工具进行分析，包括 SAST，DAST（如 ZAP）和 IAST 工具。其目的是，所有的漏洞故意包括在基准和评分实际上是可利用的，所以它是一个公平的测试任何类型的应用程序漏洞检测工具。Benchmark 还包括许多开源和商业 AST 工具的记分卡生成器，并且支持的工具集一直在增长。
 
 ## 必要环境
 
@@ -14,6 +16,13 @@ titleTemplate: 渗透测试
 
 ```bash
 apt install git maven -y
+```
+
+## 测试服务器环境
+
+```
+发行版 Debian GNU/Linux 12 (bookworm)
+内核 6.1.0-39-amd64
 ```
 
 ## 安装 OpenJDK
