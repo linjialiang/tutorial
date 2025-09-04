@@ -151,6 +151,8 @@ server {
     listen 80;
     server_name benchmark.your-domain.com;  # 替换为你的域名或IP
 
+    rewrite ^/benchmark/(.*)$ /$1 break;
+
     # 代理配置
     location / {
         # 转发到 OWASP Benchmark 的 8443 端口，支持本地和远程地址
@@ -169,6 +171,8 @@ server {
     # SSL 证书路径（需替换为实际路径）
     ssl_certificate /etc/letsencrypt/live/benchmark.your-domain.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/benchmark.your-domain.com/privkey.pem;
+
+    rewrite ^/benchmark/(.*)$ /$1 break;
 
     # 代理配置
     location / {
