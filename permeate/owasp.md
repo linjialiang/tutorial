@@ -46,7 +46,7 @@ titleTemplate: 渗透测试
 #### 安装 apt 依赖
 
 ```bash
-apt install git maven -y
+apt install git maven default-jdk -y
 ```
 
 #### 安装特定版本的 OpenJDK
