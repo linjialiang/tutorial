@@ -32,7 +32,7 @@ titleTemplate: 渗透测试
 
     - 有关 Benchmark 支持生成记分卡的工具列表，请参阅工具支持/结果页面
 
-## 安装
+## 安装流程
 
 ### 1. 必要条件
 
@@ -87,7 +87,9 @@ ldd /usr/lib/jdk-owasp/bin/java
 
 :::
 
-### 3. 下载 BenchmarkJava 源码并执行安装
+### 3. 下载并安装
+
+下载 BenchmarkJava 源码并执行安装
 
 ```bash
 su - www -s /bin/zsh
@@ -133,15 +135,15 @@ ps -ef|grep BenchmarkJava
 文件 `/etc/maven/settings.xml` 内 `mirrors` 标签下 增加一个 `mirror` 子标签
 
 ```xml
-<mirrors>
-  <!-- 阿里仓库 -->
-  <mirror>
-    <id>aliyunmaven</id>
-    <mirrorOf>*</mirrorOf>
-    <name>阿里云公共仓库</name>
-    <url>https://maven.aliyun.com/repository/public</url>
-  </mirror>
-</mirrors>
+  <mirrors>
+    <!-- 阿里仓库 -->
+    <mirror>
+      <id>aliyunmaven</id>
+      <mirrorOf>*</mirrorOf>
+      <name>阿里云公共仓库</name>
+      <url>https://maven.aliyun.com/repository/public</url>
+    </mirror>
+  </mirrors>
 ```
 
 ::: tip 测试结果
