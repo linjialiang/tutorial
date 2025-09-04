@@ -144,7 +144,7 @@ ps -ef|grep BenchmarkJava
 apt install nginx -y
 ```
 
-```conf [Nginx 代理转发]
+```ini [Nginx 代理转发]
 # /etc/nginx/sites-available/owasp-benchmark
 
 server {
