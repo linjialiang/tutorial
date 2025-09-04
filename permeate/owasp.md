@@ -134,6 +134,63 @@ ps -ef|grep BenchmarkJava
 需要先在 `前台执行` 一遍脚本后，才能在后台启动脚本，否则会启动失败
 :::
 
+## 绑定域名
+
+通常需要走代理转发的方式才能绑定域名，这里以 nginx 为例
+
+::: code-group
+
+```bash [安装 Nginx]
+apt install nginx -y
+```
+
+```conf [Nginx 代理转发]
+# /etc/nginx/sites-available/owasp-benchmark
+
+server {
+    listen 80;
+    server_name benchmark.your-domain.com;  # 替换为你的域名或IP
+
+    # 代理配置
+    location / {
+        # 转发到 OWASP Benchmark 的 8443 端口，支持本地和远程地址
+        proxy_pass https://127.0.0.1:8443/benchmark/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name benchmark.your-domain.com;
+
+    # SSL 证书路径（需替换为实际路径）
+    ssl_certificate /etc/letsencrypt/live/benchmark.your-domain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/benchmark.your-domain.com/privkey.pem;
+
+    # 代理配置
+    location / {
+        # 转发到 OWASP Benchmark 的 8443 端口，支持本地和远程地址
+        proxy_pass https://127.0.0.1:8443/benchmark/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+```
+
+```bash [启用配置并测试]
+ln -s /etc/nginx/sites-available/owasp-benchmark /etc/nginx/sites-enabled/
+# 检查配置语法
+nginx -t
+systemctl reload nginx
+```
+
+:::
+
 ## mvn 配置国内镜像
 
 文件 `/etc/maven/settings.xml` 内 `mirrors` 标签下 增加一个 `mirror` 子标签
