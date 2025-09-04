@@ -149,14 +149,13 @@ apt install nginx -y
 
 server {
     listen 80;
-    server_name benchmark.your-domain.com;  # 替换为你的域名或IP
-
-    rewrite ^/benchmark/(.*)$ /$1 break;
+    # 替换为你的域名或IP
+    server_name benchmark.your-domain.com;
 
     # 代理配置
     location / {
         # 转发到 OWASP Benchmark 的 8443 端口，支持本地和远程地址
-        proxy_pass https://127.0.0.1:8443/benchmark/;
+        proxy_pass https://127.0.0.1:8443/;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -166,18 +165,17 @@ server {
 
 server {
     listen 443 ssl;
+    # 替换为你的域名或IP
     server_name benchmark.your-domain.com;
 
     # SSL 证书路径（需替换为实际路径）
     ssl_certificate /etc/letsencrypt/live/benchmark.your-domain.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/benchmark.your-domain.com/privkey.pem;
 
-    rewrite ^/benchmark/(.*)$ /$1 break;
-
     # 代理配置
     location / {
         # 转发到 OWASP Benchmark 的 8443 端口，支持本地和远程地址
-        proxy_pass https://127.0.0.1:8443/benchmark/;
+        proxy_pass https://127.0.0.1:8443/;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
