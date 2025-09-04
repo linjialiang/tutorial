@@ -1,35 +1,55 @@
 ---
-title: OWASP Benchmark Project
+title: OWASP Benchmark
 titleTemplate: 渗透测试
 ---
 
-# OWASP Benchmark Project
+# OWASP Benchmark
 
-OWASP Benchmark Project 是一个 Java 测试套件，旨在验证漏洞检测工具的速度和准确性。它是一个完全可运行的开源 Web 应用程序，可以通过任何类型的应用程序安全测试（AST）工具进行分析，包括 SAST，DAST（如 ZAP）和 IAST 工具。其目的是，所有的漏洞故意包括在基准和评分实际上是可利用的，所以它是一个公平的测试任何类型的应用程序漏洞检测工具。Benchmark 还包括许多开源和商业 AST 工具的记分卡生成器，并且支持的工具集一直在增长。
+`OWASP Benchmark Project` 是一个 Java 测试套件，旨在评估自动化软件漏洞检测工具的准确性，覆盖率和速度。如果没有能力衡量这些工具，就很难了解它们的长处和短处，并将它们相互比较。
 
-## 测试服务器环境
+`OWASP Benchmark` 是一个完全可运行的开源 Web 应用程序，包含数千个可利用的测试用例，每个用例都映射到特定的 CWE，可以通过任何类型的应用程序安全测试（AST）工具进行分析，包括 SAST，DAST（如 ZAP）和 IAST 工具。其目的是，所有的漏洞故意包括在基准和评分实际上是可利用的，所以它是一个公平的测试任何类型的应用程序漏洞检测工具。Benchmark 还包括许多开源和商业 AST 工具的记分卡生成器，并且支持的工具集一直在增长。
+
+总结：`OWASP Benchmark Project` 是一个项目计划，而 `OWASP Benchmark` 是 OWASP 官方推出的标准化 Web 应用安全测试应用程序！
+
+## 测试服务器
 
 ```
 发行版 Debian GNU/Linux 12 (bookworm)
 内核 6.1.0-39-amd64
 ```
 
-## 一、安装
+## 你能用 Benchmark 做什么？
 
-::: tip 必要环境
+1. 编译 Benchmark 项目中的所有软件（例如，mvn compile）
 
-1. Unix 操作系统
+2. 针对基准测试用例代码运行静态漏洞分析工具（SAST）
+
+3. 使用动态应用程序安全测试工具（DAST）扫描正在运行的 Benchmark 版本
+
+    - 下面提供了如何运行它的说明
+
+4. 为您有结果的每个工具生成记分卡
+
+    - 有关 Benchmark 支持生成记分卡的工具列表，请参阅工具支持/结果页面
+
+## 安装
+
+### 1. 必要条件
+
+1. Linux/Unix 操作系统
 2. git
 3. Maven >= 3.2.3
 4. OpenJDK
 
-:::
+### 2. 安装依赖
+
+#### 安装 apt 依赖
 
 ```bash
 apt install git maven -y
 ```
 
-## 安装 OpenJDK
+#### 安装特定版本的 OpenJDK
 
 从 [[清华源]](https://mirrors.tuna.tsinghua.edu.cn/Adoptium/) 可以下载到各个版本的 JDK
 
@@ -67,16 +87,23 @@ ldd /usr/lib/jdk-owasp/bin/java
 
 :::
 
-## 安装 OWASP
+### 3. 下载 BenchmarkJava 源码并执行安装
 
-::: code-group
-
-```bash [安装]
-git clone https://github.com/OWASP-Benchmark/BenchmarkJava.git
+```bash
+su - www -s /bin/zsh
+git clone https://gitee.com/linjialiang/BenchmarkJava.git
 # 进入目录
 cd BenchmarkJava
 # 清除之前构建结果并重新编译项目
 mvn clean compile
+```
+
+## 使用入门
+
+::: code-group
+
+```bash [前台启动]
+# 前台启动-终端断开连接就会停止
 # 本地访问 https://localhost:8443/benchmark/
 chmod +x ./runBenchmark.sh
 ./runBenchmark.sh
@@ -86,6 +113,7 @@ chmod +x ./runRemoteAccessibleBenchmark.sh
 ```
 
 ```bash [后台启动]
+# 后台启动-只有服务进程被中断，才会停止
 # 输出到 /tmp/owasp.log 文件
 nohup ./runRemoteAccessibleBenchmark.sh > /tmp/owasp.log &
 # 内容不输出
