@@ -124,8 +124,25 @@ export NVM_IOJS_ORG_MIRROR=https://npm.taobao.org/mirrors/iojs
 
 ### nvm 常用指令
 
+| 功能                 | 指令                      |
+| -------------------- | ------------------------- |
+| 查看可安装的远程版本 | `nvm list available`      |
+| 安装稳定版           | `nvm install stable`      |
+| 安装长期支持版       | `nvm install lts`         |
+| 安装指定版本         | `nvm install <version>`   |
+| 指定删除已安装的版本 | `nvm uninstall <version>` |
+
 ```bash
-# 安装最新稳定版 node
+# 列出所有可安装的远程版本
+nvm list available
+
+# 列出所有已安装版本
+nvm ls
+
+# 安装长期支持版 node
+nvm install lts
+
+# 安装稳定版 node
 nvm install stable
 
 # 安装指定版本，可模糊安装，如：4.4 等于 4.4.0，也可以指定别名
@@ -139,12 +156,6 @@ nvm uninstall <version>
 nvm use <version>
 # 2. 永久版本 - 所有窗口生效指定版本
 nvm alias default <version>
-
-# 列出所有安装的版本
-nvm ls
-
-# 列出所有远程服务器的版本
-nvm ls-remote
 
 # 显示当前的版本
 nvm current
