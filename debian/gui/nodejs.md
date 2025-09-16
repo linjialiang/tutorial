@@ -124,14 +124,6 @@ export NVM_IOJS_ORG_MIRROR=https://npm.taobao.org/mirrors/iojs
 
 ### nvm 常用指令
 
-| 功能                 | 指令                      |
-| -------------------- | ------------------------- |
-| 查看可安装的远程版本 | `nvm list available`      |
-| 安装稳定版           | `nvm install stable`      |
-| 安装长期支持版       | `nvm install lts`         |
-| 安装指定版本         | `nvm install <version>`   |
-| 指定删除已安装的版本 | `nvm uninstall <version>` |
-
 ```bash
 # 列出所有可安装的远程版本
 nvm ls available
