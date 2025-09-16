@@ -9,6 +9,7 @@ import {
   docker,
   editor,
   eslint,
+  gitea,
   mongodb,
   nginx,
   other,
@@ -18,7 +19,6 @@ import {
   redis,
   sql,
   vitepress,
-  gitea,
 } from './sidebar/main.mts';
 
 // const options = {
@@ -43,6 +43,13 @@ export default defineConfig({
   markdown: {
     lineNumbers: false,
     math: true,
+    image: {
+      lazyLoading: true,
+    },
+  },
+  sitemap: {
+    hostname: 'http://tutorial.e8so.com',
+    lastmodDateOnly: false,
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
