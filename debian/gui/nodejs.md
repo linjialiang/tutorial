@@ -134,7 +134,7 @@ export NVM_IOJS_ORG_MIRROR=https://npm.taobao.org/mirrors/iojs
 
 ```bash
 # 列出所有可安装的远程版本
-nvm list available
+nvm ls available
 
 # 列出所有已安装版本
 nvm ls
