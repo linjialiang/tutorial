@@ -16,6 +16,15 @@
   {
     "key": "ctrl+shift+j",
     "command": "editor.action.joinLines"
+  },
+  {
+    "key": "ctrl+k ctrl+shift+u",
+    "command": "editor.action.transformToLowercase"
+  },
+  {
+    "key": "ctrl+k ctrl+u",
+    "command": "editor.action.transformToUppercase",
+    "when": "editorTextFocus && !editorReadonly"
   }
   /*   {
     "key": "ctrl+k ctrl+c",

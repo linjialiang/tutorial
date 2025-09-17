@@ -110,17 +110,17 @@
   "terminal.integrated.defaultProfile.windows": "pwsh",
   "workbench.iconTheme": "material-icon-theme",
   "update.showReleaseNotes": false,
-  "php-cs-fixer.executablePath": "C:\\php\\tools\\php-cs-fixer.phar",
+  "php-cs-fixer.executablePath": "C:\\php\\tools\\php-cs-fixer-v3.phar",
   "php-cs-fixer.rules": "@PhpCsFixer",
   "php.validate.executablePath": "C:\\php\\84\\php.exe",
   "editor.rulers": [
     {
       "column": 80,
-      "color": "rgba(255, 255, 0, .3)"
+      "color": "#FFFF004D"
     },
     {
       "column": 120,
-      "color": "rgba(255, 255, 255, .3)"
+      "color": "#FFFFFF4D"
     }
   ],
   "files.associations": {
@@ -130,6 +130,5 @@
     "asvetliakov.vscode-neovim": 1
   },
   "diffEditor.hideUnchangedRegions.enabled": true,
-  "editor.minimap.enabled": false,
   "workbench.colorTheme": "One Dark Pro"
 }
