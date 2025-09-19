@@ -1,6 +1,4 @@
-// import flexSearchIndexOptions from "flexsearch";
 import { defineConfig } from 'vitepress';
-// import { SearchPlugin } from "vitepress-plugin-search";
 import otherNav from './nav/other.mts';
 import tutorialNav from './nav/tutorial.mts';
 import webNav from './nav/web.mts';
@@ -20,13 +18,6 @@ import {
   sql,
   vitepress,
 } from './sidebar/main.mts';
-
-// const options = {
-//   ...flexSearchIndexOptions,
-//   previewLength: 100, //搜索结果预览长度
-//   buttonLabel: "搜索",
-//   placeholder: "情输入关键词",
-// };
 
 const PHP_ENVIRONMENT_SITE = 'http://php-environment.e8so.com/';
 
