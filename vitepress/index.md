@@ -10,7 +10,7 @@ hero:
     text: Vite & Vue Powered 静态站点生成器
     tagline: 简单、强大且快速的现代 SSG 框架
     image:
-        src: '/svg/vitepress-logo-large.webp'
+        src: '/static/svg/vitepress-logo-large.webp'
         alt: 'PHP 环境搭建'
     actions:
         - theme: brand
