@@ -33,7 +33,7 @@ const defaultTheme = [
   { text: '主页', link: `${path.main}conf/default-theme/home` },
   { text: '页脚', link: `${path.main}conf/default-theme/footer` },
   { text: '布局', link: `${path.main}conf/default-theme/layout` },
-  // { text: '徽章', link: `${path.main}conf/default-theme/badge` },
+  { text: '徽章', link: `${path.main}conf/default-theme/badge` },
   { text: '团队页面', link: `${path.main}conf/default-theme/team` },
   { text: '上下页', link: `${path.main}conf/default-theme/prev-next` },
   { text: 'Edit链接', link: `${path.main}conf/default-theme/edit-link` },
