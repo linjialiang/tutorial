@@ -27,37 +27,11 @@ features:
       details: 编辑器和IDE
       link: /editor/index
     - icon:
-          dark: /static/svg/rime-light.svg
-          light: /static/svg/rime.svg
-      title: Rime 教程
-      details: 程序员必备输入法
-      link: /rime/index
-    - icon:
           light: /static/svg/linux.svg
           dark: /static/svg/debian.svg
       title: Debian 教程
       details: Linux发行版
       link: /debian/index
-    - icon:
-          src: /static/svg/vitepress.svg
-      title: VitePress
-      details: VitePress文档
-      link: /vitepress/index
-    - icon:
-          src: /static/svg/wangdoc.png
-      title: wangdoc
-      details: 网道
-      link: http://wangdoc.e8so.com
-    - icon:
-          src: /static/svg/eslint.svg
-      title: ESLint 教程
-      details: ESLint
-      link: /eslint/index
-    - icon:
-          src: /static/svg/prettier.svg
-      title: Prettier 教程
-      details: Prettier
-      link: /prettier/index
     - icon:
           src: /static/svg/php.svg
       title: PHP 教程
@@ -69,31 +43,15 @@ features:
       details: Web服务器
       link: /nginx/index
     - icon:
-          src: /static/svg/mysql.svg
-      title: MySQL 教程
-      details: 最流行的开源关系型数据库
-      link: /sql/mysql/index
+          src: /static/svg/sql.svg
+      title: SQL 教程
+      details: 内含 MySQL、PostgreSQL、SQLite3 等
+      link: /sql/index
     - icon:
-          dark: /static/svg/sqlite-dark.svg
-          light: /static/svg/sqlite-light.svg
-      title: Sqlite3 教程
-      details: 轻量级关系型数据库
-      link: /sql/sqlite3/index
-    - icon:
-          src: /static/svg/pgsql.svg
-      title: PostgreSQL 教程
-      details: 最强大的开源关系型数据库
-      link: /sql/pgsql/index
-    - icon:
-          src: /static/svg/redis.svg
-      title: Redis 教程
-      details: 最流行的键值型数据库(内存型)
-      link: /redis/index
-    - icon:
-          src: /static/svg/mongodb.svg
-      title: MongoDB 教程
-      details: 最流行的文档数据库
-      link: /mongodb/index
+          src: /static/svg/nosql.svg
+      title: NOSQL 教程
+      details: 含 Redis、MongoDB 等
+      link: /nosql/index
     - icon:
           light: /static/svg/docker.svg
           dark: /static/svg/k8s.svg
@@ -101,18 +59,18 @@ features:
       details: 讲解完整的分布式系统支撑平台
       link: /docker/index
     - icon:
-          src: /static/svg/permeate.svg
-      title: permeate
-      details: 渗透
-      link: /permeate/index
+          src: /static/svg/vitepress.svg
+      title: VitePress
+      details: VitePress文档
+      link: /vitepress/index
+    - icon:
+          src: /static/svg/wangdoc.png
+      title: wangdoc
+      details: 网道
+      link: http://wangdoc.e8so.com
     - icon:
           src: /static/svg/other.svg
       title: Other
       details: 其它文档
       link: /other/index
-    - icon:
-          src: /static/svg/gitea.svg
-      title: Gitea
-      details: 其它轻量级的 DevOps 平台软件文档
-      link: /gitea/index
 ---
