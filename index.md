@@ -22,25 +22,10 @@ hero:
 
 features:
     - icon:
-          src: /static/svg/sublime.svg
-      title: sublime text
-      details: 文本编辑，正确完成
-      link: /editor/sublime/index
-    - icon:
-          src: /static/svg/vscode.svg
-      title: VSCode
-      details: Visual Studio Code
-      link: /editor/vscode/index
-    - icon:
-          src: /static/svg/PhpStorm.svg
-      title: PhpStorm
-      details: PHP 最强 IDE
-      link: /editor/phpstorm/index
-    - icon:
-          src: /static/svg/Vim.svg
-      title: Vim
-      details: 神的编辑器
-      link: /editor/vim/index
+          src: /static/svg/editor.svg
+      title: 编辑器
+      details: 编辑器和IDE
+      link: /editor/index
     - icon:
           dark: /static/svg/rime-light.svg
           light: /static/svg/rime.svg

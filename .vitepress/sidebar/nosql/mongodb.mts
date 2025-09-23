@@ -1,7 +1,7 @@
 const path = {
-  main: '/redis/',
+  main: '/nosql/mongodb/',
 };
 
 const sidebar = [{ text: '概述', link: `${path.main}` }];
 
-export { sidebar as redis };
+export { sidebar as mongodb };

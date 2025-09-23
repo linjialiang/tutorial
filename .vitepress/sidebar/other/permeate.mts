@@ -1,5 +1,5 @@
 const path = {
-  main: '/permeate/',
+  main: '/other/permeate/',
 };
 
 const sidebar = [

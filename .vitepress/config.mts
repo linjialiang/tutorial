@@ -2,22 +2,7 @@ import { defineConfig } from 'vitepress';
 import otherNav from './nav/other.mts';
 import tutorialNav from './nav/tutorial.mts';
 import webNav from './nav/web.mts';
-import {
-  debian,
-  docker,
-  editor,
-  eslint,
-  gitea,
-  mongodb,
-  nginx,
-  other,
-  permeate,
-  php,
-  prettier,
-  redis,
-  sql,
-  vitepress,
-} from './sidebar/main.mts';
+import { debian, docker, editor, nginx, nosql, other, php, sql, vitepress } from './sidebar/main.mts';
 
 const PHP_ENVIRONMENT_SITE = 'http://php-environment.e8so.com/';
 
@@ -110,18 +95,13 @@ export default defineConfig({
     sidebar: {
       '/debian/': debian,
       '/docker/': docker,
-      '/nginx/': nginx,
-      '/sql/': sql,
-      '/mongodb/': mongodb,
-      '/redis/': redis,
-      '/php/': php,
-      '/eslint/': eslint,
-      '/prettier/': prettier,
-      '/vitepress/': vitepress,
-      '/other/': other,
-      '/permeate/': permeate,
       '/editor/': editor,
-      '/gitea/': gitea,
+      '/nginx/': nginx,
+      '/nosql/': nosql,
+      '/other/': other,
+      '/php/': php,
+      '/sql/': sql,
+      '/vitepress/': vitepress,
     },
     footer: {
       message: '程序员系列教程',

@@ -1,7 +1,7 @@
 const path = {
-  main: '/mongodb/',
+  main: '/other/gitea/',
 };
 
 const sidebar = [{ text: '概述', link: `${path.main}` }];
 
-export { sidebar as mongodb };
+export { sidebar as gitea };

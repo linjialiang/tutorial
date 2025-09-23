@@ -1,5 +1,5 @@
 const path = {
-  main: '/prettier/',
+  main: '/other/prettier/',
 };
 
 const sidebar = [

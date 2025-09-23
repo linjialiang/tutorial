@@ -1,7 +1,7 @@
 const path = {
-  main: '/gitea/',
+  main: '/nosql/redis/',
 };
 
 const sidebar = [{ text: '概述', link: `${path.main}` }];
 
-export { sidebar as gitea };
+export { sidebar as redis };

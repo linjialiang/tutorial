@@ -1,5 +1,5 @@
 const path = {
-  main: '/eslint/',
+  main: '/other/eslint/',
 };
 
 const sidebar = [{ text: '概述', link: `${path.main}` }];

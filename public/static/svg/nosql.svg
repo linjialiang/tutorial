@@ -1,0 +1,32 @@
+<svg width="120" height="120" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3498db"/>
+      <stop offset="100%" stop-color="#2980b9"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- 主数据库容器 -->
+  <rect x="2" y="2" width="50" height="50" rx="2" fill="url(#dbGrad)" stroke="#2980b9" stroke-width="1.5"/>
+  
+  <!-- 数据文档 - 向上移动 -->
+  <rect x="7" y="12" width="40" height="22" fill="#2ecc71" rx="2" stroke="#27ae60" stroke-width="1"/>
+  <rect x="12" y="17" width="30" height="2" fill="#ffffff"/>
+  <rect x="12" y="22" width="20" height="2" fill="#ffffff"/>
+  <rect x="12" y="27" width="25" height="2" fill="#ffffff"/>
+  
+  <!-- 内部NoSQL文字 - 向上移动，减小间距 -->
+  <text x="27" y="44" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="white">
+    <tspan fill="#e74c3c">N</tspan>
+    <tspan fill="#ffffff">O</tspan>
+    <tspan fill="#2ecc71">S</tspan>
+    <tspan fill="#f39c12">Q</tspan>
+    <tspan fill="#9b59b6">L</tspan>
+  </text>
+  
+  <!-- 数据连接点 -->
+  <circle cx="7" cy="7" r="1.5" fill="#e74c3c"/>
+  <circle cx="47" cy="7" r="1.5" fill="#f39c12"/>
+  <circle cx="7" cy="47" r="1.5" fill="#2ecc71"/>
+  <circle cx="47" cy="47" r="1.5" fill="#9b59b6"/>
+</svg>
