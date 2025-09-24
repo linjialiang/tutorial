@@ -1,11 +1,11 @@
 # 概述
 
 ::: details 防抖函数
-<<<@/assets/js/debounce.js
+<<<@/assets/other/js/debounce.js
 :::
 
 ::: details 监听动态生成的元素
-<<<@/assets/js/listen-dynamic-element.js
+<<<@/assets/other/js/listen-dynamic-element.js
 :::
 
 ::: details npm 国内镜像
