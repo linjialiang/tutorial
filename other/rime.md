@@ -47,8 +47,8 @@ apt install ibus-rime
 :::
 
 ::: details 配置 ibus
-![](/assets/rime/004.png)
-![](/assets/rime/005.png)
+![](/assets/other/rime/004.png)
+![](/assets/other/rime/005.png)
 :::
 
 ### fcitx5-rime
@@ -68,8 +68,8 @@ apt install fcitx5 fcitx5-chinese-addons fcitx5-rime
 :::
 
 ::: details 配置 fcitx5
-![](/assets/rime/016.png)
-![](/assets/rime/018.png)
+![](/assets/other/rime/016.png)
+![](/assets/other/rime/018.png)
 :::
 
 #### 界面主题
@@ -81,7 +81,7 @@ apt install fcitx5-material-color -y
 ```
 
 ::: details 配置主题
-![](/assets/rime/017.png)
+![](/assets/other/rime/017.png)
 :::
 
 ### 小狼毫
@@ -99,7 +99,7 @@ apt install fcitx5-material-color -y
 这里推荐 rime-ice 词库，该词库完整并且安装很方便，针对常见前端实现的安装方式如下：
 
 ::: details 操作前，请先退出算法服务
-![退出算法服务](/assets/rime/quit.png)
+![退出算法服务](/assets/other/rime/quit.png)
 :::
 
 ::: code-group
@@ -133,7 +133,7 @@ REM git clone https://madnesslin.coding.net/public/default/rime-ice/git Rime
 :::
 
 ::: details 操作完成，需重启算法服务
-![退出算法服务](/assets/rime/restart.png)
+![退出算法服务](/assets/other/rime/restart.png)
 :::
 
 ## 重载配置
@@ -143,14 +143,14 @@ REM git clone https://madnesslin.coding.net/public/default/rime-ice/git Rime
 3. 如不生效，可以重启系统尝试
 
 ::: details 重新部署
-![重新部署](/assets/rime/reload.png)
+![重新部署](/assets/other/rime/reload.png)
 :::
 
 ## 自定义配置
 
 ::: code-group
-<<<@/assets/rime/default.custom.yaml [default.custom.yaml]
-<<<@/assets/rime/weasel.custom.yaml [weasel.custom.yaml]
+<<<@/assets/other/rime/default.custom.yaml [default.custom.yaml]
+<<<@/assets/other/rime/weasel.custom.yaml [weasel.custom.yaml]
 :::
 
 ::: tip 提示：
