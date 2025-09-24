@@ -5,8 +5,6 @@ import tutorialNav from './nav/tutorial.mts';
 import webNav from './nav/web.mts';
 import { debian, docker, editor, nginx, nosql, other, php, sql, vitepress } from './sidebar/main.mts';
 
-const PHP_ENVIRONMENT_SITE = 'http://php-environment.e8so.com/';
-
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   // vite: { plugins: [SearchPlugin(options)] },
@@ -92,7 +90,7 @@ export default defineConfig({
       { text: '后端', items: tutorialNav },
       { text: '其他', items: otherNav },
       { text: '前端', items: webNav },
-      { text: '环境搭建', link: PHP_ENVIRONMENT_SITE },
+      { text: '环境搭建', link: 'http://php-environment.e8so.com/' },
     ],
     sidebar: {
       '/editor/': editor,
