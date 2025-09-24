@@ -11,7 +11,7 @@ hero:
     tagline: 简单、强大且快速的现代 SSG 框架
     image:
         src: '/static/svg/vitepress-logo-large.webp'
-        alt: 'PHP 环境搭建'
+        alt: 'VitePress'
     actions:
         - theme: brand
           text: 使用指南
@@ -19,8 +19,8 @@ hero:
         - theme: alt
           text: 配置参考
           link: /vitepress/conf/site
-        - theme: alt
-          text: 官方中文文档
+        - theme: brand
+          text: 👉官方中文文档
           link: https://vitepress.dev/zh/
 
 features:

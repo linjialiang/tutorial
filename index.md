@@ -11,7 +11,7 @@ hero:
     tagline: 程序员系列教程
     image:
         src: '/static/wechat-pay.png'
-        alt: 'PHP 环境搭建'
+        alt: '赞助作者'
     actions:
         - theme: brand
           text: PHP 环境搭建
