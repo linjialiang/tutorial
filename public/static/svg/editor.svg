@@ -6,7 +6,7 @@
   <path d="M657.60916 0v233.59416c0 25.59936 17.61236 92.79768 97.61036 92.79768h204.79488L657.60916 0z" fill="#ffffff"/>
   
   <!-- NoSQL文字 - 优化比例和位置 -->
-  <text x="100" y="620" font-family="Arial, sans-serif" font-size="280" font-weight="bold" font-style="italic" fill="white">
+  <text x="100" y="620" font-family="Arial, sans-serif" font-size="300" font-weight="500" font-style="italic" fill="white">
     Editor
   </text>
 </svg>
