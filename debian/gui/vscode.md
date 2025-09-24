@@ -26,6 +26,6 @@ dpkg -i ./code_1.80.1-1689183569_amd64.deb
 ## 配置
 
 ::: code-group
-<<<@/assets/vscode/settings.json [用户配置参考]
-<<<@/assets/vscode/keybindings.json [快捷键配置参考]
+<<<@/assets/editor/vscode/settings.json [用户配置参考]
+<<<@/assets/editor/vscode/keybindings.json [快捷键配置参考]
 :::
