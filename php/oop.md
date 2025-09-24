@@ -15,8 +15,8 @@ phper 学习面向对象，应该从如下角度循序渐进：
 
 1. 通常需要 3 年开发经验以上，再去全面学习 PHP 的面向对象；
 2. php 手册 [`类与对象`](https://www.php.net/manual/zh/language.oop5.php) 章节深入学习；
-3. 全面掌握 PSR；
-4. 全面掌握 PHP 设计模式；
+3. 全面掌握 [PSR](./psr/)；
+4. 全面掌握 [PHP 设计模式](./design-patterns/)；
 5. 根据掌握的知识，设计一个框架，至少保证框架基础功能均可正常使用
 
 ::: warning :warning:警告
