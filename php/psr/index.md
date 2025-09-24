@@ -5,23 +5,33 @@ titleTemplate: PSR 教程
 
 # 概述
 
-PSR 是 PHP 标准建议，截止 2025/9/24 日通过的提案有 14 种：
+PSR 即 `PHP Standards Recommendations`，中文翻译为 `PHP标准建议`；
 
--   [PER 编码风格](./coding-style)
--   [1-基本编码标准](./psr-1)
--   [12-扩展编码风格指南](./psr-12)
+除了 PSR 外，这里还会介绍与其同宗的 PER，PER 即 `PHP Evolving Recommendations`，中文翻译为 `PHP发展建议`；
 
-```md
-3. [3-日志接口](./psr-3)
-4. [4-自动加载](./psr-4)
-5. [6-缓存接口](./psr-6)
-6. [7-HTTP 消息接口](./psr-7)
-7. [11-容器接口](./psr-11)
-8. [13-超媒体链接](./psr-13)
-9. [14-事件分发器](./psr-14)
-10. [15-HTTP 处理程序](./psr-15)
-11. [16-简单缓存](./psr-16)
-12. [17-HTTP 工厂](./psr-17)
-13. [18-HTTP 客户端](./psr-18)
-14. [20-时钟](./psr-20)
-```
+截止 `2025/9/24` ，已通过提案的 PSR 有 `14` 种，已发布的 PER 有 `1` 种。
+
+> 已通过提案的 PSR 列表：
+
+| 序号 | 标题与外链                                                        | 中文与导航         |
+| :--: | ----------------------------------------------------------------- | ------------------ |
+|  1   | [Basic Coding Standard](https://www.php-fig.org/psr/psr-1)        | [基本编码标准]     |
+|  3   | [Logger Interface](https://www.php-fig.org/psr/psr-3)             | [日志接口]         |
+|  4   | [Autoloading Standard](https://www.php-fig.org/psr/psr-4)         | [自动加载]         |
+|  6   | [Caching Interface](https://www.php-fig.org/psr/psr-6)            | [缓存接口]         |
+|  7   | [HTTP Message Interface](https://www.php-fig.org/psr/psr-7)       | [HTTP 消息接口]    |
+|  11  | [Container Interface](https://www.php-fig.org/psr/psr-11)         | [容器接口]         |
+|  12  | [Extended Coding Style Guide](https://www.php-fig.org/psr/psr-12) | [扩展编码风格指南] |
+|  13  | [Hypermedia Links](https://www.php-fig.org/psr/psr-13)            | [超媒体链接]       |
+|  14  | [Event Dispatcher](https://www.php-fig.org/psr/psr-14)            | [事件分发器]       |
+|  15  | [HTTP Handlers](https://www.php-fig.org/psr/psr-15)               | [HTTP 处理程序]    |
+|  16  | [Simple Cache](https://www.php-fig.org/psr/psr-16)                | [简单缓存]         |
+|  17  | [HTTP Factories](https://www.php-fig.org/psr/psr-17)              | [HTTP 工厂]        |
+|  18  | [HTTP Client](https://www.php-fig.org/psr/psr-18)                 | [HTTP 客户端]      |
+|  20  | [Clock](Clock)                                                    | [时钟]             |
+
+> 已发布的 PER 列表：
+
+| 标题与外链                                               | 中文与导航 |
+| -------------------------------------------------------- | ---------- |
+| [Coding Style](https://www.php-fig.org/per/coding-style) | [编码风格] |
