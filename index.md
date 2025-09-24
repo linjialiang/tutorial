@@ -10,15 +10,15 @@ hero:
     text: 程序员系列教程
     tagline: 程序员系列教程
     image:
-        src: '/static/svg/code.svg'
+        src: '/static/wechat-pay.png'
         alt: 'PHP 环境搭建'
     actions:
         - theme: brand
           text: PHP 环境搭建
           link: http://php-environment.e8so.com/
         - theme: alt
-          text: SQL
-          link: /sql/common/
+          text: 👉B站关注作者
+          link: https://space.bilibili.com/473623415
 
 features:
     - icon:
