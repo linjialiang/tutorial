@@ -415,7 +415,7 @@ PHP Intelephense 为 vscode 提供 PHP 开发者的 IDE 工具
 > 项目中指定配置：
 
 ::: details 针对当前项目的配置
-<<< @/assets/vscode/php-settings.json
+<<< @/assets/editor/vscode/php-settings.json
 
 ::: tip 提示
 PHP Intelephense 插件不依赖于本地 php 环境
@@ -451,6 +451,6 @@ PHP 开发我更多的是使用 PhpStorm ，这款插件没怎么使用
 
 ::: details ssh 配置文件
 ::: code-group
-<<< @/assets/vscode/ssh/config-windows.ini [windows]
-<<< @/assets/vscode/ssh/config-linux.ini [linux]
+<<< @/assets/editor/vscode/ssh/config-windows.ini [windows]
+<<< @/assets/editor/vscode/ssh/config-linux.ini [linux]
 :::

@@ -26,7 +26,7 @@ titleTemplate: vscode 教程
 -   远程用户设置(Linux): `~/.vscode-server/data/Machine/settings.json`
 
 ::: details 设置示例
-<<< @/assets/vscode/settings.json
+<<< @/assets/editor/vscode/settings.json
 :::
 
 ## 工作区设置
@@ -39,4 +39,4 @@ titleTemplate: vscode 教程
 
 ## php 项目的工作区配置
 
-<<< @/assets/vscode/php-settings.json
+<<< @/assets/editor/vscode/php-settings.json
