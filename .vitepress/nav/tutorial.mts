@@ -1,9 +1,10 @@
 // 教程
 const nav = [
-  { text: 'Debian 教程', link: '/debian/' },
-  { text: 'Nginx 教程', link: '/nginx/' },
-  { text: 'PostgreSQL 教程', link: '/sql/pgsql/' },
-  { text: 'PHP 教程', link: '/php/' },
+  { text: 'Debian', link: '/debian/' },
+  { text: 'PHP', link: '/php/' },
+  { text: 'Nginx', link: '/nginx/' },
+  { text: 'SQL', link: '/sql/' },
+  { text: 'NoSQL', link: '/nosql/' },
 ];
 
 export default nav;

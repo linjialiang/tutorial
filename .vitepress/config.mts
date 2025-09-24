@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress';
+import editorNav from './nav/editor.mts';
 import otherNav from './nav/other.mts';
 import tutorialNav from './nav/tutorial.mts';
 import webNav from './nav/web.mts';
@@ -87,10 +88,11 @@ export default defineConfig({
     },
     nav: [
       { text: '主页', link: '/' },
-      { text: '环境搭建', link: PHP_ENVIRONMENT_SITE },
+      { text: '编辑器', items: editorNav },
       { text: '后端', items: tutorialNav },
-      { text: '前端', items: webNav },
       { text: '其他', items: otherNav },
+      { text: '前端', items: webNav },
+      { text: '环境搭建', link: PHP_ENVIRONMENT_SITE },
     ],
     sidebar: {
       '/editor/': editor,
