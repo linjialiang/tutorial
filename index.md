@@ -13,10 +13,10 @@ hero:
         src: '/static/wechat-pay.png'
         alt: '赞助作者'
     actions:
-        - theme: brand
-          text: PHP 环境搭建
-          link: http://php-environment.e8so.com/
         - theme: alt
+          text: 环境搭建
+          link: http://php-environment.e8so.com/
+        - theme: brand
           text: 👉B站关注作者
           link: https://space.bilibili.com/473623415
 
@@ -63,11 +63,6 @@ features:
       title: VitePress
       details: VitePress文档
       link: /vitepress/index
-    - icon:
-          src: /static/svg/wangdoc.png
-      title: wangdoc
-      details: 网道
-      link: http://wangdoc.e8so.com
     - icon:
           src: /static/svg/other.svg
       title: Other
