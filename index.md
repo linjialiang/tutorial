@@ -49,7 +49,7 @@ features:
       link: /sql/index
     - icon:
           src: /static/svg/nosql.svg
-      title: NOSQL 教程
+      title: NoSQL 教程
       details: 含 Redis、MongoDB 等
       link: /nosql/index
     - icon:
