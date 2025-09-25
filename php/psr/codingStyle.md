@@ -46,6 +46,10 @@ titleTemplate: PSR 教程
 
     - `PSR-0` 已废弃，当下是遵循 [PSR-4](./psr-4)
 
+    ::: tip
+    遵循 `PSR-4` 标准的内容在 [PSR-4](./psr-4) 页面详细说明
+    :::
+
 5. 类的命名 `必须` 遵循大写开头的驼峰命名规范；
 
     - 如：`User`、`StudlyCaps`
