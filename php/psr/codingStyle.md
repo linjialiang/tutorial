@@ -86,10 +86,10 @@ titleTemplate: PSR 教程
 
         | 合理范围 | 说明                               |
         | -------- | ---------------------------------- |
-        | 供应商级 | 如：`psr` 团队写的所有 composer 包 |
-        | 包级     | 单个 composer 包                   |
-        | 类级     | 单个 `class/trait/interface/enum`  |
-        | 方法级   | 同个方法里 `必须` 保持统一风格     |
+        | 整个团队 | 如：`psr` 团队写的所有 composer 包 |
+        | 整个包   | 单个 composer 包                   |
+        | 整个类   | 单个 `class/trait/interface/enum`  |
+        | 整个方法 | 同个方法 `必须` 保持统一风格       |
 
     :::
 
